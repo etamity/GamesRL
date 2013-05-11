@@ -30,9 +30,6 @@ package
 					BaccaratConfig,
 					new ContextView(this)
 				);
-			context.afterInitializing(function():void{	
-				var baccarat:Baccarat=new Baccarat();
-			});
 		}
 	}
 }

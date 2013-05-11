@@ -121,7 +121,7 @@ package com.ai.baccarat.view.mediators {
 		private function updateTotalBet(target:BetSpot = null):void {
 			player.bet = view.getTotalBet();
 			player.bettingBalance = player.balance - player.bet;
-			signalBus.dispatch(UIEvent.FRESH_BALANCE);
+			signalBus.dispatch(BetEvent.TOTAL_BET);
 		}
 
 		

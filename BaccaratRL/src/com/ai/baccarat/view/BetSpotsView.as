@@ -1,7 +1,6 @@
 package com.ai.baccarat.view {
 	
 	import com.ai.baccarat.model.BaccaratConstants;
-	import com.ai.core.controller.signals.BetEvent;
 	import com.ai.core.utils.FormatUtils;
 	import com.ai.core.utils.GameUtils;
 	import com.ai.core.view.Betchip;

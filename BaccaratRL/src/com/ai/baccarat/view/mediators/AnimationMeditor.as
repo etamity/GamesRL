@@ -6,8 +6,8 @@ package com.ai.baccarat.view.mediators
 	import com.ai.baccarat.service.AnimationService;
 	import com.ai.baccarat.view.AnimationPanelView;
 	import com.ai.core.controller.signals.BaseSignal;
-	import com.ai.core.controller.signals.MessageEvent;
 	import com.ai.core.controller.signals.ModelReadyEvent;
+	import com.ai.core.controller.signals.SocketDataEvent;
 	import com.ai.core.model.FlashVars;
 	import com.ai.core.model.Player;
 	import com.ai.core.model.SignalBus;
@@ -40,7 +40,7 @@ package com.ai.baccarat.view.mediators
 			//eventMap.mapListener(eventDispatcher, SocketDataEvent.HANDLE_RESULT, processResult);
 			//eventMap.mapListener(eventDispatcher, ModelReadyEvent.READY, initialize);
 			signalBus.add(ModelReadyEvent.READY, setupModel);
-			signalBus.add(MessageEvent.SHOW_WINNINGS,showWinnings);
+			signalBus.add(SocketDataEvent.HANDLE_RESULT,processResult);
 		}
 		private function setupModel(signal:BaseSignal):void {
 			if (flashVars.gametype==BaccaratConstants.TYPE_PAIRS)
@@ -49,7 +49,7 @@ package com.ai.baccarat.view.mediators
 		}
 	
 		
-		private function showWinnings(signal:BaseSignal):void{
+		private function processResult(signal:BaseSignal):void{
 			var sideName:String=signal.params.node;
 			animationService.fadeIn(view.showWinningCup(),game.layoutPoints[sideName]);
 			if (player.winnings>0)

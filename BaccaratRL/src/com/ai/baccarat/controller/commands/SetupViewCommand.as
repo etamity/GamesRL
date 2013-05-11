@@ -28,20 +28,17 @@ package com.ai.baccarat.controller.commands
 		}
 		
 		override public function execute():void {
-			//setupView();
+			setupView();
 		}
 		
 		private function setupView():void {
 			contextView.view.addChild(new StageView());
+			contextView.view.addChild(new VideoView());
 			contextView.view.addChild(new TableGraphicView());
 			contextView.view.addChild(new LoginView());
 			contextView.view.addChild(new TaskbarView());
 			contextView.view.addChild(new GameStatusView())
 			contextView.view.addChild(new ChatView());
-			
-			var video:VideoView=new VideoView();
-			//video.showFullSize=true;
-			contextView.view.addChild(video);
 			contextView.view.addChild(new BetSpotsView());
 			contextView.view.addChild(new CardsPanelView());
 			contextView.view.addChild(new AnimationPanelView());

@@ -18,7 +18,7 @@ package com.ai.baccarat
 	
 	import robotlegs.bender.extensions.contextView.ContextView;
 	
-	public class Baccarat extends Actor
+	public class Baccarat
 	{
 		
 		[Inject]
@@ -33,9 +33,9 @@ package com.ai.baccarat
 			init();
 		}
 		public function init():void{
-			
-			setupViews();
 			signalBus.dispatch(SignalConstants.STARTUP);
+			//setupViews();
+			
 		}
 		
 		public function setupViews():void{

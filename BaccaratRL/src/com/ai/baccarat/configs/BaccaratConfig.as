@@ -87,14 +87,13 @@ package com.ai.baccarat.configs
 		public var commandMap:ISignalCommandMap;
 		
 		[Inject]
-		public var contextView:ContextView;
-		
-		[Inject]
 		public var injector:Injector;
 		
 		[Inject]
 		public var context:IContext;
 		
+		[Inject]
+		public var contextView:ContextView;
 		protected var gameData:GameDataModel=new GameDataModel();
 		protected var signalBus:SignalBus=new SignalBus();
 		
@@ -105,28 +104,34 @@ package com.ai.baccarat.configs
 			mapSingletons();
 			mapMediators();
 			mapCommands();
+			
+			context.afterInitializing(init);
 		}
 		
+		public function init():void{
+			mediatorMap.mediate(contextView.view);
+			signalBus.dispatch(SignalConstants.STARTUP);
+		}
 	
 		public function mapSingletons():void{
-			
+			injector.map(FlashVars).toValue(new FlashVars(contextView));
 			injector.map(IAssetLoader).toSingleton(AssetLoader);
 			injector.map(ISocketService).toSingleton(GameSocketService);
 			injector.map(ChatSocketService).toSingleton(ChatSocketService);
-			injector.map(VideoService).toSingleton(VideoService);
-			injector.map(URLSModel).toSingleton(URLSModel);
-			injector.map(FlashVars).toSingleton(FlashVars);
-			injector.map(Player).toSingleton(Player);
-			injector.map(Chat).toSingleton(Chat);
+			injector.map(VideoService).asSingleton();
+			injector.map(URLSModel).asSingleton();
+			injector.map(Player).asSingleton();
+			injector.map(Chat).asSingleton();
 			injector.map(IGameData).toValue(gameData)
 			injector.map(GameDataModel).toValue(gameData);
 			injector.map(SignalBus).toValue(signalBus);
-			injector.map(GameState).toSingleton(GameState);
-			injector.map(ConfigService).toSingleton(ConfigService);
-			injector.map(URLSService).toSingleton(URLSService);
-			injector.map(AnimationService).toSingleton(AnimationService);
+			injector.map(GameState).asSingleton();
+			injector.map(ConfigService).asSingleton();
+			injector.map(URLSService).asSingleton();
+			injector.map(AnimationService).asSingleton();
 		}
 		public function mapMediators():void{
+			
 			mediatorMap.map(StageView).toMediator(StageMediator);
 			mediatorMap.map(LoginView).toMediator(LoginMediator);
 			mediatorMap.map(TaskbarView).toMediator(TaskbarMediator);
