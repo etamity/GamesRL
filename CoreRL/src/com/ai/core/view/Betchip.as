@@ -37,17 +37,17 @@
 
 		private function rollOver(evt:MouseEvent):void {
 			//dispatchEvent(new HighlightEvent(HighlightEvent.HIGHLIGHT, betspotName));
-			hightLightSignal.dispatch(this);
+			hightLightSignal.dispatch(betspotName);
 		}
 		
 		private function rollOut(evt:MouseEvent):void {
 			//dispatchEvent(new HighlightEvent(HighlightEvent.REMOVE_HIGHLIGHT, betspotName));
-			removeLightSignal.dispatch(this);
+			removeLightSignal.dispatch(betspotName);
 		}		
 		
 		public function placeChip(evt:MouseEvent):void {
 			//dispatchEvent(new BetEvent(BetEvent.CHIP_BET, betspotName));
-			betchipSignal.dispatch(this);
+			betchipSignal.dispatch(betspotName);
 		}
 
 		public function updateChipColor(value:Number):void {

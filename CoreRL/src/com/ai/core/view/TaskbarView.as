@@ -391,9 +391,9 @@ package com.ai.core.view {
 		
 		public function set soundButtonON_OFF(val:int):void {
 			if(val == 0)
-				sound.iconMC.gotoAndStop(ICON_ON);
-			else 
 				sound.iconMC.gotoAndStop(ICON_OFF);
+			else 
+				sound.iconMC.gotoAndStop(ICON_ON);
 		}
 		
 		

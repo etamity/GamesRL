@@ -8,7 +8,6 @@ package com.ai.core.view.mediators
 	import com.ai.core.controller.signals.SocketDataEvent;
 	import com.ai.core.controller.signals.StateTableConfigEvent;
 	import com.ai.core.controller.signals.TaskbarActionEvent;
-	import com.ai.core.controller.signals.UIEvent;
 	import com.ai.core.model.FlashVars;
 	import com.ai.core.model.IGameData;
 	import com.ai.core.model.Language;
@@ -225,8 +224,8 @@ package com.ai.core.view.mediators
 					break;
 				case view.sound:
 					//eventDispatcher.dispatchEvent(new TaskbarActionEvent(TaskbarActionEvent.SOUND_CLICKED));
-					view.soundButtonON_OFF=SoundMixer.soundTransform.volume;
 					signalBus.dispatch(TaskbarActionEvent.SOUND_CLICKED);
+					view.soundButtonON_OFF=SoundMixer.soundTransform.volume;
 					break;
 				case view.lobby:
 					//eventDispatcher.dispatchEvent(new TaskbarActionEvent(TaskbarActionEvent.LOBBY_CLICKED));
@@ -249,7 +248,7 @@ package com.ai.core.view.mediators
 					view.showTooltip(target, Language.HISTORY);
 					break;
 				case view.sound:
-					view.showTooltip(target, game.sound ? Language.SOUNDOFF : Language.SOUNDON);
+					view.showTooltip(target, game.sound ? Language.SOUNDON:Language.SOUNDOFF);
 					break;
 			}
 		}
