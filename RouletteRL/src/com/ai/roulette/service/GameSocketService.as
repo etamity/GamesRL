@@ -106,7 +106,7 @@ package com.ai.roulette.service {
 				
 				case Constants.SOCKET_GAME_RESULT:
 					game.resultXML = node;
-					game.result=Number(node);
+					game.result=Number(String(node).split(" ")[0]); 
 					game.statusMessage  = node +" " +Language.WIN ;
 					//dispatch(new SocketDataEvent(SocketDataEvent.HANDLE_RESULT, node));
 					signalBus.dispatch(SocketDataEvent.HANDLE_RESULT,{node:node});

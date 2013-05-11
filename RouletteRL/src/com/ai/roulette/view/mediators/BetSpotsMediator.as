@@ -131,7 +131,7 @@ package com.ai.roulette.view.mediators {
 			view.balance = player.balance;
 		}
 		
-		private function updateTotalBet(target:String = null):void {
+		private function updateTotalBet(target:BetSpot = null):void {
 			player.bet = view.getTotalBet();
 			player.bettingBalance = player.balance - player.bet;
 			//eventDispatcher.dispatchEvent(new BetEvent(BetEvent.TOTAL_BET));

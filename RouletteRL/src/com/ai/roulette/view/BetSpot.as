@@ -1,5 +1,6 @@
 ﻿package com.ai.roulette.view {
 
+	import com.ai.core.controller.signals.BetEvent;
 	import com.ai.core.controller.signals.MessageEvent;
 	import com.ai.core.utils.GameUtils;
 	
@@ -80,7 +81,7 @@
 				if(newValue <= max) {
 					updateBet(value);
 					//dispatchEvent(new BetEvent(BetEvent.UPDATE_BET, name));
-					updateBetSignal.dispatch(this.name);
+					updateBetSignal.dispatch(BetEvent.UPDATE_BET,this);
 				}
 				else {
 					//dispatchEvent(new MessageEvent(MessageEvent.SHOW_MAX_SPOT, this));

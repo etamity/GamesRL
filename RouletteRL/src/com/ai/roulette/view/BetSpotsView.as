@@ -117,12 +117,12 @@ package com.ai.roulette.view {
 			neighbourBetsSignal.dispatch(BetEvent.NEIGHBOUR_BETS,this);
 		}
 		
-		private function updateChipBet(target:BetSpot):void {
-			_betspotMC = BetSpot(getChildByName(target.name));
+		private function updateChipBet(target:String):void {
+			_betspotMC = BetSpot(getChildByName(target));
 			_betspotMC.placeBetOnTable(_betspotMC.chipSelected);
 		}
 		
-		private function updateBet(target:BetSpot):void {
+		private function updateBet(event:String,target:BetSpot):void {
 			if(!_repeat) {
 				_chipsPlacedOrder.push(target.name);
 			}
@@ -131,13 +131,13 @@ package com.ai.roulette.view {
 			updateBetSignal.dispatch(target);
 		}
 		
-		private function highlight(target:BetSpot):void {
+		private function highlight(target:String):void {
 			//dispatchEvent(event);
 			//target.alpha = 1;
 			hightLightSignal.dispatch(target);
 		}
 		
-		private function removeHighlight(target:BetSpot):void {
+		private function removeHighlight(target:String):void {
 			//dispatchEvent(event);
 			//target.alpha = 0;
 			removeLightSignal.dispatch(target);
