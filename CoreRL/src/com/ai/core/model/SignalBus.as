@@ -5,7 +5,6 @@ package com.ai.core.model
 	
 	import flash.utils.Dictionary;
 	
-	import robotlegs.bender.framework.api.IContext;
 	import robotlegs.bender.framework.api.ILogger;
 
 	public class SignalBus
@@ -44,8 +43,8 @@ package com.ai.core.model
 			
 		}
 		private function debug(...args):void {
-			//GameUtils.log(this, args);
-			_logger.debug(args);
+			GameUtils.log(this, args);
+			//_logger.debug(args);
 		}
 	}
 

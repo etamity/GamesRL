@@ -1,5 +1,6 @@
 package com.ai.core.controller.commands {
 	
+	import com.ai.core.controller.signals.BaseSignal;
 	import com.ai.core.controller.signals.LoginEvent;
 	import com.ai.core.controller.signals.StartupDataEvent;
 	import com.ai.core.model.Constants;
@@ -33,10 +34,7 @@ package com.ai.core.controller.commands {
 		public var player:Player;
 		
 		[Inject]
-		public var id:String;
-		
-		[Inject]
-		public var password:String;
+		public var signal:BaseSignal;
 		
 		[Inject]
 		public var signalBus:SignalBus;
@@ -44,11 +42,17 @@ package com.ai.core.controller.commands {
 		private var _loginRequest:URLRequest;
 		private var httpService:HTTPService = new HTTPService();
 		public var loginSO:SharedObject;
+		
+		private var id:String;
+		private var password:String;
 		override public function execute():void {
-
+			id=signal.params.id;
+		 	password=signal.params.password;
 			login();
 		}
 		public function loginGrand():void {
+
+			
 			loginSO = SharedObject.getLocal("login");
 			if (id != "" && password != "") {
 				

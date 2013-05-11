@@ -44,7 +44,7 @@ package com.ai.core.controller.commands {
 		private function setPlayers(signal:LoaderSignal, xml:XML):void {
 			//debug(xml);			
 			service.remove(Constants.SERVER_PLAYERS);
-			signalBus.dispatch(PlayersEvent.LOADED, xml);
+			signalBus.dispatch(PlayersEvent.LOADED,{node:xml});
 		}
 		
 		private function showError(signal:ErrorSignal):void {

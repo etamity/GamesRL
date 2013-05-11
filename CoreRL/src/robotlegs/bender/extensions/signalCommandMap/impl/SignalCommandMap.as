@@ -9,6 +9,7 @@ package robotlegs.bender.extensions.signalCommandMap.impl
 {
 	import flash.utils.Dictionary;
 	import flash.utils.describeType;
+	
 	import org.osflash.signals.ISignal;
 	import org.swiftsuspenders.Injector;
 	
@@ -97,7 +98,7 @@ package robotlegs.bender.extensions.signalCommandMap.impl
 		}
 		protected function createCommandInstance(commandClass:Class):Object 
 		{
-			return _injector.getInstance(commandClass);
+			return _injector.getOrCreateNewInstance(commandClass);
 		}
 		private function verifyCommandClass(commandClass:Class):void
 		{

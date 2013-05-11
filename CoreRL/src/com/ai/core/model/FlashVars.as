@@ -1,6 +1,8 @@
 package com.ai.core.model {
 	import flash.display.DisplayObjectContainer;
 	import flash.events.Event;
+	
+	import robotlegs.bender.extensions.contextView.ContextView;
 
 	public dynamic class FlashVars extends Actor {
 		
@@ -34,11 +36,12 @@ package com.ai.core.model {
 		public var table_id:String = "l5aug44hhzr3qvxs"; // test - uwd2bl2khwcikjlz //live - l5aug44hhzr3qvxs
 		public var user_id:String = "kiw3w6ltl4i05c9q";
 		public var room:String = "game-l5aug44hhzr3qvxs-nl5pe00j2t6klsn5";*/		
+		/*[Inject]
+		public var contextView:ContextView;*/
 		
-		[Inject]
-		public function FlashVars(contextView:DisplayObjectContainer) {
-			root=contextView;
-			contextView.addEventListener(Event.ADDED_TO_STAGE,onAddToStage);
+		public function FlashVars(contextView:ContextView) {
+			root=contextView.view;
+			contextView.view.addEventListener(Event.ADDED_TO_STAGE,onAddToStage);
 			parse(root.stage.loaderInfo.parameters);
 			game_url = root.stage.loaderInfo.url;
 		}

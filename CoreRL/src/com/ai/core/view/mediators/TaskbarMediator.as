@@ -61,7 +61,7 @@ package com.ai.core.view.mediators
 			signalBus.add(BalanceEvent.LOADED,setBalance);
 			signalBus.add(SocketDataEvent.HANDLE_GAME,setGameTime);
 			signalBus.add(StateTableConfigEvent.LOADED,setChips);
-			signalBus.add(UIEvent.FRESH_BALANCE,updateBet);
+			signalBus.add(BetEvent.TOTAL_BET,updateBet);
 			signalBus.add(BetEvent.CLOSE_BETS,disableButtons);
 		}
 

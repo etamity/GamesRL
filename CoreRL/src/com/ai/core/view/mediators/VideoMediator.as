@@ -8,6 +8,7 @@ package com.ai.core.view.mediators {
 	import com.ai.core.utils.GameUtils;
 	import com.ai.core.view.VideoView;
 	
+	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.StageVideoAvailabilityEvent;
@@ -105,7 +106,7 @@ package com.ai.core.view.mediators {
 		private function videoRefresh():void{
 			videoSevvice.refreshStream();
 		}
-		private function videoFullscreen():void {
+		private function videoFullscreen(target:MovieClip):void {
 			if(!view.fullscreen) {
 				_viewChildIndex = contextView.view.getChildIndex(view);
 				contextView.view.setChildIndex(view, contextView.view.numChildren-1);
