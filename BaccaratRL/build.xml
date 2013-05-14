@@ -21,7 +21,7 @@
 	<fail unless="android.certificate.path"/>
 	<fail unless="android.certificate.password"/>
 
-	<target name="build" depends="build-swf"/>
+	<target name="build" depends="build-swf,copy"/>
 
 	<target name="prepare">
 		<delete dir="${output.path}"/>
@@ -31,7 +31,7 @@
 		<echo message="Building swf ${ant.project.name}.swf"/>
 		<exec executable="${mxmlc}" dir="${basedir}" failonerror="true">
 			<arg line="--target-player=${player.version}"/>
-			<arg line="--debug=true"/>
+			<arg line="--debug=${mode.debug}"/>
 			<arg line="--optimize=true"/>
 			<arg line="--swf-version=${swf.version}"/>
 			<arg line="--source-path+='${src.path}'"/>
@@ -47,7 +47,7 @@
 		<echo message="Building air ${ant.project.name}.swf"/>
 		<exec executable="${mxmlc}" dir="${basedir}" failonerror="true">
 			<arg line="+configname=air"/>
-			<arg line="--debug=false"/>
+			<arg line="--debug=${mode.debug}"/>
 			<arg line="--mobile=true"/>
 			<arg line="--optimize=true"/>
 			<arg line="--omit-trace-statements=true"/>
@@ -133,8 +133,8 @@
 	    <echo>[test] Finished running Unit Tests</echo>
 	  </target>
 	<target name="copy">
-		<copy todir="${bin.path}">
-		    <fileset dir="${output.path}" excludes="**/*.fla,**/Thumbs.db"/>
+		<copy todir="${release.path}">
+		    <fileset dir="${bin.path}" excludes="**/*.fla,**/Thumbs.db"/>
 		</copy>
 	</target>
 	
