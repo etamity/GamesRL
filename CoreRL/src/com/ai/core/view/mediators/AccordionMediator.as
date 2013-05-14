@@ -20,8 +20,6 @@ package com.ai.core.view.mediators {
 		public var signalBus:SignalBus;
 		
 		override public function initialize():void {
-			//eventMap.mapListener(eventDispatcher, ModelReadyEvent.READY, setupModel);
-			//eventMap.mapListener(eventDispatcher, StartupDataEvent.LOADED, addViews);
 			signalBus.add(ModelReadyEvent.READY, setupModel);
 			signalBus.add(StartupDataEvent.LOADED, addViews);
 		}
@@ -33,11 +31,6 @@ package com.ai.core.view.mediators {
 		
 		public function addViews(signal:BaseSignal):void {
 		
-			/*view.add(new StatisticsView(), Language.STATISTICS);
-			view.add(new PlayersView(), Language.PLAYERS);
-			view.add(new WinnersView(), Language.WINNERLIST);
-			//view.add(new PlayersBetsView(), Language.PLAYERSBETS);
-			view.add(new FavouritesBetsView(), Language.FAVOURITES);*/
 		}
 		
 		private function onStageResize(event:Event):void {

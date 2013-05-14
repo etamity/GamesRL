@@ -36,8 +36,6 @@ package com.ai.core.controller.commands {
 		private function loadBalance():void {
 			if(!service.hasLoader(Constants.SERVER_BALANCE)) {
 				debug(urls.balance);
-				var param:IParam=new Param(Param.PREVENT_CACHE, true);
-				service.addParam(param);
 				service.addLoader(new XMLLoader(new URLRequest(urls.balance), Constants.SERVER_BALANCE));
 				
 				service.getLoader(Constants.SERVER_BALANCE).onError.add(showError);

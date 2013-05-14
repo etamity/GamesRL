@@ -46,21 +46,6 @@ package com.ai.core.view.mediators {
 		private var _timer:Timer;
 		
 		override public function initialize():void {
-
-			/*eventMap.mapListener(eventDispatcher, ModelReadyEvent.READY, initialize);
-			eventMap.mapListener(eventDispatcher, SocketDataEvent.HANDLE_TIMER, startTimer);
-			eventMap.mapListener(eventDispatcher, SocketDataEvent.HANDLE_RESULT, setMessage);
-			eventMap.mapListener(eventDispatcher, SocketDataEvent.HANDLE_CANCEL, setMessage);
-			eventMap.mapListener(eventDispatcher, BetEvent.BETS_ACCEPTED, setBetMessage);
-			eventMap.mapListener(eventDispatcher, BetEvent.BETS_REJECTED, setBetMessage);
-			eventMap.mapListener(eventDispatcher, BetEvent.CLOSE_BETS, setBetMessage);
-			eventMap.mapListener(eventDispatcher, BetEvent.NOT_ALL_BETS_ACCEPTED, setBetMessage);
-			
-			eventMap.mapListener(eventDispatcher, MessageEvent.SHOW_NOT_ENOUGH_MONEY, setLimitsMessage);
-			eventMap.mapListener(eventDispatcher, MessageEvent.SHOW_MIN_SPOT, setLimitsMessage);
-			eventMap.mapListener(eventDispatcher, MessageEvent.SHOW_MAX_SPOT, setLimitsMessage);
-			eventMap.mapListener(eventDispatcher, MessageEvent.SHOW_WINNINGS, showWinnings);*/
-			
 			
 			signalBus.add(ModelReadyEvent.READY,setupModel);
 			signalBus.add(SocketDataEvent.HANDLE_TIMER,startTimer);

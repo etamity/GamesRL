@@ -48,9 +48,6 @@ package com.ai.core.view.mediators {
 		}
 		override public function initialize():void {
 			view.addEventListener(Event.ADDED_TO_STAGE,onAddtoStageEvent)
-			/*eventMap.mapListener(eventDispatcher, VideoEvent.CONNECT, initialize);
-			eventMap.mapListener(eventDispatcher, VideoEvent.PLAY, setVideoStream);*/
-			//eventMap.mapListener(eventDispatcher, VideoEvent.OSMFVIDEO, setupVideo);
 			signalBus.add(VideoEvent.CONNECT,initializeVideo);
 			signalBus.add(VideoEvent.PLAY,setVideoStream);
 		}
@@ -69,9 +66,6 @@ package com.ai.core.view.mediators {
 		private function initializeVideo(signal:BaseSignal):void {
 			view.init();
 			eventMap.mapListener(view.stage, Event.RESIZE, onStageResize);
-			/*view.addEventListener(UIEvent.VIDEO_FULLSCREEN, videoFullscreen);
-			view.addEventListener(UIEvent.VIDEO_REFRESH, videoRefresh);*/
-			
 			view.videoFullscreenSignal.add(videoFullscreen);
 			view.videoRefreshSignal.add(videoRefresh);
 		}

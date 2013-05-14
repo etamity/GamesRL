@@ -30,13 +30,6 @@ package com.ai.core.view.mediators {
 		private var _sound:SoundTransform = new SoundTransform();
 		
 		override public function initialize():void {
-			/*eventMap.mapListener(eventDispatcher, LoginEvent.INITIALIZE, initialize);
-			eventMap.mapListener(eventDispatcher, LoginEvent.LOGIN, showPreloader);
-			eventMap.mapListener(eventDispatcher, LoginEvent.LOGIN_SUCCESS, hidePreloader);
-			eventMap.mapListener(eventDispatcher, LoginEvent.LOGIN_FAILURE, hidePreloader);
-			eventMap.mapListener(eventDispatcher, TaskbarActionEvent.FULLSCREEN_CLICKED, toggleFullScreen);
-			eventMap.mapListener(eventDispatcher, TaskbarActionEvent.SOUND_CLICKED, toggleSound);
-			eventMap.mapListener(eventDispatcher, TaskbarActionEvent.HELP_CLICKED, toggleHelp);*/
 			
 			signalBus.add(ModelReadyEvent.READY,setupModel);
 			signalBus.add(LoginEvent.LOGIN,showPreloader);

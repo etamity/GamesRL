@@ -34,10 +34,7 @@ package com.ai.core.view.mediators {
 		public var signalBus:SignalBus;
 		
 		override public function initialize():void {
-			/*eventMap.mapListener(eventDispatcher, ModelReadyEvent.READY, initialize);
-			eventMap.mapListener(eventDispatcher, SocketDataEvent.HANDLE_DEALER, setDealer);
-			eventMap.mapListener(eventDispatcher, ChatEvent.SHOW_WELCOME_MESSAGE, setWelcomeMessage);
-			eventMap.mapListener(eventDispatcher, ChatEvent.SHOW_MESSAGE, setMessage);*/
+
 			signalBus.signal(ModelReadyEvent.READY).add(setupModel);
 			signalBus.signal(SocketDataEvent.HANDLE_DEALER).add(setDealer);
 			signalBus.signal(ChatEvent.SHOW_WELCOME_MESSAGE).add(setWelcomeMessage);

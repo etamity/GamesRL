@@ -30,9 +30,6 @@ package com.ai.core.view.mediators {
 		private function setupModel(signal:BaseSignal):void {
 			initializeView();			
 			eventMap.mapListener(view.stage, Event.RESIZE, onStageResize);
-			/*eventMap.mapListener(eventDispatcher, LoginEvent.LOGIN, hideView);
-			eventMap.mapListener(eventDispatcher, LoginEvent.LOGIN_SUCCESS, removeView);
-			eventMap.mapListener(eventDispatcher, LoginEvent.LOGIN_FAILURE, setError);*/
 			
 			signalBus.add(LoginEvent.LOGIN,hideView);
 			signalBus.add(LoginEvent.LOGIN_SUCCESS,removeView);
@@ -48,7 +45,6 @@ package com.ai.core.view.mediators {
 			if (_loginSO.data.id != null) {
 				view.id = _loginSO.data.id;
 			}	
-			//view.addEventListener(LoginEvent.LOGIN, login);
 			view.loginSignal.add(login);
 		}
 		

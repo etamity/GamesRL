@@ -48,13 +48,7 @@ package com.ai.core.view.mediators
 		
 		override public function initialize():void
 		{
-			/*eventMap.mapListener(eventDispatcher, ModelReadyEvent.READY, initialize);
-			eventMap.mapListener(eventDispatcher, SocketDataEvent.HANDLE_TIMER, checkBettingState);
-			eventMap.mapListener(eventDispatcher, BalanceEvent.LOADED, setBalance);
-			eventMap.mapListener(eventDispatcher, SocketDataEvent.HANDLE_GAME, setGameTime);
-			eventMap.mapListener(eventDispatcher, StateTableConfigEvent.LOADED, setChips);
-			eventMap.mapListener(eventDispatcher, BetEvent.TOTAL_BET, updateBet);
-			eventMap.mapListener(eventDispatcher, BetEvent.CLOSE_BETS, disableButtons);*/
+	
 			
 			signalBus.add(ModelReadyEvent.READY,setupModel);
 			signalBus.add(SocketDataEvent.HANDLE_TIMER,checkBettingState);
@@ -87,26 +81,15 @@ package com.ai.core.view.mediators
 				
 				
 			view.lobbyLabel=Language.LOBBY;
-			eventMap.mapListener(view.stage, Event.RESIZE, onStageResize);
 			createMenuBar();
 			addViewListeners();
 			view.soundButtonON_OFF=SoundMixer.soundTransform.volume;
+			eventMap.mapListener(view.stage, Event.RESIZE, onStageResize);
 		}
 
 		private function addViewListeners():void
 		{
-			/*view.addEventListener(TaskbarActionEvent.CHIP_CLICKED, onChipClicked);
-			view.addEventListener(TaskbarActionEvent.BUTTON_CLICKED, buttonAction);
-			view.addEventListener(TaskbarActionEvent.MENUITEM_CLICKED, menuItemClicked);
-			view.addEventListener(TooltipEvent.SHOW_DEFAULT, showTooltip);
-			view.addEventListener(BetEvent.UNDO, betButtonAction);
-			view.addEventListener(BetEvent.CLEAR, betButtonAction);
-			view.addEventListener(BetEvent.REPEAT, betButtonAction);
-			view.addEventListener(BetEvent.DOUBLE, betButtonAction);
-			view.addEventListener(BetEvent.CONFRIM, betButtonAction);
-			view.addEventListener(BetEvent.FAVOURITES, betButtonAction);*/
-			
-			
+
 			view.chipClickedSignal.add(onChipClicked);
 			view.buttonClickedSignal.add(buttonAction);
 			view.menuitemClickedSignal.add(menuItemClicked);
