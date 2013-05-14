@@ -37,9 +37,9 @@ package com.ai.core.model
 		
 		 function set chips(value:Array):void ;
 		
-		 function get chipSelected():int;
+		 function get chipSelected():Number;
 		
-		 function set chipSelected(value:int):void ;
+		 function set chipSelected(value:Number):void ;
 		
 		 function get fullscreen():Boolean ;
 		

@@ -9,7 +9,9 @@ package com.ai.core.controller.commands {
 	
 	import flash.net.URLRequest;
 	
+	import org.assetloader.base.Param;
 	import org.assetloader.core.IAssetLoader;
+	import org.assetloader.core.IParam;
 	import org.assetloader.loaders.XMLLoader;
 	import org.assetloader.signals.ErrorSignal;
 	import org.assetloader.signals.LoaderSignal;
@@ -31,16 +33,16 @@ package com.ai.core.controller.commands {
 	    override public function execute():void {
 			loadBalance();
 		}
-		
 		private function loadBalance():void {
-			debug(urls.balance);
 			if(!service.hasLoader(Constants.SERVER_BALANCE)) {
+				debug(urls.balance);
+				var param:IParam=new Param(Param.PREVENT_CACHE, true);
+				service.addParam(param);
 				service.addLoader(new XMLLoader(new URLRequest(urls.balance), Constants.SERVER_BALANCE));
 				
 				service.getLoader(Constants.SERVER_BALANCE).onError.add(showError);
 				service.getLoader(Constants.SERVER_BALANCE).onComplete.add(setBalance);
 				service.start();
-				debug(urls.balance);
 			}
 		}
 		

@@ -22,7 +22,7 @@ package com.ai.core.view {
 		private const CHIPS_COUNT:uint = 6;
 		
 		private var _chips:Array;
-		private var _chipSelected:Number;
+		private var _chipSelected:Number=0;
 		private var _menuItems:TaskbarMenu;
 		private var _toolTip:Tooltip;
 		private var _myAccountURL:String;
@@ -511,7 +511,7 @@ package com.ai.core.view {
 				chipClip.selected.visible = false;
 			}
 			target.selected.visible = true;
-			chipSelected = chips[target.name.substring(target.name.length - 1, target.name.length)];
+			_chipSelected = chips[target.name.substring(target.name.length - 1, target.name.length)];
 		}
 		
 		private function getTextFormat(textSize:int):TextFormat {

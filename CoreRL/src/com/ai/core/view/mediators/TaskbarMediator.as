@@ -9,6 +9,7 @@ package com.ai.core.view.mediators
 	import com.ai.core.controller.signals.StateTableConfigEvent;
 	import com.ai.core.controller.signals.TaskbarActionEvent;
 	import com.ai.core.model.FlashVars;
+	import com.ai.core.model.GameState;
 	import com.ai.core.model.IGameData;
 	import com.ai.core.model.Language;
 	import com.ai.core.model.Player;
@@ -345,18 +346,20 @@ package com.ai.core.view.mediators
 		{
 			view.balance=player.bettingBalanceFormatted;
 			view.bet=player.betFormatted;
-
-			if (player.bet > 0)
+			if (GameState.state < GameState.BETS_CLOSED)
 			{
-				view.enableClear();
-				view.enableUndo();
-				view.enableConfirm();
-			}
-			else
-			{
-				view.disbleClear();
-				view.disbleUndo();
-				checkForRepeatAndDouble();
+				if (player.bet > 0)
+				{
+					view.enableClear();
+					view.enableUndo();
+					view.enableConfirm();
+				}
+				else
+				{
+					view.disbleClear();
+					view.disbleUndo();
+					checkForRepeatAndDouble();
+				}
 			}
 		}
 

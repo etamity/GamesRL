@@ -1,5 +1,6 @@
 package com.ai.core.controller.commands {
 	
+	import com.ai.core.controller.signals.BalanceEvent;
 	import com.ai.core.controller.signals.BaseSignal;
 	import com.ai.core.controller.signals.LoginEvent;
 	import com.ai.core.controller.signals.StartupDataEvent;
@@ -69,6 +70,7 @@ package com.ai.core.controller.commands {
 				signalBus.dispatch(LoginEvent.LOGIN_SUCCESS);
 				signalBus.dispatch(StartupDataEvent.SEAT);
 				signalBus.dispatch(StartupDataEvent.LOAD);
+				signalBus.dispatch(BalanceEvent.LOAD);
 			}
 			else {
 				signalBus.dispatch(LoginEvent.LOGIN_FAILURE);

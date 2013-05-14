@@ -5,7 +5,7 @@ package com.ai.core.model
 	public class GameData extends Actor implements IGameData
 	{
 		private var _chips:Array = new Array(1, 5, 25, 50, 100, 500);
-		private var _chipSelected:int;
+		private var _chipSelected:Number;
 		private var _countdown:int;
 		private var _videoStream:String;
 		private var _videoApplication:String;
@@ -138,11 +138,11 @@ package com.ai.core.model
 			chipSelected = value[0];
 		}
 		
-		public function get chipSelected():int {
+		public function get chipSelected():Number {
 			return _chipSelected;
 		}
 		
-		public function set chipSelected(value:int):void {
+		public function set chipSelected(value:Number):void {
 			_chipSelected = value;
 		}
 		
