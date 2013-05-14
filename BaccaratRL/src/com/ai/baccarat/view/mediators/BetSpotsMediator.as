@@ -110,7 +110,7 @@ package com.ai.baccarat.view.mediators {
 		
 		private function showTooltip(type:String,target:BetSpot):void {
 			//eventDispatcher.dispatchEvent(event);
-			signalBus.dispatch(type, target);
+			signalBus.dispatch(type, {target:target.max});
 			
 		}
 		

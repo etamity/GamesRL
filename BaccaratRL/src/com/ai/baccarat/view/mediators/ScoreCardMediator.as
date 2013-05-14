@@ -25,15 +25,14 @@ package com.ai.baccarat.view.mediators
 			super();
 		}
 		override public function initialize():void {
-			/*eventMap.mapListener(eventDispatcher, BaccaratEvent.SCORDCARD , processScoreCard);
-			eventMap.mapListener(eventDispatcher, ModelReadyEvent.READY, initialize);*/
-			
+		
 			signalBus.add(ModelReadyEvent.READY, setupModel);
 			signalBus.add(BaccaratEvent.SCORDCARD, processScoreCard);
 			
 		}
 		private function setupModel(signal:BaseSignal):void {
 			view.init(245, 90, true, false, flashvars.table_id);
+			view.align();
 		}
 		public function processScoreCard(signal:BaseSignal):void{
 			var data:XMLList= signal.params.node.result;

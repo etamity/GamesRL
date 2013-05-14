@@ -20,6 +20,11 @@ package com.ai.baccarat.view
 			scoreCardPanel.y=5;
 			visible=false;
 		}
+		
+		public function align():void {
+			x=stage.stageWidth-scoreCardPanel.width-25;
+			y=210;
+		}
 		public function update(data:XMLList):void{
 			scoreCardPanel.generateScorecard(data);
 		}

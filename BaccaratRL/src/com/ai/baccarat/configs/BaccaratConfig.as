@@ -51,6 +51,7 @@ package com.ai.baccarat.configs
 	import com.ai.core.service.ISocketService;
 	import com.ai.core.service.URLSService;
 	import com.ai.core.service.VideoService;
+	import com.ai.core.view.AccordionView;
 	import com.ai.core.view.ChatView;
 	import com.ai.core.view.GameStatusView;
 	import com.ai.core.view.LoginView;
@@ -58,6 +59,7 @@ package com.ai.baccarat.configs
 	import com.ai.core.view.StageView;
 	import com.ai.core.view.TaskbarView;
 	import com.ai.core.view.VideoView;
+	import com.ai.core.view.mediators.AccordionMediator;
 	import com.ai.core.view.mediators.ChatMediator;
 	import com.ai.core.view.mediators.GameStatusMediator;
 	import com.ai.core.view.mediators.LoginMediator;
@@ -136,6 +138,7 @@ package com.ai.baccarat.configs
 			mediatorMap.map(LoginView).toMediator(LoginMediator);
 			mediatorMap.map(TaskbarView).toMediator(TaskbarMediator);
 			mediatorMap.map(GameStatusView).toMediator(GameStatusMediator);
+			mediatorMap.map(AccordionView).toMediator(AccordionMediator);
 			mediatorMap.map(ChatView).toMediator(ChatMediator);
 			mediatorMap.map(VideoView).toMediator(VideoMediator);
 			mediatorMap.map(BetSpotsView).toMediator(BetSpotsMediator);

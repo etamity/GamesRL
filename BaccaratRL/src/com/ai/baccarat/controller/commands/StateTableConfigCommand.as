@@ -108,9 +108,6 @@ package com.ai.baccarat.controller.commands {
 			signalBus.dispatch(ModelReadyEvent.READY);
 			signalBus.dispatch(SocketEvent.CONNECT_GAME);
 			signalBus.dispatch(VideoEvent.CONNECT);
-			signalBus.dispatch(PlayersEvent.LOAD);
-			signalBus.dispatch(WinnersEvent.LOAD);
-			signalBus.dispatch(StatisticsEvent.LOAD);
 			signalBus.dispatch(StateTableConfigEvent.LOADED);
 			service.remove(Constants.SERVER_SETTING);
 		}
