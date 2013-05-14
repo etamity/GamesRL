@@ -37,6 +37,10 @@ package com.ai.roulette.view {
 		public var higilightNeighbourSignal:Signal=new Signal();
 		public var removeNeighbourSignal:Signal=new Signal();
 		
+		
+		private var _chipSelecedValue:Number=0;
+		private var _balance:Number=0;
+		
 		public function BetSpotsView() {
 			createBetspots();
 			specialBetsMC.visible = false;
@@ -53,6 +57,13 @@ package com.ai.roulette.view {
 			visible = true;
 		}
 
+		public function get chipSelecedValue():Number{
+			return _chipSelecedValue;
+		}
+		
+		public function get balance():Number{
+			return _balance;
+		}
 		public function placeFavouritesBets(betString:String):void{
 			var betsArray:Array = betString.split("&");
 			var value:Array;
@@ -85,14 +96,7 @@ package com.ai.roulette.view {
 					_betspotMC.transform.matrix = stageSpot.transform.matrix;
 					addChild(_betspotMC);					
 					stageSpot.visible = false;
-					
-					/*_betspotMC.addEventListener(BetEvent.UPDATE_BET, updateBet);
-					_betspotMC.addEventListener(HighlightEvent.HIGHLIGHT, highlight);
-					_betspotMC.addEventListener(HighlightEvent.REMOVE_HIGHLIGHT, removeHighlight);
-					_betspotMC.addEventListener(MessageEvent.SHOW_NOT_ENOUGH_MONEY, setMessage);
-					_betspotMC.addEventListener(MessageEvent.SHOW_MIN_SPOT, setMessage);
-					_betspotMC.addEventListener(MessageEvent.SHOW_MAX_SPOT, setMessage);*/
-					
+
 					_betspotMC.updateBetSignal.add(updateBet);
 					_betspotMC.messageSignal.add(setMessage);
 					_betspotMC.hightLightSignal.add(highlight);
@@ -119,7 +123,7 @@ package com.ai.roulette.view {
 		
 		private function updateChipBet(target:String):void {
 			_betspotMC = BetSpot(getChildByName(target));
-			_betspotMC.placeBetOnTable(_betspotMC.chipSelected);
+			_betspotMC.placeBetOnTable(_chipSelecedValue);
 		}
 		
 		private function updateBet(event:String,target:BetSpot):void {
@@ -127,31 +131,26 @@ package com.ai.roulette.view {
 				_chipsPlacedOrder.push(target.name);
 			}
 			createChip(target.name);
-			//dispatchEvent(event);
 			updateBetSignal.dispatch(target);
 		}
 		
 		private function highlight(target:String):void {
-			//dispatchEvent(event);
-			//target.alpha = 1;
+
 			hightLightSignal.dispatch(target);
 		}
 		
 		private function removeHighlight(target:String):void {
-			//dispatchEvent(event);
-			//target.alpha = 0;
+
 			removeLightSignal.dispatch(target);
 		}
 		
 		private function higilightNeighbour(evt:MouseEvent):void {
-			//evt.target.alpha = 1;
-			//dispatchEvent(new HighlightEvent(HighlightEvent.HIGHLIGHT, evt.target.name));
+
 			higilightNeighbourSignal.dispatch(HighlightEvent.HIGHLIGHT,this);
 		}
 		
 		private function removeHigilightNeighbour(evt:MouseEvent):void {
-			//evt.target.alpha = 0;
-			//dispatchEvent(new HighlightEvent(HighlightEvent.REMOVE_HIGHLIGHT, evt.target.name));
+
 			removeNeighbourSignal.dispatch(HighlightEvent.REMOVE_HIGHLIGHT,this)
 		}
 		
@@ -177,9 +176,6 @@ package com.ai.roulette.view {
 				var boundCentreY:Number = bounds.y + bounds.height / 2;
 				_betchipMC.x = boundCentreX - _betchipMC.width / 2;
 				_betchipMC.y = boundCentreY - _betchipMC.height / 2;
-				/*_betchipMC.addEventListener(BetEvent.CHIP_BET, updateChipBet);
-				_betchipMC.addEventListener(HighlightEvent.HIGHLIGHT, highlight);
-				_betchipMC.addEventListener(HighlightEvent.REMOVE_HIGHLIGHT, removeHighlight);*/
 				_betchipMC.betchipSignal.add(updateChipBet);
 				_betchipMC.hightLightSignal.add(highlight);
 				_betchipMC.removeLightSignal.add(removeHighlight);
@@ -190,14 +186,28 @@ package com.ai.roulette.view {
 			swapChildren(_betchipMC, getChildAt(numChildren - 1));
 		}
 		
-		public function set chipSelected(value:int):void {
-			for (var i:uint = 2; i < SPOTS; i++) {
+		public function set chipSelected(value:Number):void {
+			/*for (var i:uint = 2; i < SPOTS; i++) {
 				if (getChildByName("bs" + i) != null) {
 					_betspotMC = BetSpot(getChildByName("bs" + i));
-					_betspotMC.chipSelected = value;
 				}
 			}
+			if (_betspotMC!=null)
+			_betspotMC.chipSelected = value;*/
+			_chipSelecedValue=value;
 		}
+		
+		public function get chipSelected():Number {
+			/*for (var i:uint = 2; i < SPOTS; i++) {
+			if (getChildByName("bs" + i) != null) {
+			_betspotMC = BetSpot(getChildByName("bs" + i));
+			}
+			}
+			if (_betspotMC!=null)
+			_betspotMC.chipSelected = value;*/
+			 return _chipSelecedValue;
+		}
+		
 		
 		public function setLimits(i:int, min:int, max:int):void {
 			_betspotMC = BetSpot(getChildByName("bs" + i));
@@ -207,13 +217,16 @@ package com.ai.roulette.view {
 			}
 		}
 		
-		public function set balance(value:int):void {
-			for (var i:uint = 2; i < SPOTS; i++) {
+		public function set balance(value:Number):void {
+			/*for (var i:uint = 2; i < SPOTS; i++) {
 				if (getChildByName("bs" + i) != null) {
 					_betspotMC = BetSpot(getChildByName("bs" + i));
-					_betspotMC.balance = value;
 				}
 			}
+			if (_betspotMC!=null)
+			_betspotMC.balance = value;*/
+			
+			_balance=value;
 		}
 		
 		public function createBet(value:int, i:int):void {

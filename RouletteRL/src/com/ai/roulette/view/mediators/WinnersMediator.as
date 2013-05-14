@@ -33,7 +33,8 @@ package com.ai.roulette.view.mediators {
 			view.listView.columns[0].headerText = Language.PLAYERNAME;
 			view.listView.columns[1].headerText = Language.PLAYERWINS;
 			eventMap.mapListener(view.stage, Event.RESIZE, onStageResize);
-			eventMap.mapListener(eventDispatcher, WinnersEvent.LOADED, showPlayers);
+			//eventMap.mapListener(eventDispatcher, WinnersEvent.LOADED, showPlayers);
+			signalBus.add( WinnersEvent.LOADED, showPlayers);
 		}
 		
 		private function showPlayers(signal:BaseSignal):void {

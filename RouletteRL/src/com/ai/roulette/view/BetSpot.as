@@ -12,7 +12,6 @@
 	public class BetSpot extends BetspotAsset {
 
 		private var _chip:MovieClip;
-		private var _balance:Number = 0;
 		private var _min:Number = 0;
 		private var _max:Number = 0;
 		private var _chipValue:Number = 0;
@@ -38,28 +37,27 @@
 		}
 
 		public function get chipSelected():Number {
-			return _chipSelected;
+			var betspotView:BetSpotsView= this.parent as BetSpotsView;
+			return betspotView.chipSelecedValue;
 		}
-
-		public function set chipSelected(value:Number):void {
-			_chipSelected = value;
+		public function get balance():Number {
+			var betspotView:BetSpotsView= this.parent as BetSpotsView;
+			return betspotView.balance;
 		}
 
 		private function rollOver(evt:MouseEvent):void {
-			//dispatchEvent(new HighlightEvent(HighlightEvent.HIGHLIGHT, name));
 			hightLightSignal.dispatch(this.name);
-			//highlight();
 			visible = true;
 			if (chipValue > 0 && chipValue < min) {
-				//dispatchEvent(new MessageEvent(MessageEvent.SHOW_MIN_SPOT, this));
+
 				messageSignal.dispatch(MessageEvent.SHOW_MIN_SPOT,this);
 			}
 		}
 
 		private function rollOut(evt:MouseEvent):void {
-			//dispatchEvent(new HighlightEvent(HighlightEvent.REMOVE_HIGHLIGHT, name));
+
 			removeLightSignal.dispatch(this.name);
-			//removeHighlight();
+
 		}
 
 		public function highlight():void {
@@ -80,16 +78,13 @@
 			if(totalBetPlaced <= balance && balance > 0) {
 				if(newValue <= max) {
 					updateBet(value);
-					//dispatchEvent(new BetEvent(BetEvent.UPDATE_BET, name));
 					updateBetSignal.dispatch(BetEvent.UPDATE_BET,this);
 				}
 				else {
-					//dispatchEvent(new MessageEvent(MessageEvent.SHOW_MAX_SPOT, this));
 					messageSignal.dispatch(MessageEvent.SHOW_MAX_SPOT,this)
 				}				
 			}
 			else {
-				//dispatchEvent(new MessageEvent(MessageEvent.SHOW_NOT_ENOUGH_MONEY, this));
 				messageSignal.dispatch(MessageEvent.SHOW_MAX_SPOT,this);
 			}
 		}
@@ -131,14 +126,6 @@
 
 		public function get chipValue():Number {
 			return _chipValue;
-		}
-		
-		public function get balance():Number {
-			return _balance;
-		}
-		
-		public function set balance(value:Number):void {
-			_balance = value;
 		}
 
 		public function set min(value:Number):void {

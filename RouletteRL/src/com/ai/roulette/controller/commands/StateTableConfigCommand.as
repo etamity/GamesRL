@@ -83,7 +83,7 @@ package com.ai.roulette.controller.commands {
 		}
 		
 		private function setState(signal:LoaderSignal, xml:XML):void {
-			//debug(xml);
+			debug(xml);
 			game.chips = String(xml.chip_amounts).split(",");
 			game.table = xml.table;
 			game.recentResults = xml.recentresults;
@@ -117,9 +117,6 @@ package com.ai.roulette.controller.commands {
 			signalBus.dispatch(ModelReadyEvent.READY);
 			signalBus.dispatch(SocketEvent.CONNECT_GAME);
 			signalBus.dispatch(VideoEvent.CONNECT);
-			signalBus.dispatch(PlayersEvent.LOAD);
-			signalBus.dispatch(WinnersEvent.LOAD);
-			signalBus.dispatch(StatisticsEvent.LOAD);
 			signalBus.dispatch(StateTableConfigEvent.LOADED);
 			
 			service.remove(Constants.SERVER_SETTING);

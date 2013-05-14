@@ -1,0 +1,26 @@
+package com.ai.roulette.view.mediators
+{
+	import com.ai.core.controller.signals.BaseSignal;
+	import com.ai.core.model.Language;
+	import com.ai.core.view.mediators.AccordionMediator;
+	import com.ai.roulette.view.FavouritesBetsView;
+	import com.ai.roulette.view.PlayersView;
+	import com.ai.roulette.view.StatisticsView;
+	import com.ai.roulette.view.WinnersView;
+	
+	public class RouletteAccordionMediator extends AccordionMediator
+	{
+		public function RouletteAccordionMediator()
+		{
+			super();
+		}
+		override public function addViews(signal:BaseSignal):void {
+			
+			view.add(new StatisticsView(), Language.STATISTICS);
+			view.add(new PlayersView(), Language.PLAYERS);
+			view.add(new WinnersView(), Language.WINNERLIST);
+			//view.add(new PlayersBetsView(), Language.PLAYERSBETS);
+			view.add(new FavouritesBetsView(), Language.FAVOURITES);
+		}
+	}
+}

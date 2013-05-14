@@ -54,10 +54,6 @@ package com.ai.roulette.view.mediators
 			view.deleteBtn.label= Language.DELETEBUTTON;
 		}
 		override public function initialize():void {
-			/*eventMap.mapListener(eventDispatcher, ModelReadyEvent.READY, setupModel);
-			eventMap.mapListener(eventDispatcher, BetEvent.FAVOURITES, addFaouritesBets);
-			eventMap.mapListener(eventDispatcher, BetEvent.CLOSE_BETS, closeBetting);
-			eventMap.mapListener(eventDispatcher, SocketDataEvent.HANDLE_TIMER, checkBettingState);*/
 			
 			signalBus.add(ModelReadyEvent.READY, setupModel);
 			signalBus.add(BetEvent.FAVOURITES, addFaouritesBets);

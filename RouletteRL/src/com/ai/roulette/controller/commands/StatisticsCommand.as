@@ -34,11 +34,11 @@ package com.ai.roulette.controller.commands {
 		
 		private function loadStatistics():void {
 			if(!service.hasLoader(Constants.SERVER_STATISTICS)) {
+				debug(urls.statistics + "?count=100&table_id=" + flashvars.table_id);
 				service.addLoader(new XMLLoader(new URLRequest(urls.statistics + "?count=100&table_id=" + flashvars.table_id), Constants.SERVER_STATISTICS));
 				service.getLoader(Constants.SERVER_STATISTICS).onError.add(showError);
 				service.getLoader(Constants.SERVER_STATISTICS).onComplete.add(setStatistics);			
 				service.start();
-				debug(urls.statistics + "?count=100&table_id=" + flashvars.table_id);
 			}
 		}
 		

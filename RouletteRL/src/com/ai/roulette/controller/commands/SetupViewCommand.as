@@ -3,14 +3,13 @@ package com.ai.roulette.controller.commands
 	import com.ai.core.controller.commands.BaseCommand;
 	import com.ai.core.model.URLSModel;
 	import com.ai.core.utils.GameUtils;
+	import com.ai.core.view.AccordionView;
 	import com.ai.core.view.ChatView;
 	import com.ai.core.view.GameStatusView;
 	import com.ai.core.view.LoginView;
-	import com.ai.core.view.MessageBoxView;
 	import com.ai.core.view.StageView;
 	import com.ai.core.view.TaskbarView;
 	import com.ai.core.view.VideoView;
-	import com.ai.roulette.view.AccordionView;
 	import com.ai.roulette.view.BetSpotsView;
 	import com.ai.roulette.view.LimitsView;
 	import com.ai.roulette.view.LobbyView;

@@ -52,25 +52,6 @@ package com.ai.roulette.view.mediators {
 		private const HIGH:Number            = 51;
 		
 		override public function initialize():void {
-			/*eventMap.mapListener(eventDispatcher, ModelReadyEvent.READY, setupModel);
-			eventMap.mapListener(eventDispatcher, SocketDataEvent.HANDLE_TIMER, checkBettingState);
-			eventMap.mapListener(eventDispatcher, SocketDataEvent.HANDLE_BET, handleBet);
-			eventMap.mapListener(eventDispatcher, SocketDataEvent.HANDLE_CANCEL, clearBets);
-			eventMap.mapListener(eventDispatcher, SocketDataEvent.HANDLE_RESULT, processResult);
-			eventMap.mapListener(eventDispatcher, StateTableConfigEvent.LOADED, setLimits);
-			
-			eventMap.mapListener(eventDispatcher, BalanceEvent.LOADED, setBalance);
-			eventMap.mapListener(eventDispatcher, TaskbarActionEvent.CHIP_CLICKED, setChipSelected);
-			eventMap.mapListener(eventDispatcher, BetEvent.CLOSE_BETS, closeBetting);
-			eventMap.mapListener(eventDispatcher, BetEvent.BETS_REJECTED, clearBets);
-			eventMap.mapListener(eventDispatcher, BetEvent.CLEAR, clearBets);
-			eventMap.mapListener(eventDispatcher, BetEvent.UNDO, clearLastBet);
-			eventMap.mapListener(eventDispatcher, BetEvent.REPEAT, repeat);
-			eventMap.mapListener(eventDispatcher, BetEvent.DOUBLE, double);
-			eventMap.mapListener(eventDispatcher, BetEvent.CONFRIM, confirm);
-			eventMap.mapListener(eventDispatcher, DataGirdEvent.FAVOURITESAPPLY, applyFavourites);*/
-			
-			
 			signalBus.add(ModelReadyEvent.READY, setupModel);
 			signalBus.add(SocketDataEvent.HANDLE_TIMER, checkBettingState);
 			signalBus.add(SocketDataEvent.HANDLE_BET, handleBet);
@@ -109,13 +90,7 @@ package com.ai.roulette.view.mediators {
 		private function initializeView():void {
 			view.init();
 			view.chipSelected = game.chipSelected;
-			/*view.addEventListener(BetEvent.UPDATE_BET, updateTotalBet);
-			view.addEventListener(BetEvent.NEIGHBOUR_BETS, placeNeighbourBets);
-			view.addEventListener(HighlightEvent.HIGHLIGHT, highlight);
-			view.addEventListener(HighlightEvent.REMOVE_HIGHLIGHT, removeHighlight);
-			view.addEventListener(MessageEvent.SHOW_NOT_ENOUGH_MONEY, showTooltip);
-			view.addEventListener(MessageEvent.SHOW_MIN_SPOT, showTooltip);
-			view.addEventListener(MessageEvent.SHOW_MAX_SPOT, showTooltip);*/
+		
 			view.updateBetSignal.add(updateTotalBet);
 			view.messageSignal.add(showTooltip)
 			view.neighbourBetsSignal.add(placeNeighbourBets);

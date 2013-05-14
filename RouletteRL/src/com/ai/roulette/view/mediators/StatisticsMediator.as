@@ -26,12 +26,13 @@ package com.ai.roulette.view.mediators {
 		override public function initialize():void {
 			//eventMap.mapListener(eventDispatcher, ModelReadyEvent.READY, setupModel);
 			signalBus.add(ModelReadyEvent.READY, setupModel);
+		
 		}
 		
 		private function setupModel(signal:BaseSignal):void {
 			view.init();
 			eventMap.mapListener(view.stage, Event.RESIZE, onStageResize);
-			eventMap.mapListener(eventDispatcher, StatisticsEvent.LOADED, showStats);
+			signalBus.add(StatisticsEvent.LOADED, showStats);
 		}
 		
 		private function showStats(signal:BaseSignal):void {

@@ -38,17 +38,16 @@ package com.ai.roulette.configs
 	import com.ai.core.service.ISocketService;
 	import com.ai.core.service.URLSService;
 	import com.ai.core.service.VideoService;
+	import com.ai.core.view.AccordionView;
 	import com.ai.core.view.ChatView;
 	import com.ai.core.view.GameStatusView;
 	import com.ai.core.view.LoginView;
-	import com.ai.core.view.MessageBoxView;
 	import com.ai.core.view.StageView;
 	import com.ai.core.view.TaskbarView;
 	import com.ai.core.view.VideoView;
 	import com.ai.core.view.mediators.ChatMediator;
 	import com.ai.core.view.mediators.GameStatusMediator;
 	import com.ai.core.view.mediators.LoginMediator;
-	import com.ai.core.view.mediators.MessageBoxMediator;
 	import com.ai.core.view.mediators.StageMediator;
 	import com.ai.core.view.mediators.TaskbarMediator;
 	import com.ai.core.view.mediators.VideoMediator;
@@ -61,7 +60,6 @@ package com.ai.roulette.configs
 	import com.ai.roulette.controller.signals.WinnersEvent;
 	import com.ai.roulette.model.GameDataModel;
 	import com.ai.roulette.service.GameSocketService;
-	import com.ai.roulette.view.AccordionView;
 	import com.ai.roulette.view.BetSpotsView;
 	import com.ai.roulette.view.FavouritesBetsView;
 	import com.ai.roulette.view.LimitsView;
@@ -72,7 +70,6 @@ package com.ai.roulette.configs
 	import com.ai.roulette.view.StageInfoView;
 	import com.ai.roulette.view.StatisticsView;
 	import com.ai.roulette.view.WinnersView;
-	import com.ai.roulette.view.mediators.AccordionMediator;
 	import com.ai.roulette.view.mediators.BetSpotsMediator;
 	import com.ai.roulette.view.mediators.FavouritesBetsMediator;
 	import com.ai.roulette.view.mediators.LimitsMediator;
@@ -80,12 +77,15 @@ package com.ai.roulette.configs
 	import com.ai.roulette.view.mediators.PlayersBetsMediator;
 	import com.ai.roulette.view.mediators.PlayersMediator;
 	import com.ai.roulette.view.mediators.ResultsClassicMediator;
+	import com.ai.roulette.view.mediators.RouletteAccordionMediator;
 	import com.ai.roulette.view.mediators.StageInfoMediator;
 	import com.ai.roulette.view.mediators.StatisticsMediator;
 	import com.ai.roulette.view.mediators.WinnersMediator;
 	
 	import org.assetloader.AssetLoader;
+	import org.assetloader.base.Param;
 	import org.assetloader.core.IAssetLoader;
+	import org.assetloader.core.IParam;
 	import org.swiftsuspenders.Injector;
 	
 	import robotlegs.bender.extensions.contextView.ContextView;
@@ -110,8 +110,11 @@ package com.ai.roulette.configs
 		
 		[Inject]
 		public var contextView:ContextView;
+		
 		protected var gameData:GameDataModel=new GameDataModel();
 		protected var signalBus:SignalBus=new SignalBus();
+		protected var assetLoader:IAssetLoader;
+		
 		public function RouletteConfig()
 		{
 		}
@@ -119,12 +122,21 @@ package com.ai.roulette.configs
 		public function configure():void
 		{      
 			context.logLevel = LogLevel.DEBUG;
-			gameData.game=Constants.BACCARAT;
+
+			createInstance();
+			
 			mapSingletons();
 			mapMediators();
 			mapCommands();
-			
+	
 			context.afterInitializing(init);
+		}
+		
+		public function createInstance():void{
+			gameData.game=Constants.BACCARAT;
+			var param:IParam=new Param(Param.PREVENT_CACHE, true);
+			assetLoader=injector.getOrCreateNewInstance(AssetLoader);
+			assetLoader.addParam(param);
 		}
 		
 		public function init():void{
@@ -133,7 +145,7 @@ package com.ai.roulette.configs
 		}
 		public function mapSingletons():void{
 			injector.map(FlashVars).toValue(new FlashVars(contextView));
-			injector.map(IAssetLoader).toSingleton(AssetLoader);
+			injector.map(IAssetLoader).toValue(assetLoader);
 			injector.map(ISocketService).toSingleton(GameSocketService);
 			injector.map(ChatSocketService).toSingleton(ChatSocketService);
 			injector.map(VideoService).asSingleton();
@@ -158,7 +170,7 @@ package com.ai.roulette.configs
 			mediatorMap.map(StageInfoView).toMediator(StageInfoMediator);
 			mediatorMap.map(GameStatusView).toMediator(GameStatusMediator);
 			mediatorMap.map(ChatView).toMediator(ChatMediator);
-			mediatorMap.map(AccordionView).toMediator(AccordionMediator);
+			mediatorMap.map(AccordionView).toMediator(RouletteAccordionMediator);
 			mediatorMap.map(PlayersView).toMediator(PlayersMediator);
 			mediatorMap.map(PlayersBetsView).toMediator(PlayersBetsMediator);
 			mediatorMap.map(FavouritesBetsView).toMediator(FavouritesBetsMediator);
