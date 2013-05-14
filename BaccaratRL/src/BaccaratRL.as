@@ -1,6 +1,5 @@
 package
 {
-	import com.ai.baccarat.Baccarat;
 	import com.ai.baccarat.configs.BaccaratBundle;
 	import com.ai.baccarat.configs.BaccaratConfig;
 	
