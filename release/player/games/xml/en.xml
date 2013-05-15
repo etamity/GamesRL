@@ -489,7 +489,6 @@ Terms and Conditions. ]]></acception2>
 	
 	<login><![CDATA[Login]]></login>
 	<logout><![CDATA[Logout]]></logout>
-	
 	<enter_valid_email><![CDATA[Please enter a valid email address.]]></enter_valid_email>
 	<registration><![CDATA[Registration]]></registration>
 	<enter_valid_username><![CDATA[PLEASE ENTER A VALID USERNAME.]]></enter_valid_username>
@@ -572,6 +571,8 @@ Terms and Conditions. ]]></acception2>
 	<playerwins><![CDATA[AMOUNT]]></playerwins>
 	<playersbets><![CDATA[PLAYERS BETS]]></playersbets>
 	<favourites><![CDATA[FAVOURITES]]></favourites>
+	<baccarat_betspotspanel><![CDATA[BETSPOTS]]></baccarat_betspotspanel>
+	
 		<!-- FACEBOOK-->
 	
 	<!-- FACEBOOK MESSAGEBOX-->
@@ -669,8 +670,8 @@ Terms and Conditions. ]]></acception2>
 	<invate_all_friends><![CDATA[Hi #USERNAME#, invite your friends to play Smart Live Social Roulette, let's play together!]]></invate_all_friends>
 	<jackpot><![CDATA[JACKPOT]]></jackpot>
 	<chatfromsever><![CDATA[Hello #USERNAME#, good luck and have fun!]]></chatfromsever>
-	
-	
+
+
 	<!-- Table Name Translation -->
 	<tablename id="1"><![CDATA[Sky 863 - Live Roulette]]></tablename>
 	<tablename id="2"><![CDATA[Auto Roulette]]></tablename>
@@ -678,7 +679,6 @@ Terms and Conditions. ]]></acception2>
 	<tablename id="hiey8yx1hkkgqawl"><![CDATA[Rapid Roulette]]></tablename>
 	<tablename id="48z5pjps3ntvqc1b"><![CDATA[Grand Auto Brown]]></tablename>
 	<tablename id="7kqbll806q26x44k"><![CDATA[Grand Auto Black]]></tablename>
-	
 	<tablename id="l5aug44hhzr3qvxs"><![CDATA[7 Seat Blackjack]]></tablename>
 	
 	<tablename id="41"><![CDATA[Baccarat]]></tablename>

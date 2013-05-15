@@ -3,17 +3,18 @@
 	<common>
 	    <server><![CDATA[https://livecasino.smartliveaffiliates.com]]></server>
 		<authentication><![CDATA[https://livecasino.smartliveaffiliates.com/cgibin/SmartAuthentication]]></authentication>
-		<login><![CDATA[http://livecasino.smartliveaffiliates.com/cgibin/facebook/fbLoginPage.jsp?first_name=zhong&last_name=yu]]></login>
+		<login><![CDATA[http://livecasino.smartliveaffiliates.com/cgibin/facebook/fbLoginPage.jsp]]></login>
 		<balance><![CDATA[/cgibin/balance.jsp]]></balance>
 		<language><![CDATA[/player/games/languages/]]></language>
 		<style><![CDATA[/player/games/styles/]]></style>
-		<players><![CDATA[/cgibin/common/participants.jsp]]></players>
+		<players><![CDATA[/cgibin/common/participants.jsp?table_id=#TABLEID#]]></players>
 		<settings><![CDATA[/player/games/assets/settings.xml]]></settings>
-		<chatConfig><![CDATA[/cgibin/chat/config.jsp]]></chatConfig>
+		<chatConfig><![CDATA[/cgibin/chat/config.jsp??room_id=#ROOMID#]]></chatConfig>
 		<help><![CDATA[/player/games/help/Help.swf]]></help>
 		<lobby><![CDATA[/player/games/tables.swf]]></lobby>
 		<freeplay><![CDATA[/cgibin/mobile_launcher.jsp]]></freeplay>
 		<tableConfig><![CDATA[/cgibin/tableconfig.jsp]]></tableConfig>
+		<seat><![CDATA[/cgibin/sitdown.jsp]]></seat>
 	</common>
 	<roulette>
 		<results><![CDATA[/cgibin/roulette/history.jsp]]></results>
@@ -21,11 +22,34 @@
 		<winners><![CDATA[/cgibin/facebook/winnerList.jsp]]></winners>
 		<sendBets><![CDATA[/cgibin/roulette/placebets.jsp]]></sendBets>
 		<state><![CDATA[/cgibin/roulette/state.jsp]]></state>
+		
+		<facebook>
+			<addcoins><![CDATA[/cgibin/facebook/updateCoins.jsp?amount=#AMOUNT#]]></addcoins>
+			<getmyitems><![CDATA[/cgibin/facebook/receiveVirtualGood.jsp?mode=getmyitems&facebook_id=#FACEBOOKID#]]></getmyitems>
+			<addvirtualgood><![CDATA[/cgibin/facebook/receiveVirtualGood.jsp?mode=add_gift&item_id=#ITEMID#&type=#TYPE#&part_id=#PARTID#&facebook_id=#FACEBOOKID#]]></addvirtualgood>
+			<getvirtualgood><![CDATA[/cgibin/facebook/getVirtualGood.jsp]]></getvirtualgood>
+			<sendvirtualgood><![CDATA[/cgibin/facebook/sendVirtualGood.jsp?mode=send&type=#TYPE#&receiver_facebookid=#RECEIVERID#&facebook_id=#SENDERID#&amount=0]]></sendvirtualgood>
+			<add_credits><![CDATA[/cgibin/facebook/fbCreditsAdd.jsp?status=#STATUS#&chip_value=#AMOUNT#]]></add_credits>
+			<facebook_sendgift><![CDATA[/cgibin/facebook/saveDetail.jsp]]></facebook_sendgift>
+			<seatlist><![CDATA[/cgibin/facebook/seatList.jsp?tableId=#TABLE_ID#]]></seatlist>
+			<facebook_login><![CDATA[/cgibin/facebook/fbLogin.jsp?facebook_id=#FACEBOOKID#&first_name=#FIRSTNAME#&last_name=#LASTNAME#&email=#EMAIL#&status=create]]></facebook_login>
+			<getlottodraws><![CDATA[/cgibin/facebook/getLottoDraws.jsp?mode=#MODE#]]></getlottodraws>
+			<getlottoresults><![CDATA[/cgibin/facebook/getLottoResults.jsp?mode=#MODE#]]></getlottoresults>
+			<buylottotickets><![CDATA[/cgibin/facebook/buyLottoTicket.jsp?drawno=#DRAWNO#&pick1=#NO0#&pick2=#NO1#&pick3=#NO2#&pick4=#NO3#&pick5=#NO4#&pick6=#NO5#&facebook_id=#FACEBOOKID#&amount=#AMOUNT#]]></buylottotickets>
+			<lottoWinsResult><![CDATA[/cgibin/facebook/lottoWinsResult.jsp]]></lottoWinsResult>
+			<postnotification><![CDATA[/cgibin/facebook/insertnotification.jsp]]></postnotification>
+			<getnotification><![CDATA[/cgibin/facebook/notificationList.jsp?receiver=#RECEIVER#]]></getnotification>
+			<updatenotification><![CDATA[/cgibin/facebook/updateNotification.jsp?receiver=#RECEIVER#&request_id=#REQUESTID#]]></updatenotification>
+			<virtualcreditpurchase><![CDATA[/cgibin/facebook/virtualCreditPurchase.jsp?cash=#CASH#]]></virtualcreditpurchase>
+		</facebook>
+		
 	</roulette>
 	<baccarat>
 		<sendBets><![CDATA[/cgibin/baccarat/placebets.jsp]]></sendBets>
-		<state><![CDATA[/cgibin/baccarat/state.jsp]]></state>
+		<state><![CDATA[/cgibin/baccarat/state.jsp?table_id=#TABLEID#?&vt_id=#VTID#]]></state>
 		<tableGraphic><![CDATA[/player/games/assets/baccarat/tablegraphics/]]></tableGraphic>
 		<audio><![CDATA[/player/games/assets/roulette/audio/]]></audio>
+		<statistics><![CDATA[/cgibin/roulette/stats.jsp?count=#COUNT#&table_id=#TABLE_ID#]]></statistics>
+		<winners><![CDATA[/cgibin/facebook/winnerList.jsp]]></winners>
 	</baccarat>
 </game>
