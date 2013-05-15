@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <game>
-
+	<!--
 	<casino 
 	game="roulette" 
 	gametype="tv_roulette" 
@@ -16,24 +16,28 @@
 	server="livecasino.smartliveaffiliates.com"
 	></casino>
 
-	
-	<!--
+	-->
+
 
 
 	<casino 
 	game="baccarat" 
-	gametype="dragontiger" 
+	gametype="pairs" 
 	tableid="zucbi5szfr9bewqo" 
-	streamUrl="rtmp://110.92.24.106/m888/table1_3" 
-	videoplayer="stagevideo"
+	streamUrl="rtmp://213.86.83.8/smartlivecasinolive-live/R1" 
+	videoplayer="video"
 	client="slc" vtid=""
 	userid="9ieozu30vtcwuri4" 
 	room="game-zucbi5szfr9bewqo-nl5pe00j2t6klsn5" 
 	lang="en" 
 	server="livecasino.smartliveaffiliates.com"
 	></casino> 
-		-->
+
 
 	
-	<!-- streamUrl="rtmp://213.86.83.8/smartlivecasinolive-live/R1" -->
+	<!-- 
+	streamUrl="rtmp://213.86.83.8/smartlivecasinolive-live/R1" 
+	
+	rtmp://110.92.24.106/m888/table1_3
+	-->
 </game>
