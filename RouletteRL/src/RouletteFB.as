@@ -1,7 +1,7 @@
-package {
-	
+package
+{
+	import com.ai.configs.FBRouletteConfig;
 	import com.ai.configs.RouletteBundle;
-	import com.ai.configs.RouletteConfig;
 	
 	import flash.display.Sprite;
 	import flash.events.Event;
@@ -10,15 +10,14 @@ package {
 	import robotlegs.bender.framework.api.IContext;
 	import robotlegs.bender.framework.impl.Context;
 	
-	[SWF(width = "990", height = "610", frameRate = "24", backgroundColor = "#000000")]
-	public class RouletteRL extends Sprite {
+	public class RouletteFB extends Sprite
+	{
+		[SWF(width = "760", height = "890", frameRate = "24", backgroundColor = "#000000")]
 		
 		protected var context:IContext; 
-		
-		public function RouletteRL() {
-		
-			//stage.scaleMode = StageScaleMode.NO_SCALE;
-			//stage.align = StageAlign.TOP_LEFT;
+		public function RouletteFB()
+		{
+			super();
 			addEventListener(Event.ADDED_TO_STAGE,onAddToStage);
 		}
 		private function onAddToStage(evt:Event):void{
@@ -26,7 +25,7 @@ package {
 			context = new Context()
 				.install(RouletteBundle)
 				.configure(
-					RouletteConfig,
+					FBRouletteConfig,
 					new ContextView(this)
 				);
 		}

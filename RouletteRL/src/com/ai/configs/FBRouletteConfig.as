@@ -1,4 +1,4 @@
-package com.ai.roulette.configs
+package com.ai.configs
 {
 	import com.ai.core.controller.commands.BalanceCommand;
 	import com.ai.core.controller.commands.BetsCommand;
@@ -95,8 +95,9 @@ package com.ai.roulette.configs
 	import robotlegs.bender.framework.api.IContext;
 	import robotlegs.bender.framework.api.LogLevel;
 	
-	public class RouletteConfig implements IConfig
-	{		[Inject]
+	public class FBRouletteConfig implements IConfig
+	{	
+		[Inject]
 		public var mediatorMap:IMediatorMap;
 		
 		[Inject]
@@ -115,7 +116,7 @@ package com.ai.roulette.configs
 		protected var signalBus:SignalBus=new SignalBus();
 		protected var assetLoader:IAssetLoader;
 		
-		public function RouletteConfig()
+		public function FBRouletteConfig()
 		{
 		}
 		
@@ -130,10 +131,12 @@ package com.ai.roulette.configs
 			mapCommands();
 	
 			context.afterInitializing(init);
+			
 		}
 		
 		public function createInstance():void{
-			gameData.game=Constants.BACCARAT;
+			gameData.game=Constants.ROULETTE;
+			gameData.gameType= Constants.TYPE_FACEBOOK;
 			var param:IParam=new Param(Param.PREVENT_CACHE, true);
 			assetLoader=injector.getOrCreateNewInstance(AssetLoader);
 			assetLoader.addParam(param);
@@ -162,22 +165,6 @@ package com.ai.roulette.configs
 		public function mapMediators():void{
 			mediatorMap.map(StageView).toMediator(StageMediator);
 			mediatorMap.map(LoginView).toMediator(LoginMediator);
-			mediatorMap.map(BetSpotsView).toMediator(BetSpotsMediator);
-			mediatorMap.map(VideoView).toMediator(VideoMediator);
-			mediatorMap.map(LimitsView).toMediator(LimitsMediator);
-			mediatorMap.map(ResultsClassicView).toMediator(ResultsClassicMediator);
-			mediatorMap.map(TaskbarView).toMediator(TaskbarMediator);
-			mediatorMap.map(StageInfoView).toMediator(StageInfoMediator);
-			mediatorMap.map(GameStatusView).toMediator(GameStatusMediator);
-			mediatorMap.map(ChatView).toMediator(ChatMediator);
-			mediatorMap.map(AccordionView).toMediator(RouletteAccordionMediator);
-			mediatorMap.map(PlayersView).toMediator(PlayersMediator);
-			mediatorMap.map(PlayersBetsView).toMediator(PlayersBetsMediator);
-			mediatorMap.map(FavouritesBetsView).toMediator(FavouritesBetsMediator);
-			mediatorMap.map(WinnersView).toMediator(WinnersMediator);
-			mediatorMap.map(StatisticsView).toMediator(StatisticsMediator);
-			//mediatorMap.map(MessageBoxView).toMediator(MessageBoxMediator);
-			mediatorMap.map(LobbyView).toMediator(LobbyMediator);
 
 		}
 		public function mapCommands():void{
