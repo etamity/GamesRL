@@ -7,10 +7,12 @@ package com.ai.baccarat.configs
 	import com.ai.baccarat.service.GameSocketService;
 	import com.ai.baccarat.view.AnimationPanelView;
 	import com.ai.baccarat.view.BetSpotsView;
+	import com.ai.baccarat.view.BetspotsPanelView;
 	import com.ai.baccarat.view.CardsPanelView;
 	import com.ai.baccarat.view.ScoreCardView;
 	import com.ai.baccarat.view.mediators.AnimationMeditor;
 	import com.ai.baccarat.view.mediators.BetSpotsMediator;
+	import com.ai.baccarat.view.mediators.BetspotsPanelMediator;
 	import com.ai.baccarat.view.mediators.CardsPanelMediator;
 	import com.ai.baccarat.view.mediators.ScoreCardMediator;
 	import com.ai.core.controller.commands.BalanceCommand;
@@ -78,6 +80,7 @@ package com.ai.baccarat.configs
 	import robotlegs.bender.framework.api.IConfig;
 	import robotlegs.bender.framework.api.IContext;
 	import robotlegs.bender.framework.api.LogLevel;
+	import com.ai.baccarat.view.mediators.BaccaratAccordionMediator;
 
 
 	public class BaccaratConfig implements IConfig
@@ -103,6 +106,7 @@ package com.ai.baccarat.configs
 		{      
 			context.logLevel = LogLevel.DEBUG;
 			gameData.game=Constants.BACCARAT;
+			gameData.gameType=Constants.TYPE_CLASSIC;
 			mapSingletons();
 			mapMediators();
 			mapCommands();
@@ -138,7 +142,7 @@ package com.ai.baccarat.configs
 			mediatorMap.map(LoginView).toMediator(LoginMediator);
 			mediatorMap.map(TaskbarView).toMediator(TaskbarMediator);
 			mediatorMap.map(GameStatusView).toMediator(GameStatusMediator);
-			mediatorMap.map(AccordionView).toMediator(AccordionMediator);
+			mediatorMap.map(AccordionView).toMediator(BaccaratAccordionMediator);
 			mediatorMap.map(ChatView).toMediator(ChatMediator);
 			mediatorMap.map(VideoView).toMediator(VideoMediator);
 			mediatorMap.map(BetSpotsView).toMediator(BetSpotsMediator);
@@ -146,25 +150,10 @@ package com.ai.baccarat.configs
 			mediatorMap.map(AnimationPanelView).toMediator(AnimationMeditor);
 			mediatorMap.map(ScoreCardView).toMediator(ScoreCardMediator);
 			mediatorMap.map(MessageBoxView).toMediator(MessageBoxMediator);
+			mediatorMap.map(BetspotsPanelView).toMediator(BetspotsPanelMediator);
 		}
 		public function mapCommands():void{
-		/*	commandMap.mapSignal(signalBus.signal(SignalConstants.STARTUP)).toCommand(StartupCommand);
-			commandMap.mapSignal(signalBus.signal(SignalConstants.STARTUP_COMPLETE)).toCommand(StartupCompleteCommand);
-			commandMap.mapSignal(signalBus.signal(LoginEvent.LOGIN)).toCommand(FBLoginCommand);
-			commandMap.mapSignal(signalBus.signal(StartupDataEvent.SEAT)).toCommand(SeatCommand);
-			commandMap.mapSignal(signalBus.signal(StartupDataEvent.LOAD)).toCommand(StartupDataCommand);
-			commandMap.mapSignal(signalBus.signal(BalanceEvent.LOAD)).toCommand(BalanceCommand);
-			commandMap.mapSignal(signalBus.signal(StateTableConfigEvent.LOAD)).toCommand(StateTableConfigCommand);
-			commandMap.mapSignal(signalBus.signal(PlayersEvent.LOAD)).toCommand(PlayersCommand);
-			commandMap.mapSignal(signalBus.signal(ChatEvent.LOAD_CONFIG)).toCommand(ChatConfigCommand);
-			commandMap.mapSignal(signalBus.signal(ChatEvent.CONNECT)).toCommand(ChatConnectionCommand);
-			commandMap.mapSignal(signalBus.signal(ChatEvent.PROCESS_MESSAGE)).toCommand(ChatReceiveMessageCommand);
-			commandMap.mapSignal(signalBus.signal(ChatEvent.SEND_MESSAGE)).toCommand(ChatSendMessageCommand);
-			commandMap.mapSignal(signalBus.signal(SocketEvent.CONNECT_GAME)).toCommand(SocketConnectionCommand);
-			commandMap.mapSignal(signalBus.signal(VideoEvent.CONNECT)).toCommand(VideoConnectionCommand);
-			
-			commandMap.mapSignal(signalBus.signal(BetEvent.SEND_BETS)).toCommand(BetsCommand);
-			commandMap.mapSignal(signalBus.signal(UIEvent.SETUP_VIEWS)).toCommand(SetupViewCommand);*/
+
 			
 			commandMap.mapSignal(signalBus.signal(SignalConstants.STARTUP), StartupCommand, true);
 			commandMap.mapSignal(signalBus.signal(SignalConstants.STARTUP_COMPLETE), StartupCompleteCommand, true);
