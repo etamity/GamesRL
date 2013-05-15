@@ -7,9 +7,9 @@
 		<balance><![CDATA[/cgibin/balance.jsp]]></balance>
 		<language><![CDATA[/player/games/languages/]]></language>
 		<style><![CDATA[/player/games/styles/]]></style>
-		<players><![CDATA[/cgibin/common/participants.jsp?table_id=#TABLEID#]]></players>
+		<players><![CDATA[/cgibin/common/participants.jsp]]></players>
 		<settings><![CDATA[/player/games/assets/settings.xml]]></settings>
-		<chatConfig><![CDATA[/cgibin/chat/config.jsp??room_id=#ROOMID#]]></chatConfig>
+		<chatConfig><![CDATA[/cgibin/chat/config.jsp]]></chatConfig>
 		<help><![CDATA[/player/games/help/Help.swf]]></help>
 		<lobby><![CDATA[/player/games/tables.swf]]></lobby>
 		<freeplay><![CDATA[/cgibin/mobile_launcher.jsp]]></freeplay>
@@ -46,10 +46,10 @@
 	</roulette>
 	<baccarat>
 		<sendBets><![CDATA[/cgibin/baccarat/placebets.jsp]]></sendBets>
-		<state><![CDATA[/cgibin/baccarat/state.jsp?table_id=#TABLEID#?&vt_id=#VTID#]]></state>
+		<state><![CDATA[/cgibin/baccarat/state.jsp]]></state>
 		<tableGraphic><![CDATA[/player/games/assets/baccarat/tablegraphics/]]></tableGraphic>
 		<audio><![CDATA[/player/games/assets/roulette/audio/]]></audio>
-		<statistics><![CDATA[/cgibin/roulette/stats.jsp?count=#COUNT#&table_id=#TABLE_ID#]]></statistics>
+		<statistics><![CDATA[/cgibin/roulette/stats.jsp]]></statistics>
 		<winners><![CDATA[/cgibin/facebook/winnerList.jsp]]></winners>
 	</baccarat>
 </game>
