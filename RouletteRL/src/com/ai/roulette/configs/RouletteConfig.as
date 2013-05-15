@@ -57,7 +57,7 @@ package com.ai.roulette.configs
 	import com.ai.roulette.controller.commands.StatisticsCommand;
 	import com.ai.roulette.controller.commands.WinnersCommand;
 	import com.ai.roulette.controller.signals.StatisticsEvent;
-	import com.ai.roulette.controller.signals.WinnersEvent;
+	import com.ai.core.controller.signals.WinnersEvent;
 	import com.ai.roulette.model.GameDataModel;
 	import com.ai.roulette.service.GameSocketService;
 	import com.ai.roulette.view.BetSpotsView;
@@ -65,22 +65,22 @@ package com.ai.roulette.configs
 	import com.ai.roulette.view.LimitsView;
 	import com.ai.roulette.view.LobbyView;
 	import com.ai.roulette.view.PlayersBetsView;
-	import com.ai.roulette.view.PlayersView;
+	import com.ai.core.view.PlayersView;
 	import com.ai.roulette.view.ResultsClassicView;
 	import com.ai.roulette.view.StageInfoView;
 	import com.ai.roulette.view.StatisticsView;
-	import com.ai.roulette.view.WinnersView;
+	import com.ai.core.view.WinnersView;
 	import com.ai.roulette.view.mediators.BetSpotsMediator;
 	import com.ai.roulette.view.mediators.FavouritesBetsMediator;
 	import com.ai.roulette.view.mediators.LimitsMediator;
 	import com.ai.roulette.view.mediators.LobbyMediator;
 	import com.ai.roulette.view.mediators.PlayersBetsMediator;
-	import com.ai.roulette.view.mediators.PlayersMediator;
+	import com.ai.core.view.mediators.PlayersMediator;
 	import com.ai.roulette.view.mediators.ResultsClassicMediator;
 	import com.ai.roulette.view.mediators.RouletteAccordionMediator;
 	import com.ai.roulette.view.mediators.StageInfoMediator;
 	import com.ai.roulette.view.mediators.StatisticsMediator;
-	import com.ai.roulette.view.mediators.WinnersMediator;
+	import com.ai.core.view.mediators.WinnersMediator;
 	
 	import org.assetloader.AssetLoader;
 	import org.assetloader.base.Param;

@@ -4,9 +4,9 @@ package com.ai.roulette.view.mediators
 	import com.ai.core.model.Language;
 	import com.ai.core.view.mediators.AccordionMediator;
 	import com.ai.roulette.view.FavouritesBetsView;
-	import com.ai.roulette.view.PlayersView;
+	import com.ai.core.view.PlayersView;
 	import com.ai.roulette.view.StatisticsView;
-	import com.ai.roulette.view.WinnersView;
+	import com.ai.core.view.WinnersView;
 	
 	public class RouletteAccordionMediator extends AccordionMediator
 	{

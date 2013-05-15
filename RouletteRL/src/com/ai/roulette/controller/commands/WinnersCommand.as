@@ -6,7 +6,7 @@ package com.ai.roulette.controller.commands {
 	import com.ai.core.model.SignalBus;
 	import com.ai.core.model.URLSModel;
 	import com.ai.core.utils.GameUtils;
-	import com.ai.roulette.controller.signals.WinnersEvent;
+	import com.ai.core.controller.signals.WinnersEvent;
 	import com.ai.roulette.model.GameDataModel;
 	
 	import flash.net.URLRequest;

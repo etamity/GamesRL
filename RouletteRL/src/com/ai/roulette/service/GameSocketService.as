@@ -10,7 +10,7 @@ package com.ai.roulette.service {
 	import com.ai.core.model.SignalBus;
 	import com.ai.core.service.SocketService;
 	import com.ai.roulette.controller.signals.StatisticsEvent;
-	import com.ai.roulette.controller.signals.WinnersEvent;
+	import com.ai.core.controller.signals.WinnersEvent;
 	import com.ai.roulette.model.GameDataModel;
 	import com.ai.roulette.model.GameState;
 	
