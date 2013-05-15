@@ -4,11 +4,9 @@ package com.ai.baccarat.classic.controller.commands
 	import com.ai.baccarat.classic.view.BetSpotsView;
 	import com.ai.baccarat.classic.view.CardsPanelView;
 	import com.ai.baccarat.classic.view.ScoreCardView;
-	import com.ai.baccarat.classic.view.StatisticsView;
 	import com.ai.baccarat.classic.view.TableGraphicView;
 	import com.ai.core.controller.commands.BaseCommand;
 	import com.ai.core.utils.GameUtils;
-	import com.ai.core.view.AccordionView;
 	import com.ai.core.view.ChatView;
 	import com.ai.core.view.GameStatusView;
 	import com.ai.core.view.LoginView;
@@ -16,6 +14,7 @@ package com.ai.baccarat.classic.controller.commands
 	import com.ai.core.view.StageView;
 	import com.ai.core.view.TaskbarView;
 	import com.ai.core.view.VideoView;
+	import com.ai.core.view.uicomps.AccordionUIView;
 	
 	import robotlegs.bender.extensions.contextView.ContextView;
 	
@@ -30,7 +29,7 @@ package com.ai.baccarat.classic.controller.commands
 		}
 		
 		override public function execute():void {
-			setupView();
+			//setupView();
 		}
 		
 		private function setupView():void {
@@ -38,7 +37,7 @@ package com.ai.baccarat.classic.controller.commands
 			contextView.view.addChild(new VideoView());
 			contextView.view.addChild(new TableGraphicView());
 			contextView.view.addChild(new LoginView());
-			contextView.view.addChild(new AccordionView());
+			contextView.view.addChild(new AccordionUIView());
 			contextView.view.addChild(new TaskbarView());
 			contextView.view.addChild(new GameStatusView())
 			contextView.view.addChild(new ChatView());

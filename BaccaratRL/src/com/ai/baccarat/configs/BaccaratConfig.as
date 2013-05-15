@@ -1,20 +1,22 @@
 package com.ai.baccarat.configs
 {
-	import com.ai.baccarat.controller.commands.SetupViewCommand;
-	import com.ai.baccarat.controller.commands.StateTableConfigCommand;
-	import com.ai.baccarat.model.GameDataModel;
-	import com.ai.baccarat.service.AnimationService;
-	import com.ai.baccarat.service.GameSocketService;
-	import com.ai.baccarat.view.AnimationPanelView;
-	import com.ai.baccarat.view.BetSpotsView;
-	import com.ai.baccarat.view.BetspotsPanelView;
-	import com.ai.baccarat.view.CardsPanelView;
-	import com.ai.baccarat.view.ScoreCardView;
-	import com.ai.baccarat.view.mediators.AnimationMeditor;
-	import com.ai.baccarat.view.mediators.BetSpotsMediator;
-	import com.ai.baccarat.view.mediators.BetspotsPanelMediator;
-	import com.ai.baccarat.view.mediators.CardsPanelMediator;
-	import com.ai.baccarat.view.mediators.ScoreCardMediator;
+	import com.ai.baccarat.classic.controller.commands.SetupViewCommand;
+	import com.ai.baccarat.classic.controller.commands.StateTableConfigCommand;
+	import com.ai.baccarat.classic.model.GameDataModel;
+	import com.ai.baccarat.classic.service.AnimationService;
+	import com.ai.baccarat.classic.service.GameSocketService;
+	import com.ai.baccarat.classic.view.AnimationPanelView;
+	import com.ai.baccarat.classic.view.BetSpotsView;
+	import com.ai.baccarat.classic.view.BetspotsPanelView;
+	import com.ai.baccarat.classic.view.CardsPanelView;
+	import com.ai.baccarat.classic.view.ScoreCardView;
+	import com.ai.baccarat.classic.view.TableGraphicView;
+	import com.ai.baccarat.classic.view.mediators.AnimationMeditor;
+	import com.ai.baccarat.classic.view.mediators.BaccaratAccordionMediator;
+	import com.ai.baccarat.classic.view.mediators.BetSpotsMediator;
+	import com.ai.baccarat.classic.view.mediators.BetspotsPanelMediator;
+	import com.ai.baccarat.classic.view.mediators.CardsPanelMediator;
+	import com.ai.baccarat.classic.view.mediators.ScoreCardMediator;
 	import com.ai.core.controller.commands.BalanceCommand;
 	import com.ai.core.controller.commands.BetsCommand;
 	import com.ai.core.controller.commands.ChatConfigCommand;
@@ -53,7 +55,6 @@ package com.ai.baccarat.configs
 	import com.ai.core.service.ISocketService;
 	import com.ai.core.service.URLSService;
 	import com.ai.core.service.VideoService;
-	import com.ai.core.view.AccordionView;
 	import com.ai.core.view.ChatView;
 	import com.ai.core.view.GameStatusView;
 	import com.ai.core.view.LoginView;
@@ -61,7 +62,7 @@ package com.ai.baccarat.configs
 	import com.ai.core.view.StageView;
 	import com.ai.core.view.TaskbarView;
 	import com.ai.core.view.VideoView;
-	import com.ai.core.view.mediators.AccordionMediator;
+	import com.ai.core.view.interfaces.IAccordion;
 	import com.ai.core.view.mediators.ChatMediator;
 	import com.ai.core.view.mediators.GameStatusMediator;
 	import com.ai.core.view.mediators.LoginMediator;
@@ -69,6 +70,7 @@ package com.ai.baccarat.configs
 	import com.ai.core.view.mediators.StageMediator;
 	import com.ai.core.view.mediators.TaskbarMediator;
 	import com.ai.core.view.mediators.VideoMediator;
+	import com.ai.core.view.uicomps.AccordionUIView;
 	
 	import org.assetloader.AssetLoader;
 	import org.assetloader.core.IAssetLoader;
@@ -80,7 +82,6 @@ package com.ai.baccarat.configs
 	import robotlegs.bender.framework.api.IConfig;
 	import robotlegs.bender.framework.api.IContext;
 	import robotlegs.bender.framework.api.LogLevel;
-	import com.ai.baccarat.view.mediators.BaccaratAccordionMediator;
 
 
 	public class BaccaratConfig implements IConfig
@@ -113,10 +114,26 @@ package com.ai.baccarat.configs
 			
 			context.afterInitializing(init);
 		}
-		
+		public function setupViews():void{
+			contextView.view.addChild(new StageView());
+			contextView.view.addChild(new VideoView());
+			contextView.view.addChild(new TableGraphicView());
+			contextView.view.addChild(new LoginView());
+			contextView.view.addChild(new AccordionUIView());
+			contextView.view.addChild(new TaskbarView());
+			contextView.view.addChild(new GameStatusView())
+			contextView.view.addChild(new ChatView());
+			contextView.view.addChild(new BetSpotsView());
+			contextView.view.addChild(new CardsPanelView());
+			contextView.view.addChild(new AnimationPanelView());
+			contextView.view.addChild(new ScoreCardView());
+			contextView.view.addChild(new MessageBoxView());
+			
+		}
 		public function init():void{
 			mediatorMap.mediate(contextView.view);
 			signalBus.dispatch(SignalConstants.STARTUP);
+			setupViews();
 		}
 	
 		public function mapSingletons():void{
@@ -142,7 +159,7 @@ package com.ai.baccarat.configs
 			mediatorMap.map(LoginView).toMediator(LoginMediator);
 			mediatorMap.map(TaskbarView).toMediator(TaskbarMediator);
 			mediatorMap.map(GameStatusView).toMediator(GameStatusMediator);
-			mediatorMap.map(AccordionView).toMediator(BaccaratAccordionMediator);
+			mediatorMap.map(IAccordion).toMediator(BaccaratAccordionMediator);
 			mediatorMap.map(ChatView).toMediator(ChatMediator);
 			mediatorMap.map(VideoView).toMediator(VideoMediator);
 			mediatorMap.map(BetSpotsView).toMediator(BetSpotsMediator);
