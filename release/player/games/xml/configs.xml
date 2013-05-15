@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<game>
+
+	<casino 
+	game="roulette" 
+	gametype="tv_roulette" 
+	tableid="48z5pjps3ntvqc1b"
+	streamUrl="rtmp://213.86.83.8/smartlivecasinolive-live/R1" 
+
+	videoplayer="video"
+	client="slc" 
+	vtid="" 
+	userid="" 
+	room="game-7nyiaws9tgqrzaz3-rvu4z17kx9010qv2" 
+	lang="en" 
+	server="livecasino.smartliveaffiliates.com"
+	></casino>
+
+	
+	<!--
+
+
+	<casino 
+	game="baccarat" 
+	gametype="dragontiger" 
+	tableid="zucbi5szfr9bewqo" 
+	streamUrl="rtmp://110.92.24.106/m888/table1_3" 
+	videoplayer="stagevideo"
+	client="slc" vtid=""
+	userid="9ieozu30vtcwuri4" 
+	room="game-zucbi5szfr9bewqo-nl5pe00j2t6klsn5" 
+	lang="en" 
+	server="livecasino.smartliveaffiliates.com"
+	></casino> 
+		-->
+
+	
+	<!-- streamUrl="rtmp://213.86.83.8/smartlivecasinolive-live/R1" -->
+</game>

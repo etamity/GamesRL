@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<style>
+	<!-- window background gradient -->
+	<bgColor1>000000</bgColor1>
+	<bgColor2>353027</bgColor2>
+
+	<!-- background can be totally turned off by making overlay false -->
+	<overlay>false</overlay>
+
+	<!-- background transparency can be set if it is not turend off above (valued should be between 0-1) -->
+	<lobbytransparency>0</lobbytransparency>
+
+	<!-- bottom games panel gradient -->
+	<subbgColor1>232323</subbgColor1>
+	<subbgColor2>232323</subbgColor2>	
+	
+	<!-- bottom panel (task bar) -->
+	<taskbarColor>000000</taskbarColor>
+	
+	<!-- chips panel (on task bar in games) -->
+	<chipsBarColor1>003366</chipsBarColor1>
+	<chipsBarColor2>000000</chipsBarColor2>
+	
+	<lcdPanelsTitleTxt>E8D299</lcdPanelsTitleTxt>
+	<lcdPanelsTxt>FFFFFF</lcdPanelsTxt>
+	<limitsPanelTitleTxt>000000</limitsPanelTitleTxt>
+	<limitsPanelTxt>000000</limitsPanelTxt>
+	<gameTimerTxt>FFFF00</gameTimerTxt>
+	<gameMessagesTxt>FFFFFF</gameMessagesTxt>
+	<winningMessagesTxt>FFFF00</winningMessagesTxt>
+	<chatPanelTitleTxt>FFFF00</chatPanelTitleTxt>
+	<chatPanelTxt>FFFFFF</chatPanelTxt>
+	<buttonTxt>333333</buttonTxt>
+	<buttonRolloverTxt>000000</buttonRolloverTxt>
+	<buttonDisabledTxt>666666</buttonDisabledTxt>
+	<lobbyBtnTxt>FFFFFF</lobbyBtnTxt>
+	<lobbyBtnRolloverTxt>FFFF00</lobbyBtnRolloverTxt>
+	<lobbyMenuButton>412E1D</lobbyMenuButton>
+	<lobbyMenuButtonOver>A14C00</lobbyMenuButtonOver>
+	
+	<!-- text on tables -->
+	<tableTxtColor>CCF27A</tableTxtColor>
+	<tableTxtRolloverColor>333333</tableTxtRolloverColor>
+	<gameBtnTxt>FFFFFF</gameBtnTxt>
+	<gameBtnSelectedTxt>FFFF00</gameBtnSelectedTxt>
+	<gameBtnDisabledTxt>666666</gameBtnDisabledTxt>
+
+	<!-- border color and thickness of whole lobby -->
+	<borderColor thickness="1">CCCCCC</borderColor>
+	<tablesBorder>false</tablesBorder>
+
+	<!-- all the title text colors like game titles, table names, etc -->
+	<titleColor>E0D6CC</titleColor>
+
+	<!-- all the highlight text colors like table limits, selected game, etc -->
+	<highlightColor>F5AC02</highlightColor>
+
+	<!-- text color of the contents in rollover animation of each table (note: rollover animation titles still use the titleColor above) -->
+	<lobbydetailsColor>FFFFFF</lobbydetailsColor>
+
+	<!-- cashier button with the url to launch the popup and its dimensions, it can be set to false if you don't want cashier button -->
+	<cashier url="https://livecasino.smartlivegaming.com/Contents/Common/EN/Deposit.aspx" w="855" h="520" label="deposit" popup="true" scrollbars="0">true</cashier>
+
+	<!-- Enable/Disable Mini Games -->
+	<mini real_play="true">true</mini>
+	
+	<!-- URL used for facebook -->
+	<social casino="Smart Live Casino" url="http://livecasino.smartlivegaming.com" w="640" h="480" />
+
+	<realplay label="REAL PLAY" url="https://livecasino.smartlivegaming.com/SLCContents/Common/EN/UpgradeMembership.aspx?id=1&source=4" enable="false" showtime="1" hidetime="6"></realplay>
+	
+	<menubar label="My Account">
+		<menu label="Quick Deposit" url="http://www.google.com" visible="true" enable="true"></menu>
+		<menu label="Quick Transfer" url="http://www.google.com" visible="true" enable="true"></menu>
+		<menu label="Withdrawal" url="http://www.google.com" visible="true" enable="true"></menu>
+		<menu label="Account Summary" url="http://www.google.com" visible="true" enable="true"></menu>
+		<menu label="Account History" url="http://www.google.com" visible="true" enable="true"></menu>
+	</menubar>
+
+	<!-- Responsible gaming button (used for AAMS) -->
+	<responsible url="http://www.aams.gov.it/?id=6648" w="799" h="600" label="responsible" popup="true" />
+
+	<!-- The following buttons can be disabled by setting them to false but not recommended -->
+	<help label="help">true</help>
+	<history>true</history>
+	<fullscreen>true</fullscreen>
+
+	<!-- banners -->
+	<banner_en><![CDATA[/player/games/assets/lobby/slc/banner_en.swf]]></banner_en>
+	<taskbar_banner_en><![CDATA[/player/games/assets/lobby/slc/taskbar_banner_en.swf]]></taskbar_banner_en>
+	<taskbar_banner_it><![CDATA[/player/games/assets/lobby/slc/taskbar_banner_it.swf]]></taskbar_banner_it>
+
+	<!-- Main Lobby BG (optional for the clients who want to use main lobby -->
+	<lobbybg_en><![CDATA[/player/games/assets/lobby/slc/lobbybg_en.swf]]></lobbybg_en>
+
+	<!-- Game BG (optional and useful for wide screen popup) -->
+	<gamebg_en><![CDATA[/player/games/assets/lobby/slc/gamebg_en.swf]]></gamebg_en>
+
+	<!-- General text color used in history, help etc popups -->
+	<txtColor>D5D4D2</txtColor>
+	
+	<!-- Baccarat Scoreboard Text Color -->
+	<baccaratScoreboardtxtColor>FFFFFF</baccaratScoreboardtxtColor>
+
+	<!-- Lobby functionality settings -->
+	<roulette_view_selection>false</roulette_view_selection>
+	<lobby_table_rollover>false</lobby_table_rollover>
+	<bj_seat_selection>false</bj_seat_selection>
+
+	<!-- History Popup -->
+	<historyBgColor1>23201A</historyBgColor1>
+	<historyBgColor2>151310</historyBgColor2>
+	<historyHeaderBg1>9F9C96</historyHeaderBg1>
+    <historyHeaderBg2>F8F8F8</historyHeaderBg2>
+	<historyTitleTxtColor>312D25</historyTitleTxtColor>
+	<!-- History Data Grid -->
+	<headerTxtColor>312D25</headerTxtColor>
+    <defaultTxtColor>000000</defaultTxtColor>
+	<!-- Popup Close Button -->
+	<closeBtnColor>312D25</closeBtnColor>
+
+	<!-- Button (Commonly used in all popups like History, Help, etc -->
+	<defaultBtnColor1>9F9C96</defaultBtnColor1>
+	<defaultBtnColor2>F8F8F8</defaultBtnColor2>
+    <rollOverBtnColor1>F8F8F8</rollOverBtnColor1>
+	<rollOverBtnColor2>9F9C96</rollOverBtnColor2>
+	<selectedBtnColor1>F8F8F8</selectedBtnColor1>
+	<selectedBtnColor2>9F9C96</selectedBtnColor2>
+    <defaultBtnTxtColor>312D25</defaultBtnTxtColor>
+    <rollOverBtnTxtColor>000000</rollOverBtnTxtColor>
+    <selectedBtnTxtColor>DFD8CA</selectedBtnTxtColor>
+
+	<!-- Help Popup (recommended to use the same colors as in history popup)-->
+	<helpBgColor1>23201A</helpBgColor1>
+	<helpBgColor2>151310</helpBgColor2>
+	<helpHeaderBg1>9F9C96</helpHeaderBg1>
+    <helpHeaderBg2>F8F8F8</helpHeaderBg2>
+	<helpTitleTxtColor>312D25</helpTitleTxtColor>
+	<helpTxtColor>D5D4D2</helpTxtColor>
+	<helpContentsTxtRolloverColor>FFFFFF</helpContentsTxtRolloverColor>
+	
+	<!-- Roulette Statistics Popup (only in roulette game - recommended to use the same colors as in history popup) -->
+	<rouletteStatsBgColor1>23201A</rouletteStatsBgColor1>
+	<rouletteStatsBgColor2>151310</rouletteStatsBgColor2>
+	<rouletteStatsHeaderBg1>9F9C96</rouletteStatsHeaderBg1>
+    <rouletteStatsHeaderBg2>F8F8F8</rouletteStatsHeaderBg2>
+	<rouletteStatsTitleTxtColor>312D25</rouletteStatsTitleTxtColor>
+
+</style>

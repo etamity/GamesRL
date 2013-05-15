@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+<script/>
+<session>online</session>
+<sitting>true</sitting>
+<currency_code>$</currency_code>
+<junketbalance>0.00</junketbalance>
+<date>04/30/2013 17:09:14.904</date>
+<seatnum>0</seatnum>
+<seatmax>400</seatmax>
+<userid>9ieozu30vtcwuri4</userid>
+<table_name>Baccarat</table_name>
+<table_bet_min_limit>5.0</table_bet_min_limit>
+<table_bet_max_limit>500.0</table_bet_max_limit>
+<chip_amounts>1,5,25,100,500,1000</chip_amounts>
+<live_stream>baccarat_generic_med</live_stream>
+<live_stream1>baccarat_generic_med</live_stream1>
+<live_stream2>baccarat_generic_med</live_stream2>
+<broadcast>80.90.2.35</broadcast>
+<broadcast_ip1>80.90.2.35</broadcast_ip1>
+<broadcast_ip2>80.90.2.35</broadcast_ip2>
+<low_stream>baccarat_generic_med</low_stream>
+<med_stream>baccarat_generic_med</med_stream>
+<hi_stream>baccarat_generic_med</hi_stream>
+<remote_ip>213.121.175.60</remote_ip>
+<player_min_bet>1.0</player_min_bet>
+<player_max_bet>1000.0</player_max_bet>
+<tie_min_bet>1.0</tie_min_bet>
+<tie_max_bet>1000.0</tie_max_bet>
+<banker_min_bet>1.0</banker_min_bet>
+<banker_max_bet>1000.0</banker_max_bet>
+<pair_player_min_bet>1.0</pair_player_min_bet>
+<pair_player_max_bet>1000.0</pair_player_max_bet>
+<pair_banker_min_bet>1.0</pair_banker_min_bet>
+<pair_banker_max_bet>1000.0</pair_banker_max_bet>
+</response>
