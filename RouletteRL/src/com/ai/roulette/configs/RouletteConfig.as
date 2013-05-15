@@ -39,15 +39,16 @@ package com.ai.roulette.configs
 	import com.ai.core.service.ISocketService;
 	import com.ai.core.service.URLSService;
 	import com.ai.core.service.VideoService;
+	import com.ai.core.view.AccordionView;
 	import com.ai.core.view.ChatView;
 	import com.ai.core.view.GameStatusView;
 	import com.ai.core.view.LoginView;
-	import com.ai.core.view.PlayersView;
 	import com.ai.core.view.StageView;
 	import com.ai.core.view.TaskbarView;
 	import com.ai.core.view.VideoView;
 	import com.ai.core.view.WinnersView;
 	import com.ai.core.view.interfaces.IAccordion;
+	import com.ai.core.view.interfaces.IPlayersView;
 	import com.ai.core.view.mediators.ChatMediator;
 	import com.ai.core.view.mediators.GameStatusMediator;
 	import com.ai.core.view.mediators.LoginMediator;
@@ -56,7 +57,6 @@ package com.ai.roulette.configs
 	import com.ai.core.view.mediators.TaskbarMediator;
 	import com.ai.core.view.mediators.VideoMediator;
 	import com.ai.core.view.mediators.WinnersMediator;
-	import com.ai.core.view.uicomps.AccordionUIView;
 	import com.ai.roulette.classic.controller.commands.SetupAssetCommand;
 	import com.ai.roulette.classic.controller.commands.SetupViewCommand;
 	import com.ai.roulette.classic.controller.commands.StateTableConfigCommand;
@@ -143,10 +143,29 @@ package com.ai.roulette.configs
 			assetLoader.addParam(param);
 		}
 		
+		
 		public function init():void{
 			mediatorMap.mediate(contextView.view);
 			signalBus.dispatch(SignalConstants.STARTUP);
+			setupView();
 		}
+		private function setupView():void {
+			contextView.view.addChild(new StageView());
+			contextView.view.addChild(new LoginView());
+			contextView.view.addChild(new AccordionView());
+			contextView.view.addChild(new BetSpotsView());
+			contextView.view.addChild(new LimitsView());
+			contextView.view.addChild(new GameStatusView());
+			contextView.view.addChild(new ChatView());
+			contextView.view.addChild(new ResultsClassicView());
+			contextView.view.addChild(new TaskbarView());
+			//contextView.view.addChild(new MessageBoxView());
+			contextView.view.addChild(new LobbyView());
+			contextView.view.addChild(new VideoView());
+			//contextView.addChild(new StageInfoView());
+			
+		}
+		
 		public function mapSingletons():void{
 			injector.map(FlashVars).toValue(new FlashVars(contextView));
 			injector.map(IAssetLoader).toValue(assetLoader);
@@ -176,7 +195,7 @@ package com.ai.roulette.configs
 			mediatorMap.map(GameStatusView).toMediator(GameStatusMediator);
 			mediatorMap.map(ChatView).toMediator(ChatMediator);
 			mediatorMap.map(IAccordion).toMediator(RouletteAccordionMediator);
-			mediatorMap.map(PlayersView).toMediator(PlayersMediator);
+			mediatorMap.map(IPlayersView).toMediator(PlayersMediator);
 			mediatorMap.map(PlayersBetsView).toMediator(PlayersBetsMediator);
 			mediatorMap.map(FavouritesBetsView).toMediator(FavouritesBetsMediator);
 			mediatorMap.map(WinnersView).toMediator(WinnersMediator);

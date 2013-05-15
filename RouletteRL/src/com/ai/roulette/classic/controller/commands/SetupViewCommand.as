@@ -36,7 +36,7 @@ package com.ai.roulette.classic.controller.commands
 		}
 		
 		override public function execute():void {
-			setupView();
+			//setupView();
 		}
 		
 		private function setupView():void {

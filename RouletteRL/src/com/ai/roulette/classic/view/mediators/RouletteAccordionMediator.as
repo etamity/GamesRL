@@ -2,11 +2,11 @@ package com.ai.roulette.classic.view.mediators
 {
 	import com.ai.core.controller.signals.BaseSignal;
 	import com.ai.core.model.Language;
+	import com.ai.core.view.PlayersView;
+	import com.ai.core.view.WinnersView;
 	import com.ai.core.view.mediators.AccordionMediator;
 	import com.ai.roulette.classic.view.FavouritesBetsView;
-	import com.ai.core.view.PlayersView;
 	import com.ai.roulette.classic.view.StatisticsView;
-	import com.ai.core.view.WinnersView;
 	
 	public class RouletteAccordionMediator extends AccordionMediator
 	{
