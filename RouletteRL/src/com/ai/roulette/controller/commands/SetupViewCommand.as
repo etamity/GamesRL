@@ -3,13 +3,13 @@ package com.ai.roulette.controller.commands
 	import com.ai.core.controller.commands.BaseCommand;
 	import com.ai.core.model.URLSModel;
 	import com.ai.core.utils.GameUtils;
-	import com.ai.core.view.AccordionView;
 	import com.ai.core.view.ChatView;
 	import com.ai.core.view.GameStatusView;
 	import com.ai.core.view.LoginView;
 	import com.ai.core.view.StageView;
 	import com.ai.core.view.TaskbarView;
 	import com.ai.core.view.VideoView;
+	import com.ai.core.view.uicomps.AccordionUIView;
 	import com.ai.roulette.view.BetSpotsView;
 	import com.ai.roulette.view.LimitsView;
 	import com.ai.roulette.view.LobbyView;
@@ -42,7 +42,7 @@ package com.ai.roulette.controller.commands
 		private function setupView():void {
 			contextView.view.addChild(new StageView());
 			contextView.view.addChild(new LoginView());
-			contextView.view.addChild(new AccordionView());
+			contextView.view.addChild(new AccordionUIView());
 			contextView.view.addChild(new BetSpotsView());
 			contextView.view.addChild(new LimitsView());
 			contextView.view.addChild(new GameStatusView());
