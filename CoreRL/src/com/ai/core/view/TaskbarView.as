@@ -1,7 +1,6 @@
 package com.ai.core.view {
 	
 	import com.ai.core.controller.signals.BetEvent;
-	import com.ai.core.controller.signals.TaskbarActionEvent;
 	import com.ai.core.utils.FormatUtils;
 	import com.ai.core.utils.GameUtils;
 	
