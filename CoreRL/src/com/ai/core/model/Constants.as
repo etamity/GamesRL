@@ -7,6 +7,9 @@ package com.ai.core.model {
 		public static const ROULETTE:String 		= "ROULETTE";
 		public static const BLACKJACK:String 		= "BLACKJACK";
 
+		public static const TYPE_FACEBOOK:String 		= "TYPE_FACEBOOK";
+		public static const TYPE_CLASSIC:String 		= "TYPE_CLASSIC";
+		public static const TYPE_MOBILE:String 			= "TYPE_MOBILE";
 		
 		public static const SOCKET_SUBSCRIBE:String 		= "subscribe";
 		public static const SOCKET_DEALER:String 			= "dealer";

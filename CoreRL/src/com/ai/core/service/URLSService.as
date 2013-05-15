@@ -55,6 +55,8 @@ package com.ai.core.service
 			{
 				urlsModel.sendBets =xml.baccarat.sendBets;
 				urlsModel.state =xml.baccarat.state;
+				urlsModel.winners=xml.baccarat.winners;
+				urlsModel.statistics=xml.baccarat.statistics;
 			}
 			
 			if (flashVars.game.toLowerCase()==Constants.ROULETTE.toLowerCase())

@@ -23,6 +23,8 @@ package com.ai.core.model
 		private var _response:String;
 		private var _resultXML:XML;
 		private var _game:String;
+		
+		private var _gameType:String;
 		private var _statusMessage:String;
 		private var _layoutPoints:Dictionary;
 		public function GameData()
@@ -46,6 +48,13 @@ package com.ai.core.model
 		public function set game(value:String):void{
 			_game=value;
 		}
+		public function get gameType():String{
+			return 	_gameType;
+		}
+		public function set gameType(value:String):void{
+			_gameType=value;
+		}
+
 		public function get resultXML():XML {
 			return _resultXML;
 		}

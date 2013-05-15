@@ -5,17 +5,20 @@ package com.ai.core.view.mediators {
 	import com.ai.core.controller.signals.StartupDataEvent;
 	import com.ai.core.model.SignalBus;
 	import com.ai.core.utils.GameUtils;
-	import com.ai.core.view.AccordionView;
+	import com.ai.core.view.interfaces.IAccordion;
 	
 	import flash.events.Event;
 	
 	import robotlegs.bender.bundles.mvcs.Mediator;
+	import robotlegs.bender.extensions.contextView.ContextView;
 	
 	public class AccordionMediator extends Mediator{
 		
 		[Inject]
-		public var view:AccordionView;
+		public var view:IAccordion;
 		
+		[Inject]
+		public var contextView:ContextView;
 		[Inject]
 		public var signalBus:SignalBus;
 		
@@ -26,7 +29,7 @@ package com.ai.core.view.mediators {
 		
 		private function setupModel(signal:BaseSignal):void {
 			view.init();
-			eventMap.mapListener(view.stage, Event.RESIZE, onStageResize);
+			eventMap.mapListener(contextView.view.stage, Event.RESIZE, onStageResize);
 		}
 		
 		public function addViews(signal:BaseSignal):void {

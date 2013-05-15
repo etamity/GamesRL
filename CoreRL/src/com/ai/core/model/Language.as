@@ -159,6 +159,6 @@ package com.ai.core.model {
 		public static var SMALLROAD:String;
 		public static var COCKROACHROAD:String;
 		
-		
+		public static var BACCARAT_BETSPOTSPANEL:String;
 	}
 }

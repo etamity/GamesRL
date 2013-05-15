@@ -48,10 +48,10 @@ package com.ai.core.controller.commands {
 			var id:String=signal.params.id;
 			var password:String=signal.params.password;
 			if (id != "" && password != "") {
-		
 				var firstName:String= id.split(".")[0];
 				var lastName:String= id.split(".")[1];
-				var loginURL:String = StringUtils.parseURL(urls.login, {"#FIRSTNAME#":firstName, "#LASTNAME#":lastName } );
+				var loginURL:String =urls.login+ "?first_name=#FIRSTNAME#&last_name=#LASTNAME#";
+				loginURL=StringUtils.parseURL(loginURL, {"#FIRSTNAME#":firstName, "#LASTNAME#":lastName });
 				debug(loginURL);
 				service.addLoader(new XMLLoader(new URLRequest(loginURL), Constants.SERVER_LOGIN));
 				service.getLoader(Constants.SERVER_LOGIN).onError.add(showError);
