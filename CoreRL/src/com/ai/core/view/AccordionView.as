@@ -1,10 +1,11 @@
 package com.ai.core.view {
 	
 	import com.ai.core.view.accordion.Accordion;
+	import com.ai.core.view.interfaces.IAccordion;
 	
 	import flash.display.MovieClip;
 	
-	public class AccordionView extends AccordionAsset {
+	public class AccordionView extends AccordionAsset implements IAccordion {
 
 		private var _accordion:Accordion;
 		private var _headers:Array;

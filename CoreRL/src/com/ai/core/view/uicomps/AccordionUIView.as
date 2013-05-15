@@ -15,7 +15,6 @@ package com.ai.core.view.uicomps
 			_accordion=new Accordion();
 			addChild(_accordion);
 			_accordion.setSize(170,529);
-			
 		}
 		
 		public function init():void
@@ -29,6 +28,7 @@ package com.ai.core.view.uicomps
 		public function add(mc:MovieClip, title:String, toolTipMsg:String=""):void
 		{
 			_accordion.add(title,mc);
+		
 	
 		}
 	}

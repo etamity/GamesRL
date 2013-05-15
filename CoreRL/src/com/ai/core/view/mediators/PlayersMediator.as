@@ -5,7 +5,7 @@ package com.ai.core.view.mediators {
 	import com.ai.core.controller.signals.PlayersEvent;
 	import com.ai.core.model.SignalBus;
 	import com.ai.core.utils.GameUtils;
-	import com.ai.core.view.PlayersView;
+	import com.ai.core.view.interfaces.IPlayersView;
 	
 	import flash.events.Event;
 	
@@ -14,7 +14,7 @@ package com.ai.core.view.mediators {
 	public class PlayersMediator extends Mediator{
 		
 		[Inject]
-		public var view:PlayersView;
+		public var view:IPlayersView;
 
 		
 		[Inject]

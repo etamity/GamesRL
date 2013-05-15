@@ -37,6 +37,7 @@ package com.ai.core.service
 			super();
 		}
 		private function setConfig(signal:LoaderSignal, xml:XML):void {
+			debug(xml);
 			urlsModel.server= xml.common.server;
 			urlsModel.authentication= xml.common.authentication;
 			urlsModel.balance= xml.common.balance;
