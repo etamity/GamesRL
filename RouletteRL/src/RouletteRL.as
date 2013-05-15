@@ -1,7 +1,7 @@
 package {
 	
-	import com.ai.configs.RouletteBundle;
-	import com.ai.configs.RouletteConfig;
+	import com.ai.roulette.configs.RouletteBundle;
+	import com.ai.roulette.configs.RouletteConfig;
 	
 	import flash.display.Sprite;
 	import flash.events.Event;
