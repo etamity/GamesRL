@@ -11,7 +11,6 @@ package com.ai.core.controller.commands {
 		public var flashVars:FlashVars;
 		[Inject]
 		public var signalBus:SignalBus;
-		
 		public function StartupCompleteCommand() {
 			super();
 		}

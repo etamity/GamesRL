@@ -15,6 +15,7 @@ package com.ai.core.view.uicomps
 			_accordion=new Accordion();
 			addChild(_accordion);
 			_accordion.setSize(170,529);
+			_accordion.defaultButtonHeight=33;
 		}
 		
 		public function init():void

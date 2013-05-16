@@ -1,6 +1,6 @@
 package com.ai.core.controller.commands {
 	
-	import com.ai.core.controller.signals.PlayersEvent;
+	import com.ai.core.controller.signals.WinnersEvent;
 	import com.ai.core.model.Constants;
 	import com.ai.core.model.FlashVars;
 	import com.ai.core.model.SignalBus;
@@ -14,37 +14,39 @@ package com.ai.core.controller.commands {
 	import org.assetloader.signals.ErrorSignal;
 	import org.assetloader.signals.LoaderSignal;
 	
-	public class PlayersCommand extends BaseCommand {
+	public class WinnersCommand extends BaseCommand {
 		
 		[Inject]
 		public var service:IAssetLoader;
 		
 		[Inject]
 		public var urls:URLSModel;
+	
 		
 		[Inject]
 		public var flashvars:FlashVars;
-		
+
 		[Inject]
 		public var signalBus:SignalBus;
+		
 		override public function execute():void {
 			loadPlayers();			
 		}
 		
 		private function loadPlayers():void {
-			if(!service.hasLoader(Constants.SERVER_PLAYERS)) {
-				service.addLoader(new XMLLoader(new URLRequest(urls.players + "?table_id=" + flashvars.table_id), Constants.SERVER_PLAYERS));
-				service.getLoader(Constants.SERVER_PLAYERS).onError.add(showError);
-				service.getLoader(Constants.SERVER_PLAYERS).onComplete.add(setPlayers);			
+			if(!service.hasLoader(Constants.SERVER_WINNERS)) {
+				service.addLoader(new XMLLoader(new URLRequest(urls.winners + "?mode=top"), Constants.SERVER_WINNERS));
+				service.getLoader(Constants.SERVER_WINNERS).onError.add(showError);
+				service.getLoader(Constants.SERVER_WINNERS).onComplete.add(setPlayers);			
 				service.start();
-				debug(urls.players);
+				debug(urls.winners);
 			}
 		}
 		
 		private function setPlayers(signal:LoaderSignal, xml:XML):void {
-			//debug(xml);		
-			signalBus.dispatch(PlayersEvent.LOADED,{node:xml});
-			service.remove(Constants.SERVER_PLAYERS);
+			//debug(xml);			
+			service.remove(Constants.SERVER_WINNERS);
+			signalBus.dispatch(WinnersEvent.LOADED,{node:xml});
 			
 		}
 		

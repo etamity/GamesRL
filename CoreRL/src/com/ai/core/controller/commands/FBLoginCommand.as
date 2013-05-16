@@ -51,9 +51,9 @@ package com.ai.core.controller.commands {
 				var firstName:String= id.split(".")[0];
 				var lastName:String= id.split(".")[1];
 				var loginURL:String =urls.login+ "?first_name=#FIRSTNAME#&last_name=#LASTNAME#";
-				debug(loginURL);
-				loginURL=StringUtils.parseURL(loginURL, {"#FIRSTNAME#":firstName, "#LASTNAME#":lastName });
 			
+				loginURL=StringUtils.parseURL(loginURL, {"#FIRSTNAME#":firstName, "#LASTNAME#":lastName });
+				debug(loginURL);
 				service.addLoader(new XMLLoader(new URLRequest(loginURL), Constants.SERVER_LOGIN));
 				service.getLoader(Constants.SERVER_LOGIN).onError.add(showError);
 				service.getLoader(Constants.SERVER_LOGIN).onComplete.add(checkGrandAuthenticationResponse);			
@@ -86,5 +86,6 @@ package com.ai.core.controller.commands {
 		private function debug(...args):void {
 			GameUtils.log(this, args);
 		}
+		
 	}
 }

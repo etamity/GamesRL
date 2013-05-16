@@ -14,6 +14,8 @@ package com.ai.core.view.uicomps
 		{
 			super();
 			listView=new List();
+			listView.y=5;
+			listView.setSize(164,390);
 			addChild(listView);
 		}
 		public function align():void {

@@ -1,9 +1,11 @@
 package com.ai.core.controller.commands {	
 	
 	import com.ai.core.controller.signals.ChatEvent;
+	import com.ai.core.controller.signals.PlayersEvent;
 	import com.ai.core.controller.signals.StartupDataEvent;
 	import com.ai.core.controller.signals.StateTableConfigEvent;
 	import com.ai.core.controller.signals.UIEvent;
+	import com.ai.core.controller.signals.WinnersEvent;
 	import com.ai.core.model.Constants;
 	import com.ai.core.model.Language;
 	import com.ai.core.model.SignalBus;
@@ -79,6 +81,8 @@ package com.ai.core.controller.commands {
 			signalBus.dispatch(StateTableConfigEvent.LOAD);
 			signalBus.dispatch(ChatEvent.LOAD_CONFIG);
 			signalBus.dispatch(UIEvent.SETUP_ASSET);
+			signalBus.dispatch(PlayersEvent.LOAD);
+			signalBus.dispatch(WinnersEvent.LOAD);
 		}
 		
 		private function showError(signal:ErrorSignal):void {

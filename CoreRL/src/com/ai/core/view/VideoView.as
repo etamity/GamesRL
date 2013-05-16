@@ -156,7 +156,7 @@ package com.ai.core.view {
 		}
 		
 		public function align():void {			
-			x = 170;
+			x = 175;
 			setSize(448, 318);
 		}
 		

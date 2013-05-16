@@ -1,5 +1,8 @@
 package com.ai.core.view {
 	
+	import com.ai.core.view.interfaces.IPlayersView;
+	
+	import flash.display.Sprite;
 	import flash.events.MouseEvent;
 	import flash.text.TextFormat;
 	
@@ -7,7 +10,7 @@ package com.ai.core.view {
 	import fl.controls.dataGridClasses.DataGridColumn;
 	import fl.data.DataProvider;
 
-	public class WinnersView extends WinnersAsset {
+	public class WinnersView extends Sprite implements IPlayersView {
 		
 		private var _players:XML;
 		private var dgCol1Name:String = "Player";

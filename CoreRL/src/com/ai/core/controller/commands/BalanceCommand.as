@@ -37,7 +37,6 @@ package com.ai.core.controller.commands {
 			if(!service.hasLoader(Constants.SERVER_BALANCE)) {
 				debug(urls.balance);
 				service.addLoader(new XMLLoader(new URLRequest(urls.balance), Constants.SERVER_BALANCE));
-				
 				service.getLoader(Constants.SERVER_BALANCE).onError.add(showError);
 				service.getLoader(Constants.SERVER_BALANCE).onComplete.add(setBalance);
 				service.start();
@@ -52,7 +51,7 @@ package com.ai.core.controller.commands {
 			player.currencyCode = xml.currency_code;
 			player.currency = xml.currency;
 			service.remove(Constants.SERVER_BALANCE);
-			
+
 			signalBus.dispatch(BalanceEvent.LOADED);
 			
 		}
