@@ -55,7 +55,7 @@ package com.ai.roulette.configs
 	import com.ai.roulette.classic.controller.commands.SetupViewCommand;
 	import com.ai.roulette.classic.controller.commands.StateTableConfigCommand;
 	import com.ai.roulette.classic.controller.commands.StatisticsCommand;
-	import com.ai.roulette.classic.controller.commands.WinnersCommand;
+	import com.ai.core.controller.commands.WinnersCommand;
 	import com.ai.roulette.classic.controller.signals.StatisticsEvent;
 	import com.ai.core.controller.signals.WinnersEvent;
 	import com.ai.roulette.classic.model.GameDataModel;

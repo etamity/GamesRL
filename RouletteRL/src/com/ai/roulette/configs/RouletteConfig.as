@@ -14,6 +14,7 @@ package com.ai.roulette.configs
 	import com.ai.core.controller.commands.StartupCompleteCommand;
 	import com.ai.core.controller.commands.StartupDataCommand;
 	import com.ai.core.controller.commands.VideoConnectionCommand;
+	import com.ai.core.controller.commands.WinnersCommand;
 	import com.ai.core.controller.signals.BalanceEvent;
 	import com.ai.core.controller.signals.BetEvent;
 	import com.ai.core.controller.signals.ChatEvent;
@@ -39,16 +40,13 @@ package com.ai.roulette.configs
 	import com.ai.core.service.ISocketService;
 	import com.ai.core.service.URLSService;
 	import com.ai.core.service.VideoService;
-	import com.ai.core.view.AccordionView;
 	import com.ai.core.view.ChatView;
 	import com.ai.core.view.GameStatusView;
 	import com.ai.core.view.LoginView;
 	import com.ai.core.view.StageView;
 	import com.ai.core.view.TaskbarView;
 	import com.ai.core.view.VideoView;
-	import com.ai.core.view.WinnersView;
 	import com.ai.core.view.interfaces.IAccordion;
-	import com.ai.core.view.interfaces.IPlayersView;
 	import com.ai.core.view.mediators.ChatMediator;
 	import com.ai.core.view.mediators.GameStatusMediator;
 	import com.ai.core.view.mediators.LoginMediator;
@@ -57,11 +55,13 @@ package com.ai.roulette.configs
 	import com.ai.core.view.mediators.TaskbarMediator;
 	import com.ai.core.view.mediators.VideoMediator;
 	import com.ai.core.view.mediators.WinnersMediator;
+	import com.ai.core.view.uicomps.AccordionUIView;
+	import com.ai.core.view.uicomps.PlayersUIView;
+	import com.ai.core.view.uicomps.WinnersUIView;
 	import com.ai.roulette.classic.controller.commands.SetupAssetCommand;
 	import com.ai.roulette.classic.controller.commands.SetupViewCommand;
 	import com.ai.roulette.classic.controller.commands.StateTableConfigCommand;
 	import com.ai.roulette.classic.controller.commands.StatisticsCommand;
-	import com.ai.roulette.classic.controller.commands.WinnersCommand;
 	import com.ai.roulette.classic.controller.signals.StatisticsEvent;
 	import com.ai.roulette.classic.model.GameDataModel;
 	import com.ai.roulette.classic.service.GameSocketService;
@@ -115,7 +115,7 @@ package com.ai.roulette.configs
 		
 		protected var gameData:GameDataModel=new GameDataModel();
 		protected var signalBus:SignalBus=new SignalBus();
-		protected var assetLoader:IAssetLoader;
+		protected var service:IAssetLoader;
 		
 		public function RouletteConfig()
 		{
@@ -130,7 +130,7 @@ package com.ai.roulette.configs
 			mapSingletons();
 			mapMediators();
 			mapCommands();
-	
+			setupView();
 			context.afterInitializing(init);
 			
 		}
@@ -138,21 +138,22 @@ package com.ai.roulette.configs
 		public function createInstance():void{
 			gameData.game=Constants.ROULETTE;
 			gameData.gameType=Constants.TYPE_CLASSIC;
+
+			service=injector.getOrCreateNewInstance(AssetLoader);
 			var param:IParam=new Param(Param.PREVENT_CACHE, true);
-			assetLoader=injector.getOrCreateNewInstance(AssetLoader);
-			assetLoader.addParam(param);
+			service.addParam(param);
 		}
 		
 		
 		public function init():void{
 			mediatorMap.mediate(contextView.view);
 			signalBus.dispatch(SignalConstants.STARTUP);
-			setupView();
+
 		}
 		private function setupView():void {
 			contextView.view.addChild(new StageView());
 			contextView.view.addChild(new LoginView());
-			contextView.view.addChild(new AccordionView());
+			contextView.view.addChild(new AccordionUIView());
 			contextView.view.addChild(new BetSpotsView());
 			contextView.view.addChild(new LimitsView());
 			contextView.view.addChild(new GameStatusView());
@@ -168,7 +169,7 @@ package com.ai.roulette.configs
 		
 		public function mapSingletons():void{
 			injector.map(FlashVars).toValue(new FlashVars(contextView));
-			injector.map(IAssetLoader).toValue(assetLoader);
+			injector.map(IAssetLoader).toValue(service);
 			injector.map(ISocketService).toSingleton(GameSocketService);
 			injector.map(ChatSocketService).toSingleton(ChatSocketService);
 			injector.map(VideoService).asSingleton();
@@ -194,11 +195,11 @@ package com.ai.roulette.configs
 			mediatorMap.map(StageInfoView).toMediator(StageInfoMediator);
 			mediatorMap.map(GameStatusView).toMediator(GameStatusMediator);
 			mediatorMap.map(ChatView).toMediator(ChatMediator);
-			mediatorMap.map(IAccordion).toMediator(RouletteAccordionMediator);
-			mediatorMap.map(IPlayersView).toMediator(PlayersMediator);
+			mediatorMap.map(PlayersUIView).toMediator(PlayersMediator);
+			mediatorMap.map(WinnersUIView).toMediator(WinnersMediator);
 			mediatorMap.map(PlayersBetsView).toMediator(PlayersBetsMediator);
 			mediatorMap.map(FavouritesBetsView).toMediator(FavouritesBetsMediator);
-			mediatorMap.map(WinnersView).toMediator(WinnersMediator);
+			mediatorMap.map(IAccordion).toMediator(RouletteAccordionMediator);
 			mediatorMap.map(StatisticsView).toMediator(StatisticsMediator);
 			//mediatorMap.map(MessageBoxView).toMediator(MessageBoxMediator);
 			mediatorMap.map(LobbyView).toMediator(LobbyMediator);

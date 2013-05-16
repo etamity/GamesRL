@@ -52,13 +52,14 @@ package com.ai.roulette.classic.view.mediators
 			view.applyBtn.label= Language.APPLYBUTTON;
 			view.clearBtn.label= Language.CLEARBUTTON;
 			view.deleteBtn.label= Language.DELETEBUTTON;
+			signalBus.add(BetEvent.FAVOURITES, addFaouritesBets);
+			signalBus.add(BetEvent.CLOSE_BETS, closeBetting);
+			signalBus.add(SocketDataEvent.HANDLE_TIMER, checkBettingState);
 		}
 		override public function initialize():void {
 			
 			signalBus.add(ModelReadyEvent.READY, setupModel);
-			signalBus.add(BetEvent.FAVOURITES, addFaouritesBets);
-			signalBus.add(BetEvent.CLOSE_BETS, closeBetting);
-			signalBus.add(SocketDataEvent.HANDLE_TIMER, checkBettingState);
+	
 			//view.addEventListener(DataGirdEvent.CHANGE,loadPlayersBets);
 			view.dataChangeSignal.add(loadPlayersBets);
 			
