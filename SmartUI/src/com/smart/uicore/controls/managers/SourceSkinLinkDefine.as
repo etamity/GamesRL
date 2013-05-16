@@ -7,6 +7,8 @@ package com.smart.uicore.controls.managers
 		public static var CHECK_BOX:String = "SkinCheckBox";
 		public static var RADIO_BUTTON:String = "SkinRadioButton";
 		public static var SCROLL_BAR:String = "SkinScrollBar";
+		public static var ACCORDION:String = "SkinAccordion";
+		public static var ACCORDIONBUTTON:String = "SkinAccordionButton";
 		public static var SCROLL_BAR_MIDDLE:String = "SkinScrollBarMiddle";
 		public static var SCROLL_BAR_TOP_ARR:String = "SkinScrollBarArrTop";
 		public static var SCROLL_BAR_BOTTOM_ARR:String = "SkinScrollBarArrBottom";

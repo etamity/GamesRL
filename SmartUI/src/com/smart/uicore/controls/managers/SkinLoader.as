@@ -90,6 +90,9 @@ package com.smart.uicore.controls.managers
 			DefaultStyle.buttonOverTextColor = xml.buttonOverTextColor;
 			DefaultStyle.buttonDownTextColor = xml.buttonPressTextColor;
 			DefaultStyle.menuBackgroundColor = xml.menuBackgroundColor;
+			DefaultStyle.textColor=xml.textColor;
+			DefaultStyle.checkBoxTextColor=xml.checkBoxTextColor;
+			DefaultStyle.checkBoxTextOverColor=xml.checkBoxTextOverColor;
 			SkinThemeColor.itemOverTextColor = ColorConversion.transformWebColor(xml.itemOverTextColor);
 			SkinThemeColor.border = ColorConversion.transformWebColor(xml.borderColor);
 		}

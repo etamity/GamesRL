@@ -2,17 +2,18 @@ package com.smart.uicore.controls
 {
 	import com.smart.uicore.controls.managers.SkinLoader;
 	import com.smart.uicore.controls.managers.SkinManager;
+	import com.smart.uicore.controls.managers.SkinThemeColor;
 	import com.smart.uicore.controls.managers.SourceSkinLinkDefine;
 	import com.smart.uicore.controls.skin.ActionDrawSkin;
 	import com.smart.uicore.controls.skin.ListSkin;
-	import com.smart.uicore.controls.managers.SkinThemeColor;
 	import com.smart.uicore.controls.skin.sourceSkin.ListSourceSkin;
-	import com.smart.uicore.controls.support.UIComponent;
 	import com.smart.uicore.controls.support.ColorConversion;
+	import com.smart.uicore.controls.support.UIComponent;
 	
 	import flash.display.DisplayObject;
 	import flash.events.MouseEvent;
 	import flash.geom.Rectangle;
+	import flash.text.TextFormat;
 
 	/**
 	 * 
@@ -32,7 +33,7 @@ package com.smart.uicore.controls
 		protected var btns:Array;
 		protected var _contents:Array;
 		protected var nowIndex:uint;
-		
+		private var _txtFormat:TextFormat = new TextFormat("Arial", 12, 0x998F7A, true);
 		public function Accordion()
 		{
 			super();
@@ -57,7 +58,7 @@ package com.smart.uicore.controls
 		}
 		
 		override public function setSourceSkin():void {
-			setSkin(SkinLoader.getClassFromSkinFile(SourceSkinLinkDefine.LIST));
+			setSkin(SkinLoader.getClassFromSkinFile(SourceSkinLinkDefine.ACCORDION));
 		}
 		
 		override public function setSkin(Skin:Class):void {
@@ -73,7 +74,7 @@ package com.smart.uicore.controls
 		
 		public function add(label:String,content:DisplayObject,icon:Object=null):void{
 			var btn:Button;
-			btn = new Button();
+			btn = new Button(SourceSkinLinkDefine.ACCORDIONBUTTON);
 			btn.label = label;
 			if(icon != null){
 				btn.icon = icon;
@@ -81,9 +82,14 @@ package com.smart.uicore.controls
 			btns.push(btn);
 			_contents.push(content);
 			btn.setSize(_compoWidth,defaultButtonHeight);
+			btn.setTextFormat(_txtFormat);
 			btn.addEventListener(MouseEvent.CLICK,switchClick);
 			this.addChild(btn);
+			this.addChild(content);
 			if(content.parent != null) content.parent.removeChild(content);
+			
+	
+			
 			switchTo(0);
 		}
 		
