@@ -48,8 +48,7 @@ package com.ai.core.view.mediators
 		
 		override public function initialize():void
 		{
-	
-			
+
 			signalBus.add(ModelReadyEvent.READY,setupModel);
 			signalBus.add(SocketDataEvent.HANDLE_TIMER,checkBettingState);
 			signalBus.add(BalanceEvent.LOADED,setBalance);
@@ -329,6 +328,7 @@ package com.ai.core.view.mediators
 		{
 			view.balance=player.bettingBalanceFormatted;
 			view.bet=player.betFormatted;
+			debug("GameState.state",GameState.state);
 			if (GameState.state < GameState.BETS_CLOSED)
 			{
 				if (player.bet > 0)

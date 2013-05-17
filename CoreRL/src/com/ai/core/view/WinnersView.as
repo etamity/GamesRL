@@ -29,7 +29,9 @@ package com.ai.core.view {
 
 		}
 		
+		public function setSize(newWidth:Number, newHeight:Number):void{
 
+		}
 		
 		private function createDataGrid(evt:MouseEvent):void{
 			

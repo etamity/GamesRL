@@ -3,6 +3,7 @@ package com.ai.core.view.mediators {
 	import com.ai.core.controller.signals.BaseSignal;
 	import com.ai.core.controller.signals.ModelReadyEvent;
 	import com.ai.core.controller.signals.PlayersEvent;
+	import com.ai.core.controller.signals.UIEvent;
 	import com.ai.core.model.SignalBus;
 	import com.ai.core.utils.GameUtils;
 	import com.ai.core.view.uicomps.PlayersUIView;
@@ -24,23 +25,24 @@ package com.ai.core.view.mediators {
 			//eventMap.mapListener(eventDispatcher, ModelReadyEvent.READY, setupModel);
 			signalBus.add(ModelReadyEvent.READY, setupModel);
 			signalBus.add(PlayersEvent.LOADED, showPlayers);
-			debug("initialize");
+			signalBus.add(UIEvent.RESIZE, resize);
 		}
 		
 		private function setupModel(signal:BaseSignal):void {
 			view.init();
 			addContextListener(Event.RESIZE, onStageResize);
 
-			debug("setupModel");
 		}
 		
 		private function showPlayers(signal:BaseSignal):void {
-			debug(signal.params.node);
-	
 			view.players = signal.params.node;
 		
 		}
-		
+		public function resize(signal:BaseSignal):void{
+			var ww:int= signal.params.width;
+			var hh:int= signal.params.height;
+			view.resize(ww,hh);
+		}
 		private function onStageResize(event:Event):void {
 			view.align();
 		}

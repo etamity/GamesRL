@@ -1,13 +1,12 @@
 package com.ai.core.view.uicomps {
 	
 	import com.ai.core.model.Language;
+	import com.ai.core.utils.GameUtils;
 	import com.ai.core.view.interfaces.IPlayersView;
 	import com.smart.uicore.controls.DataGrid;
-	import com.smart.uicore.controls.proxy.DataProvider;
 	import com.smart.uicore.controls.support.DataGridColumnSet;
 	
 	import flash.display.MovieClip;
-	import flash.events.MouseEvent;
 	
 
 	public class WinnersUIView extends MovieClip implements IPlayersView {
@@ -15,40 +14,21 @@ package com.ai.core.view.uicomps {
 		private var _players:XML;
 		private var dgCol1Name:String = "Player";
 		private var dgCol2Name:String = "Amount";
-		private var winnersList:Array;
 		private var playersListDgMc:DataGrid;
 		public function WinnersUIView() {
 			visible = false;
-			createDataGrid(null);
-
+			playersListDgMc= new DataGrid();
+			playersListDgMc.setSize(167,529);
+			addChild(playersListDgMc);
+			var sets:Vector.<DataGridColumnSet> = new Vector.<DataGridColumnSet>();
+			sets.push(new DataGridColumnSet(dgCol1Name,"name",-45));
+			sets.push(new DataGridColumnSet(dgCol2Name,"winnings",-55));
+			playersListDgMc.initColumns(sets);
 		}		
-		
 		public function init():void {			
 			align();
-	
-
 		}
 		
-
-		
-		private function createDataGrid(evt:MouseEvent):void{
-			
-			playersListDgMc= new DataGrid();
-			playersListDgMc.setSize(164,390);
-			playersListDgMc.x=3;
-			playersListDgMc.y=3;
-			
-			
-			addChild(playersListDgMc);
-	
-	
-			var sets:Vector.<DataGridColumnSet> = new Vector.<DataGridColumnSet>();
-			sets.push(new DataGridColumnSet(dgCol1Name,"label",-50));
-			sets.push(new DataGridColumnSet(dgCol2Name,"value",-50));
-			playersListDgMc.initColumns(sets);
-		
-	
-		}
 		public function align():void {
 			visible = true;
 		}
@@ -57,29 +37,25 @@ package com.ai.core.view.uicomps {
 			listView.labels[0] = Language.PLAYERNAME;
 			listView.labels[1] = Language.PLAYERWINS;
 		}
-		
+		public function resize(width:Number,height:Number):void{
+			listView.setSize(width,height);
+		}
 		public function get players():XML {
 			return _players;
 		}
 		
 		public function set players(value:XML):void {
 			_players = value;
-			//showPlayers();
+			showPlayers();
 		}
 		public function loadFormXML(data:XML):void{
-		
-			winnersList =new Array();
+			//debug(data);
 			playersListDgMc.removeAll();
-			//playersListDgMc.dataProvider= new DataProvider(winnersList);
 			var urlsXML:XMLList = data.users[0].user;
+			var obj:Object;
 			for(var i:uint = 0; i < urlsXML.length(); i++) {
-				var obj:Object=new Object();
-				obj.label=urlsXML[i].@name;
-				obj.data=urlsXML[i].@userid;
-				obj.value=urlsXML[i].@winnings;
+				obj={name:urlsXML[i].@name,winnings:urlsXML[i].@winnings,userid:urlsXML[i].@userid};		
 				playersListDgMc.addItem(obj);
-				winnersList.push(obj);	
-				
 			}
 		
 
@@ -90,6 +66,10 @@ package com.ai.core.view.uicomps {
 		}
 		private function showPlayers():void {
 			loadFormXML(players)
+		}
+		
+		private function debug(...args):void {
+			GameUtils.log(this, args);
 		}
 	}
 }

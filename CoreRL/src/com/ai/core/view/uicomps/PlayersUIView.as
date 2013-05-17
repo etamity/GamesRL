@@ -15,7 +15,7 @@ package com.ai.core.view.uicomps
 			super();
 			listView=new List();
 			listView.y=5;
-			listView.setSize(164,390);
+			listView.setSize(167,529);
 			addChild(listView);
 		}
 		public function align():void {
@@ -27,7 +27,9 @@ package com.ai.core.view.uicomps
 		public function get players():XML {
 			return _players;
 		}
-		
+		public function resize(width:Number,height:Number):void{
+			listView.setSize(width,height);
+		}
 		public function set players(value:XML):void {
 			_players = value;
 			showPlayers();

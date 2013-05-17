@@ -3,6 +3,7 @@ package com.ai.core.view.mediators {
 	import com.ai.core.controller.signals.BaseSignal;
 	import com.ai.core.controller.signals.ModelReadyEvent;
 	import com.ai.core.controller.signals.StartupDataEvent;
+	import com.ai.core.controller.signals.UIEvent;
 	import com.ai.core.model.SignalBus;
 	import com.ai.core.utils.GameUtils;
 	import com.ai.core.view.interfaces.IAccordion;
@@ -34,6 +35,9 @@ package com.ai.core.view.mediators {
 		
 		public function addViews(signal:BaseSignal):void {
 		
+		}
+		public function resize():void{
+			signalBus.dispatch(UIEvent.RESIZE,{width:164,height:view.contentHeight})
 		}
 		
 		private function onStageResize(event:Event):void {

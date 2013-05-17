@@ -5,5 +5,6 @@ package com.ai.core.view.interfaces
 	public interface IAccordion extends IUIView
 	{		
 		function add(mc:MovieClip, title:String, toolTipMsg:String = ""):void;
+		function get contentHeight():int;
 	}
 }

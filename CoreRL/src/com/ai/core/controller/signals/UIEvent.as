@@ -10,6 +10,6 @@ package com.ai.core.controller.signals
 		public static const FRESH_BALANCE:String	= "UIEvent.FRESH_BALANCE";
 		public static const HELP_LOAD:String 		= "UIEvent.HELP_LOAD";
 		public static const HELP_LOADED:String 		= "UIEvent.HELP_LOADED";
-
+		public static const RESIZE:String 			= "UIEvent.RESIZE";
 	}
 }
