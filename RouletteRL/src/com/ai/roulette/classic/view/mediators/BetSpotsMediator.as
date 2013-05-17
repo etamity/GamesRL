@@ -3,20 +3,19 @@ package com.ai.roulette.classic.view.mediators {
 	import com.ai.core.controller.signals.BalanceEvent;
 	import com.ai.core.controller.signals.BaseSignal;
 	import com.ai.core.controller.signals.BetEvent;
-	import com.ai.core.controller.signals.HighlightEvent;
 	import com.ai.core.controller.signals.MessageEvent;
 	import com.ai.core.controller.signals.ModelReadyEvent;
 	import com.ai.core.controller.signals.SocketDataEvent;
 	import com.ai.core.controller.signals.StateTableConfigEvent;
 	import com.ai.core.controller.signals.TaskbarActionEvent;
+	import com.ai.core.model.GameState;
 	import com.ai.core.model.Player;
 	import com.ai.core.model.SignalBus;
 	import com.ai.core.utils.GameUtils;
+	import com.ai.core.view.BetSpot;
 	import com.ai.roulette.classic.controller.signals.DataGirdEvent;
 	import com.ai.roulette.classic.model.BetspotData;
 	import com.ai.roulette.classic.model.GameDataModel;
-	import com.ai.roulette.classic.model.GameState;
-	import com.ai.roulette.classic.view.BetSpot;
 	import com.ai.roulette.classic.view.BetSpotsView;
 	
 	import flash.events.Event;

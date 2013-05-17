@@ -179,7 +179,6 @@ package com.ai.roulette.configs
 			injector.map(IGameData).toValue(gameData)
 			injector.map(GameDataModel).toValue(gameData);
 			injector.map(SignalBus).toValue(signalBus);
-			injector.map(GameState).asSingleton();
 			injector.map(ConfigService).asSingleton();
 			injector.map(URLSService).asSingleton();
 			

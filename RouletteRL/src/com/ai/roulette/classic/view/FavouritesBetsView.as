@@ -2,7 +2,6 @@ package com.ai.roulette.classic.view
 {	
 	import com.ai.core.view.Betchip;
 	import com.ai.core.view.SMButton;
-	import com.ai.roulette.classic.controller.signals.DataGirdEvent;
 	
 	import flash.display.MovieClip;
 	import flash.events.Event;

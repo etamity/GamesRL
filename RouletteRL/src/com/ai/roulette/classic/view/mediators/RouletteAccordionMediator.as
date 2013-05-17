@@ -21,6 +21,7 @@ package com.ai.roulette.classic.view.mediators
 			view.add(new WinnersUIView(), Language.WINNERLIST);
 			//view.add(new PlayersBetsView(), Language.PLAYERSBETS);
 			view.add(new FavouritesBetsView(), Language.FAVOURITES);
+			resize();
 		}
 	}
 }

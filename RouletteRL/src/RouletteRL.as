@@ -3,7 +3,6 @@ package {
 	import com.ai.roulette.configs.RouletteBundle;
 	import com.ai.roulette.configs.RouletteConfig;
 	import com.smart.uicore.controls.ToolTip;
-	import com.smart.uicore.controls.managers.DefaultStyle;
 	import com.smart.uicore.controls.managers.SkinLoader;
 	import com.smart.uicore.ui.UI;
 	
@@ -27,9 +26,6 @@ package {
 		}
 		private function onAddToStage(evt:Event):void{
 			removeEventListener(Event.ADDED_TO_STAGE,onAddToStage);
-			
-
-
 		
 			UI.init(this.stage,24);
 			ToolTip.setDefaultToolTipStyle(0,0xFFFFFF,0xDDDDDD,1,1,0x666666,0.5);
@@ -38,7 +34,6 @@ package {
 		}
 		
 		private function start():void{
-
 			context = new Context()
 				.install(RouletteBundle)
 				.configure(

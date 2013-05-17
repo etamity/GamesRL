@@ -4,15 +4,15 @@ package com.ai.roulette.classic.service {
 	import com.ai.core.controller.signals.BetEvent;
 	import com.ai.core.controller.signals.PlayersEvent;
 	import com.ai.core.controller.signals.SocketDataEvent;
+	import com.ai.core.controller.signals.WinnersEvent;
 	import com.ai.core.model.Constants;
+	import com.ai.core.model.GameState;
 	import com.ai.core.model.Language;
 	import com.ai.core.model.Player;
 	import com.ai.core.model.SignalBus;
 	import com.ai.core.service.SocketService;
 	import com.ai.roulette.classic.controller.signals.StatisticsEvent;
-	import com.ai.core.controller.signals.WinnersEvent;
 	import com.ai.roulette.classic.model.GameDataModel;
-	import com.ai.roulette.classic.model.GameState;
 	
 	import flash.events.DataEvent;
 	
@@ -66,22 +66,26 @@ package com.ai.roulette.classic.service {
 					break;
 				
 				case Constants.SOCKET_SEAT:
+					
 					//dispatch(new SocketDataEvent(SocketDataEvent.HANDLE_SEAT, node));
 					signalBus.dispatch(SocketDataEvent.HANDLE_SEAT,{node:node});
 					break;
 				
 				case Constants.SOCKET_BET:
+					GameState.state = GameState.PLACING_BETS;
 					//dispatch(new SocketDataEvent(SocketDataEvent.HANDLE_BET, node));
 					signalBus.dispatch(SocketDataEvent.HANDLE_BET,{node:node});
 					break;
 				
 				case Constants.SOCKET_GAME_CANCELED:					
 					//dispatch(new SocketDataEvent(SocketDataEvent.HANDLE_CANCEL, node));
+					GameState.state = GameState.CANCELLED;
 					player.bet = 0;
 					signalBus.dispatch(SocketDataEvent.HANDLE_CANCEL,{node:node});
 					break;
 				
 				case Constants.SOCKET_GAME_STATE:
+					GameState.state = GameState.BETS_CLOSED;
 					switch (node){
 						case Constants.BETS_CLOSED:
 							//eventDispatcher.dispatchEvent(new BetEvent(BetEvent.CLOSE_BETS));
