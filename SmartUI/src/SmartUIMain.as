@@ -4,6 +4,7 @@ package
 	import com.smart.uicore.controls.Button;
 	import com.smart.uicore.controls.CheckBox;
 	import com.smart.uicore.controls.ComboBox;
+	import com.smart.uicore.controls.DataGrid;
 	import com.smart.uicore.controls.Label;
 	import com.smart.uicore.controls.List;
 	import com.smart.uicore.controls.NumericStepper;
@@ -23,6 +24,7 @@ package
 	import com.smart.uicore.controls.modeStyles.ButtonStyle;
 	import com.smart.uicore.controls.modeStyles.ScrollBarSkinSet;
 	import com.smart.uicore.controls.proxy.CustomListItem;
+	import com.smart.uicore.controls.proxy.DataProvider;
 	import com.smart.uicore.controls.skin.sourceSkin.SliderSourceSkin;
 	import com.smart.uicore.ui.UI;
 	
@@ -33,9 +35,9 @@ package
 	import flash.utils.getTimer;
 	
 	[SWF(frameRate = "30" , width = "1000" , height = "500" , backgroundColor = "0xffffff")]
-	public class SmartUI extends Sprite
+	public class SmartUIMain extends Sprite
 	{
-		public var isUseBitmapSkin:Boolean = false;
+		public var isUseBitmapSkin:Boolean = true;
 		
 		private var _tileList:TileList;
 		private var _list:List;
@@ -71,7 +73,7 @@ package
 		private var _pcount:int = 0;
 		private var _testCombo:ComboBox;
 		
-		public function SmartUI()
+		public function SmartUIMain()
 		{
 			_tab1SP = new Sprite();
 			_tab2SP = new Sprite();
@@ -336,6 +338,26 @@ package
 			_label2 = new Label();
 			_label2.x = 400;
 			_label2.y = 400;
+			
+			
+			var datagrid:DataGrid=new DataGrid();
+			datagrid.setSize(164,390);
+			_tab3SP.addChild(datagrid);
+			datagrid.x=400;
+			datagrid.labels=["test1","test2"];
+			datagrid.dataField=["a1","a2"];
+		
+			var newdata:Array=[];
+			datagrid.removeAll();
+			for (var a:int=0;a<100;a++)
+			{
+				var  obj:Object={a1:"idaa_"+String(a),a2:"lost"};
+				newdata.push(obj);
+				datagrid.addItem(obj);
+			}
+	
+			//datagrid.dataProvider=new DataProvider(newdata);
+			
 			_tab4SP.addChild(_label2);
 			
 			_combo = new ComboBox();

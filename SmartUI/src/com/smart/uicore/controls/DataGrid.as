@@ -60,16 +60,19 @@ package com.smart.uicore.controls
 		{
 			this.mouseEnabled = false;
 			super(skinSet);
-			_compoWidth = 600;
 			_itemRender = DataGridItemRender;
-			styleSet["padding"] = 10;
-			styleSet["paddingRight"] = 5;
-			items.y = 25;
-			scrollBar.setTarget(items,false,_compoWidth,15);
 			title = new DataGridTitle();
 			title.dg = this;
+			
+			items.y = 25;
+			_compoWidth = 600;
+			styleSet["padding"] = 10;
+			styleSet["paddingRight"] = 5;
+			scrollBar.setTarget(items,false,_compoWidth,15);
+
 			this.addChild(title);
 			setSize(_compoWidth, _compoHeight);
+			this.setChildIndex(scrollBar,this.numChildren-1);
 		}
 		
 		public function set ableTitleSort(value:Boolean):void
@@ -94,7 +97,11 @@ package com.smart.uicore.controls
 			sortByNumberTypes = arr[2];
 			labels = arr[0];
 		}
-		
+		override public function removeAll():void
+		{
+			super.removeAll();
+			items.y = 25;
+		}
 		override public function setSize(newWidth:Number, newHeight:Number):void
 		{
 			super.setSize(newWidth,newHeight);

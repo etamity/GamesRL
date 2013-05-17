@@ -95,6 +95,8 @@ package com.smart.uicore.controls.managers
 			DefaultStyle.checkBoxTextOverColor=xml.checkBoxTextOverColor;
 			SkinThemeColor.itemOverTextColor = ColorConversion.transformWebColor(xml.itemOverTextColor);
 			SkinThemeColor.border = ColorConversion.transformWebColor(xml.borderColor);
+			SkinThemeColor.itemOverColor=ColorConversion.transformWebColor(xml.itemOverColor);
+			SkinThemeColor.itemMouseOverTextColor=ColorConversion.transformWebColor(xml.itemMouseOverTextColor);
 		}
 		
 		protected static function initSkinSet(event:Event):void

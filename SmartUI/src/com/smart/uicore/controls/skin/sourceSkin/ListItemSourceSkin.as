@@ -1,11 +1,12 @@
 package com.smart.uicore.controls.skin.sourceSkin
 {
 	
+	import com.smart.uicore.controls.support.ListItemRender;
+	
 	import flash.display.BitmapData;
 	import flash.display.DisplayObject;
 	import flash.display.DisplayObjectContainer;
 	import flash.display.MovieClip;
-	import com.smart.uicore.controls.support.ListItemRender;
 	
 	public class ListItemSourceSkin extends SourceSkin
 	{
@@ -41,7 +42,6 @@ package com.smart.uicore.controls.skin.sourceSkin
 		}
 		
 		public function showState(state:int):void{
-			var index:int = ListItemRender(tar).index;
 			if(state>0 ){
 				bp.sourceBitmapData = bds[state] as BitmapData;
 				bp.update();

@@ -87,9 +87,6 @@ package com.smart.uicore.controls
 			this.addChild(btn);
 			this.addChild(content);
 			if(content.parent != null) content.parent.removeChild(content);
-			
-	
-			
 			switchTo(0);
 		}
 		
