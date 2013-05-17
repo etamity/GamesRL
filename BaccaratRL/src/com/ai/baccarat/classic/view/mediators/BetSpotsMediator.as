@@ -13,7 +13,6 @@ package com.ai.baccarat.classic.view.mediators {
 	import com.ai.core.controller.signals.SocketDataEvent;
 	import com.ai.core.controller.signals.StateTableConfigEvent;
 	import com.ai.core.controller.signals.TaskbarActionEvent;
-	import com.ai.core.controller.signals.UIEvent;
 	import com.ai.core.model.FlashVars;
 	import com.ai.core.model.GameState;
 	import com.ai.core.model.Player;
@@ -62,7 +61,7 @@ package com.ai.baccarat.classic.view.mediators {
 			
 			signalBus.add(ModelReadyEvent.READY, setupModel);
 			signalBus.add(SocketDataEvent.HANDLE_TIMER, checkBettingState);
-			signalBus.add(SocketDataEvent.HANDLE_BET, handleBet);
+			//signalBus.add(SocketDataEvent.HANDLE_BET, handleBet);
 			signalBus.add(SocketDataEvent.HANDLE_CANCEL, clearBets);
 			signalBus.add(SocketDataEvent.HANDLE_RESULT, processResult);
 			
@@ -178,7 +177,7 @@ package com.ai.baccarat.classic.view.mediators {
 			var totalWinning:Number;
 			if (node.children().length() == 1) {
 				code=(node.children()[0].@code);
-				totalWinning=view.getPairsWinnings(code);
+				totalWinning=view.getWinnings(code);
 			}
 			else if (node.children().length() == 2) {
 				code=node.children()[0].@code;

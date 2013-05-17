@@ -109,6 +109,8 @@ package com.ai.baccarat.classic.controller.commands {
 			signalBus.dispatch(SocketEvent.CONNECT_GAME);
 			signalBus.dispatch(VideoEvent.CONNECT);
 			signalBus.dispatch(StateTableConfigEvent.LOADED);
+			signalBus.dispatch(PlayersEvent.LOAD);
+			signalBus.dispatch(WinnersEvent.LOAD);
 			service.remove(Constants.SERVER_SETTING);
 		}
 		

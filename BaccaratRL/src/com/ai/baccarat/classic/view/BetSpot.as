@@ -25,7 +25,7 @@
 		public var updateBetSignal:Signal=new Signal();
 		public var messageSignal:Signal=new Signal();
 		
-		public function BetSpot() {
+		public function BetSpot(assets:MovieClip) {
 			chipsPlaced = [];
 			chipValue = 0;
 			lastBet = 0;
@@ -55,17 +55,14 @@
 			return chip;
 		}
 		private function rollOver(evt:MouseEvent):void {
-			//dispatchEvent(new HighlightEvent(HighlightEvent.HIGHLIGHT, name));
 			highlightSpot();
 			visible = true;
 			if (chipValue > 0 && chipValue < min) {
-				//dispatchEvent(new MessageEvent(MessageEvent.SHOW_MIN_SPOT, this));
 				messageSignal.dispatch(MessageEvent.SHOW_MIN_SPOT,this);
 			}
 		}
 
 		private function rollOut(evt:MouseEvent):void {
-			//dispatchEvent(new HighlightEvent(HighlightEvent.REMOVE_HIGHLIGHT, name));
 			removeHighlight();
 		}
 
@@ -105,7 +102,10 @@
 				if(newValue <= max) {
 					updateBet(value);
 					//dispatchEvent(new BetEvent(BetEvent.UPDATE_BET, name));
-					updateBetSignal.dispatch(this);
+					if (newValue >=min)
+						updateBetSignal.dispatch(this);
+					else
+						messageSignal.dispatch(MessageEvent.SHOW_MIN_SPOT ,this);
 				}
 				else {
 					//dispatchEvent(new MessageEvent(MessageEvent.SHOW_MAX_SPOT, this));
@@ -114,7 +114,7 @@
 			}
 			else {
 				//dispatchEvent(new MessageEvent(MessageEvent.SHOW_NOT_ENOUGH_MONEY, this));
-				messageSignal.dispatch(MessageEvent.SHOW_MAX_SPOT,this);
+				messageSignal.dispatch(MessageEvent.SHOW_NOT_ENOUGH_MONEY,this);
 			}
 		}
 		public function repeat():void {

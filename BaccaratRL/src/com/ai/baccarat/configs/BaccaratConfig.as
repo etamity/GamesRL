@@ -31,6 +31,7 @@ package com.ai.baccarat.configs
 	import com.ai.core.controller.commands.StartupCompleteCommand;
 	import com.ai.core.controller.commands.StartupDataCommand;
 	import com.ai.core.controller.commands.VideoConnectionCommand;
+	import com.ai.core.controller.commands.WinnersCommand;
 	import com.ai.core.controller.signals.BalanceEvent;
 	import com.ai.core.controller.signals.BetEvent;
 	import com.ai.core.controller.signals.ChatEvent;
@@ -41,6 +42,7 @@ package com.ai.baccarat.configs
 	import com.ai.core.controller.signals.StateTableConfigEvent;
 	import com.ai.core.controller.signals.UIEvent;
 	import com.ai.core.controller.signals.VideoEvent;
+	import com.ai.core.controller.signals.WinnersEvent;
 	import com.ai.core.model.Chat;
 	import com.ai.core.model.Constants;
 	import com.ai.core.model.FlashVars;
@@ -67,13 +69,19 @@ package com.ai.baccarat.configs
 	import com.ai.core.view.mediators.GameStatusMediator;
 	import com.ai.core.view.mediators.LoginMediator;
 	import com.ai.core.view.mediators.MessageBoxMediator;
+	import com.ai.core.view.mediators.PlayersMediator;
 	import com.ai.core.view.mediators.StageMediator;
 	import com.ai.core.view.mediators.TaskbarMediator;
 	import com.ai.core.view.mediators.VideoMediator;
+	import com.ai.core.view.mediators.WinnersMediator;
 	import com.ai.core.view.uicomps.AccordionUIView;
+	import com.ai.core.view.uicomps.PlayersUIView;
+	import com.ai.core.view.uicomps.WinnersUIView;
 	
 	import org.assetloader.AssetLoader;
+	import org.assetloader.base.Param;
 	import org.assetloader.core.IAssetLoader;
+	import org.assetloader.core.IParam;
 	import org.swiftsuspenders.Injector;
 	
 	import robotlegs.bender.extensions.contextView.ContextView;
@@ -100,14 +108,17 @@ package com.ai.baccarat.configs
 		
 		[Inject]
 		public var contextView:ContextView;
+		
+		
 		protected var gameData:GameDataModel=new GameDataModel();
 		protected var signalBus:SignalBus=new SignalBus();
+		protected var service:IAssetLoader;
 		
 		public function configure():void
 		{      
 			context.logLevel = LogLevel.DEBUG;
-			gameData.game=Constants.BACCARAT;
-			gameData.gameType=Constants.TYPE_CLASSIC;
+
+			createInstance();
 			mapSingletons();
 			mapMediators();
 			mapCommands();
@@ -127,8 +138,16 @@ package com.ai.baccarat.configs
 			contextView.view.addChild(new CardsPanelView());
 			contextView.view.addChild(new AnimationPanelView());
 			contextView.view.addChild(new ScoreCardView());
-			contextView.view.addChild(new MessageBoxView());
+			//contextView.view.addChild(new MessageBoxView());
 			
+		}
+		public function createInstance():void{
+			gameData.game=Constants.BACCARAT;
+			gameData.gameType=Constants.TYPE_CLASSIC;
+			
+			service=injector.getOrCreateNewInstance(AssetLoader);
+			var param:IParam=new Param(Param.PREVENT_CACHE, true);
+			service.addParam(param);
 		}
 		public function init():void{
 			mediatorMap.mediate(contextView.view);
@@ -138,7 +157,7 @@ package com.ai.baccarat.configs
 	
 		public function mapSingletons():void{
 			injector.map(FlashVars).toValue(new FlashVars(contextView));
-			injector.map(IAssetLoader).toSingleton(AssetLoader);
+			injector.map(IAssetLoader).toValue(service);
 			injector.map(ISocketService).toSingleton(GameSocketService);
 			injector.map(ChatSocketService).toSingleton(ChatSocketService);
 			injector.map(VideoService).asSingleton();
@@ -168,6 +187,8 @@ package com.ai.baccarat.configs
 			mediatorMap.map(ScoreCardView).toMediator(ScoreCardMediator);
 			mediatorMap.map(MessageBoxView).toMediator(MessageBoxMediator);
 			mediatorMap.map(BetspotsPanelView).toMediator(BetspotsPanelMediator);
+			mediatorMap.map(PlayersUIView).toMediator(PlayersMediator);
+			mediatorMap.map(WinnersUIView).toMediator(WinnersMediator);
 		}
 		public function mapCommands():void{
 
@@ -179,14 +200,14 @@ package com.ai.baccarat.configs
 			commandMap.mapSignal(signalBus.signal(StartupDataEvent.LOAD), StartupDataCommand);
 			commandMap.mapSignal(signalBus.signal(BalanceEvent.LOAD), BalanceCommand);
 			commandMap.mapSignal(signalBus.signal(StateTableConfigEvent.LOAD), StateTableConfigCommand);
-			commandMap.mapSignal(signalBus.signal(PlayersEvent.LOAD), PlayersCommand);
 			commandMap.mapSignal(signalBus.signal(ChatEvent.LOAD_CONFIG), ChatConfigCommand);
 			commandMap.mapSignal(signalBus.signal(ChatEvent.CONNECT), ChatConnectionCommand);
 			commandMap.mapSignal(signalBus.signal(ChatEvent.PROCESS_MESSAGE), ChatReceiveMessageCommand);
 			commandMap.mapSignal(signalBus.signal(ChatEvent.SEND_MESSAGE), ChatSendMessageCommand);
 			commandMap.mapSignal(signalBus.signal(SocketEvent.CONNECT_GAME), SocketConnectionCommand);
 			commandMap.mapSignal(signalBus.signal(VideoEvent.CONNECT), VideoConnectionCommand);
-			
+			commandMap.mapSignal(signalBus.signal(PlayersEvent.LOAD), PlayersCommand);
+			commandMap.mapSignal(signalBus.signal(WinnersEvent.LOAD), WinnersCommand);
 			commandMap.mapSignal(signalBus.signal(BetEvent.SEND_BETS), BetsCommand);
 			commandMap.mapSignal(signalBus.signal(UIEvent.SETUP_VIEWS), SetupViewCommand);
 			

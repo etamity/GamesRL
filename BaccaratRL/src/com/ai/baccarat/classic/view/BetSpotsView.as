@@ -11,7 +11,7 @@ package com.ai.baccarat.classic.view {
 	
 	import org.osflash.signals.Signal;
 
-	public class BetSpotsView extends BetSpotsAsset {
+	public class BetSpotsView extends BetSpotsAsset implements IBetSpotsView{
 		private var _betspot:BetSpot;
 		private var _betchip:Betchip;
 		//private var _winMarkerMC:WinMarker;
@@ -195,7 +195,7 @@ package com.ai.baccarat.classic.view {
 			_betspot.addChip(_betchip);
 		} 
 		
-		public function set chipSelected(value:int):void {
+		public function set chipSelected(value:Number):void {
 			for (var i:uint = 0; i < _betSpotsArray.length; i++) {
 					_betspot = _betSpotsArray[i];
 					_betspot.chipSelected = value;
@@ -213,7 +213,7 @@ package com.ai.baccarat.classic.view {
 			}
 		}
 		
-		public function set balance(value:int):void {
+		public function set balance(value:Number):void {
 			for (var i:uint = 0; i < _betSpotsArray.length; i++) {
 					_betspot = _betSpotsArray[i];
 					_betspot.balance = value;
@@ -288,7 +288,7 @@ package com.ai.baccarat.classic.view {
 			_betBatch = {};
 			var betBatchString:String = "";
 			var bet:Number;
-			for (var i:int = 0; i < _betSpotsArray.length; i++) {
+			for (var i:int = 0; i < _betSpotsName.length; i++) {
 				_betspot = _betSpotsArray[i];
 				if(_betspot.chipHolder.numChildren>0) {
 					bet = FormatUtils.floatCorrection(_betspot.chipValue);
