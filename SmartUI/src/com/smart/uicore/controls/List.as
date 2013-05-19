@@ -668,7 +668,7 @@
 			items = new Sprite();
 			items.y= 1;
 			this.addChild(items);
-			setSize(_compoWidth, _compoHeight);
+			//setSize(_compoWidth, _compoHeight);
 			boxSelectControler.destory();
 			boxSelectControler = new ItemsSelectControl();
 			boxSelectControler.initViewPanel(this,items);
@@ -717,9 +717,9 @@
 		{
 			super.setSize(newWidth, newHeight);
 			scrollBar.setTarget(items,false,_compoWidth,_compoHeight-2);
-			scrollBar.y = 1;
-			scrollBar.x = int(_compoWidth - VScrollBar.defaultWidth-1);
-			scrollBar.setSize(VScrollBar.defaultWidth,_compoHeight-2);
+			scrollBar.x = int(_compoWidth - VScrollBar.defaultWidth+2);
+			scrollBar.setSize(VScrollBar.defaultWidth,_compoHeight-2-items.y);
+			scrollBar.y = items.y+2;
 			if(items.numChildren >0)
 			{
 				var render:DisplayObject = items.getChildAt(0);
@@ -734,6 +734,7 @@
 			{
 				IListItemRender(items.getChildAt(i)).setSize(itemWidth,0);
 			}
+
 		}
 		
 		protected function itemMouseOver(event:Event):void

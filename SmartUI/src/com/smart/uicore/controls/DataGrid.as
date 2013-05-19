@@ -63,7 +63,6 @@ package com.smart.uicore.controls
 			_itemRender = DataGridItemRender;
 			title = new DataGridTitle();
 			title.dg = this;
-			
 			items.y = 25;
 			_compoWidth = 600;
 			styleSet["padding"] = 10;
@@ -109,6 +108,7 @@ package com.smart.uicore.controls
 			{
 				title.setSize(_compoWidth,items.y);
 			}
+			
 		}
 		
 		/**
