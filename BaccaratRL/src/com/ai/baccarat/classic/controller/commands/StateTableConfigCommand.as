@@ -126,7 +126,22 @@ package com.ai.baccarat.classic.controller.commands {
 			debug(xml);
 			game.min = xml["gameconfig-param"].@table_bet_min_limit;
 			game.max = xml["gameconfig-param"].@table_bet_max_limit;
+			
+			game.
 			game.videoStream= xml["gameconfig-param"].@high_stream;
+			
+			player_bet_min_limit=1
+			player_bet_max_limit=1000
+			banker_bet_min_limit=1
+			banker_bet_max_limit=1000
+			tie_bet_min_limit=1
+			tie_bet_max_limit=1000
+			player_pairs_bet_min=1
+			player_pairs_bet_max=1
+			banker_pairs_bet_min=1
+			banker_pairs_bet_max=1
+			table_bet_min_limit=1
+			table_bet_max_limit=20000
 			service.remove(Constants.SERVER_TABLE_CONFIG);
 			
 			

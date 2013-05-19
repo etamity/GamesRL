@@ -25,7 +25,7 @@
 		public var updateBetSignal:Signal=new Signal();
 		public var messageSignal:Signal=new Signal();
 		
-		public function BetSpot(assets:MovieClip) {
+		public function BetSpot() {
 			chipsPlaced = [];
 			chipValue = 0;
 			lastBet = 0;
