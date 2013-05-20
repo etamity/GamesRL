@@ -40,8 +40,12 @@
 			asset.addChild(_chipHolder);
 		}
 
-		public function mainChip():Betchip{
-			return (_chipHolder.getChildAt(_chipHolder.numChildren-1)) as Betchip;
+		public function get mainChip():Betchip{
+			var chip:Betchip=null;
+			if (_chipHolder.numChildren>0)
+				chip=(_chipHolder.getChildAt(_chipHolder.numChildren-1)) as Betchip;
+			
+			return chip; 
 		}
 		public function get x():Number{
 			return _asset.x;
@@ -66,6 +70,7 @@
 		public function set name(val:String):void{
 			_name=val;
 		}
+		
 		public function get chipSelected():Number {
 			var betspotView:IBetSpotsView= _asset.parent as IBetSpotsView;
 			return betspotView.chipSelecedValue;
@@ -128,7 +133,7 @@
 				}				
 			}
 			else {
-				messageSignal.dispatch(MessageEvent.SHOW_MAX_SPOT,this);
+				messageSignal.dispatch(MessageEvent.SHOW_NOT_ENOUGH_MONEY,this);
 			}
 		}
 		
@@ -160,8 +165,9 @@
 				_chipHolder.removeChildAt(_chipHolder.numChildren-1);
 			}
 			else {
-				clean();
+				
 				_chipHolder.removeChildren();
+				clean();
 			}
 		}
 

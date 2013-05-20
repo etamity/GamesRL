@@ -39,20 +39,21 @@ package com.ai.core.controller.commands {
 		[Inject]
 		public var signalBus:SignalBus;
 		
-		private var _loginRequest:URLRequest;
+/*		private var _loginRequest:URLRequest;
 		private var httpService:HTTPService = new HTTPService();
-		public var loginSO:SharedObject;
+		public var loginSO:SharedObject;*/
 		
 		private var id:String;
 		private var password:String;
 		override public function execute():void {
 			id=signal.params.id;
 		 	password=signal.params.password;
-			login();
+			//login();
 		}
+		/*		
 		public function loginGrand():void {
 
-			
+	
 			loginSO = SharedObject.getLocal("login");
 			if (id != "" && password != "") {
 				
@@ -140,7 +141,7 @@ package com.ai.core.controller.commands {
 		
 		private function showError(signal:ErrorSignal):void {
 			debug("error", signal);
-		}
+		}*/
 		
 		private function debug(...args):void {
 			GameUtils.log(this, args);
