@@ -163,9 +163,9 @@ package com.ai.core.view.mediators {
 					view.message = StringUtils.replace(Language.MAXTABLEBETIS, "#bet#", player.currencyCode + game.max);
 					break;
 				case MessageEvent.SHOW_MAX_SPOT:
-					view.message = StringUtils.replace(Language.MAXBETIS, "#bet#", player.currencyCode + signal.params.max);
+					view.message = StringUtils.replace(Language.MAXBETIS, "#bet#", player.currencyCode + signal.params.target.max);
 				case MessageEvent.SHOW_MIN_SPOT:
-					view.message = StringUtils.replace(Language.MINBETIS, "#bet#", player.currencyCode + signal.params.min);
+					view.message = StringUtils.replace(Language.MINBETIS, "#bet#", player.currencyCode + signal.params.target.min);
 					break;
 			}
 			view.highlightMessageBG(MESSAGE_COLOR_ERROR);

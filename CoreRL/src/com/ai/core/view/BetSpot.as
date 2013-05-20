@@ -26,6 +26,9 @@
 		
 		private var _asset:MovieClip;
 		private var _name:String;
+		
+		private var _chipHolder:MovieClip=new MovieClip();
+		
 		public function BetSpot(asset:MovieClip) {
 			_asset=asset;
 			chipsPlaced = [];
@@ -34,8 +37,26 @@
 			_asset.buttonMode = true;
 			_asset.mouseChildren = false;
 			_asset.baseMC.alpha = 0;
+			asset.addChild(_chipHolder);
 		}
 
+		public function mainChip():Betchip{
+			return (_chipHolder.getChildAt(_chipHolder.numChildren-1)) as Betchip;
+		}
+		public function get x():Number{
+			return _asset.x;
+		}
+		public function get y():Number{
+			return _asset.y;
+		}
+		
+		public function set x(val:Number):void{
+			_asset.x =val;
+		}
+		public function set y(val:Number):void{
+			_asset.y=val;
+		}
+		
 		public function get display():MovieClip{
 			 return _asset;
 		}
@@ -81,9 +102,16 @@
 			placeBetOnTable(chipSelected);
 		}
 
+		public function chipHolder():MovieClip{
+			return _chipHolder;
+		}
+		public function addChip(chip:Betchip):void{
+			_chipHolder.addChild(chip);
+		}
 		public function placeBetOnTable(value:Number):void {
 			var newValue:Number = chipValue + value;
 			var totalBetPlaced:Number = (_asset.parent as IBetSpotsView).getTotalBet() + value;
+			debug("totalBetPlaced",totalBetPlaced,"balance",balance,"newValue",newValue,"max",max);
 			if(totalBetPlaced <= balance && balance > 0) {
 				if(newValue <= max) {
 				
@@ -112,6 +140,7 @@
 		public function clean():void {
 			chipsPlaced = [];
 			chipValue = 0;
+			_chipHolder.removeChildren();
 		}
 
 		public function repeat():void {
@@ -128,9 +157,11 @@
 			if (chipsPlaced.length > 0) {
 				chipValue = chipValue - chipsPlaced[chipsPlaced.length - 1];
 				chipsPlaced.pop();
+				_chipHolder.removeChildAt(_chipHolder.numChildren-1);
 			}
 			else {
 				clean();
+				_chipHolder.removeChildren();
 			}
 		}
 
