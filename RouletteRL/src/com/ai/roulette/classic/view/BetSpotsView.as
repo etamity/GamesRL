@@ -171,22 +171,18 @@ package com.ai.roulette.classic.view {
 		
 		public function createChip(value:String):void {
 			_betspotMC = getBetspotByName(value);
-			if (getChildByName(value + "chip") != null) {
-				_betchipMC = Betchip(getChildByName(value + "chip"));
-			}
-			else {
-				_betchipMC = new Betchip();
-				_betchipMC.name = value + "chip";
-				addChild(_betchipMC);
-				var bounds:Rectangle    = _betspotMC.display.getBounds(this);
-				var boundCentreX:Number = bounds.x + bounds.width / 2;
-				var boundCentreY:Number = bounds.y + bounds.height / 2;
-				_betchipMC.x = boundCentreX - _betchipMC.width / 2;
-				_betchipMC.y = boundCentreY - _betchipMC.height / 2;
-				_betchipMC.betchipSignal.add(updateChipBet);
-				_betchipMC.hightLightSignal.add(highlight);
-				_betchipMC.removeLightSignal.add(removeHighlight);
-			}
+
+			_betchipMC = new Betchip();
+			_betchipMC.name = value + "chip";
+			addChild(_betchipMC);
+			var bounds:Rectangle    = _betspotMC.display.getBounds(this);
+			var boundCentreX:Number = bounds.x + bounds.width / 2;
+			var boundCentreY:Number = bounds.y + bounds.height / 2;
+			_betchipMC.x = boundCentreX - _betchipMC.width / 2;
+			_betchipMC.y = boundCentreY - _betchipMC.height / 2;
+			_betchipMC.betchipSignal.add(updateChipBet);
+			_betchipMC.hightLightSignal.add(highlight);
+			_betchipMC.removeLightSignal.add(removeHighlight);
 			_betchipMC.betspotName = _betspotMC.name;
 			_betchipMC.chipValue = _betspotMC.chipValue;
 			_betchipMC.updateChipColor(_betspotMC.lastChipPlaced);
