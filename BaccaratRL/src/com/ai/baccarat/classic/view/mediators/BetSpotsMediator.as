@@ -3,7 +3,6 @@ package com.ai.baccarat.classic.view.mediators {
 	import com.ai.baccarat.classic.controller.signals.BaccaratEvent;
 	import com.ai.baccarat.classic.model.BaccaratConstants;
 	import com.ai.baccarat.classic.model.GameDataModel;
-	import com.ai.baccarat.classic.view.BetSpot;
 	import com.ai.baccarat.classic.view.BetSpotsView;
 	import com.ai.core.controller.signals.BalanceEvent;
 	import com.ai.core.controller.signals.BaseSignal;
@@ -18,6 +17,7 @@ package com.ai.baccarat.classic.view.mediators {
 	import com.ai.core.model.Player;
 	import com.ai.core.model.SignalBus;
 	import com.ai.core.utils.GameUtils;
+	import com.ai.core.view.BetSpot;
 	
 	import flash.events.Event;
 	
@@ -41,23 +41,6 @@ package com.ai.baccarat.classic.view.mediators {
 		public var signalBus:SignalBus;
 		
 		override public function initialize():void {
-			/*eventMap.mapListener(eventDispatcher, ModelReadyEvent.READY, initialize);
-			eventMap.mapListener(eventDispatcher, SocketDataEvent.HANDLE_TIMER, checkBettingState);
-			eventMap.mapListener(eventDispatcher, SocketDataEvent.HANDLE_BET, handleBet);
-			eventMap.mapListener(eventDispatcher, SocketDataEvent.HANDLE_CANCEL, clearBets);
-			eventMap.mapListener(eventDispatcher, SocketDataEvent.HANDLE_RESULT, processResult);
-	
-			
-			eventMap.mapListener(eventDispatcher, StateTableConfigEvent.LOADED, setLimits);
-			eventMap.mapListener(eventDispatcher, BalanceEvent.LOADED, setBalance);
-			eventMap.mapListener(eventDispatcher, TaskbarActionEvent.CHIP_CLICKED, setChipSelected);
-			eventMap.mapListener(eventDispatcher, BetEvent.CLOSE_BETS, closeBetting);
-			eventMap.mapListener(eventDispatcher, BetEvent.BETS_REJECTED, clearBets);
-			eventMap.mapListener(eventDispatcher, BetEvent.CLEAR, clearBets);
-			eventMap.mapListener(eventDispatcher, BetEvent.UNDO, clearLastBet);
-			eventMap.mapListener(eventDispatcher, BetEvent.REPEAT, repeat);
-			eventMap.mapListener(eventDispatcher, BetEvent.DOUBLE, double);
-			eventMap.mapListener(eventDispatcher, BetEvent.CONFRIM, confirm);*/
 			
 			signalBus.add(ModelReadyEvent.READY, setupModel);
 			signalBus.add(SocketDataEvent.HANDLE_TIMER, checkBettingState);
@@ -86,30 +69,23 @@ package com.ai.baccarat.classic.view.mediators {
 			eventMap.mapListener(view.stage, Event.RESIZE, onStageResize);
 			if (flashVars.gametype==BaccaratConstants.TYPE_PAIRS)
 				signalBus.add(BaccaratEvent.PAIRRESULT, processPairsResult);
-			//eventMap.mapListener(eventDispatcher, BaccaratEvent.PAIRRESULT , processPairsResult);
 
 		}
 		
 		private function initializeView():void {
 			
 			view.setMode(flashVars.gametype);
-			debug("flashVas.gametype  ",flashVars.gametype);
 			view.registerPoints(game.layoutPoints);
 			view.init();
 			view.disableBetting();
 			view.chipSelected = game.chipSelected;
 			
-			/*view.addEventListener(BetEvent.UPDATE_BET, updateTotalBet);
-			view.addEventListener(MessageEvent.SHOW_NOT_ENOUGH_MONEY, showTooltip);
-			view.addEventListener(MessageEvent.SHOW_MIN_SPOT, showTooltip);
-			view.addEventListener(MessageEvent.SHOW_MAX_SPOT, showTooltip);*/
 			view.updateBetSignal.add(updateTotalBet);
 			view.messageSignal.add(showTooltip)
 		}
 		
 		private function showTooltip(type:String,target:BetSpot):void {
-			//eventDispatcher.dispatchEvent(event);
-			signalBus.dispatch(type, {target:target.max});
+			signalBus.dispatch(type, {target:target});
 			
 		}
 		
@@ -167,7 +143,6 @@ package com.ai.baccarat.classic.view.mediators {
 			var code:String= signal.params.node.@code;
 			player.winnings=view.getWinnings(code);
 			if(player.winnings > 0) {
-					//eventDispatcher.dispatchEvent(new MessageEvent(MessageEvent.SHOW_WINNINGS));
 					signalBus.dispatch(MessageEvent.SHOW_WINNINGS);
 			}
 		}
@@ -188,7 +163,6 @@ package com.ai.baccarat.classic.view.mediators {
 			
 			player.winnings=totalWinning;
 			if(player.winnings > 0) {
-				//eventDispatcher.dispatchEvent(new MessageEvent(MessageEvent.SHOW_WINNINGS));
 				signalBus.dispatch(MessageEvent.SHOW_WINNINGS);
 			}
 		}
@@ -204,72 +178,17 @@ package com.ai.baccarat.classic.view.mediators {
 		}
 		
 		private function countBets():void {
-			/*var betCount:Object = {};
-			var totalCount:int = 0;
-			for (var item:String in view.betBatch) {
-				if (int(item) > 39) {
-					var bets:Array = BetspotData["BS" + item];
-					for (var i:int = 0; i < bets.length; i++) {
-						betCount[bets[i]] = (bets[i] != int(item));
-					}
-				}
-				else {
-					betCount[item] = true;
-				}
-			}
-			
-			for (item in betCount) {
-				totalCount++;
-			}
-			player.betCount = totalCount;*/
 			player.betCount= view.getTotalBet();
 		}
 		
 		private function setLimits(signal:BaseSignal):void {
 			
-			view.setLimits(game.min,game.max);
-			/*for (var i:int = 0; i < STRAIGHTS.length; i++) {
-				view.setLimits(STRAIGHTS[i], game.straightMin, game.straightMax);
-			}
+			view.setLimits(0, game.player_bet_min_limit, game.player_bet_max_limit);
+			view.setLimits(1, game.banker_bet_min_limit, game.banker_bet_min_limit);
+			view.setLimits(2, game.tie_bet_min_limit, game.tie_bet_max_limit);
+			view.setLimits(3, game.player_pairs_bet_min, game.player_pairs_bet_max);
+			view.setLimits(3, game.banker_pairs_bet_min, game.banker_pairs_bet_max);
 			
-			for (i = 0; i < SPLITS.length; i++) {
-				view.setLimits(SPLITS[i], game.splitMin, game.splitMax);
-			}
-			
-			for (i = 0; i < TRIOS.length; i++) {
-				view.setLimits(TRIOS[i], game.trioMin, game.trioMax);
-			}
-			
-			for (i = 0; i < CORNERS.length; i++) {
-				view.setLimits(CORNERS[i], game.cornerMin, game.cornerMax);
-			}
-			
-			for (i = 0; i < SIXES.length; i++) {
-				view.setLimits(SIXES[i], game.sixMin, game.sixMax);
-			}
-			
-			for (i = 0; i < DOZENS.length; i++) {
-				view.setLimits(DOZENS[i], game.dozenMin, game.dozenMax);
-			}
-			
-			for (i = 0; i < COLUMNS.length; i++) {
-				view.setLimits(COLUMNS[i], game.columnMin, game.columnMax);
-			}
-			
-			view.setLimits(ODD, game.oddMin, game.oddMax);
-			view.setLimits(EVEN, game.evenMin, game.evenMax);
-			view.setLimits(BLACK, game.blackMin, game.blackMax);
-			view.setLimits(RED, game.redMin, game.redMax);
-			view.setLimits(HIGH, game.highMin, game.highMax);
-			view.setLimits(LOW, game.lowMin, game.lowMax);
-			
-			// For french/casino magic
-			view.setLimits(163, game.oddMin, game.oddMax);
-			view.setLimits(160, game.evenMin, game.evenMax);			
-			view.setLimits(161, game.redMin, game.redMax);
-			view.setLimits(162, game.blackMin, game.blackMax);
-			view.setLimits(164, game.highMin, game.highMax);
-			view.setLimits(165, game.lowMin, game.lowMax);*/
 		}
 		
 		private function onStageResize(event:Event):void {
