@@ -98,7 +98,7 @@ package com.ai.roulette.classic.view.mediators {
 		}
 		
 		private function showTooltip(type:String,target:BetSpot):void {
-			signalBus.dispatch(type, target);		
+			signalBus.dispatch(type,  {target:target});		
 		}
 		
 		private function setBalance(signal:BaseSignal):void {
@@ -108,7 +108,6 @@ package com.ai.roulette.classic.view.mediators {
 		private function updateTotalBet(target:BetSpot = null):void {
 			player.bet = view.getTotalBet();
 			player.bettingBalance = player.balance - player.bet;
-			//eventDispatcher.dispatchEvent(new BetEvent(BetEvent.TOTAL_BET));
 			signalBus.dispatch(BetEvent.TOTAL_BET);
 		}
 		
@@ -197,7 +196,6 @@ package com.ai.roulette.classic.view.mediators {
 				}
 
 				if(player.winnings > 0) {
-					//eventDispatcher.dispatchEvent(new MessageEvent(MessageEvent.SHOW_WINNINGS));
 					signalBus.dispatch(MessageEvent.SHOW_WINNINGS);
 				}
 			}
@@ -207,7 +205,6 @@ package com.ai.roulette.classic.view.mediators {
 			if(player.bet > 0) {
 				player.betString = view.betString;
 				countBets();
-				//eventDispatcher.dispatchEvent(new BetEvent(BetEvent.SEND_BETS));
 				signalBus.dispatch(BetEvent.SEND_BETS);
 			}
 			view.disableBetting();
