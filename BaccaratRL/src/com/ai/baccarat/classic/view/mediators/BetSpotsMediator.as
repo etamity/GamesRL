@@ -183,9 +183,9 @@ package com.ai.baccarat.classic.view.mediators {
 		
 		private function setLimits(signal:BaseSignal):void {
 			
-			view.setLimits(0, game.player_bet_min_limit, game.player_bet_max_limit);
-			view.setLimits(1, game.banker_bet_min_limit, game.banker_bet_min_limit);
-			view.setLimits(2, game.tie_bet_min_limit, game.tie_bet_max_limit);
+			view.setLimits(0, game.player_bet_min, game.player_bet_max);
+			view.setLimits(1, game.banker_bet_min, game.banker_bet_max);
+			view.setLimits(2, game.tie_bet_min, game.tie_bet_max);
 			view.setLimits(3, game.player_pairs_bet_min, game.player_pairs_bet_max);
 			view.setLimits(3, game.banker_pairs_bet_min, game.banker_pairs_bet_max);
 			

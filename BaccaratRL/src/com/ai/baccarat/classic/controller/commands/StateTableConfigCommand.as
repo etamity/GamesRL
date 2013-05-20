@@ -129,17 +129,20 @@ package com.ai.baccarat.classic.controller.commands {
 			
 			game.videoStream= xml["gameconfig-param"].@high_stream;
 
-			game.banker_bet_max_limit=xml["gameconfig-param"].@banker_bet_max_limit;
-			game.banker_bet_min_limit=xml["gameconfig-param"].@banker_bet_min_limit;
+			game.banker_bet_max=xml["gameconfig-param"].@banker_bet_max;
+			game.banker_bet_min=xml["gameconfig-param"].@banker_bet_min;
 			
-			game.player_bet_max_limit=xml["gameconfig-param"].@player_bet_max_limit;
-			game.player_bet_min_limit=xml["gameconfig-param"].@player_bet_max_limit;
+			game.player_bet_max=xml["gameconfig-param"].@player_bet_max;
+			game.player_bet_min=xml["gameconfig-param"].@player_bet_min;
 			
 			game.player_pairs_bet_max=xml["gameconfig-param"].@player_pairs_bet_max;
 			game.player_pairs_bet_min=xml["gameconfig-param"].@player_pairs_bet_min;
 			
 			game.banker_pairs_bet_max=xml["gameconfig-param"].@banker_pairs_bet_max;
 			game.banker_pairs_bet_min=xml["gameconfig-param"].@banker_pairs_bet_min;
+			
+			game.tie_bet_max=xml["gameconfig-param"].@tie_bet_max;
+			game.tie_bet_min=xml["gameconfig-param"].@tie_bet_min;
 			service.remove(Constants.SERVER_TABLE_CONFIG);
 			
 			
