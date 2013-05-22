@@ -171,22 +171,27 @@ package com.ai.roulette.classic.view {
 		
 		public function createChip(value:String):void {
 			_betspotMC = getBetspotByName(value);
-
-			_betchipMC = new Betchip();
-			_betchipMC.name = value + "chip";
-			addChild(_betchipMC);
-			var bounds:Rectangle    = _betspotMC.display.getBounds(this);
-			var boundCentreX:Number = bounds.x + bounds.width / 2;
-			var boundCentreY:Number = bounds.y + bounds.height / 2;
-			_betchipMC.x = boundCentreX - _betchipMC.width / 2;
-			_betchipMC.y = boundCentreY - _betchipMC.height / 2;
-			_betchipMC.betchipSignal.add(updateChipBet);
-			_betchipMC.hightLightSignal.add(highlight);
-			_betchipMC.removeLightSignal.add(removeHighlight);
-			_betchipMC.betspotName = _betspotMC.name;
-			_betchipMC.chipValue = _betspotMC.chipValue;
+			_betchipMC=Betchip(getChildByName(value + "chip"));
+			if (_betchipMC==null)
+			{
+				_betchipMC = new Betchip();
+				_betchipMC.name = value + "chip";
+				var bounds:Rectangle    = _betspotMC.display.getBounds(this);
+				var boundCentreX:Number = bounds.x + bounds.width / 2;
+				var boundCentreY:Number = bounds.y + bounds.height / 2;
+				_betchipMC.x = boundCentreX - _betchipMC.width / 2;
+				_betchipMC.y = boundCentreY - _betchipMC.height / 2;
+				_betchipMC.betchipSignal.add(updateChipBet);
+				_betchipMC.hightLightSignal.add(highlight);
+				_betchipMC.removeLightSignal.add(removeHighlight);
+				_betchipMC.betspotName = _betspotMC.name;
+				addChild(_betchipMC);
+		
+				swapChildren(_betchipMC, getChildAt(numChildren - 1));
+			}
 			_betchipMC.updateChipColor(_betspotMC.lastChipPlaced);
-			swapChildren(_betchipMC, getChildAt(numChildren - 1));
+			_betchipMC.chipValue = _betspotMC.chipValue;
+		
 		}
 		
 		public function set chipSelected(value:Number):void {
@@ -249,7 +254,7 @@ package com.ai.roulette.classic.view {
 		public function undo():void {
 			if(_chipsPlacedOrder.length > 0) {
 				var lastBet:String = _chipsPlacedOrder[_chipsPlacedOrder.length - 1];
-				_betspotMC = getBetspotByName((lastBet));
+				_betspotMC = getBetspotByName(lastBet);
 				_betspotMC.undo();
 				_betchipMC = Betchip(getChildByName(lastBet + "chip"));
 				if(_betspotMC.chipValue > 0) {
@@ -270,7 +275,7 @@ package com.ai.roulette.classic.view {
 		public function repeat():void {
 			_repeat = true;
 			for (var i:int = 2; i < SPOTS; i++) {
-				_betspotMC = getBetspotByName(("bs" + i));
+				_betspotMC = getBetspotByName("bs" + i);
 				if(_betspotMC != null && _betspotMC.lastBet > 0) {					
 					_betspotMC.repeat();
 				}
@@ -350,8 +355,8 @@ package com.ai.roulette.classic.view {
 				_betspotMC = getBetspotByName(("bs" + i));
 				if (_betspotMC != null) {
 					_betspotMC.disable();
-				
 					if(_betspotMC.chipsPlaced.length > 0) {
+
 						_betchipMC = Betchip(getChildByName("bs" + i + "chip"));
 						if (_betchipMC != null) {
 							_betchipMC.disable();
@@ -372,8 +377,9 @@ package com.ai.roulette.classic.view {
 		
 		public function clearBets():void {
 			for (var i:int = 2; i < SPOTS; i++) {
+				_betspotMC = getBetspotByName(("bs" + i));
 				if (getChildByName("bs" + i + "chip") != null) {
-					getBetspotByName(("bs" + i)).clean();
+					_betspotMC.clean();
 					removeChild(getChildByName("bs" + i + "chip"));
 				}
 			}
@@ -385,8 +391,9 @@ package com.ai.roulette.classic.view {
 		public function getTotalBet():Number {
 			var bet:Number = 0;
 			for (var i:int = 0; i < SPOTS; i++) {
-				if (getBetspotByName("bs" + i) != null) {
-					bet += getBetspotByName(("bs" + i)).chipValue;
+				_betspotMC = getBetspotByName(("bs" + i));
+				if (_betspotMC != null) {
+					bet += _betspotMC.chipValue;
 				}
 			}
 			return bet;
