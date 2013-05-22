@@ -142,8 +142,11 @@ package com.ai.baccarat.classic.view.mediators {
 		private function processResult(signal:BaseSignal):void {
 			var code:String= signal.params.node.@code;
 			player.winnings=view.getWinnings(code);
+			if(player.bet > 0) {
+				player.lastBet = view.lastBet;		
+			}
 			if(player.winnings > 0) {
-					signalBus.dispatch(MessageEvent.SHOW_WINNINGS);
+				signalBus.dispatch(MessageEvent.SHOW_WINNINGS);
 			}
 		}
 		private function processPairsResult(signal:BaseSignal):void{		

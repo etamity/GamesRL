@@ -9,7 +9,6 @@ package com.ai.baccarat.classic.view {
 	
 	import flash.display.MovieClip;
 	import flash.geom.Point;
-	import flash.geom.Rectangle;
 	import flash.utils.Dictionary;
 	
 	import org.osflash.signals.Signal;
@@ -185,25 +184,21 @@ package com.ai.baccarat.classic.view {
 		}
 		public function createChip(value:String):void {
 			_betspotMC = getBetspotByName(value);
-			if (_betspotMC.mainChip != null) {
-				_betchipMC = Betchip(_betspotMC.mainChip);
-			}
-			else {
-				_betchipMC = new Betchip();
-				_betchipMC.name = value + "chip";
-				_betspotMC.addChip(_betchipMC);
-				/*var bounds:Rectangle    = _betspotMC.display.getBounds(this);
-				var boundCentreX:Number = bounds.x + bounds.width / 2;
-				var boundCentreY:Number = bounds.y + bounds.height / 2;
-				_betchipMC.x = boundCentreX - _betchipMC.width / 2;
-				_betchipMC.y = bounds.y;*/
-				_betchipMC.x =  - _betchipMC.width / 2;
-				_betchipMC.y =  - _betchipMC.height / 2;
-				_betchipMC.betchipSignal.add(updateChipBet);
-				_betchipMC.hightLightSignal.add(highlight);
-				_betchipMC.removeLightSignal.add(removeHighlight);
-			}
+			_betchipMC=_betspotMC.mainChip;
+			if (_betchipMC==null)
+			{
+			_betchipMC = new Betchip();
+			_betchipMC.name = value + "chip";
+			_betspotMC.addChip(_betchipMC);
+
+			_betchipMC.x =  - _betchipMC.width / 2;
+			_betchipMC.y =  - _betchipMC.height / 2;
+			_betchipMC.betchipSignal.add(updateChipBet);
+			_betchipMC.hightLightSignal.add(highlight);
+			_betchipMC.removeLightSignal.add(removeHighlight);
+			
 			_betchipMC.betspotName = _betspotMC.name;
+			}
 			_betchipMC.chipValue = _betspotMC.chipValue;
 			_betchipMC.updateChipColor(_betspotMC.lastChipPlaced);
 		} 
@@ -257,12 +252,18 @@ package com.ai.baccarat.classic.view {
 			if(_chipsPlacedOrder.length > 0) {
 				var lastBet:String = _chipsPlacedOrder[_chipsPlacedOrder.length - 1];
 				_betspotMC =getbetSpotByName(lastBet);
+				_betchipMC=_betspotMC.mainChip;
 				_betspotMC.undo();
 				_chipsPlacedOrder.pop();
+				_betchipMC.chipValue = _betspotMC.chipValue;
+				_betchipMC.updateChipColor(_betspotMC.lastChipPlaced);
+				if (_betspotMC.chipValue==0)
+					_betspotMC.clean();
 			}
 			else {
 				clearBets();
 			}
+
 		}
 		
 		public function repeat():void {
@@ -291,7 +292,7 @@ package com.ai.baccarat.classic.view {
 			_betBatch = {};
 			var betBatchString:String = "";
 			var bet:Number;
-			for (var i:int = 0; i < _betSpotsName.length; i++) {
+			for (var i:int = 0; i < _betSpotsArray.length; i++) {
 				_betspotMC = _betSpotsArray[i];
 				if(_betspotMC.chipValue>0) {
 					bet = FormatUtils.floatCorrection(_betspotMC.chipValue);
