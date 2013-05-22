@@ -174,7 +174,8 @@ package com.ai.core.view.mediators {
 		private function showWinnings(signal:BaseSignal):void {
 			var winnings:Number= player.winnings;
 			setTimeout(function():void {
-				view.message = StringUtils.replace(Language.YOUWON, "#winnings#", player.currencyCode + winnings);
+				var winningStr:String=StringUtils.replace(Language.YOUWON, "#winnings#", player.currencyCode + String(StringUtils.floatCorrection(winnings)));
+				view.message =winningStr; 
 				view.highlightMessageBG(MESSAGE_COLOR_SUCCESS);
 				signalBus.dispatch(BalanceEvent.LOAD);
 			}, 2000);

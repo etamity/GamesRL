@@ -306,6 +306,7 @@ package com.ai.core.view.mediators
 
 		private function checkForRepeatAndDouble():void
 		{
+			debug("player.lastBet",player.lastBet);
 			if (player.lastBet > 0)
 			{
 				if (player.lastBet <= player.balance)

@@ -69,6 +69,7 @@
 		}
 		public function set name(val:String):void{
 			_name=val;
+			_asset.name=val;
 		}
 		
 		public function get chipSelected():Number {
@@ -162,7 +163,6 @@
 			if (chipsPlaced.length > 0) {
 				chipValue = chipValue - chipsPlaced[chipsPlaced.length - 1];
 				chipsPlaced.pop();
-				_chipHolder.removeChildAt(_chipHolder.numChildren-1);
 			}
 			else {
 				
