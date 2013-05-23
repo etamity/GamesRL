@@ -8,6 +8,7 @@ package com.smart.uicore.controls.managers
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
+	import flash.events.IOErrorEvent;
 	import flash.net.URLRequest;
 	import flash.system.LoaderContext;
 	import flash.utils.ByteArray;
@@ -26,9 +27,14 @@ package com.smart.uicore.controls.managers
 		{
 		}
 		public static function loadSkinFile(path:String,loadCompleteCall:Function=null,bytes:ByteArray=null,context:LoaderContext=null):void{
+			function ioErrorHandler(event:IOErrorEvent):void
+			{
+				trace("ioErrorHandler: " + event);
+			}	
 			loadOKFun = loadCompleteCall;
 			ldr = new Loader();
 			ldr.contentLoaderInfo.addEventListener(Event.COMPLETE,initSkinSet);
+			ldr.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR, ioErrorHandler);
             if(bytes== null)
             {
 			    ldr.load(new URLRequest(path),context);
@@ -37,7 +43,6 @@ package com.smart.uicore.controls.managers
                 ldr.loadBytes(bytes,context);
             }
 		}
-		
 		public static function getSpriteFromSkinFile(name:String):Sprite
 		{
 			var classRef:Class;
