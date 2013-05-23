@@ -2,7 +2,7 @@ package com.ai.roulette.classic.view {
 	import flash.events.MouseEvent;
 	
 	public class LimitsView extends LimitsAsset {
-		
+
 		public function LimitsView() {
 			visible = false;
 			allLimitsMC.visible = false;

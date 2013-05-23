@@ -28,6 +28,9 @@ package com.ai.roulette.classic.view.mediators {
 		
 		[Inject]
 		public var signalBus:SignalBus;
+		
+		
+		
 		private const ALL_LIMITS:Array  = new Array("straight", "split", "trio", "corner", "six", "column", "dozen", "red", "black", "even", "odd", "high", "low");
 		private const ALL_PAYOUTS:Array = new Array(35, 17, 11, 8, 5, 2, 2, 1, 1, 1, 1, 1, 1);
 		

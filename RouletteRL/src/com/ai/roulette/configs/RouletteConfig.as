@@ -29,7 +29,6 @@ package com.ai.roulette.configs
 	import com.ai.core.model.Chat;
 	import com.ai.core.model.Constants;
 	import com.ai.core.model.FlashVars;
-	import com.ai.core.model.GameState;
 	import com.ai.core.model.IGameData;
 	import com.ai.core.model.Player;
 	import com.ai.core.model.SignalBus;
@@ -130,7 +129,7 @@ package com.ai.roulette.configs
 			mapSingletons();
 			mapMediators();
 			mapCommands();
-			setupView();
+			//setupView();
 			context.afterInitializing(init);
 			
 		}

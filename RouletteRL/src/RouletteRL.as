@@ -26,11 +26,9 @@ package {
 		}
 		private function onAddToStage(evt:Event):void{
 			removeEventListener(Event.ADDED_TO_STAGE,onAddToStage);
-		
-			UI.init(this.stage,24);
+			UI.init(stage,24);
 			ToolTip.setDefaultToolTipStyle(0,0xFFFFFF,0xDDDDDD,1,1,0x666666,0.5);
-			SkinLoader.loadSkinFile("skins/skin.swf",start,null,null);
-
+			start();
 		}
 		
 		private function start():void{

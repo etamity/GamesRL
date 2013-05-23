@@ -1,6 +1,7 @@
 package com.ai.roulette.classic.controller.commands
 {
 	import com.ai.core.controller.commands.BaseCommand;
+	import com.ai.core.model.FlashVars;
 	import com.ai.core.model.URLSModel;
 	import com.ai.core.utils.GameUtils;
 	import com.ai.core.view.ChatView;
@@ -14,6 +15,9 @@ package com.ai.roulette.classic.controller.commands
 	import com.ai.roulette.classic.view.LimitsView;
 	import com.ai.roulette.classic.view.LobbyView;
 	import com.ai.roulette.classic.view.ResultsClassicView;
+	import com.smart.uicore.controls.ToolTip;
+	import com.smart.uicore.controls.managers.SkinLoader;
+	import com.smart.uicore.ui.UI;
 	
 	import org.assetloader.core.IAssetLoader;
 	
@@ -30,13 +34,17 @@ package com.ai.roulette.classic.controller.commands
 		
 		[Inject]
 		public var contextView:ContextView;
+		
+		[Inject]
+		public var flashVars:FlashVars;
+		
 		public function SetupViewCommand()
 		{
 			super();
 		}
 		
 		override public function execute():void {
-			//setupView();
+			setupView();
 		}
 		
 		private function setupView():void {
@@ -44,6 +52,7 @@ package com.ai.roulette.classic.controller.commands
 			contextView.view.addChild(new LoginView());
 			contextView.view.addChild(new AccordionUIView());
 			contextView.view.addChild(new BetSpotsView());
+			contextView.view.addChild(new VideoView());
 			contextView.view.addChild(new LimitsView());
 			contextView.view.addChild(new GameStatusView());
 			contextView.view.addChild(new ChatView());
@@ -51,7 +60,6 @@ package com.ai.roulette.classic.controller.commands
 			contextView.view.addChild(new TaskbarView());
 			//contextView.view.addChild(new MessageBoxView());
 			contextView.view.addChild(new LobbyView());
-			contextView.view.addChild(new VideoView());
 			//contextView.addChild(new StageInfoView());
 			
 		}
