@@ -572,7 +572,9 @@ Terms and Conditions. ]]></acception2>
 	<playersbets><![CDATA[PLAYERS BETS]]></playersbets>
 	<favourites><![CDATA[FAVOURITES]]></favourites>
 	<baccarat_betspotspanel><![CDATA[BETSPOTS]]></baccarat_betspotspanel>
-	
+	<applybutton><![CDATA[Apply]]></applybutton>
+	<deletebutton><![CDATA[Delete]]></deletebutton>
+	<clearbutton><![CDATA[Clear]]></clearbutton>
 		<!-- FACEBOOK-->
 	
 	<!-- FACEBOOK MESSAGEBOX-->

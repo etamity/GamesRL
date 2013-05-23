@@ -15,6 +15,7 @@
 		<freeplay><![CDATA[/cgibin/mobile_launcher.jsp]]></freeplay>
 		<tableConfig><![CDATA[/cgibin/tableconfig.jsp]]></tableConfig>
 		<seat><![CDATA[/cgibin/sitdown.jsp]]></seat>
+		<skin><![CDATA[/player/games/assets/skins/skin.swf]]></skin>
 	</common>
 	<roulette>
 		<results><![CDATA[/cgibin/roulette/history.jsp]]></results>
@@ -22,7 +23,6 @@
 		<winners><![CDATA[/cgibin/facebook/winnerList.jsp]]></winners>
 		<sendBets><![CDATA[/cgibin/roulette/placebets.jsp]]></sendBets>
 		<state><![CDATA[/cgibin/roulette/state.jsp]]></state>
-		
 		<facebook>
 			<addcoins><![CDATA[/cgibin/facebook/updateCoins.jsp?amount=#AMOUNT#]]></addcoins>
 			<getmyitems><![CDATA[/cgibin/facebook/receiveVirtualGood.jsp?mode=getmyitems&facebook_id=#FACEBOOKID#]]></getmyitems>
