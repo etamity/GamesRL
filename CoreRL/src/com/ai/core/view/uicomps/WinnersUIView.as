@@ -31,6 +31,7 @@ package com.ai.core.view.uicomps {
 		
 		public function align():void {
 			visible = true;
+			y=10;
 		}
 		
 		public function language():void{

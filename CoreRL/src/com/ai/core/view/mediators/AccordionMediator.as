@@ -37,7 +37,7 @@ package com.ai.core.view.mediators {
 		
 		}
 		public function resize():void{
-			signalBus.dispatch(UIEvent.RESIZE,{width:164,height:view.contentHeight})
+			signalBus.dispatch(UIEvent.RESIZE,{width:164,height:view.contentHeight-10})
 		}
 		
 		private function onStageResize(event:Event):void {

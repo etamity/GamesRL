@@ -126,6 +126,7 @@ package com.ai.core.view {
 					stageVideoInUse = false;       
 				classicVideoInUse = true;       
 				video.attachNetStream(_stream);       
+			
 				//stage.addChildAt(video, 0);       
 			}           
 		}       
@@ -179,7 +180,7 @@ package com.ai.core.view {
 		private function refreshVideo(event:MouseEvent):void {
 			
 			video.clear();
-			videoRefreshSignal.dispatch(event.target);
+			videoRefreshSignal.dispatch();
 		}
 		
 		private function showFullscreen(event:MouseEvent):void {

@@ -110,7 +110,6 @@ package com.ai.core.service {
 			}
 			_videoStartTime = getTimer();
 			createConnection();
-			debug("video_streamName: "+_streamName);
 		}
 		
 		public function connect(streamUrl:String):void{
@@ -118,6 +117,7 @@ package com.ai.core.service {
 		}
 		private function createConnection():void {
 			debug("rtmp://" + _server + "/" + _application);
+			debug("streamName: "+_streamName);
 			_connection.connect("rtmp://" + _server + "/" + _application);
 			
 			//_videoCheckTimer.start();
@@ -134,6 +134,7 @@ package com.ai.core.service {
 			
 			//_video.stream = _stream;
 			signalBus.dispatch(VideoEvent.PLAY,{stream:_stream});
+			debug("streamName: "+_streamName);
 			_stream.play(StringUtils.trim(_streamName));
 		}
 		

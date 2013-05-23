@@ -19,7 +19,8 @@ package com.ai.core.controller.commands {
 			signalBus.dispatch(UIEvent.SETUP_VIEWS);
 			if(flashVars.localhost) {
 				signalBus.dispatch(LoginEvent.INITIALIZE);
-			} else {
+			} else 
+			{
 				signalBus.dispatch(LoginEvent.LOGIN_SUCCESS);
 				signalBus.dispatch(StartupDataEvent.SEAT);
 				signalBus.dispatch(StartupDataEvent.LOAD);

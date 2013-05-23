@@ -8,6 +8,7 @@ package com.ai.core.view.mediators {
 	import com.ai.core.utils.GameUtils;
 	import com.ai.core.view.VideoView;
 	
+	import flash.display.DisplayObject;
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.Event;
@@ -38,7 +39,7 @@ package com.ai.core.view.mediators {
 		private var stageAvailable:Boolean;
 		
 		private var videoMask:Sprite = new Sprite();
-		private var _viewChildIndex:int;
+		private var _topDisplayObject:DisplayObject;
 		private function onAddtoStageEvent(evt:Event):void{
 			view.stage.addEventListener(StageVideoAvailabilityEvent.STAGE_VIDEO_AVAILABILITY, onStageVideoState);
 		}
@@ -101,12 +102,16 @@ package com.ai.core.view.mediators {
 			videoSevvice.refreshStream();
 		}
 		private function videoFullscreen(target:MovieClip):void {
-			if(!view.fullscreen) {
+			/*if(!view.fullscreen) {
 				_viewChildIndex = contextView.view.getChildIndex(view);
 				contextView.view.setChildIndex(view, contextView.view.numChildren-1);
 			} else {
 				contextView.view.setChildIndex(view, _viewChildIndex);
-			}
+			}*/
+			if (_topDisplayObject==null)
+				_topDisplayObject=contextView.view.getChildAt(contextView.view.numChildren-1);
+			
+			contextView.view.swapChildren(view,_topDisplayObject);
 		}
 		
 	}

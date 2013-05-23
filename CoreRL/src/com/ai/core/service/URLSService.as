@@ -51,13 +51,14 @@ package com.ai.core.service
 			urlsModel.results= xml.common.results;
 			urlsModel.settings= xml.common.settings;
 			urlsModel.tableConfig = xml.common.tableConfig;
-			
+			urlsModel.skin= xml.common.skin;
 			if (flashVars.game.toLowerCase()==Constants.BACCARAT.toLowerCase())
 			{
 				urlsModel.sendBets =xml.baccarat.sendBets;
 				urlsModel.state =xml.baccarat.state;
 				urlsModel.winners=xml.baccarat.winners;
 				urlsModel.statistics=xml.baccarat.statistics;
+				urlsModel.skin=(xml.baccarat.skin!=undefined)?xml.baccarat.skin:urlsModel.skin;
 			}
 			
 			if (flashVars.game.toLowerCase()==Constants.ROULETTE.toLowerCase())
@@ -66,6 +67,7 @@ package com.ai.core.service
 				urlsModel.state =xml.roulette.state;
 				urlsModel.winners=xml.roulette.winners;
 				urlsModel.statistics=xml.roulette.statistics;
+				urlsModel.skin=(xml.roulette.skin!=undefined)?xml.baccarat.skin:urlsModel.skin;
 			}
 			if (_onComplete!=null)
 			_onComplete();
@@ -73,6 +75,12 @@ package com.ai.core.service
 		}
 		public function loadConfig(onComplete:Function):void{
 			debug("loading Config  " + _xmlurl);
+			if (flashVars.localhost==false)
+			{
+				_xmlurl="/player/games/assets/urls.xml";
+			}
+				
+			
 			_onComplete=onComplete;
 			service.addLoader(new XMLLoader(new URLRequest(_xmlurl), URLS_XML));
 			service.getLoader(URLS_XML).onError.add(showError);

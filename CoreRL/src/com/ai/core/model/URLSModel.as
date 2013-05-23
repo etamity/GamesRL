@@ -25,7 +25,7 @@ package com.ai.core.model
 		private var _settings:String 	= "/player/games/assets/settings.xml";
 		private var _balance:String 	= "/cgibin/balance.jsp";
 		private var _seat:String        = "/cgibin/sitdown.jsp";
-		
+		private var _skin:String        = "/player/games/prepare/skins/skin.swf";
 		private var urlsXml:XML ;
 		[Inject]
 		public var flashVars:FlashVars;
@@ -51,6 +51,13 @@ package com.ai.core.model
 			return server + _balance;
 		}
 		
+		public function get skin():String{
+			return server +_skin;
+		}
+		
+		public function set skin(value:String):void{
+			_skin=value;
+		}
 		public function set balance(value:String):void {
 			_balance = value;
 		}

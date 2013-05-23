@@ -194,7 +194,6 @@ package com.ai.core.view.mediators
 			switch (target)
 			{
 				case view.fullscreen:
-					//eventDispatcher.dispatchEvent(new TaskbarActionEvent(TaskbarActionEvent.FULLSCREEN_CLICKED));
 					signalBus.dispatch(TaskbarActionEvent.FULLSCREEN_CLICKED);
 					break;
 				case view.help:

@@ -40,12 +40,12 @@ package com.ai.core.controller.commands {
 	
 						}
 					}else{
-						videoService.servers = game.videoSettings.application.videoservers.split(",");
+						videoService.servers = String(game.videoSettings.videoservers).split(",");
 						game.videoApplication = game.videoSettings.application;
 					}
 					
-					if (game.server !="")
-						videoService.servers=new Array(game.server);
+					/*if (game.server !="")
+						videoService.servers=new Array(game.server);*/
 					if (game.videoStream !="")
 						videoService.streams= new Array(game.videoStream);
 					if (game.videoApplication !="")
