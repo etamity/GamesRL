@@ -90,22 +90,45 @@ package com.ai.baccarat.classic.model {
 			switch (code)
 			{
 				case "0":
-					betspotName="player";
+					betspotName=BaccaratConstants.PLAYER;
 					break;
 				case "1":
-					betspotName="banker";
+					betspotName=BaccaratConstants.BANKER;
 					break;
 				case "2":
-					betspotName="tie";
+					betspotName=BaccaratConstants.TIE;
 					break;
 				case "3":
-					betspotName="pair_player";
+					betspotName=BaccaratConstants.PAIRPLAYER;
 					break;
 				case "4":
-					betspotName="pair_banker";
+					betspotName=BaccaratConstants.PAIRBANKER;
 					break;
 			}
 			return betspotName;
+		}
+		
+		public function getBespotIndex(side:String):int{
+			var index:int;
+			switch (side)
+			{
+				case BaccaratConstants.PLAYER:
+					index=0;
+					break;
+				case BaccaratConstants.BANKER:
+					index=1;
+					break;
+				case BaccaratConstants.TIE:
+					index=2;
+					break;
+				case BaccaratConstants.PAIRPLAYER:
+					index=3;
+					break;
+				case BaccaratConstants.PAIRBANKER:
+					index=4;
+					break;
+			}
+			return index;
 		}
 	}
 }

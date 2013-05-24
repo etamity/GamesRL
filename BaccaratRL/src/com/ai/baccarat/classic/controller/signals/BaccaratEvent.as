@@ -1,6 +1,6 @@
 package com.ai.baccarat.classic.controller.signals
 {
-	import flash.events.Event;
+	
 
 	public class BaccaratEvent
 	{	
@@ -16,15 +16,9 @@ package com.ai.baccarat.classic.controller.signals
 		
 		public static const CARD:String = "BaccaratEvent.CARD";
 		public static const CARDINC:String = "BaccaratEvent.CARDINC";
+
 		
-		private var _xml:XML;
-		
-		public function get xml():XML {
-			return _xml;
-		}
-		
-		public function set xml(value:XML):void {
-			_xml = value;
-		}
+		public static const MAKEBETPANEL:String = "BaccaratEvent.MAKEBETPANEL";
+		public static const MAKEBETSPOT:String = "BaccaratEvent.MAKEBETSPOT";
 	}
 }

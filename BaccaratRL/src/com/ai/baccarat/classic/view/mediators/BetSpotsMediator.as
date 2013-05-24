@@ -43,8 +43,8 @@ package com.ai.baccarat.classic.view.mediators {
 		override public function initialize():void {
 			
 			signalBus.add(ModelReadyEvent.READY, setupModel);
-			signalBus.add(SocketDataEvent.HANDLE_TIMER, checkBettingState);
 			//signalBus.add(SocketDataEvent.HANDLE_BET, handleBet);
+			signalBus.add(SocketDataEvent.HANDLE_TIMER, checkBettingState);
 			signalBus.add(SocketDataEvent.HANDLE_CANCEL, clearBets);
 			signalBus.add(SocketDataEvent.HANDLE_RESULT, processResult);
 			
@@ -58,6 +58,7 @@ package com.ai.baccarat.classic.view.mediators {
 			signalBus.add(BetEvent.REPEAT, repeat);
 			signalBus.add(BetEvent.DOUBLE, double);
 			signalBus.add(BetEvent.CONFRIM, confirm);
+			signalBus.add(BaccaratEvent.MAKEBETSPOT, makeBets);
 		}
 		
 		private function confirm(signal:BaseSignal):void{
@@ -72,18 +73,28 @@ package com.ai.baccarat.classic.view.mediators {
 
 		}
 		
+		private function makeBets(signal:BaseSignal):void{
+			var side:String=signal.params.side;
+			var index:int= game.getBespotIndex(side);
+			view.createBet(view.chipSelecedValue, index);
+		}
+		
 		private function initializeView():void {
 			
 			view.setMode(flashVars.gametype);
 			view.registerPoints(game.layoutPoints);
 			view.init();
 			view.disableBetting();
-			view.chipSelected = game.chipSelected;
+			view.chipSelecedValue = game.chipSelected;
 			
 			view.updateBetSignal.add(updateTotalBet);
-			view.messageSignal.add(showTooltip)
+			view.messageSignal.add(showTooltip);
+			view.makeBetsignal.add(makePanelBets);
 		}
-		
+		private function makePanelBets(side:String):void{
+			var amount:Number= view.getBetspotAmount(side);
+			signalBus.dispatch(BaccaratEvent.MAKEBETPANEL ,{side:side,amount:amount});
+		}
 		private function showTooltip(type:String,target:BetSpot):void {
 			signalBus.dispatch(type, {target:target});
 			
@@ -101,7 +112,7 @@ package com.ai.baccarat.classic.view.mediators {
 
 		
 		private function setChipSelected(signal:BaseSignal):void {
-			view.chipSelected = game.chipSelected;
+			view.chipSelecedValue = game.chipSelected;
 		}
 		
 		private function checkBettingState(signal:BaseSignal = null):void {
@@ -190,7 +201,7 @@ package com.ai.baccarat.classic.view.mediators {
 			view.setLimits(1, game.banker_bet_min, game.banker_bet_max);
 			view.setLimits(2, game.tie_bet_min, game.tie_bet_max);
 			view.setLimits(3, game.player_pairs_bet_min, game.player_pairs_bet_max);
-			view.setLimits(3, game.banker_pairs_bet_min, game.banker_pairs_bet_max);
+			view.setLimits(4, game.banker_pairs_bet_min, game.banker_pairs_bet_max);
 			
 		}
 		

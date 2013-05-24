@@ -1,12 +1,85 @@
 package com.ai.baccarat.classic.view.mediators
 {
+	import com.ai.baccarat.classic.controller.signals.BaccaratEvent;
+	import com.ai.baccarat.classic.view.BetspotsPanelView;
+	import com.ai.core.controller.signals.BaseSignal;
+	import com.ai.core.controller.signals.BetEvent;
+	import com.ai.core.controller.signals.ModelReadyEvent;
+	import com.ai.core.controller.signals.SocketDataEvent;
+	import com.ai.core.controller.signals.UIEvent;
+	import com.ai.core.model.FlashVars;
+	import com.ai.core.model.GameState;
+	import com.ai.core.model.SignalBus;
+	
+	import flash.events.Event;
+	
 	import robotlegs.bender.bundles.mvcs.Mediator;
+	import robotlegs.bender.extensions.contextView.ContextView;
 	
 	public class BetspotsPanelMediator extends Mediator
 	{
+		[Inject]
+		public var view:BetspotsPanelView;
+		
+		[Inject]
+		public var signalBus:SignalBus;
+		
+		[Inject]
+		public var contextView:ContextView;	
+		
+		[Inject]
+		public var flashVars:FlashVars;
 		public function BetspotsPanelMediator()
 		{
 			super();
+
+		}
+		override public function initialize():void {
+			signalBus.add(UIEvent.RESIZE, resize);
+			signalBus.add(ModelReadyEvent.READY, setupModel);
+		}
+		private function setupModel(signal:BaseSignal):void {
+			view.init();
+			eventMap.mapListener(contextView.view.stage, Event.RESIZE, onStageResize);
+			signalBus.add(BaccaratEvent.MAKEBETPANEL, makePanelBet);
+			signalBus.add(BetEvent.CLOSE_BETS, closeBetting);
+			signalBus.add(SocketDataEvent.HANDLE_TIMER, checkBettingState);
+			signalBus.add(SocketDataEvent.HANDLE_CANCEL, clearBets);
+			
+			view.makeBetSignal.add(makeBet);
+			view.setMode(flashVars.gametype);
+		}
+		
+		private function closeBetting(signal:BaseSignal):void{
+			view.enabledBetting(false);
+		}
+		private function checkBettingState(signal:BaseSignal):void{
+			if(GameState.state == GameState.WAITING_FOR_BETS) {
+				view.clearBets();
+				view.enabledBetting(true);
+			}
+			else if(GameState.state == GameState.NO_GAME) {
+				view.clearBets();
+			}
+		}
+		private function clearBets(signal:BaseSignal):void{
+			view.clearBets();
+		}
+		private function makePanelBet(signal:BaseSignal):void{
+			var side:String= signal.params.side;
+			var amount:Number= signal.params.amount;
+			view.makeBet(amount,side);
+		}
+		private function makeBet(side:String):void{
+			signalBus.dispatch(BaccaratEvent.MAKEBETSPOT ,{side:side});
+		}
+		private function onStageResize(event:Event):void {
+			view.align();
+		}
+		public function resize(signal:BaseSignal):void{
+			var ww:int= signal.params.width;
+			var hh:int= signal.params.height;
+			view.resize(ww,hh);
 		}
 	}
 }

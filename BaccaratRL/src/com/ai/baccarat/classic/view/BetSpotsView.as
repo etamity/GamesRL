@@ -31,12 +31,21 @@ package com.ai.baccarat.classic.view {
 		public var updateBetSignal:Signal=new Signal();
 		public var hightLightSignal:Signal=new Signal();
 		public var removeLightSignal:Signal=new Signal();
+		
+		public var makeBetsignal:Signal=new Signal();
+		
 		private var _chipSelecedValue:Number=0;
 		private var _balance:Number=0;
 		
 		public function BetSpotsView() {
 			_betSpotsArray=new Array();
-			_betSpotsName = new Array("player", "banker", "tie", "pair_player", "pair_banker");
+			_betSpotsName = new Array(
+				BaccaratConstants.PLAYER, 
+				BaccaratConstants.BANKER, 
+				BaccaratConstants.TIE,
+				BaccaratConstants.PAIRPLAYER, 
+				BaccaratConstants.PAIRBANKER
+			);
 			_payouts = new Array(2, 1.95, 9, 12, 12);
 			_betSpotHash=new Dictionary();
 			hideSpotsMc();
@@ -201,9 +210,10 @@ package com.ai.baccarat.classic.view {
 			}
 			_betchipMC.chipValue = _betspotMC.chipValue;
 			_betchipMC.updateChipColor(_betspotMC.lastChipPlaced);
+			makeBetsignal.dispatch(value);
 		} 
 		
-		public function set chipSelected(value:Number):void {
+		public function set chipSelecedValue(value:Number):void {
 			_chipSelecedValue=value;
 		}
 		
@@ -364,6 +374,10 @@ package com.ai.baccarat.classic.view {
 			return bet;
 		}
 		
+		public function getBetspotAmount(side:String):Number{
+			_betspotMC = getBetspotByName(side);
+			return _betspotMC.chipValue;
+		}
 		private function debug(...args):void {
 			GameUtils.log(this, args);
 		}
