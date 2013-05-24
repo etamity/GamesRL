@@ -11,5 +11,7 @@ package com.ai.core.controller.signals
 		public static const HELP_LOAD:String 		= "UIEvent.HELP_LOAD";
 		public static const HELP_LOADED:String 		= "UIEvent.HELP_LOADED";
 		public static const RESIZE:String 			= "UIEvent.RESIZE";
+		
+		public static const MAKEBETS:String 			= "UIEvent.MAKEBETS";
 	}
 }
