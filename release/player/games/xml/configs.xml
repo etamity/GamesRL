@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <game>
-
+	<!--
 	<casino 
 	game="roulette" 
 	gametype="tv_roulette" 
@@ -15,9 +15,9 @@
 	lang="en" 
 	server="livecasino.smartliveaffiliates.com"
 	></casino>
+	-->
 
 
-	<!--
 
 	<casino 
 	game="baccarat" 
@@ -32,7 +32,7 @@
 	server="livecasino.smartliveaffiliates.com"
 	></casino> 
 
-	-->
+
 
 	
 	<!-- 
