@@ -112,7 +112,8 @@ package com.ai.baccarat.classic.view
 		}
 		
 		public function cleanPanel():void{
-			cardsMc.removeChildren();
+			GameUtils.removeChildren(cardsMc);
+			//cardsMc.removeChildren();
 			bankerCards=new Array();
 			playerCards=new Array();
 			refreshScore();

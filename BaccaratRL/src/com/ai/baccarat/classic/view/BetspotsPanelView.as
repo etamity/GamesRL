@@ -1,6 +1,7 @@
 package com.ai.baccarat.classic.view
 {
 	import com.ai.baccarat.classic.model.BaccaratConstants;
+	import com.ai.core.utils.GameUtils;
 	import com.ai.core.view.Betchip;
 	import com.ai.core.view.interfaces.IUIView;
 	import com.smart.uicore.controls.ScrollPane;
@@ -69,7 +70,7 @@ package com.ai.baccarat.classic.view
 		}
 		
 		public function clearBets():void{
-			chipHolder.removeChildren();
+			GameUtils.removeChildren(chipHolder);
 		}
 		
 		public function enabledBetting(val:Boolean):void{
@@ -148,7 +149,7 @@ package com.ai.baccarat.classic.view
 			chip.chipValue= value;
 			chip.x=mc.x-chip.width/2;
 			chip.y=mc.y-chip.height/2;
-			
+			chip.updateChipColor(value);
 			chipHolder.addChild(chip);
 		}
 		
