@@ -146,7 +146,8 @@
 		public function clean():void {
 			chipsPlaced = [];
 			chipValue = 0;
-			_chipHolder.removeChildren();
+			GameUtils.removeChildren(_chipHolder);
+			//_chipHolder.removeChildren();
 		}
 
 		public function repeat():void {
@@ -165,8 +166,8 @@
 				chipsPlaced.pop();
 			}
 			else {
-				
-				_chipHolder.removeChildren();
+				GameUtils.removeChildren(_chipHolder);
+				//_chipHolder.removeChildren();
 				clean();
 			}
 		}

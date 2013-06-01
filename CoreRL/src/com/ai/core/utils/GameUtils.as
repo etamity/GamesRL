@@ -284,13 +284,15 @@ package com.ai.core.utils {
 		}
 		
 		public static function removeChildren(mc:MovieClip):void {
-			var children:Array = new Array();
+			/*var children:Array = new Array();
 			for (var i:int = 0; i < mc.numChildren; i++) {
 				children.push(mc.getChildAt(i));
 			}
 			for (i = 0; i < children.length; i++) {
 				children[i].parent.removeChild(children[i]);
-			}
+			}*/
+			while (mc.numChildren>0)
+				mc.removeChildAt(0);
 		}
 		
 		public static function adjustFilter(mc:MovieClip, val:Number):void {
