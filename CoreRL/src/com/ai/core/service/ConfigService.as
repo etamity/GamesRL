@@ -1,7 +1,9 @@
 package com.ai.core.service
 {
+	import com.ai.core.controller.signals.MessageEvent;
 	import com.ai.core.model.Actor;
 	import com.ai.core.model.FlashVars;
+	import com.ai.core.model.SignalBus;
 	import com.ai.core.utils.GameUtils;
 	
 	import flash.net.URLRequest;
@@ -23,7 +25,8 @@ package com.ai.core.service
 		public var flashVars:FlashVars;
 		[Inject]
 		public var videoService:VideoService;
-		
+		[Inject]
+		public var signalBus:SignalBus;
 		private var _onComplete:Function;
 		public function ConfigService()
 		{
@@ -63,6 +66,7 @@ package com.ai.core.service
 		}
 		private function showError(signal:ErrorSignal):void {
 			debug("error " + signal.message);
+			signalBus.dispatch(MessageEvent.ERROR,{error:signal.message});
 		}
 		private function debug(...args):void {
 			GameUtils.log(this, args);

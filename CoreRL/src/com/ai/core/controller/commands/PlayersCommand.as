@@ -1,5 +1,6 @@
 package com.ai.core.controller.commands {
 	
+	import com.ai.core.controller.signals.MessageEvent;
 	import com.ai.core.controller.signals.PlayersEvent;
 	import com.ai.core.model.Constants;
 	import com.ai.core.model.FlashVars;
@@ -50,6 +51,7 @@ package com.ai.core.controller.commands {
 		
 		private function showError(signal:ErrorSignal):void {
 			debug("error");
+			signalBus.dispatch(MessageEvent.ERROR,{error:signal.message});
 		}
 		
 		private function debug(...args):void {

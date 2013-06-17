@@ -1,6 +1,7 @@
 package com.ai.core.controller.commands {	
 	
 	import com.ai.core.controller.signals.ChatEvent;
+	import com.ai.core.controller.signals.MessageEvent;
 	import com.ai.core.controller.signals.PlayersEvent;
 	import com.ai.core.controller.signals.StartupDataEvent;
 	import com.ai.core.controller.signals.StateTableConfigEvent;
@@ -87,6 +88,7 @@ package com.ai.core.controller.commands {
 		
 		private function showError(signal:ErrorSignal):void {
 			debug("error " + signal.message);
+			signalBus.dispatch(MessageEvent.ERROR,{error:signal.message});
 		}
 		
 		private function debug(...args):void {

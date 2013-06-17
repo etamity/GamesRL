@@ -3,9 +3,11 @@ package com.ai.core.view.mediators {
 	import com.ai.core.controller.signals.BaseSignal;
 	import com.ai.core.controller.signals.LoginEvent;
 	import com.ai.core.controller.signals.ModelReadyEvent;
+	import com.ai.core.controller.signals.StartupDataEvent;
 	import com.ai.core.controller.signals.TaskbarActionEvent;
 	import com.ai.core.model.IGameData;
 	import com.ai.core.model.SignalBus;
+	import com.ai.core.model.SignalConstants;
 	import com.ai.core.utils.GameUtils;
 	import com.ai.core.view.StageView;
 	
@@ -32,9 +34,13 @@ package com.ai.core.view.mediators {
 		override public function initialize():void {
 			
 			signalBus.add(ModelReadyEvent.READY,setupModel);
+			signalBus.add(SignalConstants.STARTUP,showPreloader);
+			signalBus.add(LoginEvent.INITIALIZE,hidePreloader);
 			signalBus.add(LoginEvent.LOGIN,showPreloader);
-			signalBus.add(LoginEvent.LOGIN_SUCCESS,hidePreloader);
-			signalBus.add(LoginEvent.LOGIN_FAILURE,hidePreloader);
+			//signalBus.add(LoginEvent.LOGIN_SUCCESS,hidePreloader);
+			//signalBus.add(LoginEvent.LOGIN_FAILURE,hidePreloader);
+			signalBus.add(StartupDataEvent.LOAD,hidePreloader);
+
 			signalBus.add(TaskbarActionEvent.FULLSCREEN_CLICKED,toggleFullScreen);
 			signalBus.add(TaskbarActionEvent.SOUND_CLICKED,toggleSound);
 			signalBus.add(TaskbarActionEvent.HELP_CLICKED,toggleHelp);
@@ -48,6 +54,10 @@ package com.ai.core.view.mediators {
 			
 			_sound.volume = 1;
 			SoundMixer.soundTransform = _sound;
+		}
+		
+		private function setErrorMessage(signal:BaseSignal):void{
+			var errorID:String=signal.params.errorID;
 		}
 		
 		private function showPreloader(signal:BaseSignal):void {

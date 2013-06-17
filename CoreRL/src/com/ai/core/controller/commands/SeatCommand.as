@@ -1,7 +1,9 @@
 package com.ai.core.controller.commands
 {
+	import com.ai.core.controller.signals.MessageEvent;
 	import com.ai.core.model.Constants;
 	import com.ai.core.model.FlashVars;
+	import com.ai.core.model.SignalBus;
 	import com.ai.core.model.URLSModel;
 	import com.ai.core.utils.GameUtils;
 	
@@ -23,6 +25,8 @@ package com.ai.core.controller.commands
 		[Inject]
 		public var flashVars:FlashVars;
 		
+		[Inject]
+		public var signalBus:SignalBus;
 		public function SeatCommand()
 		{
 			super();
@@ -46,6 +50,7 @@ package com.ai.core.controller.commands
 		}
 		private function showError(signal:ErrorSignal):void {
 			debug("error " + signal.message);
+			signalBus.dispatch(MessageEvent.ERROR,{error:signal.message});
 		}
 		
 		private function debug(...args):void {
