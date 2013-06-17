@@ -22,16 +22,20 @@ package com.smart.uicore.controls.managers
 		public static var isSelfFile:Boolean = false;
 		private static var ldr:Loader;
 		private static var loadOKFun:Function;
-		
+		private static var loadErrFun:Function;
 		public function SkinLoader()
 		{
 		}
-		public static function loadSkinFile(path:String,loadCompleteCall:Function=null,bytes:ByteArray=null,context:LoaderContext=null):void{
+		public static function loadSkinFile(path:String,loadCompleteCall:Function=null,loadErrorCall:Function=null,bytes:ByteArray=null,context:LoaderContext=null):void{
 			function ioErrorHandler(event:IOErrorEvent):void
 			{
 				trace("ioErrorHandler: " + event);
+				if(loadErrFun != null){
+					loadErrFun(event);
+				}
 			}	
 			loadOKFun = loadCompleteCall;
+			loadErrFun= loadErrorCall;
 			ldr = new Loader();
 			ldr.contentLoaderInfo.addEventListener(Event.COMPLETE,initSkinSet);
 			ldr.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR, ioErrorHandler);
