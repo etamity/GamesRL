@@ -1,6 +1,6 @@
 package com.ai.baccarat.classic.view
 {
-	import com.ai.core.utils.GameUtils;
+	import com.newco.grand.core.utils.GameUtils;
 	
 	import caurina.transitions.Tweener;
 

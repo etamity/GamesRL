@@ -5,16 +5,16 @@ package com.ai.baccarat.classic.controller.commands
 	import com.ai.baccarat.classic.view.CardsPanelView;
 	import com.ai.baccarat.classic.view.ScoreCardView;
 	import com.ai.baccarat.classic.view.TableGraphicView;
-	import com.ai.core.controller.commands.BaseCommand;
-	import com.ai.core.utils.GameUtils;
-	import com.ai.core.view.ChatView;
-	import com.ai.core.view.GameStatusView;
-	import com.ai.core.view.LoginView;
-	import com.ai.core.view.MessageBoxView;
-	import com.ai.core.view.StageView;
-	import com.ai.core.view.TaskbarView;
-	import com.ai.core.view.VideoView;
-	import com.ai.core.view.uicomps.AccordionUIView;
+	import com.ai.core.common.controller.commands.BaseCommand;
+	import com.newco.grand.core.utils.GameUtils;
+	import com.ai.core.common.view.ChatView;
+	import com.ai.core.common.view.GameStatusView;
+	import com.ai.core.common.view.LoginView;
+	import com.ai.core.common.view.MessageBoxView;
+	import com.ai.core.common.view.StageView;
+	import com.ai.core.common.view.TaskbarView;
+	import com.ai.core.common.view.VideoView;
+	import com.ai.core.common.view.uicomps.AccordionUIView;
 	
 	import robotlegs.bender.extensions.contextView.ContextView;
 	

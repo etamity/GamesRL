@@ -1,9 +1,9 @@
 package com.ai.baccarat.classic.view
 {
 	import com.ai.baccarat.classic.model.BaccaratConstants;
-	import com.ai.core.utils.GameUtils;
-	import com.ai.core.view.Betchip;
-	import com.ai.core.view.interfaces.IUIView;
+	import com.newco.grand.core.utils.GameUtils;
+	import com.ai.core.common.view.Betchip;
+	import com.ai.core.common.view.interfaces.IUIView;
 	import com.smart.uicore.controls.ScrollPane;
 	
 	import flash.display.MovieClip;

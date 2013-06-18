@@ -1,8 +1,8 @@
 package com.ai.baccarat.classic.view
 {	
 	import com.ai.baccarat.classic.model.BaccaratConstants;
-	import com.ai.core.utils.GameUtils;
-	import com.ai.core.utils.StringUtils;
+	import com.newco.grand.core.utils.GameUtils;
+	import com.newco.grand.core.utils.StringUtils;
 	
 	import flash.display.MovieClip;
 	import flash.geom.Point;

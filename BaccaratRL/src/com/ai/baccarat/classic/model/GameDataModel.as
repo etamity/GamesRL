@@ -1,5 +1,5 @@
 package com.ai.baccarat.classic.model {
-	import com.ai.core.model.GameData;
+	import com.ai.core.common.model.GameData;
 	
 	public class GameDataModel extends GameData {
 		

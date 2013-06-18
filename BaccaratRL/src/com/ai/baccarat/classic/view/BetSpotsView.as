@@ -1,11 +1,11 @@
 package com.ai.baccarat.classic.view {
 	
 	import com.ai.baccarat.classic.model.BaccaratConstants;
-	import com.ai.core.utils.FormatUtils;
-	import com.ai.core.utils.GameUtils;
-	import com.ai.core.view.BetSpot;
-	import com.ai.core.view.Betchip;
-	import com.ai.core.view.interfaces.IBetSpotsView;
+	import com.newco.grand.core.utils.FormatUtils;
+	import com.newco.grand.core.utils.GameUtils;
+	import com.ai.core.common.view.BetSpot;
+	import com.ai.core.common.view.Betchip;
+	import com.ai.core.common.view.interfaces.IBetSpotsView;
 	
 	import flash.display.MovieClip;
 	import flash.geom.Point;

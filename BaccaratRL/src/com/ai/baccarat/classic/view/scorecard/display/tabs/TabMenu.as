@@ -1,9 +1,9 @@
 package com.ai.baccarat.classic.view.scorecard.display.tabs {
 	
-	import com.ai.core.view.ui.buttons.GeneralButton;
-	import com.ai.core.view.ui.buttons.GeneralButtonEvent;
+	import com.ai.core.common.view.ui.buttons.GeneralButton;
+	import com.ai.core.common.view.ui.buttons.GeneralButtonEvent;
 	import com.ai.core.view.ui.buttons.IGeneralButton;
-	import com.ai.core.view.ui.views.BaseView;
+	import com.ai.core.common.view.ui.views.BaseView;
 	
 	import flash.display.MovieClip;
 

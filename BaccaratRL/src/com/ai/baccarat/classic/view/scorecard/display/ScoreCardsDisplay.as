@@ -7,10 +7,10 @@ package com.ai.baccarat.classic.view.scorecard.display {
 	import com.ai.baccarat.classic.view.scorecard.display.road.result.IResult;
 	import com.ai.baccarat.classic.view.scorecard.display.tabs.ITabMenu;
 	import com.ai.baccarat.classic.view.scorecard.display.tabs.TabMenu;
-	import com.ai.core.model.Language;
-	import com.ai.core.view.ui.buttons.GeneralButtonEvent;
+	import com.ai.core.common.model.Language;
+	import com.ai.core.common.view.ui.buttons.GeneralButtonEvent;
 	import com.ai.core.view.ui.buttons.IGeneralButton;
-	import com.ai.core.view.ui.views.BaseView;
+	import com.ai.core.common.view.ui.views.BaseView;
 	import com.ai.core.view.ui.views.IBaseView;
 	
 	import flash.display.MovieClip;

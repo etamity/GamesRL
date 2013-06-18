@@ -2,11 +2,11 @@ package com.ai.baccarat.classic.controller.commands {
 	
 	import com.ai.baccarat.classic.controller.signals.WinnersEvent;
 	import com.ai.baccarat.classic.model.GameDataModel;
-	import com.ai.core.model.Constants;
-	import com.ai.core.model.FlashVars;
-	import com.ai.core.model.SignalBus;
-	import com.ai.core.model.URLSModel;
-	import com.ai.core.utils.GameUtils;
+	import com.ai.core.common.model.Constants;
+	import com.ai.core.common.model.FlashVars;
+	import com.ai.core.common.model.SignalBus;
+	import com.ai.core.common.model.URLSModel;
+	import com.newco.grand.core.utils.GameUtils;
 	
 	import org.assetloader.core.IAssetLoader;
 	import org.assetloader.signals.ErrorSignal;

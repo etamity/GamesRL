@@ -2,8 +2,8 @@ package com.ai.baccarat.classic.view.scorecard {
 	
 	import com.ai.baccarat.classic.view.scorecard.display.IScoreCardsDisplay;
 	import com.ai.baccarat.classic.view.scorecard.display.ScoreCardsDisplay;
-	import com.ai.core.utils.GameUtils;
-	import com.ai.core.utils.StringUtils;
+	import com.newco.grand.core.utils.GameUtils;
+	import com.newco.grand.core.utils.StringUtils;
 	
 	import flash.display.MovieClip;
 	

@@ -1,8 +1,8 @@
 package com.ai.baccarat.classic.view.mediators
 {
-	import com.ai.core.controller.signals.BaseSignal;
-	import com.ai.core.controller.signals.ModelReadyEvent;
-	import com.ai.core.model.SignalBus;
+	import com.ai.core.common.controller.signals.BaseSignal;
+	import com.ai.core.common.controller.signals.ModelReadyEvent;
+	import com.ai.core.common.model.SignalBus;
 	
 	import robotlegs.bender.bundles.mvcs.Mediator;
 	

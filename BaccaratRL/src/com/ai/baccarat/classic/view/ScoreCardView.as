@@ -1,7 +1,7 @@
 package com.ai.baccarat.classic.view
 {
 	import com.ai.baccarat.classic.view.scorecard.ScoreCard;
-	import com.ai.core.model.Style;
+	import com.ai.core.common.model.Style;
 	
 	import flash.display.MovieClip;
 	import flash.display.Sprite;

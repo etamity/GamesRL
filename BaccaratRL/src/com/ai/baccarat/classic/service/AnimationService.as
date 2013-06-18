@@ -1,6 +1,6 @@
 package com.ai.baccarat.classic.service
 {
-	import com.ai.core.model.Actor;
+	import com.ai.core.common.model.Actor;
 	
 	import flash.display.MovieClip;
 	import flash.geom.Point;
