@@ -14,11 +14,11 @@ package {
 	import robotlegs.bender.framework.impl.Context;
 	
 	[SWF(width = "990", height = "610", frameRate = "24", backgroundColor = "#000000")]
-	public class RouletteRL extends Sprite {
+	public class Roulette extends Sprite {
 		
 		protected var context:IContext; 
 		
-		public function RouletteRL() {
+		public function Roulette() {
 		
 			//stage.scaleMode = StageScaleMode.NO_SCALE;
 			//stage.align = StageAlign.TOP_LEFT;
