@@ -1,6 +1,6 @@
 package com.ai.roulette.classic.view.mediators
 {
-	import com.ai.core.utils.GameUtils;
+	import com.newco.grand.core.utils.GameUtils;
 	
 	import robotlegs.bender.bundles.mvcs.Mediator;
 	

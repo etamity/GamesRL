@@ -1,6 +1,6 @@
 package com.ai.roulette.classic.view
 {	
-	import com.ai.core.view.Betchip;
+	import com.ai.core.common.view.Betchip;
 	
 	import flash.display.MovieClip;
 	import flash.events.Event;

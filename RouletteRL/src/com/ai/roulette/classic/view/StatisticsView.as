@@ -1,5 +1,5 @@
 package com.ai.roulette.classic.view {
-	import com.ai.core.utils.StringUtils;
+	import com.newco.grand.core.utils.StringUtils;
 	
 	import flash.display.MovieClip;
 	import flash.events.Event;

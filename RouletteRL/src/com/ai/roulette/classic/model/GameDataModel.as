@@ -1,6 +1,6 @@
 package com.ai.roulette.classic.model {
 	
-	import com.ai.core.model.GameData;
+	import com.ai.core.common.model.GameData;
 	
 	public class GameDataModel extends GameData {
 		

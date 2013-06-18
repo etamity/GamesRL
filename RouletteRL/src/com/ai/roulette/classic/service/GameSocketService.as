@@ -1,16 +1,16 @@
 package com.ai.roulette.classic.service {
 	
-	import com.ai.core.controller.signals.BalanceEvent;
-	import com.ai.core.controller.signals.BetEvent;
-	import com.ai.core.controller.signals.PlayersEvent;
-	import com.ai.core.controller.signals.SocketDataEvent;
-	import com.ai.core.controller.signals.WinnersEvent;
-	import com.ai.core.model.Constants;
-	import com.ai.core.model.GameState;
-	import com.ai.core.model.Language;
-	import com.ai.core.model.Player;
-	import com.ai.core.model.SignalBus;
-	import com.ai.core.service.SocketService;
+	import com.ai.core.common.controller.signals.BalanceEvent;
+	import com.ai.core.common.controller.signals.BetEvent;
+	import com.ai.core.common.controller.signals.PlayersEvent;
+	import com.ai.core.common.controller.signals.SocketDataEvent;
+	import com.ai.core.common.controller.signals.WinnersEvent;
+	import com.ai.core.common.model.Constants;
+	import com.ai.core.common.model.GameState;
+	import com.ai.core.common.model.Language;
+	import com.ai.core.common.model.Player;
+	import com.ai.core.common.model.SignalBus;
+	import com.ai.core.common.service.SocketService;
 	import com.ai.roulette.classic.controller.signals.StatisticsEvent;
 	import com.ai.roulette.classic.model.GameDataModel;
 	

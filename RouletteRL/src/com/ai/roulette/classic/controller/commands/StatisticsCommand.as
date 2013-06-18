@@ -1,11 +1,11 @@
 package com.ai.roulette.classic.controller.commands {
 	
-	import com.ai.core.controller.commands.BaseCommand;
-	import com.ai.core.model.Constants;
-	import com.ai.core.model.FlashVars;
-	import com.ai.core.model.SignalBus;
-	import com.ai.core.model.URLSModel;
-	import com.ai.core.utils.GameUtils;
+	import com.ai.core.common.controller.commands.BaseCommand;
+	import com.ai.core.common.model.Constants;
+	import com.ai.core.common.model.FlashVars;
+	import com.ai.core.common.model.SignalBus;
+	import com.ai.core.common.model.URLSModel;
+	import com.newco.grand.core.utils.GameUtils;
 	import com.ai.roulette.classic.controller.signals.StatisticsEvent;
 	
 	import flash.net.URLRequest;

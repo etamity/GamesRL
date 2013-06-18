@@ -1,12 +1,11 @@
 package com.ai.roulette.classic.view {
 	
-	import com.ai.core.controller.signals.BetEvent;
-	import com.ai.core.controller.signals.HighlightEvent;
-	import com.ai.core.utils.FormatUtils;
-	import com.ai.core.utils.GameUtils;
-	import com.ai.core.view.BetSpot;
-	import com.ai.core.view.Betchip;
-	import com.ai.core.view.interfaces.IBetSpotsView;
+	import com.ai.core.common.controller.signals.BetEvent;
+	import com.ai.core.common.controller.signals.HighlightEvent;
+	import com.newco.grand.core.utils.FormatUtils;
+	import com.ai.core.utils.GameUtcom.ai.core.common.view.BetSpote.view.BetSpot;
+	import com.ai.core.common.view.Betchip;
+	import com.ai.core.common.view.interfaces.IBetSpotsView;
 	
 	import flash.display.MovieClip;
 	import flash.events.MouseEvent;

@@ -1,10 +1,10 @@
 package com.ai.roulette.classic.view.mediators
 {
-	import com.ai.core.controller.signals.BaseSignal;
-	import com.ai.core.controller.signals.BetEvent;
-	import com.ai.core.controller.signals.ModelReadyEvent;
-	import com.ai.core.model.Player;
-	import com.ai.core.model.SignalBus;
+	import com.ai.core.common.controller.signals.BaseSignal;
+	import com.ai.core.common.controller.signals.BetEvent;
+	import com.ai.core.common.controller.signals.ModelReadyEvent;
+	import com.ai.core.common.model.Player;
+	import com.ai.core.common.model.SignalBus;
 	import com.ai.roulette.classic.model.GameDataModel;
 	import com.ai.roulette.classic.view.PlayersBetsView;
 	

@@ -1,16 +1,16 @@
 package com.ai.roulette.classic.controller.commands
 {
-	import com.ai.core.controller.commands.BaseCommand;
-	import com.ai.core.model.FlashVars;
-	import com.ai.core.model.URLSModel;
-	import com.ai.core.utils.GameUtils;
-	import com.ai.core.view.ChatView;
-	import com.ai.core.view.GameStatusView;
-	import com.ai.core.view.LoginView;
-	import com.ai.core.view.StageView;
-	import com.ai.core.view.TaskbarView;
-	import com.ai.core.view.VideoView;
-	import com.ai.core.view.uicomps.AccordionUIView;
+	import com.ai.core.common.controller.commands.BaseCommand;
+	import com.ai.core.common.model.FlashVars;
+	import com.ai.core.common.model.URLSModel;
+	import com.newco.grand.core.utils.GameUtils;
+	com.ai.core.common.view.ChatViewhatView;
+	import com.ai.core.common.view.GameStatusView;
+	import com.ai.core.common.view.LoginView;
+	import com.ai.core.common.view.StageView;
+	import com.ai.core.common.view.TaskbarView;
+	import com.ai.core.common.view.VideoView;
+	import com.ai.core.common.view.uicomps.AccordionUIView;
 	import com.ai.roulette.classic.view.BetSpotsView;
 	import com.ai.roulette.classic.view.LimitsView;
 	import com.ai.roulette.classic.view.LobbyView;

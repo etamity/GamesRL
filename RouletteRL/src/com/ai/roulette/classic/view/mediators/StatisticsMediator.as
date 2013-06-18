@@ -1,9 +1,9 @@
 package com.ai.roulette.classic.view.mediators {
 	
-	import com.ai.core.controller.signals.BaseSignal;
-	import com.ai.core.controller.signals.ModelReadyEvent;
-	import com.ai.core.model.SignalBus;
-	import com.ai.core.utils.GameUtils;
+	import com.ai.core.common.controller.signals.BaseSignal;
+	import com.ai.core.common.controller.signals.ModelReadyEvent;
+	import com.ai.core.common.model.SignalBus;
+	import com.newco.grand.core.utils.GameUtils;
 	import com.ai.roulette.classic.controller.signals.StatisticsEvent;
 	import com.ai.roulette.classic.model.GameDataModel;
 	import com.ai.roulette.classic.view.StatisticsView;

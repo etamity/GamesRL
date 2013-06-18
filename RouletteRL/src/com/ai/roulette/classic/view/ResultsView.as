@@ -1,6 +1,6 @@
 package com.ai.roulette.classic.view {
 	
-	import com.ai.core.utils.GameUtils;
+	import com.newco.grand.core.utils.GameUtils;
 	
 	import flash.text.TextField;
 	import flash.text.TextFormat;

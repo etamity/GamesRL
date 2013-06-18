@@ -1,10 +1,10 @@
 package com.ai.roulette.classic.view.mediators
 {
-	import com.ai.core.controller.signals.BaseSignal;
-	import com.ai.core.model.Language;
-	import com.ai.core.view.mediators.AccordionMediator;
-	import com.ai.core.view.uicomps.PlayersUIView;
-	import com.ai.core.view.uicomps.WinnersUIView;
+	import com.ai.core.common.controller.signals.BaseSignal;
+	import com.ai.core.common.model.Language;
+	com.ai.core.common.view.mediators.AccordionMediatorediator;
+	import com.ai.core.common.view.uicomps.PlayersUIView;
+	import com.ai.core.common.view.uicomps.WinnersUIView;
 	import com.ai.roulette.classic.view.FavouritesBetsView;
 	import com.ai.roulette.classic.view.StatisticsView;
 	
