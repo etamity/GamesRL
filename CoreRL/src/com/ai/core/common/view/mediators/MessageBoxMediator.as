@@ -5,10 +5,10 @@ package com.ai.core.common.view.mediators
 	import com.ai.core.common.controller.signals.MessageEvent;
 	import com.ai.core.common.controller.signals.ModelReadyEvent;
 	import com.ai.core.common.controller.signals.SocketDataEvent;
-	import com.ai.core.model.IGameData;
-	import com.ai.core.model.Language;
-	import com.ai.core.model.Player;
-	import com.ai.core.model.SignalBus;
+	import com.ai.core.common.model.IGameData;
+	import com.ai.core.common.model.Language;
+	import com.ai.core.common.model.Player;
+	import com.ai.core.common.model.SignalBus;
 	import com.ai.core.utils.GameUtils;
 	import com.acom.ai.core.common.view.MessageBoxViewort com.ai.core.view.MessageBoxView;
 	

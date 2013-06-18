@@ -1,10 +1,10 @@
 package com.ai.core.service {
 	
 	import com.ai.core.common.controller.signals.VideoEvent;
-	import com.ai.core.model.Actor;
-	import com.ai.core.model.FlashVars;
-	import com.ai.core.model.IGameData;
-	import com.ai.core.model.SignalBus;
+	import com.ai.core.common.model.Actor;
+	import com.ai.core.common.model.FlashVars;
+	import com.ai.core.common.model.IGameData;
+	import com.ai.core.common.model.SignalBus;
 	import com.ai.core.utils.GameUtils;
 	import com.ai.core.utils.StringUtils;
 	

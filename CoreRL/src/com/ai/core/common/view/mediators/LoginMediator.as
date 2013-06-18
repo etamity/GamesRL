@@ -2,8 +2,8 @@ package com.ai.core.common.view.mediators {
 	
 	import com.ai.core.common.controller.signals.BaseSignal;
 	import com.ai.core.common.controller.signals.LoginEvent;
-	import com.ai.core.model.SignalBus;
-	import com.ai.core.model.vo.UserLoginData;
+	import com.ai.core.common.model.SignalBus;
+	import com.ai.core.common.model.vo.UserLoginData;
 	import com.ai.core.utils.GameUtcom.ai.core.common.view.LoginViewview.LoginView;
 	
 	import flash.events.Event;

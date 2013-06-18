@@ -1,6 +1,6 @@
 package com.ai.core.common.controller.commands {
 	
-	import com.ai.core.model.FlashVars;
+	import com.ai.core.common.model.FlashVars;
 	import com.ai.core.service.ISocketService;
 	import com.ai.core.utils.GameUtils;
 	

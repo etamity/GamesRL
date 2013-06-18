@@ -2,8 +2,8 @@ package com.ai.core.common.controller.commands {
 	
 	import com.ai.core.common.controller.signals.BaseSignal;
 	import com.ai.core.common.controller.signals.VideoEvent;
-	import com.ai.core.model.FlashVars;
-	import com.ai.core.model.IGameData;
+	import com.ai.core.common.model.FlashVars;
+	import com.ai.core.common.model.IGameData;
 	import com.ai.core.service.VideoService;
 	import com.ai.core.utils.GameUtils;
 	

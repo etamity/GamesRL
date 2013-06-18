@@ -3,10 +3,10 @@ package com.ai.core.common.controller.commands {
 	import com.ai.core.common.controller.signals.BaseSignal;
 	import com.ai.core.common.controller.signals.LoginEvent;
 	import com.ai.core.common.controller.signals.StartupDataEvent;
-	import com.ai.core.model.Constants;
-	import com.ai.core.model.Player;
-	import com.ai.core.model.SignalBus;
-	import com.ai.core.model.URLSModel;
+	import com.ai.core.common.model.Constants;
+	import com.ai.core.common.model.Player;
+	import com.ai.core.common.model.SignalBus;
+	import com.ai.core.common.model.URLSModel;
 	import com.ai.core.utils.GameUtils;
 	import com.ai.core.utils.StringUtils;
 	

@@ -3,8 +3,8 @@ package com.ai.core.common.view {
 	import com.ai.core.common.controller.signals.BetEvent;
 	import com.ai.core.common.controller.signals.TaskbarActionEvent;
 	import com.ai.core.common.controller.signals.TooltipEvent;
-	import com.ai.core.model.Language;
-	import com.ai.core.model.SignalBus;
+	import com.ai.core.common.model.Language;
+	import com.ai.core.common.model.SignalBus;
 	import com.ai.core.utils.FormatUtils;
 	import com.ai.core.utils.GameUtils;
 	import com.ai.core.common.view.interfaces.ITaskbarView;

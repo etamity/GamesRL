@@ -4,11 +4,11 @@ package com.ai.core.common.view.mediators {
 	import com.ai.core.common.controller.signals.ChatEvent;
 	import com.ai.core.common.controller.signals.ModelReadyEvent;
 	import com.ai.core.common.controller.signals.SocketDataEvent;
-	import com.ai.core.model.Chat;
-	import com.ai.core.model.FlashVars;
-	import com.ai.core.model.IGameData;
-	import com.ai.core.model.Language;
-	import com.ai.core.model.SignalBus;
+	import com.ai.core.common.model.Chat;
+	import com.ai.core.common.model.FlashVars;
+	import com.ai.core.common.model.IGameData;
+	import com.ai.core.common.model.Language;
+	import com.ai.core.common.model.SignalBus;
 	import com.ai.corcom.ai.core.common.view.ChatViewrt com.ai.core.view.ChatView;
 	
 	import flash.events.Event;

@@ -1,6 +1,6 @@
 package com.ai.core.common.view.uicomps {
 	
-	import com.ai.core.model.Language;
+	import com.ai.core.common.model.Language;
 	import com.ai.core.utils.GameUtils;
 	import com.ai.core.common.view.interfaces.IPlayersView;
 	import com.smart.uicore.controls.DataGrid;

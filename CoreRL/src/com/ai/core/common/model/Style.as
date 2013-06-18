@@ -1,4 +1,4 @@
-package com.ai.core.model {
+package com.ai.core.common.model {
 	
 	public dynamic class Style extends Actor {
 		public static var BGCOLOR1:String;

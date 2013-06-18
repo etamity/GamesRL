@@ -1,4 +1,4 @@
-package com.ai.core.model.vo
+package com.ai.core.common.model.vo
 {
 	import flash.events.EventDispatcher;
 	

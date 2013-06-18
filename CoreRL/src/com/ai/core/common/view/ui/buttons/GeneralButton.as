@@ -1,6 +1,6 @@
 package com.ai.core.common.view.ui.buttons {
 
-	import com.ai.core.model.Style;
+	import com.ai.core.common.model.Style;
 	import com.ai.core.common.view.ui.text.IText;
 	import com.ai.core.common.view.ui.text.Text;
 	import com.ai.core.common.view.ui.views.BaseView;

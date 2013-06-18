@@ -1,9 +1,9 @@
 package com.ai.core.service
 {
 	import com.ai.core.common.controller.signals.MessageEvent;
-	import com.ai.core.model.Actor;
-	import com.ai.core.model.FlashVars;
-	import com.ai.core.model.SignalBus;
+	import com.ai.core.common.model.Actor;
+	import com.ai.core.common.model.FlashVars;
+	import com.ai.core.common.model.SignalBus;
 	import com.ai.core.utils.GameUtils;
 	
 	import flash.net.URLRequest;

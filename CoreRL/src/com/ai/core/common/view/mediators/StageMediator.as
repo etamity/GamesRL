@@ -5,9 +5,9 @@ package com.ai.core.common.view.mediators {
 	import com.ai.core.common.controller.signals.ModelReadyEvent;
 	import com.ai.core.common.controller.signals.StartupDataEvent;
 	import com.ai.core.common.controller.signals.TaskbarActionEvent;
-	import com.ai.core.model.IGameData;
-	import com.ai.core.model.SignalBus;
-	import com.ai.core.model.SignalConstants;
+	import com.ai.core.common.model.IGameData;
+	import com.ai.core.common.model.SignalBus;
+	import com.ai.core.common.model.SignalConstants;
 	import comcom.ai.core.common.view.StageView
 	import com.ai.core.view.StageView;
 	

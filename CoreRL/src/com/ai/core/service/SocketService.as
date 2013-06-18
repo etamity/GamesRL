@@ -1,7 +1,7 @@
 package com.ai.core.service {
 
-	import com.ai.core.model.Actor;
-	import com.ai.core.model.FlashVars;
+	import com.ai.core.common.model.Actor;
+	import com.ai.core.common.model.FlashVars;
 	
 	import flash.events.DataEvent;
 	import flash.events.Event;

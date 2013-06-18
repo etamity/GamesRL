@@ -1,10 +1,10 @@
 package com.ai.core.common.controller.commands {
 	
 	import com.ai.core.common.controller.signals.MessageEvent;
-	import com.ai.core.model.FlashVars;
-	import com.ai.core.model.SignalBus;
-	import com.ai.core.model.SignalConstants;
-	import com.ai.core.model.URLSModel;
+	import com.ai.core.common.model.FlashVars;
+	import com.ai.core.common.model.SignalBus;
+	import com.ai.core.common.model.SignalConstants;
+	import com.ai.core.common.model.URLSModel;
 	import com.ai.core.service.ConfigService;
 	import com.ai.core.service.URLSService;
 	import com.smart.uicore.controls.managers.SkinLoader;

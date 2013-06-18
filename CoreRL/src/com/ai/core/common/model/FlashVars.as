@@ -1,4 +1,4 @@
-package com.ai.core.model {
+package com.ai.core.common.model {
 	import flash.display.DisplayObjectContainer;
 	import flash.events.Event;
 	

@@ -1,10 +1,10 @@
 package com.ai.core.service {
 	
 	import com.ai.core.common.controller.signals.ChatEvent;
-	import com.ai.core.model.Chat;
-	import com.ai.core.model.IGameData;
-	import com.ai.core.model.Player;
-	import com.ai.core.model.SignalBus;
+	import com.ai.core.common.model.Chat;
+	import com.ai.core.common.model.IGameData;
+	import com.ai.core.common.model.Player;
+	import com.ai.core.common.model.SignalBus;
 	
 	import flash.events.DataEvent;
 	

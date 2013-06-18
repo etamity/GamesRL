@@ -1,4 +1,4 @@
-package com.ai.core.model {
+package com.ai.core.common.model {
 	
 	public dynamic class Language extends Actor {		
 		public static var LOADING:String;

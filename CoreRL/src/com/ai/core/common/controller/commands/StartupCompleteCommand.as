@@ -3,8 +3,8 @@ package com.ai.core.common.controller.commands {
 	import com.ai.core.common.controller.signals.LoginEvent;
 	import com.ai.core.common.controller.signals.StartupDataEvent;
 	import com.ai.core.common.controller.signals.UIEvent;
-	import com.ai.core.model.FlashVars;
-	import com.ai.core.model.SignalBus;
+	import com.ai.core.common.model.FlashVars;
+	import com.ai.core.common.model.SignalBus;
 	
 	public class StartupCompleteCommand extends BaseCommand {
 		[Inject]

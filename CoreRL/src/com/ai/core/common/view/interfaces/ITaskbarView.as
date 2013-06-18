@@ -1,6 +1,6 @@
 package com.ai.core.common.view.interfaces
 {
-	import com.ai.core.model.SignalBus;
+	import com.ai.core.common.model.SignalBus;
 	import com.ai.core.common.view.SMButton;
 
 	public interface ITaskbarView extends IUIView

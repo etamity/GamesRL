@@ -4,7 +4,7 @@ package com.ai.core.common.view.mediators {
 	import com.ai.core.common.controller.signals.ModelReadyEvent;
 	import com.ai.core.common.controller.signals.StartupDataEvent;
 	import com.ai.core.common.controller.signals.UIEvent;
-	import com.ai.core.model.SignalBus;
+	import com.ai.core.common.model.SignalBus;
 	import com.ai.corcom.ai.core.common.view.interfaces.IAccordione.view.interfaces.IAccordion;
 	
 	import flash.events.Event;

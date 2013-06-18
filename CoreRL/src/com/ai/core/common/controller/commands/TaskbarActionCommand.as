@@ -1,7 +1,7 @@
 package com.ai.core.common.controller.commands {
 	
 	import com.ai.core.common.controller.signals.TaskbarActionEvent;
-	import com.ai.core.model.IGameData;
+	import com.ai.core.common.model.IGameData;
 	import com.ai.core.utils.GameUtils;
 	
 	import robotlegs.bender.bundles.mvcs.Command;
