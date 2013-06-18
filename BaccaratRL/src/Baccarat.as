@@ -13,12 +13,12 @@ package
 	import robotlegs.bender.framework.api.IContext;
 	import robotlegs.bender.framework.impl.Context;
 	
-	[SWF(width = "990", height = "610", frameRate = "24", backgroundColor = "#333333")]
-	public class BaccaratRL extends Sprite
+	[SWF(width = "990", height = "610", frameRate = "24", backgroundColor = "#4C4C4C")]
+	public class Baccarat extends Sprite
 	{
 
 		protected var context:IContext; 
-		public function BaccaratRL()
+		public function Baccarat()
 		{
 			addEventListener(Event.ADDED_TO_STAGE,onAddToStage);
 		}
