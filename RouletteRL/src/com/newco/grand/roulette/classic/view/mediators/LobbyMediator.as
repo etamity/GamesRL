@@ -1,11 +1,9 @@
 package com.newco.grand.roulette.classic.view.mediators
 {
-	import com.ai.core.common.controller.signals.BaseSignal;
-	import com.ai.core.common.controller.signals.BetEvent;
-	import com.ai.core.common.controller.signals.ModelReadyEvent;
-	import com.ai.core.common.controller.signals.TaskbarActionEvent;
-	import com.ai.core.common.controller.signals.UIEvent;
-	import com.ai.core.common.model.SignalBus;
+	import com.newco.grand.core.common.controller.signals.BaseSignal;
+	import com.newco.grand.core.common.controller.signals.TaskbarActionEvent;
+	import com.newco.grand.core.common.controller.signals.UIEvent;
+	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.roulette.classic.view.LobbyView;
 	
 	import flash.display.MovieClip;

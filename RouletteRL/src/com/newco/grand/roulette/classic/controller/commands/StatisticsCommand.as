@@ -1,10 +1,10 @@
 package com.newco.grand.roulette.classic.controller.commands {
 	
-	import com.ai.core.common.controller.commands.BaseCommand;
-	import com.ai.core.common.model.Constants;
-	import com.ai.core.common.model.FlashVars;
-	import com.ai.core.common.model.SignalBus;
-	import com.ai.core.common.model.URLSModel;
+	import com.newco.grand.core.common.controller.commands.BaseCommand;
+	import com.newco.grand.core.common.model.Constants;
+	import com.newco.grand.core.common.model.FlashVars;
+	import com.newco.grand.core.common.model.SignalBus;
+	import com.newco.grand.core.common.model.URLSModel;
 	import com.newco.grand.core.utils.GameUtils;
 	import com.newco.grand.roulette.classic.controller.signals.StatisticsEvent;
 	

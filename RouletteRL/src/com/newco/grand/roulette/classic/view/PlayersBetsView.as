@@ -1,6 +1,6 @@
 package com.newco.grand.roulette.classic.view
 {	
-	import com.ai.core.common.view.Betchip;
+	import com.newco.grand.core.common.view.Betchip;
 	
 	import flash.display.MovieClip;
 	import flash.events.Event;

@@ -1,22 +1,26 @@
 package com.newco.grand.roulette.classic.view.mediators {
-	import com.ai.core.common.controller.signals.BalanceEvent;
-	import com.ai.core.common.controller.signals.BaseSignal;
-	import com.ai.core.common.controller.signals.BetEvent;
-	import com.ai.core.common.controller.signals.MessageEvent;
-	import com.ai.core.common.controller.signals.ModelReadyEvent;
-	import com.ai.core.common.controller.signals.SocketDataEvent;
-	import com.ai.core.common.controller.signals.StateTableConfigEvent;
-	import com.ai.core.common.controller.signals.TaskbarActionEvent;
-	import com.ai.core.common.model.GameState;
-	import com.ai.core.common.model.Player;
-	import com.ai.core.model.Sicom.ai.core.common.view.BetSpot.core.utils.GameUtils;
-	import com.ai.core.view.BetSpot;
+	import com.newco.grand.core.common.controller.signals.BalanceEvent;
+	import com.newco.grand.core.common.controller.signals.BaseSignal;
+	import com.newco.grand.core.common.controller.signals.BetEvent;
+	import com.newco.grand.core.common.controller.signals.MessageEvent;
+	import com.newco.grand.core.common.controller.signals.ModelReadyEvent;
+	import com.newco.grand.core.common.controller.signals.SocketDataEvent;
+	import com.newco.grand.core.common.controller.signals.StateTableConfigEvent;
+	import com.newco.grand.core.common.controller.signals.TaskbarActionEvent;
+	import com.newco.grand.core.common.model.GameState;
+	import com.newco.grand.core.common.model.Player;
+	import com.newco.grand.core.common.model.SignalBus;
+	import com.newco.grand.core.common.view.BetSpot;
+	import com.newco.grand.core.utils.GameUtils;
 	import com.newco.grand.roulette.classic.controller.signals.DataGirdEvent;
 	import com.newco.grand.roulette.classic.model.BetspotData;
 	import com.newco.grand.roulette.classic.model.GameDataModel;
 	import com.newco.grand.roulette.classic.view.BetSpotsView;
+	
 	import flash.events.Event;
+	
 	import robotlegs.bender.bundles.mvcs.Mediator;
+
 	public class BetSpotsMediator extends Mediator{
 		
 		[Inject]

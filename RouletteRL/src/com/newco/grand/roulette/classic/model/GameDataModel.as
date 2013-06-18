@@ -1,6 +1,6 @@
 package com.newco.grand.roulette.classic.model {
 	
-	import com.ai.core.common.model.GameData;
+	import com.newco.grand.core.common.model.GameData;
 	
 	public class GameDataModel extends GameData {
 		

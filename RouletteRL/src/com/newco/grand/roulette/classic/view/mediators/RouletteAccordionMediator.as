@@ -1,10 +1,10 @@
 package com.newco.grand.roulette.classic.view.mediators
 {
-	import com.ai.core.common.controller.signals.BaseSignal;
-	import com.ai.core.common.model.Language;
-	com.ai.core.common.view.mediators.AccordionMediatorediator;
-	import com.ai.core.common.view.uicomps.PlayersUIView;
-	import com.ai.core.common.view.uicomps.WinnersUIView;
+	import com.newco.grand.core.common.controller.signals.BaseSignal;
+	import com.newco.grand.core.common.model.Language;
+	import com.newco.grand.core.common.view.mediators.AccordionMediator;
+	import com.newco.grand.core.common.view.uicomps.PlayersUIView;
+	import com.newco.grand.core.common.view.uicomps.WinnersUIView;
 	import com.newco.grand.roulette.classic.view.FavouritesBetsView;
 	import com.newco.grand.roulette.classic.view.StatisticsView;
 	

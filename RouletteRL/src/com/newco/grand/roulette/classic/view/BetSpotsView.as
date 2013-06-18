@@ -1,11 +1,12 @@
 package com.newco.grand.roulette.classic.view {
 	
-	import com.ai.core.common.controller.signals.BetEvent;
-	import com.ai.core.common.controller.signals.HighlightEvent;
+	import com.newco.grand.core.common.controller.signals.BetEvent;
+	import com.newco.grand.core.common.controller.signals.HighlightEvent;
+	import com.newco.grand.core.common.view.BetSpot;
+	import com.newco.grand.core.common.view.Betchip;
+	import com.newco.grand.core.common.view.interfaces.IBetSpotsView;
 	import com.newco.grand.core.utils.FormatUtils;
-	import com.ai.core.utils.GameUtcom.ai.core.common.view.BetSpote.view.BetSpot;
-	import com.ai.core.common.view.Betchip;
-	import com.ai.core.common.view.interfaces.IBetSpotsView;
+	import com.newco.grand.core.utils.GameUtils;
 	
 	import flash.display.MovieClip;
 	import flash.events.MouseEvent;

@@ -1,27 +1,26 @@
 package com.newco.grand.roulette.classic.controller.commands
 {
-	import com.ai.core.common.controller.commands.BaseCommand;
-	import com.ai.core.common.model.FlashVars;
-	import com.ai.core.common.model.URLSModel;
+	import com.newco.grand.core.common.controller.commands.BaseCommand;
+	import com.newco.grand.core.common.model.FlashVars;
+	import com.newco.grand.core.common.model.URLSModel;
+	import com.newco.grand.core.common.view.ChatView;
+	import com.newco.grand.core.common.view.GameStatusView;
+	import com.newco.grand.core.common.view.LoginView;
+	import com.newco.grand.core.common.view.StageView;
+	import com.newco.grand.core.common.view.TaskbarView;
+	import com.newco.grand.core.common.view.VideoView;
+	import com.newco.grand.core.common.view.uicomps.AccordionUIView;
 	import com.newco.grand.core.utils.GameUtils;
-	com.ai.core.common.view.ChatViewhatView;
-	import com.ai.core.common.view.GameStatusView;
-	import com.ai.core.common.view.LoginView;
-	import com.ai.core.common.view.StageView;
-	import com.ai.core.common.view.TaskbarView;
-	import com.ai.core.common.view.VideoView;
-	import com.ai.core.common.view.uicomps.AccordionUIView;
 	import com.newco.grand.roulette.classic.view.BetSpotsView;
 	import com.newco.grand.roulette.classic.view.LimitsView;
 	import com.newco.grand.roulette.classic.view.LobbyView;
 	import com.newco.grand.roulette.classic.view.ResultsClassicView;
-	import com.smart.uicore.controls.ToolTip;
-	import com.smart.uicore.controls.managers.SkinLoader;
-	import com.smart.uicore.ui.UI;
 	
 	import org.assetloader.core.IAssetLoader;
 	
 	import robotlegs.bender.extensions.contextView.ContextView;
+
+	
 	
 	public class SetupViewCommand extends BaseCommand
 	{
