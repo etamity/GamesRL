@@ -1,6 +1,6 @@
 package com.ai.core.service
 {
-	import com.ai.core.controller.signals.MessageEvent;
+	import com.ai.core.common.controller.signals.MessageEvent;
 	import com.ai.core.model.Actor;
 	import com.ai.core.model.FlashVars;
 	import com.ai.core.model.SignalBus;

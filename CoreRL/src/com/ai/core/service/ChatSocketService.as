@@ -1,6 +1,6 @@
 package com.ai.core.service {
 	
-	import com.ai.core.controller.signals.ChatEvent;
+	import com.ai.core.common.controller.signals.ChatEvent;
 	import com.ai.core.model.Chat;
 	import com.ai.core.model.IGameData;
 	import com.ai.core.model.Player;

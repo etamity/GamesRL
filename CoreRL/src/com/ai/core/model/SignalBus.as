@@ -1,6 +1,6 @@
 package com.ai.core.model 
 {
-	import com.ai.core.controller.signals.BaseSignal;
+	import com.ai.core.common.controller.signals.BaseSignal;
 	import com.ai.core.utils.GameUtils;
 	
 	import flash.utils.Dictionary;
