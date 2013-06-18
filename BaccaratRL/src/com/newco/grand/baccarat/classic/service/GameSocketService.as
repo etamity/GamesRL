@@ -3,17 +3,17 @@ package com.newco.grand.baccarat.classic.service {
 	import com.newco.grand.baccarat.classic.controller.signals.BaccaratEvent;
 	import com.newco.grand.baccarat.classic.controller.signals.StatisticsEvent;
 	import com.newco.grand.baccarat.classic.controller.signals.WinnersEvent;
-	import com.ai.core.common.controller.signals.BalanceEvent;
-	import com.ai.core.common.controller.signals.BetEvent;
-	import com.ai.core.common.controller.signals.PlayersEvent;
-	import com.ai.core.common.controller.signals.SocketDataEvent;
-	import com.ai.core.common.model.Constants;
-	import com.ai.core.common.model.GameState;
-	import com.ai.core.common.model.IGameData;
-	import com.ai.core.common.model.Language;
-	import com.ai.core.common.model.Player;
-	import com.ai.core.common.model.SignalBus;
-	import com.ai.core.common.service.SocketService;
+	import com.newco.grand.core.common.controller.signals.BalanceEvent;
+	import com.newco.grand.core.common.controller.signals.BetEvent;
+	import com.newco.grand.core.common.controller.signals.PlayersEvent;
+	import com.newco.grand.core.common.controller.signals.SocketDataEvent;
+	import com.newco.grand.core.common.model.Constants;
+	import com.newco.grand.core.common.model.GameState;
+	import com.newco.grand.core.common.model.IGameData;
+	import com.newco.grand.core.common.model.Language;
+	import com.newco.grand.core.common.model.Player;
+	import com.newco.grand.core.common.model.SignalBus;
+	import com.newco.grand.core.common.service.SocketService;
 	
 	import flash.events.DataEvent;
 	

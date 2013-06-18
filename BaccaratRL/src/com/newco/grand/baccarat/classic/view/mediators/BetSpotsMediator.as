@@ -4,20 +4,20 @@ package com.newco.grand.baccarat.classic.view.mediators {
 	import com.newco.grand.baccarat.classic.model.BaccaratConstants;
 	import com.newco.grand.baccarat.classic.model.GameDataModel;
 	import com.newco.grand.baccarat.classic.view.BetSpotsView;
-	import com.ai.core.common.controller.signals.BalanceEvent;
-	import com.ai.core.common.controller.signals.BaseSignal;
-	import com.ai.core.common.controller.signals.BetEvent;
-	import com.ai.core.common.controller.signals.MessageEvent;
-	import com.ai.core.common.controller.signals.ModelReadyEvent;
-	import com.ai.core.common.controller.signals.SocketDataEvent;
-	import com.ai.core.common.controller.signals.StateTableConfigEvent;
-	import com.ai.core.common.controller.signals.TaskbarActionEvent;
-	import com.ai.core.common.model.FlashVars;
-	import com.ai.core.common.model.GameState;
-	import com.ai.core.common.model.Player;
-	import com.ai.core.common.model.SignalBus;
+	import com.newco.grand.core.common.controller.signals.BalanceEvent;
+	import com.newco.grand.core.common.controller.signals.BaseSignal;
+	import com.newco.grand.core.common.controller.signals.BetEvent;
+	import com.newco.grand.core.common.controller.signals.MessageEvent;
+	import com.newco.grand.core.common.controller.signals.ModelReadyEvent;
+	import com.newco.grand.core.common.controller.signals.SocketDataEvent;
+	import com.newco.grand.core.common.controller.signals.StateTableConfigEvent;
+	import com.newco.grand.core.common.controller.signals.TaskbarActionEvent;
+	import com.newco.grand.core.common.model.FlashVars;
+	import com.newco.grand.core.common.model.GameState;
+	import com.newco.grand.core.common.model.Player;
+	import com.newco.grand.core.common.model.SignalBus;
+	import com.newco.grand.core.common.view.BetSpot;
 	import com.newco.grand.core.utils.GameUtils;
-	import com.ai.core.common.view.BetSpot;
 	
 	import flash.events.Event;
 	

@@ -2,7 +2,6 @@ package com.newco.grand.baccarat.classic.view
 {	
 	import com.newco.grand.baccarat.classic.model.BaccaratConstants;
 	import com.newco.grand.core.utils.GameUtils;
-	import com.newco.grand.core.utils.StringUtils;
 	
 	import flash.display.MovieClip;
 	import flash.geom.Point;

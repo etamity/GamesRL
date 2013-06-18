@@ -1,6 +1,6 @@
 package com.newco.grand.baccarat.classic.view.scorecard.display.road.result {
 	
-	import com.ai.core.common.view.ui.views.BaseView;
+	import com.newco.grand.core.common.view.ui.views.BaseView;
 	
 	import flash.display.MovieClip;
 	import flash.text.TextField;

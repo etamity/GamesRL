@@ -1,7 +1,7 @@
 package
 {
-	import com.ai.baccarat.configs.BaccaratBundle;
-	import com.ai.baccarat.configs.BaccaratConfig;
+	import com.newco.grand.baccarat.configs.BaccaratBundle;
+	import com.newco.grand.baccarat.configs.BaccaratConfig;
 	import com.smart.uicore.controls.ToolTip;
 	import com.smart.uicore.controls.managers.SkinLoader;
 	import com.smart.uicore.ui.UI;

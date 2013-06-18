@@ -1,5 +1,5 @@
 package com.newco.grand.baccarat.classic.model {
-	import com.ai.core.common.model.GameData;
+	import com.newco.grand.core.common.model.GameData;
 	
 	public class GameDataModel extends GameData {
 		

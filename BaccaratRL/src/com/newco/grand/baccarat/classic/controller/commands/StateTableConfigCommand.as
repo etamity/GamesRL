@@ -1,18 +1,17 @@
 package com.newco.grand.baccarat.classic.controller.commands {
 	
-	import com.newco.grand.baccarat.classic.controller.signals.StatisticsEvent;
 	import com.newco.grand.baccarat.classic.controller.signals.WinnersEvent;
 	import com.newco.grand.baccarat.classic.model.GameDataModel;
-	import com.ai.core.common.controller.signals.ModelReadyEvent;
-	import com.ai.core.common.controller.signals.PlayersEvent;
-	import com.ai.core.common.controller.signals.SocketEvent;
-	import com.ai.core.common.controller.signals.StateTableConfigEvent;
-	import com.ai.core.common.controller.signals.VideoEvent;
-	import com.ai.core.common.model.Constants;
-	import com.ai.core.common.model.FlashVars;
-	import com.ai.core.common.model.Player;
-	import com.ai.core.common.model.SignalBus;
-	import com.ai.core.common.model.URLSModel;
+	import com.newco.grand.core.common.controller.signals.ModelReadyEvent;
+	import com.newco.grand.core.common.controller.signals.PlayersEvent;
+	import com.newco.grand.core.common.controller.signals.SocketEvent;
+	import com.newco.grand.core.common.controller.signals.StateTableConfigEvent;
+	import com.newco.grand.core.common.controller.signals.VideoEvent;
+	import com.newco.grand.core.common.model.Constants;
+	import com.newco.grand.core.common.model.FlashVars;
+	import com.newco.grand.core.common.model.Player;
+	import com.newco.grand.core.common.model.SignalBus;
+	import com.newco.grand.core.common.model.URLSModel;
 	import com.newco.grand.core.utils.GameUtils;
 	
 	import flash.net.URLRequest;

@@ -5,12 +5,12 @@ package com.newco.grand.baccarat.classic.view.mediators
 	import com.newco.grand.baccarat.classic.model.GameDataModel;
 	import com.newco.grand.baccarat.classic.service.AnimationService;
 	import com.newco.grand.baccarat.classic.view.AnimationPanelView;
-	import com.ai.core.common.controller.signals.BaseSignal;
-	import com.ai.core.common.controller.signals.ModelReadyEvent;
-	import com.ai.core.common.controller.signals.SocketDataEvent;
-	import com.ai.core.common.model.FlashVars;
-	import com.ai.core.common.model.Player;
-	import com.ai.core.common.model.SignalBus;
+	import com.newco.grand.core.common.controller.signals.BaseSignal;
+	import com.newco.grand.core.common.controller.signals.ModelReadyEvent;
+	import com.newco.grand.core.common.controller.signals.SocketDataEvent;
+	import com.newco.grand.core.common.model.FlashVars;
+	import com.newco.grand.core.common.model.Player;
+	import com.newco.grand.core.common.model.SignalBus;
 	
 	import robotlegs.bender.bundles.mvcs.Mediator;
 	

@@ -1,7 +1,7 @@
 package com.newco.grand.baccarat.classic.view.scorecard.display.road.grid {
 	
 	import com.newco.grand.baccarat.classic.view.scorecard.display.road.result.IResult;
-	import com.ai.core.view.ui.views.IBaseView;
+	import com.newco.grand.core.common.view.ui.views.IBaseView;
 
 	public interface IGrid extends IBaseView {
 		function addToColumn(result:IResult, columnIndex:uint):void

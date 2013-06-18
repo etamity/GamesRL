@@ -7,11 +7,11 @@ package com.newco.grand.baccarat.classic.view.scorecard.display {
 	import com.newco.grand.baccarat.classic.view.scorecard.display.road.result.IResult;
 	import com.newco.grand.baccarat.classic.view.scorecard.display.tabs.ITabMenu;
 	import com.newco.grand.baccarat.classic.view.scorecard.display.tabs.TabMenu;
-	import com.ai.core.common.model.Language;
-	import com.ai.core.common.view.ui.buttons.GeneralButtonEvent;
-	import com.ai.core.view.ui.buttons.IGeneralButton;
-	import com.ai.core.common.view.ui.views.BaseView;
-	import com.ai.core.view.ui.views.IBaseView;
+	import com.newco.grand.core.common.model.Language;
+	import com.newco.grand.core.common.view.ui.buttons.GeneralButtonEvent;
+	import com.newco.grand.core.common.view.ui.buttons.IGeneralButton;
+	import com.newco.grand.core.common.view.ui.views.BaseView;
+	import com.newco.grand.core.common.view.ui.views.IBaseView;
 	
 	import flash.display.MovieClip;
 	

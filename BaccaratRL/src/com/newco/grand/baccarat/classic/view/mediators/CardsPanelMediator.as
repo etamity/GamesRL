@@ -2,10 +2,10 @@ package com.newco.grand.baccarat.classic.view.mediators
 {
 	import com.newco.grand.baccarat.classic.controller.signals.BaccaratEvent;
 	import com.newco.grand.baccarat.classic.view.CardsPanelView;
-	import com.ai.core.common.controller.signals.BaseSignal;
-	import com.ai.core.common.controller.signals.ModelReadyEvent;
-	import com.ai.core.common.controller.signals.SocketDataEvent;
-	import com.ai.core.common.model.SignalBus;
+	import com.newco.grand.core.common.controller.signals.BaseSignal;
+	import com.newco.grand.core.common.controller.signals.ModelReadyEvent;
+	import com.newco.grand.core.common.controller.signals.SocketDataEvent;
+	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.utils.GameUtils;
 	
 	import robotlegs.bender.bundles.mvcs.Mediator;

@@ -2,10 +2,10 @@ package com.newco.grand.baccarat.classic.controller.commands {
 	
 	import com.newco.grand.baccarat.classic.controller.signals.WinnersEvent;
 	import com.newco.grand.baccarat.classic.model.GameDataModel;
-	import com.ai.core.common.model.Constants;
-	import com.ai.core.common.model.FlashVars;
-	import com.ai.core.common.model.SignalBus;
-	import com.ai.core.common.model.URLSModel;
+	import com.newco.grand.core.common.model.Constants;
+	import com.newco.grand.core.common.model.FlashVars;
+	import com.newco.grand.core.common.model.SignalBus;
+	import com.newco.grand.core.common.model.URLSModel;
 	import com.newco.grand.core.utils.GameUtils;
 	
 	import org.assetloader.core.IAssetLoader;

@@ -1,6 +1,6 @@
 package com.newco.grand.baccarat.classic.service
 {
-	import com.ai.core.common.model.Actor;
+	import com.newco.grand.core.common.model.Actor;
 	
 	import flash.display.MovieClip;
 	import flash.geom.Point;

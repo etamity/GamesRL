@@ -1,7 +1,7 @@
 package com.newco.grand.baccarat.classic.view.scorecard.display.road.grid {
 	
 	import com.newco.grand.baccarat.classic.view.scorecard.display.road.result.IResult;
-	import com.ai.core.common.view.ui.views.BaseView;
+	import com.newco.grand.core.common.view.ui.views.BaseView;
 	
 	import flash.display.DisplayObject;
 	import flash.display.Sprite;

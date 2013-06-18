@@ -1,7 +1,7 @@
 package com.newco.grand.baccarat.classic.view
 {
 	import com.newco.grand.baccarat.classic.view.scorecard.ScoreCard;
-	import com.ai.core.common.model.Style;
+	import com.newco.grand.core.common.model.Style;
 	
 	import flash.display.MovieClip;
 	import flash.display.Sprite;

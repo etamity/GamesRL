@@ -1,11 +1,11 @@
 package com.newco.grand.baccarat.classic.view.mediators
 {
 	import com.newco.grand.baccarat.classic.view.BetspotsPanelView;
-	import com.ai.core.common.controller.signals.BaseSignal;
-	import com.ai.core.common.model.Language;
-	import com.ai.core.common.view.mediators.AccordionMediator;
-	import com.ai.core.common.view.uicomps.PlayersUIView;
-	import com.ai.core.common.view.uicomps.WinnersUIView;
+	import com.newco.grand.core.common.controller.signals.BaseSignal;
+	import com.newco.grand.core.common.model.Language;
+	import com.newco.grand.core.common.view.mediators.AccordionMediator;
+	import com.newco.grand.core.common.view.uicomps.PlayersUIView;
+	import com.newco.grand.core.common.view.uicomps.WinnersUIView;
 	
 	public class BaccaratAccordionMediator extends AccordionMediator
 	{

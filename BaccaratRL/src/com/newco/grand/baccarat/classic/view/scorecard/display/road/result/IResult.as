@@ -1,6 +1,6 @@
 package com.newco.grand.baccarat.classic.view.scorecard.display.road.result {
 	
-	import com.ai.core.view.ui.views.IBaseView;
+	import com.newco.grand.core.common.view.ui.views.IBaseView;
 	
 	public interface IResult extends IBaseView {
 		function get type():String

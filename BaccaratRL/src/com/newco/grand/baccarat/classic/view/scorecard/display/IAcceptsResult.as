@@ -1,5 +1,5 @@
 package com.newco.grand.baccarat.classic.view.scorecard.display {
-	import com.ai.core.view.ui.views.IBaseView;
+	import com.newco.grand.core.common.view.ui.views.IBaseView;
 	
 	/**
 	 * An interface used by those which can accept a new result,
