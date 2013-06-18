@@ -5,8 +5,8 @@ package com.newco.grand.core.common.view.mediators {
 	import com.newco.grand.core.common.controller.signals.UIEvent;
 	import com.newco.grand.core.common.controller.signals.WinnersEvent;
 	import com.newco.grand.core.common.model.SignalBus;
-	import com.newco.grand.core.utils.GameUtils;
 	import com.newco.grand.core.common.view.uicomps.WinnersUIView;
+	import com.newco.grand.core.utils.GameUtils;
 	
 	import flash.events.Event;
 	

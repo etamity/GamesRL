@@ -10,9 +10,9 @@ package com.newco.grand.core.common.view.mediators {
 	import com.newco.grand.core.common.model.Language;
 	import com.newco.grand.core.common.model.Player;
 	import com.newco.grand.core.common.model.SignalBus;
+	import com.newco.grand.core.common.view.GameStatusView;
 	import com.newco.grand.core.utils.GameUtils;
-	imporcom.ai.core.common.view.GameStatusView;
-	import com.ai.core.view.GameStatusView;
+	import com.newco.grand.core.utils.StringUtils;
 	
 	import flash.events.Event;
 	import flash.events.TimerEvent;
@@ -20,6 +20,7 @@ package com.newco.grand.core.common.view.mediators {
 	import flash.utils.setTimeout;
 	
 	import robotlegs.bender.bundles.mvcs.Mediator;
+
 
 	public class GameStatusMediator extends Mediator{
 		

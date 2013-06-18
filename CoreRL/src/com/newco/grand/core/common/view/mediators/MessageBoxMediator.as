@@ -9,8 +9,9 @@ package com.newco.grand.core.common.view.mediators
 	import com.newco.grand.core.common.model.Language;
 	import com.newco.grand.core.common.model.Player;
 	import com.newco.grand.core.common.model.SignalBus;
+	import com.newco.grand.core.common.view.MessageBoxView;
 	import com.newco.grand.core.utils.GameUtils;
-	import com.acom.ai.core.common.view.MessageBoxViewort com.ai.core.view.MessageBoxView;
+	import com.newco.grand.core.utils.StringUtils;
 	
 	import flash.events.Event;
 	import flash.utils.setTimeout;

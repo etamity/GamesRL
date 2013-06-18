@@ -8,8 +8,8 @@ package com.newco.grand.core.common.view.mediators {
 	import com.newco.grand.core.common.model.IGameData;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.model.SignalConstants;
-	import comcom.ai.core.common.view.StageView
-	import com.ai.core.view.StageView;
+	import com.newco.grand.core.common.view.StageView;
+	import com.newco.grand.core.utils.GameUtils;
 	
 	import flash.display.StageDisplayState;
 	import flash.events.Event;

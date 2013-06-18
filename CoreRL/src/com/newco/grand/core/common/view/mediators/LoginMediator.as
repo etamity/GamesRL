@@ -4,7 +4,8 @@ package com.newco.grand.core.common.view.mediators {
 	import com.newco.grand.core.common.controller.signals.LoginEvent;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.model.vo.UserLoginData;
-	import com.ai.core.utils.GameUtcom.ai.core.common.view.LoginViewview.LoginView;
+	import com.newco.grand.core.common.view.LoginView;
+	import com.newco.grand.core.utils.GameUtils;
 	
 	import flash.events.Event;
 	import flash.net.SharedObject;

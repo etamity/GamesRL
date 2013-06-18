@@ -1,16 +1,16 @@
 package com.newco.grand.core.view{
 		
-		import com.ai.core.common.controller.signals.BetEvent;
-		import com.ai.core.common.controller.signals.TaskbarActionEvent;
-		import com.ai.core.common.controller.signals.TooltipEvent;
-		import com.ai.core.common.model.Language;
-		import com.ai.core.common.model.SignalBus;
+		import com.newco.grand.core.common.controller.signals.BetEvent;
+		import com.newco.grand.core.common.controller.signals.TaskbarActionEvent;
+		import com.newco.grand.core.common.controller.signals.TooltipEvent;
+		import com.newco.grand.core.common.model.Language;
+		import com.newco.grand.core.common.model.SignalBus;
+		import com.newco.grand.core.common.view.SMButton;
+		import com.newco.grand.core.common.view.TaskbarMenu;
+		import com.newco.grand.core.common.view.Tooltip;
+		import com.newco.grand.core.common.view.interfaces.ITaskbarView;
 		import com.newco.grand.core.utils.FormatUtils;
 		import com.newco.grand.core.utils.GameUtils;
-		import com.ai.core.common.view.SMButton;
-		import com.ai.core.common.view.TaskbarMenu;
-		import com.ai.core.common.view.Tooltip;
-		import com.ai.core.view.interfaces.ITaskbarView;
 		
 		import flash.display.MovieClip;
 		import flash.events.MouseEvent;

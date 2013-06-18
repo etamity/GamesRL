@@ -5,7 +5,8 @@ package com.newco.grand.core.common.view.mediators {
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.service.VideoService;
-	import com.ai.core.utils.GameUtcom.ai.core.common.view.VideoViewview.VideoView;
+	import com.newco.grand.core.common.view.VideoView;
+	import com.newco.grand.core.utils.GameUtils;
 	
 	import flash.display.DisplayObject;
 	import flash.display.MovieClip;

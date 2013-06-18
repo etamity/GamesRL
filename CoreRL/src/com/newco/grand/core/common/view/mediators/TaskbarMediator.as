@@ -16,8 +16,9 @@ package com.newco.grand.core.common.view.mediators
 	import com.newco.grand.core.common.model.Player;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.model.Style;
-	import com.ai.core.utils.Formcom.ai.core.common.view.interfaces.ITaskbarViewUtils;
-	import com.ai.core.view.interfaces.ITaskbarView;
+	import com.newco.grand.core.common.view.interfaces.ITaskbarView;
+	import com.newco.grand.core.utils.FormatUtils;
+	import com.newco.grand.core.utils.GameUtils;
 	
 	import flash.display.MovieClip;
 	import flash.events.Event;

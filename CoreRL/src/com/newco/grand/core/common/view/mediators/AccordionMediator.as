@@ -5,7 +5,8 @@ package com.newco.grand.core.common.view.mediators {
 	import com.newco.grand.core.common.controller.signals.StartupDataEvent;
 	import com.newco.grand.core.common.controller.signals.UIEvent;
 	import com.newco.grand.core.common.model.SignalBus;
-	import com.ai.corcom.ai.core.common.view.interfaces.IAccordione.view.interfaces.IAccordion;
+	import com.newco.grand.core.common.view.interfaces.IAccordion;
+	import com.newco.grand.core.utils.GameUtils;
 	
 	import flash.events.Event;
 	

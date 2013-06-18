@@ -9,11 +9,13 @@ package com.newco.grand.core.common.view.mediators {
 	import com.newco.grand.core.common.model.IGameData;
 	import com.newco.grand.core.common.model.Language;
 	import com.newco.grand.core.common.model.SignalBus;
-	import com.ai.corcom.ai.core.common.view.ChatViewrt com.ai.core.view.ChatView;
+	import com.newco.grand.core.common.view.ChatView;
+	import com.newco.grand.core.utils.GameUtils;
 	
 	import flash.events.Event;
 	
 	import robotlegs.bender.bundles.mvcs.Mediator;
+
 	
 	public class ChatMediator extends Mediator{
 		
