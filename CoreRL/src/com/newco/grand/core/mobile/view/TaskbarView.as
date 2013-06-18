@@ -1,4 +1,4 @@
-package com.newco.grand.core.view{
+package com.newco.grand.core.mobile.view{
 		
 		import com.newco.grand.core.common.controller.signals.BetEvent;
 		import com.newco.grand.core.common.controller.signals.TaskbarActionEvent;
