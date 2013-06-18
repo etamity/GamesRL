@@ -26,12 +26,12 @@ package com.ai.baccarat.classic.view
 			betspotsPanelAsset= new BetspotsPanelAsset();
 			scrollPane = new ScrollPane();
 			scrollPane.scrollDrag=false;
-			scrollPane.addView(betspotsPanelAsset);
+			//scrollPane.addView(betspotsPanelAsset);
 			betspotsPanelAsset.addChild(chipHolder);
 			chipHolder.mouseEnabled= false;
 			chipHolder.mouseChildren=false;
-			addChild(scrollPane);
-	
+			//addChild(scrollPane);
+			addChild(betspotsPanelAsset);
 		}
 
 		public function init():void
