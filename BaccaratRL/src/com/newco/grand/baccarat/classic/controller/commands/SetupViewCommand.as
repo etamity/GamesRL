@@ -6,8 +6,14 @@ package com.newco.grand.baccarat.classic.controller.commands
 	import com.newco.grand.baccarat.classic.view.ScoreCardView;
 	import com.newco.grand.baccarat.classic.view.TableGraphicView;
 	import com.newco.grand.core.common.controller.commands.BaseCommand;
+	import com.newco.grand.core.common.view.ChatView;
+	import com.newco.grand.core.common.view.GameStatusView;
+	import com.newco.grand.core.common.view.LoginView;
+	import com.newco.grand.core.common.view.MessageBoxView;
 	import com.newco.grand.core.common.view.StageView;
+	import com.newco.grand.core.common.view.TaskbarView;
 	import com.newco.grand.core.common.view.VideoView;
+	import com.newco.grand.core.common.view.uicomps.AccordionUIView;
 	import com.newco.grand.core.utils.GameUtils;
 	
 	import robotlegs.bender.extensions.contextView.ContextView;

@@ -62,6 +62,7 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.view.LoginView;
 	import com.newco.grand.core.common.view.MessageBoxView;
 	import com.newco.grand.core.common.view.StageView;
+	import com.newco.grand.core.common.view.TaskbarView;
 	import com.newco.grand.core.common.view.VideoView;
 	import com.newco.grand.core.common.view.interfaces.IAccordion;
 	import com.newco.grand.core.common.view.interfaces.ITaskbarView;
@@ -74,6 +75,7 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.view.mediators.TaskbarMediator;
 	import com.newco.grand.core.common.view.mediators.VideoMediator;
 	import com.newco.grand.core.common.view.mediators.WinnersMediator;
+	import com.newco.grand.core.common.view.uicomps.AccordionUIView;
 	import com.newco.grand.core.common.view.uicomps.PlayersUIView;
 	import com.newco.grand.core.common.view.uicomps.WinnersUIView;
 	

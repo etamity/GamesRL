@@ -74,9 +74,10 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.view.mediators.TaskbarMediator;
 	import com.newco.grand.core.common.view.mediators.VideoMediator;
 	import com.newco.grand.core.common.view.mediators.WinnersMediator;
+	import com.newco.grand.core.common.view.uicomps.AccordionUIView;
 	import com.newco.grand.core.common.view.uicomps.PlayersUIView;
 	import com.newco.grand.core.common.view.uicomps.WinnersUIView;
-	import com.newco.grand.core.view.TaskbarView;
+	import com.newco.grand.core.mobile.view.TaskbarView;
 	
 	import org.assetloader.AssetLoader;
 	import org.assetloader.base.Param;
