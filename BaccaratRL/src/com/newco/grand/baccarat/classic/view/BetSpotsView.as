@@ -1,6 +1,9 @@
 package com.newco.grand.baccarat.classic.view {
 	
 	import com.newco.grand.baccarat.classic.model.BaccaratConstants;
+	import com.newco.grand.core.common.controller.signals.BetEvent;
+	import com.newco.grand.core.common.controller.signals.HighlightEvent;
+	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.view.BetSpot;
 	import com.newco.grand.core.common.view.Betchip;
 	import com.newco.grand.core.common.view.interfaces.IBetSpotsView;
@@ -8,12 +11,11 @@ package com.newco.grand.baccarat.classic.view {
 	import com.newco.grand.core.utils.GameUtils;
 	
 	import flash.display.MovieClip;
+	import flash.display.Sprite;
 	import flash.geom.Point;
 	import flash.utils.Dictionary;
-	
-	import org.osflash.signals.Signal;
 
-	public class BetSpotsView extends BetSpotsAsset implements IBetSpotsView{
+	public class BetSpotsView extends Sprite implements IBetSpotsView{
 		private var _betspotMC:BetSpot;
 		private var _betchipMC:Betchip;
 		//private var _winMarkerMC:WinMarker;
@@ -27,17 +29,21 @@ package com.newco.grand.baccarat.classic.view {
 		private var _betSpotHash:Dictionary;
 		private var _multiChips:Boolean=false;
 		
-		public var messageSignal:Signal=new Signal();
+		/*public var messageSignal:Signal=new Signal();
 		public var updateBetSignal:Signal=new Signal();
 		public var hightLightSignal:Signal=new Signal();
 		public var removeLightSignal:Signal=new Signal();
 		
-		public var makeBetsignal:Signal=new Signal();
+		public var makeBetsignal:Signal=new Signal();*/
+		
+		private var _signalBus:SignalBus=new SignalBus();
+		
 		
 		private var _chipSelecedValue:Number=0;
 		private var _balance:Number=0;
-		
+		protected var _display:*;
 		public function BetSpotsView() {
+			initDisplay();
 			_betSpotsArray=new Array();
 			_betSpotsName = new Array(
 				BaccaratConstants.PLAYER, 
@@ -50,9 +56,19 @@ package com.newco.grand.baccarat.classic.view {
 			_betSpotHash=new Dictionary();
 			hideSpotsMc();
 			visible = false;
-			stop();
+			_display.stop();
 		}
-
+		
+		public function get signalBus():SignalBus{
+			return _signalBus;
+		}
+		public function initDisplay():void{
+			_display= new BetSpotsAsset();
+			addChild(_display);
+		}
+		public function get display():*{
+			return this;
+		}
 		public function get chipSelecedValue():Number{
 			return _chipSelecedValue;
 		}
@@ -64,8 +80,7 @@ package com.newco.grand.baccarat.classic.view {
 		public function get multiChips():Boolean{
 			return _multiChips;
 		}
-		
-		
+
 		public function setMode(mode:String="pairs"):void{
 			var label:String;
 			switch (mode){
@@ -90,7 +105,7 @@ package com.newco.grand.baccarat.classic.view {
 					label=BaccaratConstants.TYPE_CLASSIC;
 					break;
 			}
-			gotoAndStop(label);
+			_display.gotoAndStop(label);
 			createBetSpots();
 			disableBetting();
 		}
@@ -100,7 +115,6 @@ package com.newco.grand.baccarat.classic.view {
 		}
 		public function init():void {
 			align();
-			debug("createBetSpots");
 		}
 		
 		public function registerPoints(dictionary:Dictionary):void{
@@ -115,7 +129,7 @@ package com.newco.grand.baccarat.classic.view {
 			
 			var betspot:MovieClip;
 			for (var i:uint = 0; i < _betSpotsName.length; i++) {
-				betspot=MovieClip(getChildByName("spot_" + _betSpotsName[i]));
+				betspot=MovieClip(_display.getChildByName("spot_" + _betSpotsName[i]));
 				betspot.visible=false;
 			}
 		}
@@ -129,7 +143,7 @@ package com.newco.grand.baccarat.classic.view {
 			var betspot:MovieClip;
 			var betspotmc:BetSpot;
 			for (var i:uint = 0; i < _betSpotsName.length; i++) {
-				betspot=MovieClip(getChildByName("spot_" + _betSpotsName[i]));
+				betspot=MovieClip(_display.getChildByName("spot_" + _betSpotsName[i]));
 				betspotmc = new BetSpot(new BetSpotAsset());
 				betspotmc.name = _betSpotsName[i];
 				betspotmc.display.transform.matrix= betspot.transform.matrix;
@@ -137,7 +151,7 @@ package com.newco.grand.baccarat.classic.view {
 				betspotmc.x = betspot.x;
 				betspotmc.y = betspot.y;
 				betspot.visible=false;
-				addChild(betspotmc.display);
+				_display.addChild(betspotmc.display);
 				_betSpotsArray.push(betspotmc);
 				_betSpotHash[_betSpotsName[i]]=betspotmc;
 				
@@ -150,7 +164,8 @@ package com.newco.grand.baccarat.classic.view {
 		
 		private function setMessage(type:String,target:BetSpot):void {
 			//dispatchEvent(event);
-			messageSignal.dispatch(type,target);
+			//messageSignal.dispatch(type,target);
+			_signalBus.dispatch(type,{target:target});
 		}
 		
 		private function getBetspotByName(val:String):BetSpot{
@@ -166,16 +181,19 @@ package com.newco.grand.baccarat.classic.view {
 				_chipsPlacedOrder.push(target.name);
 			}
 			createChip(target.name);
-			updateBetSignal.dispatch(target);
+			//updateBetSignal.dispatch(target);
+			_signalBus.dispatch(BetEvent.UPDATE_BET ,{target:target});
 		}
 		
 		private function highlight(target:String):void {
 			//dispatchEvent(event);
-			hightLightSignal.dispatch(target);
+			//hightLightSignal.dispatch(target);
+			_signalBus.dispatch(HighlightEvent.HIGHLIGHT,{target:target});
 		}
 		
 		private function removeHighlight(target:String):void {
-			removeLightSignal.dispatch(target);
+			//removeLightSignal.dispatch(target);
+			_signalBus.dispatch(HighlightEvent.REMOVE_HIGHLIGHT,{target:target});
 		}
 		
 		
@@ -210,7 +228,8 @@ package com.newco.grand.baccarat.classic.view {
 			}
 			_betchipMC.chipValue = _betspotMC.chipValue;
 			_betchipMC.updateChipColor(_betspotMC.lastChipPlaced);
-			makeBetsignal.dispatch(value);
+			//makeBetsignal.dispatch(value);
+			_signalBus.dispatch(BetEvent.MAKEBET,{side:value});
 		} 
 		
 		public function set chipSelecedValue(value:Number):void {

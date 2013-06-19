@@ -1,7 +1,7 @@
 package com.newco.grand.baccarat.classic.view.mediators
 {
 	import com.newco.grand.baccarat.classic.controller.signals.BaccaratEvent;
-	import com.newco.grand.baccarat.classic.view.BetspotsPanelView;
+	import com.newco.grand.baccarat.classic.view.interfaces.IBetspotsPanelView;
 	import com.newco.grand.core.common.controller.signals.BaseSignal;
 	import com.newco.grand.core.common.controller.signals.BetEvent;
 	import com.newco.grand.core.common.controller.signals.ModelReadyEvent;
@@ -19,7 +19,7 @@ package com.newco.grand.baccarat.classic.view.mediators
 	public class BetspotsPanelMediator extends Mediator
 	{
 		[Inject]
-		public var view:BetspotsPanelView;
+		public var view:IBetspotsPanelView;
 		
 		[Inject]
 		public var signalBus:SignalBus;

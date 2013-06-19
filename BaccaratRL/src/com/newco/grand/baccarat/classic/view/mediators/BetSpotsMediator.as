@@ -3,7 +3,7 @@ package com.newco.grand.baccarat.classic.view.mediators {
 	import com.newco.grand.baccarat.classic.controller.signals.BaccaratEvent;
 	import com.newco.grand.baccarat.classic.model.BaccaratConstants;
 	import com.newco.grand.baccarat.classic.model.GameDataModel;
-	import com.newco.grand.baccarat.classic.view.BetSpotsView;
+	import com.newco.grand.baccarat.classic.view.interfaces.IBetSpotsView;
 	import com.newco.grand.core.common.controller.signals.BalanceEvent;
 	import com.newco.grand.core.common.controller.signals.BaseSignal;
 	import com.newco.grand.core.common.controller.signals.BetEvent;
@@ -22,11 +22,12 @@ package com.newco.grand.baccarat.classic.view.mediators {
 	import flash.events.Event;
 	
 	import robotlegs.bender.bundles.mvcs.Mediator;
+	import robotlegs.bender.extensions.contextView.ContextView;
 	
 	public class BetSpotsMediator extends Mediator {
 		
 		[Inject]
-		public var view:BetSpotsView;
+		public var view:IBetSpotsView;
 		
 		[Inject]
 		public var game:GameDataModel;
@@ -36,6 +37,9 @@ package com.newco.grand.baccarat.classic.view.mediators {
 	
 		[Inject]
 		public var flashVars:FlashVars;
+		
+		[Inject]
+		public var contextView:ContextView;	
 		
 		[Inject]
 		public var signalBus:SignalBus;
@@ -67,7 +71,7 @@ package com.newco.grand.baccarat.classic.view.mediators {
 		
 		private function setupModel(signal:BaseSignal):void {
 			initializeView();
-			eventMap.mapListener(view.stage, Event.RESIZE, onStageResize);
+			eventMap.mapListener(contextView.view.stage, Event.RESIZE, onStageResize);
 			if (flashVars.gametype==BaccaratConstants.TYPE_PAIRS)
 				signalBus.add(BaccaratEvent.PAIRRESULT, processPairsResult);
 
@@ -87,11 +91,21 @@ package com.newco.grand.baccarat.classic.view.mediators {
 			view.disableBetting();
 			view.chipSelecedValue = game.chipSelected;
 			
-			view.updateBetSignal.add(updateTotalBet);
+			/*view.updateBetSignal.add(updateTotalBet);
 			view.messageSignal.add(showTooltip);
-			view.makeBetsignal.add(makePanelBets);
+			view.makeBetsignal.add(makePanelBets);*/
+			
+			view.signalBus.add(BetEvent.UPDATE_BET,updateTotalBet);
+			view.signalBus.add(MessageEvent.SHOW_MAX_SPOT,showTooltip);
+			view.signalBus.add(MessageEvent.SHOW_MAX_TABLE,showTooltip);
+			view.signalBus.add(MessageEvent.SHOW_MIN_SPOT,showTooltip);
+			view.signalBus.add(MessageEvent.SHOW_NOT_ENOUGH_MONEY,showTooltip);
+			view.signalBus.add(MessageEvent.SHOW_WINNINGS,showTooltip);
+			view.signalBus.add(BetEvent.MAKEBET,makePanelBets);
+			
 		}
-		private function makePanelBets(side:String):void{
+		private function makePanelBets(signal:BaseSignal):void{
+			var side:String =signal.params.side;
 			var amount:Number= view.getBetspotAmount(side);
 			signalBus.dispatch(BaccaratEvent.MAKEBETPANEL ,{side:side,amount:amount});
 		}

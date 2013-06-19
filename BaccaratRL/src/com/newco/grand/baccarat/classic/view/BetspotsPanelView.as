@@ -13,7 +13,7 @@ package com.newco.grand.baccarat.classic.view
 	
 	public class BetspotsPanelView extends MovieClip implements IUIView
 	{
-		private var betspotsPanelAsset:BetspotsPanelAsset;
+		protected var _display:*;
 		private var scrollPane:ScrollPane;
 		
 		public var makeBetSignal:Signal=new Signal();
@@ -23,27 +23,31 @@ package com.newco.grand.baccarat.classic.view
 		public function BetspotsPanelView()
 		{
 			super();
-			betspotsPanelAsset= new BetspotsPanelAsset();
+			initDisplay();
 			scrollPane = new ScrollPane();
 			scrollPane.scrollDrag=false;
 			//scrollPane.addView(betspotsPanelAsset);
-			betspotsPanelAsset.addChild(chipHolder);
+			_display.addChild(chipHolder);
 			chipHolder.mouseEnabled= false;
 			chipHolder.mouseChildren=false;
 			//addChild(scrollPane);
-			addChild(betspotsPanelAsset);
+
+		}
+		public function initDisplay():void{
+			_display= new BetspotsPanelAsset();
+			addChild(_display);
 		}
 		public function get display():*{
-			return this;
+			return _display;
 		}
 		public function init():void
 		{
 			scrollPane.y=10;
-			betspotsPanelAsset.spot_player.addEventListener(MouseEvent.CLICK,doMakeBetEvent);
-			betspotsPanelAsset.spot_tie.addEventListener(MouseEvent.CLICK,doMakeBetEvent);
-			betspotsPanelAsset.spot_banker.addEventListener(MouseEvent.CLICK,doMakeBetEvent);
-			betspotsPanelAsset.spot_pair_player.addEventListener(MouseEvent.CLICK,doMakeBetEvent);
-			betspotsPanelAsset.spot_pair_banker.addEventListener(MouseEvent.CLICK,doMakeBetEvent);
+			_display.spot_player.addEventListener(MouseEvent.CLICK,doMakeBetEvent);
+			_display.spot_tie.addEventListener(MouseEvent.CLICK,doMakeBetEvent);
+			_display.spot_banker.addEventListener(MouseEvent.CLICK,doMakeBetEvent);
+			_display.spot_pair_player.addEventListener(MouseEvent.CLICK,doMakeBetEvent);
+			_display.spot_pair_banker.addEventListener(MouseEvent.CLICK,doMakeBetEvent);
 		}
 		
 		public function setMode(mode:String="pairs"):void{
@@ -51,20 +55,20 @@ package com.newco.grand.baccarat.classic.view
 			switch (mode){
 				case BaccaratConstants.TYPE_CLASSIC:
 					label=mode;
-					betspotsPanelAsset.spot_pair_player.visible=false;
-					betspotsPanelAsset.spot_pair_banker.visible=false;
+					_display.spot_pair_player.visible=false;
+					_display.spot_pair_banker.visible=false;
 					break;
 				case BaccaratConstants.TYPE_DRAGONTIGER:
-					betspotsPanelAsset.spot_pair_player.visible=false;
-					betspotsPanelAsset.spot_pair_banker.visible=false;
+					_display.spot_pair_player.visible=false;
+					_display.spot_pair_banker.visible=false;
 					label=mode;
 					break;
 				case BaccaratConstants.TYPE_PAIRS:
 					label=mode;
 					break;
 				default:
-					betspotsPanelAsset.spot_pair_player.visible=false;
-					betspotsPanelAsset.spot_pair_banker.visible=false;
+					_display.spot_pair_player.visible=false;
+					_display.spot_pair_banker.visible=false;
 					label=BaccaratConstants.TYPE_CLASSIC;
 					break;
 			}
@@ -76,32 +80,32 @@ package com.newco.grand.baccarat.classic.view
 		}
 		
 		public function enabledBetting(val:Boolean):void{
-			betspotsPanelAsset.spot_player.enabled=val;
-			betspotsPanelAsset.spot_tie.enabled=val;
-			betspotsPanelAsset.spot_banker.enabled=val;
-			betspotsPanelAsset.spot_pair_player.enabled=val;
-			betspotsPanelAsset.spot_pair_banker.enabled=val;
+			_display.spot_player.enabled=val;
+			_display.spot_tie.enabled=val;
+			_display.spot_banker.enabled=val;
+			_display.spot_pair_player.enabled=val;
+			_display.spot_pair_banker.enabled=val;
 			
-			betspotsPanelAsset.spot_player.mouseEnabled=val;
-			betspotsPanelAsset.spot_tie.mouseEnabled=val;
-			betspotsPanelAsset.spot_banker.mouseEnabled=val;
-			betspotsPanelAsset.spot_pair_player.mouseEnabled=val;
-			betspotsPanelAsset.spot_pair_banker.mouseEnabled=val;
+			_display.spot_player.mouseEnabled=val;
+			_display.spot_tie.mouseEnabled=val;
+			_display.spot_banker.mouseEnabled=val;
+			_display.spot_pair_player.mouseEnabled=val;
+			_display.spot_pair_banker.mouseEnabled=val;
 			
-			betspotsPanelAsset.spot_player.buttonMode=val;
-			betspotsPanelAsset.spot_tie.buttonMode=val;
-			betspotsPanelAsset.spot_banker.buttonMode=val;
-			betspotsPanelAsset.spot_pair_player.buttonMode=val;
-			betspotsPanelAsset.spot_pair_banker.buttonMode=val;
+			_display.spot_player.buttonMode=val;
+			_display.spot_tie.buttonMode=val;
+			_display.spot_banker.buttonMode=val;
+			_display.spot_pair_player.buttonMode=val;
+			_display.spot_pair_banker.buttonMode=val;
 			var label:String="off";
 			if (val==true)
 				label="on";
 			
-			betspotsPanelAsset.spot_player.gotoAndStop(label);
-			betspotsPanelAsset.spot_tie.gotoAndStop(label);
-			betspotsPanelAsset.spot_banker.gotoAndStop(label);
-			betspotsPanelAsset.spot_pair_player.gotoAndStop(label);
-			betspotsPanelAsset.spot_pair_banker.gotoAndStop(label);
+			_display.spot_player.gotoAndStop(label);
+			_display.spot_tie.gotoAndStop(label);
+			_display.spot_banker.gotoAndStop(label);
+			_display.spot_pair_player.gotoAndStop(label);
+			_display.spot_pair_banker.gotoAndStop(label);
 			
 		}
 		
@@ -132,19 +136,19 @@ package com.newco.grand.baccarat.classic.view
 			var mc:MovieClip;
 			switch (side){
 				case BaccaratConstants.PLAYER:
-					mc= betspotsPanelAsset.spot_player;
+					mc= _display.spot_player;
 					break;
 				case BaccaratConstants.TIE:
-					mc= betspotsPanelAsset.spot_tie;
+					mc= _display.spot_tie;
 					break;
 				case BaccaratConstants.BANKER:
-					mc= betspotsPanelAsset.spot_banker;
+					mc= _display.spot_banker;
 					break;
 				case BaccaratConstants.PAIRPLAYER:
-					mc= betspotsPanelAsset.spot_pair_player;
+					mc= _display.spot_pair_player;
 					break;
 				case BaccaratConstants.PAIRBANKER:
-					mc= betspotsPanelAsset.spot_pair_banker;
+					mc= _display.spot_pair_banker;
 					break;
 			}
 			var chip:Betchip= new Betchip();
