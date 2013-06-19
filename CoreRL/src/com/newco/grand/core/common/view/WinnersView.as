@@ -17,11 +17,16 @@ package com.newco.grand.core.common.view {
 		private var dgCol2Name:String = "Amount";
 		private var winnersList:Array;
 		private var playersListDgMc:DataGrid;
+		protected var _display:*;
 		public function WinnersView() {
 			visible = false;
+			initDisplay();
 			createDataGrid(null);
 
 		}		
+		public function initDisplay():void{
+			//_display=new StageAsset();
+		}
 		public function get display():*{
 			return this;
 		}

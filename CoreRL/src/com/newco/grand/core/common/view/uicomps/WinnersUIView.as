@@ -24,7 +24,9 @@ package com.newco.grand.core.common.view.uicomps {
 			sets.push(new DataGridColumnSet(dgCol1Name,"name",-45));
 			sets.push(new DataGridColumnSet(dgCol2Name,"winnings",-55));
 			playersListDgMc.initColumns(sets);
-		}		
+		}
+		public function initDisplay():void{
+		}
 		public function init():void {			
 			align();
 		}
@@ -50,7 +52,7 @@ package com.newco.grand.core.common.view.uicomps {
 			showPlayers();
 		}
 		public function loadFormXML(data:XML):void{
-			//debug(data);
+			debug(data);
 			playersListDgMc.removeAll();
 			var urlsXML:XMLList = data.users[0].user;
 			var obj:Object;

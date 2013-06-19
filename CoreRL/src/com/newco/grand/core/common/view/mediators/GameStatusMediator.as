@@ -10,7 +10,7 @@ package com.newco.grand.core.common.view.mediators {
 	import com.newco.grand.core.common.model.Language;
 	import com.newco.grand.core.common.model.Player;
 	import com.newco.grand.core.common.model.SignalBus;
-	import com.newco.grand.core.common.view.GameStatusView;
+	import com.newco.grand.core.common.view.interfaces.IGameStatusView;
 	import com.newco.grand.core.utils.GameUtils;
 	import com.newco.grand.core.utils.StringUtils;
 	
@@ -20,12 +20,13 @@ package com.newco.grand.core.common.view.mediators {
 	import flash.utils.setTimeout;
 	
 	import robotlegs.bender.bundles.mvcs.Mediator;
+	import robotlegs.bender.extensions.contextView.ContextView;
 
 
 	public class GameStatusMediator extends Mediator{
 		
 		[Inject]
-		public var view:GameStatusView;
+		public var view :IGameStatusView;
 		
 		[Inject]
 		public var game:IGameData;
@@ -35,6 +36,9 @@ package com.newco.grand.core.common.view.mediators {
 		
 		[Inject]
 		public var signalBus:SignalBus;
+		
+		[Inject]
+		public var contextView:ContextView;
 		
 		private const TIMER_COLOR_DEFAULT:uint = 0x00FF00;
 		private const TIMER_COLOR_CLOSING:uint = 0xFFFF00;
@@ -65,9 +69,9 @@ package com.newco.grand.core.common.view.mediators {
 		private function setupModel(signal:BaseSignal):void {
 			view.init();
 			view.message = Language.PLEASEWAIT;
-			eventMap.mapListener(view.stage, Event.RESIZE, onStageResize);
+			eventMap.mapListener(contextView.view.stage, Event.RESIZE, onStageResize);
 		}
-		
+
 		private function startTimer(signal:BaseSignal):void {
 			view.message = Language.PLACEBETS;
 			view.timerColor = TIMER_COLOR_DEFAULT;

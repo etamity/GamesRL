@@ -18,5 +18,6 @@ package com.newco.grand.core.common.controller.signals {
 		public static const DOUBLE:String = "BetEvent.DOUBLE";
 		public static const CONFRIM:String = "BetEvent.CONFRIM";
 		public static const FAVOURITES:String = "BetEvent.FAVOURITES";
+		public static const MAKEBET:String = "BetEvent.MAKEBET";
 	}
 }

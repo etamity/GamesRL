@@ -38,7 +38,7 @@ package com.newco.grand.core.common.view.mediators {
 		
 		private var stageAvailable:Boolean;
 		
-		private var videoMask:Sprite = new Sprite();
+		//private var videoMask:Sprite = new Sprite();
 		
 		private var _topDisplayObject:DisplayObject;
 		private function onAddtoStageEvent(evt:Event):void{
@@ -54,7 +54,7 @@ package com.newco.grand.core.common.view.mediators {
 			signalBus.add(VideoEvent.CONNECT,initializeVideo);
 			signalBus.add(VideoEvent.PLAY,setVideoStream);
 		}
-		protected function setFrameMask(width:Number, height:Number, viewport:Rectangle):void
+	/*	protected function setFrameMask(width:Number, height:Number, viewport:Rectangle):void
 		{
 			
 			videoMask.graphics.beginFill(0xFF0000);
@@ -65,7 +65,7 @@ package com.newco.grand.core.common.view.mediators {
 			videoMask.graphics.endFill();
 
 			
-		}
+		}*/
 		private function initializeVideo(signal:BaseSignal):void {
 			view.init();
 			eventMap.mapListener(contextView.view.stage, Event.RESIZE, onStageResize);

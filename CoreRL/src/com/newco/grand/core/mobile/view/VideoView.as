@@ -7,11 +7,14 @@ package com.newco.grand.core.mobile.view
 		public function VideoView()
 		{
 			super();
-			frame.visible=false;
-			bg.visible=false;
+			showFullSize=true;
 		}
-		override public function align():void {		
+		override public function align():void {	
+			_display.frame.visible=false;
+			_display.bg.visible=false;
+			_display.mask=null;
 			setSize(640, 511);
+			super.resize();
 		}
 	}
 }

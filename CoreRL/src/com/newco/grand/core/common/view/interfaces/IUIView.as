@@ -5,5 +5,6 @@ package com.newco.grand.core.common.view.interfaces
 		function init():void;
 		function align():void;
 		function get display():*;
+		function initDisplay():void;
 	}
 }

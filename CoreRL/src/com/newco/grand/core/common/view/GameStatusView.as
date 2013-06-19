@@ -1,36 +1,46 @@
 package com.newco.grand.core.common.view {
-	import flash.text.TextFormat;
+	import com.newco.grand.core.common.view.interfaces.IGameStatusView;
+	
+	import flash.display.Sprite;
 	import flash.text.TextFieldAutoSize;
-	public class GameStatusView extends GameStatusAsset {
+	import flash.text.TextFormat;
+
+	public class GameStatusView extends Sprite implements IGameStatusView {
 		
 		private var _messageFormat:TextFormat = new TextFormat("Arial", 14, 0xFFAF32, true);
 		private var _blinkCounter:int = 0;
-		
+		protected var _display:*;
 		public function GameStatusView() {
 			visible = false
+			initDisplay();
 		}
-		
+		public function initDisplay():void{
+			_display=new GameStatusAsset();
+			addChild(_display);
+		}
 		public function init():void {
 			align();
 			visible = true;
-			time.visible=false;
+			_display.time.visible=false;
 			setLightSOff();
 			//messageBlinkBG.visible = false;
 		}
-		
+		public function get display():*{
+			return _display;
+		}
 		public function align():void {			
 			x = 626;
 			y = 0;
 		}
 		
 		private function alignMessage():void {
-			messageTxt.autoSize = TextFieldAutoSize.CENTER;
-			messageTxt.y = 108 + (87.85 - messageTxt.height) / 2;
+			_display.messageTxt.autoSize = TextFieldAutoSize.CENTER;
+			_display.messageTxt.y = 108 + (87.85 - _display.messageTxt.height) / 2;
 		}
 		
 		public function set message(value:String):void {
-			messageTxt.text = value;
-			messageTxt.setTextFormat(_messageFormat);
+			_display.messageTxt.text = value;
+			_display.messageTxt.setTextFormat(_messageFormat);
 			alignMessage();
 		}
 		
@@ -38,30 +48,30 @@ package com.newco.grand.core.common.view {
 			setLightSOff();
 			switch (label){
 				case "amber":
-					amberMC.gotoAndStop("on");
+					_display.amberMC.gotoAndStop("on");
 					break;
 				case "green":
-					greenMC.gotoAndStop("on");
+					_display.greenMC.gotoAndStop("on");
 					break;
 				case "red":
-					redMC.gotoAndStop("on");
+					_display.redMC.gotoAndStop("on");
 					break;
 			}
 		}
 		
 		
 		public function setLightSOff():void{
-			amberMC.gotoAndStop("off");
-			greenMC.gotoAndStop("off");
-			redMC.gotoAndStop("off");
+			_display.amberMC.gotoAndStop("off");
+			_display.greenMC.gotoAndStop("off");
+			_display.redMC.gotoAndStop("off");
 		}
 		
 		public function set timer(value:String):void {
-			time.text = value;
+			_display.time.text = value;
 		}
 		
 		public function set timerColor(value:uint):void {
-			time.textColor = value;
+			_display.time.textColor = value;
 		}
 		
 		public function highlightMessageBG(clr:uint = 0x990000):void {

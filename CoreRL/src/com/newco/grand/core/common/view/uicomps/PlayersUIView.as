@@ -18,6 +18,9 @@ package com.newco.grand.core.common.view.uicomps
 			listView.setSize(167,529);
 			addChild(listView);
 		}
+		public function initDisplay():void{
+		}
+		
 		public function align():void {
 			visible = true;
 		}

@@ -1,13 +1,21 @@
 package com.newco.grand.core.mobile.view {
 	import com.newco.grand.core.common.view.interfaces.IStageView;
 	
-	public class StageView extends Mobile_StageAsset implements IStageView {		
+	import flash.display.Sprite;
+	
+	public class StageView extends Sprite implements IStageView {		
+		protected var _display:*;
 		
 		public function StageView() {
 			visible = true;
-			errorMsg.visible=false;
+			initDisplay();
+
+			_display.errorMsg.visible=false;
 		}
-		
+		public function initDisplay():void{
+			_display=new Mobile_StageAsset();
+			addChild(_display);
+		}
 		public function init():void {
 			align();
 		}
@@ -20,20 +28,20 @@ package com.newco.grand.core.mobile.view {
 		}
 		
 		public function showPreloader():void {
-			preloaderMC.visible = true;
-			preloaderMC.play();
+			_display.preloaderMC.visible = true;
+			_display.preloaderMC.play();
 		}
 		
 		public function hidePreloader():void {
-			preloaderMC.visible = false;
-			preloaderMC.stop();
+			_display.preloaderMC.visible = false;
+			_display.preloaderMC.stop();
 		}
 		public function get display():*{
-			return this;
+			return _display;
 		}
 		public function setErrorMessage(val:String):void{
-			errorMsg.text=val;
-			errorMsg.visible=true;
+			_display.errorMsg.text=val;
+			_display.errorMsg.visible=true;
 			
 		}
 		

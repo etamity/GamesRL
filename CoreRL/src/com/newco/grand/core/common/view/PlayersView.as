@@ -22,7 +22,8 @@ package com.newco.grand.core.common.view {
 			Scroll.height=362.55;
 			addChild(Scroll);*/
 		}		
-		
+		public function initDisplay():void{
+		}
 		public function init():void {			
 			align();
 		}
