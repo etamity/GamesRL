@@ -49,7 +49,12 @@ package com.newco.grand.roulette.classic.view {
 			specialBetsMC.visible = false;
 			visible = false;
 		}
-		
+		public function get display():*{
+			return this;
+		}
+		public function initDisplay():void{
+			
+		}
 		public function init():void {
 			align();
 		}

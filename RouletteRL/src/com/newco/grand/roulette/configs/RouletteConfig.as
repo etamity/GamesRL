@@ -46,6 +46,11 @@ package com.newco.grand.roulette.configs
 	import com.newco.grand.core.common.view.TaskbarView;
 	import com.newco.grand.core.common.view.VideoView;
 	import com.newco.grand.core.common.view.interfaces.IAccordion;
+	import com.newco.grand.core.common.view.interfaces.IGameStatusView;
+	import com.newco.grand.core.common.view.interfaces.ILoginView;
+	import com.newco.grand.core.common.view.interfaces.IStageView;
+	import com.newco.grand.core.common.view.interfaces.ITaskbarView;
+	import com.newco.grand.core.common.view.interfaces.IVideoView;
 	import com.newco.grand.core.common.view.mediators.ChatMediator;
 	import com.newco.grand.core.common.view.mediators.GameStatusMediator;
 	import com.newco.grand.core.common.view.mediators.LoginMediator;
@@ -86,18 +91,14 @@ package com.newco.grand.roulette.configs
 	import org.assetloader.base.Param;
 	import org.assetloader.core.IAssetLoader;
 	import org.assetloader.core.IParam;
-	import org.swiftsuspenders.Injector;
 	
 	import robotlegs.bender.extensions.contextView.ContextView;
 	import robotlegs.bender.extensions.mediatorMap.api.IMediatorMap;
 	import robotlegs.bender.extensions.signalCommandMap.api.ISignalCommandMap;
 	import robotlegs.bender.framework.api.IConfig;
 	import robotlegs.bender.framework.api.IContext;
-	import robotlegs.bender.framework.api.LogLevel;
-	import com.newco.grand.core.common.view.interfaces.IStageView;
-	import com.newco.grand.core.common.view.interfaces.IVideoView;
-	import com.newco.grand.core.common.view.interfaces.ITaskbarView;
 	import robotlegs.bender.framework.api.IInjector;
+	import robotlegs.bender.framework.api.LogLevel;
 	
 	public class RouletteConfig implements IConfig
 	{	
@@ -188,14 +189,14 @@ package com.newco.grand.roulette.configs
 		}
 		public function mapMediators():void{
 			mediatorMap.map(IStageView).toMediator(StageMediator);
-			mediatorMap.map(LoginView).toMediator(LoginMediator);
+			mediatorMap.map(ILoginView).toMediator(LoginMediator);
 			mediatorMap.map(BetSpotsView).toMediator(BetSpotsMediator);
 			mediatorMap.map(IVideoView).toMediator(VideoMediator);
 			mediatorMap.map(LimitsView).toMediator(LimitsMediator);
 			mediatorMap.map(ResultsClassicView).toMediator(ResultsClassicMediator);
 			mediatorMap.map(ITaskbarView).toMediator(TaskbarMediator);
 			mediatorMap.map(StageInfoView).toMediator(StageInfoMediator);
-			mediatorMap.map(GameStatusView).toMediator(GameStatusMediator);
+			mediatorMap.map(IGameStatusView).toMediator(GameStatusMediator);
 			mediatorMap.map(ChatView).toMediator(ChatMediator);
 			mediatorMap.map(PlayersUIView).toMediator(PlayersMediator);
 			mediatorMap.map(WinnersUIView).toMediator(WinnersMediator);
