@@ -94,6 +94,10 @@ package com.newco.grand.roulette.configs
 	import robotlegs.bender.framework.api.IConfig;
 	import robotlegs.bender.framework.api.IContext;
 	import robotlegs.bender.framework.api.LogLevel;
+	import com.newco.grand.core.common.view.interfaces.IStageView;
+	import com.newco.grand.core.common.view.interfaces.IVideoView;
+	import com.newco.grand.core.common.view.interfaces.ITaskbarView;
+	import robotlegs.bender.framework.api.IInjector;
 	
 	public class RouletteConfig implements IConfig
 	{	
@@ -104,7 +108,7 @@ package com.newco.grand.roulette.configs
 		public var commandMap:ISignalCommandMap;
 		
 		[Inject]
-		public var injector:Injector;
+		public var injector:IInjector;
 		
 		[Inject]
 		public var context:IContext;
@@ -183,13 +187,13 @@ package com.newco.grand.roulette.configs
 			
 		}
 		public function mapMediators():void{
-			mediatorMap.map(StageView).toMediator(StageMediator);
+			mediatorMap.map(IStageView).toMediator(StageMediator);
 			mediatorMap.map(LoginView).toMediator(LoginMediator);
 			mediatorMap.map(BetSpotsView).toMediator(BetSpotsMediator);
-			mediatorMap.map(VideoView).toMediator(VideoMediator);
+			mediatorMap.map(IVideoView).toMediator(VideoMediator);
 			mediatorMap.map(LimitsView).toMediator(LimitsMediator);
 			mediatorMap.map(ResultsClassicView).toMediator(ResultsClassicMediator);
-			mediatorMap.map(TaskbarView).toMediator(TaskbarMediator);
+			mediatorMap.map(ITaskbarView).toMediator(TaskbarMediator);
 			mediatorMap.map(StageInfoView).toMediator(StageInfoMediator);
 			mediatorMap.map(GameStatusView).toMediator(GameStatusMediator);
 			mediatorMap.map(ChatView).toMediator(ChatMediator);
