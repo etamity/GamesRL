@@ -29,13 +29,6 @@ package com.newco.grand.baccarat.classic.view {
 		private var _betSpotHash:Dictionary;
 		private var _multiChips:Boolean=false;
 		
-		/*public var messageSignal:Signal=new Signal();
-		public var updateBetSignal:Signal=new Signal();
-		public var hightLightSignal:Signal=new Signal();
-		public var removeLightSignal:Signal=new Signal();
-		
-		public var makeBetsignal:Signal=new Signal();*/
-		
 		private var _signalBus:SignalBus=new SignalBus();
 		
 		
