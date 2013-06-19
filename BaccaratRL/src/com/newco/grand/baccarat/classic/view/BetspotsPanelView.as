@@ -33,7 +33,9 @@ package com.newco.grand.baccarat.classic.view
 			//addChild(scrollPane);
 			addChild(betspotsPanelAsset);
 		}
-
+		public function get display():*{
+			return this;
+		}
 		public function init():void
 		{
 			scrollPane.y=10;

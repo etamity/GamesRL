@@ -65,7 +65,9 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.view.TaskbarView;
 	import com.newco.grand.core.common.view.VideoView;
 	import com.newco.grand.core.common.view.interfaces.IAccordion;
+	import com.newco.grand.core.common.view.interfaces.IStageView;
 	import com.newco.grand.core.common.view.interfaces.ITaskbarView;
+	import com.newco.grand.core.common.view.interfaces.IVideoView;
 	import com.newco.grand.core.common.view.mediators.ChatMediator;
 	import com.newco.grand.core.common.view.mediators.GameStatusMediator;
 	import com.newco.grand.core.common.view.mediators.LoginMediator;
@@ -175,13 +177,13 @@ package com.newco.grand.baccarat.configs
 		}
 		public function mapMediators():void{
 			
-			mediatorMap.map(StageView).toMediator(StageMediator);
+			mediatorMap.map(IStageView).toMediator(StageMediator);
 			mediatorMap.map(LoginView).toMediator(LoginMediator);
 			mediatorMap.map(ITaskbarView).toMediator(TaskbarMediator);
 			mediatorMap.map(GameStatusView).toMediator(GameStatusMediator);
 			mediatorMap.map(IAccordion).toMediator(BaccaratAccordionMediator);
 			mediatorMap.map(ChatView).toMediator(ChatMediator);
-			mediatorMap.map(VideoView).toMediator(VideoMediator);
+			mediatorMap.map(IVideoView).toMediator(VideoMediator);
 			mediatorMap.map(BetSpotsView).toMediator(BetSpotsMediator);
 			mediatorMap.map(CardsPanelView).toMediator(CardsPanelMediator);
 			mediatorMap.map(AnimationPanelView).toMediator(AnimationMeditor);

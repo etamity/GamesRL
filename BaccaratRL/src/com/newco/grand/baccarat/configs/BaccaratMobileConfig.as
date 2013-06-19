@@ -29,7 +29,6 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.controller.commands.PlayersCommand;
 	import com.newco.grand.core.common.controller.commands.SeatCommand;
 	import com.newco.grand.core.common.controller.commands.SocketConnectionCommand;
-	import com.newco.grand.core.common.controller.commands.StartupCommand;
 	import com.newco.grand.core.common.controller.commands.StartupCompleteCommand;
 	import com.newco.grand.core.common.controller.commands.StartupDataCommand;
 	import com.newco.grand.core.common.controller.commands.VideoConnectionCommand;
@@ -61,10 +60,11 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.view.GameStatusView;
 	import com.newco.grand.core.common.view.LoginView;
 	import com.newco.grand.core.common.view.MessageBoxView;
-	import com.newco.grand.core.common.view.StageView;
-	import com.newco.grand.core.common.view.VideoView;
 	import com.newco.grand.core.common.view.interfaces.IAccordion;
+	import com.newco.grand.core.common.view.interfaces.ILoginView;
+	import com.newco.grand.core.common.view.interfaces.IStageView;
 	import com.newco.grand.core.common.view.interfaces.ITaskbarView;
+	import com.newco.grand.core.common.view.interfaces.IVideoView;
 	import com.newco.grand.core.common.view.mediators.ChatMediator;
 	import com.newco.grand.core.common.view.mediators.GameStatusMediator;
 	import com.newco.grand.core.common.view.mediators.LoginMediator;
@@ -74,10 +74,12 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.view.mediators.TaskbarMediator;
 	import com.newco.grand.core.common.view.mediators.VideoMediator;
 	import com.newco.grand.core.common.view.mediators.WinnersMediator;
-	import com.newco.grand.core.common.view.uicomps.AccordionUIView;
 	import com.newco.grand.core.common.view.uicomps.PlayersUIView;
 	import com.newco.grand.core.common.view.uicomps.WinnersUIView;
+	import com.newco.grand.core.mobile.controller.commands.StartupCommand;
+	import com.newco.grand.core.mobile.view.StageView;
 	import com.newco.grand.core.mobile.view.TaskbarView;
+	import com.newco.grand.core.mobile.view.VideoView;
 	
 	import org.assetloader.AssetLoader;
 	import org.assetloader.base.Param;
@@ -130,7 +132,7 @@ package com.newco.grand.baccarat.configs
 			contextView.view.addChild(new VideoView());
 			contextView.view.addChild(new TableGraphicView());
 			contextView.view.addChild(new LoginView());
-			contextView.view.addChild(new AccordionUIView());
+			//contextView.view.addChild(new AccordionUIView());
 			contextView.view.addChild(new TaskbarView());
 			contextView.view.addChild(new GameStatusView())
 			contextView.view.addChild(new ChatView());
@@ -174,13 +176,13 @@ package com.newco.grand.baccarat.configs
 		}
 		public function mapMediators():void{
 			
-			mediatorMap.map(StageView).toMediator(StageMediator);
-			mediatorMap.map(LoginView).toMediator(LoginMediator);
+			mediatorMap.map(IStageView).toMediator(StageMediator);
+			mediatorMap.map(ILoginView).toMediator(LoginMediator);
 			mediatorMap.map(ITaskbarView).toMediator(TaskbarMediator);
 			mediatorMap.map(GameStatusView).toMediator(GameStatusMediator);
 			mediatorMap.map(IAccordion).toMediator(BaccaratAccordionMediator);
 			mediatorMap.map(ChatView).toMediator(ChatMediator);
-			mediatorMap.map(VideoView).toMediator(VideoMediator);
+			mediatorMap.map(IVideoView).toMediator(VideoMediator);
 			mediatorMap.map(BetSpotsView).toMediator(BetSpotsMediator);
 			mediatorMap.map(CardsPanelView).toMediator(CardsPanelMediator);
 			mediatorMap.map(AnimationPanelView).toMediator(AnimationMeditor);

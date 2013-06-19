@@ -27,10 +27,11 @@ package
 			removeEventListener(Event.ADDED_TO_STAGE,onAddToStage);
 			UI.init(this.stage,24);
 			ToolTip.setDefaultToolTipStyle(0,0xFFFFFF,0xDDDDDD,1,1,0x666666,0.5);
-			start();
+			SkinLoader.loadSkinFile("skins/skin.swf",onStart,null,null,null);
+			onStart();
 		}
 		
-		private function start():void{
+		private function onStart():void{
 			context = new Context()
 				.install(BaccaratBundle)
 				.configure(

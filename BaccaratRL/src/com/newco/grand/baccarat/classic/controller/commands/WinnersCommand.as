@@ -8,7 +8,10 @@ package com.newco.grand.baccarat.classic.controller.commands {
 	import com.newco.grand.core.common.model.URLSModel;
 	import com.newco.grand.core.utils.GameUtils;
 	
+	import flash.net.URLRequest;
+	
 	import org.assetloader.core.IAssetLoader;
+	import org.assetloader.loaders.XMLLoader;
 	import org.assetloader.signals.ErrorSignal;
 	import org.assetloader.signals.LoaderSignal;
 	
@@ -37,16 +40,16 @@ package com.newco.grand.baccarat.classic.controller.commands {
 		
 		private function loadPlayers():void {
 			if(!service.hasLoader(Constants.SERVER_WINNERS)) {
-				//service.addLoader(new XMLLoader(new URLRequest(urls.winners + "?mode=top"), Constants.SERVER_WINNERS));
+				service.addLoader(new XMLLoader(new URLRequest(urls.winners + "?mode=top"), Constants.SERVER_WINNERS));
 				service.getLoader(Constants.SERVER_WINNERS).onError.add(showError);
 				service.getLoader(Constants.SERVER_WINNERS).onComplete.add(setPlayers);			
 				service.start();
-				//debug(urls.winners);
+				debug(urls.winners);
 			}
 		}
 		
 		private function setPlayers(signal:LoaderSignal, xml:XML):void {
-			//debug(xml);			
+			debug(xml);			
 			service.remove(Constants.SERVER_WINNERS);
 			//eventDispatcher.dispatchEvent(new WinnersEvent(WinnersEvent.LOADED, xml));
 			
