@@ -22,7 +22,9 @@ package com.newco.grand.core.common.view {
 			createDataGrid(null);
 
 		}		
-		
+		public function get display():*{
+			return this;
+		}
 		public function init():void {			
 			align();
 	

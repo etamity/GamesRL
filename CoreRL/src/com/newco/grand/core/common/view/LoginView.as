@@ -6,7 +6,7 @@ package com.newco.grand.core.common.view {
 	import org.osflash.signals.Signal;
 	
 	public class LoginView extends LoginAsset {
-		public var loginSignal:Signal=new Signal();
+		private var _loginSignal:Signal=new Signal();
 		public function LoginView() {
 			visible = false;
 		}		
@@ -16,14 +16,21 @@ package com.newco.grand.core.common.view {
 			loginBtn.addEventListener(MouseEvent.CLICK, login);
 		}
 		
+		public function get display():*{
+			return this;
+		}
+		
 		public function align():void {
 			x = (stage.stageWidth  - width) / 2;
 			y = (stage.stageHeight  - height) / 2;
 			visible = true;
 		}
-
+		public function get loginSignal():Signal{
+			return _loginSignal;
+		}
+		
 		private function login(event:MouseEvent):void {
-			loginSignal.dispatch(id, password);
+			_loginSignal.dispatch(id, password);
 		}
 		
 		public function set id(value:String):void {

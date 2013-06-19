@@ -1,7 +1,5 @@
 package com.newco.grand.core.common.controller.signals {
 	
-	import flash.net.NetStream;
-
 	public class VideoEvent {
 		
 		public static const CONNECT:String = "VideoEvent.CONNECT";

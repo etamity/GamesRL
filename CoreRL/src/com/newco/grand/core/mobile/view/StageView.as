@@ -28,7 +28,9 @@ package com.newco.grand.core.mobile.view {
 			preloaderMC.visible = false;
 			preloaderMC.stop();
 		}
-		
+		public function get display():*{
+			return this;
+		}
 		public function setErrorMessage(val:String):void{
 			errorMsg.text=val;
 			errorMsg.visible=true;

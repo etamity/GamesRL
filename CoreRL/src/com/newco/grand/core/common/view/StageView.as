@@ -25,7 +25,9 @@ package com.newco.grand.core.common.view {
 			preloaderMC.visible = true;
 			preloaderMC.play();
 		}
-		
+		public function get display():*{
+			return this;
+		}
 		public function hidePreloader():void {
 			preloaderMC.visible = false;
 			preloaderMC.stop();

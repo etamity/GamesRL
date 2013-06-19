@@ -61,7 +61,9 @@ package com.newco.grand.core.common.view.uicomps {
 		
 
 		}
-		
+		public function get display():*{
+			return this;
+		}
 		public function get listView():DataGrid{
 			return playersListDgMc;
 		}

@@ -28,6 +28,7 @@ package com.newco.grand.core.common.controller.commands {
 			if(flashVars.localhost) {
 				configService.loadConfig(function ():void{
 					urlsService.loadConfig(function ():void{
+						SkinLoader.SKIN_LOADED
 						SkinLoader.loadSkinFile("skins/skin.swf",onStart,onError,null,null);
 					});
 				});

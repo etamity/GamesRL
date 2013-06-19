@@ -194,7 +194,9 @@ package com.newco.grand.core.mobile.view{
 				lobbyLabel=Language.LOBBY;
 			}
 			
-			
+			public function get display():*{
+				return this;
+			}
 			
 			public function myAccountEnabled(val:Boolean):void{
 				myaccount.mouseEnabled=val;

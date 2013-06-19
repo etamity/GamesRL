@@ -1,5 +1,8 @@
 package com.newco.grand.core.common.view {
 	
+	import com.newco.grand.core.common.controller.signals.UIEvent;
+	import com.newco.grand.core.common.model.SignalBus;
+	import com.newco.grand.core.common.view.interfaces.IVideoView;
 	import com.newco.grand.core.utils.GameUtils;
 	
 	import flash.events.MouseEvent;
@@ -10,7 +13,6 @@ package com.newco.grand.core.common.view {
 	
 	import caurina.transitions.Tweener;
 	
-	import org.osflash.signals.Signal;
 	import org.osmf.containers.MediaContainer;
 	import org.osmf.elements.VideoElement;
 	import org.osmf.events.LoaderEvent;
@@ -20,7 +22,7 @@ package com.newco.grand.core.common.view {
 	import org.osmf.net.StreamType;
 	import org.osmf.net.StreamingURLResource;
 	
-	public class VideoView extends VideoAsset {
+	public class VideoView extends VideoAsset implements IVideoView {
 		
 		private var _fullscreen:Boolean=false;
 		
@@ -34,9 +36,12 @@ package com.newco.grand.core.common.view {
 		private var _playerSprite:MediaPlayerSprite;
 		private var _netLoader:NetLoader;
 		
-		public var videoRefreshSignal:Signal= new Signal();
+		/*public var videoRefreshSignal:Signal= new Signal();
 		public var videoFullscreenSignal:Signal= new Signal();
-		public var videoAutoFullScreenSignal:Signal= new Signal();
+		public var videoAutoFullScreenSignal:Signal= new Signal();*/
+		
+		private var _signalBus:SignalBus;
+		
 		public var showFullSize:Boolean=false;
 		
 		public function VideoView() {
@@ -51,7 +56,14 @@ package com.newco.grand.core.common.view {
 			VideoRefreshBtn.addEventListener(MouseEvent.CLICK, refreshVideo);
 			
 		}
-
+		public function get signalBus():SignalBus{
+			if (_signalBus==null)
+				_signalBus=new SignalBus();
+			return _signalBus;
+		}
+		public function get display():*{
+			return this;
+		}
 		public function setupOsmfPlayer(streamUrl:String):void{
 			if (_display==null)
 			{
@@ -155,7 +167,6 @@ package com.newco.grand.core.common.view {
 			else
 				align();
 		}
-		
 		public function align():void {			
 			x = 175;
 			setSize(448, 318);
@@ -180,7 +191,8 @@ package com.newco.grand.core.common.view {
 		private function refreshVideo(event:MouseEvent):void {
 			
 			video.clear();
-			videoRefreshSignal.dispatch();
+			//videoRefreshSignal.dispatch();
+			_signalBus.dispatch(UIEvent.VIDEO_REFRESH,{target:event.target});
 		}
 		
 		private function showFullscreen(event:MouseEvent):void {
@@ -205,7 +217,8 @@ package com.newco.grand.core.common.view {
 			if(!_fullscreen) {
 				//this.scaleX = 1.55;
 				//this.scaleY = 1.55;
-				videoFullscreenSignal.dispatch(event.target);
+				//videoFullscreenSignal.dispatch(event.target);
+				_signalBus.dispatch(UIEvent.VIDEO_FULLSCREEN,{target:event.target});
 				
 				Tweener.addTween(this, {scaleX:1.8, time:0.75, transition:"easeInOutQuart"});
 				Tweener.addTween(this, {scaleY:1.55, time:0.75, transition:"easeInOutQuart"});
@@ -220,7 +233,8 @@ package com.newco.grand.core.common.view {
 				Tweener.addTween(bg, {height:325, time:0.75, transition:"easeInOutQuart",onUpdate:function():void {resize(); }});
 				Tweener.addTween(this, {scaleX:1, time:0.75, transition:"easeInOutQuart"});
 				Tweener.addTween(this, {scaleY:1, time:0.75, transition:"easeInOutQuart", onComplete:function ():void{
-				videoFullscreenSignal.dispatch(event.target);
+				//videoFullscreenSignal.dispatch(event.target);
+				_signalBus.dispatch(UIEvent.VIDEO_FULLSCREEN,{target:event.target});
 					
 				}});
 			}

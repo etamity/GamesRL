@@ -21,7 +21,9 @@ package com.newco.grand.core.common.view.uicomps
 			_accordion.defaultButtonHeight=33;
 	
 		}
-		
+		public function get display():*{
+			return this;
+		}
 		public function get contentHeight():int{
 			return compHeight- _accordion.buttons.length*_accordion.defaultButtonHeight;
 		}

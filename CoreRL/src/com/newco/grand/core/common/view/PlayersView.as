@@ -40,7 +40,9 @@ package com.newco.grand.core.common.view {
 			_players = value;
 			showPlayers();
 		}
-		
+		public function get display():*{
+			return this;
+		}
 		private function showPlayers():void {
 			/*playersTxt.text = "";
 			for each (var item:XML in players.user) {

@@ -34,7 +34,9 @@ package com.newco.grand.core.common.view.uicomps
 			_players = value;
 			showPlayers();
 		}
-		
+		public function get display():*{
+			return this;
+		}
 		private function showPlayers():void {
 			listView.removeAll();
 			var obj:CustomListItem;

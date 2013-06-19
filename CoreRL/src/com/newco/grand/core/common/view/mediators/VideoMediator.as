@@ -1,15 +1,15 @@
 package com.newco.grand.core.common.view.mediators {
 	
 	import com.newco.grand.core.common.controller.signals.BaseSignal;
+	import com.newco.grand.core.common.controller.signals.UIEvent;
 	import com.newco.grand.core.common.controller.signals.VideoEvent;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.service.VideoService;
-	import com.newco.grand.core.common.view.VideoView;
+	import com.newco.grand.core.common.view.interfaces.IVideoView;
 	import com.newco.grand.core.utils.GameUtils;
 	
 	import flash.display.DisplayObject;
-	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.StageVideoAvailabilityEvent;
@@ -22,7 +22,7 @@ package com.newco.grand.core.common.view.mediators {
 	public class VideoMediator extends Mediator {
 		
 		[Inject]
-		public var view:VideoView;
+		public var view:IVideoView;
 		
 		[Inject]
 		public var flashVars:FlashVars;
@@ -39,16 +39,18 @@ package com.newco.grand.core.common.view.mediators {
 		private var stageAvailable:Boolean;
 		
 		private var videoMask:Sprite = new Sprite();
+		
 		private var _topDisplayObject:DisplayObject;
 		private function onAddtoStageEvent(evt:Event):void{
-			view.stage.addEventListener(StageVideoAvailabilityEvent.STAGE_VIDEO_AVAILABILITY, onStageVideoState);
+			contextView.view.stage.addEventListener(StageVideoAvailabilityEvent.STAGE_VIDEO_AVAILABILITY, onStageVideoState);
 		}
 		private function onStageVideoState(evt:StageVideoAvailabilityEvent):void{
 			var stageAvailable:Boolean = (evt.availability == StageVideoAvailability.AVAILABLE);
 			debug("StageVideo Available:" ,stageAvailable);
 		}
 		override public function initialize():void {
-			view.addEventListener(Event.ADDED_TO_STAGE,onAddtoStageEvent)
+			//view.addEventListener(Event.ADDED_TO_STAGE,onAddtoStageEvent)
+			addViewListener(Event.ADDED_TO_STAGE,onAddtoStageEvent);
 			signalBus.add(VideoEvent.CONNECT,initializeVideo);
 			signalBus.add(VideoEvent.PLAY,setVideoStream);
 		}
@@ -66,9 +68,11 @@ package com.newco.grand.core.common.view.mediators {
 		}
 		private function initializeVideo(signal:BaseSignal):void {
 			view.init();
-			eventMap.mapListener(view.stage, Event.RESIZE, onStageResize);
-			view.videoFullscreenSignal.add(videoFullscreen);
-			view.videoRefreshSignal.add(videoRefresh);
+			eventMap.mapListener(contextView.view.stage, Event.RESIZE, onStageResize);
+			view.signalBus.add(UIEvent.VIDEO_FULLSCREEN,videoFullscreen);
+			view.signalBus.add(UIEvent.VIDEO_REFRESH,videoRefresh);
+			//view.videoFullscreenSignal.add(videoFullscreen);
+			//view.videoRefreshSignal.add(videoRefresh);
 		}
 		
 		private function setupVideo(event:VideoEvent):void {
@@ -98,10 +102,10 @@ package com.newco.grand.core.common.view.mediators {
 		private function debug(...args):void {
 			GameUtils.log(this, args);
 		}
-		private function videoRefresh():void{
+		private function videoRefresh(signal:BaseSignal):void{
 			videoSevvice.refreshStream();
 		}
-		private function videoFullscreen(target:MovieClip):void {
+		private function videoFullscreen(signal:BaseSignal):void {
 			/*if(!view.fullscreen) {
 				_viewChildIndex = contextView.view.getChildIndex(view);
 				contextView.view.setChildIndex(view, contextView.view.numChildren-1);
@@ -111,7 +115,7 @@ package com.newco.grand.core.common.view.mediators {
 			if (_topDisplayObject==null)
 				_topDisplayObject=contextView.view.getChildAt(contextView.view.numChildren-1);
 			
-			contextView.view.swapChildren(view,_topDisplayObject);
+			contextView.view.swapChildren(view.display,_topDisplayObject);
 		}
 		
 	}

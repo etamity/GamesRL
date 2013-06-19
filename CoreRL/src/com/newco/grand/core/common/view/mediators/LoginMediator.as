@@ -4,21 +4,25 @@ package com.newco.grand.core.common.view.mediators {
 	import com.newco.grand.core.common.controller.signals.LoginEvent;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.model.vo.UserLoginData;
-	import com.newco.grand.core.common.view.LoginView;
+	import com.newco.grand.core.common.view.interfaces.ILoginView;
 	import com.newco.grand.core.utils.GameUtils;
 	
 	import flash.events.Event;
 	import flash.net.SharedObject;
 	
 	import robotlegs.bender.bundles.mvcs.Mediator;
+	import robotlegs.bender.extensions.contextView.ContextView;
 
 	public class LoginMediator extends Mediator{
 		
 		[Inject]
-		public var view:LoginView;
+		public var view:ILoginView;
 		
 		[Inject]
 		public var signalBus:SignalBus;
+		
+		[Inject]
+		public var contextView:ContextView;
 		
 		private var _loginSO:SharedObject;
 
@@ -29,7 +33,7 @@ package com.newco.grand.core.common.view.mediators {
 		
 		private function setupModel(signal:BaseSignal):void {
 			initializeView();			
-			eventMap.mapListener(view.stage, Event.RESIZE, onStageResize);
+			eventMap.mapListener(contextView.view.stage, Event.RESIZE, onStageResize);
 			
 			signalBus.add(LoginEvent.LOGIN,hideView);
 			signalBus.add(LoginEvent.LOGIN_SUCCESS,removeView);
@@ -65,15 +69,15 @@ package com.newco.grand.core.common.view.mediators {
 		}
 		
 		private function hideView(signal:BaseSignal):void {
-			view.visible = false;
+			view.display.visible = false;
 		}
 		
 		private function removeView(signal:BaseSignal):void {
-			view.parent.removeChild(view);
+			view.display.parent.removeChild(view);
 		}
 		
 		private function setError(signal:BaseSignal):void {
-			view.visible = true;
+			view.display.visible = true;
 			view.error = "Login Failed. Please try again.";
 		}
 		

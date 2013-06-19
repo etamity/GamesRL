@@ -5,10 +5,11 @@ package com.newco.grand.core.common.view {
 	import com.newco.grand.core.common.controller.signals.TooltipEvent;
 	import com.newco.grand.core.common.model.Language;
 	import com.newco.grand.core.common.model.SignalBus;
+	import com.newco.grand.core.common.view.interfaces.ITaskbarView;
 	import com.newco.grand.core.utils.FormatUtils;
 	import com.newco.grand.core.utils.GameUtils;
-	import com.newco.grand.core.common.view.interfaces.ITaskbarView;
 	
+	import flash.display.DisplayObject;
 	import flash.display.MovieClip;
 	import flash.events.MouseEvent;
 	import flash.filters.ColorMatrixFilter;
@@ -56,6 +57,7 @@ package com.newco.grand.core.common.view {
 		private var _chipClickedSignal:Signal= new Signal();*/
 		
 		private var _signalBus:SignalBus=new SignalBus();
+		
 		public function TaskbarView() {
 			visible = false;
 			
@@ -175,6 +177,9 @@ package com.newco.grand.core.common.view {
 		public function get chipClickedSignal:Signal{
 			return _chipClickedSignal;
 		}*/
+		public function get display():*{
+			return this;
+		}
 		public function setLanguage():void{
 			balanceLabel=Language.BALANCE;
 			betLabel=Language.BET;
