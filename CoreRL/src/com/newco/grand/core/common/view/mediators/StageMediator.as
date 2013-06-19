@@ -8,7 +8,7 @@ package com.newco.grand.core.common.view.mediators {
 	import com.newco.grand.core.common.model.IGameData;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.model.SignalConstants;
-	import com.newco.grand.core.common.view.StageView;
+	import com.newco.grand.core.common.view.interfaces.IStageView;
 	import com.newco.grand.core.utils.GameUtils;
 	
 	import flash.display.StageDisplayState;
@@ -17,17 +17,21 @@ package com.newco.grand.core.common.view.mediators {
 	import flash.media.SoundTransform;
 	
 	import robotlegs.bender.bundles.mvcs.Mediator;
+	import robotlegs.bender.extensions.contextView.ContextView;
 	
 	public class StageMediator extends Mediator{
 		
 		[Inject]
-		public var view:StageView;
+		public var view:IStageView;
 		
 		[Inject]
 		public var game:IGameData;
 		
 		[Inject]
 		public var signalBus:SignalBus;
+		
+		[Inject]
+		public var contextView:ContextView;
 		
 		private var _sound:SoundTransform = new SoundTransform();
 		
@@ -37,8 +41,6 @@ package com.newco.grand.core.common.view.mediators {
 			signalBus.add(SignalConstants.STARTUP,showPreloader);
 			signalBus.add(LoginEvent.INITIALIZE,hidePreloader);
 			signalBus.add(LoginEvent.LOGIN,showPreloader);
-			//signalBus.add(LoginEvent.LOGIN_SUCCESS,hidePreloader);
-			//signalBus.add(LoginEvent.LOGIN_FAILURE,hidePreloader);
 			signalBus.add(StartupDataEvent.LOAD,hidePreloader);
 
 			signalBus.add(TaskbarActionEvent.FULLSCREEN_CLICKED,toggleFullScreen);
@@ -46,18 +48,23 @@ package com.newco.grand.core.common.view.mediators {
 			signalBus.add(TaskbarActionEvent.HELP_CLICKED,toggleHelp);
 
 		}
+		private function errorEvents():void{
+			//signalBus.add(LoginEvent.LOGIN_SUCCESS,hidePreloader);
+			//signalBus.add(LoginEvent.LOGIN_FAILURE,hidePreloader);
+		}
 		
 		private function setupModel(signal:BaseSignal):void {
 			view.init();
 			view.hidePreloader();
-			eventMap.mapListener(view.stage, Event.RESIZE, onStageResize);
+			eventMap.mapListener(contextView.view.stage, Event.RESIZE, onStageResize);
 			
 			_sound.volume = 1;
 			SoundMixer.soundTransform = _sound;
 		}
 		
 		private function setErrorMessage(signal:BaseSignal):void{
-			var errorID:String=signal.params.errorID;
+			var error:String=signal.params.error;
+			view.setErrorMessage(error);
 		}
 		
 		private function showPreloader(signal:BaseSignal):void {
@@ -69,12 +76,12 @@ package com.newco.grand.core.common.view.mediators {
 		}
 		
 		private function toggleFullScreen(signal:BaseSignal):void {
-			if (view.stage.displayState == StageDisplayState.NORMAL) {
-				view.stage.displayState = StageDisplayState.FULL_SCREEN;
+			if (contextView.view.stage.displayState == StageDisplayState.NORMAL) {
+				contextView.view.stage.displayState = StageDisplayState.FULL_SCREEN;
 				game.fullscreen = true;
 			}
 			else {
-				view.stage.displayState = StageDisplayState.NORMAL;
+				contextView.view.stage.displayState = StageDisplayState.NORMAL;
 				game.fullscreen = false;
 			}
 		}

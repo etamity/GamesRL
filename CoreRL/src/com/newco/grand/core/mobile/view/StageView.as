@@ -1,9 +1,7 @@
-package com.newco.grand.core.common.view {
+package com.newco.grand.core.mobile.view {
 	import com.newco.grand.core.common.view.interfaces.IStageView;
 	
-	
-	
-	public class StageView extends StageAsset implements IStageView {		
+	public class StageView extends Mobile_StageAsset implements IStageView {		
 		
 		public function StageView() {
 			visible = true;

@@ -1,5 +1,6 @@
-package com.newco.grand.core.common.controller.commands {
+package com.newco.grand.core.mobile.controller.commands {
 	
+	import com.newco.grand.core.common.controller.commands.BaseCommand;
 	import com.newco.grand.core.common.controller.signals.MessageEvent;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.SignalBus;
@@ -7,7 +8,6 @@ package com.newco.grand.core.common.controller.commands {
 	import com.newco.grand.core.common.model.URLSModel;
 	import com.newco.grand.core.common.service.ConfigService;
 	import com.newco.grand.core.common.service.URLSService;
-	import com.smart.uicore.controls.managers.SkinLoader;
 	
 	import flash.events.IOErrorEvent;
 	
@@ -28,14 +28,16 @@ package com.newco.grand.core.common.controller.commands {
 			if(flashVars.localhost) {
 				configService.loadConfig(function ():void{
 					urlsService.loadConfig(function ():void{
-						SkinLoader.loadSkinFile("skins/skin.swf",onStart,onError,null,null);
+						//SkinLoader.loadSkinFile("skins/skin.swf",onStart,onError,null,null);
+						onStart();
 					});
 				});
 			
 			}
 			else{
 				urlsService.loadConfig(function ():void{
-					SkinLoader.loadSkinFile(urls.skin,onStart,onError,null,null);
+					//SkinLoader.loadSkinFile(urls.skin,onStart,onError,null,null);
+					onStart();
 				});
 
 	

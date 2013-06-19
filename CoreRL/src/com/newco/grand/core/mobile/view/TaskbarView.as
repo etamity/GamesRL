@@ -222,7 +222,7 @@ package com.newco.grand.core.mobile.view{
 				bg.width = stage.stageWidth;
 				x = 0;
 				//y = stage.stageHeight - height;
-				y=523;
+				y=870;
 			}
 			
 			private function addTooltip():void {
