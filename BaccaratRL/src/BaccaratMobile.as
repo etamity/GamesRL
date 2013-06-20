@@ -2,8 +2,8 @@ package
 {
 	import com.newco.grand.baccarat.configs.BaccaratBundle;
 	import com.newco.grand.baccarat.configs.BaccaratMobileConfig;
+	import com.newco.grand.core.common.model.FlashVars;
 	import com.smart.uicore.controls.ToolTip;
-	import com.smart.uicore.ui.UI;
 	
 	import flash.display.Sprite;
 	import flash.events.Event;
@@ -24,8 +24,7 @@ package
 		
 		private function onAddToStage(evt:Event):void{
 			removeEventListener(Event.ADDED_TO_STAGE,onAddToStage);
-			UI.init(this.stage,24);
-			ToolTip.setDefaultToolTipStyle(0,0xFFFFFF,0xDDDDDD,1,1,0x666666,0.5);
+			FlashVars.AIR_MODE=true;
 			start();
 		}
 		

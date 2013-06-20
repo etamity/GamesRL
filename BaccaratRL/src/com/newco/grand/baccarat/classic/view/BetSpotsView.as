@@ -1,12 +1,12 @@
 package com.newco.grand.baccarat.classic.view {
 	
 	import com.newco.grand.baccarat.classic.model.BaccaratConstants;
+	import com.newco.grand.baccarat.classic.view.interfaces.IBetSpotsView;
 	import com.newco.grand.core.common.controller.signals.BetEvent;
 	import com.newco.grand.core.common.controller.signals.HighlightEvent;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.view.BetSpot;
 	import com.newco.grand.core.common.view.Betchip;
-	import com.newco.grand.core.common.view.interfaces.IBetSpotsView;
 	import com.newco.grand.core.utils.FormatUtils;
 	import com.newco.grand.core.utils.GameUtils;
 	
@@ -144,7 +144,7 @@ package com.newco.grand.baccarat.classic.view {
 				betspotmc.x = betspot.x;
 				betspotmc.y = betspot.y;
 				betspot.visible=false;
-				_display.addChild(betspotmc.display);
+				addChild(betspotmc.display);
 				_betSpotsArray.push(betspotmc);
 				_betSpotHash[_betSpotsName[i]]=betspotmc;
 				

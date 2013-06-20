@@ -27,7 +27,8 @@ package
 			removeEventListener(Event.ADDED_TO_STAGE,onAddToStage);
 			UI.init(this.stage,24);
 			ToolTip.setDefaultToolTipStyle(0,0xFFFFFF,0xDDDDDD,1,1,0x666666,0.5);
-			SkinLoader.loadSkinFile("skins/skin.swf",onStart,null,null,null);
+			//SkinLoader.loadSkinFile("skins/skin.swf",onStart,null,null,null);
+			onStart();
 		}
 		
 		private function onStart():void{

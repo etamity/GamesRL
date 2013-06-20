@@ -118,7 +118,8 @@ package com.newco.grand.baccarat.classic.view.mediators {
 			view.balance = player.balance;
 		}
 		
-		private function updateTotalBet(target:BetSpot = null):void {
+		private function updateTotalBet(signal:BaseSignal = null):void {
+			var target:BetSpot=signal.params.target;
 			player.bet = view.getTotalBet();
 			player.bettingBalance = player.balance - player.bet;
 			signalBus.dispatch(BetEvent.TOTAL_BET);

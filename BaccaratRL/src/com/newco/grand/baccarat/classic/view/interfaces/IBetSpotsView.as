@@ -1,28 +1,18 @@
 package com.newco.grand.baccarat.classic.view.interfaces
 {
 	import com.newco.grand.core.common.model.SignalBus;
-	import com.newco.grand.core.common.view.interfaces.IUIView;
+	import com.newco.grand.core.common.view.interfaces.IBetSpotsViewCom;
 	
 	import flash.utils.Dictionary;
 	
-	import org.osflash.signals.Signal;
-	
-	public interface IBetSpotsView extends IUIView
+	public interface IBetSpotsView extends IBetSpotsViewCom
 	{
-		function get makeBetSignal():Signal;
 		function setMode(mode:String="pairs"):void;
-		function enabledBetting(val:Boolean):void;
-		function makeBet(value:Number,side:String):void;
-		function resize(width:Number,height:Number):void;
 		function clearBets():void;
 		function createBet(value:int, i:int):void;
 		function get betString():String;
-		function set chipSelecedValue(value:Number):void;
 		function getBetspotAmount(side:String):Number;
-		function get chipSelecedValue():Number;
-		function get balance():Number;
-		function set balance(value:Number):void;
-		function getTotalBet():Number;
+
 		function enableBetting():void;
 		function repeat():void;
 		function double():void;

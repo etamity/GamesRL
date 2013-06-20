@@ -1,14 +1,16 @@
 package com.newco.grand.baccarat.classic.view
 {	
 	import com.newco.grand.baccarat.classic.model.BaccaratConstants;
+	import com.newco.grand.baccarat.classic.view.interfaces.ICardsPanelView;
 	import com.newco.grand.core.utils.GameUtils;
 	
 	import flash.display.MovieClip;
+	import flash.display.Sprite;
 	import flash.geom.Point;
 	
 	import caurina.transitions.Tweener;
 	
-	public class CardsPanelView extends CardsPanelAsset
+	public class CardsPanelView extends Sprite implements ICardsPanelView
 	{
 		public var cardsData:Array=new Array(
 			"c101","c102","c103","c104","c105","c106","c107","c108","c109","c110","c111","c112","c113",
@@ -30,23 +32,39 @@ package com.newco.grand.baccarat.classic.view
 		
 		private var cardsMc:MovieClip;
 
-
+		protected var _display:*;
 		
 		public function CardsPanelView()
 		{
+			initDisplay();
 			bankerCards=new Array();
 			playerCards=new Array();
-			bankerCardPt= new Point(BankerSide.x+50,BankerSide.y-80);
-			playerCardPt= new Point(playerSide.x+50,playerSide.y-80);
+			bankerCardPt= new Point(_display.BankerSide.x+50,_display.BankerSide.y-80);
+			playerCardPt= new Point(_display.playerSide.x+50,_display.playerSide.y-80);
 			cardsMc=new MovieClip();
-			addChild(cardsMc);
+			_display.addChild(cardsMc);
 			refreshScore();
 			visible=false;
 
 		}
+		public function init():void{
+			align();
+		}
+		public function align():void{
+			visible=true;
+		}
+		public function initDisplay():void{
+			_display=new CardsPanelAsset();
+			addChild(_display);
+		}
+		
+		public function get display():*{
+			return _display;
+		}
+		
 		public function refreshScore():void{
-			BankerSide.label.text = String(totalScore(BaccaratConstants.BANKER));
-			playerSide.label.text = String(totalScore(BaccaratConstants.PLAYER));
+			_display.BankerSide.label.text = String(totalScore(BaccaratConstants.BANKER));
+			_display.playerSide.label.text = String(totalScore(BaccaratConstants.PLAYER));
 		}
 
 		public function totalScore(side:String):int{

@@ -1,7 +1,7 @@
 package com.newco.grand.baccarat.classic.view.mediators
 {
 	import com.newco.grand.baccarat.classic.controller.signals.BaccaratEvent;
-	import com.newco.grand.baccarat.classic.view.CardsPanelView;
+	import com.newco.grand.baccarat.classic.view.interfaces.ICardsPanelView;
 	import com.newco.grand.core.common.controller.signals.BaseSignal;
 	import com.newco.grand.core.common.controller.signals.ModelReadyEvent;
 	import com.newco.grand.core.common.controller.signals.SocketDataEvent;
@@ -13,7 +13,7 @@ package com.newco.grand.baccarat.classic.view.mediators
 	public class CardsPanelMediator extends Mediator
 	{
 		[Inject]
-		public var view:CardsPanelView;
+		public var view:ICardsPanelView;
 		[Inject]
 		public var signalBus:SignalBus;
 		public function CardsPanelMediator()
@@ -21,12 +21,6 @@ package com.newco.grand.baccarat.classic.view.mediators
 			super();
 		}
 		override public function initialize():void {
-			/*eventMap.mapListener(eventDispatcher, ModelReadyEvent.READY, initialize);
-			eventMap.mapListener(eventDispatcher, BaccaratEvent.CARD, issueCard);
-			eventMap.mapListener(eventDispatcher, SocketDataEvent.HANDLE_GAME, cleanCardPanel);
-			eventMap.mapListener(eventDispatcher, SocketDataEvent.HANDLE_CANCEL, cleanCardPanel);*/
-			
-			
 			signalBus.add(ModelReadyEvent.READY, setupModel);
 			signalBus.add(BaccaratEvent.CARD, issueCard);
 			signalBus.add(SocketDataEvent.HANDLE_GAME, cleanCardPanel);
@@ -34,7 +28,7 @@ package com.newco.grand.baccarat.classic.view.mediators
 
 		}
 		private function setupModel(signal:BaseSignal):void {
-			view.visible=true;
+			view.init();
 		}
 		private function cleanCardPanel(signal:BaseSignal):void{
 			view.cleanPanel();
