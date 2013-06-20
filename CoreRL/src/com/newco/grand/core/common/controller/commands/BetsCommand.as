@@ -2,6 +2,7 @@ package com.newco.grand.core.common.controller.commands {
 	
 	import com.newco.grand.core.common.controller.signals.BalanceEvent;
 	import com.newco.grand.core.common.controller.signals.BetEvent;
+	import com.newco.grand.core.common.controller.signals.MessageEvent;
 	import com.newco.grand.core.common.model.Constants;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.IGameData;
@@ -77,6 +78,7 @@ package com.newco.grand.core.common.controller.commands {
 		
 		private function showError(signal:ErrorSignal):void {
 			debug("error");
+			signalBus.dispatch(MessageEvent.ERROR,{target:this,error:signal.message});
 		}
 		
 		private function debug(...args):void {

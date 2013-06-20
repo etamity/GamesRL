@@ -5,7 +5,5 @@ package com.newco.grand.core.common.view.interfaces
 		function showPreloader():void;
 		
 		function hidePreloader():void;
-		
-		function setErrorMessage(val:String):void;
 	}
 }

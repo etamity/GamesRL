@@ -66,7 +66,7 @@ package com.newco.grand.core.common.service
 		}
 		private function showError(signal:ErrorSignal):void {
 			debug("error " + signal.message);
-			signalBus.dispatch(MessageEvent.ERROR,{error:signal.message});
+			signalBus.dispatch(MessageEvent.ERROR,{target:this,error:signal.message});
 		}
 		private function debug(...args):void {
 			GameUtils.log(this, args);

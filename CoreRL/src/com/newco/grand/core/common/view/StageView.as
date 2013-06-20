@@ -10,7 +10,6 @@ package com.newco.grand.core.common.view {
 			visible = true;
 			initDisplay();
 
-			_display.errorMsg.visible=false;
 		}
 		public function initDisplay():void{
 			_display=new StageAsset();
@@ -37,12 +36,6 @@ package com.newco.grand.core.common.view {
 		public function hidePreloader():void {
 			_display.preloaderMC.visible = false;
 			_display.preloaderMC.stop();
-		}
-		
-		public function setErrorMessage(val:String):void{
-			_display.errorMsg.text=val;
-			_display.errorMsg.visible=true;
-			
 		}
 		
 	}

@@ -2,6 +2,7 @@ package com.newco.grand.core.common.view.mediators {
 	
 	import com.newco.grand.core.common.controller.signals.BaseSignal;
 	import com.newco.grand.core.common.controller.signals.LoginEvent;
+	import com.newco.grand.core.common.controller.signals.MessageEvent;
 	import com.newco.grand.core.common.controller.signals.ModelReadyEvent;
 	import com.newco.grand.core.common.controller.signals.StartupDataEvent;
 	import com.newco.grand.core.common.controller.signals.TaskbarActionEvent;
@@ -15,7 +16,7 @@ package com.newco.grand.core.common.view.mediators {
 	import flash.events.Event;
 	import flash.media.SoundMixer;
 	import flash.media.SoundTransform;
-	
+	import flash.utils.getQualifiedClassName;
 	import robotlegs.bender.bundles.mvcs.Mediator;
 	import robotlegs.bender.extensions.contextView.ContextView;
 	
@@ -55,18 +56,13 @@ package com.newco.grand.core.common.view.mediators {
 		
 		private function setupModel(signal:BaseSignal):void {
 			view.init();
-			view.hidePreloader();
 			eventMap.mapListener(contextView.view.stage, Event.RESIZE, onStageResize);
 			
 			_sound.volume = 1;
 			SoundMixer.soundTransform = _sound;
 		}
 		
-		private function setErrorMessage(signal:BaseSignal):void{
-			var error:String=signal.params.error;
-			view.setErrorMessage(error);
-		}
-		
+
 		private function showPreloader(signal:BaseSignal):void {
 			view.showPreloader();
 		}

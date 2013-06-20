@@ -2,7 +2,7 @@
 
 	import com.newco.grand.core.common.controller.signals.MessageEvent;
 	import com.newco.grand.core.utils.GameUtils;
-	import com.newco.grand.core.common.view.interfaces.IBetSpotsView;
+	import com.newco.grand.core.common.view.interfaces.IBetSpotsViewCom;
 	
 	import flash.display.MovieClip;
 	import flash.events.MouseEvent;
@@ -73,11 +73,11 @@
 		}
 		
 		public function get chipSelected():Number {
-			var betspotView:IBetSpotsView= _asset.parent as IBetSpotsView;
+			var betspotView:IBetSpotsViewCom= _asset.parent as IBetSpotsViewCom;
 			return betspotView.chipSelecedValue;
 		}
 		public function get balance():Number {
-			var betspotView:IBetSpotsView= _asset.parent as IBetSpotsView;
+			var betspotView:IBetSpotsViewCom= _asset.parent as IBetSpotsViewCom;
 			return betspotView.balance;
 		}
 
@@ -116,7 +116,7 @@
 		}
 		public function placeBetOnTable(value:Number):void {
 			var newValue:Number = chipValue + value;
-			var totalBetPlaced:Number = (_asset.parent as IBetSpotsView).getTotalBet() + value;
+			var totalBetPlaced:Number = (_asset.parent as IBetSpotsViewCom).getTotalBet() + value;
 			debug("totalBetPlaced",totalBetPlaced,"balance",balance,"newValue",newValue,"max",max);
 			if(totalBetPlaced <= balance && balance > 0) {
 				if(newValue <= max) {

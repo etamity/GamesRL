@@ -28,25 +28,23 @@ package com.newco.grand.core.common.controller.commands {
 			if(flashVars.localhost) {
 				configService.loadConfig(function ():void{
 					urlsService.loadConfig(function ():void{
-						SkinLoader.SKIN_LOADED
 						SkinLoader.loadSkinFile("skins/skin.swf",onStart,onError,null,null);
 					});
 				});
-			
+				
 			}
 			else{
 				urlsService.loadConfig(function ():void{
 					SkinLoader.loadSkinFile(urls.skin,onStart,onError,null,null);
 				});
-
-	
 			}
+
 		}
 		private function onStart():void{
 			signalBus.dispatch(SignalConstants.STARTUP_COMPLETE);
 		}
 		private function onError(evt:IOErrorEvent):void{
-			signalBus.dispatch(MessageEvent.ERROR,{error:evt.text});
+			signalBus.dispatch(MessageEvent.ERROR,{target:this,error:evt.text});
 		}
 	}
 }

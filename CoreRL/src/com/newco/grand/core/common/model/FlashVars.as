@@ -28,6 +28,8 @@ package com.newco.grand.core.common.model {
 		public var streamUrl:String  ="";
 		public var parameters:Object;
 		
+		public static var AIR_MODE:Boolean=false;
+		public static var DEBUG_MODE:Boolean=true;
 		private var root:DisplayObjectContainer;
 		
 		//blackjack
@@ -58,11 +60,17 @@ package com.newco.grand.core.common.model {
 			return parameters;
 		}
 		public function get localhost():Boolean {
-			if (game_url!=null)
-			if( game_url.indexOf("file:///") != -1) { 
-				return true;
-			}
-			return false;
+			var result:Boolean=false;
+			if (AIR_MODE==false)
+			{
+				if (game_url!=null)
+				if( game_url.indexOf("file:///") != -1) { 
+					result= true;
+				}else
+					result=false;
+			}else
+				result=true;
+			return result;
 		}
 
 		protected function onParseError(key:String, value:String, error:Error) : void {
