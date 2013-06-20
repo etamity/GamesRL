@@ -4,7 +4,7 @@ package com.newco.grand.roulette.classic.view {
 	import com.newco.grand.core.common.controller.signals.HighlightEvent;
 	import com.newco.grand.core.common.view.BetSpot;
 	import com.newco.grand.core.common.view.Betchip;
-	import com.newco.grand.core.common.view.interfaces.IBetSpotsView;
+	import com.newco.grand.core.common.view.interfaces.IBetSpotsViewCom;
 	import com.newco.grand.core.utils.FormatUtils;
 	import com.newco.grand.core.utils.GameUtils;
 	
@@ -15,7 +15,7 @@ package com.newco.grand.roulette.classic.view {
 	
 	import org.osflash.signals.Signal;
 	
-	public class BetSpotsView extends BetspotsAsset implements IBetSpotsView{
+	public class BetSpotsView extends BetspotsAsset implements IBetSpotsViewCom{
 		
 		public const SPOTS:Number = 166;
 		public const NEIGHBOUR_SPOTS:Number = 39;
@@ -71,6 +71,9 @@ package com.newco.grand.roulette.classic.view {
 		
 		public function get balance():Number{
 			return _balance;
+		}
+		public function set chipSelecedValue(val:Number):void{
+			_chipSelecedValue =val;
 		}
 		public function placeFavouritesBets(betString:String):void{
 			var betsArray:Array = betString.split("&");
