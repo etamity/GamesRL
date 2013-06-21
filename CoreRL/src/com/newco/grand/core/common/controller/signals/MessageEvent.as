@@ -8,7 +8,7 @@ package com.newco.grand.core.common.controller.signals {
 		public static const SHOW_NOT_ENOUGH_MONEY:String = "MessageEvent.SHOW_NOT_ENOUGH_MONEY";
 		public static const SHOW_WINNINGS:String  = "MessageEvent.SHOW_WINNINGS";
 		
-		public static const ERROR:String 		  = "MessageEvent.ERROR";
+		public static const SHOWERROR:String 		  = "MessageEvent.SHOWERROR";
 		
 	}
 }

@@ -88,7 +88,7 @@ package com.newco.grand.core.common.controller.commands {
 		
 		private function showError(signal:ErrorSignal):void {
 			debug("error " + signal.message);
-			signalBus.dispatch(MessageEvent.ERROR,{target:this,error:signal.message});
+			signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:signal.message});
 		}
 		
 		private function debug(...args):void {

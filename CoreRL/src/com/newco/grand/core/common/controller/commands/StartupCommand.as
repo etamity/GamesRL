@@ -28,14 +28,20 @@ package com.newco.grand.core.common.controller.commands {
 			if(flashVars.localhost) {
 				configService.loadConfig(function ():void{
 					urlsService.loadConfig(function ():void{
+						if (FlashVars.AIR_MODE==false)
 						SkinLoader.loadSkinFile("skins/skin.swf",onStart,onError,null,null);
+						else
+						signalBus.dispatch(SignalConstants.STARTUP_COMPLETE);	
 					});
 				});
 				
 			}
 			else{
 				urlsService.loadConfig(function ():void{
+					if (FlashVars.AIR_MODE==false)
 					SkinLoader.loadSkinFile(urls.skin,onStart,onError,null,null);
+					else
+					signalBus.dispatch(SignalConstants.STARTUP_COMPLETE);	
 				});
 			}
 
@@ -44,7 +50,7 @@ package com.newco.grand.core.common.controller.commands {
 			signalBus.dispatch(SignalConstants.STARTUP_COMPLETE);
 		}
 		private function onError(evt:IOErrorEvent):void{
-			signalBus.dispatch(MessageEvent.ERROR,{target:this,error:evt.text});
+			signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:evt.text});
 		}
 	}
 }

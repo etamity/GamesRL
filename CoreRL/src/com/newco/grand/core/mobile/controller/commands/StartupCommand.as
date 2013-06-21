@@ -47,7 +47,7 @@ package com.newco.grand.core.mobile.controller.commands {
 			signalBus.dispatch(SignalConstants.STARTUP_COMPLETE);
 		}
 		private function onError(evt:IOErrorEvent):void{
-			signalBus.dispatch(MessageEvent.ERROR,{error:evt.text});
+			signalBus.dispatch(MessageEvent.SHOWERROR,{error:evt.text});
 		}
 	}
 }

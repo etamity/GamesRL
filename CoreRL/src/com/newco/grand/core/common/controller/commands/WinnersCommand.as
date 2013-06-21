@@ -53,7 +53,7 @@ package com.newco.grand.core.common.controller.commands {
 		
 		private function showError(signal:ErrorSignal):void {
 			debug("error");
-			signalBus.dispatch(MessageEvent.ERROR,{error:signal.message});
+			signalBus.dispatch(MessageEvent.SHOWERROR,{error:signal.message});
 		}
 		
 		private function debug(...args):void {

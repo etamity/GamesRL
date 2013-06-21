@@ -14,19 +14,21 @@ package com.newco.grand.core.common.view.mediators
 	{
 		[Inject]
 		public var view:IErrorMessageView;
+		
 		[Inject]
 		public var signalBus:SignalBus;
+		
 		public function ErrorMessageMediator()
 		{
 			super();
 		}
 		override public function initialize():void {
 			signalBus.add(ModelReadyEvent.READY,setupModel);
-			signalBus.add(MessageEvent.ERROR,setErrorMessage);
-
+			signalBus.add(MessageEvent.SHOWERROR,setErrorMessage);
+			view.init();
 		}
 		private function setupModel(signal:BaseSignal):void {
-			view.init();
+	
 		}
 		private function setErrorMessage(signal:BaseSignal):void{
 			var target:*=signal.params.target;

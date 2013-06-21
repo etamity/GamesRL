@@ -14,9 +14,13 @@ package com.newco.grand.core.common.view
 			initDisplay();
 			_display.errorMsg.text="";
 			visible=false;
-			this.addEventListener(MouseEvent.CLICK,doHideEvent);
+			_display.closeBtn.addEventListener(MouseEvent.CLICK,doHideEvent);
 		}
-		
+		public function initDisplay():void
+		{
+			_display= new ErrorMessageAsset();
+			addChild(_display);
+		}
 		public function init():void
 		{
 			align()
@@ -33,7 +37,7 @@ package com.newco.grand.core.common.view
 		public function align():void
 		{
 			x=(stage.stageWidth-_display.width)/2;
-			y= -_display.height;
+			y= stage.stageHeight-_display.height;
 		}
 		
 		public function get display():*
@@ -41,10 +45,6 @@ package com.newco.grand.core.common.view
 			return this;
 		}
 		
-		public function initDisplay():void
-		{
-			_display= new ErrorMessageAsset();
-			addChild(_display);
-		}
+
 	}
 }
