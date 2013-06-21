@@ -127,6 +127,7 @@ package com.newco.grand.baccarat.configs
 			mapSingletons();
 			mapMediators();
 			mapCommands();
+			setupViews();
 			context.afterInitializing(init);
 		}
 		public function setupViews():void{
@@ -160,7 +161,6 @@ package com.newco.grand.baccarat.configs
 		public function init():void{
 			mediatorMap.mediate(contextView.view);
 			signalBus.dispatch(SignalConstants.STARTUP);
-			setupViews();
 		}
 	
 		public function mapSingletons():void{
@@ -194,7 +194,7 @@ package com.newco.grand.baccarat.configs
 			mediatorMap.map(ICardsPanelView).toMediator(CardsPanelMediator);
 			mediatorMap.map(AnimationPanelView).toMediator(AnimationMeditor);
 			mediatorMap.map(ScoreCardView).toMediator(ScoreCardMediator);
-			mediatorMap.map(MessageBoxView).toMediator(MessageBoxMediator);
+			//mediatorMap.map(MessageBoxView).toMediator(MessageBoxMediator);
 			mediatorMap.map(IErrorMessageView).toMediator(ErrorMessageMediator);
 			//mediatorMap.map(BetspotsPanelView).toMediator(BetspotsPanelMediator);
 			//mediatorMap.map(PlayersUIView).toMediator(PlayersMediator);
