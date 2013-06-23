@@ -225,28 +225,29 @@ package com.newco.grand.core.common.view {
 		}
 		
 		private function resizeVideo(event:MouseEvent=null):void {
+			_display.videoButton.removeEventListener(MouseEvent.CLICK, showFullscreen);
 			if(!_fullscreen) {
 				//this.scaleX = 1.55;
 				//this.scaleY = 1.55;
 				//videoFullscreenSignal.dispatch(event.target);
 				_signalBus.dispatch(UIEvent.VIDEO_FULLSCREEN,{target:event.target});
-				
+		
 				Tweener.addTween(this, {scaleX:1.8, time:0.75, transition:"easeInOutQuart"});
-				Tweener.addTween(this, {scaleY:1.55, time:0.75, transition:"easeInOutQuart"});
-
-				Tweener.addTween(_display.bg, {width:529, time:0.75, transition:"easeInOutQuart",onUpdate:function():void { resize(); }});
-				Tweener.addTween(_display.bg, {height:339, time:0.75, transition:"easeInOutQuart",onUpdate:function():void {resize(); }});
-				
+				Tweener.addTween(this, {scaleY:1.55, time:0.75, transition:"easeInOutQuart", onComplete:function ():void{
+					//videoFullscreenSignal.dispatch(event.target);
+					_display.videoButton.addEventListener(MouseEvent.CLICK, showFullscreen);
+					
+				}});				
 			} else {
 				//this.scaleX = 1;
 				//this.scaleY = 1;
-				Tweener.addTween(_display.bg, {width:455, time:0.75, transition:"easeInOutQuart", onUpdate:function():void {resize(); }});
-				Tweener.addTween(_display.bg, {height:325, time:0.75, transition:"easeInOutQuart",onUpdate:function():void {resize(); }});
+				//Tweener.addTween(_display.bg, {width:455, time:0.75, transition:"easeInOutQuart", onUpdate:function():void {resize(); }});
+				//Tweener.addTween(_display.bg, {height:325, time:0.75, transition:"easeInOutQuart",onUpdate:function():void {resize(); }});
 				Tweener.addTween(this, {scaleX:1, time:0.75, transition:"easeInOutQuart"});
 				Tweener.addTween(this, {scaleY:1, time:0.75, transition:"easeInOutQuart", onComplete:function ():void{
 				//videoFullscreenSignal.dispatch(event.target);
 				_signalBus.dispatch(UIEvent.VIDEO_FULLSCREEN,{target:event.target});
-					
+				_display.videoButton.addEventListener(MouseEvent.CLICK, showFullscreen);
 				}});
 			}
 		}
