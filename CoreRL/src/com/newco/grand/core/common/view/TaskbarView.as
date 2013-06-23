@@ -268,8 +268,19 @@ package com.newco.grand.core.common.view {
 		
 		private function buttonClick(event:MouseEvent):void {
 			_toolTip.hideTooltip();
+			var target:MovieClip= event.target as MovieClip;
+			
+			switch (target){
+				case _display.fullscreen:
+					_signalBus.dispatch(TaskbarActionEvent.BUTTON_CLICKED,{eventType:TaskbarActionEvent.FULLSCREEN_CLICKED});
+					break;
+				case _display.sound:
+					_signalBus.dispatch(TaskbarActionEvent.BUTTON_CLICKED,{eventType:TaskbarActionEvent.SOUND_CLICKED});
+					break;
+			}
+			
 			//_buttonClickedSignal.dispatch(event.target);
-			_signalBus.dispatch(TaskbarActionEvent.BUTTON_CLICKED,{target:event.target});
+	
 			soundButtonON_OFF=SoundMixer.soundTransform.volume;
 		}
 		

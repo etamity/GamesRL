@@ -175,7 +175,8 @@ package com.newco.grand.core.common.view.mediators
 
 		private function buttonAction(signal:BaseSignal):void
 		{
-			var type:String=signal.type;
+			var type:String=signal.params.eventType;
+			trace("type:",type);
 			switch (type)
 			{
 				case TaskbarActionEvent.FULLSCREEN_CLICKED:
