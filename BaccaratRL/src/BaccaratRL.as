@@ -3,7 +3,6 @@ package
 	import com.newco.grand.baccarat.configs.BaccaratBundle;
 	import com.newco.grand.baccarat.configs.BaccaratConfig;
 	import com.smart.uicore.controls.ToolTip;
-	import com.smart.uicore.controls.managers.SkinLoader;
 	import com.smart.uicore.ui.UI;
 	
 	import flash.display.Sprite;
@@ -27,11 +26,10 @@ package
 			removeEventListener(Event.ADDED_TO_STAGE,onAddToStage);
 			UI.init(this.stage,24);
 			ToolTip.setDefaultToolTipStyle(0,0xFFFFFF,0xDDDDDD,1,1,0x666666,0.5);
-			//SkinLoader.loadSkinFile("skins/skin.swf",onStart,null,null,null);
-			onStart();
+			start();
 		}
 		
-		private function onStart():void{
+		private function start():void{
 			context = new Context()
 				.install(BaccaratBundle)
 				.configure(
