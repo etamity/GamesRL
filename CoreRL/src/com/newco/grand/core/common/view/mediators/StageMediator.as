@@ -2,9 +2,8 @@ package com.newco.grand.core.common.view.mediators {
 	
 	import com.newco.grand.core.common.controller.signals.BaseSignal;
 	import com.newco.grand.core.common.controller.signals.LoginEvent;
-	import com.newco.grand.core.common.controller.signals.MessageEvent;
 	import com.newco.grand.core.common.controller.signals.ModelReadyEvent;
-	import com.newco.grand.core.common.controller.signals.StartupDataEvent;
+	import com.newco.grand.core.common.controller.signals.StateTableConfigEvent;
 	import com.newco.grand.core.common.controller.signals.TaskbarActionEvent;
 	import com.newco.grand.core.common.model.IGameData;
 	import com.newco.grand.core.common.model.SignalBus;
@@ -16,7 +15,7 @@ package com.newco.grand.core.common.view.mediators {
 	import flash.events.Event;
 	import flash.media.SoundMixer;
 	import flash.media.SoundTransform;
-	import flash.utils.getQualifiedClassName;
+	
 	import robotlegs.bender.bundles.mvcs.Mediator;
 	import robotlegs.bender.extensions.contextView.ContextView;
 	
@@ -42,7 +41,7 @@ package com.newco.grand.core.common.view.mediators {
 			signalBus.add(SignalConstants.STARTUP,showPreloader);
 			signalBus.add(LoginEvent.INITIALIZE,hidePreloader);
 			signalBus.add(LoginEvent.LOGIN,showPreloader);
-			signalBus.add(StartupDataEvent.LOAD,hidePreloader);
+			signalBus.add(StateTableConfigEvent.LOADED,hidePreloader);
 
 			signalBus.add(TaskbarActionEvent.FULLSCREEN_CLICKED,toggleFullScreen);
 			signalBus.add(TaskbarActionEvent.SOUND_CLICKED,toggleSound);
