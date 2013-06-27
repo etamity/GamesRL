@@ -3,7 +3,6 @@ package {
 	import com.newco.grand.roulette.configs.RouletteBundle;
 	import com.newco.grand.roulette.configs.RouletteConfig;
 	import com.smart.uicore.controls.ToolTip;
-	import com.smart.uicore.controls.managers.SkinLoader;
 	import com.smart.uicore.ui.UI;
 	
 	import flash.display.Sprite;
