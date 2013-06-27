@@ -6,7 +6,9 @@ package com.newco.grand.baccarat.classic.controller.commands
 	import com.newco.grand.baccarat.classic.view.ScoreCardView;
 	import com.newco.grand.baccarat.classic.view.TableGraphicView;
 	import com.newco.grand.core.common.controller.commands.BaseCommand;
+	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.view.ChatView;
+	import com.newco.grand.core.common.view.ErrorMessageView;
 	import com.newco.grand.core.common.view.GameStatusView;
 	import com.newco.grand.core.common.view.LoginView;
 	import com.newco.grand.core.common.view.MessageBoxView;
@@ -29,7 +31,7 @@ package com.newco.grand.baccarat.classic.controller.commands
 		}
 		
 		override public function execute():void {
-			//setupView();
+			setupView();
 		}
 		
 		private function setupView():void {
@@ -45,7 +47,10 @@ package com.newco.grand.baccarat.classic.controller.commands
 			contextView.view.addChild(new CardsPanelView());
 			contextView.view.addChild(new AnimationPanelView());
 			contextView.view.addChild(new ScoreCardView());
-			contextView.view.addChild(new MessageBoxView());
+			
+			
+			if (FlashVars.DEBUG_MODE==true)
+				contextView.view.addChild(new ErrorMessageView());
 
 		}
 		

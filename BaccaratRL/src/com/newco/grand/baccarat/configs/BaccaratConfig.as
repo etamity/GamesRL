@@ -134,7 +134,7 @@ package com.newco.grand.baccarat.configs
 			mapSingletons();
 			mapMediators();
 			mapCommands();
-			setupViews();
+			//setupViews();
 			context.afterInitializing(init);
 		}
 		public function setupViews():void{
