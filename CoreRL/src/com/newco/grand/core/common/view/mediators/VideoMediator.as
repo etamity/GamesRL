@@ -69,7 +69,7 @@ package com.newco.grand.core.common.view.mediators {
 		private function initializeVideo(signal:BaseSignal):void {
 			view.init();
 			eventMap.mapListener(contextView.view.stage, Event.RESIZE, onStageResize);
-			view.signalBus.add(UIEvent.VIDEO_FULLSCREEN,videoFullscreen);
+			//view.signalBus.add(UIEvent.VIDEO_FULLSCREEN,videoFullscreen);
 			view.signalBus.add(UIEvent.VIDEO_REFRESH,videoRefresh);
 			//view.videoFullscreenSignal.add(videoFullscreen);
 			//view.videoRefreshSignal.add(videoRefresh);

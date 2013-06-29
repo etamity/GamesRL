@@ -94,7 +94,7 @@ package com.newco.grand.core.common.view.mediators
 			view.signalBus.add(BetEvent.DOUBLE, betButtonAction);
 			view.signalBus.add(BetEvent.CONFRIM, betButtonAction);
 			view.signalBus.add(BetEvent.FAVOURITES, betButtonAction);
-			
+			view.signalBus.add(TaskbarActionEvent.CHIP_CLICKED, onChipClicked);
 		}
 
 		private function createMenuBar():void
@@ -166,7 +166,7 @@ package com.newco.grand.core.common.view.mediators
 			}
 		}
 
-		private function onChipClicked():void
+		private function onChipClicked(signal:BaseSignal):void
 		{
 			game.chipSelected=view.chipSelected;
 			//eventDispatcher.dispatchEvent(event);
@@ -222,11 +222,11 @@ package com.newco.grand.core.common.view.mediators
 			}
 		}
 
-		private function betButtonAction(type:String):void
+		private function betButtonAction(signal:BaseSignal):void
 		{
 			//eventDispatcher.dispatchEvent(event);
-			signalBus.dispatch(type);
-			switch (type) {
+			signalBus.dispatch(signal.type);
+			switch (signal.type) {
 				case BetEvent.REPEAT:
 					view.disbleRepeat();
 					break;

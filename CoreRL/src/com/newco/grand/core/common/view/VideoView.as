@@ -179,7 +179,7 @@ package com.newco.grand.core.common.view {
 				align();
 		}
 		public function align():void {			
-			x = 175;
+			//x = 175;
 			setSize(448, 318);
 		}
 		
@@ -230,24 +230,30 @@ package com.newco.grand.core.common.view {
 				//this.scaleX = 1.55;
 				//this.scaleY = 1.55;
 				//videoFullscreenSignal.dispatch(event.target);
+				_display.frame.visible=false;
+				_display.bg.visible=false;
 				_signalBus.dispatch(UIEvent.VIDEO_FULLSCREEN,{target:event.target});
 		
-				Tweener.addTween(this, {scaleX:1.8, time:0.75, transition:"easeInOutQuart"});
-				Tweener.addTween(this, {scaleY:1.55, time:0.75, transition:"easeInOutQuart", onComplete:function ():void{
+				Tweener.addTween(this, {scaleX:1.8, time:0.75, x:170, transition:"easeInOutQuart"});
+				Tweener.addTween(this, {scaleY:1.67, time:0.75, transition:"easeInOutQuart", onComplete:function ():void{
 					//videoFullscreenSignal.dispatch(event.target);
+			
 					_display.videoButton.addEventListener(MouseEvent.CLICK, showFullscreen);
 					
 				}});				
 			} else {
 				//this.scaleX = 1;
 				//this.scaleY = 1;
+				_display.frame.visible=true;
+				_display.bg.visible=false;
 				//Tweener.addTween(_display.bg, {width:455, time:0.75, transition:"easeInOutQuart", onUpdate:function():void {resize(); }});
 				//Tweener.addTween(_display.bg, {height:325, time:0.75, transition:"easeInOutQuart",onUpdate:function():void {resize(); }});
-				Tweener.addTween(this, {scaleX:1, time:0.75, transition:"easeInOutQuart"});
+				Tweener.addTween(this, {scaleX:1, time:0.75, x:350, transition:"easeInOutQuart"});
 				Tweener.addTween(this, {scaleY:1, time:0.75, transition:"easeInOutQuart", onComplete:function ():void{
 				//videoFullscreenSignal.dispatch(event.target);
 				_signalBus.dispatch(UIEvent.VIDEO_FULLSCREEN,{target:event.target});
 				_display.videoButton.addEventListener(MouseEvent.CLICK, showFullscreen);
+				
 				}});
 			}
 		}
