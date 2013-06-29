@@ -63,7 +63,6 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.service.VideoService;
 	import com.newco.grand.core.common.view.ChatView;
 	import com.newco.grand.core.common.view.ErrorMessageView;
-	import com.newco.grand.core.common.view.GameStatusView;
 	import com.newco.grand.core.common.view.LoginView;
 	import com.newco.grand.core.common.view.MessageBoxView;
 	import com.newco.grand.core.common.view.StageView;
@@ -89,6 +88,8 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.view.uicomps.AccordionUIView;
 	import com.newco.grand.core.common.view.uicomps.PlayersUIView;
 	import com.newco.grand.core.common.view.uicomps.WinnersUIView;
+	
+	import com.newco.grand.baccarat.classic.view.GameStatusView;
 	
 	import org.assetloader.AssetLoader;
 	import org.assetloader.base.Param;
@@ -139,7 +140,10 @@ package com.newco.grand.baccarat.configs
 		}
 		public function setupViews():void{
 			contextView.view.addChild(new StageView());
-			contextView.view.addChild(new VideoView());
+			var video:VideoView=new VideoView();
+			video.x= 750 / 2;
+			
+			contextView.view.addChild(video);
 			contextView.view.addChild(new TableGraphicView());
 			contextView.view.addChild(new LoginView());
 			contextView.view.addChild(new AccordionUIView());
@@ -149,7 +153,10 @@ package com.newco.grand.baccarat.configs
 			contextView.view.addChild(new BetSpotsView());
 			contextView.view.addChild(new CardsPanelView());
 			contextView.view.addChild(new AnimationPanelView());
-			contextView.view.addChild(new ScoreCardView());
+			var scorePanel:ScoreCardView=new ScoreCardView();
+			scorePanel.x=200;
+			scorePanel.y=0;
+			contextView.view.addChild(scorePanel);
 			
 			
 			if (FlashVars.DEBUG_MODE==true)

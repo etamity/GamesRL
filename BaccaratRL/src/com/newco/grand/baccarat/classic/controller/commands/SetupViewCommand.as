@@ -9,7 +9,7 @@ package com.newco.grand.baccarat.classic.controller.commands
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.view.ChatView;
 	import com.newco.grand.core.common.view.ErrorMessageView;
-	import com.newco.grand.core.common.view.GameStatusView;
+	import com.newco.grand.baccarat.classic.view.GameStatusView;
 	import com.newco.grand.core.common.view.LoginView;
 	import com.newco.grand.core.common.view.MessageBoxView;
 	import com.newco.grand.core.common.view.StageView;
@@ -36,7 +36,10 @@ package com.newco.grand.baccarat.classic.controller.commands
 		
 		private function setupView():void {
 			contextView.view.addChild(new StageView());
-			contextView.view.addChild(new VideoView());
+			var video:VideoView=new VideoView();
+			video.x= 700 / 2;
+			
+			contextView.view.addChild(video);
 			contextView.view.addChild(new TableGraphicView());
 			contextView.view.addChild(new LoginView());
 			contextView.view.addChild(new AccordionUIView());
@@ -46,7 +49,10 @@ package com.newco.grand.baccarat.classic.controller.commands
 			contextView.view.addChild(new BetSpotsView());
 			contextView.view.addChild(new CardsPanelView());
 			contextView.view.addChild(new AnimationPanelView());
-			contextView.view.addChild(new ScoreCardView());
+			var scorePanel:ScoreCardView=new ScoreCardView();
+			scorePanel.x=200;
+			scorePanel.y=0;
+			contextView.view.addChild(scorePanel);
 			
 			
 			if (FlashVars.DEBUG_MODE==true)

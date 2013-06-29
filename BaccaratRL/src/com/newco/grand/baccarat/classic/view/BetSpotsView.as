@@ -18,7 +18,6 @@ package com.newco.grand.baccarat.classic.view {
 	public class BetSpotsView extends Sprite implements IBetSpotsView{
 		private var _betspotMC:BetSpot;
 		private var _betchipMC:Betchip;
-		//private var _winMarkerMC:WinMarker;
 		private var _chipsPlacedOrder:Array = [];
 		private var _lastChipsPlacedOrder:Array = [];
 		private var _betBatch:Object;

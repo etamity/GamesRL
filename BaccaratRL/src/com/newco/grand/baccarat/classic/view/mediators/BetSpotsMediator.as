@@ -109,8 +109,9 @@ package com.newco.grand.baccarat.classic.view.mediators {
 			var amount:Number= view.getBetspotAmount(side);
 			signalBus.dispatch(BaccaratEvent.MAKEBETPANEL ,{side:side,amount:amount});
 		}
-		private function showTooltip(type:String,target:BetSpot):void {
-			signalBus.dispatch(type, {target:target});
+		private function showTooltip(signal:BaseSignal):void {
+			var target:BetSpot=signal.params.target;
+			signalBus.dispatch(signal.type, {target:target});
 			
 		}
 		
@@ -119,7 +120,6 @@ package com.newco.grand.baccarat.classic.view.mediators {
 		}
 		
 		private function updateTotalBet(signal:BaseSignal = null):void {
-			var target:BetSpot=signal.params.target;
 			player.bet = view.getTotalBet();
 			player.bettingBalance = player.balance - player.bet;
 			signalBus.dispatch(BetEvent.TOTAL_BET);
