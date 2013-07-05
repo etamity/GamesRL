@@ -10,26 +10,35 @@ package com.newco.grand.core.common.view.uicomps
 	{
 		private var _display:*
 		
-		public var compWidth:Number=170;
-		public var compHeight:Number=529;
+		private var _compWidth:Number=170;
+		private var _compHeight:Number=529;
 		
 		public function AccordionUIView()
 		{
 			visible = false;
 			initDisplay();
-			_display.setSize(compWidth,compHeight);
+			_display.setSize(_compWidth,_compHeight);
 			_display.defaultButtonHeight=33;
 	
+		}
+		public function get view():Sprite{
+			return this;
 		}
 		public function initDisplay():void{
 			_display=new Accordion();
 			addChild(_display);
 		}
 		public function get display():*{
-			return this;
+			return _display;
 		}
 		public function get contentHeight():int{
-			return compHeight- _display.buttons.length*_display.defaultButtonHeight;
+			return _compHeight- _display.buttons.length*_display.defaultButtonHeight;
+		}
+		public function set compHeight(val:int):void{
+			_compHeight=val;
+		}
+		public function get compHeight():int{
+			return _compHeight;
 		}
 		public function init():void
 		{
@@ -38,8 +47,8 @@ package com.newco.grand.core.common.view.uicomps
 		
 		public function align():void {
 			visible = true;
+			_display.setSize(_compWidth,_compHeight);
 		}
-
 		public function resize(width:Number,height:Number):void{
 			_display.setSize(width,height);
 		}
