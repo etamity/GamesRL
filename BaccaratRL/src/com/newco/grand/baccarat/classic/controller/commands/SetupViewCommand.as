@@ -42,6 +42,10 @@ package com.newco.grand.baccarat.classic.controller.commands
 			contextView.view.addChild(video);
 			contextView.view.addChild(new TableGraphicView());
 			contextView.view.addChild(new LoginView());
+			var scorePanel:ScoreCardView=new ScoreCardView();
+			scorePanel.x=200;
+			scorePanel.y=0;
+			contextView.view.addChild(scorePanel);
 			contextView.view.addChild(new AccordionUIView());
 			contextView.view.addChild(new TaskbarView());
 			contextView.view.addChild(new GameStatusView())
@@ -49,10 +53,8 @@ package com.newco.grand.baccarat.classic.controller.commands
 			contextView.view.addChild(new BetSpotsView());
 			contextView.view.addChild(new CardsPanelView());
 			contextView.view.addChild(new AnimationPanelView());
-			var scorePanel:ScoreCardView=new ScoreCardView();
-			scorePanel.x=200;
-			scorePanel.y=0;
-			contextView.view.addChild(scorePanel);
+
+
 			
 			
 			if (FlashVars.DEBUG_MODE==true)

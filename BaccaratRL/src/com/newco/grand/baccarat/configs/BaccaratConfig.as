@@ -146,17 +146,16 @@ package com.newco.grand.baccarat.configs
 			contextView.view.addChild(video);
 			contextView.view.addChild(new TableGraphicView());
 			contextView.view.addChild(new LoginView());
-			contextView.view.addChild(new AccordionUIView());
+			var scorePanel:ScoreCardView=new ScoreCardView();
+			contextView.view.addChild(scorePanel);
 			contextView.view.addChild(new TaskbarView());
 			contextView.view.addChild(new GameStatusView())
 			contextView.view.addChild(new ChatView());
 			contextView.view.addChild(new BetSpotsView());
 			contextView.view.addChild(new CardsPanelView());
+			contextView.view.addChild(new AccordionUIView());
 			contextView.view.addChild(new AnimationPanelView());
-			var scorePanel:ScoreCardView=new ScoreCardView();
-			scorePanel.x=200;
-			scorePanel.y=0;
-			contextView.view.addChild(scorePanel);
+
 			
 			
 			if (FlashVars.DEBUG_MODE==true)
