@@ -41,7 +41,7 @@ package com.newco.grand.baccarat.classic.controller.commands
 			contextView.view.addChild(new TableGraphicView());
 			contextView.view.addChild(new LoginView());
 			var scorePanel:ScoreCardView=new ScoreCardView();
-			scorePanel.x=contextView.view.stage.stageWidth -scorePanel.width-170;
+			scorePanel.x=contextView.view.stage.stageWidth-190;
 			scorePanel.y=0;
 			contextView.view.addChild(scorePanel);
 			

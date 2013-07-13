@@ -19,13 +19,20 @@ package com.newco.grand.baccarat.classic.view.mediators
 		}
 		override public function initialize():void {
 			super.initialize();
-			var statsButton:SMButton=new SMButton(new LastResultAsset());
+			var shoeStatsMc:ShoeStatsAsset =new ShoeStatsAsset();
+			//shoeStatsMc.x= view.display.stage.stageWidth - shoeStatsMc.width;
+			
+			view.view.addChild(shoeStatsMc);
+			view.display.y=200;
+			view.compHeight= view.compHeight -130;
+			
+			/*var statsButton:SMButton=new SMButton(new LastResultAsset());
 			
 			statsButton.skin.addEventListener(MouseEvent.CLICK,doShowHideStats);
 			
 			view.view.addChild(statsButton.skin);
 			view.display.y=40;
-			view.compHeight= view.compHeight -40;
+			view.compHeight= view.compHeight -40;*/
 		}
 		private function doShowHideStats(evt:MouseEvent):void{
 			signalBus.dispatch(StatisticsEvent.SHOWHIDE);

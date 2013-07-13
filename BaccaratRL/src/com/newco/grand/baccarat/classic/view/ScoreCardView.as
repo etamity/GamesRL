@@ -4,27 +4,32 @@ package com.newco.grand.baccarat.classic.view
 	import com.newco.grand.core.common.model.Style;
 	
 	import flash.display.MovieClip;
+	import flash.display.SimpleButton;
 	import flash.display.Sprite;
 	
 	public class ScoreCardView extends Sprite
 	{
 		private var scoreCardPanel:ScoreCard;
+		private var _closeBtn:SimpleButton;
 		public function ScoreCardView()
 		{
 			super();
 			scoreCardPanel=new ScoreCard();
 			var bg:MovieClip=new ScorecardBG();
+			_closeBtn=bg.closeBtn;
 			addChild(bg);
 			addChild(scoreCardPanel);
 			scoreCardPanel.x=10;
 			scoreCardPanel.y=5;
 			visible=false;
 		}
-		
+		public function get closeBtn():SimpleButton{
+			return _closeBtn;
+		}
 		public function align():void {
 			/*x=stage.stageWidth-scoreCardPanel.width-25;
 			y=210;*/
-			x=570;
+			x=560;
 			y=0;
 		}
 		public function update(data:XMLList):void{
