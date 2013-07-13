@@ -18,6 +18,7 @@ package com.newco.grand.baccarat.classic.view
 		}
 		
 		public function align():void{
+			visible=false;
 		}
 		public function get display():*{
 			return this;

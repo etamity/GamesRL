@@ -19,6 +19,8 @@ package com.newco.grand.baccarat.classic.view
 			_id=int(value);
 			_value=GameUtils.findBaccaratCardValue(_id);
 			_label=GameUtils.findBaccaratCardLabel(_id);
+			
+			this.scaleX=this.scaleY=0.5;
 			setCard(_label);
 			
 		}
