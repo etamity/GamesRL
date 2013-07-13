@@ -24,7 +24,7 @@ package com.newco.grand.baccarat.classic.view
 		public function align():void {
 			/*x=stage.stageWidth-scoreCardPanel.width-25;
 			y=210;*/
-			x=175;
+			x=570;
 			y=0;
 		}
 		public function update(data:XMLList):void{

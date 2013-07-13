@@ -3,21 +3,19 @@ package com.newco.grand.baccarat.classic.controller.commands
 	import com.newco.grand.baccarat.classic.view.AnimationPanelView;
 	import com.newco.grand.baccarat.classic.view.BetSpotsView;
 	import com.newco.grand.baccarat.classic.view.CardsPanelView;
+	import com.newco.grand.baccarat.classic.view.GameStatusView;
 	import com.newco.grand.baccarat.classic.view.ScoreCardView;
 	import com.newco.grand.baccarat.classic.view.TableGraphicView;
 	import com.newco.grand.core.common.controller.commands.BaseCommand;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.view.ChatView;
 	import com.newco.grand.core.common.view.ErrorMessageView;
-	import com.newco.grand.baccarat.classic.view.GameStatusView;
 	import com.newco.grand.core.common.view.LoginView;
-	import com.newco.grand.core.common.view.MessageBoxView;
 	import com.newco.grand.core.common.view.StageView;
 	import com.newco.grand.core.common.view.TaskbarView;
-	import com.newco.grand.core.common.view.VideoView;
 	import com.newco.grand.core.common.view.uicomps.AccordionUIView;
 	import com.newco.grand.core.utils.GameUtils;
-	
+	import com.newco.grand.baccarat.mobile.view.VideoView;
 	import robotlegs.bender.extensions.contextView.ContextView;
 	
 	public class SetupViewCommand extends BaseCommand
@@ -37,16 +35,19 @@ package com.newco.grand.baccarat.classic.controller.commands
 		private function setupView():void {
 			contextView.view.addChild(new StageView());
 			var video:VideoView=new VideoView();
-			video.x= 700 / 2;
+			video.x=0;
 			
 			contextView.view.addChild(video);
 			contextView.view.addChild(new TableGraphicView());
 			contextView.view.addChild(new LoginView());
 			var scorePanel:ScoreCardView=new ScoreCardView();
-			scorePanel.x=200;
+			scorePanel.x=contextView.view.stage.stageWidth -scorePanel.width-170;
 			scorePanel.y=0;
 			contextView.view.addChild(scorePanel);
-			contextView.view.addChild(new AccordionUIView());
+			
+			var accordionUIView:AccordionUIView=new AccordionUIView();
+			contextView.view.addChild(accordionUIView);
+			accordionUIView.x= contextView.view.stage.stageWidth -accordionUIView.width;
 			contextView.view.addChild(new TaskbarView());
 			contextView.view.addChild(new GameStatusView())
 			contextView.view.addChild(new ChatView());

@@ -39,10 +39,10 @@ package com.newco.grand.baccarat.classic.view.mediators
 		}
 		private function doShowHideEvent(signal:BaseSignal):void{
 			if (view.visible==true){
-				Tweener.addTween(view,{x:-175,time:0.5,onComplete:function ():void{view.visible=false}});
+				Tweener.addTween(view,{x:990,time:0.5,onComplete:function ():void{view.visible=false}});
 			}else{
 				view.visible=true
-				Tweener.addTween(view,{x:175,time:0.5,onComplete:function ():void{}});	
+				Tweener.addTween(view,{x:570,time:0.5,onComplete:function ():void{}});	
 			}
 		}
 		private function setupModel(signal:BaseSignal):void {

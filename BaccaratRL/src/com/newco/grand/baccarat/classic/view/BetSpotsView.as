@@ -128,6 +128,8 @@ package com.newco.grand.baccarat.classic.view {
 		
 		public function align():void {			
 			visible = true;
+			x=x-200;
+			
 		}
 		
 		
