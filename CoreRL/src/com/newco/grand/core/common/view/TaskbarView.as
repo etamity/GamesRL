@@ -16,6 +16,8 @@ package com.newco.grand.core.common.view {
 	import flash.media.SoundMixer;
 	import flash.text.TextFormat;
 	
+	import caurina.transitions.Tweener;
+	
 	public class TaskbarView extends Sprite implements ITaskbarView {
 		
 		private const ICON_OFF:String = "off";
@@ -227,7 +229,7 @@ package com.newco.grand.core.common.view {
 		}
 		
 		public function align():void {			
-			_display.bg.width = stage.stageWidth;
+			//_display.bg.width = stage.stageWidth;
 			x = 0;
 			//y = stage.stageHeight - height;
 			y=523;
@@ -371,6 +373,8 @@ package com.newco.grand.core.common.view {
 			undo.addEventListener(MouseEvent.CLICK, buttonAction);*/
 			undoBtn.enabled=true;
 			undoBtn.skin.addEventListener(MouseEvent.CLICK, buttonAction);
+			Tweener.addTween(undoBtn.skin,{y:15, time:0.5});
+			Tweener.addTween(repeatBtn.skin,{y:15, time:0.5});
 		}
 		
 		public function disbleUndo():void {
@@ -379,6 +383,9 @@ package com.newco.grand.core.common.view {
 			undo.removeEventListener(MouseEvent.CLICK, buttonAction);*/
 			undoBtn.enabled=false;
 			undoBtn.skin.removeEventListener(MouseEvent.CLICK, buttonAction);
+			
+			Tweener.addTween(undoBtn.skin,{y:100, time:0.5});
+			Tweener.addTween(repeatBtn.skin,{y:100, time:0.5});
 		}
 		
 		public function enableClear():void {
@@ -403,6 +410,8 @@ package com.newco.grand.core.common.view {
 			repeat.addEventListener(MouseEvent.CLICK, buttonAction);*/
 			repeatBtn.skin.addEventListener(MouseEvent.CLICK, buttonAction);
 			repeatBtn.enabled=true;
+			
+		
 		}
 		
 		public function disbleRepeat():void {
@@ -411,6 +420,7 @@ package com.newco.grand.core.common.view {
 			repeat.removeEventListener(MouseEvent.CLICK, buttonAction);*/
 			repeatBtn.skin.removeEventListener(MouseEvent.CLICK, buttonAction);
 			repeatBtn.enabled=false;
+	
 		}
 		
 		public function enableDouble():void {

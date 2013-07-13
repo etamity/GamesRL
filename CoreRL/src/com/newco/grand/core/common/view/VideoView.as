@@ -44,7 +44,7 @@ package com.newco.grand.core.common.view {
 		
 		private var _signalBus:SignalBus;
 		
-		public var showFullSize:Boolean=false;
+		public var showFullSize:Boolean=true;
 		
 		public function VideoView() {
 			visible = false;
@@ -180,7 +180,8 @@ package com.newco.grand.core.common.view {
 		}
 		public function align():void {			
 			//x = 175;
-			setSize(448, 318);
+			//setSize(448, 318);
+			setSize(820, 610);
 		}
 		
 		public function set stream(value:NetStream): void {
@@ -214,8 +215,8 @@ package com.newco.grand.core.common.view {
 		}
 		
 		public function setFullSizeScreen():void{
-			_display.video.width = 990;
-			_display.video.height = 610;
+			_display.video.width = 800;
+			_display.video.height = 560;
 			_display.video.x=0;
 			_display.video.y=0;
 			_display.frame.visible=false;

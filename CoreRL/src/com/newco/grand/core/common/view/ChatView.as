@@ -35,7 +35,7 @@ package com.newco.grand.core.common.view {
 		
 		public function align():void {			
 			//x = stage.stageWidth - width;
-			x=768;
+			x = 0;
 			y = 0;
 		}
 		

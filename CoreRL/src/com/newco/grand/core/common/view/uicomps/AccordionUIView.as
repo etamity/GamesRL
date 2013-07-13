@@ -19,6 +19,7 @@ package com.newco.grand.core.common.view.uicomps
 			initDisplay();
 			_display.setSize(_compWidth,_compHeight);
 			_display.defaultButtonHeight=33;
+			
 	
 		}
 		public function get view():Sprite{
@@ -48,6 +49,7 @@ package com.newco.grand.core.common.view.uicomps
 		public function align():void {
 			visible = true;
 			_display.setSize(_compWidth,_compHeight);
+			
 		}
 		public function resize(width:Number,height:Number):void{
 			_display.setSize(width,height);
