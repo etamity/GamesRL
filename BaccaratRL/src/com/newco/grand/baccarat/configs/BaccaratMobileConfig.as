@@ -1,6 +1,6 @@
 package com.newco.grand.baccarat.configs
 {
-	import com.newco.grand.baccarat.classic.controller.commands.SetupViewCommand;
+	import com.newco.grand.baccarat.mobile.controller.SetupViewCommand;
 	import com.newco.grand.baccarat.classic.controller.commands.StateTableConfigCommand;
 	import com.newco.grand.baccarat.classic.controller.signals.WinnersEvent;
 	import com.newco.grand.baccarat.classic.model.GameDataModel;
@@ -127,7 +127,7 @@ package com.newco.grand.baccarat.configs
 			mapSingletons();
 			mapMediators();
 			mapCommands();
-			setupViews();
+			//setupViews();
 			context.afterInitializing(init);
 		}
 		public function setupViews():void{
