@@ -24,7 +24,7 @@ package com.newco.grand.baccarat.classic.view.mediators
 			
 			view.view.addChild(shoeStatsMc);
 			view.display.y=130;
-			view.compHeight= view.compHeight;
+			view.compHeight= view.compHeight -80;
 			
 			/*var statsButton:SMButton=new SMButton(new LastResultAsset());
 			

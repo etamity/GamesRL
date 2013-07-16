@@ -2,8 +2,6 @@ package com.newco.grand.baccarat.classic.view
 {
 	import com.newco.grand.baccarat.classic.view.tournamenet.PlayerList;
 	import com.newco.grand.baccarat.classic.view.tournamenet.TimerControl;
-	
-	import flash.events.Event;
 
 	public class TournamentView extends TournamenetAsset
 	{
@@ -26,12 +24,8 @@ package com.newco.grand.baccarat.classic.view
 			timerControl.scaleX=timerControl.scaleY=0.6;
 			addChild(timerControl);
 			
-			addEventListener(Event.ADDED_TO_STAGE,resizeHandler);
 		}
 		
-		private function resizeHandler(event:Event):void {
 
-			playerList.updateNow( stage.stageHeight -  (timerControl.height + 45) );
-		}
 	}
 }

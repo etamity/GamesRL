@@ -7,17 +7,16 @@ package com.newco.grand.baccarat.classic.view.tournamenet   {
 	import flash.net.URLRequest;
 	import flash.utils.setTimeout;
 	
-	import fl.transitions.Tween;
-	import fl.transitions.easing.Strong;
+	import caurina.transitions.Tweener;
 	
 	public class PlayerList extends MovieClip {
 		
 		private var playerItems:Array;
 		private var xmlLoader:URLLoader;
 		private var urlString:String;
-		private var refreshInterval:int = 20000;
+		private var refreshInterval:int = 2000;
 		
-		private var maxDisplayItem:int;
+		private var maxDisplayItem:int=5;
 		
 		public function PlayerList(url:String) {
 			// constructor code
@@ -30,10 +29,6 @@ package com.newco.grand.baccarat.classic.view.tournamenet   {
 			loadXML();
 		}
 		
-		public function updateNow(h:Number):void {
-			maxDisplayItem = h / 38;
-			trace( 'maxDisplayItem', maxDisplayItem );
-		}
 		
 		private function loadXML():void {
 			var url:String = urlString;// + "&random=" + (Math.random() );
@@ -47,12 +42,10 @@ package com.newco.grand.baccarat.classic.view.tournamenet   {
 			
 			//trace( load_config.item );
 			
-			if(playerItems.length > 0) {
-				while (playerItems.length > 0) {
-					removeChild( playerItems[ playerItems.length-1 ] );
-					playerItems.pop();
-				}
-			}
+			while (numChildren>0)
+				this.removeChildAt(0);
+			
+			playerItems=[];
 			
 			var length:int = (maxDisplayItem > load_config.item.length() ) ? load_config.item.length() : maxDisplayItem;
 			
@@ -70,12 +63,12 @@ package com.newco.grand.baccarat.classic.view.tournamenet   {
 				
 				setTimeout(animate, i*150, item);
 			}
-			
+			setTimeout(loadXML, refreshInterval);
 			//stage.dispatchEvent(new Event(Event.RESIZE) );
 		}
 		
 		private function animate(item:PlayerItem):void {
-			var tween:Tween = new Tween(item, "alpha", Strong.easeIn, 0, 1, 1, true);
+		 Tweener.addTween(item,{alpha:1,time:1});
 		}
 				
 		private function xmlConfigLoadingFailed(event:IOErrorEvent):void {
