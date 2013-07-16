@@ -55,6 +55,7 @@ package com.newco.grand.core.common.service
 			urlsModel.settings= xml.common.settings;
 			urlsModel.tableConfig = xml.common.tableConfig;
 			urlsModel.skin= xml.common.skin;
+			urlsModel.tournament=xml.common.tournament;
 			if (flashVars.game.toLowerCase()==Constants.BACCARAT.toLowerCase())
 			{
 				urlsModel.sendBets =xml.baccarat.sendBets;

@@ -160,5 +160,6 @@ package com.newco.grand.core.common.model {
 		public static var COCKROACHROAD:String;
 		
 		public static var BACCARAT_BETSPOTSPANEL:String;
+		public static var TOURNAMENT:String = "Tournament";
 	}
 }

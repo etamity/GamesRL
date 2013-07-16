@@ -26,6 +26,7 @@ package com.newco.grand.core.common.model
 		private var _balance:String 	= "/cgibin/balance.jsp";
 		private var _seat:String        = "/cgibin/sitdown.jsp";
 		private var _skin:String        = "/player/games/prepare/skins/skin.swf";
+		private var _tournament:String 	= "/xml/tournament.xml";
 		private var urlsXml:XML ;
 		[Inject]
 		public var flashVars:FlashVars;
@@ -38,6 +39,13 @@ package com.newco.grand.core.common.model
 			//_authentication = "http://everest.smartlivegaming.com/cgibin/SmartAuthentication";
 			//_server = "http://everest.smartlivegaming.com";
 			_server = "https://livecasino.smartliveaffiliates.com";
+		}
+		public function get tournament():String {
+			return _tournament;
+		}
+		
+		public function set tournament(value:String):void {
+			_tournament = value;
 		}
 		
 		public function set server(value:String):void {
