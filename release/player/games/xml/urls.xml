@@ -16,6 +16,7 @@
 		<tableConfig><![CDATA[/cgibin/tableconfig.jsp]]></tableConfig>
 		<seat><![CDATA[/cgibin/sitdown.jsp]]></seat>
 		<skin><![CDATA[/player/games/assets/skins/skin.swf]]></skin>
+		<tournament><![CDATA[/xml/tournament.xml]]></tournament>
 	</common>
 	<roulette>
 		<results><![CDATA[/cgibin/roulette/history.jsp]]></results>
