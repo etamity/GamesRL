@@ -8,8 +8,10 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.baccarat.classic.view.AnimationPanelView;
 	import com.newco.grand.baccarat.classic.view.BetSpotsView;
 	import com.newco.grand.baccarat.classic.view.CardsPanelView;
+	import com.newco.grand.baccarat.classic.view.GameStatusView;
 	import com.newco.grand.baccarat.classic.view.ScoreCardView;
 	import com.newco.grand.baccarat.classic.view.TableGraphicView;
+	import com.newco.grand.baccarat.classic.view.TournamentView;
 	import com.newco.grand.baccarat.classic.view.interfaces.IBetSpotsView;
 	import com.newco.grand.baccarat.classic.view.interfaces.IBetspotsPanelView;
 	import com.newco.grand.baccarat.classic.view.interfaces.ICardsPanelView;
@@ -21,6 +23,7 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.baccarat.classic.view.mediators.CardsPanelMediator;
 	import com.newco.grand.baccarat.classic.view.mediators.ScoreCardMediator;
 	import com.newco.grand.baccarat.classic.view.mediators.TableGraphicMediator;
+	import com.newco.grand.baccarat.classic.view.mediators.TournamentMediator;
 	import com.newco.grand.core.common.controller.commands.BalanceCommand;
 	import com.newco.grand.core.common.controller.commands.BetsCommand;
 	import com.newco.grand.core.common.controller.commands.ChatConfigCommand;
@@ -88,8 +91,6 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.view.uicomps.AccordionUIView;
 	import com.newco.grand.core.common.view.uicomps.PlayersUIView;
 	import com.newco.grand.core.common.view.uicomps.WinnersUIView;
-	
-	import com.newco.grand.baccarat.classic.view.GameStatusView;
 	
 	import org.assetloader.AssetLoader;
 	import org.assetloader.base.Param;
@@ -214,6 +215,7 @@ package com.newco.grand.baccarat.configs
 			mediatorMap.map(PlayersUIView).toMediator(PlayersMediator);
 			mediatorMap.map(WinnersUIView).toMediator(WinnersMediator);
 			mediatorMap.map(IErrorMessageView).toMediator(ErrorMessageMediator);
+			mediatorMap.map(TournamentView).toMediator(TournamentMediator);
 			
 		}
 		public function mapCommands():void{
