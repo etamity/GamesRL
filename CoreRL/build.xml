@@ -31,7 +31,7 @@
 			<arg line="--swf-version=${swf.version}"/>
 			<arg line="--include-sources+='${src.path}'"/>
 			<arg line="--library-path+='${libs.path}'"/>
-			<arg line="--library-path+='${assets.path}'"/>
+			<arg line="--library-path+='${assets.path}/skin_glass'"/>
 			<arg line="--external-library-path+='${flexframework.lib}/framework.swc'"/>
 			<arg line="--output ${bin.path}/${ant.project.name}.swc"/>
 		</exec>
