@@ -373,8 +373,6 @@ package com.newco.grand.core.common.view {
 			undo.addEventListener(MouseEvent.CLICK, buttonAction);*/
 			undoBtn.enabled=true;
 			undoBtn.skin.addEventListener(MouseEvent.CLICK, buttonAction);
-			Tweener.addTween(undoBtn.skin,{y:15, time:0.5});
-			Tweener.addTween(repeatBtn.skin,{y:15, time:0.5});
 		}
 		
 		public function disbleUndo():void {
@@ -384,16 +382,29 @@ package com.newco.grand.core.common.view {
 			undoBtn.enabled=false;
 			undoBtn.skin.removeEventListener(MouseEvent.CLICK, buttonAction);
 			
-			Tweener.addTween(undoBtn.skin,{y:100, time:0.5});
-			Tweener.addTween(repeatBtn.skin,{y:100, time:0.5});
 		}
 		
+		
+		public function slideUpButtons():void{
+			Tweener.addTween(undoBtn.skin,{y:7, time:0.5});
+			Tweener.addTween(repeatBtn.skin,{y:7, time:0.5});
+			Tweener.addTween(clearBtn.skin,{y:7, time:0.5});
+			Tweener.addTween(doubleBtn.skin,{y:7, time:0.5});
+		}
+		public function slideDownButtons():void{
+			Tweener.addTween(undoBtn.skin,{y:100, time:0.5});
+			Tweener.addTween(repeatBtn.skin,{y:100, time:0.5});
+			Tweener.addTween(clearBtn.skin,{y:100, time:0.5});
+			Tweener.addTween(doubleBtn.skin,{y:100, time:0.5});
+		}
 		public function enableClear():void {
 			/*clear.filters = null;
 			clear.mouseEnabled = true;
 			clear.addEventListener(MouseEvent.CLICK, buttonAction);*/
 			clearBtn.enabled=true;
 			clearBtn.skin.addEventListener(MouseEvent.CLICK, buttonAction);
+
+			
 		}
 		
 		public function disbleClear():void {

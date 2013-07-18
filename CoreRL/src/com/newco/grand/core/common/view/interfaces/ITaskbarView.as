@@ -36,6 +36,9 @@ package com.newco.grand.core.common.view.interfaces
 		function disbleFavourites():void;
 		function showTooltip(target:Object, txt:String):void;
 		
+		function slideUpButtons():void;
+		function slideDownButtons():void;
+		
 		function get signalBus():SignalBus;
 		function myAccountEnabled(val:Boolean):void;
 		function get chipSelected():Number;

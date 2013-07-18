@@ -264,6 +264,7 @@ package com.newco.grand.core.common.view.mediators
 		private function disableButtons(signal:BaseSignal):void
 		{
 			view.disableButtons();
+			view.slideDownButtons();
 		}
 
 		private function setBalance(signal:BaseSignal):void
@@ -282,6 +283,7 @@ package com.newco.grand.core.common.view.mediators
 			
 			view.game=game.gameTime;
 			checkForRepeatAndDouble();
+			view.slideUpButtons();
 		}
 
 		private function checkForRepeatAndDouble():void
