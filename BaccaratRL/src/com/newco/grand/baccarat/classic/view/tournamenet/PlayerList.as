@@ -14,7 +14,7 @@ package com.newco.grand.baccarat.classic.view.tournamenet   {
 		private var playerItems:Array;
 		private var xmlLoader:URLLoader;
 		private var urlString:String;
-		private var refreshInterval:int = 2000;
+		private var refreshInterval:int = 20000;
 		
 		private var maxDisplayItem:int=5;
 		
