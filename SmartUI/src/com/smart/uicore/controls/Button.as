@@ -403,6 +403,7 @@ package com.smart.uicore.controls
 		}
 		
 		public function setTextFormat(format:TextFormat, beginIndex:int = -1, endIndex:int = -1):void {
+			tf=format;
 			txt.setTextFormat(format, beginIndex, endIndex);
 		}
 		

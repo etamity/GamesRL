@@ -4,6 +4,7 @@ package com.smart.uicore.controls
 	import com.smart.uicore.controls.managers.SkinManager;
 	import com.smart.uicore.controls.managers.SkinThemeColor;
 	import com.smart.uicore.controls.managers.SourceSkinLinkDefine;
+	import com.smart.uicore.controls.modeStyles.ButtonStyle;
 	import com.smart.uicore.controls.skin.ActionDrawSkin;
 	import com.smart.uicore.controls.skin.ListSkin;
 	import com.smart.uicore.controls.skin.sourceSkin.ListSourceSkin;
@@ -29,11 +30,11 @@ package com.smart.uicore.controls
 	public class Accordion extends UIComponent
 	{
 		public var defaultButtonHeight:Number = 27;
-		
+		public var defaultGapHeight:Number = 8;
 		protected var btns:Array;
 		protected var _contents:Array;
 		protected var nowIndex:uint;
-		private var _txtFormat:TextFormat = new TextFormat("Arial", 12, 0x998F7A, true);
+		private var _txtFormat:TextFormat = new TextFormat("Arial", 12, 0x00FF00, true);
 		public function Accordion()
 		{
 			super();
@@ -82,6 +83,9 @@ package com.smart.uicore.controls
 			btns.push(btn);
 			_contents.push(content);
 			btn.setSize(_compoWidth,defaultButtonHeight);
+			btn.setStyle(ButtonStyle.TEXT_COLOR,"#00FF00");
+			btn.setStyle(ButtonStyle.TEXT_OVER_COLOR,"#00FF00");
+			btn.setStyle(ButtonStyle.TEXT_DOWN_COLOR,"#00FF00");
 			btn.setTextFormat(_txtFormat);
 			btn.addEventListener(MouseEvent.CLICK,switchClick);
 			this.addChild(btn);
@@ -108,11 +112,11 @@ package com.smart.uicore.controls
 			var dis:DisplayObject;
 			for(i=0;i<=index;i++){
 				btn = btns[i] as Button;
-				btn.y = i*defaultButtonHeight;
+				btn.y = i*(defaultButtonHeight+defaultGapHeight);
 			}
 			for(i=index+1;i<btns.length;i++){
 				btn = btns[i] as Button;
-				btn.y = _compoHeight-(btns.length-i)*defaultButtonHeight;
+				btn.y = _compoHeight-(btns.length-i)*(defaultButtonHeight+defaultGapHeight);
 			}
 			for(i=0;i<_contents.length;i++){
 				dis = _contents[i] as DisplayObject;
@@ -121,8 +125,8 @@ package com.smart.uicore.controls
 			dis = _contents[index] as DisplayObject;
 			this.addChild(dis);
 			dis.x = 1;
-			dis.y = (index+1)*defaultButtonHeight;
-			dis.scrollRect = new Rectangle(0,0,_compoWidth-2,_compoHeight-btns.length*defaultButtonHeight);
+			dis.y = (index+1)*(defaultButtonHeight+defaultGapHeight);
+			dis.scrollRect = new Rectangle(0,0,_compoWidth-2,_compoHeight-btns.length*(defaultButtonHeight+defaultGapHeight));
 			nowIndex = index;
 		}
 		
@@ -130,7 +134,7 @@ package com.smart.uicore.controls
 		 * 获得内容的裁剪区域大小，当组件大小更改时可以根据此值相应调整内容的排版
 		 */ 
 		public function get contentScrollRect():Rectangle{
-			return new Rectangle(0,0,_compoWidth-2,_compoHeight-btns.length*defaultButtonHeight);
+			return new Rectangle(0,0,_compoWidth-2,_compoHeight-btns.length*(defaultButtonHeight));
 		}
 		
 		override public function setSize(newWidth:Number, newHeight:Number):void{
@@ -139,7 +143,7 @@ package com.smart.uicore.controls
 			var btn:Button;
 			for(var i:int=0;i<btns.length;i++){
 				btn = btns[i] as Button;
-				btn.setSize(_compoWidth,defaultButtonHeight);
+				btn.setSize(_compoWidth,(defaultButtonHeight+defaultGapHeight));
 			}
 			switchTo(nowIndex);
 		}

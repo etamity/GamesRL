@@ -1,5 +1,6 @@
 package 
 {
+	import com.smart.uicore.controls.Accordion;
 	import com.smart.uicore.controls.Alert;
 	import com.smart.uicore.controls.Button;
 	import com.smart.uicore.controls.CheckBox;
@@ -29,6 +30,7 @@ package
 	import com.smart.uicore.ui.UI;
 	
 	import flash.display.BitmapData;
+	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
@@ -216,6 +218,17 @@ package
 			slider.minSpaceNum = 5;
 			slider.showDragSpace = false;
 			_tab1SP.addChild(slider);
+			
+			
+			
+			var _display:Accordion=new Accordion();
+			_display.defaultButtonHeight=33;
+
+			addChild(_display);
+			_display.add("tab1",new MovieClip());
+			_display.add("tab2",new MovieClip());
+			_display.add("tab3",new MovieClip());
+			_display.setStyle("font","");
 			
 			var scrollSkinSet:ScrollBarSkinSet = new ScrollBarSkinSet();
 			scrollSkinSet.bar = "SkinMacScrollBar";
