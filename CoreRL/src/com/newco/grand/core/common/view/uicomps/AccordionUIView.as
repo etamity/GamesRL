@@ -2,13 +2,14 @@ package com.newco.grand.core.common.view.uicomps
 {
 	import com.newco.grand.core.common.view.interfaces.IAccordion;
 	import com.smart.uicore.controls.Accordion;
+	import com.smart.uicore.controls.modeStyles.ButtonStyle;
 	
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	
 	public class AccordionUIView extends Sprite implements IAccordion
 	{
-		private var _display:*
+		private var _display:Accordion;
 		
 		private var _compWidth:Number=170;
 		private var _compHeight:Number=529;
@@ -18,8 +19,11 @@ package com.newco.grand.core.common.view.uicomps
 			visible = false;
 			initDisplay();
 			_display.setSize(_compWidth,_compHeight);
-			_display.defaultButtonHeight=33;
-			
+			_display.setStyle(ButtonStyle.TEXT_COLOR,"#FFFFFF");
+			_display.setStyle(ButtonStyle.TEXT_OVER_COLOR,"#00CC00");
+			_display.setStyle(ButtonStyle.TEXT_DOWN_COLOR,"#00CC00");
+			_display.defaultButtonHeight=32;
+			_display.defaultGapHeight=7;
 	
 		}
 		public function get view():Sprite{
@@ -33,7 +37,7 @@ package com.newco.grand.core.common.view.uicomps
 			return _display;
 		}
 		public function get contentHeight():int{
-			return _compHeight- _display.buttons.length*_display.defaultButtonHeight;
+			return _compHeight- _display.buttons.length*(_display.defaultButtonHeight+_display.defaultGapHeight);
 		}
 		public function set compHeight(val:int):void{
 			_compHeight=val;
