@@ -143,7 +143,7 @@ package com.smart.uicore.controls
 			var btn:Button;
 			for(var i:int=0;i<btns.length;i++){
 				btn = btns[i] as Button;
-				btn.setSize(_compoWidth,(defaultButtonHeight+defaultGapHeight));
+				btn.setSize(_compoWidth,(defaultButtonHeight));
 			}
 			switchTo(nowIndex);
 		}

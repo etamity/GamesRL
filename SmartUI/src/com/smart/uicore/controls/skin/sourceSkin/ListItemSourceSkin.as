@@ -1,8 +1,6 @@
 package com.smart.uicore.controls.skin.sourceSkin
 {
 	
-	import com.smart.uicore.controls.support.ListItemRender;
-	
 	import flash.display.BitmapData;
 	import flash.display.DisplayObject;
 	import flash.display.DisplayObjectContainer;
