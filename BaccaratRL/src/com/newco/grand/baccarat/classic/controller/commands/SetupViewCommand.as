@@ -6,6 +6,7 @@ package com.newco.grand.baccarat.classic.controller.commands
 	import com.newco.grand.baccarat.classic.view.GameStatusView;
 	import com.newco.grand.baccarat.classic.view.ScoreCardView;
 	import com.newco.grand.baccarat.classic.view.TableGraphicView;
+	import com.newco.grand.baccarat.mobile.view.VideoView;
 	import com.newco.grand.core.common.controller.commands.BaseCommand;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.view.ChatView;
@@ -15,7 +16,7 @@ package com.newco.grand.baccarat.classic.controller.commands
 	import com.newco.grand.core.common.view.TaskbarView;
 	import com.newco.grand.core.common.view.uicomps.AccordionUIView;
 	import com.newco.grand.core.utils.GameUtils;
-	import com.newco.grand.baccarat.mobile.view.VideoView;
+	
 	import robotlegs.bender.extensions.contextView.ContextView;
 	
 	public class SetupViewCommand extends BaseCommand
@@ -33,6 +34,9 @@ package com.newco.grand.baccarat.classic.controller.commands
 		}
 		
 		private function setupView():void {
+			
+			
+
 			contextView.view.addChild(new StageView());
 			var video:VideoView=new VideoView();
 			video.x=0;
