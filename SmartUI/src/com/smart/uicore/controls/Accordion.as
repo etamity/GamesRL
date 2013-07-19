@@ -34,7 +34,7 @@ package com.smart.uicore.controls
 		protected var btns:Array;
 		protected var _contents:Array;
 		protected var nowIndex:uint;
-		private var _txtFormat:TextFormat = new TextFormat("Arial", 12, 0x00FF00, true);
+		private var _txtFormat:TextFormat = new TextFormat("Arial", 12, 0X00CC00, true);
 		public function Accordion()
 		{
 			super();
@@ -83,9 +83,9 @@ package com.smart.uicore.controls
 			btns.push(btn);
 			_contents.push(content);
 			btn.setSize(_compoWidth,defaultButtonHeight);
-			btn.setStyle(ButtonStyle.TEXT_COLOR,"#00FF00");
-			btn.setStyle(ButtonStyle.TEXT_OVER_COLOR,"#00FF00");
-			btn.setStyle(ButtonStyle.TEXT_DOWN_COLOR,"#00FF00");
+			btn.setStyle(ButtonStyle.TEXT_COLOR,"#00CC00");
+			btn.setStyle(ButtonStyle.TEXT_OVER_COLOR,"#00CC00");
+			btn.setStyle(ButtonStyle.TEXT_DOWN_COLOR,"#00CC00");
 			btn.setTextFormat(_txtFormat);
 			btn.addEventListener(MouseEvent.CLICK,switchClick);
 			this.addChild(btn);
