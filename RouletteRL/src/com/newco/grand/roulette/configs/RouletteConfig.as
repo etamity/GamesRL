@@ -46,6 +46,7 @@ package com.newco.grand.roulette.configs
 	import com.newco.grand.core.common.view.TaskbarView;
 	import com.newco.grand.core.common.view.VideoView;
 	import com.newco.grand.core.common.view.interfaces.IAccordion;
+	import com.newco.grand.core.common.view.interfaces.IChatView;
 	import com.newco.grand.core.common.view.interfaces.IGameStatusView;
 	import com.newco.grand.core.common.view.interfaces.ILoginView;
 	import com.newco.grand.core.common.view.interfaces.IStageView;
@@ -197,7 +198,7 @@ package com.newco.grand.roulette.configs
 			mediatorMap.map(ITaskbarView).toMediator(TaskbarMediator);
 			mediatorMap.map(StageInfoView).toMediator(StageInfoMediator);
 			mediatorMap.map(IGameStatusView).toMediator(GameStatusMediator);
-			mediatorMap.map(ChatView).toMediator(ChatMediator);
+			mediatorMap.map(IChatView).toMediator(ChatMediator);
 			mediatorMap.map(PlayersUIView).toMediator(PlayersMediator);
 			mediatorMap.map(WinnersUIView).toMediator(WinnersMediator);
 			mediatorMap.map(PlayersBetsView).toMediator(PlayersBetsMediator);
