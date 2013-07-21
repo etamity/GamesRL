@@ -6,11 +6,7 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.baccarat.classic.service.AnimationService;
 	import com.newco.grand.baccarat.classic.service.GameSocketService;
 	import com.newco.grand.baccarat.classic.view.AnimationPanelView;
-	import com.newco.grand.baccarat.classic.view.BetSpotsView;
-	import com.newco.grand.baccarat.classic.view.CardsPanelView;
-	import com.newco.grand.baccarat.classic.view.GameStatusView;
 	import com.newco.grand.baccarat.classic.view.ScoreCardView;
-	import com.newco.grand.baccarat.classic.view.TableGraphicView;
 	import com.newco.grand.baccarat.classic.view.TournamentView;
 	import com.newco.grand.baccarat.classic.view.interfaces.IBetSpotsView;
 	import com.newco.grand.baccarat.classic.view.interfaces.IBetspotsPanelView;
@@ -64,14 +60,9 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.service.ISocketService;
 	import com.newco.grand.core.common.service.URLSService;
 	import com.newco.grand.core.common.service.VideoService;
-	import com.newco.grand.core.common.view.ChatView;
-	import com.newco.grand.core.common.view.ErrorMessageView;
-	import com.newco.grand.core.common.view.LoginView;
 	import com.newco.grand.core.common.view.MessageBoxView;
-	import com.newco.grand.core.common.view.StageView;
-	import com.newco.grand.core.common.view.TaskbarView;
-	import com.newco.grand.core.common.view.VideoView;
 	import com.newco.grand.core.common.view.interfaces.IAccordion;
+	import com.newco.grand.core.common.view.interfaces.IChatView;
 	import com.newco.grand.core.common.view.interfaces.IErrorMessageView;
 	import com.newco.grand.core.common.view.interfaces.IGameStatusView;
 	import com.newco.grand.core.common.view.interfaces.ILoginView;
@@ -88,7 +79,6 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.view.mediators.TaskbarMediator;
 	import com.newco.grand.core.common.view.mediators.VideoMediator;
 	import com.newco.grand.core.common.view.mediators.WinnersMediator;
-	import com.newco.grand.core.common.view.uicomps.AccordionUIView;
 	import com.newco.grand.core.common.view.uicomps.PlayersUIView;
 	import com.newco.grand.core.common.view.uicomps.WinnersUIView;
 	
@@ -110,27 +100,27 @@ package com.newco.grand.baccarat.configs
 	{
 		[Inject]
 		public var mediatorMap:IMediatorMap;
-		
+
 		[Inject]
 		public var commandMap:ISignalCommandMap;
-		
+
 		[Inject]
 		public var injector:IInjector;
-		
+
 		[Inject]
 		public var context:IContext;
-		
+
 		[Inject]
 		public var contextView:ContextView;
-		
-		
+
+
 		protected var gameData:GameDataModel=new GameDataModel();
 		protected var signalBus:SignalBus=new SignalBus();
 		protected var service:IAssetLoader;
-		
+
 		public function configure():void
-		{      
-			context.logLevel = LogLevel.DEBUG;
+		{
+			context.logLevel=LogLevel.DEBUG;
 
 			createInstance();
 			mapSingletons();
@@ -139,11 +129,12 @@ package com.newco.grand.baccarat.configs
 			//setupViews();
 			context.afterInitializing(init);
 		}
-		public function setupViews():void{
+
+		/*public function setupViews():void{
 			contextView.view.addChild(new StageView());
 			var video:VideoView=new VideoView();
 			video.x= 750 / 2;
-			
+
 			contextView.view.addChild(video);
 			contextView.view.addChild(new TableGraphicView());
 			contextView.view.addChild(new LoginView());
@@ -157,29 +148,33 @@ package com.newco.grand.baccarat.configs
 			contextView.view.addChild(new AccordionUIView());
 			contextView.view.addChild(new AnimationPanelView());
 
-			
-			
+
+
 			if (FlashVars.DEBUG_MODE==true)
 			contextView.view.addChild(new ErrorMessageView());
-			
+
 			//contextView.view.addChild(new MessageBoxView());
-			
-		}
-		public function createInstance():void{
+
+		}*/
+		public function createInstance():void
+		{
 			gameData.game=Constants.BACCARAT;
 			gameData.gameType=Constants.TYPE_CLASSIC;
-			
+
 			service=injector.getOrCreateNewInstance(AssetLoader);
 			var param:IParam=new Param(Param.PREVENT_CACHE, true);
 			service.addParam(param);
 		}
-		public function init():void{
+
+		public function init():void
+		{
 			mediatorMap.mediate(contextView.view);
 			signalBus.dispatch(SignalConstants.STARTUP);
 
 		}
-	
-		public function mapSingletons():void{
+
+		public function mapSingletons():void
+		{
 			injector.map(FlashVars).toValue(new FlashVars(contextView));
 			injector.map(IAssetLoader).toValue(service);
 			injector.map(ISocketService).toSingleton(GameSocketService);
@@ -196,15 +191,17 @@ package com.newco.grand.baccarat.configs
 			injector.map(URLSService).asSingleton();
 			injector.map(AnimationService).asSingleton();
 		}
-		public function mapMediators():void{
-			
+
+		public function mapMediators():void
+		{
+
 			mediatorMap.map(IStageView).toMediator(StageMediator);
 			mediatorMap.map(ILoginView).toMediator(LoginMediator);
 			mediatorMap.map(ITaskbarView).toMediator(TaskbarMediator);
 			mediatorMap.map(ITableGraphicView).toMediator(TableGraphicMediator);
 			mediatorMap.map(IGameStatusView).toMediator(GameStatusMediator);
 			mediatorMap.map(IAccordion).toMediator(BaccaratAccordionMediator);
-			mediatorMap.map(ChatView).toMediator(ChatMediator);
+			mediatorMap.map(IChatView).toMediator(ChatMediator);
 			mediatorMap.map(IVideoView).toMediator(VideoMediator);
 			mediatorMap.map(IBetSpotsView).toMediator(BetSpotsMediator);
 			mediatorMap.map(ICardsPanelView).toMediator(CardsPanelMediator);
@@ -216,11 +213,13 @@ package com.newco.grand.baccarat.configs
 			mediatorMap.map(WinnersUIView).toMediator(WinnersMediator);
 			mediatorMap.map(IErrorMessageView).toMediator(ErrorMessageMediator);
 			mediatorMap.map(TournamentView).toMediator(TournamentMediator);
-			
-		}
-		public function mapCommands():void{
 
-			
+		}
+
+		public function mapCommands():void
+		{
+
+
 			commandMap.mapSignal(signalBus.signal(SignalConstants.STARTUP), StartupCommand, true);
 			commandMap.mapSignal(signalBus.signal(SignalConstants.STARTUP_COMPLETE), StartupCompleteCommand, true);
 			commandMap.mapSignal(signalBus.signal(LoginEvent.LOGIN), FBLoginCommand);
@@ -238,7 +237,7 @@ package com.newco.grand.baccarat.configs
 			commandMap.mapSignal(signalBus.signal(WinnersEvent.LOAD), WinnersCommand);
 			commandMap.mapSignal(signalBus.signal(BetEvent.SEND_BETS), BetsCommand);
 			commandMap.mapSignal(signalBus.signal(UIEvent.SETUP_VIEWS), SetupViewCommand);
-			
+
 		}
 	}
 }

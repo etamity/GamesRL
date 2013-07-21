@@ -27,9 +27,7 @@ package com.newco.grand.baccarat.classic.view
 			return _closeBtn;
 		}
 		public function align():void {
-			/*x=stage.stageWidth-scoreCardPanel.width-25;
-			y=210;*/
-			x=560;
+			x=stage.stageWidth-190;
 			y=0;
 		}
 		public function update(data:XMLList):void{
