@@ -4,6 +4,7 @@ package com.newco.grand.core.common.view.mediators
 	import com.newco.grand.core.common.controller.signals.BalanceEvent;
 	import com.newco.grand.core.common.controller.signals.BaseSignal;
 	import com.newco.grand.core.common.controller.signals.BetEvent;
+	import com.newco.grand.core.common.controller.signals.MessageEvent;
 	import com.newco.grand.core.common.controller.signals.ModelReadyEvent;
 	import com.newco.grand.core.common.controller.signals.SocketDataEvent;
 	import com.newco.grand.core.common.controller.signals.StateTableConfigEvent;
@@ -16,6 +17,7 @@ package com.newco.grand.core.common.view.mediators
 	import com.newco.grand.core.common.model.Player;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.model.Style;
+	import com.newco.grand.core.common.model.URLSModel;
 	import com.newco.grand.core.common.view.interfaces.ITaskbarView;
 	import com.newco.grand.core.utils.FormatUtils;
 	import com.newco.grand.core.utils.GameUtils;
@@ -25,6 +27,11 @@ package com.newco.grand.core.common.view.mediators
 	import flash.external.ExternalInterface;
 	import flash.net.URLRequest;
 	import flash.net.navigateToURL;
+	
+	import org.assetloader.core.IAssetLoader;
+	import org.assetloader.loaders.SWFLoader;
+	import org.assetloader.signals.ErrorSignal;
+	import org.assetloader.signals.LoaderSignal;
 	
 	import robotlegs.bender.bundles.mvcs.Mediator;
 	import robotlegs.bender.extensions.contextView.ContextView;
@@ -50,6 +57,16 @@ package com.newco.grand.core.common.view.mediators
 		[Inject]
 		public var contextView:ContextView;
 		
+		[Inject]
+		public var service:IAssetLoader;
+		
+		[Inject]
+		public var urls:URLSModel;
+		
+		
+		public var GAMELOBBY:String="GAMELOBBY";
+		
+		private var lobbyMC:MovieClip;
 		override public function initialize():void
 		{
 
@@ -95,6 +112,7 @@ package com.newco.grand.core.common.view.mediators
 			view.signalBus.add(BetEvent.CONFRIM, betButtonAction);
 			view.signalBus.add(BetEvent.FAVOURITES, betButtonAction);
 			view.signalBus.add(TaskbarActionEvent.CHIP_CLICKED, onChipClicked);
+			view.signalBus.add(TaskbarActionEvent.LOBBY_CLICKED, launchLobby);
 		}
 
 		private function createMenuBar():void
@@ -172,7 +190,47 @@ package com.newco.grand.core.common.view.mediators
 			//eventDispatcher.dispatchEvent(event);
 			signalBus.dispatch(TaskbarActionEvent.CHIP_CLICKED);
 		}
-
+		private function launchLobby(signal:BaseSignal):void {
+			/*if (lobbyMC == null) {
+				service.add(GlobalConfig.LOBBY_SWF, {"id": "lobbyswf", context: loaderContext});
+				lobbyLoader.addEventListener(BulkProgressEvent.COMPLETE, showLobby);
+				lobbyLoader.start();
+			}
+			else {
+				setupGameType();
+			}
+			tooltipMC.hideTip();
+			*/
+			if (lobbyMC == null) {
+			service.addLoader(new SWFLoader(new URLRequest(urls.lobby), GAMELOBBY));
+			service.getLoader(GAMELOBBY).onError.add(showError);
+			service.getLoader(GAMELOBBY).onComplete.add(setConfig);			
+			service.start();
+			} else
+			{
+				lobbyMC.visible=true;
+			}
+		
+			
+		}
+		private function setConfig(signal:LoaderSignal, mc:MovieClip):void {
+			lobbyMC=mc;
+			contextView.view.addChild(lobbyMC);
+			
+			lobbyMC.loadLobbyXML(flashVars.table_id,false);
+			
+			//lobbyMC.popupMC = GlobalConfig.POPUP_WINDOW;
+			lobbyMC.close = true;
+			lobbyMC.popup = false;
+			lobbyMC.transparency = 0.8;
+			lobbyMC.game="roulette";
+			service.getLoader(GAMELOBBY).onComplete.remove(setConfig);
+		}
+		private function showError(signal:ErrorSignal):void {
+			debug("error " + signal.message);
+			signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:signal.message + "::" +urls.lobby});
+		}
+	
 		private function buttonAction(signal:BaseSignal):void
 		{
 			var type:String=signal.params.eventType;
@@ -193,10 +251,6 @@ package com.newco.grand.core.common.view.mediators
 				case TaskbarActionEvent.SOUND_CLICKED:
 					//eventDispatcher.dispatchEvent(new TaskbarActionEvent(TaskbarActionEvent.SOUND_CLICKED));
 					signalBus.dispatch(TaskbarActionEvent.SOUND_CLICKED);
-					break;
-				case TaskbarActionEvent.LOBBY_CLICKED:
-					//eventDispatcher.dispatchEvent(new TaskbarActionEvent(TaskbarActionEvent.LOBBY_CLICKED));
-					signalBus.dispatch(TaskbarActionEvent.LOBBY_CLICKED);
 					break;
 			}
 		}
@@ -264,7 +318,7 @@ package com.newco.grand.core.common.view.mediators
 		private function disableButtons(signal:BaseSignal):void
 		{
 			view.disableButtons();
-			view.slideDownButtons();
+			//view.slideDownButtons();
 		}
 
 		private function setBalance(signal:BaseSignal):void
@@ -283,7 +337,7 @@ package com.newco.grand.core.common.view.mediators
 			
 			view.game=game.gameTime;
 			checkForRepeatAndDouble();
-			view.slideUpButtons();
+			//view.slideUpButtons();
 		}
 
 		private function checkForRepeatAndDouble():void

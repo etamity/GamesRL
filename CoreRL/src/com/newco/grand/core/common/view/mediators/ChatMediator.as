@@ -9,18 +9,19 @@ package com.newco.grand.core.common.view.mediators {
 	import com.newco.grand.core.common.model.IGameData;
 	import com.newco.grand.core.common.model.Language;
 	import com.newco.grand.core.common.model.SignalBus;
-	import com.newco.grand.core.common.view.ChatView;
+	import com.newco.grand.core.common.view.interfaces.IChatView;
 	import com.newco.grand.core.utils.GameUtils;
 	
 	import flash.events.Event;
 	
 	import robotlegs.bender.bundles.mvcs.Mediator;
+	import robotlegs.bender.extensions.contextView.ContextView;
 
 	
 	public class ChatMediator extends Mediator{
 		
 		[Inject]
-		public var view:ChatView;
+		public var view:IChatView;
 		
 		[Inject]
 		public var game:IGameData;
@@ -31,6 +32,8 @@ package com.newco.grand.core.common.view.mediators {
 		[Inject]
 		public var flashVar:FlashVars;
 		
+		[Inject]
+		public var contextView:ContextView;
 		[Inject]
 		public var signalBus:SignalBus;
 		
@@ -44,7 +47,7 @@ package com.newco.grand.core.common.view.mediators {
 		
 		private function setupModel(signal:BaseSignal):void {
 			view.init();
-			eventMap.mapListener(view.stage, Event.RESIZE, onStageResize);
+			eventMap.mapListener(contextView.view.stage, Event.RESIZE, onStageResize);
 			view.sendSignal.add(sendMessage);
 		}
 		

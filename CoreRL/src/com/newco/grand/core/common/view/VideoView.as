@@ -25,12 +25,12 @@ package com.newco.grand.core.common.view {
 	
 	public class VideoView extends Sprite implements IVideoView {
 		
-		private var _fullscreen:Boolean=false;
+		protected var _fullscreen:Boolean=false;
 		
-		private var sv:StageVideo=null;  
+		private var _sv:StageVideo=null;  
 		
-		private var stageVideoInUse:Boolean=false;
-		private var classicVideoInUse:Boolean=true;
+		private var _stageVideoInUse:Boolean=false;
+		private var _classicVideoInUse:Boolean=true;
 		private var _stream:NetStream;
 		private var _displayContainer:MediaContainer;
 		private var _player:MediaPlayer;
@@ -42,9 +42,9 @@ package com.newco.grand.core.common.view {
 		public var videoFullscreenSignal:Signal= new Signal();
 		public var videoAutoFullScreenSignal:Signal= new Signal();*/
 		
-		private var _signalBus:SignalBus;
+		protected var _signalBus:SignalBus;
 		
-		public var showFullSize:Boolean=true;
+		public var showFullSize:Boolean=false;
 		
 		public function VideoView() {
 			visible = false;
@@ -103,15 +103,15 @@ package com.newco.grand.core.common.view {
 		     
 			if ( v.length >= 1 )       
 			{       
-				sv = v[0];  
+				_sv = v[0];  
 			}else
 				throw new Error("Your device is not supporting Stagevideo.");
 			
-			return sv;
+			return _sv;
 		}
 		public function get viewPort():Rectangle{
-			if (sv)
-			return sv.viewPort;
+			if (_sv)
+			return _sv.viewPort;
 			else
 			return new Rectangle(x, y ,width, height);
 		}
@@ -120,33 +120,33 @@ package com.newco.grand.core.common.view {
 			// if StageVideo is available, attach the NetStream to StageVideo       
 			if (on)       
 			{       
-				stageVideoInUse = true;       
-				if ( sv == null )       
+				_stageVideoInUse = true;       
+				if ( _sv == null )       
 				{       
-					sv = getStageVideo();       
+					_sv = getStageVideo();       
 					_display.video.visible=false;
 					
 					_display.bg.alpha=0;
 					_display.bg.buttonMode=true;
-					sv.addEventListener(StageVideoEvent.RENDER_STATE, stageVideoStateChange);  
+					_sv.addEventListener(StageVideoEvent.RENDER_STATE, stageVideoStateChange);  
 				}       
-				sv.attachNetStream(_stream);       
-				if (classicVideoInUse)       
+				_sv.attachNetStream(_stream);       
+				if (_classicVideoInUse)       
 				{       
 					// If using StageVideo, just remove the Video object from       
 					// the display list to avoid covering the StageVideo object       
 					// (always in the background)       
 					//stage.removeChild ( video );       
-					classicVideoInUse = false;       
+					_classicVideoInUse = false;       
 				}       
 			} else       
 			{       
 				// Otherwise attach it to a Video object      
 				_display.video.visible=true;
 				_display.bg.visible=true;
-				if (stageVideoInUse)       
-					stageVideoInUse = false;       
-				classicVideoInUse = true;       
+				if (_stageVideoInUse)       
+					_stageVideoInUse = false;       
+				_classicVideoInUse = true;       
 				_display.video.attachNetStream(_stream);       
 			
 				//stage.addChildAt(video, 0);       
@@ -163,8 +163,8 @@ package com.newco.grand.core.common.view {
 		{     
 			var rc:Rectangle;
 			rc = computeVideoRect(_display.video.width, _display.video.height);      
-			if (sv)
-			sv.viewPort = rc;       
+			if (_sv)
+			_sv.viewPort = rc;       
 		}
 		
 		private function computeVideoRect(s:Number, b:Number):Rectangle
@@ -179,9 +179,9 @@ package com.newco.grand.core.common.view {
 				align();
 		}
 		public function align():void {			
-			//x = 175;
-			//setSize(448, 318);
-			setSize(820, 610);
+			x = 175;
+			setSize(448, 318);
+			//setSize(820, 610);
 		}
 		
 		public function set stream(value:NetStream): void {
@@ -207,7 +207,7 @@ package com.newco.grand.core.common.view {
 			_signalBus.dispatch(UIEvent.VIDEO_REFRESH,{target:event.target});
 		}
 		
-		private function showFullscreen(event:MouseEvent):void {
+		protected function showFullscreen(event:MouseEvent):void {
 			resizeVideo(event);
 			_fullscreen = !_fullscreen;
 			resize();
@@ -225,18 +225,18 @@ package com.newco.grand.core.common.view {
 			_display.VideoFullscreenBtn.removeEventListener(MouseEvent.CLICK, showFullscreen);
 		}
 		
-		private function resizeVideo(event:MouseEvent=null):void {
+		public function resizeVideo(event:MouseEvent=null):void {
 			_display.videoButton.removeEventListener(MouseEvent.CLICK, showFullscreen);
 			if(!_fullscreen) {
 				//this.scaleX = 1.55;
 				//this.scaleY = 1.55;
 				//videoFullscreenSignal.dispatch(event.target);
-				_display.frame.visible=false;
-				_display.bg.visible=false;
+				//_display.frame.visible=false;
+				//_display.bg.visible=false;
 				_signalBus.dispatch(UIEvent.VIDEO_FULLSCREEN,{target:event.target});
 		
-				Tweener.addTween(this, {scaleX:1.8, time:0.75, x:170, transition:"easeInOutQuart"});
-				Tweener.addTween(this, {scaleY:1.67, time:0.75, transition:"easeInOutQuart", onComplete:function ():void{
+				Tweener.addTween(this, {scaleX:1.8, time:0.75, transition:"easeInOutQuart"});
+				Tweener.addTween(this, {scaleY:1.58, time:0.75, transition:"easeInOutQuart", onComplete:function ():void{
 					//videoFullscreenSignal.dispatch(event.target);
 			
 					_display.videoButton.addEventListener(MouseEvent.CLICK, showFullscreen);
@@ -245,11 +245,11 @@ package com.newco.grand.core.common.view {
 			} else {
 				//this.scaleX = 1;
 				//this.scaleY = 1;
-				_display.frame.visible=true;
-				_display.bg.visible=false;
+				//_display.frame.visible=true;
+				//_display.bg.visible=false;
 				//Tweener.addTween(_display.bg, {width:455, time:0.75, transition:"easeInOutQuart", onUpdate:function():void {resize(); }});
 				//Tweener.addTween(_display.bg, {height:325, time:0.75, transition:"easeInOutQuart",onUpdate:function():void {resize(); }});
-				Tweener.addTween(this, {scaleX:1, time:0.75, x:350, transition:"easeInOutQuart"});
+				Tweener.addTween(this, {scaleX:1, time:0.75, transition:"easeInOutQuart"});
 				Tweener.addTween(this, {scaleY:1, time:0.75, transition:"easeInOutQuart", onComplete:function ():void{
 				//videoFullscreenSignal.dispatch(event.target);
 				_signalBus.dispatch(UIEvent.VIDEO_FULLSCREEN,{target:event.target});

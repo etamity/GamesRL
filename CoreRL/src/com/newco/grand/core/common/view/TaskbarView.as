@@ -119,7 +119,7 @@ package com.newco.grand.core.common.view {
 			double.buttonMode = true;*/
 			_display.lobby.mouseChildren = false;
 			_display.lobby.buttonMode = true;
-			_display.lobby.visible=false;
+			_display.lobby.visible=true;
 			_display.myaccount.buttonMode = true;
 			
 			_display.fullscreen.addEventListener(MouseEvent.ROLL_OVER, buttonRollOver);
@@ -278,6 +278,10 @@ package com.newco.grand.core.common.view {
 					break;
 				case _display.sound:
 					_signalBus.dispatch(TaskbarActionEvent.BUTTON_CLICKED,{eventType:TaskbarActionEvent.SOUND_CLICKED});
+					break;
+				case _display.lobby:
+					_signalBus.dispatch(TaskbarActionEvent.LOBBY_CLICKED,{eventType:TaskbarActionEvent.LOBBY_CLICKED});
+						
 					break;
 			}
 			
