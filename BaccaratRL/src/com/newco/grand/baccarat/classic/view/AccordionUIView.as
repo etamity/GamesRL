@@ -10,6 +10,8 @@ package com.newco.grand.baccarat.classic.view
 		}
 		override public function align():void{
 			x= stage.stageWidth -width;
+			_compHeight=480;
+			_display.setSize(_compWidth,_compHeight);
 			visible=true;
 		}
 	}

@@ -20,7 +20,7 @@ package com.newco.grand.baccarat.classic.view
 			timerControl = new TimerControl( new Date(2013, 06, 20, 24, 00) );
 			
 			timerControl.x = 5;
-			timerControl.y = 270;
+			timerControl.y = 245;
 			timerControl.scaleX=timerControl.scaleY=0.6;
 			addChild(timerControl);
 			
