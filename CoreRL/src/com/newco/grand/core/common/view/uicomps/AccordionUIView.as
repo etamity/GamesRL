@@ -9,10 +9,10 @@ package com.newco.grand.core.common.view.uicomps
 	
 	public class AccordionUIView extends Sprite implements IAccordion
 	{
-		private var _display:Accordion;
+		protected var _display:Accordion;
 		
-		private var _compWidth:Number=170;
-		private var _compHeight:Number=529;
+		protected var _compWidth:Number=170;
+		protected var _compHeight:Number=529;
 		
 		public function AccordionUIView()
 		{
