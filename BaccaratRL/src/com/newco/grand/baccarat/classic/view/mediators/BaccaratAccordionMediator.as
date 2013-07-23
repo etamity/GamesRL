@@ -40,7 +40,7 @@ package com.newco.grand.baccarat.classic.view.mediators
 		override public function addViews(signal:BaseSignal):void {
 			view.add(new PlayersUIView(), Language.PLAYERS);
 			view.add(new WinnersUIView(), Language.WINNERLIST);
-			view.add(new BetspotsPanelView(), Language.BACCARAT_BETSPOTSPANEL);
+			//view.add(new BetspotsPanelView(), Language.BACCARAT_BETSPOTSPANEL);
 			view.add(new TournamentView(), Language.TOURNAMENT);
 			
 			//view.add(new PlayersBetsView(), Language.PLAYERSBETS);
