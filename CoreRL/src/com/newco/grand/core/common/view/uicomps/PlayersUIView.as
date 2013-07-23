@@ -14,8 +14,7 @@ package com.newco.grand.core.common.view.uicomps
 		{
 			super();
 			listView=new List();
-			listView.y=5;
-			listView.setSize(167,529);
+			listView.setSize(175,529);
 			addChild(listView);
 		}
 		public function initDisplay():void{
