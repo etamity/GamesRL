@@ -13,6 +13,7 @@ package com.newco.grand.core.common.view {
 	import flash.display.Sprite;
 	import flash.events.MouseEvent;
 	import flash.filters.ColorMatrixFilter;
+	import flash.geom.Point;
 	import flash.media.SoundMixer;
 	import flash.text.TextFormat;
 	
@@ -61,6 +62,10 @@ package com.newco.grand.core.common.view {
 		private var _signalBus:SignalBus=new SignalBus();
 		
 		protected var _display:*;
+		
+		
+		private var buttonsPTs:Array;
+		
 		public function TaskbarView() {
 			visible = false;
 			initDisplay();
@@ -149,6 +154,14 @@ package com.newco.grand.core.common.view {
 			favouritesBtn.enabled=false;
 			favouritesBtn.skin.visible=false;
 			confirmBtn.skin.visible=false;
+			buttonsPTs=[];
+			
+			
+			buttonsPTs.push(new Point(clearBtn.skin.x,clearBtn.skin.y));
+			buttonsPTs.push(new Point(undoBtn.skin.x,undoBtn.skin.y));
+			buttonsPTs.push(new Point(repeatBtn.skin.x,repeatBtn.skin.y));
+			buttonsPTs.push(new Point(doubleBtn.skin.x,doubleBtn.skin.y));
+			
 		}
 		
 		public function initDisplay():void{
@@ -390,10 +403,10 @@ package com.newco.grand.core.common.view {
 		
 		
 		public function slideUpButtons():void{
-			Tweener.addTween(undoBtn.skin,{y:7, time:0.5});
-			Tweener.addTween(repeatBtn.skin,{y:7, time:0.5});
-			Tweener.addTween(clearBtn.skin,{y:7, time:0.5});
-			Tweener.addTween(doubleBtn.skin,{y:7, time:0.5});
+			Tweener.addTween(clearBtn.skin,{y:buttonsPTs[0].y, time:0.5});
+			Tweener.addTween(undoBtn.skin,{y:buttonsPTs[1].y, time:0.5});
+			Tweener.addTween(repeatBtn.skin,{y:buttonsPTs[2].y, time:0.5});
+			Tweener.addTween(doubleBtn.skin,{y:buttonsPTs[3].y, time:0.5});
 		}
 		public function slideDownButtons():void{
 			Tweener.addTween(undoBtn.skin,{y:100, time:0.5});
