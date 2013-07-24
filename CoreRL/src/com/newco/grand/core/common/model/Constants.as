@@ -6,7 +6,8 @@ package com.newco.grand.core.common.model {
 		public static const BACCARAT:String 		= "BACCARAT";
 		public static const ROULETTE:String 		= "ROULETTE";
 		public static const BLACKJACK:String 		= "BLACKJACK";
-
+		public static const LOBBY:String 			= "LOBBY";
+		
 		public static const TYPE_FACEBOOK:String 		= "TYPE_FACEBOOK";
 		public static const TYPE_CLASSIC:String 		= "TYPE_CLASSIC";
 		public static const TYPE_MOBILE:String 			= "TYPE_MOBILE";
