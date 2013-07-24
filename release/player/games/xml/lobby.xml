@@ -3,9 +3,10 @@
    <casinoid>0rnu7w1c8xhbuhtn</casinoid>
    <userid>hcti3a0bda47k3bh</userid>
    <server>livecasino.smartliveaffiliates.com</server>
+   <streamSever mode="rtmp">213.86.83.8/smartlivecasinolive-live</streamSever>
    
 	<roulette>
-		<table table_id="48z5pjps3ntvqc1b" vt_id="" name="Auto Black Roulette" dealer="nodealer" dealerid="nodealer" min="100.0" max="100000.0" priority="5" table_type="" game_type="auto" timings="24 HOURS" seats="999" stream="R3" start_time="0" end_time="24">
+		<table streamName="R1" table_id="48z5pjps3ntvqc1b" vt_id="" name="Auto Black Roulette" dealer="nodealer" dealerid="nodealer" min="100.0" max="100000.0" priority="5" table_type="" game_type="auto" timings="24 HOURS" seats="999" stream="R3" start_time="0" end_time="24">
 		
 			<vtable table_id="48z5pjps3ntvqc1b" vt_id="jc0zmo4chfhhmf6j" name="Auto Black Roulette" dealer="Adi" dealerid="adi" min="50.0" max="100000.0" priority="4" table_type="" game_type="auto" timings="24 HOURS" />
 		
@@ -16,52 +17,54 @@
 		
 		</table>
 		
-		<table table_id="7kqbll806q26x44k" vt_id="" name="Auto Brown Roulette" dealer="nodealer" dealerid="nodealer" min="100.0" max="50000.0" priority="4" table_type="" game_type="auto" timings="24 HOURS" seats="999"  stream="R2" start_time="0" end_time="24">
-			<vtable table_id="7kqbll806q26x44k" vt_id="593edvc9m5rgwmvp" name="Auto Brown Roulette" dealer="Adi" dealerid="adi" min="50.0" max="100000.0" priority="4" table_type="" game_type="auto" timings="09:00 – 18:00(GMT)" />
+		<table streamName="R1" table_id="7kqbll806q26x44k" vt_id="" name="Auto Brown Roulette" dealer="nodealer" dealerid="nodealer" min="100.0" max="50000.0" priority="4" table_type="" game_type="auto" timings="24 HOURS" seats="999"  stream="R2" start_time="0" end_time="24">
+			<vtable table_id="7kqbll806q26x44k" vt_id="593edvc9m5rgwmvp" name="Auto Brown Roulette" dealer="Adi" dealerid="adi" min="50.0" max="100000.0" priority="4" table_type="" game_type="auto" timings="09:00 ï¿½ 18:00(GMT)" />
 			
-			<vtable table_id="7kqbll806q26x44k" vt_id="f83ufhvy8ab6ghhn" name="Auto Brown Roulette" dealer="Adi" dealerid="adi" min="20.0" max="80000.0" priority="4" table_type="" game_type="auto" timings="09:00 – 18:00(GMT)" />
+			<vtable table_id="7kqbll806q26x44k" vt_id="f83ufhvy8ab6ghhn" name="Auto Brown Roulette" dealer="Adi" dealerid="adi" min="20.0" max="80000.0" priority="4" table_type="" game_type="auto" timings="09:00 ï¿½ 18:00(GMT)" />
 		
-			<vtable table_id="7kqbll806q26x44k" vt_id="75u8du4vx0hgynx2" name="Auto Brown Roulette" dealer="Adi" dealerid="adi" min="10.0" max="30000.0" priority="4" table_type="" game_type="auto" timings="09:00 – 18:00(GMT)" />
+			<vtable table_id="7kqbll806q26x44k" vt_id="75u8du4vx0hgynx2" name="Auto Brown Roulette" dealer="Adi" dealerid="adi" min="10.0" max="30000.0" priority="4" table_type="" game_type="auto" timings="09:00 ï¿½ 18:00(GMT)" />
 			
-			<vtable table_id="7kqbll806q26x44k" vt_id="dqezshz470fs29dy" name="Auto Brown Roulette" dealer="Adi" dealerid="adi" min="5.0" max="10000.0" priority="4" table_type="" game_type="auto" timings="09:00 – 18:00(GMT)" />
+			<vtable table_id="7kqbll806q26x44k" vt_id="dqezshz470fs29dy" name="Auto Brown Roulette" dealer="Adi" dealerid="adi" min="5.0" max="10000.0" priority="4" table_type="" game_type="auto" timings="09:00 ï¿½ 18:00(GMT)" />
 		
 		
 		
 		</table>
 		
-		<table table_id="7nyiaws9tgqrzaz3" vt_id="" name="Social Roulette" dealer="suzanne" dealerid="suzanne" min="1.0" max="1000.0" priority="6" table_type="" game_type="social" timings="09:00 – 18:00(GMT)" seats="999" stream="R1_TV_MOB" start_time="9" end_time="6">
-			<vtable table_id="7nyiaws9tgqrzaz3" vt_id="dml1u7yochnm5ejh" name="Social Roulette" dealer="Adi" dealerid="adi" min="100.0" max="100000.0" priority="4" table_type="" game_type="social" timings="09:00 – 18:00(GMT)" />
+		<table streamName="R1" table_id="7nyiaws9tgqrzaz3" vt_id="" name="Social Roulette" dealer="suzanne" dealerid="suzanne" min="1.0" max="1000.0" priority="6" table_type="" game_type="social" timings="09:00 ï¿½ 18:00(GMT)" seats="999" stream="R1_TV_MOB" start_time="9" end_time="6">
+			<vtable table_id="7nyiaws9tgqrzaz3" vt_id="dml1u7yochnm5ejh" name="Social Roulette" dealer="Adi" dealerid="adi" min="100.0" max="100000.0" priority="4" table_type="" game_type="social" timings="09:00 ï¿½ 18:00(GMT)" />
 			
-			<vtable table_id="7nyiaws9tgqrzaz3" vt_id="9d6miod9roz0ehfx" name="Social Roulette" dealer="Adi" dealerid="adi" min="50.0" max="100000.0" priority="4" table_type="" game_type="social" timings="09:00 – 18:00(GMT)" />
+			<vtable table_id="7nyiaws9tgqrzaz3" vt_id="9d6miod9roz0ehfx" name="Social Roulette" dealer="Adi" dealerid="adi" min="50.0" max="100000.0" priority="4" table_type="" game_type="social" timings="09:00 ï¿½ 18:00(GMT)" />
 			
-			<vtable table_id="7nyiaws9tgqrzaz3" vt_id="39tiacfxbqv7853y" name="Social Roulette" dealer="Adi" dealerid="adi" min="20.0" max="100000.0" priority="4" table_type="" game_type="social" timings="09:00 – 18:00(GMT)" />
+			<vtable table_id="7nyiaws9tgqrzaz3" vt_id="39tiacfxbqv7853y" name="Social Roulette" dealer="Adi" dealerid="adi" min="20.0" max="100000.0" priority="4" table_type="" game_type="social" timings="09:00 ï¿½ 18:00(GMT)" />
 		
-			<vtable table_id="7nyiaws9tgqrzaz3" vt_id="fgbcsa5t390gl0cx" name="Social Roulette" dealer="Adi" dealerid="adi" min="10.0" max="100000.0" priority="4" table_type="" game_type="social" timings="09:00 – 18:00(GMT)" />
+			<vtable table_id="7nyiaws9tgqrzaz3" vt_id="fgbcsa5t390gl0cx" name="Social Roulette" dealer="Adi" dealerid="adi" min="10.0" max="100000.0" priority="4" table_type="" game_type="social" timings="09:00 ï¿½ 18:00(GMT)" />
 
 		
 		</table>
 		
 		
-		<table table_id="hiey8yx1hkkgqawl" vt_id="" name="Rapid Roulette" dealer="suzanne" dealerid="suzanne" min="100.0" max="10000.0" priority="3" table_type="" game_type="blue" timings="18:00 – 00:00 (GMT)" seats="999" stream="R3_Cam1"  start_time="17" end_time="24">
-			<vtable table_id="hiey8yx1hkkgqawl" vt_id="sakqgwwg4vcswfqz" name="Rapid Roulette" dealer="Adi" dealerid="adi" min="50.0" max="100000.0" priority="4" table_type="" game_type="blue" timings="09:00 – 18:00(GMT)" />
+		<table streamName="R1" table_id="hiey8yx1hkkgqawl" vt_id="" name="Rapid Roulette" dealer="suzanne" dealerid="suzanne" min="100.0" max="10000.0" priority="3" table_type="" game_type="blue" timings="18:00 ï¿½ 00:00 (GMT)" seats="999" stream="R3_Cam1"  start_time="17" end_time="24">
+			<vtable table_id="hiey8yx1hkkgqawl" vt_id="sakqgwwg4vcswfqz" name="Rapid Roulette" dealer="Adi" dealerid="adi" min="50.0" max="100000.0" priority="4" table_type="" game_type="blue" timings="09:00 ï¿½ 18:00(GMT)" />
 			
-			<vtable table_id="hiey8yx1hkkgqawl" vt_id="v1zye3mujlb7kr74" name="Rapid Roulette" dealer="Adi" dealerid="adi" min="20.0" max="100000.0" priority="4" table_type="" game_type="blue" timings="09:00 – 18:00(GMT)" />
+			<vtable table_id="hiey8yx1hkkgqawl" vt_id="v1zye3mujlb7kr74" name="Rapid Roulette" dealer="Adi" dealerid="adi" min="20.0" max="100000.0" priority="4" table_type="" game_type="blue" timings="09:00 ï¿½ 18:00(GMT)" />
 		
-			<vtable table_id="hiey8yx1hkkgqawl" vt_id="j6vxj3ws63gwin0f" name="Rapid Roulette" dealer="Adi" dealerid="adi" min="10.0" max="30000.0" priority="4" table_type="" game_type="blue" timings="09:00 – 18:00(GMT)" />
+			<vtable table_id="hiey8yx1hkkgqawl" vt_id="j6vxj3ws63gwin0f" name="Rapid Roulette" dealer="Adi" dealerid="adi" min="10.0" max="30000.0" priority="4" table_type="" game_type="blue" timings="09:00 ï¿½ 18:00(GMT)" />
 		</table>
 
 		
 	</roulette>
 	
 	<blackjack>
-		<table table_id="uwd2bl2khwcikjlz" vt_id="" name="7 Seat Blackjack" dealer="nodealer" dealerid="nodealer" min="1.0" max="500.0" priority="0" table_type="" game_type="" timings="" ></table>
+		<table streamName="7BJ1" table_id="uwd2bl2khwcikjlz" vt_id="" name="7 Seat Blackjack" dealer="nodealer" dealerid="nodealer" min="1.0" max="500.0" priority="0" table_type="" game_type="" timings="" ></table>
 		
 	</blackjack>
 	<baccarat>
-		<table table_id="41" vt_id="" name="Baccarat" dealer="nodealer" dealerid="nodealer" min="5.0" max="500.0" priority="0" table_type="classic" game_type="classic" timings="22:00 – 00:00(GMT)" >
-			<vtable table_id="41" vt_id="NA" name="Baccarat" dealer="nodealer" dealerid="nodealer" min="5.0" max="500.0" priority="0" table_type="classic" game_type="classic" timings="22:00 – 00:00(GMT)" />
+		<table streamName="R1" table_id="zucbi5szfr9bewqo" vt_id="" name="Baccarat" dealer="nodealer" dealerid="nodealer" min="5.0" max="500.0" priority="0" table_type="classic" game_type="classic" timings="22:00 ï¿½ 00:00(GMT)" >
+			<vtable table_id="41" vt_id="NA" name="Baccarat" dealer="nodealer" dealerid="nodealer" min="5.0" max="500.0" priority="0" table_type="classic" game_type="classic" timings="22:00 ï¿½ 00:00(GMT)" />
 		</table>
-		
+		<table streamName="7BJ1" table_id="zucbi5szfr9bewqo" vt_id="" name="Baccarat" dealer="nodealer" dealerid="nodealer" min="5.0" max="500.0" priority="0" table_type="classic" game_type="classic" timings="22:00 ï¿½ 00:00(GMT)" >
+			<vtable table_id="41" vt_id="NA" name="Baccarat" dealer="nodealer" dealerid="nodealer" min="5.0" max="500.0" priority="0" table_type="classic" game_type="classic" timings="22:00 ï¿½ 00:00(GMT)" />
+		</table>
 		
 	</baccarat>
 	
