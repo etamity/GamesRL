@@ -69,6 +69,8 @@ package
 		
 		//rtmp://213.86.83.8/smartlivecasinolive-live/7BJ1
 		//http://213.86.1.217:1935/SGGLive/R1800/playlist.m3u8
+		
+		private var _debugText:TextArea;
 		public function StageVideoTool()
 		{
 			// Make sure the app is visible and stage available
@@ -131,11 +133,28 @@ package
 		private function createUI():void{
 			var text:TextInput=new TextInput();
 			var button:Button=new Button();
-			text.x=300;
-			text.text="rtmp://213.86.83.8/smartlivecasinolive-live/7BJ1";
+			button.label="Connect";
+			text.x=200;
+			text.width=350;
+			text.text="rtmp://213.86.83.8/smartlivecasinolive-live/R1";
 			button.x=text.x+text.width;
 			addChild(text);
 			addChild(button)
+			_debugText=new TextArea();
+			_debugText.y= stage.stageHeight-_debugText.height;
+			_debugText.width=stage.stageWidth;
+			addChild(_debugText);
+			_debugText.visible=false;
+
+			var debugBtn:Button=new Button();
+			debugBtn.label="Debug";
+			debugBtn.x=button.x+button.width;
+			debugBtn.addEventListener(MouseEvent.CLICK,function (evt:MouseEvent):void{
+				_debugText.visible=!_debugText.visible;
+				
+			});
+			
+			addChild(debugBtn);
 			button.addEventListener(MouseEvent.CLICK,function(evt:MouseEvent):void{
 				_url=text.text;
 				var stream:Array=_url.split("//");
@@ -146,7 +165,9 @@ package
 				
 				var video_sever:String="rtmp://"+_server+"/"+_application;
 				trace("_server",_server);
+				trace("_application",_application);
 				trace("_streamName",_streamName);
+				trace("[video_sever]:",video_sever);
 				nc.connect(video_sever);
 			});
 			
@@ -161,10 +182,12 @@ package
 			ns.client ={ onBWDone: function():void{} };
 			ns.addEventListener(IOErrorEvent.IO_ERROR, IOError);
 			ns.bufferTime = 0.3;
-			if (this.stageVideoInUse)
+			if (stageVideoInUse)
 			sv.attachNetStream(ns);
 			else
 			video.attachNetStream(ns);
+			
+		
 			ns.play(_streamName);
 			
 			
@@ -174,6 +197,7 @@ package
 		}
 		private function netStatusHandler(event:NetStatusEvent):void {
 			trace("NetStatusEvent: " + event.info.code);
+			_debugText.htmlText +=event.info.code +"<br />"
 				switch (event.info.code) {
 					case "NetConnection.Connect.Success":
 
@@ -199,10 +223,12 @@ package
 			}
 		}
 		private function securityErrorHandler(event:SecurityErrorEvent):void {
+			_debugText.htmlText +="["+event.type+"] "+event.text +"<br />"
 			trace("SecurityErrorEvent: " + event);
 		}
 		
 		private function IOErrorHandler(event:IOErrorEvent):void {
+			_debugText.htmlText +="["+event.type+"] "+event.text +"<br />"
 			trace("IOErrorEvent: " + event);
 		}
 		/**
