@@ -11,12 +11,25 @@ package com.newco.grand.lobby.classic.model
 		private var _max:Number;
 		private var _min:Number;
 		private var _timings:String;
+		
+		private var _streamSever:String;
+		private var _streamApplication:String;
+		private var _streamName:String;
+		
 		public function TableModel()
 		{
 		}
+		public function setStreamPath(val:String):void{
+			var stream:Array=val.split("//");
+			var streams:Array=stream[1].split("/");
+			_streamSever = streams[0];
+			_streamApplication= streams[1];
+			//_streamName= streams[2];
+		}
 		
-		public function loadFromXML(data:XML):void{
+		public function setData(data:XML):void{
 			_tableName=data.@name;
+			_streamName=data.@streamName;
 			_tableid=data.@table_id;
 			_vtid=data.@vt_id;
 			_dealerName=data.@dealer;
@@ -26,7 +39,15 @@ package com.newco.grand.lobby.classic.model
 			_min=data.@min;
 			_timings=data.@timings;
 		}
-		
+		public function get streamSever():String{
+			return _streamSever;
+		}		
+		public function get streamApplication():String{
+			return _streamApplication;
+		}		
+		public function get streamName():String{
+			return _streamName;
+		}
 		public function get tableName():String{
 			return _tableName;
 		}
