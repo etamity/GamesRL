@@ -3,7 +3,7 @@ package com.newco.grand.lobby.classic.model
 	
 	public class LobbyModel
 	{
-		private var tableList:Array;
+		private var _tableList:Array;
 		
 		private var _data:XML;
 		
@@ -11,14 +11,16 @@ package com.newco.grand.lobby.classic.model
 		{
 			
 		}
-		
+		public function get tables():Array{
+			return _tableList;
+		}
 		public function get data():XML{
 			return _data;
 		}
 		
 		public function set data(val:XML):void{
 			 _data=val;
-			 tableList=[];
+			 _tableList=[];
 			 var i:int;
 			 var xmllist:XMLList=val.roulette;
 			 var tablexml:XML;
@@ -28,7 +30,7 @@ package com.newco.grand.lobby.classic.model
 				 tablexml=xmllist[i];
 				 tableModel=new TableModel();
 				 tableModel.setData(tablexml);
-				 tableList.push(tableModel);
+				 _tableList.push(tableModel);
 			 }
 			 xmllist = val.blackjack;
 			 for (i=0;i<xmllist.length();i++)
@@ -36,7 +38,7 @@ package com.newco.grand.lobby.classic.model
 				 tablexml=xmllist[i];
 				 tableModel=new TableModel();
 				 tableModel.setData(tablexml);
-				 tableList.push(tableModel);
+				 _tableList.push(tableModel);
 			 }
 			 xmllist = val.baccarat;
 			 for (i=0;i<xmllist.length();i++)
@@ -44,11 +46,8 @@ package com.newco.grand.lobby.classic.model
 				 tablexml=xmllist[i];
 				 tableModel=new TableModel();
 				 tableModel.setData(tablexml);
-				 tableList.push(tableModel);
+				 _tableList.push(tableModel);
 			 }
-		}
-		public function loadFromXML():void{
-			
 		}
 	}
 }
