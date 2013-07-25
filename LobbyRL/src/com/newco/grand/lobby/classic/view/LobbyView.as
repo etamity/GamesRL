@@ -73,10 +73,12 @@ package com.newco.grand.lobby.classic.view
 			trace(target.name);
 		}
 		
-		public function playDetial():void{
-			informationPanel.play();
+		public function showDetial():void{
+			informationPanel.gotoAndPlay(2);
 		}
-		
+		public function hideDetial():void{
+			informationPanel.gotoAndPlay("hide");
+		}
 		public function setBalance(val:String):void{
 			bottomPanel.balanceMC.value.text=String(val);
 		}

@@ -73,11 +73,11 @@ package com.newco.grand.lobby.classic.view.mediators
 		}
 		
 		private function playDetialEvent():void{
-			view.playDetial();
+			view.showDetial();
 		}
 		
 		private function stopDetialEvent():void{
-			view.playDetial();
+			view.hideDetial();
 		}
 		private function openGameEvent(table:TableModel):void{
 			
