@@ -8,7 +8,6 @@ package com.newco.grand.core.common.view
 	import flash.display.Sprite;
 	import flash.filters.ColorMatrixFilter;
 	import flash.text.TextField;
-	import flash.text.TextFormat;
 	
 	import fl.motion.AdjustColor;
 	
@@ -22,8 +21,7 @@ package com.newco.grand.core.common.view
 		public var upStateText:TextField;
 		private var _params:Object=new Object();
 		
-		private var _textFormat:TextFormat = new TextFormat("Arial", 10, 0x000000, true);
-		
+
 		public function SMButton(btn:SimpleButton)
 		{
 			super();
@@ -35,16 +33,13 @@ package com.newco.grand.core.common.view
 					var txt:*= sp.getChildAt(i);
 					if (txt is TextField) {
 						upStateText= TextField(txt);
-						upStateText.setTextFormat(_textFormat);
+						//upStateText.setTextFormat(_textFormat);
 						
 					}
 				}
 			}
 		}
 		
-		public function set textFormat(val:TextFormat):void{
-			_textFormat=val;
-		}
 		public function get params():Object{
 			return _params;
 		}
@@ -120,7 +115,6 @@ package com.newco.grand.core.common.view
 					if (txt is TextField) {
 						TextField(txt).text=text;
 						TextField(txt).mouseEnabled=false;
-						TextField(txt).setTextFormat(_textFormat);
 					}
 				}
 			}
