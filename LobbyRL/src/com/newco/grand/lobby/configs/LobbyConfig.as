@@ -1,13 +1,13 @@
 package com.newco.grand.lobby.configs
 {
-	import com.newco.grand.baccarat.classic.model.GameDataModel;
-	import com.newco.grand.core.common.model.Constants;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.Player;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.model.SignalConstants;
 	import com.newco.grand.lobby.classic.controller.commands.StartupCommand;
 	import com.newco.grand.lobby.classic.model.LobbyModel;
+	import com.newco.grand.lobby.classic.view.LobbyView;
+	import com.newco.grand.lobby.classic.view.mediators.LobbyViewMediator;
 	
 	import org.assetloader.AssetLoader;
 	import org.assetloader.base.Param;
@@ -38,28 +38,11 @@ package com.newco.grand.lobby.configs
 		
 		[Inject]
 		public var contextView:ContextView;
-		
-		[Inject]
-		public var flashVars:FlashVars;
 
 		protected var signalBus:SignalBus=new SignalBus();
 		protected var service:IAssetLoader;
 		protected var gameData:LobbyModel=new LobbyModel();
-		public function LobbyConfig()
-		{			
-			context.logLevel=LogLevel.DEBUG;
-			
-			createInstance();
-			mapSingletons();
-			mapMediators();
-			mapCommands();
-			//setupViews();
-			context.afterInitializing(init);
-		}
-		public function init():void
-		{
-			
-		}
+
 		public function createInstance():void
 		{
 			//gameData.game=Constants.BACCARAT;
@@ -76,11 +59,12 @@ package com.newco.grand.lobby.configs
 			injector.map(IAssetLoader).toValue(service);
 			injector.map(Player).asSingleton();
 			injector.map(LobbyModel).toValue(gameData);
+			injector.map(SignalBus).toValue(signalBus);
 		}
 		
 		public function mapMediators():void
 		{
-			
+			mediatorMap.map(LobbyView).toMediator(LobbyViewMediator);
 		}
 		
 		public function mapCommands():void
@@ -88,7 +72,23 @@ package com.newco.grand.lobby.configs
 			commandMap.mapSignal(signalBus.signal(SignalConstants.STARTUP), StartupCommand, true);
 		}
 		public function configure():void
+		{		
+			context.logLevel=LogLevel.DEBUG;
+			
+			createInstance();
+			mapSingletons();
+			mapMediators();
+			mapCommands();
+			//setupViews();
+			context.afterInitializing(init);
+		}
+		
+		
+		public function init():void
 		{
+			mediatorMap.mediate(contextView.view);
+			contextView.view.addChild(new LobbyView());
+			signalBus.dispatch(SignalConstants.STARTUP);
 		}
 	}
 }
