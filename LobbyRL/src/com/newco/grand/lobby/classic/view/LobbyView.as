@@ -1,6 +1,7 @@
 package com.newco.grand.lobby.classic.view
 {
 	import com.newco.grand.core.common.view.SMButton;
+	import com.newco.grand.core.common.view.ui.text.Text;
 	
 	import flash.display.MovieClip;
 	import flash.display.SimpleButton;
@@ -27,6 +28,9 @@ package com.newco.grand.lobby.classic.view
 		public var blackjackBtn:SMButton;
 		
 		public var gameChangeSignal:Signal=new Signal();
+		
+		private var informationPanel:InfoAnimationAsset=new InfoAnimationAsset();
+		
 		public function LobbyView()
 		{
 			addChild(tablesLayer);
@@ -36,10 +40,14 @@ package com.newco.grand.lobby.classic.view
 			baccaratBtn=new SMButton(bottomPanel.baccaratBtn);
 			blackjackBtn=new SMButton(bottomPanel.blackjackBtn);
 			
-			
+			addChild(informationPanel);
 			rouletteBtn.label="Roulette";
 			baccaratBtn.label="Baccarat";
 			blackjackBtn.label="Blackjack";
+			
+			
+			informationPanel.x=344;
+			informationPanel.y=18;
 			
 			rouletteBtn.skin.addEventListener(MouseEvent.CLICK,doChangeGame);
 			baccaratBtn.skin.addEventListener(MouseEvent.CLICK,doChangeGame);
@@ -65,7 +73,11 @@ package com.newco.grand.lobby.classic.view
 			trace(target.name);
 		}
 		
-		public function setBalance(val:Number):void{
+		public function playDetial():void{
+			informationPanel.play();
+		}
+		
+		public function setBalance(val:String):void{
 			bottomPanel.balanceMC.value.text=String(val);
 		}
 		

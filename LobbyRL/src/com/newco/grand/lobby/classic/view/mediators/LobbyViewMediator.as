@@ -23,6 +23,7 @@ package com.newco.grand.lobby.classic.view.mediators
 		
 		[Inject]
 		public var player:Player;
+		
 		[Inject]
 		public var view:LobbyView;
 		
@@ -39,6 +40,8 @@ package com.newco.grand.lobby.classic.view.mediators
 		}
 		private function setupModel(signal:BaseSignal):void{
 			loadTable(lobbyModel.mainGame);
+			player.currencyCode="£";
+			view.setBalance(player.balanceFormatted);
 		}
 		
 		private function loadTable(type:String):void{
@@ -61,10 +64,23 @@ package com.newco.grand.lobby.classic.view.mediators
 				{
 					tableView=new TableView();
 					tableView.setModel(table);
+					tableView.playDetialSignal.add(playDetialEvent);
+					tableView.stopDetialSignal.add(stopDetialEvent);
+					tableView.openGameSignal.add(openGameEvent);
 					view.addTable(tableView);
 				}
 			}
 		}
 		
+		private function playDetialEvent():void{
+			view.playDetial();
+		}
+		
+		private function stopDetialEvent():void{
+			view.playDetial();
+		}
+		private function openGameEvent(table:TableModel):void{
+			
+		}
 	}
 }

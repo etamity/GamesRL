@@ -6,11 +6,14 @@ package com.newco.grand.lobby.classic.view
 	import flash.display.Sprite;
 	import flash.events.AsyncErrorEvent;
 	import flash.events.IOErrorEvent;
+	import flash.events.MouseEvent;
 	import flash.events.NetStatusEvent;
 	import flash.events.SecurityErrorEvent;
 	import flash.media.Video;
 	import flash.net.NetConnection;
 	import flash.net.NetStream;
+	
+	import org.osflash.signals.Signal;
 	
 	public class TableView extends Sprite implements IUIView
 	{
@@ -26,8 +29,9 @@ package com.newco.grand.lobby.classic.view
 		private var nc:NetConnection;
 		private var ns:NetStream;
 		
-		
-		
+		public var playDetialSignal:Signal=new Signal();
+		public var stopDetialSignal:Signal=new Signal();
+		public var openGameSignal:Signal=new Signal();
 		public function TableView()
 		{
 			
@@ -38,8 +42,22 @@ package com.newco.grand.lobby.classic.view
 			_video.y=5;
 			_video.width=_display.width-4*2;
 			_video.height=_display.height-5*2;
+			
+			buttonMode=true;
+			this.addEventListener(MouseEvent.CLICK,doGameClick);
+			this.addEventListener(MouseEvent.ROLL_OVER,doRollOver);
+			this.addEventListener(MouseEvent.ROLL_OUT,doRollOut);
 		}
 		
+		private function doGameClick(evt:MouseEvent):void{
+			openGameSignal.dispatch(_tableModel);
+		}
+		private function doRollOver(evt:MouseEvent):void{
+			playDetialSignal.dispatch();
+		}
+		private function doRollOut(evt:MouseEvent):void{
+			stopDetialSignal.dispatch();
+		}
 		public function init():void
 		{
 		}
