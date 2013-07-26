@@ -124,8 +124,9 @@ package com.newco.grand.lobby.classic.view
 		
 		
 		public function destory():void{
-			nc.close();
 			ns.close();
+			nc.close();
+	
 			nc=null;
 			ns=null;
 			_video.clear();
