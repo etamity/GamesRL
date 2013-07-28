@@ -33,7 +33,7 @@ package com.newco.grand.lobby.classic.view
 		
 		public function LobbyView()
 		{
-			addChild(tablesLayer);
+		
 			bottomPanel=new BottomPanelAsset();
 			addChild(bottomPanel);
 			rouletteBtn=new SMButton(bottomPanel.rouletteBtn);
@@ -41,6 +41,7 @@ package com.newco.grand.lobby.classic.view
 			blackjackBtn=new SMButton(bottomPanel.blackjackBtn);
 			
 			addChild(informationPanel);
+			addChild(tablesLayer);
 			rouletteBtn.label="Roulette";
 			baccaratBtn.label="Baccarat";
 			blackjackBtn.label="Blackjack";
