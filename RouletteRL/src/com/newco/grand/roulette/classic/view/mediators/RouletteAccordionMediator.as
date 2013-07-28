@@ -19,7 +19,7 @@ package com.newco.grand.roulette.classic.view.mediators
 			view.add(new StatisticsView(), Language.STATISTICS);
 			view.add(new PlayersUIView(), Language.PLAYERS);
 			view.add(new WinnersUIView(), Language.WINNERLIST);
-			//view.add(new PlayersBetsView(), Language.PLAYERSBETS);
+			view.add(new BetBoardPanelAsset(), Language.PLAYERSBETS);
 			view.add(new FavouritesBetsView(), Language.FAVOURITES);
 			resize();
 		}

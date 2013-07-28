@@ -41,9 +41,9 @@ package com.newco.grand.roulette.classic.view.mediators
 			var _textFormat:TextFormat = new TextFormat("Arial", 10, 0x998F7A, true);
 
 			
-			view.applyBtn.textFormat=_textFormat;
-			view.deleteBtn.textFormat=_textFormat;
-			view.clearBtn.textFormat=_textFormat;
+			//view.applyBtn.textFormat=_textFormat;
+			//view.deleteBtn.textFormat=_textFormat;
+			//view.clearBtn.textFormat=_textFormat;
 			
 			view.applyBtn.skin.addEventListener(MouseEvent.CLICK,doApplyAction);
 			view.clearBtn.skin.addEventListener(MouseEvent.CLICK,doClearAction);

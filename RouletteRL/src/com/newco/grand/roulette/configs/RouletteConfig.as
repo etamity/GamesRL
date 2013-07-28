@@ -39,12 +39,12 @@ package com.newco.grand.roulette.configs
 	import com.newco.grand.core.common.service.ISocketService;
 	import com.newco.grand.core.common.service.URLSService;
 	import com.newco.grand.core.common.service.VideoService;
-	import com.newco.grand.core.common.view.ChatView;
+	import com.newco.grand.roulette.classic.view.ChatView;
 	import com.newco.grand.core.common.view.GameStatusView;
 	import com.newco.grand.core.common.view.LoginView;
 	import com.newco.grand.core.common.view.StageView;
 	import com.newco.grand.core.common.view.TaskbarView;
-	import com.newco.grand.core.common.view.VideoView;
+	import com.newco.grand.roulette.classic.view.VideoView;
 	import com.newco.grand.core.common.view.interfaces.IAccordion;
 	import com.newco.grand.core.common.view.interfaces.IChatView;
 	import com.newco.grand.core.common.view.interfaces.IGameStatusView;
@@ -60,7 +60,7 @@ package com.newco.grand.roulette.configs
 	import com.newco.grand.core.common.view.mediators.TaskbarMediator;
 	import com.newco.grand.core.common.view.mediators.VideoMediator;
 	import com.newco.grand.core.common.view.mediators.WinnersMediator;
-	import com.newco.grand.core.common.view.uicomps.AccordionUIView;
+	import com.newco.grand.roulette.classic.view.AccordionUIView;
 	import com.newco.grand.core.common.view.uicomps.PlayersUIView;
 	import com.newco.grand.core.common.view.uicomps.WinnersUIView;
 	import com.newco.grand.roulette.classic.controller.commands.SetupAssetCommand;
