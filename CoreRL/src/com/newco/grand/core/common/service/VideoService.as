@@ -179,6 +179,8 @@ package com.newco.grand.core.common.service {
 		
 		private function IOErrorHandler(event:IOErrorEvent):void {
 			debug("IOErrorEvent: " + event);
+			_connection.close();
+			_stream.close();
 		}
 		
 		public function onMetaData(info:Object):void {
