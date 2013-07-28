@@ -12,7 +12,7 @@ package
 	import robotlegs.bender.framework.api.IContext;
 	import robotlegs.bender.framework.impl.Context;
 	
-	[SWF(width = "990", height = "610", frameRate = "24", backgroundColor = "#4C4C4C")]
+	[SWF(width = "990", height = "610", frameRate = "30", backgroundColor = "#4C4C4C")]
 	public class BaccaratRL extends Sprite
 	{
 
