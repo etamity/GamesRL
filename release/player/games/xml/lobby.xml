@@ -3,9 +3,8 @@
    <casinoid>0rnu7w1c8xhbuhtn</casinoid>
    <userid>hcti3a0bda47k3bh</userid>
    <server>livecasino.smartliveaffiliates.com</server>
-   <balance>20000</balance>
    <streamSever mode="rtmp">213.86.83.8/smartlivecasinolive-live</streamSever>
-   <maingame>baccarat</maingame>
+   <maingame>roulette</maingame>
 	<roulette>
 		<table streamName="R1" table_id="48z5pjps3ntvqc1b" vt_id="" name="Auto Black Roulette" dealer="nodealer" dealerid="nodealer" min="100.0" max="100000.0" priority="5" table_type="" game_type="auto" timings="24 HOURS" seats="999" stream="R3" start_time="0" end_time="24">
 		
@@ -60,16 +59,16 @@
 		
 	</blackjack>
 	<baccarat>
-		<table streamName="7BJ1" table_id="zucbi5szfr9bewqo" vt_id="" name="Baccarat Pairs" dealer="nodealer" dealerid="nodealer" min="1.0" max="100.0" priority="0" table_type="classic" game_type="classic" timings="22:00 � 00:00(GMT)" >
+		<table streamName="R1" table_id="zucbi5szfr9bewqo" vt_id="" name="Baccarat" dealer="nodealer" dealerid="nodealer" min="5.0" max="500.0" priority="0" table_type="classic" game_type="classic" timings="22:00 � 00:00(GMT)" >
 			<vtable table_id="41" vt_id="NA" name="Baccarat" dealer="nodealer" dealerid="nodealer" min="5.0" max="500.0" priority="0" table_type="classic" game_type="classic" timings="22:00 � 00:00(GMT)" />
 		</table>
 		<table streamName="7BJ1" table_id="zucbi5szfr9bewqo" vt_id="" name="Baccarat" dealer="nodealer" dealerid="nodealer" min="5.0" max="500.0" priority="0" table_type="classic" game_type="classic" timings="22:00 � 00:00(GMT)" >
 			<vtable table_id="41" vt_id="NA" name="Baccarat" dealer="nodealer" dealerid="nodealer" min="5.0" max="500.0" priority="0" table_type="classic" game_type="classic" timings="22:00 � 00:00(GMT)" />
 		</table>
-		<table streamName="R1" table_id="zucbi5szfr9bewqo" vt_id="" name="Dragon & Tiger" dealer="nodealer" dealerid="nodealer" min="5.0" max="500.0" priority="0" table_type="classic" game_type="classic" timings="22:00 � 00:00(GMT)" >
+		<table streamName="R1" table_id="zucbi5szfr9bewqo" vt_id="" name="Baccarat" dealer="nodealer" dealerid="nodealer" min="5.0" max="500.0" priority="0" table_type="classic" game_type="classic" timings="22:00 � 00:00(GMT)" >
 			<vtable table_id="41" vt_id="NA" name="Baccarat" dealer="nodealer" dealerid="nodealer" min="5.0" max="500.0" priority="0" table_type="classic" game_type="classic" timings="22:00 � 00:00(GMT)" />
 		</table>
-		<table streamName="R1" table_id="zucbi5szfr9bewqo" vt_id="" name="Super SIX" dealer="nodealer" dealerid="nodealer" min="5.0" max="500.0" priority="0" table_type="classic" game_type="classic" timings="22:00 � 00:00(GMT)" >
+		<table streamName="7BJ1" table_id="zucbi5szfr9bewqo" vt_id="" name="Baccarat" dealer="nodealer" dealerid="nodealer" min="5.0" max="500.0" priority="0" table_type="classic" game_type="classic" timings="22:00 � 00:00(GMT)" >
 			<vtable table_id="41" vt_id="NA" name="Baccarat" dealer="nodealer" dealerid="nodealer" min="5.0" max="500.0" priority="0" table_type="classic" game_type="classic" timings="22:00 � 00:00(GMT)" />
 		</table>
 	</baccarat>
