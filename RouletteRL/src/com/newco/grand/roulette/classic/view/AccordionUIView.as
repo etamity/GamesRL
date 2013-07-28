@@ -10,7 +10,7 @@ package com.newco.grand.roulette.classic.view
 		}
 		override public function align():void{
 			x= stage.stageWidth -width+2;
-			_compHeight=550;
+			_compHeight=610;
 			_display.setSize(_compWidth,_compHeight);
 			visible=true;
 		}
