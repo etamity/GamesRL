@@ -18,7 +18,7 @@ package com.newco.grand.core.common.service {
 	import flash.net.ObjectEncoding;
 	import flash.utils.Timer;
 	import flash.utils.getTimer;
-	
+	import flash.events.AsyncErrorEvent;
 	public class VideoService extends Actor {
 		
 		private static const STARTED_PLAYING:String = "NetStream.Play.Start";
@@ -70,10 +70,11 @@ package com.newco.grand.core.common.service {
 		public function VideoService() {
 			NetConnection.defaultObjectEncoding = ObjectEncoding.AMF0;			
 			_connection = new NetConnection();			
-			_connection.client = this;
+			_connection.client = { onBWDone: function():void{} };
 			_connection.addEventListener(IOErrorEvent.IO_ERROR, IOErrorHandler);
 			_connection.addEventListener(NetStatusEvent.NET_STATUS, netStatusHandler);
-			_connection.addEventListener(SecurityErrorEvent.SECURITY_ERROR, securityErrorHandler);			
+			_connection.addEventListener(SecurityErrorEvent.SECURITY_ERROR, securityErrorHandler);		
+			_connection.addEventListener(AsyncErrorEvent.ASYNC_ERROR, asyncErrorHandler);
 			_soundTransform = new SoundTransform();
 			
 			_waitTimer = new Timer(10000);
@@ -94,7 +95,9 @@ package com.newco.grand.core.common.service {
 			_maxBuffer = 5;
 			_bwCheck = 500;
 		}		
-		
+		private function asyncErrorHandler(event:AsyncErrorEvent):void {
+			trace(event.text);
+		}
 		public function init():void {
 			_streamAvailable = false;
 			_downgradeCheck = false;
@@ -118,7 +121,13 @@ package com.newco.grand.core.common.service {
 		private function createConnection():void {
 			debug("rtmp://" + _server + "/" + _application);
 			debug("streamName: "+_streamName);
-			_connection.connect("rtmp://" + _server + "/" + _application);
+			
+			if (_server!="" && _application!="" && _streamName.search(".mp4")==-1)
+				_connection.connect("rtmp://" + _server + "/" + _application);
+			else if (_streamName.search(".mp4")!=-1){
+				_connection.connect(null);
+				//connectStream();
+			}
 			
 			//_videoCheckTimer.start();
 			//_availabilityTimer.start();
@@ -130,11 +139,11 @@ package com.newco.grand.core.common.service {
 		private function connectStream():void	{
 			_stream = new NetStream(_connection);
 			_stream.addEventListener(NetStatusEvent.NET_STATUS, netStatusHandler);
-			_stream.client = this;
+			_stream.client = { onBWDone: function():void{} };
 			
 			//_video.stream = _stream;
 			signalBus.dispatch(VideoEvent.PLAY,{stream:_stream});
-			debug("streamName: "+_streamName);
+			debug("streamName: "+StringUtils.trim(_streamName));
 			_stream.play(StringUtils.trim(_streamName));
 		}
 		

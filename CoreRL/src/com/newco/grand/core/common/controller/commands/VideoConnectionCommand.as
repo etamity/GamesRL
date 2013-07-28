@@ -21,10 +21,10 @@ package com.newco.grand.core.common.controller.commands {
 		override public function execute():void {
 			switch (signal.type)	{				
 				case VideoEvent.CONNECT: 
-					
-					if (flashvars.streamUrl!="")
+					var streamUrl:String= flashvars.streamUrl;
+					if (streamUrl!="" && streamUrl.search("rtmp://")!=-1)
 					{
-						var streamUrl:String= flashvars.streamUrl;
+						
 						if (streamUrl !=""){
 							var params:Array = String(streamUrl).split("//");
 							params.shift();
@@ -39,10 +39,17 @@ package com.newco.grand.core.common.controller.commands {
 							game.videoApplication = application;
 	
 						}
-					}else{
-						videoService.servers = String(game.videoSettings.videoservers).split(",");
-						game.videoApplication = game.videoSettings.application;
-					}
+					}else if (streamUrl!="" && streamUrl.search(".mp4")!=-1)
+						{
+						   game.server="";
+						   game.videoStream=streamUrl;
+						   game.videoApplication="";
+						}
+						else
+						{
+							videoService.servers = String(game.videoSettings.videoservers).split(",");
+							game.videoApplication = game.videoSettings.application;
+						}
 					
 					/*if (game.server !="")
 						videoService.servers=new Array(game.server);*/
