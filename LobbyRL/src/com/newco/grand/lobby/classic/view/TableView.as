@@ -15,9 +15,9 @@ package com.newco.grand.lobby.classic.view
 	
 	import org.osflash.signals.Signal;
 	
-	public class TableView extends Sprite implements IUIView
+	public class TableView extends TableAsset
 	{
-		protected var _display:TableAsset;
+		//protected var _display:TableAsset;
 		private var _video:Video;
 		
 		private var _server:String;
@@ -37,11 +37,11 @@ package com.newco.grand.lobby.classic.view
 			
 			_video=new Video();
 			addChild(_video);
-			initDisplay();
+			//initDisplay();
 			_video.x=3;
 			_video.y=5;
-			_video.width=_display.width-4*2;
-			_video.height=_display.height-5*2;
+			_video.width=width-4*2;
+			_video.height=height-5*2;
 			
 			buttonMode=true;
 			this.addEventListener(MouseEvent.CLICK,doGameClick);
@@ -66,17 +66,12 @@ package com.newco.grand.lobby.classic.view
 		{
 		}
 		
-		public function get display():*
-		{
-			return this;
-		}
-		
-		public function initDisplay():void
+		/*public function initDisplay():void
 		{
 			_display= new TableAsset();
 			addChild(_display);
 		}
-		
+		*/
 		
 		public function playStream():void{
 			nc = new NetConnection();
@@ -164,14 +159,14 @@ package com.newco.grand.lobby.classic.view
 			}
 		}
 		public function setModel(data:TableModel):void{
-			_display.tableName.text=data.tableName;
-			_display.min.text=String(data.min);
-			_display.max.text=String(data.max);
+			tableName.text=data.tableName.toUpperCase();
+			min.text=String(data.min);
+			max.text=String(data.max);
 			_server =data.streamSever;
 			_streamApplication= data.streamApplication;
 			_streamName=data.streamName;
 			_tableModel=data;
-			playStream();
+			//playStream();
 		}
 	}
 }

@@ -56,7 +56,6 @@ package com.newco.grand.lobby.classic.view.mediators
 			}
 			
 			view.count=0;
-			
 			for (var i:int=0;i<lobbyModel.tables.length;i++)
 			{
 				table=lobbyModel.tables[i];
@@ -64,10 +63,12 @@ package com.newco.grand.lobby.classic.view.mediators
 				{
 					tableView=new TableView();
 					tableView.setModel(table);
-					tableView.playDetialSignal.add(playDetialEvent);
-					tableView.stopDetialSignal.add(stopDetialEvent);
+					//tableView.playDetialSignal.add(playDetialEvent);
+					//tableView.stopDetialSignal.add(stopDetialEvent);
 					tableView.openGameSignal.add(openGameEvent);
+					
 					view.addTable(tableView);
+					tableView.screenshot.gotoAndStop(view.count);
 				}
 			}
 		}
