@@ -52,11 +52,11 @@ package com.newco.grand.roulette.classic.controller.commands
 		
 			contextView.view.addChild(new BetSpotsView());
 			contextView.view.addChild(new AccordionUIView());
-			contextView.view.addChild(new VideoView());
 			contextView.view.addChild(new LimitsView());
 			contextView.view.addChild(new GameStatusView());
 			contextView.view.addChild(new ChatView());
 			contextView.view.addChild(new ResultsClassicView());
+			contextView.view.addChild(new VideoView());
 			contextView.view.addChild(new TaskbarView());
 			//contextView.view.addChild(new MessageBoxView());
 			contextView.view.addChild(new LobbyView());
