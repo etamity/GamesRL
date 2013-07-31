@@ -10,10 +10,8 @@ package com.newco.grand.core.common.view.mediators {
 	import com.newco.grand.core.utils.GameUtils;
 	
 	import flash.display.DisplayObject;
-	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.StageVideoAvailabilityEvent;
-	import flash.geom.Rectangle;
 	import flash.media.StageVideoAvailability;
 	
 	import robotlegs.bender.bundles.mvcs.Mediator;
@@ -51,8 +49,12 @@ package com.newco.grand.core.common.view.mediators {
 		override public function initialize():void {
 			//view.addEventListener(Event.ADDED_TO_STAGE,onAddtoStageEvent)
 			addViewListener(Event.ADDED_TO_STAGE,onAddtoStageEvent);
+			addViewListener(Event.REMOVED_FROM_STAGE,onRemoveFromStageEvent);
 			signalBus.add(VideoEvent.CONNECT,initializeVideo);
 			signalBus.add(VideoEvent.PLAY,setVideoStream);
+		}
+		private function onRemoveFromStageEvent(evt:Event):void{
+			view.stream.close();
 		}
 	/*	protected function setFrameMask(width:Number, height:Number, viewport:Rectangle):void
 		{
@@ -87,6 +89,8 @@ package com.newco.grand.core.common.view.mediators {
 		}
 		private function setVideoStream(signal:BaseSignal):void {
 			view.stream = signal.params.stream;
+			
+			view.stream.play(videoSevvice.streamName);
 			debug(flashVars.videoplayer);
 			if (flashVars.videoplayer=="stagevideo"){
 			view.toggleStageVideo(true);
@@ -112,10 +116,10 @@ package com.newco.grand.core.common.view.mediators {
 			} else {
 				contextView.view.setChildIndex(view, _viewChildIndex);
 			}*/
-			if (_topDisplayObject==null)
+			/*if (_topDisplayObject==null)
 				_topDisplayObject=contextView.view.getChildAt(contextView.view.numChildren-1);
 			
-			contextView.view.swapChildren(view.display,_topDisplayObject);
+			contextView.view.swapChildren(view.display,_topDisplayObject);*/
 		}
 		
 	}

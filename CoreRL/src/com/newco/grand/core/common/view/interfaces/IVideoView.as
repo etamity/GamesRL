@@ -7,6 +7,7 @@ package com.newco.grand.core.common.view.interfaces
 	public interface IVideoView extends IUIView
 	{
 		function set stream(value:NetStream): void;
+		function get stream():NetStream;
 		function toggleStageVideo(on:Boolean):void;
 		function get signalBus():SignalBus;
 	}

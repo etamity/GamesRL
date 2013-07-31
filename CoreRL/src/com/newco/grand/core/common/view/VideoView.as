@@ -199,6 +199,9 @@ package com.newco.grand.core.common.view {
 			_display.video.height = height;
 			//resize();
 		}
+		public function get stream():NetStream{
+			return _stream;
+		}
 		
 		private function refreshVideo(event:MouseEvent):void {
 			

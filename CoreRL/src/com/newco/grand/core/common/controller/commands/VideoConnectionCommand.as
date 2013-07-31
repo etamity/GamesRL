@@ -10,8 +10,10 @@ package com.newco.grand.core.common.controller.commands {
 	public class VideoConnectionCommand extends BaseCommand {
 		[Inject]
 		public var game:IGameData;
+		
 		[Inject]
 		public var videoService:VideoService;
+		
 		[Inject]
 		public var flashvars:FlashVars;
 		
@@ -22,6 +24,8 @@ package com.newco.grand.core.common.controller.commands {
 			switch (signal.type)	{				
 				case VideoEvent.CONNECT: 
 					var streamUrl:String= flashvars.streamUrl;
+					var lowerCaseStreamUr:String= streamUrl.toLowerCase();
+					
 					if (streamUrl!="" && streamUrl.search("rtmp://")!=-1)
 					{
 						
@@ -39,7 +43,7 @@ package com.newco.grand.core.common.controller.commands {
 							game.videoApplication = application;
 	
 						}
-					}else if (streamUrl!="" && streamUrl.search(".mp4")!=-1)
+					}else if (streamUrl!="" && lowerCaseStreamUr.search(".mp4")!=-1)
 						{
 						   game.server="";
 						   game.videoStream=streamUrl;

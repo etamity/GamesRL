@@ -8,6 +8,7 @@ package com.newco.grand.core.common.service {
 	import com.newco.grand.core.utils.GameUtils;
 	import com.newco.grand.core.utils.StringUtils;
 	
+	import flash.events.AsyncErrorEvent;
 	import flash.events.IOErrorEvent;
 	import flash.events.NetStatusEvent;
 	import flash.events.SecurityErrorEvent;
@@ -18,11 +19,11 @@ package com.newco.grand.core.common.service {
 	import flash.net.ObjectEncoding;
 	import flash.utils.Timer;
 	import flash.utils.getTimer;
-	import flash.events.AsyncErrorEvent;
+
 	public class VideoService extends Actor {
 		
 		private static const STARTED_PLAYING:String = "NetStream.Play.Start";
-		private static const SREAM_NOT_FOUND:String = "NetStream.Play.StreamNotFound";
+		private static const STREAM_NOT_FOUND:String = "NetStream.Play.StreamNotFound";
 		private static const CONNECTION_CLOSED:String = "NetConnection.Connect.Closed";
 		private static const CONNECTION_SUCCESSFUL:String = "NetConnection.Connect.Success";
 		
@@ -139,12 +140,13 @@ package com.newco.grand.core.common.service {
 		private function connectStream():void	{
 			_stream = new NetStream(_connection);
 			_stream.addEventListener(NetStatusEvent.NET_STATUS, netStatusHandler);
+			_stream.addEventListener(IOErrorEvent.IO_ERROR, IOErrorHandler);
 			_stream.client = { onBWDone: function():void{} };
-			
+			_stream.bufferTime =0.3;
 			//_video.stream = _stream;
 			signalBus.dispatch(VideoEvent.PLAY,{stream:_stream});
 			debug("streamName: "+StringUtils.trim(_streamName));
-			_stream.play(StringUtils.trim(_streamName));
+			//_stream.play(StringUtils.trim(_streamName));
 		}
 		
 		
@@ -161,14 +163,17 @@ package com.newco.grand.core.common.service {
 				case CONNECTION_SUCCESSFUL:
 					connectStream();
 					break;
-				case SREAM_NOT_FOUND:
+				case STREAM_NOT_FOUND:
 					break;
 				case STARTED_PLAYING:
 					//_video.onVideoStarted();
 					break;
 				case CONNECTION_CLOSED:
+					_stream.close();
+					_connection.close();
 					_videoStopped = true;
 					_videoReconnectTimer.start();
+				
 					break;
 			}
 		}
@@ -179,8 +184,9 @@ package com.newco.grand.core.common.service {
 		
 		private function IOErrorHandler(event:IOErrorEvent):void {
 			debug("IOErrorEvent: " + event);
-			_connection.close();
 			_stream.close();
+			_connection.close();
+			_videoCheckTimer.stop();
 		}
 		
 		public function onMetaData(info:Object):void {
@@ -189,6 +195,9 @@ package com.newco.grand.core.common.service {
 		}
 		
 		public function close(... args):void {
+			_stream.close();
+			_connection.close();
+			_videoCheckTimer.stop();
 		}
 		
 		public function onBWDone():void {
@@ -300,7 +309,9 @@ package com.newco.grand.core.common.service {
 				}
 			}
 		}
-		
+		public function get streamName():String{
+			return _streamName;
+		}
 		private function checkAndSwitchVideo(evt:TimerEvent):void {
 			_switchTimer.stop();
 			_downgradeCheck = false;
