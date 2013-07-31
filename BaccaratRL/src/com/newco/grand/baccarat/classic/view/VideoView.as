@@ -18,7 +18,7 @@ package com.newco.grand.baccarat.classic.view
 		override public function align():void{
 			x = 0;
 			y = 0;
-			setSize(820, 610);
+			setSize(805, 610);
 		}
 		
 		override public function resizeVideo(event:MouseEvent=null):void {
