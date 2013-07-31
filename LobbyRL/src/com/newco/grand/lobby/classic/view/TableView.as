@@ -2,7 +2,9 @@ package com.newco.grand.lobby.classic.view
 {
 	import com.newco.grand.core.common.view.interfaces.IUIView;
 	import com.newco.grand.lobby.classic.model.TableModel;
+	import com.smart.uicore.controls.DataGrid;
 	
+	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.AsyncErrorEvent;
 	import flash.events.IOErrorEvent;
@@ -12,6 +14,8 @@ package com.newco.grand.lobby.classic.view
 	import flash.media.Video;
 	import flash.net.NetConnection;
 	import flash.net.NetStream;
+	
+	import fl.controls.dataGridClasses.DataGridColumn;
 	
 	import org.osflash.signals.Signal;
 	
@@ -32,6 +36,8 @@ package com.newco.grand.lobby.classic.view
 		public var playDetialSignal:Signal=new Signal();
 		public var stopDetialSignal:Signal=new Signal();
 		public var openGameSignal:Signal=new Signal();
+		
+
 		public function TableView()
 		{
 			
@@ -42,13 +48,70 @@ package com.newco.grand.lobby.classic.view
 			_video.y=5;
 			_video.width=width-4*2;
 			_video.height=height-5*2;
-			
+
 			buttonMode=true;
 			this.addEventListener(MouseEvent.CLICK,doGameClick);
 			this.addEventListener(MouseEvent.ROLL_OVER,doRollOver);
 			this.addEventListener(MouseEvent.ROLL_OUT,doRollOut);
+			clearScoreCards();
+		}
+		private function clearScoreCards():void{
+			
+			var shoe:MovieClip;
+			var tile:MovieClip;
+			for (var i:int=0;i<6;i++)
+			{
+				shoe=scoreCardMc.getChildByName("shoe"+String(i)) as MovieClip;
+				shoe.visible=false;
+				for (var a:int=0;a<10;a++)
+				{
+	
+					tile=shoe.getChildByName("p"+String(a)) as MovieClip;
+					tile.visible=false;
+					tile.gotoAndStop("null");
+				}
+				for (var b:int=0;b<10;b++)
+				{
+					tile=shoe.getChildByName("b"+String(b)) as MovieClip;
+					tile.visible=false;
+					tile.gotoAndStop("null");
+				}
+			}
 		}
 		
+		private function randomScoreCards():void{
+			var shoe:MovieClip;
+			var tile:TileScoreAsset;
+			
+			var shoeCount:int = Math.random()*6;
+			var playerCount:int;
+			var bankerCount:int;
+			var tileCount:int;
+			for (var i:int=0;i<shoeCount;i++)
+			{
+				shoe=scoreCardMc.getChildByName("shoe"+String(i)) as MovieClip;
+				shoe.visible=true;
+				playerCount=Math.random()*10;
+				for (var a:int=0;a<playerCount;a++)
+				{
+					trace("a",a);
+					tile=shoe.getChildByName("p"+String(a)) as TileScoreAsset;
+					tileCount=Math.random()*9;
+					tile.label.text=String(Math.random()*99);
+					tile.gotoAndStop(tileCount);
+					tile.visible=true;
+				}
+				bankerCount=Math.random()*10;
+				for (var b:int=0;b<bankerCount;b++)
+				{
+					tile=shoe.getChildByName("b"+String(b)) as TileScoreAsset;
+					tileCount=Math.random()*9;
+					tile.label.text=String(Math.random()*99);
+					tile.gotoAndStop(tileCount);
+					tile.visible=true;
+				}
+			}
+		}
 		private function doGameClick(evt:MouseEvent):void{
 			openGameSignal.dispatch(_tableModel);
 		}
@@ -166,6 +229,7 @@ package com.newco.grand.lobby.classic.view
 			_streamApplication= data.streamApplication;
 			_streamName=data.streamName;
 			_tableModel=data;
+			randomScoreCards();
 			//playStream();
 		}
 	}
