@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<game>
+	<casino 
+	game="roulette" 
+	gametype="tv_roulette" 
+	tableid="48z5pjps3ntvqc1b"
+	
+	streamUrl="test.mp4"     
+	videoplayer="video"
+	client="slc" 
+	vtid="" 
+	userid="" 
+	room="game-7nyiaws9tgqrzaz3-rvu4z17kx9010qv2" 
+	lang="en" 
+	server="livecasino.smartliveaffiliates.com"
+	/>
+
+
+
+
+
+
+	
+	<!-- 
+	streamUrl="rtmp://213.86.83.8/smartlivecasinolive-live/R1" 
+	
+	
+	rtmp://213.86.83.8/smartlivecasinolive-live/cc1
+	
+	rtmp://110.92.24.106/m888/table1_3
+	-->
+</game>
