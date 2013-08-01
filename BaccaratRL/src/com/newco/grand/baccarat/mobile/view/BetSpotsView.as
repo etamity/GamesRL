@@ -12,5 +12,10 @@ package com.newco.grand.baccarat.mobile.view
 			_display= new Mobile_BetSpotsAsset();
 			addChild(_display);
 		}
+		
+		override public function align():void{
+			x=0;
+			visible=true;
+		}
 	}
 }

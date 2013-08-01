@@ -14,5 +14,9 @@ package com.newco.grand.baccarat.mobile.view
 			_display=new Mobile_CardsPanelAsset();
 			addChild(_display);
 		}
+		override public function align():void{
+			visible=true;
+			x=0;
+		}
 	}
 }
