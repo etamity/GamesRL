@@ -17,13 +17,17 @@ package com.newco.grand.lobby.classic.model
 		private var _streamName:String;
 		private var _streamMode:String;
 		
+		private var _xml:XML;
+		
 		public function TableModel()
 		{
+
 		}
 		public function setStreamPath(val:String):void{
 			var streams:Array=val.split("/");
 			_streamSever = streams[0];
 			_streamApplication= streams[1];
+			
 			//_streamName= streams[2];
 		}
 		
@@ -43,6 +47,11 @@ package com.newco.grand.lobby.classic.model
 			_max=data.@max;
 			_min=data.@min;
 			_timings=data.@timings;
+			_xml=data;
+			//trace("tablexml",data);
+		}
+		public function get xml():XML{
+			return _xml;
 		}
 		public function get streamSever():String{
 			return _streamSever;

@@ -4,6 +4,8 @@ package com.newco.grand.lobby.classic.view
 	import com.newco.grand.lobby.classic.model.TableModel;
 	import com.smart.uicore.controls.DataGrid;
 	
+	import fl.controls.dataGridClasses.DataGridColumn;
+	
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.AsyncErrorEvent;
@@ -14,8 +16,6 @@ package com.newco.grand.lobby.classic.view
 	import flash.media.Video;
 	import flash.net.NetConnection;
 	import flash.net.NetStream;
-	
-	import fl.controls.dataGridClasses.DataGridColumn;
 	
 	import org.osflash.signals.Signal;
 	
@@ -229,8 +229,80 @@ package com.newco.grand.lobby.classic.view
 			_streamApplication= data.streamApplication;
 			_streamName=data.streamName;
 			_tableModel=data;
-			randomScoreCards();
+			loadScoreCards();
 			//playStream();
 		}
+		
+		private function loadScoreCards():void{
+			var data:XMLList=_tableModel.xml.shoes;
+			var shoes:XMLList;
+			var shoe:XML;
+			var shoeMc:MovieClip;
+			var tile:TileScoreAsset;
+			var pid:int=0;
+			var bid:int=0;
+			for (var i:int=0;i<data.length();i++){
+				shoes=data[i].shoe;
+				pid=0;
+				bid=0;
+				for (var j:int=0;j<shoes.length();j++)
+				{
+					shoe=shoes[j];
+					shoeMc=scoreCardMc.getChildByName("shoe"+String(i)) as MovieClip;
+					shoeMc.visible=true;
+	
+					
+					if (shoe.@winner=="p")
+					{
+					
+						if (pid<10)
+						{
+						tile=shoeMc.getChildByName("p"+String(pid)) as TileScoreAsset;
+						tile.label.text=shoe.@score;
+						if (shoe.@type!="")
+							tile.gotoAndStop("player_"+shoe.@type);
+						else
+							tile.gotoAndStop("player");	
+						tile.visible=true;
+						pid++;
+						}
+					}
+					if (shoe.@winner=="t")
+					{
+						
+						if (pid<10)
+						{
+							tile=shoeMc.getChildByName("p"+String(pid)) as TileScoreAsset;
+							tile.label.text=shoe.@score;
+							if (shoe.@type!="")
+								tile.gotoAndStop("tie_"+shoe.@type);
+							else
+								tile.gotoAndStop("tie");	
+							tile.visible=true;
+							pid++;
+						}
+					}
+					
+					
+					
+					if (shoe.@winner=="b")
+					{
+						if (bid<10)
+						{
+						tile=shoeMc.getChildByName("b"+String(bid)) as TileScoreAsset;
+						tile.label.text=shoe.@score;
+						if (shoe.@type!="")
+						tile.gotoAndStop("banker_"+shoe.@type);
+						else
+						tile.gotoAndStop("banker");	
+						tile.visible=true;
+						bid++;
+						}
+					}
+				}
+			}
+		}
+		
+		
 	}
 }

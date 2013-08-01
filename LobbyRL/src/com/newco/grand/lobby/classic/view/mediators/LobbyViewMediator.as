@@ -71,6 +71,8 @@ package com.newco.grand.lobby.classic.view.mediators
 					tableView.screenshot.gotoAndStop(view.count);
 				}
 			}
+			
+			view.setRoulette(lobbyModel);
 		}
 		
 		private function playDetialEvent():void{

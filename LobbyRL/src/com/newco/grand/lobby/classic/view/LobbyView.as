@@ -1,7 +1,11 @@
 package com.newco.grand.lobby.classic.view
 {
+	import caurina.transitions.Tweener;
+	
 	import com.newco.grand.core.common.view.SMButton;
-	import com.newco.grand.core.common.view.ui.text.Text;
+	import com.newco.grand.lobby.classic.model.LobbyModel;
+	import com.newco.grand.lobby.classic.model.TableModel;
+	import com.smart.uicore.controls.Button;
 	
 	import flash.display.MovieClip;
 	import flash.display.SimpleButton;
@@ -9,8 +13,6 @@ package com.newco.grand.lobby.classic.view
 	import flash.events.MouseEvent;
 	import flash.geom.Point;
 	import flash.utils.setTimeout;
-	
-	import caurina.transitions.Tweener;
 	
 	import org.osflash.signals.Signal;
 
@@ -31,6 +33,11 @@ package com.newco.grand.lobby.classic.view
 		
 		private var informationPanel:InfoAnimationAsset=new InfoAnimationAsset();
 		
+		
+		public var roulette1:SMButton;
+		public var roulette2:SMButton;
+		public var roulette3:SMButton;
+		
 		public function LobbyView()
 		{
 		
@@ -49,7 +56,9 @@ package com.newco.grand.lobby.classic.view
 			
 			informationPanel.x=344;
 			informationPanel.y=18;
-			
+			roulette1 = new SMButton(bottomPanel.roulette1);
+			roulette2 = new SMButton(bottomPanel.roulette2);
+			roulette3 = new SMButton(bottomPanel.roulette3);
 			rouletteBtn.skin.addEventListener(MouseEvent.CLICK,doChangeGame);
 			baccaratBtn.skin.addEventListener(MouseEvent.CLICK,doChangeGame);
 			blackjackBtn.skin.addEventListener(MouseEvent.CLICK,doChangeGame);	
@@ -92,6 +101,25 @@ package com.newco.grand.lobby.classic.view
 			 _count=val;
 
 		}
+		
+		public function setRoulette(lobbyModel:LobbyModel):void{
+			var table:TableModel;
+			var index:int =0;
+			var arrBtns:Array=[roulette1,roulette2,roulette3];
+			for (var i:int=0;i<lobbyModel.tables.length;i++)
+			{
+				table=lobbyModel.tables[i];
+				if (table.game.toLowerCase()=="roulette")
+				{
+					if (index<3){
+						
+					arrBtns[index].label=table.tableName.toUpperCase();
+					index++;
+					}
+				}
+			}
+		}
+		
 		public function addTable(mc:TableView):void{
 			if (_count<4)
 			{
