@@ -97,6 +97,7 @@
 			<arg line="-C ${bin.path}"/>
 			<arg line="${ant.project.name}.swf"/>
 			<arg line="xml"/>
+			<arg line="skins"/>
 		</exec>
 	</target>
 	<!-- Run Unit Tests -->
