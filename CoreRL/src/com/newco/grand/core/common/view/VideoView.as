@@ -42,7 +42,7 @@ package com.newco.grand.core.common.view {
 		public var videoFullscreenSignal:Signal= new Signal();
 		public var videoAutoFullScreenSignal:Signal= new Signal();*/
 		
-		protected var _signalBus:SignalBus;
+		protected var _signalBus:SignalBus=new SignalBus();
 		
 		public var showFullSize:Boolean=false;
 		
@@ -67,8 +67,6 @@ package com.newco.grand.core.common.view {
 		}
 		
 		public function get signalBus():SignalBus{
-			if (_signalBus==null)
-				_signalBus=new SignalBus();
 			return _signalBus;
 		}
 		public function get display():*{
@@ -210,7 +208,7 @@ package com.newco.grand.core.common.view {
 			_signalBus.dispatch(UIEvent.VIDEO_REFRESH,{target:event.target});
 		}
 		
-		protected function showFullscreen(event:MouseEvent):void {
+		public function showFullscreen(event:MouseEvent):void {
 			resizeVideo(event);
 			_fullscreen = !_fullscreen;
 			resize();
@@ -236,7 +234,7 @@ package com.newco.grand.core.common.view {
 				//videoFullscreenSignal.dispatch(event.target);
 				//_display.frame.visible=false;
 				//_display.bg.visible=false;
-				_signalBus.dispatch(UIEvent.VIDEO_FULLSCREEN,{target:event.target});
+				//signalBus.dispatch(UIEvent.VIDEO_FULLSCREEN,{target:event.target});
 		
 				Tweener.addTween(this, {scaleX:1.8, time:0.75, transition:"easeInOutQuart"});
 				Tweener.addTween(this, {scaleY:1.58, time:0.75, transition:"easeInOutQuart", onComplete:function ():void{
@@ -255,7 +253,7 @@ package com.newco.grand.core.common.view {
 				Tweener.addTween(this, {scaleX:1, time:0.75, transition:"easeInOutQuart"});
 				Tweener.addTween(this, {scaleY:1, time:0.75, transition:"easeInOutQuart", onComplete:function ():void{
 				//videoFullscreenSignal.dispatch(event.target);
-				_signalBus.dispatch(UIEvent.VIDEO_FULLSCREEN,{target:event.target});
+					//signalBus.dispatch(UIEvent.VIDEO_FULLSCREEN,{target:event.target});
 				_display.videoButton.addEventListener(MouseEvent.CLICK, showFullscreen);
 				
 				}});

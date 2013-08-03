@@ -62,6 +62,7 @@ package com.newco.grand.core.common.service {
 		
 		[Inject]
 		public var _flashvars:FlashVars;
+		
 		[Inject]
 		public var game:IGameData;
 		
@@ -104,8 +105,7 @@ package com.newco.grand.core.common.service {
 			_downgradeCheck = false;
 			_streamName = _streams[_streams.length - 1];
 			_streamIndex = _streams.length - 1;
-			//_server = _servers[0];
-			_server =servers[0];
+			_server =game.server;
 			debug("_flashvars.streamServerID: "+_flashvars.streamServerID);
 			
 			if (_flashvars.streamServerID!="$streamServerID" && _flashvars.streamServerID!=undefined )
@@ -169,8 +169,8 @@ package com.newco.grand.core.common.service {
 					//_video.onVideoStarted();
 					break;
 				case CONNECTION_CLOSED:
-					_stream.close();
-					_connection.close();
+					//_stream.close();
+					//_connection.close();
 					_videoStopped = true;
 					_videoReconnectTimer.start();
 				

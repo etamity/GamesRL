@@ -1,8 +1,8 @@
 ﻿package com.newco.grand.core.common.view {
 
 	import com.newco.grand.core.common.controller.signals.MessageEvent;
-	import com.newco.grand.core.utils.GameUtils;
 	import com.newco.grand.core.common.view.interfaces.IBetSpotsViewCom;
+	import com.newco.grand.core.utils.GameUtils;
 	
 	import flash.display.MovieClip;
 	import flash.events.MouseEvent;
@@ -29,6 +29,8 @@
 		
 		private var _chipHolder:MovieClip=new MovieClip();
 		
+		private var _id:int;
+		
 		public function BetSpot(asset:MovieClip) {
 			_asset=asset;
 			chipsPlaced = [];
@@ -36,10 +38,13 @@
 			lastBet = 0;
 			_asset.buttonMode = true;
 			_asset.mouseChildren = false;
-			_asset.baseMC.alpha = 0;
+			_asset.alpha = 0;
 			asset.addChild(_chipHolder);
 		}
 
+		public function id():int{
+			return _id;
+		}
 		public function get mainChip():Betchip{
 			var chip:Betchip=null;
 			if (_chipHolder.numChildren>0)
@@ -97,11 +102,11 @@
 		}
 
 		public function highlight():void {
-			_asset.baseMC.alpha = 0.5;
+			_asset.alpha = 0.5;
 		}
 
 		public function removeHighlight():void {
-			_asset.baseMC.alpha = 0;
+			_asset.alpha = 0;
 		}
 
 		public function placeChip(evt:MouseEvent):void {
@@ -217,7 +222,7 @@
 		
 		public function disable():void {
 			removeHighlight();
-			_asset.baseMC.visible = false;
+			_asset.visible = false;
 			_asset.mouseEnabled = false;
 			_asset.buttonMode = false;
 			_asset.removeEventListener(MouseEvent.ROLL_OVER, rollOver);
@@ -226,7 +231,7 @@
 		}
 
 		public function enable():void {
-			_asset.baseMC.visible = true;
+			_asset.visible = true;
 			_asset.mouseEnabled = true;
 			_asset.buttonMode = true;
 			_asset.addEventListener(MouseEvent.ROLL_OVER, rollOver);

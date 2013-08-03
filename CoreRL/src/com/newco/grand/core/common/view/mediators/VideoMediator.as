@@ -52,6 +52,7 @@ package com.newco.grand.core.common.view.mediators {
 			addViewListener(Event.REMOVED_FROM_STAGE,onRemoveFromStageEvent);
 			signalBus.add(VideoEvent.CONNECT,initializeVideo);
 			signalBus.add(VideoEvent.PLAY,setVideoStream);
+			signalBus.add(VideoEvent.FULLSCREEN,videoFullscreen);
 		}
 		private function onRemoveFromStageEvent(evt:Event):void{
 			view.stream.close();
@@ -110,6 +111,9 @@ package com.newco.grand.core.common.view.mediators {
 			videoSevvice.refreshStream();
 		}
 		private function videoFullscreen(signal:BaseSignal):void {
+			
+			view.showFullscreen(null);
+			
 			/*if(!view.fullscreen) {
 				_viewChildIndex = contextView.view.getChildIndex(view);
 				contextView.view.setChildIndex(view, contextView.view.numChildren-1);

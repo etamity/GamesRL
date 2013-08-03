@@ -12,13 +12,13 @@
 
 		private var _chipValue:Number;
 		private var _betspotName:String;
-		private var _txtFormat:TextFormat;
+		//private var _txtFormat:TextFormat;
 
 		public var hightLightSignal:Signal=new Signal();
 		public var removeLightSignal:Signal=new Signal();
 		public var betchipSignal:Signal=new Signal();
 		public function Betchip() {
-			_txtFormat = new TextFormat("Arial", 11, 0x000000, true);
+			//_txtFormat = new TextFormat("Arial", 11, 0x000000, true);
 			chipValue = 0;
 			buttonMode = true;
 			mouseChildren = false;
@@ -77,7 +77,7 @@
 		public function set chipValue(amt:Number):void {
 			_chipValue = amt;
 			value.text = FormatUtils.formatChipText(amt);
-			value.setTextFormat(_txtFormat);
+			//value.setTextFormat(_txtFormat);
 		}
 
 		public function get chipValue():Number {

@@ -21,7 +21,7 @@ package com.newco.grand.core.common.view {
 		public function init():void {
 			align();
 			visible = true;
-			_display.time.visible=false;
+			//_display.time.visible=false;
 			setLightSOff();
 			//messageBlinkBG.visible = false;
 		}
