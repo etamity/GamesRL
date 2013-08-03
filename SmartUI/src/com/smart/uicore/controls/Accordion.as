@@ -10,6 +10,7 @@ package com.smart.uicore.controls
 	import com.smart.uicore.controls.skin.sourceSkin.ListSourceSkin;
 	import com.smart.uicore.controls.support.ColorConversion;
 	import com.smart.uicore.controls.support.UIComponent;
+	import com.smart.uicore.controls.events.AccordionEvent;
 	
 	import flash.display.DisplayObject;
 	import flash.events.MouseEvent;
@@ -27,6 +28,8 @@ package com.smart.uicore.controls
 	 * 
 	 * @author flashk
 	 */
+	[Event(name="AccordionEvent.SELECTED",type="com.smart.uicore.controls.events.AccordionEvent")]
+	
 	public class Accordion extends UIComponent
 	{
 		public var defaultButtonHeight:Number = 27;
@@ -35,6 +38,7 @@ package com.smart.uicore.controls
 		protected var _contents:Array;
 		protected var nowIndex:uint;
 		private var _txtFormat:TextFormat = new TextFormat("Arial", 12, 0X00CC00, true);
+		
 		public function Accordion()
 		{
 			super();
@@ -54,6 +58,9 @@ package com.smart.uicore.controls
 			return btns;
 		}
 		
+		public function get currentIndex():int{
+			return nowIndex;
+		}
 		override public function setDefaultSkin():void {
 			setSkin(ListSkin)
 		}
@@ -128,6 +135,7 @@ package com.smart.uicore.controls
 			dis.y = (index+1)*(defaultButtonHeight+defaultGapHeight);
 			dis.scrollRect = new Rectangle(0,0,_compoWidth-2,_compoHeight-btns.length*(defaultButtonHeight+defaultGapHeight));
 			nowIndex = index;
+			this.dispatchEvent(new AccordionEvent(AccordionEvent.SELECTED,nowIndex,btns[nowIndex].label));
 		}
 		
 		/**
