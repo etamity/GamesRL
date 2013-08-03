@@ -31,7 +31,6 @@
 			<arg line="--optimize=true"/>
 			<arg line="--swf-version=${swf.version}"/>
 			<arg line="--source-path+='${src.path}'"/>
-			<arg line="--library-path+='${assets.path}'"/>
 			<arg line="--library-path+='${libs.path}'"/>
 			<arg line="${src.path}/${ant.project.name}.as"/>
 			<arg line="--output ${bin.path}/${ant.project.name}.swf"/>
