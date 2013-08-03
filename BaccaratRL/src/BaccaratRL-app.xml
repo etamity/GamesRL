@@ -112,6 +112,7 @@
 	<autoOrients>true</autoOrients>
         <fullScreen>false</fullScreen>
         <visible>true</visible>
+    <softKeyboardBehavior>none</softKeyboardBehavior>
     </initialWindow>
 
 	<!-- We recommend omitting the supportedProfiles element, -->
