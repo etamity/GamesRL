@@ -23,7 +23,7 @@ package com.newco.grand.roulette.classic.view
 				//videoFullscreenSignal.dispatch(event.target);
 				//_display.frame.visible=false;
 				//_display.bg.visible=false;
-				_signalBus.dispatch(UIEvent.VIDEO_FULLSCREEN,{target:event.target});
+				//signalBus.dispatch(UIEvent.VIDEO_FULLSCREEN,{target:event.target});
 				
 				Tweener.addTween(this, {x:0,scaleX:1.8, time:0.75, transition:"easeInOutQuart"});
 				Tweener.addTween(this, {y:0,scaleY:1.58, time:0.75, transition:"easeInOutQuart", onComplete:function ():void{
@@ -42,7 +42,7 @@ package com.newco.grand.roulette.classic.view
 				Tweener.addTween(this, {x:360,scaleX:1, time:0.75, transition:"easeInOutQuart"});
 				Tweener.addTween(this, {y:0,scaleY:1, time:0.75, transition:"easeInOutQuart", onComplete:function ():void{
 					//videoFullscreenSignal.dispatch(event.target);
-					_signalBus.dispatch(UIEvent.VIDEO_FULLSCREEN,{target:event.target});
+					//signalBus.dispatch(UIEvent.VIDEO_FULLSCREEN,{target:event.target});
 					_display.videoButton.addEventListener(MouseEvent.CLICK, showFullscreen);
 					
 				}});

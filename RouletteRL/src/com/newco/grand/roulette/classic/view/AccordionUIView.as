@@ -1,7 +1,7 @@
 package com.newco.grand.roulette.classic.view
 {
 	import com.newco.grand.core.common.view.uicomps.AccordionUIView;
-	
+
 	public class AccordionUIView extends com.newco.grand.core.common.view.uicomps.AccordionUIView
 	{
 		public function AccordionUIView()
@@ -14,5 +14,7 @@ package com.newco.grand.roulette.classic.view
 			_display.setSize(_compWidth,_compHeight);
 			visible=true;
 		}
+		
+
 	}
 }

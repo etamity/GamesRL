@@ -11,15 +11,16 @@ package com.newco.grand.roulette.classic.view.mediators {
 	import com.newco.grand.core.common.model.Player;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.view.BetSpot;
+	import com.newco.grand.roulette.classic.view.interfaces.IBetSpotsView;
 	import com.newco.grand.core.utils.GameUtils;
 	import com.newco.grand.roulette.classic.controller.signals.DataGirdEvent;
 	import com.newco.grand.roulette.classic.model.BetspotData;
 	import com.newco.grand.roulette.classic.model.GameDataModel;
-	import com.newco.grand.roulette.classic.view.BetSpotsView;
 	
 	import flash.events.Event;
 	
 	import robotlegs.bender.bundles.mvcs.Mediator;
+	import robotlegs.bender.extensions.contextView.ContextView;
 
 	public class BetSpotsMediator extends Mediator{
 		
@@ -33,7 +34,10 @@ package com.newco.grand.roulette.classic.view.mediators {
 		public var signalBus:SignalBus;
 		
 		[Inject]
-		public var view:BetSpotsView;
+		public var view:IBetSpotsView;
+		
+		[Inject]
+		public var contextView:ContextView;
 		private const BLACK:Number           = 49;
 		private const COLUMNS:Array          = new Array(40, 41, 42);
 		private const CORNERS:Array          = new Array(109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 159);
@@ -67,6 +71,8 @@ package com.newco.grand.roulette.classic.view.mediators {
 			signalBus.add(BetEvent.DOUBLE, double);
 			signalBus.add(BetEvent.CONFRIM, confirm);
 			signalBus.add(DataGirdEvent.FAVOURITESAPPLY, applyFavourites);
+			
+	
 		}
 		
 		private function applyFavourites(signal:BaseSignal):void{
@@ -270,7 +276,7 @@ package com.newco.grand.roulette.classic.view.mediators {
 		}
 		private function setupModel(signal:BaseSignal):void {
 			initializeView();
-			eventMap.mapListener(view.stage, Event.RESIZE, onStageResize);
+			eventMap.mapListener(contextView.view.stage, Event.RESIZE, onStageResize);
 		}
 		
 		private function showTooltip(type:String,target:BetSpot):void {

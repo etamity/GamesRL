@@ -4,10 +4,9 @@ package com.newco.grand.roulette.classic.view {
 	import com.newco.grand.core.common.controller.signals.HighlightEvent;
 	import com.newco.grand.core.common.view.BetSpot;
 	import com.newco.grand.core.common.view.Betchip;
-	import com.newco.grand.roulette.classic.view.interfaces.IBetSpotsView;
 	import com.newco.grand.core.utils.FormatUtils;
 	import com.newco.grand.core.utils.GameUtils;
-	
+	import com.newco.grand.roulette.classic.view.interfaces.IBetSpotsView;
 	import flash.display.MovieClip;
 	import flash.events.MouseEvent;
 	import flash.geom.Rectangle;
@@ -15,7 +14,7 @@ package com.newco.grand.roulette.classic.view {
 	
 	import org.osflash.signals.Signal;
 	
-	public class BetSpotsView extends BetspotsAsset implements IBetSpotsView{
+	public class SideBetSpotsView extends BetBoardPanelAsset implements IBetSpotsView{
 		
 		public const SPOTS:Number = 166;
 		public const NEIGHBOUR_SPOTS:Number = 39;
@@ -44,11 +43,13 @@ package com.newco.grand.roulette.classic.view {
 		private var _balance:Number=0;
 		
 		private var _betspotsHash:Dictionary=new Dictionary();
-		public function BetSpotsView() {
+		public function SideBetSpotsView() {
 			createBetspots();
-			specialBetsMC.visible = false;
+			//specialBetsMC.visible = false;
 			visible = false;
 		}
+		
+		
 		public function get updateBetSignal():Signal{
 			return _updateBetSignal;
 		}
@@ -119,9 +120,8 @@ package com.newco.grand.roulette.classic.view {
 			for (var i:int = 2; i < SPOTS; i++) {
 				if (getChildByName("dz" + i) != null) {
 					stageSpot = MovieClip(getChildByName("dz" + i));
-					_betspotMC = new BetSpot(new BetspotAsset());
+					_betspotMC = new BetSpot(new SideBetspostAsset());
 					_betspotMC.name = "bs" + i;
-					_betspotMC.id=i;
 					_betspotMC.display.name=_betspotMC.name;
 					_betspotMC.display.transform.matrix = stageSpot.transform.matrix;
 					_betspotsHash[_betspotMC.name]=_betspotMC;
@@ -135,7 +135,7 @@ package com.newco.grand.roulette.classic.view {
 				}
 			}
 			//getChildByName("bs2").mask = zeroMask;
-			getBetspotByName("bs2").display.mask = zeroMask;
+			//getBetspotByName("bs2").display.mask = zeroMask;
 			_winMarkerMC = new WinMarker();
 			_winMarkerMC.visible = false;
 			addChild(_winMarkerMC);
@@ -366,12 +366,12 @@ package com.newco.grand.roulette.classic.view {
 					_betspotMC.enable();
 				}
 			}
-			for (i = 0; i <= NEIGHBOUR_SPOTS; i++) {
+			/*for (i = 0; i <= NEIGHBOUR_SPOTS; i++) {
 				MovieClip(neighbourBetsMC.popup.getChildByName("nb" + i)).buttonMode = true;
 				MovieClip(neighbourBetsMC.popup.getChildByName("nb" + i)).addEventListener(MouseEvent.ROLL_OVER, higilightNeighbour);
 				MovieClip(neighbourBetsMC.popup.getChildByName("nb" + i)).addEventListener(MouseEvent.ROLL_OUT, removeHigilightNeighbour);
 				MovieClip(neighbourBetsMC.popup.getChildByName("nb" + i)).addEventListener(MouseEvent.CLICK, placeNeighbourBets);
-			}
+			}*/
 		}
 		
 		public function disableBetting():void {
@@ -389,14 +389,14 @@ package com.newco.grand.roulette.classic.view {
 				
 				}
 			}
-			for (i = 0; i <= NEIGHBOUR_SPOTS; i++) {
+			/*for (i = 0; i <= NEIGHBOUR_SPOTS; i++) {
 				MovieClip(neighbourBetsMC.popup.getChildByName("nb" + i)).buttonMode = false;
 				MovieClip(neighbourBetsMC.popup.getChildByName("nb" + i)).mouseChildren = false;
 				MovieClip(neighbourBetsMC.popup.getChildByName("nb" + i)).removeEventListener(MouseEvent.ROLL_OVER, higilightNeighbour);
 				MovieClip(neighbourBetsMC.popup.getChildByName("nb" + i)).removeEventListener(MouseEvent.ROLL_OUT, removeHigilightNeighbour);
 				MovieClip(neighbourBetsMC.popup.getChildByName("nb" + i)).removeEventListener(MouseEvent.CLICK, placeNeighbourBets);
 				MovieClip(neighbourBetsMC.popup.getChildByName("nb" + i)).alpha = 0;
-			}
+			}*/
 		}
 		
 		public function clearBets():void {

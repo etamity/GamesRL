@@ -39,12 +39,10 @@ package com.newco.grand.roulette.configs
 	import com.newco.grand.core.common.service.ISocketService;
 	import com.newco.grand.core.common.service.URLSService;
 	import com.newco.grand.core.common.service.VideoService;
-	import com.newco.grand.roulette.classic.view.ChatView;
 	import com.newco.grand.core.common.view.GameStatusView;
 	import com.newco.grand.core.common.view.LoginView;
 	import com.newco.grand.core.common.view.StageView;
 	import com.newco.grand.core.common.view.TaskbarView;
-	import com.newco.grand.roulette.classic.view.VideoView;
 	import com.newco.grand.core.common.view.interfaces.IAccordion;
 	import com.newco.grand.core.common.view.interfaces.IChatView;
 	import com.newco.grand.core.common.view.interfaces.IGameStatusView;
@@ -52,6 +50,7 @@ package com.newco.grand.roulette.configs
 	import com.newco.grand.core.common.view.interfaces.IStageView;
 	import com.newco.grand.core.common.view.interfaces.ITaskbarView;
 	import com.newco.grand.core.common.view.interfaces.IVideoView;
+	
 	import com.newco.grand.core.common.view.mediators.ChatMediator;
 	import com.newco.grand.core.common.view.mediators.GameStatusMediator;
 	import com.newco.grand.core.common.view.mediators.LoginMediator;
@@ -60,7 +59,6 @@ package com.newco.grand.roulette.configs
 	import com.newco.grand.core.common.view.mediators.TaskbarMediator;
 	import com.newco.grand.core.common.view.mediators.VideoMediator;
 	import com.newco.grand.core.common.view.mediators.WinnersMediator;
-	import com.newco.grand.roulette.classic.view.AccordionUIView;
 	import com.newco.grand.core.common.view.uicomps.PlayersUIView;
 	import com.newco.grand.core.common.view.uicomps.WinnersUIView;
 	import com.newco.grand.roulette.classic.controller.commands.SetupAssetCommand;
@@ -70,7 +68,8 @@ package com.newco.grand.roulette.configs
 	import com.newco.grand.roulette.classic.controller.signals.StatisticsEvent;
 	import com.newco.grand.roulette.classic.model.GameDataModel;
 	import com.newco.grand.roulette.classic.service.GameSocketService;
-	import com.newco.grand.roulette.classic.view.BetSpotsView;
+	import com.newco.grand.roulette.classic.view.AccordionUIView;
+	import com.newco.grand.roulette.classic.view.ChatView;
 	import com.newco.grand.roulette.classic.view.FavouritesBetsView;
 	import com.newco.grand.roulette.classic.view.LimitsView;
 	import com.newco.grand.roulette.classic.view.LobbyView;
@@ -78,6 +77,7 @@ package com.newco.grand.roulette.configs
 	import com.newco.grand.roulette.classic.view.ResultsClassicView;
 	import com.newco.grand.roulette.classic.view.StageInfoView;
 	import com.newco.grand.roulette.classic.view.StatisticsView;
+	import com.newco.grand.roulette.classic.view.VideoView;
 	import com.newco.grand.roulette.classic.view.mediators.BetSpotsMediator;
 	import com.newco.grand.roulette.classic.view.mediators.FavouritesBetsMediator;
 	import com.newco.grand.roulette.classic.view.mediators.LimitsMediator;
@@ -87,7 +87,7 @@ package com.newco.grand.roulette.configs
 	import com.newco.grand.roulette.classic.view.mediators.RouletteAccordionMediator;
 	import com.newco.grand.roulette.classic.view.mediators.StageInfoMediator;
 	import com.newco.grand.roulette.classic.view.mediators.StatisticsMediator;
-	
+	import com.newco.grand.roulette.classic.view.interfaces.IBetSpotsView;
 	import org.assetloader.AssetLoader;
 	import org.assetloader.base.Param;
 	import org.assetloader.core.IAssetLoader;
@@ -155,7 +155,7 @@ package com.newco.grand.roulette.configs
 			signalBus.dispatch(SignalConstants.STARTUP);
 
 		}
-		private function setupView():void {
+		/*private function setupView():void {
 			contextView.view.addChild(new StageView());
 			contextView.view.addChild(new LoginView());
 			contextView.view.addChild(new AccordionUIView());
@@ -170,7 +170,7 @@ package com.newco.grand.roulette.configs
 			contextView.view.addChild(new VideoView());
 			//contextView.addChild(new StageInfoView());
 			
-		}
+		}*/
 		
 		public function mapSingletons():void{
 			injector.map(FlashVars).toValue(new FlashVars(contextView));
@@ -191,7 +191,7 @@ package com.newco.grand.roulette.configs
 		public function mapMediators():void{
 			mediatorMap.map(IStageView).toMediator(StageMediator);
 			mediatorMap.map(ILoginView).toMediator(LoginMediator);
-			mediatorMap.map(BetSpotsView).toMediator(BetSpotsMediator);
+			mediatorMap.map(IBetSpotsView).toMediator(BetSpotsMediator);
 			mediatorMap.map(IVideoView).toMediator(VideoMediator);
 			mediatorMap.map(LimitsView).toMediator(LimitsMediator);
 			mediatorMap.map(ResultsClassicView).toMediator(ResultsClassicMediator);
