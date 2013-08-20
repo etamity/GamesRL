@@ -50,15 +50,18 @@ package com.newco.grand.lobby.classic.controller.commands
 			signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:signal.message + "::" +_xmlurl});
 		}
 		override public function execute():void {	
+			var lobbyUrl:String;
 			if(flashVars.localhost) {
-				service.addLoader(new XMLLoader(new URLRequest(_xmlurl), URLS_XML));
-				service.getLoader(URLS_XML).onError.add(showError);
-				service.getLoader(URLS_XML).onComplete.add(setConfig);			
-				service.start();
+				lobbyUrl=_xmlurl;
 			}else
 			{
-				
+				lobbyUrl="/player/games/xml/lobby.xml";
 			}
+			
+			service.addLoader(new XMLLoader(new URLRequest(lobbyUrl), URLS_XML));
+			service.getLoader(URLS_XML).onError.add(showError);
+			service.getLoader(URLS_XML).onComplete.add(setConfig);			
+			service.start();
 		}
 	}
 }
