@@ -43,31 +43,42 @@ package com.newco.grand.core.common.controller.commands {
 		private var _loginRequest:URLRequest;
 		
 		override public function execute():void {
-			loginGrand();
+			//loginGrand();
+			fakeResponse();
 		}
 		public function loginGrand():void {
 			var id:String=signal.params.id;
 			var password:String=signal.params.password;
 			if (id != "" && password != "") {
-				var firstName:String= id.split(".")[0];
-				var lastName:String= id.split(".")[1];
-				var loginURL:String =urls.login+ "?first_name=#FIRSTNAME#&last_name=#LASTNAME#";
+				var p_username:String= id;
+				var p_password:String= password;
+				var loginURL:String =urls.login+ "?username=#USERNAME#&password=#PASSWORD#";
 			
-				loginURL=StringUtils.parseURL(loginURL, {"#FIRSTNAME#":firstName, "#LASTNAME#":lastName });
+				loginURL=StringUtils.parseURL(loginURL, {"#USERNAME#":p_username, "#PASSWORD#":p_password });
 				debug(loginURL);
 				service.addLoader(new XMLLoader(new URLRequest(loginURL), Constants.SERVER_LOGIN));
 				service.getLoader(Constants.SERVER_LOGIN).onError.add(showError);
-				service.getLoader(Constants.SERVER_LOGIN).onComplete.add(checkGrandAuthenticationResponse);			
+				service.getLoader(Constants.SERVER_LOGIN).onComplete.add(checkGrandAuthenticationResponse);
+				
 				service.start();
 				} 
 		}
 		
+		private function fakeResponse():void {
+			signalBus.dispatch(LoginEvent.LOGIN_SUCCESS);
+			signalBus.dispatch(StartupDataEvent.SEAT);
+			signalBus.dispatch(StartupDataEvent.LOAD);
+			signalBus.dispatch(BalanceEvent.LOAD);
+		
+		}
+		
+		
 		private function checkGrandAuthenticationResponse(signal:LoaderSignal, xml:XML):void {
 
 			debug(xml);
-			if (xml.hasOwnProperty("session")) {
-				player.session    = xml.session;
-				flashvars.user_id = xml.userid;
+			if (xml.hasOwnProperty("xml")) {
+				//player.session    = xml.session;
+				flashvars.user_id = xml.user_id;
 			
 				signalBus.dispatch(LoginEvent.LOGIN_SUCCESS);
 				signalBus.dispatch(StartupDataEvent.SEAT);

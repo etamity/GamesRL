@@ -85,7 +85,7 @@ package com.newco.grand.core.common.model
 		}
 		public function get login():String {
 			
-			var index:int = _login.search("http://");
+			var index:int = _login.search("://");
 			if (index>=0)
 			return  _login;
 			else

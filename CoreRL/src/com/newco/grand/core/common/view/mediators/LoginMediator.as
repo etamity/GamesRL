@@ -43,8 +43,8 @@ package com.newco.grand.core.common.view.mediators {
 		
 		private function initializeView():void {
 			view.init();
-			view.id = "170413a";
-			view.password = "test11";
+			view.id = "adi";
+			view.password = "adi123";
 			_loginSO = SharedObject.getLocal("login");
 			if (_loginSO.data.id != null) {
 				view.id = _loginSO.data.id;
