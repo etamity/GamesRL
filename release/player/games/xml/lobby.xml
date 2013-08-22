@@ -1,10 +1,12 @@
 <?xml version="1.0"?>
 <gametable>
-   <casinoid>0rnu7w1c8xhbuhtn</casinoid>
-   <userid>hcti3a0bda47k3bh</userid>
-   <server>livecasino.smartliveaffiliates.com</server>
-   <streamSever mode="rtmp">213.86.83.8/smartlivecasinolive-live</streamSever>
-   <maingame>baccarat</maingame>
+   <casinoid><![CDATA[0rnu7w1c8xhbuhtn]]></casinoid>
+   <userid><![CDATA[qsppb8350ousepw0]]></userid>
+   <server><![CDATA[livecasino.smartliveaffiliates.com]]></server>
+   <balance><![CDATA[5120]]></balance>
+   <streamSever mode="rtmp"><![CDATA[213.86.83.8/smartlivecasinolive-live]]></streamSever>
+   <opengame><![CDATA[/player/chat_board.jsp]]></opengame>
+   <maingame><![CDATA[baccarat]]></maingame>
 	<roulette>
 		
 		<table streamName="R1" table_id="7kqbll806q26x44k" vt_id="" name="Auto Roulette" dealer="nodealer" dealerid="nodealer" min="100.0" max="50000.0" priority="4" table_type="" game_type="auto" timings="24 HOURS" seats="999"  stream="R2" start_time="0" end_time="24">
@@ -28,7 +30,7 @@
 		
 	</blackjack>
 	<baccarat>
-		<table streamName="R1" table_id="zucbi5szfr9bewqo" vt_id="" name="Baccarat" dealer="nodealer" dealerid="nodealer" min="5.0" max="500.0" priority="0" table_type="classic" game_type="classic" timings="22:00 � 00:00(GMT)" >
+		<table streamName="R1" table_id="crej46fqnnnlgl4w" vt_id="" name="Baccarat" dealer="nodealer" dealerid="nodealer" min="5.0" max="500.0" priority="0" table_type="classic" game_type="classic" timings="22:00 � 00:00(GMT)" >
 			<shoes>
 			<shoe winner="b" score="20" type=""/>
 			<shoe winner="b" score="10" type="pairs"/>
@@ -68,7 +70,7 @@
 			<shoe winner="b" score="85" type=""/>
 			</shoes>
 		</table>
-		<table streamName="7BJ1" table_id="zucbi5szfr9bewqo" vt_id="" name="Lucky Pairs" dealer="nodealer" dealerid="nodealer" min="5.0" max="500.0" priority="0" table_type="classic" game_type="classic" timings="22:00 � 00:00(GMT)" >
+		<table streamName="7BJ1" table_id="crej46fqnnnlgl4w" vt_id="" name="Lucky Pairs" dealer="nodealer" dealerid="nodealer" min="5.0" max="500.0" priority="0" table_type="classic" game_type="classic" timings="22:00 � 00:00(GMT)" >
 			<shoes>
 			<shoe winner="b" score="20" type=""/>
 			<shoe winner="b" score="10" type="pairs"/>
@@ -115,7 +117,7 @@
 			<shoe winner="p" score="85" type=""/>
 			</shoes>
 		</table>
-		<table streamName="R1" table_id="zucbi5szfr9bewqo" vt_id="" name="Super Six" dealer="nodealer" dealerid="nodealer" min="5.0" max="500.0" priority="0" table_type="classic" game_type="classic" timings="22:00 � 00:00(GMT)" >
+		<table streamName="R1" table_id="crej46fqnnnlgl4w" vt_id="" name="Super Six" dealer="nodealer" dealerid="nodealer" min="5.0" max="500.0" priority="0" table_type="classic" game_type="classic" timings="22:00 � 00:00(GMT)" >
 			<shoes>			
 			<shoe winner="b" score="60" type=""/>
 			<shoe winner="b" score="85" type=""/>
@@ -135,7 +137,7 @@
 			<shoe winner="p" score="85" type=""/>
 			</shoes>
 			</table>
-		<table streamName="7BJ1" table_id="zucbi5szfr9bewqo" vt_id="" name="Dragon & Tiger" dealer="nodealer" dealerid="nodealer" min="5.0" max="500.0" priority="0" table_type="classic" game_type="classic" timings="22:00 � 00:00(GMT)" >
+			<table streamName="7BJ1" table_id="crej46fqnnnlgl4w" vt_id="" name="Dragon & Tiger" dealer="nodealer" dealerid="nodealer" min="5.0" max="500.0" priority="0" table_type="classic" game_type="classic" timings="22:00 � 00:00(GMT)" >
 			<shoes>
 			<shoe winner="b" score="60"  type="pairs"/>
 			<shoe winner="b" score="85"  type=""/>
