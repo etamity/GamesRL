@@ -16,7 +16,7 @@ package com.newco.grand.lobby.classic.controller.commands
 	import org.assetloader.signals.ErrorSignal;
 	import org.assetloader.signals.LoaderSignal;
 
-	public class StartupCommand extends BaseCommand
+	public class LobbyDataCommand extends BaseCommand
 	{
 		[Inject]
 		public var service:IAssetLoader;
@@ -32,7 +32,7 @@ package com.newco.grand.lobby.classic.controller.commands
 
 		private const URLS_XML:String= "LOBBY_XML";
 		private var _xmlurl:String="xml/lobby.xml";
-		public function StartupCommand()
+		public function LobbyDataCommand()
 		{
 
 		}
@@ -42,6 +42,7 @@ package com.newco.grand.lobby.classic.controller.commands
 		private function setConfig(signal:LoaderSignal, xml:XML):void {
 			debug(xml);
 			player.balance=xml.balance;
+			flashVars.user_id=xml.userid;
 			lobbyModel.data=xml;
 			signalBus.dispatch(LobbyEvents.DATALOADED);
 		}
