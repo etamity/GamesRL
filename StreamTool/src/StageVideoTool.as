@@ -160,8 +160,10 @@ package
 				var stream:Array=_url.split("//");
 				var streams:Array=stream[1].split("/");
 				_server = streams[0];
-				_application= streams[1];
-				_streamName= streams[2];
+				_streamName= streams[streams.length-1];				
+				_application= _url.replace("rtmp://"+_server+"/","");
+				_application=_application.replace("/"+_streamName,"");
+				
 				
 				var video_sever:String="rtmp://"+_server+"/"+_application;
 				trace("_server",_server);
@@ -179,19 +181,46 @@ package
 		private function connectStream():void	{
 			ns = new NetStream(nc);
 			ns.addEventListener(NetStatusEvent.NET_STATUS, netStatusHandler);
-			ns.client ={ onBWDone: function():void{} };
+			ns.client ={ onBWDone: function():void{
+
+			
+			} };
 			ns.addEventListener(IOErrorEvent.IO_ERROR, IOError);
-			ns.bufferTime = 0.3;
+			ns.bufferTime = 1;
 			if (stageVideoInUse)
 			sv.attachNetStream(ns);
 			else
 			video.attachNetStream(ns);
 			
 		
-			ns.play(_streamName);
+			ns.play(trim(_streamName));
 			
 			
 		}
+		
+		public function trim(str:String):String {
+			var j:Number = 0;
+			var strlen:Number = str.length;
+			var k:Number;
+			
+			while (str.charAt(j) == " ") {				
+				j++;
+			}
+			if(j > 0){
+				str = str.substring(j, strlen);
+				if (j == strlen) {
+					return str;
+				}
+			}
+			
+			k = str.length - 1;
+			while (str.charAt(k) == " ") {				
+				k--;
+			}
+			str = str.substring(0, k + 1);			
+			return str;
+		}
+		
 		private function IOError(event:IOErrorEvent):void {
 			trace("Error on StageVideo Player stream");
 		}
