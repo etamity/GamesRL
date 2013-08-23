@@ -91,7 +91,7 @@ package com.newco.grand.core.common.view.mediators {
 		private function setVideoStream(signal:BaseSignal):void {
 			view.stream = signal.params.stream;
 			
-			view.stream.play(videoSevvice.streamName);
+			//view.stream.play(videoSevvice.streamName);
 			debug(flashVars.videoplayer);
 			if (flashVars.videoplayer=="stagevideo"){
 			view.toggleStageVideo(true);

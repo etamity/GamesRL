@@ -35,6 +35,7 @@ package com.newco.grand.core.common.service {
 		private var _streams:Array = new Array("R1"); //7BJ1 , "TvRoulette2"
 		private var _application:String = "smartlivecasinolive-live"; //"smartlivecasinolive-live";
 		private var _server:String;
+		private var _serverIndex:uint=0;
 		private var _streamName:String;
 		private var _streamIndex:uint;
 		private var _stream:NetStream;
@@ -120,8 +121,12 @@ package com.newco.grand.core.common.service {
 			_connection.connect(streamUrl);
 		}
 		private function createConnection():void {
-			debug("rtmp://" + _server + "/" + _application);
+			debug("server: "+_server);
 			debug("streamName: "+_streamName);
+			debug("application: "+_application);
+			debug("streamName: "+_streamName);
+			debug("rtmp://" + _server + "/" + _application);
+		
 			
 			if (_server!="" && _application!="" && _streamName.search(".mp4")==-1)
 				_connection.connect("rtmp://" + _server + "/" + _application);
@@ -146,7 +151,7 @@ package com.newco.grand.core.common.service {
 			//_video.stream = _stream;
 			signalBus.dispatch(VideoEvent.PLAY,{stream:_stream});
 			debug("streamName: "+StringUtils.trim(_streamName));
-			//_stream.play(StringUtils.trim(_streamName));
+			_stream.play(StringUtils.trim(_streamName));
 		}
 		
 		
@@ -174,6 +179,13 @@ package com.newco.grand.core.common.service {
 					_videoStopped = true;
 					_videoReconnectTimer.start();
 				
+					break;
+				case "NetConnection.Connect.Rejected":
+					_server=_servers[_serverIndex];
+					if (_serverIndex<_servers.length-1)
+					_serverIndex++;
+					else
+					_serverIndex=0;
 					break;
 			}
 		}

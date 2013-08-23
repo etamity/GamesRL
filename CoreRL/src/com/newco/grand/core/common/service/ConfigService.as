@@ -24,8 +24,6 @@ package com.newco.grand.core.common.service
 		[Inject]
 		public var flashVars:FlashVars;
 		[Inject]
-		public var videoService:VideoService;
-		[Inject]
 		public var signalBus:SignalBus;
 		private var _onComplete:Function;
 		public function ConfigService()

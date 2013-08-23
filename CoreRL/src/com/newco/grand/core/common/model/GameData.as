@@ -27,12 +27,18 @@ package com.newco.grand.core.common.model
 		private var _gameType:String;
 		private var _statusMessage:String;
 		private var _layoutPoints:Dictionary;
+		private var _videoStreams:Array=new Array();
 		public function GameData()
 		{
 			super();
 			_layoutPoints=new Dictionary();
 		}
-		
+		public function set videoStreams(value:Array):void{
+			_videoStreams=value;
+		}
+		public function get videoStreams():Array{
+			return _videoStreams;
+		}
 		public function get layoutPoints():Dictionary{
 			return _layoutPoints;
 		}

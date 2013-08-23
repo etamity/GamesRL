@@ -30,6 +30,9 @@ package com.newco.grand.core.common.model
 		 function set videoStream(value:String):void;
 		 function get videoStream():String;
 		
+		 function set videoStreams(value:Array):void;
+		 function get videoStreams():Array;
+		 
 		 function get countdown():int;
 		
 		 function set countdown(value:int):void ;

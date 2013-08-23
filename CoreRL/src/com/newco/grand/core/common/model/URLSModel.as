@@ -27,6 +27,10 @@ package com.newco.grand.core.common.model
 		private var _seat:String        = "/cgibin/sitdown.jsp";
 		private var _skin:String        = "/player/games/prepare/skins/skin.swf";
 		private var _tournament:String 	= "/xml/tournament.xml";
+		
+		private var _accountHistory:String = "player/audit/historyXML2.jsp";
+		private var _activityHistory:String=  "player/audit/historyXML.jsp";
+		
 		private var urlsXml:XML ;
 		[Inject]
 		public var flashVars:FlashVars;
@@ -41,7 +45,7 @@ package com.newco.grand.core.common.model
 			_server = "https://livecasino.smartliveaffiliates.com";
 		}
 		public function get tournament():String {
-			return _tournament;
+			return _server+_tournament;
 		}
 		
 		public function set tournament(value:String):void {
@@ -92,6 +96,18 @@ package com.newco.grand.core.common.model
 			return server + _login
 		}
 
+		public function get accountHistory():String{
+			return _accountHistory;
+		}
+		public function set accountHistory(val:String):void{
+			 _accountHistory= val;
+		}
+		public function set activityHistory(val:String):void{
+			 _activityHistory=val;
+		}
+		public function get activityHistory():String{
+			return _activityHistory;
+		}
 		public function set login(value:String):void {
 			_login = value;
 		}
@@ -206,6 +222,8 @@ package com.newco.grand.core.common.model
 		}
 		
 		public function get settings():String{
+			if( flashVars.localhost )
+				return "xml/settings.xml";
 			return server + _settings;
 		}
 		public function set settings(value:String):void{

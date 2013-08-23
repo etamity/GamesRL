@@ -6,6 +6,7 @@ package com.newco.grand.core.common.controller.commands {
 	import com.newco.grand.core.common.model.IGameData;
 	import com.newco.grand.core.common.service.VideoService;
 	import com.newco.grand.core.utils.GameUtils;
+	import com.newco.grand.core.utils.StringUtils;
 	
 	public class VideoConnectionCommand extends BaseCommand {
 		[Inject]
@@ -36,8 +37,12 @@ package com.newco.grand.core.common.controller.commands {
 							var paramStr:String= params[0];
 							params=paramStr.split("/");
 							var sever:String = params[0];
-							var application:String= params[1];
-							var videoName:String= params[2];
+							var videoName:String= params[params.length-1];
+							var application:String= String(streamUrl).replace("rtmp://"+sever+"/","");
+							application=application.replace("/"+videoName,"");
+							application=
+				
+							
 							game.server=sever;
 							game.videoStream=videoName;
 							game.videoApplication = application;
@@ -52,13 +57,17 @@ package com.newco.grand.core.common.controller.commands {
 						else
 						{
 							videoService.servers = String(game.videoSettings.videoservers).split(",");
-							game.videoApplication = game.videoSettings.application;
+							game.server=videoService.servers[0];
+							if (game.videoSettings.application.@withGameName=="false")
+								game.videoApplication = game.videoSettings.application;
+							else
+								game.videoApplication = StringUtils.trim(game.videoSettings.application+"/"+flashvars.game.toLowerCase());
 						}
 					
 					/*if (game.server !="")
 						videoService.servers=new Array(game.server);*/
 					if (game.videoStream !="")
-						videoService.streams= new Array(game.videoStream);
+						videoService.streams= game.videoStreams;
 					if (game.videoApplication !="")
 						videoService.application=game.videoApplication;
 					

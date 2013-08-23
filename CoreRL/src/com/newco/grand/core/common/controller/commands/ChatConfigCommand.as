@@ -62,12 +62,14 @@ package com.newco.grand.core.common.controller.commands {
 			player.type = xml.usertype;
 			chat.server = xml.server;
 			chat.port = xml.port;
+			debug("chat.port",chat.port);
 			chat.room = xml.room;
-			chat.serverSignupPath = xml.server_signup_path;
-			chat.serverSignupString = xml.server_signup_string;			
+			/*chat.serverSignupPath = xml.server_signup_path;
+			chat.serverSignupString = xml.server_signup_string;	*/		
 			
 			service.remove(Constants.SERVER_CHAT_CONFIG);
-			authenticateChat();
+			//authenticateChat();
+			signalBus.dispatch(ChatEvent.CONNECT);
 		}
 		
 		private function authenticateChat():void {

@@ -8,6 +8,7 @@ package com.newco.grand.core.common.service
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.model.URLSModel;
 	import com.newco.grand.core.utils.GameUtils;
+	import com.newco.grand.core.utils.StringUtils;
 	
 	import flash.net.URLRequest;
 	
@@ -41,6 +42,7 @@ package com.newco.grand.core.common.service
 		}
 		private function setConfig(signal:LoaderSignal, xml:XML):void {
 			debug(xml);
+			debug("GameType:"+flashVars.game.toLowerCase(),Constants.BACCARAT.toLowerCase());
 			urlsModel.server= xml.common.server;
 			urlsModel.authentication= xml.common.authentication;
 			urlsModel.balance= xml.common.balance;
@@ -56,32 +58,36 @@ package com.newco.grand.core.common.service
 			urlsModel.tableConfig = xml.common.tableConfig;
 			urlsModel.skin= xml.common.skin;
 			urlsModel.tournament=xml.common.tournament;
-			if (flashVars.game.toLowerCase()==Constants.BACCARAT.toLowerCase())
+			urlsModel.accountHistory=xml.common.accountHistory;
+			urlsModel.activityHistory=xml.common.activityHistory;
+			
+			
+			if (StringUtils.trim(flashVars.game.toLowerCase())==StringUtils.trim(Constants.BACCARAT.toLowerCase()))
 			{
 				urlsModel.sendBets =xml.baccarat.sendBets;
 				urlsModel.state =xml.baccarat.state;
 				urlsModel.winners=xml.baccarat.winners;
 				urlsModel.statistics=xml.baccarat.statistics;
-				urlsModel.skin=(xml.baccarat.skin!=undefined)?xml.baccarat.skin:urlsModel.skin;
+				urlsModel.skin=(xml.baccarat.skin!=undefined)?xml.baccarat.skin:xml.common.skin;
 			}
 			
-			if (flashVars.game.toLowerCase()==Constants.ROULETTE.toLowerCase())
+			if (StringUtils.trim(flashVars.game.toLowerCase())==StringUtils.trim(Constants.ROULETTE.toLowerCase()))
 			{
 				urlsModel.sendBets =xml.roulette.sendBets;
 				urlsModel.state =xml.roulette.state;
 				urlsModel.winners=xml.roulette.winners;
 				urlsModel.statistics=xml.roulette.statistics;
-				urlsModel.skin=(xml.roulette.skin!=undefined)?xml.baccarat.skin:urlsModel.skin;
+				urlsModel.skin=(xml.roulette.skin!=undefined)?xml.baccarat.skin:xml.common.skin;
 			}
 			if (_onComplete!=null)
 			_onComplete();
-			
+			debug("GameType:",urlsModel.state);
 		}
 		public function loadConfig(onComplete:Function):void{
 			debug("loading Config  " + _xmlurl);
 			if (flashVars.localhost==false)
 			{
-				_xmlurl="/player/games/assets/urls.xml";
+				_xmlurl="/player/games/xml/urls.xml";
 			}
 				
 			
@@ -97,6 +103,7 @@ package com.newco.grand.core.common.service
 		}
 		private function debug(...args):void {
 			GameUtils.log(this, args);
+		
 		}
 	}
 }

@@ -53,7 +53,7 @@ package com.newco.grand.core.common.view.mediators {
 		
 		private function sendMessage():void {
 			chat.message = view.message;
-			signalBus.signal(ChatEvent.SEND_MESSAGE);
+			signalBus.dispatch(ChatEvent.SEND_MESSAGE);
 			view.clear();
 		}
 		

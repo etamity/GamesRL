@@ -48,11 +48,11 @@ package com.newco.grand.core.common.controller.commands {
 		
 		private function sendBets():void {
 			if (service.getLoader(Constants.SERVER_SEND_BETS)==null)
-			service.addLoader(new XMLLoader(new URLRequest(urls.sendBets + "?user_id=" + player.id + "&table_id=" + flashvars.table_id+ "&vt_id="+flashvars.vt_id + "&game_id=" + game.gameID + player.betString + "&noOfBets=" + player.betCount), Constants.SERVER_SEND_BETS));
+			service.addLoader(new XMLLoader(new URLRequest(urls.sendBets + "?user_id=" + flashvars.user_id+ "&table_id=" + flashvars.table_id+ "&vt_id="+flashvars.vt_id + "&game_id=" + game.gameID + player.betString + "&noOfBets=" + player.betCount), Constants.SERVER_SEND_BETS));
 			service.getLoader(Constants.SERVER_SEND_BETS).onError.add(showError);
 			service.getLoader(Constants.SERVER_SEND_BETS).onComplete.add(betsResponse);
 			service.start();
-			debug(urls.sendBets + "?user_id=" + player.id + "&table_id=" + flashvars.table_id + "&vt_id="+flashvars.vt_id + "&game_id=" + game.gameID + player.betString + "&noOfBets=" + player.betCount);
+			debug(urls.sendBets + "?user_id=" + flashvars.user_id + "&table_id=" + flashvars.table_id + "&vt_id="+flashvars.vt_id + "&game_id=" + game.gameID + player.betString + "&noOfBets=" + player.betCount);
 		}
 		
 		private function betsResponse(signal:LoaderSignal, xml:XML):void {

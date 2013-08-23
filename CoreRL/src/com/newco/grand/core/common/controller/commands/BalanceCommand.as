@@ -10,9 +10,7 @@ package com.newco.grand.core.common.controller.commands {
 	
 	import flash.net.URLRequest;
 	
-	import org.assetloader.base.Param;
 	import org.assetloader.core.IAssetLoader;
-	import org.assetloader.core.IParam;
 	import org.assetloader.loaders.XMLLoader;
 	import org.assetloader.signals.ErrorSignal;
 	import org.assetloader.signals.LoaderSignal;
@@ -41,6 +39,7 @@ package com.newco.grand.core.common.controller.commands {
 				service.getLoader(Constants.SERVER_BALANCE).onError.add(showError);
 				service.getLoader(Constants.SERVER_BALANCE).onComplete.add(setBalance);
 				service.start();
+		
 			}
 		}
 		

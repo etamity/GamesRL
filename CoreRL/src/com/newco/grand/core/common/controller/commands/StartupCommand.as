@@ -28,7 +28,7 @@ package com.newco.grand.core.common.controller.commands {
 			if(flashVars.localhost) {
 				configService.loadConfig(function ():void{
 					urlsService.loadConfig(function ():void{
-						if (FlashVars.AIR_MODE==false)
+						if (FlashVars.SKIN_ENABLE==true)
 						SkinLoader.loadSkinFile("skins/skin.swf",onStart,onError,null,null);
 						else
 						signalBus.dispatch(SignalConstants.STARTUP_COMPLETE);	
@@ -38,7 +38,7 @@ package com.newco.grand.core.common.controller.commands {
 			}
 			else{
 				urlsService.loadConfig(function ():void{
-					if (FlashVars.AIR_MODE==false)
+					if (FlashVars.SKIN_ENABLE==true)
 					SkinLoader.loadSkinFile(urls.skin,onStart,onError,null,null);
 					else
 					signalBus.dispatch(SignalConstants.STARTUP_COMPLETE);	

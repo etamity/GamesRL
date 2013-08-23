@@ -30,7 +30,8 @@ package com.newco.grand.core.common.view
 		}
 		public function setErrorMessage(val:String):void{
 			align();
-			_display.errorMsg.text=val;
+			_display.errorMsg.htmlText+=val+"<br />";
+			
 			visible=true;
 			
 		}

@@ -13,7 +13,7 @@ package com.newco.grand.core.common.model {
 		public var table_id:String 		= "7nyiaws9tgqrzaz3";
 		public var vt_id:String 		= "";
 		public var user_id:String 		= "";
-		public var room:String 			= "game-7nyiaws9tgqrzaz3-rvu4z17kx9010qv2";
+		public var room:String 			= "game-o3d9tx3u8kd0yawc-i6t6y1jcdxih0wex";
 		public var client:String		= "generic";		
 		public var lang:String 			= "en";
 		
@@ -28,6 +28,7 @@ package com.newco.grand.core.common.model {
 		public var streamUrl:String  ="";
 		public var parameters:Object;
 		
+		public static var SKIN_ENABLE:Boolean=false;
 		public static var AIR_MODE:Boolean=false;
 		public static var DEBUG_MODE:Boolean=true;
 		private var root:DisplayObjectContainer;
