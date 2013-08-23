@@ -1,16 +1,26 @@
 package com.newco.grand.lobby.classic.model
 {
+	import com.newco.grand.core.common.model.GameData;
 	
-	public class LobbyModel
+	public class LobbyModel extends GameData
 	{
 		private var _tableList:Array;
 		
 		private var _data:XML;
 		
 		private var _mainGame:String;
+		
+		private var _opengame:String;
+		
 		public function LobbyModel()
 		{
 			
+		}
+		public function get opengameUrl():String{
+			return _opengame;
+		}
+		public function set opengameUrl(val:String):void{
+			 _opengame=val;
 		}
 		public function get tables():Array{
 			return _tableList;
@@ -27,7 +37,7 @@ package com.newco.grand.lobby.classic.model
 			 _tableList=[];
 			 
 			 _mainGame=val.maingame;
-			 
+			 _opengame=val.opengame;
 			 var i:int;
 			 var xmllist:XMLList=val.roulette.table;
 			 var tablexml:XML;

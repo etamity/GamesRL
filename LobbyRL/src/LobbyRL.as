@@ -1,5 +1,6 @@
 package
 {
+	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.lobby.configs.LobbyBundle;
 	import com.newco.grand.lobby.configs.LobbyConfig;
 	import com.smart.uicore.controls.ToolTip;
@@ -22,7 +23,8 @@ package
 		}
 		private function onAddToStage(evt:Event):void{
 			removeEventListener(Event.ADDED_TO_STAGE,onAddToStage);
-			UI.init(this.stage,24);
+			FlashVars.SKIN_ENABLE=false;
+			UI.init(this.stage,50);
 			ToolTip.setDefaultToolTipStyle(0,0xFFFFFF,0xDDDDDD,1,1,0x666666,0.5);
 			start();
 		}

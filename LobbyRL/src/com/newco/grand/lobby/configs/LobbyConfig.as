@@ -1,12 +1,21 @@
 package com.newco.grand.lobby.configs
 {
+	import com.newco.grand.core.common.controller.commands.StartupCommand;
 	import com.newco.grand.core.common.model.FlashVars;
+	import com.newco.grand.core.common.model.IGameData;
 	import com.newco.grand.core.common.model.Player;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.model.SignalConstants;
-	import com.newco.grand.lobby.classic.controller.commands.StartupCommand;
+	import com.newco.grand.core.common.model.URLSModel;
+	import com.newco.grand.core.common.service.ConfigService;
+	import com.newco.grand.core.common.service.URLSService;
+	import com.newco.grand.lobby.classic.controller.commands.HistoryCommand;
+	import com.newco.grand.lobby.classic.controller.commands.LobbyDataCommand;
+	import com.newco.grand.lobby.classic.controller.signals.LobbyEvents;
 	import com.newco.grand.lobby.classic.model.LobbyModel;
+	import com.newco.grand.lobby.classic.view.HistoryView;
 	import com.newco.grand.lobby.classic.view.LobbyView;
+	import com.newco.grand.lobby.classic.view.mediators.HistoryViewMediator;
 	import com.newco.grand.lobby.classic.view.mediators.LobbyViewMediator;
 	
 	import org.assetloader.AssetLoader;
@@ -59,17 +68,24 @@ package com.newco.grand.lobby.configs
 			injector.map(IAssetLoader).toValue(service);
 			injector.map(Player).asSingleton();
 			injector.map(LobbyModel).toValue(gameData);
+			injector.map(IGameData).toValue(gameData)
 			injector.map(SignalBus).toValue(signalBus);
+			injector.map(ConfigService).asSingleton();
+			injector.map(URLSService).asSingleton();
+			injector.map(URLSModel).asSingleton();
 		}
 		
 		public function mapMediators():void
 		{
 			mediatorMap.map(LobbyView).toMediator(LobbyViewMediator);
+			mediatorMap.map(HistoryView).toMediator(HistoryViewMediator);
 		}
 		
 		public function mapCommands():void
 		{
 			commandMap.mapSignal(signalBus.signal(SignalConstants.STARTUP), StartupCommand, true);
+			commandMap.mapSignal(signalBus.signal(SignalConstants.STARTUP_COMPLETE), LobbyDataCommand, true);
+			commandMap.mapSignal(signalBus.signal(LobbyEvents.LOADHISTORY), HistoryCommand, true);
 		}
 		public function configure():void
 		{		
@@ -88,6 +104,7 @@ package com.newco.grand.lobby.configs
 		{
 			mediatorMap.mediate(contextView.view);
 			contextView.view.addChild(new LobbyView());
+			contextView.view.addChild(new HistoryView());
 			signalBus.dispatch(SignalConstants.STARTUP);
 		}
 	}

@@ -1,7 +1,5 @@
 package com.newco.grand.lobby.classic.view
 {
-	import caurina.transitions.Tweener;
-	
 	import com.newco.grand.core.common.view.SMButton;
 	import com.newco.grand.lobby.classic.model.LobbyModel;
 	import com.newco.grand.lobby.classic.model.TableModel;
@@ -13,6 +11,8 @@ package com.newco.grand.lobby.classic.view
 	import flash.events.MouseEvent;
 	import flash.geom.Point;
 	import flash.utils.setTimeout;
+	
+	import caurina.transitions.Tweener;
 	
 	import org.osflash.signals.Signal;
 
@@ -31,12 +31,16 @@ package com.newco.grand.lobby.classic.view
 		
 		public var gameChangeSignal:Signal=new Signal();
 		
+		public var loadHistorySignal:Signal=new Signal();
+		
 		private var informationPanel:InfoAnimationAsset=new InfoAnimationAsset();
 		
 		
 		public var roulette1:SMButton;
 		public var roulette2:SMButton;
 		public var roulette3:SMButton;
+		
+		public var historyBtn:SMButton;
 		
 		public function LobbyView()
 		{
@@ -61,9 +65,14 @@ package com.newco.grand.lobby.classic.view
 			roulette3 = new SMButton(bottomPanel.roulette3);
 			rouletteBtn.skin.addEventListener(MouseEvent.CLICK,doChangeGame);
 			baccaratBtn.skin.addEventListener(MouseEvent.CLICK,doChangeGame);
-			blackjackBtn.skin.addEventListener(MouseEvent.CLICK,doChangeGame);	
+			blackjackBtn.skin.addEventListener(MouseEvent.CLICK,doChangeGame);
+			
+			historyBtn=new SMButton(bottomPanel.historyBtn);
+			historyBtn.skin.addEventListener(MouseEvent.CLICK,doOpenHistory);
 		}
-		
+		public function doOpenHistory(evt:MouseEvent):void{
+			loadHistorySignal.dispatch();
+		}
 		public function doChangeGame(evt:MouseEvent):void{
 			var target:SimpleButton=evt.target as SimpleButton;
 			switch (target.name)

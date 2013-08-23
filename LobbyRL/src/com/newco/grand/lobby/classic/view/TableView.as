@@ -1,13 +1,8 @@
 package com.newco.grand.lobby.classic.view
 {
-	import com.newco.grand.core.common.view.interfaces.IUIView;
 	import com.newco.grand.lobby.classic.model.TableModel;
-	import com.smart.uicore.controls.DataGrid;
-	
-	import fl.controls.dataGridClasses.DataGridColumn;
 	
 	import flash.display.MovieClip;
-	import flash.display.Sprite;
 	import flash.events.AsyncErrorEvent;
 	import flash.events.IOErrorEvent;
 	import flash.events.MouseEvent;
