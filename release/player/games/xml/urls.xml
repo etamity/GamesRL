@@ -18,7 +18,7 @@
 		<accountHistory><![CDATA[/player/audit/historyXML2.jsp]]></accountHistory>
 		<activityHistory><![CDATA[/player/audit/historyXML.jsp]]></activityHistory>
 		<skin><![CDATA[/player/games/assets/skins/skin.swf]]></skin>
-		<tournament><![CDATA[xml/tournament.xml]]></tournament>
+		<tournament><![CDATA[/player/games/xml/tournament.xml]]></tournament>
 	</common>
 	<roulette>
 		<results><![CDATA[/cgibin/roulette/history.jsp]]></results>

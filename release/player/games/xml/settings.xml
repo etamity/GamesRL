@@ -1,0 +1,36 @@
+<settings>
+
+	<!-- Time allowed for the stream to settle down before checking the QOS stats -->
+	<stream_waiting_time>20000</stream_waiting_time>
+	<!-- Time to wait before downgrading the stream -->
+	<waiting_time>10000</waiting_time>
+	<!-- Bandwidth cutoff -->
+	<bandwidth>24000</bandwidth>
+	
+	<!-- Maximum buffer length allowed before switching to a lower feed if available or seek/reload the existing stream -->
+	<buffer_max>5</buffer_max>
+	<!-- Minimum FPS used in conjunction with buffer_max -->
+	<fps_min>5</fps_min>
+	<!-- Maximum number of frames that can be dropped before switching -->
+	<dropped_frames_max>500</dropped_frames_max>	
+	
+	<!-- Minimum buffer length to switch to a higher quality feed if available -->
+	<buffer_min>1</buffer_min>
+	<!-- Maximum FPS to used in conjunction with buffer_min -->
+	<fps_max>12</fps_max>
+	<!-- Minimum number of frames that can be dropped before switching -->
+	<dropped_frames_min>50</dropped_frames_min>
+
+	<!-- Idle limit -->
+	<idlelimit blackjack="10" baccarat="10" roulette="10" slingshot="20" />
+
+	<!-- All video servers to ping -->
+	<videoservers>91.213.212.40,212.177.15.198,203.193.58.170</videoservers>
+	<application withGameName="true">casino</application>
+	<!-- Generic bandwidth settings -->
+	<bandwidth bw1="150" bw2="300" bw3="600" />
+
+	<!-- Roulette bandwidth settings -->
+	<bandwidth_roulette bw1="300" bw2="600" bw3="1200" />
+
+</settings>
