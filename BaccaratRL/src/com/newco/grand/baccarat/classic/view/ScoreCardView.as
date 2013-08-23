@@ -16,7 +16,7 @@ package com.newco.grand.baccarat.classic.view
 			super();
 			scoreCardPanel=new ScoreCard();
 			var bg:MovieClip=new ScorecardBG();
-			_closeBtn=bg.closeBtn;
+			//_closeBtn=bg.closeBtn;
 			addChild(bg);
 			addChild(scoreCardPanel);
 			scoreCardPanel.x=10;
@@ -27,7 +27,7 @@ package com.newco.grand.baccarat.classic.view
 			return _closeBtn;
 		}
 		public function align():void {
-			x=stage.stageWidth-190;
+			x=0;
 			y=0;
 		}
 		public function update(data:XMLList):void{

@@ -2,6 +2,7 @@ package
 {
 	import com.newco.grand.baccarat.configs.BaccaratBundle;
 	import com.newco.grand.baccarat.configs.BaccaratConfig;
+	import com.newco.grand.core.common.model.FlashVars;
 	import com.smart.uicore.controls.ToolTip;
 	import com.smart.uicore.ui.UI;
 	
@@ -26,6 +27,7 @@ package
 			removeEventListener(Event.ADDED_TO_STAGE,onAddToStage);
 			UI.init(this.stage,24);
 			ToolTip.setDefaultToolTipStyle(0,0xFFFFFF,0xDDDDDD,1,1,0x666666,0.5);
+			FlashVars.SKIN_ENABLE=true;
 			start();
 		}
 		

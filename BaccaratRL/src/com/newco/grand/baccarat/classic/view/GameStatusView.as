@@ -10,7 +10,10 @@ package com.newco.grand.baccarat.classic.view
 		}
 		override public function init():void {
 			super.init();
-			visible = false;
+			visible = true;
+		}
+		override public function align():void {
+			x = 666;
 		}
 	}
 }

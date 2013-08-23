@@ -233,8 +233,8 @@ package com.newco.grand.baccarat.configs
 			commandMap.mapSignal(signalBus.signal(ChatEvent.SEND_MESSAGE), ChatSendMessageCommand);
 			commandMap.mapSignal(signalBus.signal(SocketEvent.CONNECT_GAME), SocketConnectionCommand);
 			commandMap.mapSignal(signalBus.signal(VideoEvent.CONNECT), VideoConnectionCommand);
-			commandMap.mapSignal(signalBus.signal(PlayersEvent.LOAD), PlayersCommand);
-			commandMap.mapSignal(signalBus.signal(WinnersEvent.LOAD), WinnersCommand);
+			//commandMap.mapSignal(signalBus.signal(PlayersEvent.LOAD), PlayersCommand);
+			//commandMap.mapSignal(signalBus.signal(WinnersEvent.LOAD), WinnersCommand);
 			commandMap.mapSignal(signalBus.signal(BetEvent.SEND_BETS), BetsCommand);
 			commandMap.mapSignal(signalBus.signal(UIEvent.SETUP_VIEWS), SetupViewCommand);
 

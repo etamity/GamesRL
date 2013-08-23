@@ -1,7 +1,5 @@
 package com.newco.grand.baccarat.classic.view.mediators
 {
-	import caurina.transitions.Tweener;
-	
 	import com.newco.grand.baccarat.classic.controller.signals.BaccaratEvent;
 	import com.newco.grand.baccarat.classic.controller.signals.StatisticsEvent;
 	import com.newco.grand.baccarat.classic.service.AnimationService;
@@ -12,6 +10,8 @@ package com.newco.grand.baccarat.classic.view.mediators
 	import com.newco.grand.core.common.model.SignalBus;
 	
 	import flash.events.MouseEvent;
+	
+	import caurina.transitions.Tweener;
 	
 	import robotlegs.bender.bundles.mvcs.Mediator;
 	
@@ -30,10 +30,22 @@ package com.newco.grand.baccarat.classic.view.mediators
 		public var animationService:AnimationService;
 		
 		
-		private var extended:Boolean=true;
+		private var _extended:Boolean=false;
 		public function ScoreCardMediator()
 		{
 			super();
+		}
+		public function get extended():Boolean{
+			return _extended;
+		}
+		public function set extended(val:Boolean):void{
+			if (_extended==false){
+				
+				Tweener.addTween(view,{x:view.stage.stageWidth-180,time:0.5,onComplete:function ():void{}});
+			}else{
+				Tweener.addTween(view,{x:530,time:0.5,onComplete:function ():void{}});	
+			}
+			_extended=val;
 		}
 		override public function initialize():void {
 		
@@ -42,19 +54,15 @@ package com.newco.grand.baccarat.classic.view.mediators
 			signalBus.add(StatisticsEvent.SHOWHIDE,doShowHideEvent);
 			
 			
-			view.closeBtn.addEventListener(MouseEvent.CLICK,doShowHide);
+			//view.closeBtn.addEventListener(MouseEvent.CLICK,doShowHide);
+			extended=true;
 		}
 		private function doShowHide(evt:MouseEvent):void{
-			doShowHideEvent();
+			extended=!extended;
 		}
 		private function doShowHideEvent(signal:BaseSignal=null):void{
-			if (extended==true){
-			
-				Tweener.addTween(view,{x:view.stage.stageWidth-180,time:0.5,onComplete:function ():void{}});
-			}else{
-				Tweener.addTween(view,{x:570,time:0.5,onComplete:function ():void{}});	
-			}
 			extended=!extended;
+		
 		}
 		private function setupModel(signal:BaseSignal):void {
 			view.init(245, 90, true, false, flashvars.table_id);

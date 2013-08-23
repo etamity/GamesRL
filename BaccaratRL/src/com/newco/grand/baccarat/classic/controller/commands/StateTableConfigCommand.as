@@ -2,6 +2,7 @@ package com.newco.grand.baccarat.classic.controller.commands {
 	
 	import com.newco.grand.baccarat.classic.controller.signals.WinnersEvent;
 	import com.newco.grand.baccarat.classic.model.GameDataModel;
+	import com.newco.grand.core.common.controller.signals.MessageEvent;
 	import com.newco.grand.core.common.controller.signals.ModelReadyEvent;
 	import com.newco.grand.core.common.controller.signals.PlayersEvent;
 	import com.newco.grand.core.common.controller.signals.SocketEvent;
@@ -79,7 +80,7 @@ package com.newco.grand.baccarat.classic.controller.commands {
 		private function setState(signal:LoaderSignal, xml:XML):void {
 			debug(xml);
 			game.chips = String(xml.chip_amounts).split(",");
-			game.table = xml.table;
+			game.table = xml.table_name;
 			player.currencyCode = xml.currency_code;
 			
 			service.remove(Constants.SERVER_STATE);
@@ -144,13 +145,15 @@ package com.newco.grand.baccarat.classic.controller.commands {
 			game.tie_bet_min=xml["gameconfig-param"].@tie_bet_min;
 			service.remove(Constants.SERVER_TABLE_CONFIG);
 			
-			
+			var streams:Array=new Array(xml["gameconfig-param"].@low_stream,xml["gameconfig-param"].@med_stream,xml["gameconfig-param"].@high_stream);
+			game.videoStreams=streams;
 			loadSettings();
 
 		}
 		
 		private function showError(signal:ErrorSignal):void {
 			debug("Error:" +signal.message);
+			signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:signal.message});
 		}
 		
 		private function debug(...args):void {

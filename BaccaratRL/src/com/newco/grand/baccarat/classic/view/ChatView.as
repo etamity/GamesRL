@@ -10,7 +10,7 @@ package com.newco.grand.baccarat.classic.view
 		}
 		override public function align():void{
 			x=0;
-			y=0;
+			y=150;
 			visible=true;
 		}
 	}
