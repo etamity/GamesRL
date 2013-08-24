@@ -1,4 +1,6 @@
 package com.newco.grand.core.common.model {
+	import com.newco.grand.core.utils.GameUtils;
+	
 	import flash.display.DisplayObjectContainer;
 	import flash.events.Event;
 	
@@ -31,6 +33,8 @@ package com.newco.grand.core.common.model {
 		public static var SKIN_ENABLE:Boolean=false;
 		public static var AIR_MODE:Boolean=false;
 		public static var DEBUG_MODE:Boolean=true;
+		
+		public static var GAMECLIENT:String;
 		private var root:DisplayObjectContainer;
 		
 		//blackjack
@@ -115,10 +119,14 @@ package com.newco.grand.core.common.model {
 							this[key] = new XML(value);
 							break;
 					}
+			
 				}
+	
+	
 				catch(error:Error) {
 					onParseError(key, value, error);
 				}
+				trace("Key:"+key,"vaule:"+this[key]);
 			}
 		}
 
@@ -138,6 +146,9 @@ package com.newco.grand.core.common.model {
 			return str;
 			
 			
+		}
+		private function debug(...args):void {
+			GameUtils.log(this, args);
 		}
 	}
 }

@@ -42,8 +42,9 @@ package com.newco.grand.core.common.service
 		}
 		private function setConfig(signal:LoaderSignal, xml:XML):void {
 			debug(xml);
-			debug("GameType:"+flashVars.game.toLowerCase(),Constants.BACCARAT.toLowerCase());
-			urlsModel.server= xml.common.server;
+			debug("GameType:"+FlashVars.GAMECLIENT.toLowerCase(),Constants.BACCARAT.toLowerCase());
+			//urlsModel.server= xml.common.server;
+			urlsModel.server=flashVars.server;
 			urlsModel.authentication= xml.common.authentication;
 			urlsModel.balance= xml.common.balance;
 			urlsModel.chatConfig= xml.common.chatConfig;
@@ -62,7 +63,7 @@ package com.newco.grand.core.common.service
 			urlsModel.activityHistory=xml.common.activityHistory;
 			
 			
-			if (StringUtils.trim(flashVars.game.toLowerCase())==StringUtils.trim(Constants.BACCARAT.toLowerCase()))
+			if (StringUtils.trim(FlashVars.GAMECLIENT.toLowerCase())==StringUtils.trim(Constants.BACCARAT.toLowerCase()))
 			{
 				urlsModel.sendBets =xml.baccarat.sendBets;
 				urlsModel.state =xml.baccarat.state;
@@ -71,7 +72,7 @@ package com.newco.grand.core.common.service
 				urlsModel.skin=(xml.baccarat.skin!=undefined)?xml.baccarat.skin:xml.common.skin;
 			}
 			
-			if (StringUtils.trim(flashVars.game.toLowerCase())==StringUtils.trim(Constants.ROULETTE.toLowerCase()))
+			if (StringUtils.trim(FlashVars.GAMECLIENT.toLowerCase())==StringUtils.trim(Constants.ROULETTE.toLowerCase()))
 			{
 				urlsModel.sendBets =xml.roulette.sendBets;
 				urlsModel.state =xml.roulette.state;
@@ -87,7 +88,7 @@ package com.newco.grand.core.common.service
 			debug("loading Config  " + _xmlurl);
 			if (flashVars.localhost==false)
 			{
-				_xmlurl="/player/games/xml/urls.xml";
+				_xmlurl=flashVars.server+"/player/games/xml/urls.xml";
 			}
 				
 			

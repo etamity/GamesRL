@@ -40,7 +40,6 @@ package com.newco.grand.core.common.controller.commands {
 							var videoName:String= params[params.length-1];
 							var application:String= String(streamUrl).replace("rtmp://"+sever+"/","");
 							application=application.replace("/"+videoName,"");
-							application=
 				
 							
 							game.server=sever;
@@ -48,10 +47,11 @@ package com.newco.grand.core.common.controller.commands {
 							game.videoApplication = application;
 	
 						}
-					}else if (streamUrl!="" && lowerCaseStreamUr.search(".mp4")!=-1 && lowerCaseStreamUr.search(".flv")!=-1)
+					}else if (streamUrl!="" && (lowerCaseStreamUr.search(".mp4")!=-1 || lowerCaseStreamUr.search(".flv")!=-1))
 						{
 						   game.server="";
-						   game.videoStream=streamUrl;
+						   game.videoStream=lowerCaseStreamUr;
+						   game.videoStreams=new Array(lowerCaseStreamUr);
 						   game.videoApplication="";
 						}
 						else
@@ -61,12 +61,12 @@ package com.newco.grand.core.common.controller.commands {
 							if (game.videoSettings.application.@withGameName=="false")
 								game.videoApplication = game.videoSettings.application;
 							else
-								game.videoApplication = StringUtils.trim(game.videoSettings.application+"/"+flashvars.game.toLowerCase());
+								game.videoApplication = StringUtils.trim(game.videoSettings.application+"/"+FlashVars.GAMECLIENT.toLowerCase());
 						}
 					
 					/*if (game.server !="")
 						videoService.servers=new Array(game.server);*/
-					if (game.videoStream !="")
+					if (game.videoStreams !=null)
 						videoService.streams= game.videoStreams;
 					if (game.videoApplication !="")
 						videoService.application=game.videoApplication;

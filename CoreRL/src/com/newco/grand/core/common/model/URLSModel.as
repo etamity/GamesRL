@@ -4,7 +4,7 @@ package com.newco.grand.core.common.model
 	
 	public class URLSModel extends Actor
 	{		
-		private var _server:String 		= "";
+		private var _server:String 		= "https://extreme.smartgaminggroup.com";
 		
 		private var _authentication:String = "https://livecasino.smartliveaffiliates.com/cgibin/SmartAuthentication";
 		private var _login:String 		= "http://m.smartlivecasino.com/WebServices/Login.aspx";
@@ -45,6 +45,8 @@ package com.newco.grand.core.common.model
 			_server = "https://livecasino.smartliveaffiliates.com";
 		}
 		public function get tournament():String {
+			if( flashVars.localhost )
+				return "xml/tournament.xml";
 			return _server+_tournament;
 		}
 		
@@ -97,7 +99,7 @@ package com.newco.grand.core.common.model
 		}
 
 		public function get accountHistory():String{
-			return _accountHistory;
+			return  server +_accountHistory;
 		}
 		public function set accountHistory(val:String):void{
 			 _accountHistory= val;
@@ -106,7 +108,7 @@ package com.newco.grand.core.common.model
 			 _activityHistory=val;
 		}
 		public function get activityHistory():String{
-			return _activityHistory;
+			return  server +_activityHistory;
 		}
 		public function set login(value:String):void {
 			_login = value;
@@ -136,7 +138,7 @@ package com.newco.grand.core.common.model
 				return "xml/" + flashVars.client + ".xml";
 			
 			//return server + _style + flashVars.client + ".xml";
-			return server + _style + "slc" + ".xml";
+			return server + _style + flashVars.client  + ".xml";
 		}
 		
 		public function set style(value:String):void {
@@ -145,7 +147,11 @@ package com.newco.grand.core.common.model
 		
 		
 		public function get authentication():String {
-			return _authentication;
+			var index:int = _authentication.search("://");
+			if (index>=0)
+				return  _authentication;
+			else
+				return server + _authentication
 		}
 		
 		public function set authentication(value:String):void {
@@ -153,7 +159,9 @@ package com.newco.grand.core.common.model
 		}
 		
 		public function get state():String {
-			return server + _state;
+			if( flashVars.localhost )
+				return "xml/" + FlashVars.GAMECLIENT.toLowerCase()+"_state.xml";
+			return server + _state+ "?table_id=" + flashVars.table_id+flashVars.vt_id;
 		}
 		
 		public function set state(value:String):void {
@@ -161,7 +169,9 @@ package com.newco.grand.core.common.model
 		}
 		
 		public function get tableConfig():String {
-			return server + _tableConfig;
+			if( flashVars.localhost )
+				return "xml/" + FlashVars.GAMECLIENT.toLowerCase()+"_tableconfig.xml";
+			return server + _tableConfig+ "?table_id=" + flashVars.table_id+flashVars.vt_id;
 		}
 		
 		public function set tableConfig(value:String):void {
@@ -201,6 +211,8 @@ package com.newco.grand.core.common.model
 		}
 
 		public function get winners():String {
+			if( flashVars.localhost )
+				return "xml/winnerlist.xml";
 			return server + _winners;
 		}
 		public function set winners(value:String):void {
