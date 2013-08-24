@@ -1,5 +1,6 @@
 package
 {
+	import com.newco.grand.core.common.model.Constants;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.lobby.configs.LobbyBundle;
 	import com.newco.grand.lobby.configs.LobbyConfig;
@@ -26,6 +27,7 @@ package
 			FlashVars.SKIN_ENABLE=false;
 			UI.init(this.stage,50);
 			ToolTip.setDefaultToolTipStyle(0,0xFFFFFF,0xDDDDDD,1,1,0x666666,0.5);
+			FlashVars.GAMECLIENT=Constants.LOBBY;
 			start();
 		}
 		

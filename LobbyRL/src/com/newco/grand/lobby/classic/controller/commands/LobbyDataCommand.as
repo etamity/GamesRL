@@ -56,7 +56,7 @@ package com.newco.grand.lobby.classic.controller.commands
 				lobbyUrl=_xmlurl;
 			}else
 			{
-				lobbyUrl="/player/games/xml/lobby.xml";
+				lobbyUrl=flashVars.server+"/player/games/xml/lobby.xml";
 			}
 			
 			service.addLoader(new XMLLoader(new URLRequest(lobbyUrl), URLS_XML));

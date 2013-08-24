@@ -7,7 +7,10 @@ package
 	import flash.events.ProgressEvent;
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
-
+	
+	
+	
+	[SWF(width = "990", height = "610", frameRate = "24", backgroundColor = "#4C4C4C")]
 	public class Preloader extends Sprite
 	{
 		private var gameSWF:String="/player/games/";
@@ -15,22 +18,40 @@ package
 		private var mainMc:MovieClip=new MovieClip();
 		//private var preloader:FBPreLoaderAsset=new FBPreLoaderAsset();
 		
-		private var gameAuthenicationApiPath:String="https://www.extremelivecasino.com/cgibin/remoteUserCreation.jsp?mid=abc123&t=1255";
+		private var gameAuthenicationApiPath:String="/cgibin/remoteUserCreation.jsp";
 		
-		private var user_id:String="";
+		private var user_id:String;
+		private var server:String;
+		private var clientkey:String;
 		public function Preloader()
 		{
 
 			//preloader.versionTxt.text="VERSION 2.0";
 			//if (loaderInfo.parameters.gameFile!=null)
 			//gameSWF= gameSWF+ loaderInfo.parameters.gameFile;
+			
+			
+		
+			addEventListener(Event.ADDED_TO_STAGE,onAddtoStage);
+
+		}
+		
+		private function onAddtoStage(evt:Event):void{
+
+			if (loaderInfo.parameters.mid!=null)
+				user_id=loaderInfo.parameters.mid;
+			if (loaderInfo.parameters.server!=null)
+				server=loaderInfo.parameters.server;
+			if (loaderInfo.parameters.clientkey!=null)
+				clientkey=loaderInfo.parameters.clientkey;
+			
+			gameAuthenicationApiPath=server+gameAuthenicationApiPath+"?mid="+user_id+"&bk="+String(Math.random()*99999999);
 			var request:URLRequest = new URLRequest(gameAuthenicationApiPath);
 			var urlLoader:URLLoader = new URLLoader();
-
+			
 			urlLoader.addEventListener(Event.COMPLETE, loadCompleteAuthenicationApiPath);
 			urlLoader.load(request);
-		
-
+			
 		}
 
 		private function afterLogin(evt:Event):void{
@@ -50,7 +71,7 @@ package
 		}
 		private function loadCompleteAuthenicationApiPath(event:Event):void{
 			var xmlData:XML=new XML(event.target.data);
-			gameSWF="https://www.extremelivecasino.com/"+xmlData.flashurl;
+			gameSWF=server+xmlData.flashurl+"?server="+server+"&user_id="+user_id+"&bk="+String(Math.random()*99999999);
 			trace(xmlData);
 			afterLogin(null);
 		}
@@ -66,8 +87,10 @@ package
 			trace("Complete");
 			//preloader.visible=false;
 			
-			var params:Object=loaderInfo.parameters;
+			var params:Object={};
 			params.user_id=user_id;
+			//loader.init(params);
+			
 		}   
 		
 		

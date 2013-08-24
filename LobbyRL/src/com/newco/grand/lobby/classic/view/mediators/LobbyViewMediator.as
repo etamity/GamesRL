@@ -97,9 +97,9 @@ package com.newco.grand.lobby.classic.view.mediators
 			view.hideDetial();
 		}
 		private function openGameEvent(table:TableModel):void{
-			var url:String=lobbyModel.opengameUrl+"?game="+table.game+"&table_id="+table.tableid+"&gameType="+table.gameType+"&lang=en&client=generic&gameInterface=view1";
+			var url:String=flashvars.server+lobbyModel.opengameUrl+"?game="+table.game+"&table_id="+table.tableid+"&gameType="+table.gameType+"&lang=en&client=generic&gameInterface=view1";
 			var urlRequest:URLRequest = new URLRequest(url);
-				navigateToURL(urlRequest, "_self");
+				navigateToURL(urlRequest, "_blank");
 			
 		}
 	}
