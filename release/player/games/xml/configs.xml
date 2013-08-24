@@ -6,7 +6,7 @@
 	game="roulette" 
 	gametype="tv_roulette" 
 	tableid="48z5pjps3ntvqc1b"
-	streamUrl="rtmp://192.168.1.69/cplive/livestream" 
+	streamUrl="test.mp4" 
 
 	videoplayer="video"
 	client="slc" 
@@ -14,7 +14,7 @@
 	userid="" 
 	room="game-o3d9tx3u8kd0yawc-i6t6y1jcdxih0wex" 
 	lang="en" 
-	server="www.extremelivecasino.com"
+	server="https://extreme.smartgaminggroup.com"
 	></casino>
 
 	<!--

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <game>
 	<common>
-	    <server><![CDATA[https://www.extremelivecasino.com]]></server>
+	    <server><![CDATA[https://extreme.smartgaminggroup.com]]></server>
 		<authentication><![CDATA[https://livecasino.smartliveaffiliates.com/cgibin/SmartAuthentication]]></authentication>
 		<login><![CDATA[/cgibin/remoteLoginGateway.jsp]]></login>
 		<balance><![CDATA[/cgibin/balance.jsp]]></balance>
@@ -18,7 +18,7 @@
 		<accountHistory><![CDATA[/player/audit/historyXML2.jsp]]></accountHistory>
 		<activityHistory><![CDATA[/player/audit/historyXML.jsp]]></activityHistory>
 		<skin><![CDATA[/player/games/assets/skins/skin.swf]]></skin>
-		<tournament><![CDATA[/player/games/xml/tournament.xml]]></tournament>
+		<tournament><![CDATA[/player/tournament.xml]]></tournament>
 	</common>
 	<roulette>
 		<results><![CDATA[/cgibin/roulette/history.jsp]]></results>
