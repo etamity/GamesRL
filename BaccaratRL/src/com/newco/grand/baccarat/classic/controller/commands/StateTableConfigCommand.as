@@ -49,13 +49,15 @@ package com.newco.grand.baccarat.classic.controller.commands {
 		private var stateUrl:String;
 		private var tableConfigUrl:String;
 		override public function execute():void {
-			configUrl();
+			//configUrl();
+			stateUrl = urls.state;
+			tableConfigUrl = urls.tableConfig;
 			loadState();			
 		}
 		private function configUrl():void{
 			if (flashVars.localhost){
-				stateUrl ="xml/"+ flashVars.game+"_state.xml";
-				tableConfigUrl= "xml/"+flashVars.game+"_tableconfig.xml";
+				stateUrl ="xml/"+ FlashVars.GAMECLIENT+"_state.xml";
+				tableConfigUrl= "xml/"+FlashVars.GAMECLIENT+"_tableconfig.xml";
 			}else
 			{
 				stateUrl = urls.state+ "?table_id=" + flashVars.table_id+vt_id;
