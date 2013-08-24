@@ -47,8 +47,8 @@ package com.newco.grand.roulette.classic.controller.commands {
 		private var tableConfigUrl:String;
 		override public function execute():void {
 			
-			stateUrl = urls.state+ "?table_id=" + flashVars.table_id+vt_id;
-			tableConfigUrl = urls.tableConfig + "?table_id=" + flashVars.table_id+vt_id;
+			stateUrl = urls.state;
+			tableConfigUrl = urls.tableConfig;
 			//configUrl();
 			
 			loadState();			
@@ -56,8 +56,8 @@ package com.newco.grand.roulette.classic.controller.commands {
 		
 		private function configUrl():void{
 			if (flashVars.localhost){
-				stateUrl ="xml/"+ flashVars.game+"_state.xml";
-				tableConfigUrl= "xml/"+flashVars.game+"_tableconfig.xml";
+				stateUrl ="xml/"+ FlashVars.GAMECLIENT+"_state.xml";
+				tableConfigUrl= "xml/"+FlashVars.GAMECLIENT+"_tableconfig.xml";
 			}else
 			{
 				stateUrl = urls.state+ "?table_id=" + flashVars.table_id+vt_id;
@@ -160,10 +160,10 @@ package com.newco.grand.roulette.classic.controller.commands {
 			game.cornerMin = xml["gameconfig-param"].@corner_bet_min;
 			game.cornerMax = xml["gameconfig-param"].@corner_bet_max;
 			game.server= xml["gameconfig-param"].@broadcast_ip2;
-			game.videoStream= xml["gameconfig-param"].@high_stream;
 
 			service.remove(Constants.SERVER_TABLE_CONFIG);
-			
+			var streams:Array=new Array(xml["gameconfig-param"].@low_stream,xml["gameconfig-param"].@med_stream,xml["gameconfig-param"].@high_stream);
+			game.videoStreams=streams;
 			
 			loadSettings();
 

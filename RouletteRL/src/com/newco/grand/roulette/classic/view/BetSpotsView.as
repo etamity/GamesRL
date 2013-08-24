@@ -121,7 +121,7 @@ package com.newco.grand.roulette.classic.view {
 					stageSpot = MovieClip(getChildByName("dz" + i));
 					_betspotMC = new BetSpot(new BetspotAsset());
 					_betspotMC.name = "bs" + i;
-					_betspotMC.id=i;
+					//_betspotMC.id=i;
 					_betspotMC.display.name=_betspotMC.name;
 					_betspotMC.display.transform.matrix = stageSpot.transform.matrix;
 					_betspotsHash[_betspotMC.name]=_betspotMC;

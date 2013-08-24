@@ -1,5 +1,7 @@
 package {
 	
+	import com.newco.grand.core.common.model.Constants;
+	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.roulette.configs.RouletteBundle;
 	import com.newco.grand.roulette.configs.RouletteConfig;
 	import com.smart.uicore.controls.ToolTip;
@@ -25,8 +27,10 @@ package {
 		}
 		private function onAddToStage(evt:Event):void{
 			removeEventListener(Event.ADDED_TO_STAGE,onAddToStage);
+			FlashVars.SKIN_ENABLE=true;
 			UI.init(stage,24);
 			ToolTip.setDefaultToolTipStyle(0,0xFFFFFF,0xDDDDDD,1,1,0x666666,0.5);
+			FlashVars.GAMECLIENT=Constants.ROULETTE;
 			start();
 		}
 		
