@@ -9,17 +9,17 @@
    <maingame><![CDATA[baccarat]]></maingame>
 	<roulette>
 		
-		<table streamName="R1" table_id="7kqbll806q26x44k" vt_id="" name="Auto Roulette" dealer="nodealer" dealerid="nodealer" min="100.0" max="50000.0" priority="4" table_type="" game_type="auto" timings="24 HOURS" seats="999"  stream="R2" start_time="0" end_time="24">
+		<table streamName="R1" table_id="vctlz20yfnmp1ylr" vt_id="swoc8t9zf7a4vzpx" name="Auto Roulette" dealer="nodealer" dealerid="nodealer" min="100.0" max="50000.0" priority="4" table_type="" game_type="auto" timings="24 HOURS" seats="999"  stream="R2" start_time="0" end_time="24">
 		
 		
 		</table>
 		
-		<table streamName="R1" table_id="7nyiaws9tgqrzaz3" vt_id="" name="Social Roulette" dealer="suzanne" dealerid="suzanne" min="1.0" max="1000.0" priority="6" table_type="" game_type="social" timings="09:00 � 18:00(GMT)" seats="999" stream="R1_TV_MOB" start_time="9" end_time="6">
+		<table streamName="R1" table_id="vctlz20yfnmp1ylr" vt_id="swoc8t9zf7a4vzpx" name="Social Roulette" dealer="suzanne" dealerid="suzanne" min="1.0" max="1000.0" priority="6" table_type="" game_type="social" timings="09:00 � 18:00(GMT)" seats="999" stream="R1_TV_MOB" start_time="9" end_time="6">
 
 		</table>
 		
 		
-		<table streamName="R1" table_id="hiey8yx1hkkgqawl" vt_id="" name="Rapid Roulette" dealer="suzanne" dealerid="suzanne" min="100.0" max="10000.0" priority="3" table_type="" game_type="blue" timings="18:00 � 00:00 (GMT)" seats="999" stream="R3_Cam1"  start_time="17" end_time="24">
+		<table streamName="R1" table_id="vctlz20yfnmp1ylr" vt_id="swoc8t9zf7a4vzpx" name="Rapid Roulette" dealer="suzanne" dealerid="suzanne" min="100.0" max="10000.0" priority="3" table_type="" game_type="blue" timings="18:00 � 00:00 (GMT)" seats="999" stream="R3_Cam1"  start_time="17" end_time="24">
 		</table>
 
 		
