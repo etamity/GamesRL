@@ -44,6 +44,7 @@ package com.newco.grand.lobby.classic.view.mediators
 			
 			view.gameChangeSignal.add(doGameChange);
 			view.loadHistorySignal.add(doLoadHistory);
+			view.doOpenGameSignal.add(openGameEvent);
 		}
 		
 		private function doLoadHistory():void{

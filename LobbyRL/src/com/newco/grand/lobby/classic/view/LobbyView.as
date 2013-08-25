@@ -40,6 +40,8 @@ package com.newco.grand.lobby.classic.view
 		public var roulette2:SMButton;
 		public var roulette3:SMButton;
 		
+		public var doOpenGameSignal:Signal;
+		
 		public var historyBtn:SMButton;
 		
 		public function LobbyView()
@@ -67,8 +69,22 @@ package com.newco.grand.lobby.classic.view
 			baccaratBtn.skin.addEventListener(MouseEvent.CLICK,doChangeGame);
 			blackjackBtn.skin.addEventListener(MouseEvent.CLICK,doChangeGame);
 			
+			roulette1.skin.addEventListener(MouseEvent.CLICK,doOpenGame1);
+			roulette2.skin.addEventListener(MouseEvent.CLICK,doOpenGame2);
+			roulette3.skin.addEventListener(MouseEvent.CLICK,doOpenGame3);
+			
 			historyBtn=new SMButton(bottomPanel.historyBtn);
 			historyBtn.skin.addEventListener(MouseEvent.CLICK,doOpenHistory);
+			doOpenGameSignal=new Signal();
+		}
+		public function doOpenGame1(evt:MouseEvent):void{
+			doOpenGameSignal.dispatch(roulette1.params);
+		}
+		public function doOpenGame2(evt:MouseEvent):void{
+			doOpenGameSignal.dispatch(roulette2.params);
+		}
+		public function doOpenGame3(evt:MouseEvent):void{
+			doOpenGameSignal.dispatch(roulette3.params);
 		}
 		public function doOpenHistory(evt:MouseEvent):void{
 			loadHistorySignal.dispatch();
@@ -123,6 +139,7 @@ package com.newco.grand.lobby.classic.view
 					if (index<3){
 						
 					arrBtns[index].label=table.tableName.toUpperCase();
+					arrBtns[index].params=table;
 					index++;
 					}
 				}
