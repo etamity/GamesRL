@@ -59,6 +59,8 @@ package com.newco.grand.core.common.model
 		}
 		
 		public function get server():String {
+			if (_server.indexOf("://")==-1)
+				return _server="https://"+_server;
 			return _server;
 		}
 		public function get balance():String {

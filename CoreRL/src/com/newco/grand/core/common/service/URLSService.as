@@ -39,6 +39,7 @@ package com.newco.grand.core.common.service
 		public function URLSService()
 		{
 			super();
+	
 		}
 		private function setConfig(signal:LoaderSignal, xml:XML):void {
 			debug(xml);
@@ -82,13 +83,16 @@ package com.newco.grand.core.common.service
 			}
 			if (_onComplete!=null)
 			_onComplete();
-			debug("GameType:",urlsModel.state);
+			debug("state:",urlsModel.state);
 		}
 		public function loadConfig(onComplete:Function):void{
 			debug("loading Config  " + _xmlurl);
+			debug("Server  " + urlsModel.server);
+
+		
 			if (flashVars.localhost==false)
 			{
-				_xmlurl=flashVars.server+"/player/games/xml/urls.xml";
+				_xmlurl=urlsModel.server+"/player/games/xml/urls.xml";
 			}
 				
 			
