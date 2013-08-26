@@ -11,7 +11,7 @@
 		<settings><![CDATA[/player/games/assets/settings.xml]]></settings>
 		<chatConfig><![CDATA[/cgibin/chat/config.jsp]]></chatConfig>
 		<help><![CDATA[/player/games/help/Help.swf]]></help>
-		<lobby><![CDATA[/player/games/tables.swf]]></lobby>
+		<lobby><![CDATA[/player/lobbyXML.jsp]]></lobby>
 		<freeplay><![CDATA[/cgibin/mobile_launcher.jsp]]></freeplay>
 		<tableConfig><![CDATA[/cgibin/tableconfig.jsp]]></tableConfig>
 		<seat><![CDATA[/cgibin/sitdown.jsp]]></seat>
@@ -19,6 +19,7 @@
 		<activityHistory><![CDATA[/player/audit/historyXML.jsp]]></activityHistory>
 		<skin><![CDATA[/player/games/assets/skins/skin.swf]]></skin>
 		<tournament><![CDATA[/player/tournament.xml]]></tournament>
+		<opengame><![CDATA[/player/chat_board.jsp]]></opengame>
 	</common>
 	<roulette>
 		<results><![CDATA[/cgibin/roulette/history.jsp]]></results>
@@ -52,7 +53,7 @@
 		<state><![CDATA[/cgibin/baccarat/state.jsp]]></state>
 		<tableGraphic><![CDATA[/player/games/assets/baccarat/tablegraphics/]]></tableGraphic>
 		<audio><![CDATA[/player/games/assets/roulette/audio/]]></audio>
-		<statistics><![CDATA[/cgibin/roulette/stats.jsp]]></statistics>
+		<statistics><![CDATA[/cgibin/baccarat/gameHistory.jsp]]></statistics>
 		<winners><![CDATA[/cgibin/facebook/winnerList.jsp]]></winners>
 	</baccarat>
 </game>
