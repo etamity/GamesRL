@@ -1,10 +1,12 @@
 package com.newco.grand.lobby.classic.controller.commands
 {
 	import com.newco.grand.core.common.controller.commands.BaseCommand;
+	import com.newco.grand.core.common.controller.signals.BalanceEvent;
 	import com.newco.grand.core.common.controller.signals.MessageEvent;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.Player;
 	import com.newco.grand.core.common.model.SignalBus;
+	import com.newco.grand.core.common.model.URLSModel;
 	import com.newco.grand.core.utils.GameUtils;
 	import com.newco.grand.lobby.classic.controller.signals.LobbyEvents;
 	import com.newco.grand.lobby.classic.model.LobbyModel;
@@ -26,7 +28,8 @@ package com.newco.grand.lobby.classic.controller.commands
 		public var signalBus:SignalBus;
 		[Inject]
 		public var player:Player;
-		
+		[Inject]
+		public var urlsModel:URLSModel;
 		[Inject]
 		public var lobbyModel:LobbyModel;
 
@@ -41,10 +44,11 @@ package com.newco.grand.lobby.classic.controller.commands
 		}
 		private function setConfig(signal:LoaderSignal, xml:XML):void {
 			debug(xml);
-			player.balance=xml.balance;
 			flashVars.user_id=xml.userid;
+			flashVars.server=xml.server;
 			lobbyModel.data=xml;
 			signalBus.dispatch(LobbyEvents.DATALOADED);
+			signalBus.dispatch(BalanceEvent.LOAD);
 		}
 		private function showError(signal:ErrorSignal):void {
 			debug("error " + signal.message);
@@ -56,7 +60,7 @@ package com.newco.grand.lobby.classic.controller.commands
 				lobbyUrl=_xmlurl;
 			}else
 			{
-				lobbyUrl=flashVars.server+"/player/games/xml/lobby.xml";
+				lobbyUrl=urlsModel.lobby;
 			}
 			
 			service.addLoader(new XMLLoader(new URLRequest(lobbyUrl), URLS_XML));

@@ -10,6 +10,7 @@ package com.newco.grand.lobby.classic.view
 	import flash.display.Sprite;
 	import flash.events.MouseEvent;
 	import flash.geom.Point;
+	import flash.ui.Mouse;
 	import flash.utils.setTimeout;
 	
 	import caurina.transitions.Tweener;
@@ -22,69 +23,41 @@ package com.newco.grand.lobby.classic.view
 		
 		private var _count:int=0;
 		
-		private var layout:LayoutAsset=new LayoutAsset();
+	
 		private var bottomPanel:BottomPanelAsset;
 		
-		public var rouletteBtn:SMButton;
-		public var baccaratBtn:SMButton;
-		public var blackjackBtn:SMButton;
+		//public var rouletteBtn:SMButton;
+		//public var baccaratBtn:SMButton;
+		//public var blackjackBtn:SMButton;
 		
 		public var gameChangeSignal:Signal=new Signal();
 		
 		public var loadHistorySignal:Signal=new Signal();
 		
-		private var informationPanel:InfoAnimationAsset=new InfoAnimationAsset();
-		
-		
-		public var roulette1:SMButton;
-		public var roulette2:SMButton;
-		public var roulette3:SMButton;
-		
-		public var doOpenGameSignal:Signal;
-		
+		public var doBackSignal:Signal=new Signal();
+
 		public var historyBtn:SMButton;
+		
+		public var backBtn:SMButton;
 		
 		public function LobbyView()
 		{
 		
 			bottomPanel=new BottomPanelAsset();
 			addChild(bottomPanel);
-			rouletteBtn=new SMButton(bottomPanel.rouletteBtn);
-			baccaratBtn=new SMButton(bottomPanel.baccaratBtn);
-			blackjackBtn=new SMButton(bottomPanel.blackjackBtn);
-			
-			addChild(informationPanel);
+
 			addChild(tablesLayer);
-			rouletteBtn.label="Roulette";
-			baccaratBtn.label="Baccarat";
-			blackjackBtn.label="Blackjack";
-			
-			
-			informationPanel.x=344;
-			informationPanel.y=18;
-			roulette1 = new SMButton(bottomPanel.roulette1);
-			roulette2 = new SMButton(bottomPanel.roulette2);
-			roulette3 = new SMButton(bottomPanel.roulette3);
-			rouletteBtn.skin.addEventListener(MouseEvent.CLICK,doChangeGame);
-			baccaratBtn.skin.addEventListener(MouseEvent.CLICK,doChangeGame);
-			blackjackBtn.skin.addEventListener(MouseEvent.CLICK,doChangeGame);
-			
-			roulette1.skin.addEventListener(MouseEvent.CLICK,doOpenGame1);
-			roulette2.skin.addEventListener(MouseEvent.CLICK,doOpenGame2);
-			roulette3.skin.addEventListener(MouseEvent.CLICK,doOpenGame3);
-			
+			backBtn=new SMButton(bottomPanel.backBtn);
+			backBtn.label="BACK";
+			backBtn.visible=false;
 			historyBtn=new SMButton(bottomPanel.historyBtn);
 			historyBtn.skin.addEventListener(MouseEvent.CLICK,doOpenHistory);
-			doOpenGameSignal=new Signal();
+			backBtn.skin.addEventListener(MouseEvent.CLICK,doBackEvent);
 		}
-		public function doOpenGame1(evt:MouseEvent):void{
-			doOpenGameSignal.dispatch(roulette1.params);
-		}
-		public function doOpenGame2(evt:MouseEvent):void{
-			doOpenGameSignal.dispatch(roulette2.params);
-		}
-		public function doOpenGame3(evt:MouseEvent):void{
-			doOpenGameSignal.dispatch(roulette3.params);
+		
+		public function doBackEvent(evt:MouseEvent):void{
+			backBtn.visible=false;
+			doBackSignal.dispatch();
 		}
 		public function doOpenHistory(evt:MouseEvent):void{
 			loadHistorySignal.dispatch();
@@ -107,13 +80,7 @@ package com.newco.grand.lobby.classic.view
 	
 			trace(target.name);
 		}
-		
-		public function showDetial():void{
-			informationPanel.gotoAndPlay(2);
-		}
-		public function hideDetial():void{
-			informationPanel.gotoAndPlay("hide");
-		}
+
 		public function setBalance(val:String):void{
 			bottomPanel.balanceMC.value.text=String(val);
 		}
@@ -127,41 +94,6 @@ package com.newco.grand.lobby.classic.view
 
 		}
 		
-		public function setRoulette(lobbyModel:LobbyModel):void{
-			var table:TableModel;
-			var index:int =0;
-			var arrBtns:Array=[roulette1,roulette2,roulette3];
-			for (var i:int=0;i<lobbyModel.tables.length;i++)
-			{
-				table=lobbyModel.tables[i];
-				if (table.game.toLowerCase()=="roulette")
-				{
-					if (index<3){
-						
-					arrBtns[index].label=table.tableName.toUpperCase();
-					arrBtns[index].params=table;
-					index++;
-					}
-				}
-			}
-		}
 		
-		public function addTable(mc:TableView):void{
-			if (_count<4)
-			{
-			var pt:Point=new Point(layout.getChildByName("table"+String(_count)).x,layout.getChildByName("table"+String(_count)).y);
-			tablesLayer.addChild(mc);
-			mc.alpha=0;
-			mc.x= (count % 2==0)?-300:1000;
-			mc.y= pt.y;
-	
-			setTimeout(function ():void{
-			Tweener.addTween(mc,{x:pt.x,y:pt.y,alpha:1,time:0.5});
-			},_count*500);
-			
-	
-			_count++;
-			}
-		}
 	}
 }

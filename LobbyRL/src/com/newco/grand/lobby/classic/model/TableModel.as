@@ -11,6 +11,9 @@ package com.newco.grand.lobby.classic.model
 		private var _max:Number;
 		private var _min:Number;
 		private var _timings:String;
+		private var _priority:String;
+		private var _tableType:String;
+		
 		
 		private var _streamSever:String;
 		private var _streamApplication:String;
@@ -22,6 +25,18 @@ package com.newco.grand.lobby.classic.model
 		public function TableModel()
 		{
 
+		}
+		public function get tableType():String{
+			return _tableType;
+		}
+		public function set tableType(val:String):void{
+			_tableType=val;
+		}
+		public function get priority():String{
+			return _priority;
+		}
+		public function set priority(val :String):void{
+			_priority = val;
 		}
 		public function setStreamPath(val:String):void{
 			var streams:Array=val.split("/");
@@ -39,14 +54,16 @@ package com.newco.grand.lobby.classic.model
 		}
 		public function setData(data:XML):void{
 			_tableName=data.@name;
-			_streamName=data.@streamName;
-			_tableid=data.@table_id;
+			//_streamName=data.@streamName;
+			_tableid=data.@id;
 			_vtid=data.@vt_id;
 			_dealerName=data.@dealer;
 			_gameType=data.@game_type;
+			_tableType=data.@table_type;
 			_max=data.@max;
 			_min=data.@min;
 			_timings=data.@timings;
+			_priority=data.@priority;
 			_xml=data;
 			//trace("tablexml",data);
 		}

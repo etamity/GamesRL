@@ -5,16 +5,17 @@ package com.newco.grand.lobby.classic.model
 	public class LobbyModel extends GameData
 	{
 		private var _tableList:Array;
-		
+
 		private var _data:XML;
 		
 		private var _mainGame:String;
 		
 		private var _opengame:String;
+
 		
 		public function LobbyModel()
 		{
-			
+			_tableList=[];
 		}
 		public function get opengameUrl():String{
 			return _opengame;
@@ -32,10 +33,47 @@ package com.newco.grand.lobby.classic.model
 			return _data;
 		}
 		
+		public function getTableCount(game:String="baccarat"):int{
+			var result:int=0;
+			for (var i:int=0; i<_tableList.length;i++){
+				if (_tableList[i].game==game && (_tableList[i].vtid=="" || _tableList[i].vtid=="NA"))
+					result++;
+			}
+			return result;
+		}
+		public function getVTableCount(game:String="baccarat"):int{
+			var result:int=0;
+			for (var i:int=0; i<_tableList.length;i++){
+				if (_tableList[i].game==game && _tableList[i].vtid!="" && _tableList[i].vtid!="NA")
+					result++;
+			}
+			return result;
+		}
+		public function getTables(game:String="baccarat"):Array{
+			var begin:int=0;
+			var end:int=_tableList.length;
+			var result:Array=[];
+			for (var i:int=begin; i<end;i++)
+			{
+				if (_tableList[i].game==game && _tableList[i].vtid=="")
+					result.push(_tableList[i]);
+			}
+			return result;
+		}
+		
+		public function getVTables(tableid:String,game:String="baccarat"):Array{
+			var begin:int=0;
+			var end:int=_tableList.length;
+			var result:Array=[];
+			for (var i:int=begin; i<end;i++)
+			{
+				if (_tableList[i].game==game  && _tableList[i].tableid==tableid && _tableList[i].vtid!="" && _tableList[i].vtid!="NA")
+					result.push(_tableList[i]);
+			}
+			return result;
+		}
 		public function set data(val:XML):void{
 			 _data=val;
-			 _tableList=[];
-			 
 			 _mainGame=val.maingame;
 			 _opengame=val.opengame;
 			 var i:int;
@@ -46,30 +84,67 @@ package com.newco.grand.lobby.classic.model
 			 {
 				 tablexml=xmllist[i];
 				 tableModel=new TableModel();
-				 tableModel.streamMode=val.streamSever.@mode;
-				 tableModel.setStreamPath(val.streamSever);
+				 //tableModel.streamMode=val.streamSever.@mode;
+				 //tableModel.setStreamPath(val.streamSever);
 				 tableModel.setData(tablexml);
 				 tableModel.game="roulette"
 				 _tableList.push(tableModel);
 			 }
+			 xmllist = val.roulette.vtable;
+			 for (i=0;i<xmllist.length();i++)
+			 {
+				 tablexml=xmllist[i];
+				 tableModel=new TableModel();
+				 //tableModel.streamMode=val.streamSever.@mode;
+				 //tableModel.setStreamPath(val.streamSever);
+				 tableModel.setData(tablexml);
+				 tableModel.game="roulette"
+				 _tableList.push(tableModel);
+			 }
+			 
+			 
 			 xmllist = val.blackjack.table;
 			 for (i=0;i<xmllist.length();i++)
 			 {
 				 tablexml=xmllist[i];
 				 tableModel=new TableModel();
-				 tableModel.streamMode=val.streamSever.@mode;
-				 tableModel.setStreamPath(val.streamSever);
+				 //tableModel.streamMode=val.streamSever.@mode;
+				 //tableModel.setStreamPath(val.streamSever);
 				 tableModel.setData(tablexml);
 				 tableModel.game="blackjack"
 				 _tableList.push(tableModel);
 			 }
+			 
+			 xmllist = val.blackjack.vtable;
+			 for (i=0;i<xmllist.length();i++)
+			 {
+				 tablexml=xmllist[i];
+				 tableModel=new TableModel();
+				 //tableModel.streamMode=val.streamSever.@mode;
+				 //tableModel.setStreamPath(val.streamSever);
+				 tableModel.setData(tablexml);
+				 tableModel.game="blackjack"
+				 _tableList.push(tableModel);
+			 }
+			 
 			 xmllist = val.baccarat.table;
 			 for (i=0;i<xmllist.length();i++)
 			 {
 				 tablexml=xmllist[i];
 				 tableModel=new TableModel();
-				 tableModel.streamMode=val.streamSever.@mode;
-				 tableModel.setStreamPath(val.streamSever);
+				 //tableModel.streamMode=val.streamSever.@mode;
+				 //tableModel.setStreamPath(val.streamSever);
+				 tableModel.setData(tablexml);
+				 tableModel.game="baccarat"
+				 _tableList.push(tableModel);
+			 }
+			 xmllist = val.baccarat.vtable;
+			 for (i=0;i<xmllist.length();i++)
+			 {
+				 tablexml=xmllist[i];
+				 tableModel=new TableModel();
+				 //tableModel.streamMode=val.streamSever.@mode;
+				 //tableModel.setStreamPath(val.streamSever);
 				 tableModel.setData(tablexml);
 				 tableModel.game="baccarat"
 				 _tableList.push(tableModel);
