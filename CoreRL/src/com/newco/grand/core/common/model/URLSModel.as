@@ -8,7 +8,7 @@ package com.newco.grand.core.common.model
 		
 		private var _authentication:String = "https://livecasino.smartliveaffiliates.com/cgibin/SmartAuthentication";
 		private var _login:String 		= "http://m.smartlivecasino.com/WebServices/Login.aspx";
-		private var _lobby:String 		= "/player/games/tables.swf";
+		private var _lobby:String 		= "/player/lobbyXML.jsp";
 		private var _help:String 		= "/player/games/help/Help.swf";
 		private var _freeplay:String 	= "/cgibin/mobile_launcher.jsp";
 		private var _language:String 	= "/player/games/languages/";
@@ -31,13 +31,20 @@ package com.newco.grand.core.common.model
 		private var _accountHistory:String = "player/audit/historyXML2.jsp";
 		private var _activityHistory:String=  "player/audit/historyXML.jsp";
 		
-		private var urlsXml:XML ;
+		private var _urlsXml:XML ;
 		[Inject]
 		public var flashVars:FlashVars;
 		
 		public function URLSModel()
 		{
 			super();
+		}
+		
+		public function get urlsXml():XML{
+			return _urlsXml;
+		}
+		public function set urlsXml(val:XML):void{
+			 _urlsXml=val;
 		}
 		public function testing():void {
 			//_authentication = "http://everest.smartlivegaming.com/cgibin/SmartAuthentication";

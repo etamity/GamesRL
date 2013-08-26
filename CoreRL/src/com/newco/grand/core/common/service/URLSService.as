@@ -81,6 +81,9 @@ package com.newco.grand.core.common.service
 				urlsModel.statistics=xml.roulette.statistics;
 				urlsModel.skin=(xml.roulette.skin!=undefined)?xml.baccarat.skin:xml.common.skin;
 			}
+			
+			
+			urlsModel.urlsXml=xml;
 			if (_onComplete!=null)
 			_onComplete();
 			debug("state:",urlsModel.state);

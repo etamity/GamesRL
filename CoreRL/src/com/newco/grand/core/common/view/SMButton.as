@@ -12,7 +12,7 @@ package com.newco.grand.core.common.view
 	import fl.motion.AdjustColor;
 	
 
-	public class SMButton extends Sprite
+	public class SMButton
 	{
 		private var button:SimpleButton;
 		public var url:String;
@@ -70,6 +70,13 @@ package com.newco.grand.core.common.view
 			button.alpha= 1;
 			GameUtils.setEnableFilter(button);
 			}
+		}
+		
+	    public function get visible():Boolean{
+			return button.visible;
+		}
+		public function set visible(val:Boolean):void{
+			 button.visible=val;
 		}
 		public function get enabled():Boolean{
 			return button.enabled;
