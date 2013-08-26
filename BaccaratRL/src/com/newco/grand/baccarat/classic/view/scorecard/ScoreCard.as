@@ -1,17 +1,17 @@
-package com.newco.grand.baccarat.classic.view.scorecard {
+package com.newco.grand.lobby.classic.view.scorecard {
 	
-	import com.newco.grand.baccarat.classic.view.scorecard.display.IScoreCardsDisplay;
-	import com.newco.grand.baccarat.classic.view.scorecard.display.ScoreCardsDisplay;
 	import com.newco.grand.core.utils.GameUtils;
 	import com.newco.grand.core.utils.StringUtils;
+	import com.newco.grand.lobby.classic.view.scorecard.display.IScoreCardsDisplay;
+	import com.newco.grand.lobby.classic.view.scorecard.display.ScoreCardsDisplay;
 	
 	import flash.display.MovieClip;
-	
-	import org.assetloader.loaders.XMLLoader;
+	import flash.events.Event;
+	import flash.net.URLLoader;
+	import flash.net.URLRequest;
 	
 	public class ScoreCard extends MovieClip implements IScoreCard {
-		
-		protected var _xmlLoader:XMLLoader;
+		private var xmlLoader:URLLoader = new URLLoader();
 		protected var _scoreCardsDisplay:IScoreCardsDisplay;
 		protected var _resultsURL:String = "testing/bigroad.xml";
 		
@@ -29,7 +29,22 @@ package com.newco.grand.baccarat.classic.view.scorecard {
 			//onResultsXMLComplete();
 		}
 		
-		
+		protected function onResultsXMLComplete(e:Event):void
+		{
+			XML.ignoreWhitespace = true;
+			//<result id="10" score="8">banker</result>
+			var xml:XML = new XML(e.target.data);
+			var results:XMLList = xml.result;			
+			trace("BIGROAD RESPONSE: " + results);
+			_initialized = true;
+			_scoreCardsDisplay.clear();
+			for(var i:uint = 0; i < results.length(); i++)
+			{
+				var type:String = results[i];
+				var score:uint = uint( results[i].@score );
+				_scoreCardsDisplay.newResult(type, score, _txtClr);
+			}			
+		}
 		public function generateScorecard(results:XMLList):void {
 			if (_initialized) {
 				debug("BIGROAD UPDATE: " + results[0].text() + " " + uint(results[0].@score));
@@ -76,11 +91,12 @@ package com.newco.grand.baccarat.classic.view.scorecard {
 			_txtClr = txtClr;
 			_scoreCardsDisplay = new ScoreCardsDisplay(addChild(new MovieClip()) as MovieClip);
 			_scoreCardsDisplay.init(width, height, showTabs, showAllRoadsAtOnce);			
-			debug("BIGROAD PARAMS NEW: " + width + " " + height + " " + showTabs + " " + showAllRoadsAtOnce + " " + tableId + " " + txtClr + " " + url);
-			
+		
 			if (url != "") {
 				_resultsURL = StringUtils.replace(url, "#TABLE_ID#", _tableID);
 				_resultsURL = StringUtils.replace(_resultsURL, "#RAN_NO#", "" + Math.random() + Math.random());
+				debug("BIGROAD PARAMS NEW: " + width + " " + height + " " + showTabs + " " + showAllRoadsAtOnce + " " + tableId + " " + txtClr + " " + _resultsURL);
+				
 				loadResults();
 			}
 			else {
@@ -102,6 +118,9 @@ package com.newco.grand.baccarat.classic.view.scorecard {
 				_xmlLoader.addEventListener(XMLLoaderEvent.COMPLETE, onResultsXMLComplete)
 				Debug.log("LOADING BIGROAD: " + _resultsURL);
 			}*/
+			var xmlLoader:URLLoader = new URLLoader();
+			xmlLoader.addEventListener(Event.COMPLETE, onResultsXMLComplete);
+			xmlLoader.load(new URLRequest(_resultsURL));
 		}
 		
 		/**

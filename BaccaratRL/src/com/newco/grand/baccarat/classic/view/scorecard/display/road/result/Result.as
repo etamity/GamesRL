@@ -1,4 +1,4 @@
-package com.newco.grand.baccarat.classic.view.scorecard.display.road.result {
+package com.newco.grand.lobby.classic.view.scorecard.display.road.result {
 	
 	import com.newco.grand.core.common.view.ui.views.BaseView;
 	

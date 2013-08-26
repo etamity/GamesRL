@@ -1,12 +1,12 @@
-package com.newco.grand.baccarat.classic.view.scorecard.display {
+package com.newco.grand.lobby.classic.view.scorecard.display {
 	
-	import com.newco.grand.baccarat.classic.view.scorecard.data.ResultTypes;
-	import com.newco.grand.baccarat.classic.view.scorecard.display.road.IRoad;
-	import com.newco.grand.baccarat.classic.view.scorecard.display.road.Road;
-	import com.newco.grand.baccarat.classic.view.scorecard.display.road.behaviours.AllRoadsAddBehaviour;
-	import com.newco.grand.baccarat.classic.view.scorecard.display.road.result.IResult;
-	import com.newco.grand.baccarat.classic.view.scorecard.display.tabs.ITabMenu;
-	import com.newco.grand.baccarat.classic.view.scorecard.display.tabs.TabMenu;
+	import com.newco.grand.lobby.classic.view.scorecard.data.ResultTypes;
+	import com.newco.grand.lobby.classic.view.scorecard.display.road.IRoad;
+	import com.newco.grand.lobby.classic.view.scorecard.display.road.Road;
+	import com.newco.grand.lobby.classic.view.scorecard.display.road.behaviours.AllRoadsAddBehaviour;
+	import com.newco.grand.lobby.classic.view.scorecard.display.road.result.IResult;
+	import com.newco.grand.lobby.classic.view.scorecard.display.tabs.ITabMenu;
+	import com.newco.grand.lobby.classic.view.scorecard.display.tabs.TabMenu;
 	import com.newco.grand.core.common.model.Language;
 	import com.newco.grand.core.common.view.ui.buttons.GeneralButtonEvent;
 	import com.newco.grand.core.common.view.ui.buttons.IGeneralButton;

@@ -1,9 +1,9 @@
-package com.newco.grand.baccarat.classic.view.scorecard.display.road.behaviours {
+package com.newco.grand.lobby.classic.view.scorecard.display.road.behaviours {
 	
-	import com.newco.grand.baccarat.classic.view.scorecard.data.ResultTypes;
-	import com.newco.grand.baccarat.classic.view.scorecard.display.road.IRoadModifiable;
-	import com.newco.grand.baccarat.classic.view.scorecard.display.road.result.IResult;
-	import com.newco.grand.baccarat.classic.view.scorecard.display.road.result.Result;
+	import com.newco.grand.lobby.classic.view.scorecard.data.ResultTypes;
+	import com.newco.grand.lobby.classic.view.scorecard.display.road.IRoadModifiable;
+	import com.newco.grand.lobby.classic.view.scorecard.display.road.result.IResult;
+	import com.newco.grand.lobby.classic.view.scorecard.display.road.result.Result;
 	
 	import flash.display.MovieClip;
 

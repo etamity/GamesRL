@@ -1,4 +1,4 @@
-package com.newco.grand.baccarat.classic.view.scorecard.data {
+package com.newco.grand.lobby.classic.view.scorecard.data {
 	
 	/**
 	 * Defines the four different result Strings
