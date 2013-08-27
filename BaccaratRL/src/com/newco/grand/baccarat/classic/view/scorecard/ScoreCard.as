@@ -1,9 +1,9 @@
-package com.newco.grand.lobby.classic.view.scorecard {
+package com.newco.grand.baccarat.classic.view.scorecard {
 	
 	import com.newco.grand.core.utils.GameUtils;
 	import com.newco.grand.core.utils.StringUtils;
-	import com.newco.grand.lobby.classic.view.scorecard.display.IScoreCardsDisplay;
-	import com.newco.grand.lobby.classic.view.scorecard.display.ScoreCardsDisplay;
+	import com.newco.grand.baccarat.classic.view.scorecard.display.IScoreCardsDisplay;
+	import com.newco.grand.baccarat.classic.view.scorecard.display.ScoreCardsDisplay;
 	
 	import flash.display.MovieClip;
 	import flash.events.Event;

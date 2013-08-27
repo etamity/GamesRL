@@ -1,8 +1,8 @@
-package com.newco.grand.lobby.classic.view.scorecard.display {
+package com.newco.grand.baccarat.classic.view.scorecard.display {
 	
-	import com.newco.grand.lobby.classic.view.scorecard.data.ResultTypes;
-	import com.newco.grand.lobby.classic.view.scorecard.display.road.IRoad;
-	import com.newco.grand.lobby.classic.view.scorecard.display.road.result.IResult;
+	import com.newco.grand.baccarat.classic.view.scorecard.data.ResultTypes;
+	import com.newco.grand.baccarat.classic.view.scorecard.display.road.IRoad;
+	import com.newco.grand.baccarat.classic.view.scorecard.display.road.result.IResult;
 	
 	/**
 	 * This class is responsible for assigning the correct 2 cells of the

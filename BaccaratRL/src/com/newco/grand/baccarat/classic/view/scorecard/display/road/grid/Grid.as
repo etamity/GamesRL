@@ -1,6 +1,6 @@
-package com.newco.grand.lobby.classic.view.scorecard.display.road.grid {
+package com.newco.grand.baccarat.classic.view.scorecard.display.road.grid {
 	
-	import com.newco.grand.lobby.classic.view.scorecard.display.road.result.IResult;
+	import com.newco.grand.baccarat.classic.view.scorecard.display.road.result.IResult;
 	import com.newco.grand.core.common.view.ui.views.BaseView;
 	
 	import flash.display.DisplayObject;
