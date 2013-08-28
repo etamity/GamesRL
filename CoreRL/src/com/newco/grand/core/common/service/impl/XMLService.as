@@ -1,0 +1,58 @@
+package com.newco.grand.core.common.service.impl
+{
+	import com.newco.grand.core.common.controller.signals.MessageEvent;
+	import com.newco.grand.core.common.model.SignalBus;
+	import com.newco.grand.core.utils.GameUtils;
+	
+	import flash.net.URLRequest;
+	import flash.net.URLVariables;
+	
+	import org.assetloader.base.Param;
+	import org.assetloader.core.IParam;
+	import org.assetloader.loaders.XMLLoader;
+	import org.assetloader.signals.ErrorSignal;
+	
+	public class XMLService
+	{
+		protected var loader:XMLLoader;
+		protected var params:URLVariables;
+		
+		public var onError:ErrorSignal;
+		
+		[Inject]
+		public var signalBus:SignalBus;
+		
+		public function XMLService()
+		{
+			params=new URLVariables();
+		}
+		
+		public function get parameters():Object{
+			return params;
+		}
+		public function loadURL(url:String,onComplete:Function=null,noCache:Boolean=true):void
+		{
+			var rtime:String;
+			var urlRequest:URLRequest;
+			urlRequest= new URLRequest(url);
+			loader=new XMLLoader(urlRequest);
+			if (noCache){
+				var param:IParam=new Param(Param.PREVENT_CACHE, true);
+				loader.addParam(param);
+			}
+			urlRequest.data=params;
+			loader.onError.add(showError);
+			if (onComplete!=null)
+				loader.onComplete.add(onComplete);
+			loader.start();
+		}
+		private function showError(signal:ErrorSignal):void {
+			signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:signal.message});
+			debug("error " + signal.message);
+		}
+		
+		private function debug(...args):void {
+			GameUtils.log(this, args);
+		}
+	}
+}

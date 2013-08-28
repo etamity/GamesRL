@@ -26,8 +26,8 @@ package com.newco.grand.core.mobile.controller.commands {
 		
 		override public function execute():void {	
 			if(flashVars.localhost) {
-				configService.loadConfig(function ():void{
-					urlsService.loadConfig(function ():void{
+				configService.load(function ():void{
+					urlsService.load(function ():void{
 						//SkinLoader.loadSkinFile("skins/skin.swf",onStart,onError,null,null);
 						onStart();
 					});
@@ -35,7 +35,7 @@ package com.newco.grand.core.mobile.controller.commands {
 			
 			}
 			else{
-				urlsService.loadConfig(function ():void{
+				urlsService.load(function ():void{
 					//SkinLoader.loadSkinFile(urls.skin,onStart,onError,null,null);
 					onStart();
 				});

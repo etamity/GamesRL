@@ -1,36 +1,23 @@
 package com.newco.grand.core.common.service
 {
-	import com.newco.grand.core.common.controller.signals.MessageEvent;
-	import com.newco.grand.core.common.model.Actor;
 	import com.newco.grand.core.common.model.Constants;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.IGameData;
-	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.model.URLSModel;
+	import com.newco.grand.core.common.service.impl.XMLService;
 	import com.newco.grand.core.utils.GameUtils;
 	import com.newco.grand.core.utils.StringUtils;
 	
-	import flash.net.URLRequest;
-	
-	import org.assetloader.core.IAssetLoader;
-	import org.assetloader.loaders.XMLLoader;
-	import org.assetloader.signals.ErrorSignal;
 	import org.assetloader.signals.LoaderSignal;
 	
-	public class URLSService extends Actor
+	public class URLSService extends XMLService
 	{
-		[Inject]
-		public var service:IAssetLoader;
 		[Inject]
 		public var urlsModel:URLSModel;
 		[Inject]
 		public var flashVars:FlashVars;
 		[Inject]
-		public var signalBus:SignalBus;
-		[Inject]
 		public var gameData:IGameData;
-		
-		private const URLS_XML:String= "URLS_XML";
 		
 		private var _xmlurl:String="xml/urls.xml";
 		
@@ -88,7 +75,7 @@ package com.newco.grand.core.common.service
 			_onComplete();
 			debug("state:",urlsModel.state);
 		}
-		public function loadConfig(onComplete:Function):void{
+		public function load(onComplete:Function):void{
 			debug("loading Config  " + _xmlurl);
 			debug("Server  " + urlsModel.server);
 
@@ -100,14 +87,7 @@ package com.newco.grand.core.common.service
 				
 			
 			_onComplete=onComplete;
-			service.addLoader(new XMLLoader(new URLRequest(_xmlurl), URLS_XML));
-			service.getLoader(URLS_XML).onError.add(showError);
-			service.getLoader(URLS_XML).onComplete.add(setConfig);			
-			service.start();
-		}
-		private function showError(signal:ErrorSignal):void {
-			debug("error " + signal.message);
-			signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:signal.message + "::" +_xmlurl});
+			loadURL(_xmlurl,setConfig);
 		}
 		private function debug(...args):void {
 			GameUtils.log(this, args);

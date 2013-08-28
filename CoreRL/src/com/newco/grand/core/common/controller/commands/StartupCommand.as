@@ -26,8 +26,8 @@ package com.newco.grand.core.common.controller.commands {
 		
 		override public function execute():void {	
 			if(flashVars.localhost) {
-				configService.loadConfig(function ():void{
-					urlsService.loadConfig(function ():void{
+				configService.load(function ():void{
+					urlsService.load(function ():void{
 						if (FlashVars.SKIN_ENABLE==true)
 						SkinLoader.loadSkinFile("skins/skin.swf",onStart,onError,null,null);
 						else
@@ -37,7 +37,7 @@ package com.newco.grand.core.common.controller.commands {
 				
 			}
 			else{
-				urlsService.loadConfig(function ():void{
+				urlsService.load(function ():void{
 					if (FlashVars.SKIN_ENABLE==true)
 					SkinLoader.loadSkinFile(urls.skin,onStart,onError,null,null);
 					else
