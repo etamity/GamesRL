@@ -74,7 +74,7 @@ package com.newco.grand.core.common.controller.commands {
 						videoService.application=game.videoApplication;
 					
 					
-					debug("[game.videoStream]:"+game.videoStream);
+					debug("[game.videoStreams]:"+game.videoStreams);
 					videoService.settings=game.videoSettings;
 					
 					videoService.init();

@@ -170,7 +170,7 @@ package com.newco.grand.core.common.model
 		public function get state():String {
 			if( flashVars.localhost )
 				return "xml/" + FlashVars.GAMECLIENT.toLowerCase()+"_state.xml";
-			return server + _state+ "?table_id=" + flashVars.table_id+flashVars.vt_id;
+			return server + _state+ "?table_id=" + flashVars.table_id+"&vt_id="+flashVars.vt_id;
 		}
 		
 		public function set state(value:String):void {
@@ -180,7 +180,7 @@ package com.newco.grand.core.common.model
 		public function get tableConfig():String {
 			if( flashVars.localhost )
 				return "xml/" + FlashVars.GAMECLIENT.toLowerCase()+"_tableconfig.xml";
-			return server + _tableConfig+ "?table_id=" + flashVars.table_id+flashVars.vt_id;
+			return server + _tableConfig+ "?table_id=" + flashVars.table_id+"&vt_id="+flashVars.vt_id;
 		}
 		
 		public function set tableConfig(value:String):void {
