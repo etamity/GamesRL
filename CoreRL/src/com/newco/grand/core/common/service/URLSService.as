@@ -76,16 +76,17 @@ package com.newco.grand.core.common.service
 			urlsModel.urlsXml=xml;
 			if (_onComplete!=null)
 			_onComplete();
+			
 			debug("state:",urlsModel.state);
 		}
 		public function load(onComplete:Function):void{
 			debug("loading Config  " + _xmlurl);
-			debug("Server  " + urlsModel.server);
+			debug("Server  " + flashVars.server);
 
 		
 			if (flashVars.localhost==false)
 			{
-				_xmlurl=urlsModel.server+"/player/games/xml/urls.xml";
+				_xmlurl=flashVars.server+"/player/games/xml/urls.xml";
 			}
 				
 			

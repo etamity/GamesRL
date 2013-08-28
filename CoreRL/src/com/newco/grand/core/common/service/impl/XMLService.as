@@ -43,7 +43,7 @@ package com.newco.grand.core.common.service.impl
 			if (onComplete!=null)
 				loader.onComplete.add(onComplete);
 			if (onError!=null)
-				loader.onComplete.add(onError);
+				loader.onError.add(onError);
 			loader.start();
 		}
 		private function debug(...args):void {

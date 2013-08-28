@@ -47,7 +47,9 @@ package com.newco.grand.core.common.controller.commands {
 							game.videoApplication = application;
 	
 						}
-					}else if (streamUrl!="" && (lowerCaseStreamUr.search(".mp4")!=-1 || lowerCaseStreamUr.search(".flv")!=-1))
+					}
+					
+					if (streamUrl!="" && (lowerCaseStreamUr.search(".mp4")!=-1 || lowerCaseStreamUr.search(".flv")!=-1))
 						{
 						   game.server="";
 						   game.videoStream=lowerCaseStreamUr;
