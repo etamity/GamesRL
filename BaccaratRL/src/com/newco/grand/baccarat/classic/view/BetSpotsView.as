@@ -144,7 +144,7 @@ package com.newco.grand.baccarat.classic.view {
 				betspotmc.display.highlight.visible=false;
 				betspotmc.x = betspot.x;
 				betspotmc.y = betspot.y;
-				betspot.visible=false;
+				betspot.visible=true;
 				addChild(betspotmc.display);
 				_betSpotsArray.push(betspotmc);
 				_betSpotHash[_betSpotsName[i]]=betspotmc;
