@@ -9,11 +9,16 @@ package com.newco.grand.core.common.service
 	import org.assetloader.signals.ErrorSignal;
 	import org.assetloader.signals.LoaderSignal;
 	
-	public class ConfigService extends XMLService
+	public class ConfigService
 	{
 		private var _xmlurl:String="xml/configs.xml";
 		[Inject]
 		public var flashVars:FlashVars;
+		[Inject]
+		public var service:XMLService;
+		
+		[Inject]
+		public var signalBus:SignalBus;
 		
 		private var _onComplete:Function;
 		public function ConfigService()
@@ -48,7 +53,7 @@ package com.newco.grand.core.common.service
 		public function load(onComplete:Function=null):void{
 			debug("loading Config  " + _xmlurl);
 			_onComplete=onComplete;
-			loadURL(_xmlurl,setConfig);
+			service.loadURL(_xmlurl,setConfig);
 		}
 		private function showError(signal:ErrorSignal):void {
 			signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:signal.message});

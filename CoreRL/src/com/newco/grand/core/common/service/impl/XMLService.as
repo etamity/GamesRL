@@ -16,9 +16,7 @@ package com.newco.grand.core.common.service.impl
 	{
 		protected var loader:XMLLoader;
 		protected var params:URLVariables;
-		
 		public var onError:ErrorSignal;
-		
 		[Inject]
 		public var signalBus:SignalBus;
 		
@@ -30,10 +28,11 @@ package com.newco.grand.core.common.service.impl
 		public function get parameters():Object{
 			return params;
 		}
-		public function loadURL(url:String,onComplete:Function=null,noCache:Boolean=true):void
+		public function loadURL(url:String,onComplete:Function=null,onError:Function=null,noCache:Boolean=true):void
 		{
 			var rtime:String;
 			var urlRequest:URLRequest;
+			debug(url,params);
 			urlRequest= new URLRequest(url);
 			loader=new XMLLoader(urlRequest);
 			if (noCache){
@@ -41,16 +40,12 @@ package com.newco.grand.core.common.service.impl
 				loader.addParam(param);
 			}
 			urlRequest.data=params;
-			loader.onError.add(showError);
 			if (onComplete!=null)
 				loader.onComplete.add(onComplete);
+			if (onError!=null)
+				loader.onComplete.add(onError);
 			loader.start();
 		}
-		private function showError(signal:ErrorSignal):void {
-			signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:signal.message});
-			debug("error " + signal.message);
-		}
-		
 		private function debug(...args):void {
 			GameUtils.log(this, args);
 		}
