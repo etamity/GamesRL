@@ -7,8 +7,6 @@
 
 package robotlegs.bender.extensions.signalCommandMap.api
 {
-	import org.osflash.signals.ISignal;
-	
 	import robotlegs.bender.extensions.commandCenter.dsl.ICommandMapper;
 	import robotlegs.bender.extensions.commandCenter.dsl.ICommandUnmapper;
 
@@ -26,12 +24,19 @@ package robotlegs.bender.extensions.signalCommandMap.api
 		 * @return Command mapper
 		 */
 		function map( signalClass:Class ):ICommandMapper;
-		function mapSignal(signal:ISignal, commandClass:Class, oneShot:Boolean = false):void;
+
 		/**
 		 * Unmaps a Signal based trigger from a command
 		 * @param signalClass The concrete Signal class
 		 * @return Command unmapper
 		 */
 		function unmap( signalClass:Class ):ICommandUnmapper;
+
+		/**
+		 * Adds a handler to process mappings
+		 * @param handler Function that accepts a mapping
+		 * @return Self
+		 */
+		function addMappingProcessor(handler:Function):ISignalCommandMap;
 	}
 }

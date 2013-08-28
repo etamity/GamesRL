@@ -8,13 +8,14 @@
 package robotlegs.bender.extensions.signalCommandMap.impl
 {
 	import org.osflash.signals.ISignal;
-	import org.swiftsuspenders.Injector;
+
+	import robotlegs.bender.framework.api.IInjector;
 	import robotlegs.bender.extensions.commandCenter.api.ICommandExecutor;
 	import robotlegs.bender.extensions.commandCenter.api.ICommandTrigger;
 	import robotlegs.bender.extensions.commandCenter.impl.CommandExecutor;
 	import robotlegs.bender.extensions.commandCenter.impl.CommandMapper;
 	import robotlegs.bender.extensions.commandCenter.impl.CommandMappingList;
-	import robotlegs.bender.extensions.commandCenter.impl.CommandPayload;
+	import robotlegs.bender.extensions.commandCenter.api.CommandPayload;
 	import robotlegs.bender.framework.api.ILogger;
 
 	/**
@@ -31,7 +32,7 @@ package robotlegs.bender.extensions.signalCommandMap.impl
 
 		private var _signal:ISignal;
 
-		private var _injector:Injector;
+		private var _injector:IInjector;
 
 		private var _mappings:CommandMappingList;
 
@@ -45,14 +46,15 @@ package robotlegs.bender.extensions.signalCommandMap.impl
 		 * @private
 		 */
 		public function SignalCommandTrigger(
-			injector:Injector,
+			injector:IInjector,
 			signalClass:Class,
+			processors:Array = null,
 			logger:ILogger = null)
 		{
 			_injector = injector;
 
 			_signalClass = signalClass;
-			_mappings = new CommandMappingList(this, logger);
+			_mappings = new CommandMappingList(this, processors, logger);
 			_executor = new CommandExecutor(injector, _mappings.removeMapping);
 		}
 
