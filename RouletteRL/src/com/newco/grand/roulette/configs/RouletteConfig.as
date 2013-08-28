@@ -39,10 +39,7 @@ package com.newco.grand.roulette.configs
 	import com.newco.grand.core.common.service.ISocketService;
 	import com.newco.grand.core.common.service.URLSService;
 	import com.newco.grand.core.common.service.VideoService;
-	import com.newco.grand.core.common.view.GameStatusView;
-	import com.newco.grand.core.common.view.LoginView;
-	import com.newco.grand.core.common.view.StageView;
-	import com.newco.grand.core.common.view.TaskbarView;
+	import com.newco.grand.core.common.service.impl.XMLService;
 	import com.newco.grand.core.common.view.interfaces.IAccordion;
 	import com.newco.grand.core.common.view.interfaces.IChatView;
 	import com.newco.grand.core.common.view.interfaces.IGameStatusView;
@@ -50,7 +47,6 @@ package com.newco.grand.roulette.configs
 	import com.newco.grand.core.common.view.interfaces.IStageView;
 	import com.newco.grand.core.common.view.interfaces.ITaskbarView;
 	import com.newco.grand.core.common.view.interfaces.IVideoView;
-	
 	import com.newco.grand.core.common.view.mediators.ChatMediator;
 	import com.newco.grand.core.common.view.mediators.GameStatusMediator;
 	import com.newco.grand.core.common.view.mediators.LoginMediator;
@@ -68,8 +64,6 @@ package com.newco.grand.roulette.configs
 	import com.newco.grand.roulette.classic.controller.signals.StatisticsEvent;
 	import com.newco.grand.roulette.classic.model.GameDataModel;
 	import com.newco.grand.roulette.classic.service.GameSocketService;
-	import com.newco.grand.roulette.classic.view.AccordionUIView;
-	import com.newco.grand.roulette.classic.view.ChatView;
 	import com.newco.grand.roulette.classic.view.FavouritesBetsView;
 	import com.newco.grand.roulette.classic.view.LimitsView;
 	import com.newco.grand.roulette.classic.view.LobbyView;
@@ -77,7 +71,7 @@ package com.newco.grand.roulette.configs
 	import com.newco.grand.roulette.classic.view.ResultsClassicView;
 	import com.newco.grand.roulette.classic.view.StageInfoView;
 	import com.newco.grand.roulette.classic.view.StatisticsView;
-	import com.newco.grand.roulette.classic.view.VideoView;
+	import com.newco.grand.roulette.classic.view.interfaces.IBetSpotsView;
 	import com.newco.grand.roulette.classic.view.mediators.BetSpotsMediator;
 	import com.newco.grand.roulette.classic.view.mediators.FavouritesBetsMediator;
 	import com.newco.grand.roulette.classic.view.mediators.LimitsMediator;
@@ -87,7 +81,7 @@ package com.newco.grand.roulette.configs
 	import com.newco.grand.roulette.classic.view.mediators.RouletteAccordionMediator;
 	import com.newco.grand.roulette.classic.view.mediators.StageInfoMediator;
 	import com.newco.grand.roulette.classic.view.mediators.StatisticsMediator;
-	import com.newco.grand.roulette.classic.view.interfaces.IBetSpotsView;
+	
 	import org.assetloader.AssetLoader;
 	import org.assetloader.base.Param;
 	import org.assetloader.core.IAssetLoader;
@@ -178,6 +172,7 @@ package com.newco.grand.roulette.configs
 			injector.map(ISocketService).toSingleton(GameSocketService);
 			injector.map(ChatSocketService).toSingleton(ChatSocketService);
 			injector.map(VideoService).asSingleton();
+			injector.map(XMLService).asSingleton();
 			injector.map(URLSModel).asSingleton();
 			injector.map(Player).asSingleton();
 			injector.map(Chat).asSingleton();
