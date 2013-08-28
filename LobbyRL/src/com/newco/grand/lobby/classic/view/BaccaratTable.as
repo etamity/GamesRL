@@ -1,7 +1,7 @@
 package com.newco.grand.lobby.classic.view
 {
+	import com.newco.grand.core.common.view.scorecard.ScoreCard;
 	import com.newco.grand.lobby.classic.model.TableModel;
-	import com.newco.grand.lobby.classic.view.scorecard.ScoreCard;
 
 	public class BaccaratTable extends BaseTable
 	{	
