@@ -13,8 +13,8 @@ package com.newco.grand.core.common.controller.commands {
 		public var gameService:ISocketService;
 		
 		override public function execute():void {
-			debug("Connect ", flashVars.server,flashVars.port);
-			gameService.connectToSocket(flashVars.server, flashVars.port);
+			debug("Connect ", flashVars.socketServer,flashVars.port);
+			gameService.connectToSocket(flashVars.socketServer, flashVars.port);
 		}
 		
 		private function debug(...args):void {

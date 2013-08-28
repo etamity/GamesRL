@@ -11,7 +11,8 @@ package com.newco.grand.core.common.model {
 		public var port:int 			= 5654;
 		
 		// For testing Roulette
-		public var server:String 		= "livecasino.smartliveaffiliates.com";		
+		public var server:String 		= "livecasino.smartliveaffiliates.com";	
+		public var socketServer:String	= "livecasino.smartliveaffiliates.com";		
 		public var table_id:String 		= "7nyiaws9tgqrzaz3";
 		public var vt_id:String 		= "";
 		public var user_id:String 		= "";
