@@ -92,6 +92,7 @@ package com.newco.grand.lobby.configs
 			commandMap.mapSignal(signalBus.signal(SignalConstants.STARTUP_COMPLETE), LobbyDataCommand, true);
 			commandMap.mapSignal(signalBus.signal(LobbyEvents.LOADHISTORY), HistoryCommand, true);
 			commandMap.mapSignal(signalBus.signal(BalanceEvent.LOAD), BalanceCommand);
+
 		}
 		public function configure():void
 		{		
