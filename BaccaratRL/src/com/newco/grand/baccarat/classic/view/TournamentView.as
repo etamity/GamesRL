@@ -2,6 +2,7 @@ package com.newco.grand.baccarat.classic.view
 {
 	import com.newco.grand.baccarat.classic.view.tournamenet.PlayerList;
 	import com.newco.grand.baccarat.classic.view.tournamenet.TimerControl;
+	import com.newco.grand.core.utils.GameUtils;
 
 	public class TournamentView extends TournamenetAsset
 	{
@@ -12,6 +13,7 @@ package com.newco.grand.baccarat.classic.view
 		}
 		
 		public function loadXML(url:String):void{
+			debug(url);
 			playerList = new PlayerList(url);
 			playerList.y = 50;
 			playerList.x = 3;
@@ -25,7 +27,9 @@ package com.newco.grand.baccarat.classic.view
 			addChild(timerControl);
 			
 		}
-		
+		private function debug(...args):void {
+			GameUtils.log(this, args);
+		}
 
 	}
 }

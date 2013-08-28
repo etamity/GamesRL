@@ -145,10 +145,13 @@ package com.newco.grand.baccarat.classic.controller.commands {
 			
 			game.tie_bet_max=xml["gameconfig-param"].@tie_bet_max;
 			game.tie_bet_min=xml["gameconfig-param"].@tie_bet_min;
+			game.videoStream= xml["gameconfig-param"].@low_stream;
+			
 			service.remove(Constants.SERVER_TABLE_CONFIG);
 			
 			var streams:Array=new Array(xml["gameconfig-param"].@low_stream,xml["gameconfig-param"].@med_stream,xml["gameconfig-param"].@high_stream);
 			game.videoStreams=streams;
+			debug("game.videoStreams:",game.videoStreams);
 			loadSettings();
 
 		}

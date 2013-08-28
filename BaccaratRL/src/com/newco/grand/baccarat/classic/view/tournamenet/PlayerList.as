@@ -1,5 +1,7 @@
 ﻿
 package com.newco.grand.baccarat.classic.view.tournamenet   {
+	import com.newco.grand.core.utils.GameUtils;
+	
 	import flash.display.MovieClip;
 	import flash.events.Event;
 	import flash.events.IOErrorEvent;
@@ -31,9 +33,9 @@ package com.newco.grand.baccarat.classic.view.tournamenet   {
 		
 		
 		private function loadXML():void {
-			var url:String = urlString;// + "&random=" + (Math.random() );
+			var url:String = urlString + "?rtime=" + String(new Date().getTime());
             xmlLoader.load( new URLRequest( url) );
-			trace("Tournament URL:"+url);
+			//trace("Tournament URL:"+url);
 		}
 		
 		private function xmlConfigLoadingSuccessed(event:Event):void {
@@ -72,10 +74,12 @@ package com.newco.grand.baccarat.classic.view.tournamenet   {
 		}
 				
 		private function xmlConfigLoadingFailed(event:IOErrorEvent):void {
-			trace(event);
+			debug(event.text);
 			setTimeout(loadXML, refreshInterval);
 		}
-
+		private function debug(...args):void {
+			GameUtils.log(this, args);
+		}
 	}
 	
 }
