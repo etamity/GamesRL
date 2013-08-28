@@ -11,6 +11,7 @@ package com.newco.grand.lobby.configs
 	import com.newco.grand.core.common.model.URLSModel;
 	import com.newco.grand.core.common.service.ConfigService;
 	import com.newco.grand.core.common.service.URLSService;
+	import com.newco.grand.core.common.service.impl.XMLService;
 	import com.newco.grand.lobby.classic.controller.commands.HistoryCommand;
 	import com.newco.grand.lobby.classic.controller.commands.LobbyDataCommand;
 	import com.newco.grand.lobby.classic.controller.signals.LobbyEvents;
@@ -75,6 +76,7 @@ package com.newco.grand.lobby.configs
 			injector.map(IGameData).toValue(gameData)
 			injector.map(SignalBus).toValue(signalBus);
 			injector.map(ConfigService).asSingleton();
+			injector.map(XMLService).asSingleton();
 			injector.map(URLSService).asSingleton();
 			injector.map(URLSModel).asSingleton();
 		}
