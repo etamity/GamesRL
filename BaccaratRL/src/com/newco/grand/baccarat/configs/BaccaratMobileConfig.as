@@ -1,6 +1,5 @@
 package com.newco.grand.baccarat.configs
 {
-	import com.newco.grand.baccarat.mobile.controller.SetupViewCommand;
 	import com.newco.grand.baccarat.classic.controller.commands.StateTableConfigCommand;
 	import com.newco.grand.baccarat.classic.controller.signals.WinnersEvent;
 	import com.newco.grand.baccarat.classic.model.GameDataModel;
@@ -17,6 +16,7 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.baccarat.classic.view.mediators.CardsPanelMediator;
 	import com.newco.grand.baccarat.classic.view.mediators.ScoreCardMediator;
 	import com.newco.grand.baccarat.classic.view.mediators.TableGraphicMediator;
+	import com.newco.grand.baccarat.mobile.controller.SetupViewCommand;
 	import com.newco.grand.baccarat.mobile.view.BetSpotsView;
 	import com.newco.grand.baccarat.mobile.view.CardsPanelView;
 	import com.newco.grand.baccarat.mobile.view.TableGraphicView;
@@ -58,10 +58,14 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.service.ISocketService;
 	import com.newco.grand.core.common.service.URLSService;
 	import com.newco.grand.core.common.service.VideoService;
+	import com.newco.grand.core.common.service.impl.XMLService;
 	import com.newco.grand.core.common.view.ChatView;
 	import com.newco.grand.core.common.view.ErrorMessageView;
+	import com.newco.grand.core.common.view.GameStatusView;
 	import com.newco.grand.core.common.view.LoginView;
-	import com.newco.grand.core.common.view.MessageBoxView;
+	import com.newco.grand.core.common.view.StageView;
+	import com.newco.grand.core.common.view.TaskbarView;
+	import com.newco.grand.core.common.view.VideoView;
 	import com.newco.grand.core.common.view.interfaces.IAccordion;
 	import com.newco.grand.core.common.view.interfaces.IErrorMessageView;
 	import com.newco.grand.core.common.view.interfaces.IGameStatusView;
@@ -73,7 +77,6 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.view.mediators.ErrorMessageMediator;
 	import com.newco.grand.core.common.view.mediators.GameStatusMediator;
 	import com.newco.grand.core.common.view.mediators.LoginMediator;
-	import com.newco.grand.core.common.view.mediators.MessageBoxMediator;
 	import com.newco.grand.core.common.view.mediators.StageMediator;
 	import com.newco.grand.core.common.view.mediators.TaskbarMediator;
 	import com.newco.grand.core.common.view.mediators.VideoMediator;
@@ -169,6 +172,7 @@ package com.newco.grand.baccarat.configs
 			injector.map(ISocketService).toSingleton(GameSocketService);
 			injector.map(ChatSocketService).toSingleton(ChatSocketService);
 			injector.map(VideoService).asSingleton();
+			injector.map(XMLService).asSingleton();
 			injector.map(URLSModel).asSingleton();
 			injector.map(Player).asSingleton();
 			injector.map(Chat).asSingleton();

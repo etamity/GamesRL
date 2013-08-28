@@ -60,6 +60,7 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.service.ISocketService;
 	import com.newco.grand.core.common.service.URLSService;
 	import com.newco.grand.core.common.service.VideoService;
+	import com.newco.grand.core.common.service.impl.XMLService;
 	import com.newco.grand.core.common.view.MessageBoxView;
 	import com.newco.grand.core.common.view.interfaces.IAccordion;
 	import com.newco.grand.core.common.view.interfaces.IChatView;
@@ -180,6 +181,7 @@ package com.newco.grand.baccarat.configs
 			injector.map(ISocketService).toSingleton(GameSocketService);
 			injector.map(ChatSocketService).toSingleton(ChatSocketService);
 			injector.map(VideoService).asSingleton();
+			injector.map(XMLService).asSingleton();
 			injector.map(URLSModel).asSingleton();
 			injector.map(Player).asSingleton();
 			injector.map(Chat).asSingleton();
