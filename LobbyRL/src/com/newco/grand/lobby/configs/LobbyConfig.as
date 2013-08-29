@@ -9,8 +9,8 @@ package com.newco.grand.lobby.configs
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.model.SignalConstants;
 	import com.newco.grand.core.common.model.URLSModel;
-	import com.newco.grand.core.common.service.ConfigService;
-	import com.newco.grand.core.common.service.URLSService;
+	import com.newco.grand.core.common.service.impl.ConfigService;
+	import com.newco.grand.core.common.service.impl.URLSService;
 	import com.newco.grand.core.common.service.impl.XMLService;
 	import com.newco.grand.lobby.classic.controller.commands.HistoryCommand;
 	import com.newco.grand.lobby.classic.controller.commands.LobbyDataCommand;
