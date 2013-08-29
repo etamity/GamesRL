@@ -1,7 +1,5 @@
 package com.newco.grand.core.common.service.impl
 {
-	import com.newco.grand.core.common.controller.signals.MessageEvent;
-	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.utils.GameUtils;
 	
 	import flash.net.URLRequest;
@@ -10,16 +8,10 @@ package com.newco.grand.core.common.service.impl
 	import org.assetloader.base.Param;
 	import org.assetloader.core.IParam;
 	import org.assetloader.loaders.XMLLoader;
-	import org.assetloader.signals.ErrorSignal;
 	
 	public class XMLService
 	{
-		protected var loader:XMLLoader;
 		protected var params:URLVariables;
-		public var onError:ErrorSignal;
-		[Inject]
-		public var signalBus:SignalBus;
-		
 		public function XMLService()
 		{
 			params=new URLVariables();
@@ -34,7 +26,7 @@ package com.newco.grand.core.common.service.impl
 			var urlRequest:URLRequest;
 			debug(url,params);
 			urlRequest= new URLRequest(url);
-			loader=new XMLLoader(urlRequest);
+			var loader:XMLLoader=new XMLLoader(urlRequest);
 			if (noCache){
 				var param:IParam=new Param(Param.PREVENT_CACHE, true);
 				loader.addParam(param);
@@ -44,6 +36,7 @@ package com.newco.grand.core.common.service.impl
 				loader.onComplete.add(onComplete);
 			if (onError!=null)
 				loader.onError.add(onError);
+			
 			loader.start();
 		}
 		private function debug(...args):void {

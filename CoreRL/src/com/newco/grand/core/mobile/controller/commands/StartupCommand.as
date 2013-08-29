@@ -6,8 +6,8 @@ package com.newco.grand.core.mobile.controller.commands {
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.model.SignalConstants;
 	import com.newco.grand.core.common.model.URLSModel;
-	import com.newco.grand.core.common.service.ConfigService;
-	import com.newco.grand.core.common.service.URLSService;
+	import com.newco.grand.core.common.service.impl.ConfigService;
+	import com.newco.grand.core.common.service.impl.URLSService;
 	
 	import flash.events.IOErrorEvent;
 	

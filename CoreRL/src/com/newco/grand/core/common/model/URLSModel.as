@@ -35,6 +35,12 @@ package com.newco.grand.core.common.model
 		[Inject]
 		public var flashVars:FlashVars;
 		
+		[Inject]
+		public var game:IGameData;
+		
+		[Inject]
+		public var player:Player;
+		
 		public function URLSModel()
 		{
 			super();
@@ -71,6 +77,8 @@ package com.newco.grand.core.common.model
 			return _server;
 		}
 		public function get balance():String {
+			if( flashVars.localhost )
+				return "xml/balance.xml";
 			return server + _balance;
 		}
 		
@@ -104,7 +112,7 @@ package com.newco.grand.core.common.model
 			if (index>=0)
 			return  _login;
 			else
-			return server + _login
+			return server + _login+ "?username=#USERNAME#&password=#PASSWORD#";
 		}
 
 		public function get accountHistory():String{
@@ -188,7 +196,7 @@ package com.newco.grand.core.common.model
 		}
 		
 		public function get sendBets():String {
-			return server + _sendBets;
+			return server + _sendBets + "?user_id=" + flashVars.user_id+ "&table_id=" + flashVars.table_id+ "&vt_id="+flashVars.vt_id + "&game_id=" + game.gameID + player.betString + "&noOfBets=" + player.betCount;
 		}
 		
 		public function set sendBets(value:String):void {
@@ -196,7 +204,9 @@ package com.newco.grand.core.common.model
 		}
 		
 		public function get chatConfig():String {
-			return server + _chatConfig;
+			if( flashVars.localhost )
+				return "xml/chat_config.xml";
+			return server + _chatConfig + "?room_id=" + flashVars.room;
 		}
 		
 		public function set chatConfig(value:String):void {
@@ -212,7 +222,9 @@ package com.newco.grand.core.common.model
 		}
 		
 		public function get players():String {
-			return server + _players;
+			if( flashVars.localhost )
+				return "xml/participants.xml";
+			return server + _players+ "?table_id=" + flashVars.table_id+"&vt_id="+flashVars.vt_id;
 		}
 		
 		public function set players(value:String):void {
@@ -222,7 +234,7 @@ package com.newco.grand.core.common.model
 		public function get winners():String {
 			if( flashVars.localhost )
 				return "xml/winnerlist.xml";
-			return server + _winners;
+			return server + _winners+"?mode=top";
 		}
 		public function set winners(value:String):void {
 			_winners = value;
@@ -236,7 +248,9 @@ package com.newco.grand.core.common.model
 		}
 		
 		public function get seat():String {
-			return server + _seat;
+			if( flashVars.localhost )
+				return "xml/sitdown.xml";
+			return server + _seat + "?table_id=" + flashVars.table_id+"&vt_id="+flashVars.vt_id;
 		}
 		public function set seat(value:String):void {
 			_seat = value;

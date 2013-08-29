@@ -1,9 +1,8 @@
-package com.newco.grand.core.common.service
+package com.newco.grand.core.common.service.impl
 {
 	import com.newco.grand.core.common.controller.signals.MessageEvent;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.SignalBus;
-	import com.newco.grand.core.common.service.impl.XMLService;
 	import com.newco.grand.core.utils.GameUtils;
 	
 	import org.assetloader.signals.ErrorSignal;

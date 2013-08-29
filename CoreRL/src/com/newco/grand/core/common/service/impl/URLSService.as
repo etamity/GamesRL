@@ -1,18 +1,19 @@
-package com.newco.grand.core.common.service
+package com.newco.grand.core.common.service.impl
 {
 	import com.newco.grand.core.common.controller.signals.MessageEvent;
 	import com.newco.grand.core.common.model.Constants;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.IGameData;
+	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.model.URLSModel;
-	import com.newco.grand.core.common.service.impl.XMLService;
+	import com.newco.grand.core.common.service.api.IService;
 	import com.newco.grand.core.utils.GameUtils;
 	import com.newco.grand.core.utils.StringUtils;
 	
 	import org.assetloader.signals.ErrorSignal;
 	import org.assetloader.signals.LoaderSignal;
 	
-	public class URLSService extends XMLService
+	public class URLSService implements IService
 	{
 		[Inject]
 		public var urlsModel:URLSModel;
@@ -22,6 +23,8 @@ package com.newco.grand.core.common.service
 		public var gameData:IGameData;
 		[Inject]
 		public var service:XMLService;
+		[Inject]
+		public var signalBus:SignalBus;
 		private var _xmlurl:String="xml/urls.xml";
 		
 		private var _onComplete:Function;
@@ -79,7 +82,7 @@ package com.newco.grand.core.common.service
 			
 			debug("state:",urlsModel.state);
 		}
-		public function load(onComplete:Function):void{
+		public function load(onComplete:Function=null):void{
 			debug("loading Config  " + _xmlurl);
 			debug("Server  " + flashVars.server);
 
