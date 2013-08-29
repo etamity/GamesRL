@@ -4,7 +4,7 @@ package com.newco.grand.core.common.controller.commands {
 	import com.newco.grand.core.common.controller.signals.VideoEvent;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.IGameData;
-	import com.newco.grand.core.common.service.VideoService;
+	import com.newco.grand.core.common.model.VideoModel;
 	import com.newco.grand.core.utils.GameUtils;
 	import com.newco.grand.core.utils.StringUtils;
 	
@@ -13,7 +13,7 @@ package com.newco.grand.core.common.controller.commands {
 		public var game:IGameData;
 		
 		[Inject]
-		public var videoService:VideoService;
+		public var videoModel:VideoModel;
 		
 		[Inject]
 		public var flashvars:FlashVars;
@@ -58,8 +58,8 @@ package com.newco.grand.core.common.controller.commands {
 						}
 						else
 						{
-							videoService.servers = String(game.videoSettings.videoservers).split(",");
-							game.server=videoService.servers[0];
+							videoModel.servers = String(game.videoSettings.videoservers).split(",");
+							game.server=videoModel.servers[0];
 							if (game.videoSettings.application.@withGameName=="false")
 								game.videoApplication = game.videoSettings.application;
 							else
@@ -69,15 +69,15 @@ package com.newco.grand.core.common.controller.commands {
 					/*if (game.server !="")
 						videoService.servers=new Array(game.server);*/
 					if (game.videoStreams !=null)
-						videoService.streams= game.videoStreams;
+						videoModel.streams= game.videoStreams;
 					if (game.videoApplication !="")
-						videoService.application=game.videoApplication;
+						videoModel.application=game.videoApplication;
 					
 					
 					debug("[game.videoStreams]:"+game.videoStreams);
-					videoService.settings=game.videoSettings;
+					videoModel.settings=game.videoSettings;
 					
-					videoService.init();
+					videoModel.init();
 					break;
 				
 				case VideoEvent.PLAY:

@@ -1,10 +1,6 @@
-package com.newco.grand.core.common.service {
+package com.newco.grand.core.common.model {
 	
 	import com.newco.grand.core.common.controller.signals.VideoEvent;
-	import com.newco.grand.core.common.model.Actor;
-	import com.newco.grand.core.common.model.FlashVars;
-	import com.newco.grand.core.common.model.IGameData;
-	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.utils.GameUtils;
 	import com.newco.grand.core.utils.StringUtils;
 	
@@ -20,7 +16,7 @@ package com.newco.grand.core.common.service {
 	import flash.utils.Timer;
 	import flash.utils.getTimer;
 
-	public class VideoService extends Actor {
+	public class VideoModel extends Actor {
 		
 		private static const STARTED_PLAYING:String = "NetStream.Play.Start";
 		private static const STREAM_NOT_FOUND:String = "NetStream.Play.StreamNotFound";
@@ -70,7 +66,7 @@ package com.newco.grand.core.common.service {
 		[Inject]
 		public var signalBus:SignalBus;
 		
-		public function VideoService() {
+		public function VideoModel() {
 			NetConnection.defaultObjectEncoding = ObjectEncoding.AMF0;			
 			_connection = new NetConnection();			
 			_connection.client = { onBWDone: function():void{} };

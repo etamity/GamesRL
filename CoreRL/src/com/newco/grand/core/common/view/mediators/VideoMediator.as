@@ -5,7 +5,7 @@ package com.newco.grand.core.common.view.mediators {
 	import com.newco.grand.core.common.controller.signals.VideoEvent;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.SignalBus;
-	import com.newco.grand.core.common.service.VideoService;
+	import com.newco.grand.core.common.model.VideoModel;
 	import com.newco.grand.core.common.view.interfaces.IVideoView;
 	import com.newco.grand.core.utils.GameUtils;
 	
@@ -26,7 +26,7 @@ package com.newco.grand.core.common.view.mediators {
 		public var flashVars:FlashVars;
 		
 		[Inject]
-		public var videoSevvice:VideoService;
+		public var videoModel:VideoModel;
 		
 		[Inject]
 		public var signalBus:SignalBus;
@@ -108,7 +108,7 @@ package com.newco.grand.core.common.view.mediators {
 			GameUtils.log(this, args);
 		}
 		private function videoRefresh(signal:BaseSignal):void{
-			videoSevvice.refreshStream();
+			videoModel.refreshStream();
 		}
 		private function videoFullscreen(signal:BaseSignal):void {
 			
