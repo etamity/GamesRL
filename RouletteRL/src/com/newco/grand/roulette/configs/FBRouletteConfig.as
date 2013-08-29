@@ -39,7 +39,7 @@ package com.newco.grand.roulette.configs
 	import com.newco.grand.core.common.service.impl.ConfigService;
 	import com.newco.grand.core.common.service.ISocketService;
 	import com.newco.grand.core.common.service.impl.URLSService;
-	import com.newco.grand.core.common.service.VideoService;
+	import com.newco.grand.core.common.model.VideoModel;
 	import com.newco.grand.core.common.view.LoginView;
 	import com.newco.grand.core.common.view.StageView;
 	import com.newco.grand.core.common.view.mediators.LoginMediator;
@@ -121,7 +121,7 @@ package com.newco.grand.roulette.configs
 			injector.map(IAssetLoader).toValue(assetLoader);
 			injector.map(ISocketService).toSingleton(GameSocketService);
 			injector.map(ChatSocketService).toSingleton(ChatSocketService);
-			injector.map(VideoService).asSingleton();
+			injector.map(VideoModel).asSingleton();
 			injector.map(URLSModel).asSingleton();
 			injector.map(Player).asSingleton();
 			injector.map(Chat).asSingleton();
