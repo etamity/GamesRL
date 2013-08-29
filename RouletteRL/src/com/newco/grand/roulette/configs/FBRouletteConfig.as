@@ -6,7 +6,7 @@ package com.newco.grand.roulette.configs
 	import com.newco.grand.core.common.controller.commands.ChatConnectionCommand;
 	import com.newco.grand.core.common.controller.commands.ChatReceiveMessageCommand;
 	import com.newco.grand.core.common.controller.commands.ChatSendMessageCommand;
-	import com.newco.grand.core.common.controller.commands.FBLoginCommand;
+	import com.newco.grand.core.common.controller.commands.LoginCommand;
 	import com.newco.grand.core.common.controller.commands.PlayersCommand;
 	import com.newco.grand.core.common.controller.commands.SeatCommand;
 	import com.newco.grand.core.common.controller.commands.SocketConnectionCommand;
@@ -36,9 +36,9 @@ package com.newco.grand.roulette.configs
 	import com.newco.grand.core.common.model.SignalConstants;
 	import com.newco.grand.core.common.model.URLSModel;
 	import com.newco.grand.core.common.service.ChatSocketService;
-	import com.newco.grand.core.common.service.ConfigService;
+	import com.newco.grand.core.common.service.impl.ConfigService;
 	import com.newco.grand.core.common.service.ISocketService;
-	import com.newco.grand.core.common.service.URLSService;
+	import com.newco.grand.core.common.service.impl.URLSService;
 	import com.newco.grand.core.common.service.VideoService;
 	import com.newco.grand.core.common.view.LoginView;
 	import com.newco.grand.core.common.view.StageView;
@@ -142,7 +142,7 @@ package com.newco.grand.roulette.configs
 			
 			commandMap.mapSignal(signalBus.signal(SignalConstants.STARTUP_COMPLETE), StartupCompleteCommand, true);
 			
-			commandMap.mapSignal(signalBus.signal(LoginEvent.LOGIN), FBLoginCommand);
+			commandMap.mapSignal(signalBus.signal(LoginEvent.LOGIN), LoginCommand);
 			commandMap.mapSignal(signalBus.signal(StartupDataEvent.SEAT), SeatCommand);
 			commandMap.mapSignal(signalBus.signal(StartupDataEvent.LOAD), StartupDataCommand);
 			commandMap.mapSignal(signalBus.signal(BalanceEvent.LOAD), BalanceCommand);

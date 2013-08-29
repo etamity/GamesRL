@@ -6,7 +6,7 @@ package com.newco.grand.roulette.configs
 	import com.newco.grand.core.common.controller.commands.ChatConnectionCommand;
 	import com.newco.grand.core.common.controller.commands.ChatReceiveMessageCommand;
 	import com.newco.grand.core.common.controller.commands.ChatSendMessageCommand;
-	import com.newco.grand.core.common.controller.commands.FBLoginCommand;
+	import com.newco.grand.core.common.controller.commands.LoginCommand;
 	import com.newco.grand.core.common.controller.commands.PlayersCommand;
 	import com.newco.grand.core.common.controller.commands.SeatCommand;
 	import com.newco.grand.core.common.controller.commands.SocketConnectionCommand;
@@ -35,10 +35,18 @@ package com.newco.grand.roulette.configs
 	import com.newco.grand.core.common.model.SignalConstants;
 	import com.newco.grand.core.common.model.URLSModel;
 	import com.newco.grand.core.common.service.ChatSocketService;
-	import com.newco.grand.core.common.service.ConfigService;
 	import com.newco.grand.core.common.service.ISocketService;
-	import com.newco.grand.core.common.service.URLSService;
 	import com.newco.grand.core.common.service.VideoService;
+	import com.newco.grand.core.common.service.impl.BalanceService;
+	import com.newco.grand.core.common.service.impl.ChatConfigService;
+	import com.newco.grand.core.common.service.impl.ConfigService;
+	import com.newco.grand.core.common.service.impl.LanguageService;
+	import com.newco.grand.core.common.service.impl.LoginService;
+	import com.newco.grand.core.common.service.impl.PlayerService;
+	import com.newco.grand.core.common.service.impl.SeatService;
+	import com.newco.grand.core.common.service.impl.SendBetsService;
+	import com.newco.grand.core.common.service.impl.URLSService;
+	import com.newco.grand.core.common.service.impl.WinnerListService;
 	import com.newco.grand.core.common.service.impl.XMLService;
 	import com.newco.grand.core.common.view.interfaces.IAccordion;
 	import com.newco.grand.core.common.view.interfaces.IChatView;
@@ -64,6 +72,7 @@ package com.newco.grand.roulette.configs
 	import com.newco.grand.roulette.classic.controller.signals.StatisticsEvent;
 	import com.newco.grand.roulette.classic.model.GameDataModel;
 	import com.newco.grand.roulette.classic.service.GameSocketService;
+	import com.newco.grand.roulette.classic.service.TableConfigService;
 	import com.newco.grand.roulette.classic.view.FavouritesBetsView;
 	import com.newco.grand.roulette.classic.view.LimitsView;
 	import com.newco.grand.roulette.classic.view.LobbyView;
@@ -172,15 +181,26 @@ package com.newco.grand.roulette.configs
 			injector.map(ISocketService).toSingleton(GameSocketService);
 			injector.map(ChatSocketService).toSingleton(ChatSocketService);
 			injector.map(VideoService).asSingleton();
-			injector.map(XMLService).asSingleton();
 			injector.map(URLSModel).asSingleton();
 			injector.map(Player).asSingleton();
 			injector.map(Chat).asSingleton();
 			injector.map(IGameData).toValue(gameData)
 			injector.map(GameDataModel).toValue(gameData);
 			injector.map(SignalBus).toValue(signalBus);
+			
+			injector.map(XMLService).asSingleton();
 			injector.map(ConfigService).asSingleton();
 			injector.map(URLSService).asSingleton();
+			injector.map(LoginService).asSingleton();
+			injector.map(WinnerListService).asSingleton();
+			injector.map(LanguageService).asSingleton();
+			injector.map(BalanceService).asSingleton();
+			injector.map(SendBetsService).asSingleton();
+			injector.map(PlayerService).asSingleton();
+			injector.map(ChatConfigService).asSingleton();
+			injector.map(SeatService).asSingleton();
+			injector.map(TableConfigService).asSingleton();
+
 			
 		}
 		public function mapMediators():void{
@@ -209,7 +229,7 @@ package com.newco.grand.roulette.configs
 			
 			commandMap.mapSignal(signalBus.signal(SignalConstants.STARTUP_COMPLETE), StartupCompleteCommand, true);
 			
-			commandMap.mapSignal(signalBus.signal(LoginEvent.LOGIN), FBLoginCommand);
+			commandMap.mapSignal(signalBus.signal(LoginEvent.LOGIN), LoginCommand);
 			commandMap.mapSignal(signalBus.signal(StartupDataEvent.SEAT), SeatCommand);
 			commandMap.mapSignal(signalBus.signal(StartupDataEvent.LOAD), StartupDataCommand);
 			commandMap.mapSignal(signalBus.signal(BalanceEvent.LOAD), BalanceCommand);
