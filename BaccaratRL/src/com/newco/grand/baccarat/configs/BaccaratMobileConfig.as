@@ -5,6 +5,7 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.baccarat.classic.model.GameDataModel;
 	import com.newco.grand.baccarat.classic.service.AnimationService;
 	import com.newco.grand.baccarat.classic.service.GameSocketService;
+	import com.newco.grand.baccarat.classic.service.TableConfigService;
 	import com.newco.grand.baccarat.classic.view.AnimationPanelView;
 	import com.newco.grand.baccarat.classic.view.ScoreCardView;
 	import com.newco.grand.baccarat.classic.view.interfaces.IBetSpotsView;
@@ -26,7 +27,7 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.controller.commands.ChatConnectionCommand;
 	import com.newco.grand.core.common.controller.commands.ChatReceiveMessageCommand;
 	import com.newco.grand.core.common.controller.commands.ChatSendMessageCommand;
-	import com.newco.grand.core.common.controller.commands.FBLoginCommand;
+	import com.newco.grand.core.common.controller.commands.LoginCommand;
 	import com.newco.grand.core.common.controller.commands.PlayersCommand;
 	import com.newco.grand.core.common.controller.commands.SeatCommand;
 	import com.newco.grand.core.common.controller.commands.SocketConnectionCommand;
@@ -54,10 +55,18 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.model.SignalConstants;
 	import com.newco.grand.core.common.model.URLSModel;
 	import com.newco.grand.core.common.service.ChatSocketService;
-	import com.newco.grand.core.common.service.ConfigService;
 	import com.newco.grand.core.common.service.ISocketService;
-	import com.newco.grand.core.common.service.URLSService;
 	import com.newco.grand.core.common.service.VideoService;
+	import com.newco.grand.core.common.service.impl.BalanceService;
+	import com.newco.grand.core.common.service.impl.ChatConfigService;
+	import com.newco.grand.core.common.service.impl.ConfigService;
+	import com.newco.grand.core.common.service.impl.LanguageService;
+	import com.newco.grand.core.common.service.impl.LoginService;
+	import com.newco.grand.core.common.service.impl.PlayerService;
+	import com.newco.grand.core.common.service.impl.SeatService;
+	import com.newco.grand.core.common.service.impl.SendBetsService;
+	import com.newco.grand.core.common.service.impl.URLSService;
+	import com.newco.grand.core.common.service.impl.WinnerListService;
 	import com.newco.grand.core.common.service.impl.XMLService;
 	import com.newco.grand.core.common.view.ChatView;
 	import com.newco.grand.core.common.view.ErrorMessageView;
@@ -172,7 +181,6 @@ package com.newco.grand.baccarat.configs
 			injector.map(ISocketService).toSingleton(GameSocketService);
 			injector.map(ChatSocketService).toSingleton(ChatSocketService);
 			injector.map(VideoService).asSingleton();
-			injector.map(XMLService).asSingleton();
 			injector.map(URLSModel).asSingleton();
 			injector.map(Player).asSingleton();
 			injector.map(Chat).asSingleton();
@@ -180,9 +188,21 @@ package com.newco.grand.baccarat.configs
 			injector.map(GameDataModel).toValue(gameData);
 			injector.map(SignalBus).toValue(signalBus);
 			injector.map(GameState).asSingleton();
+			injector.map(AnimationService).asSingleton();
+			
+			injector.map(XMLService).asSingleton();
 			injector.map(ConfigService).asSingleton();
 			injector.map(URLSService).asSingleton();
-			injector.map(AnimationService).asSingleton();
+			injector.map(LoginService).asSingleton();
+			injector.map(WinnerListService).asSingleton();
+			injector.map(LanguageService).asSingleton();
+			injector.map(BalanceService).asSingleton();
+			injector.map(SendBetsService).asSingleton();
+			injector.map(PlayerService).asSingleton();
+			injector.map(ChatConfigService).asSingleton();
+			injector.map(SeatService).asSingleton();
+			injector.map(TableConfigService).asSingleton();
+			
 		}
 		public function mapMediators():void{
 			
@@ -209,7 +229,7 @@ package com.newco.grand.baccarat.configs
 			
 			commandMap.mapSignal(signalBus.signal(SignalConstants.STARTUP), StartupCommand, true);
 			commandMap.mapSignal(signalBus.signal(SignalConstants.STARTUP_COMPLETE), StartupCompleteCommand, true);
-			commandMap.mapSignal(signalBus.signal(LoginEvent.LOGIN), FBLoginCommand);
+			commandMap.mapSignal(signalBus.signal(LoginEvent.LOGIN), LoginCommand);
 			commandMap.mapSignal(signalBus.signal(StartupDataEvent.SEAT), SeatCommand);
 			commandMap.mapSignal(signalBus.signal(StartupDataEvent.LOAD), StartupDataCommand);
 			commandMap.mapSignal(signalBus.signal(BalanceEvent.LOAD), BalanceCommand);
