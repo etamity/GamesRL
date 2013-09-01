@@ -18,71 +18,72 @@ package com.newco.grand.baccarat.classic.model {
 		private var _banker_pairs_bet_min:Number=1;
 		private var _banker_pairs_bet_max:Number=1000;
 		
-		
-		public function get banker_pairs_bet_min():Number{
+		public var idle_limit_games:int=10;
+	
+		public function get _pairsbanker_min_bet():Number{
 			return _banker_pairs_bet_min;
 		}
-		public function get banker_pairs_bet_max():Number{
+		public function get pairs_banker_max_bet():Number{
 			return _banker_pairs_bet_max;
 		}
 		
 		
-		public function get player_bet_min():Number{
+		public function get player_min_bet():Number{
 			return _player_bet_min;
 		}
-		public function get player_bet_max():Number{
+		public function get player_max_bet():Number{
 			return _player_bet_max;
 		}
-		public function get banker_bet_min():Number{
+		public function get banker_min_bet():Number{
 			return _banker_bet_min;
 		}
-		public function get banker_bet_max():Number{
+		public function get banker_max_bet():Number{
 			return _banker_bet_max;
 		}
-		public function get tie_bet_min():Number{
+		public function get tie_min_bet():Number{
 			return _tie_bet_min;
 		}
-		public function get tie_bet_max():Number{
+		public function get tie_max_bet():Number{
 			return _tie_bet_max;
 		}
-		public function get player_pairs_bet_min():Number{
+		public function get pairs_player_min_bet():Number{
 			return _player_pairs_bet_min;
 		}
-		public function get player_pairs_bet_max():Number{
+		public function get pairs_player_max_bet():Number{
 			return _player_pairs_bet_max;
 		}
 
 		
-		public function set banker_pairs_bet_min(val:Number):void{
+		public function set _pairsbanker_min_bet(val:Number):void{
 			_banker_pairs_bet_min=val;
 		}
-		public function set banker_pairs_bet_max(val:Number):void{
+		public function set pairs_banker_max_bet(val:Number):void{
 			_banker_pairs_bet_max=val;
 		}
 		
 		
-		public function set player_bet_min(val:Number):void{
+		public function set player_min_bet(val:Number):void{
 			 _player_bet_min=val;
 		}
-		public function set player_bet_max(val:Number):void{
+		public function set player_max_bet(val:Number):void{
 			_player_bet_max =val;
 		}
-		public function set banker_bet_min(val:Number):void{
+		public function set banker_min_bet(val:Number):void{
 			_banker_bet_min=val;
 		}
-		public function set banker_bet_max(val:Number):void{
+		public function set banker_max_bet(val:Number):void{
 			_banker_bet_max=val;
 		}
-		public function set tie_bet_min(val:Number):void{
+		public function set tie_min_bet(val:Number):void{
 			_tie_bet_min=val;
 		}
-		public function set tie_bet_max(val:Number):void{
+		public function set tie_max_bet(val:Number):void{
 			_tie_bet_max =val;
 		}
-		public function set player_pairs_bet_min(val:Number):void{
+		public function set pairs_player_min_bet(val:Number):void{
 			_player_pairs_bet_min=val;
 		}
-		public function set player_pairs_bet_max(val:Number):void{
+		public function set pairs_player_max_bet(val:Number):void{
 			_player_pairs_bet_max=val;
 		}
 		public function getBespotName(code:String):String{

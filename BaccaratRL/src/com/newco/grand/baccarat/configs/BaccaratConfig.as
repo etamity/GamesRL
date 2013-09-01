@@ -27,6 +27,8 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.controller.commands.ChatConnectionCommand;
 	import com.newco.grand.core.common.controller.commands.ChatReceiveMessageCommand;
 	import com.newco.grand.core.common.controller.commands.ChatSendMessageCommand;
+	import com.newco.grand.core.common.controller.commands.HelpSWFCommand;
+	import com.newco.grand.core.common.controller.commands.HistorySWFCommand;
 	import com.newco.grand.core.common.controller.commands.LoginCommand;
 	import com.newco.grand.core.common.controller.commands.PlayersCommand;
 	import com.newco.grand.core.common.controller.commands.SeatCommand;
@@ -44,6 +46,7 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.controller.signals.SocketEvent;
 	import com.newco.grand.core.common.controller.signals.StartupDataEvent;
 	import com.newco.grand.core.common.controller.signals.StateTableConfigEvent;
+	import com.newco.grand.core.common.controller.signals.TaskbarActionEvent;
 	import com.newco.grand.core.common.controller.signals.UIEvent;
 	import com.newco.grand.core.common.controller.signals.VideoEvent;
 	import com.newco.grand.core.common.controller.signals.WinnersEvent;
@@ -56,9 +59,9 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.model.SignalConstants;
 	import com.newco.grand.core.common.model.URLSModel;
+	import com.newco.grand.core.common.model.VideoModel;
 	import com.newco.grand.core.common.service.ChatSocketService;
 	import com.newco.grand.core.common.service.ISocketService;
-	import com.newco.grand.core.common.model.VideoModel;
 	import com.newco.grand.core.common.service.impl.BalanceService;
 	import com.newco.grand.core.common.service.impl.ChatConfigService;
 	import com.newco.grand.core.common.service.impl.ConfigService;
@@ -259,6 +262,8 @@ package com.newco.grand.baccarat.configs
 			commandMap.mapSignal(signalBus.signal(WinnersEvent.LOAD), WinnersCommand);
 			commandMap.mapSignal(signalBus.signal(BetEvent.SEND_BETS), BetsCommand);
 			commandMap.mapSignal(signalBus.signal(UIEvent.SETUP_VIEWS), SetupViewCommand);
+			commandMap.mapSignal(signalBus.signal(TaskbarActionEvent.HELP_CLICKED), HelpSWFCommand);
+			commandMap.mapSignal(signalBus.signal(TaskbarActionEvent.HISTORY_CLICKED), HistorySWFCommand);
 
 		}
 	}

@@ -212,11 +212,11 @@ package com.newco.grand.baccarat.classic.view.mediators {
 		
 		private function setLimits(signal:BaseSignal):void {
 			
-			view.setLimits(0, game.player_bet_min, game.player_bet_max);
-			view.setLimits(1, game.banker_bet_min, game.banker_bet_max);
-			view.setLimits(2, game.tie_bet_min, game.tie_bet_max);
-			view.setLimits(3, game.player_pairs_bet_min, game.player_pairs_bet_max);
-			view.setLimits(4, game.banker_pairs_bet_min, game.banker_pairs_bet_max);
+			view.setLimits(0, game.player_min_bet, game.player_max_bet);
+			view.setLimits(1, game.banker_min_bet, game.banker_max_bet);
+			view.setLimits(2, game.tie_min_bet, game.tie_max_bet);
+			view.setLimits(3, game.pairs_player_min_bet, game.pairs_player_max_bet);
+			view.setLimits(4, game._pairsbanker_min_bet, game.pairs_banker_max_bet);
 			
 		}
 		

@@ -136,6 +136,7 @@ package com.newco.grand.baccarat.classic.view {
 		private function createBetSpots():void {
 			var betspot:MovieClip;
 			var betspotmc:BetSpot;
+			var mc:MovieClip;
 			for (var i:uint = 0; i < _betSpotsName.length; i++) {
 				betspot=MovieClip(_display.getChildByName("spot_" + _betSpotsName[i]));
 				betspotmc = new BetSpot(new BetSpotAsset());
@@ -144,7 +145,8 @@ package com.newco.grand.baccarat.classic.view {
 				betspotmc.display.highlight.visible=false;
 				betspotmc.x = betspot.x;
 				betspotmc.y = betspot.y;
-				betspot.visible=true;
+				betspotmc.display.visible=true;
+				betspot.visible=false;
 				addChild(betspotmc.display);
 				_betSpotsArray.push(betspotmc);
 				_betSpotHash[_betSpotsName[i]]=betspotmc;

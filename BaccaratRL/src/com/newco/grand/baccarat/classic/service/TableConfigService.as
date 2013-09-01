@@ -114,23 +114,23 @@ package com.newco.grand.baccarat.classic.service
 			debug(xml);
 			game.min = xml["gameconfig-param"].@table_bet_min_limit;
 			game.max = xml["gameconfig-param"].@table_bet_max_limit;
-			
+			game.idle_limit_games=xml["gameconfig-param"].@idle_limit_games;
 			game.videoStream= xml["gameconfig-param"].@high_stream;
 			
-			game.banker_bet_max=xml["gameconfig-param"].@banker_bet_max;
-			game.banker_bet_min=xml["gameconfig-param"].@banker_bet_min;
+			game.banker_max_bet=xml["gameconfig-param"].@banker_max_bet;
+			game.banker_min_bet=xml["gameconfig-param"].@banker_min_bet;
 			
-			game.player_bet_max=xml["gameconfig-param"].@player_bet_max;
-			game.player_bet_min=xml["gameconfig-param"].@player_bet_min;
+			game.player_max_bet=xml["gameconfig-param"].@player_max_bet;
+			game.player_min_bet=xml["gameconfig-param"].@player_min_bet;
 			
-			game.player_pairs_bet_max=xml["gameconfig-param"].@player_pairs_bet_max;
-			game.player_pairs_bet_min=xml["gameconfig-param"].@player_pairs_bet_min;
+			game.pairs_player_max_bet=xml["gameconfig-param"].@pair_player_max_bet;
+			game.pairs_player_min_bet=xml["gameconfig-param"].@pair_player_min_bet;
 			
-			game.banker_pairs_bet_max=xml["gameconfig-param"].@banker_pairs_bet_max;
-			game.banker_pairs_bet_min=xml["gameconfig-param"].@banker_pairs_bet_min;
+			game.pairs_banker_max_bet=xml["gameconfig-param"].@pair_banker_max_bet;
+			game._pairsbanker_min_bet=xml["gameconfig-param"].@pair_banker_min_bet;
 			
-			game.tie_bet_max=xml["gameconfig-param"].@tie_bet_max;
-			game.tie_bet_min=xml["gameconfig-param"].@tie_bet_min;
+			game.tie_max_bet=xml["gameconfig-param"].@tie_max_bet;
+			game.tie_min_bet=xml["gameconfig-param"].@tie_min_bet;
 			game.videoStream= xml["gameconfig-param"].@low_stream;
 			
 			//service.remove(Constants.SERVER_TABLE_CONFIG);
