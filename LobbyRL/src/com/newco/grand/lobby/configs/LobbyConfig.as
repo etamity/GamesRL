@@ -1,14 +1,18 @@
 package com.newco.grand.lobby.configs
 {
 	import com.newco.grand.core.common.controller.commands.BalanceCommand;
+	import com.newco.grand.core.common.controller.commands.HelpSWFCommand;
+	import com.newco.grand.core.common.controller.commands.HistorySWFCommand;
 	import com.newco.grand.core.common.controller.commands.StartupCommand;
 	import com.newco.grand.core.common.controller.signals.BalanceEvent;
+	import com.newco.grand.core.common.controller.signals.TaskbarActionEvent;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.IGameData;
 	import com.newco.grand.core.common.model.Player;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.model.SignalConstants;
 	import com.newco.grand.core.common.model.URLSModel;
+	import com.newco.grand.core.common.service.impl.BalanceService;
 	import com.newco.grand.core.common.service.impl.ConfigService;
 	import com.newco.grand.core.common.service.impl.URLSService;
 	import com.newco.grand.core.common.service.impl.XMLService;
@@ -79,6 +83,7 @@ package com.newco.grand.lobby.configs
 			injector.map(XMLService).asSingleton();
 			injector.map(URLSService).asSingleton();
 			injector.map(URLSModel).asSingleton();
+			injector.map(BalanceService).asSingleton();
 		}
 		
 		public function mapMediators():void
@@ -92,8 +97,10 @@ package com.newco.grand.lobby.configs
 		{
 			commandMap.mapSignal(signalBus.signal(SignalConstants.STARTUP), StartupCommand, true);
 			commandMap.mapSignal(signalBus.signal(SignalConstants.STARTUP_COMPLETE), LobbyDataCommand, true);
-			commandMap.mapSignal(signalBus.signal(LobbyEvents.LOADHISTORY), HistoryCommand, true);
+			//commandMap.mapSignal(signalBus.signal(LobbyEvents.LOADHISTORY), HistoryCommand, true);
 			commandMap.mapSignal(signalBus.signal(BalanceEvent.LOAD), BalanceCommand);
+			commandMap.mapSignal(signalBus.signal(TaskbarActionEvent.HELP_CLICKED), HelpSWFCommand);
+			commandMap.mapSignal(signalBus.signal(TaskbarActionEvent.HISTORY_CLICKED), HistorySWFCommand);
 
 		}
 		public function configure():void

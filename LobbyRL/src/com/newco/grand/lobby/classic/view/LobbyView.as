@@ -33,11 +33,11 @@ package com.newco.grand.lobby.classic.view
 		public var gameChangeSignal:Signal=new Signal();
 		
 		public var loadHistorySignal:Signal=new Signal();
-		
+		public var loadHelpSignal:Signal=new Signal();
 		public var doBackSignal:Signal=new Signal();
 
 		public var historyBtn:SMButton;
-		
+		public var helpBtn:SMButton;
 		public var backBtn:SMButton;
 		
 		public function LobbyView()
@@ -52,6 +52,9 @@ package com.newco.grand.lobby.classic.view
 			backBtn.visible=false;
 			historyBtn=new SMButton(bottomPanel.historyBtn);
 			historyBtn.skin.addEventListener(MouseEvent.CLICK,doOpenHistory);
+			
+			helpBtn=new SMButton(bottomPanel.helpBtn);
+			helpBtn.skin.addEventListener(MouseEvent.CLICK,doOpenHelp);
 			backBtn.skin.addEventListener(MouseEvent.CLICK,doBackEvent);
 		}
 		
@@ -62,6 +65,11 @@ package com.newco.grand.lobby.classic.view
 		public function doOpenHistory(evt:MouseEvent):void{
 			loadHistorySignal.dispatch();
 		}
+		public function doOpenHelp(evt:MouseEvent):void{
+			loadHelpSignal.dispatch();
+		}
+		
+		
 		public function doChangeGame(evt:MouseEvent):void{
 			var target:SimpleButton=evt.target as SimpleButton;
 			switch (target.name)

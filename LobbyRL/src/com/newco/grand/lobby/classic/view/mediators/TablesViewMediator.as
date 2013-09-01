@@ -56,7 +56,12 @@ package com.newco.grand.lobby.classic.view.mediators
 			}
 		}
 		private function setupModel(signal:BaseSignal):void{
-			view.scoreBoradUrl=flashvars.server+urlsModel.urlsXml.baccarat.statistics;
+			var url:String;
+			if (flashvars.localhost==true)
+				url=flashvars.server+urlsModel.urlsXml.baccarat.statistics;
+			else
+				url=urlsModel.urlsXml.baccarat.statistics;
+			view.scoreBoradUrl=url;
 			loadTable();
 		}
 		private function doShowTable(signal:BaseSignal):void{
@@ -77,7 +82,7 @@ package com.newco.grand.lobby.classic.view.mediators
 		private function openGameEvent(table:TableModel):void{
 			var url:String=urlsModel.urlsXml.common.opengame+"?game="+table.game+"&table_id="+table.tableid+"&gameType="+table.gameType+"&lang=en&client=generic&gameInterface=view1";
 			var urlRequest:URLRequest = new URLRequest(url);
-			navigateToURL(urlRequest, "_blank");
+			navigateToURL(urlRequest, "_self");
 			
 		}
 	}

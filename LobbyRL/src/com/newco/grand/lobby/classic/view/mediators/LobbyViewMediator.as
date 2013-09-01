@@ -2,16 +2,13 @@ package com.newco.grand.lobby.classic.view.mediators
 {
 	import com.newco.grand.core.common.controller.signals.BalanceEvent;
 	import com.newco.grand.core.common.controller.signals.BaseSignal;
+	import com.newco.grand.core.common.controller.signals.TaskbarActionEvent;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.Player;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.lobby.classic.controller.signals.LobbyEvents;
 	import com.newco.grand.lobby.classic.model.LobbyModel;
-	import com.newco.grand.lobby.classic.model.TableModel;
 	import com.newco.grand.lobby.classic.view.LobbyView;
-	
-	import flash.net.URLRequest;
-	import flash.net.navigateToURL;
 	
 	import robotlegs.bender.bundles.mvcs.Mediator;
 	import robotlegs.bender.extensions.contextView.ContextView;
@@ -44,6 +41,8 @@ package com.newco.grand.lobby.classic.view.mediators
 			signalBus.add(BalanceEvent.LOADED ,setBalance);
 			signalBus.add(LobbyEvents.SHOW_VIRTUALTABLE ,doShowVirtualTable);
 			view.loadHistorySignal.add(doLoadHistory);
+			view.loadHelpSignal.add(doLoadHelp);
+			
 			view.doBackSignal.add(doBackEvent);
 			//view.doOpenGameSignal.add(openGameEvent);
 		}
@@ -58,7 +57,10 @@ package com.newco.grand.lobby.classic.view.mediators
 			view.setBalance(player.balanceFormatted);
 		}
 		private function doLoadHistory():void{
-			signalBus.dispatch(LobbyEvents.LOADHISTORY);
+			signalBus.dispatch(TaskbarActionEvent.HISTORY_CLICKED);
+		}
+		private function doLoadHelp():void{
+			signalBus.dispatch(TaskbarActionEvent.HELP_CLICKED);
 		}
 
 		private function setupModel(signal:BaseSignal):void{
