@@ -1,6 +1,6 @@
 package com.newco.grand.core.common.model {
 	
-	public dynamic class Language extends Actor {		
+	public dynamic class LanguageModel extends Actor {		
 		public static var LOADING:String;
 		public static var LOADINGAUDIO:String;
 		public static var LOADINGSTYLE:String;

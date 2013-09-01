@@ -1,4 +1,4 @@
-package com.newco.grand.core.common.view.scorecard.data {
+package com.newco.grand.core.components.scorecard.data {
 	
 	/**
 	 * Defines the four different result Strings

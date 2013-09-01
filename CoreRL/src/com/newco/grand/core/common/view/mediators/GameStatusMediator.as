@@ -7,7 +7,7 @@ package com.newco.grand.core.common.view.mediators {
 	import com.newco.grand.core.common.controller.signals.ModelReadyEvent;
 	import com.newco.grand.core.common.controller.signals.SocketDataEvent;
 	import com.newco.grand.core.common.model.IGameData;
-	import com.newco.grand.core.common.model.Language;
+	import com.newco.grand.core.common.model.LanguageModel;
 	import com.newco.grand.core.common.model.Player;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.view.interfaces.IGameStatusView;
@@ -68,12 +68,12 @@ package com.newco.grand.core.common.view.mediators {
 		
 		private function setupModel(signal:BaseSignal):void {
 			view.init();
-			view.message = Language.PLEASEWAIT;
+			view.message = LanguageModel.PLEASEWAIT;
 			eventMap.mapListener(contextView.view.stage, Event.RESIZE, onStageResize);
 		}
 
 		private function startTimer(signal:BaseSignal):void {
-			view.message = Language.PLACEBETS;
+			view.message = LanguageModel.PLACEBETS;
 			view.timerColor = TIMER_COLOR_DEFAULT;
 			view.timer = (game.countdown < 10) ? "0" + game.countdown : "" + game.countdown;
 			_timer = new Timer(1000, game.countdown);
@@ -89,12 +89,12 @@ package com.newco.grand.core.common.view.mediators {
 			if (game.countdown - _timer.currentCount == 5) {
 				view.setLightOn("amber");
 				view.timerColor = TIMER_COLOR_CLOSING;
-				view.message = Language.BETSCLOSING;
+				view.message = LanguageModel.BETSCLOSING;
 			}
 		}
 		
 		private function reset(evt:TimerEvent):void {
-			view.message = Language.NOMOREBETS;			view.timerColor = TIMER_COLOR_CLOSED;
+			view.message = LanguageModel.NOMOREBETS;			view.timerColor = TIMER_COLOR_CLOSED;
 			view.timer = "00";
 			_timer.stop();
 			view.setLightSOff();
@@ -127,7 +127,7 @@ package com.newco.grand.core.common.view.mediators {
 					break;
 				
 				case SocketDataEvent.HANDLE_CANCEL:
-					view.message = Language.GAMECANCELLED;
+					view.message = LanguageModel.GAMECANCELLED;
 					view.highlightMessageBG(MESSAGE_COLOR_ERROR);
 					stopTimer();
 					break;
@@ -138,21 +138,21 @@ package com.newco.grand.core.common.view.mediators {
 			switch(signal.type) {
 				case BetEvent.BETS_ACCEPTED:
 					
-					view.message = Language.BETSACCEPTED;
+					view.message = LanguageModel.BETSACCEPTED;
 					
 					break;
 				
 				case BetEvent.NOT_ALL_BETS_ACCEPTED:
-					view.message = Language.NOTALLBETSACCEPTED;
+					view.message = LanguageModel.NOTALLBETSACCEPTED;
 					view.highlightMessageBG(MESSAGE_COLOR_WARNING);
 					break;
 				
 				case BetEvent.BETS_REJECTED:
-					view.message = Language.BETSREJECTED;
+					view.message = LanguageModel.BETSREJECTED;
 					view.highlightMessageBG(MESSAGE_COLOR_ERROR);
 					break;
 				case BetEvent.CLOSE_BETS:
-					view.message = Language.NOMOREBETS;
+					view.message = LanguageModel.NOMOREBETS;
 					view.highlightMessageBG(TIMER_COLOR_CLOSED);
 					view.setLightOn("red");
 					break;
@@ -162,15 +162,15 @@ package com.newco.grand.core.common.view.mediators {
 		private function setLimitsMessage(signal:BaseSignal):void {
 			switch(signal.type) {
 				case MessageEvent.SHOW_NOT_ENOUGH_MONEY:
-					view.message = Language.NOTENOUGHMONEY;
+					view.message = LanguageModel.NOTENOUGHMONEY;
 					break;
 				case MessageEvent.SHOW_MAX_TABLE:
-					view.message = StringUtils.replace(Language.MAXTABLEBETIS, "#bet#", player.currencyCode + game.max);
+					view.message = StringUtils.replace(LanguageModel.MAXTABLEBETIS, "#bet#", player.currencyCode + game.max);
 					break;
 				case MessageEvent.SHOW_MAX_SPOT:
-					view.message = StringUtils.replace(Language.MAXBETIS, "#bet#", player.currencyCode + signal.params.target.max);
+					view.message = StringUtils.replace(LanguageModel.MAXBETIS, "#bet#", player.currencyCode + signal.params.target.max);
 				case MessageEvent.SHOW_MIN_SPOT:
-					view.message = StringUtils.replace(Language.MINBETIS, "#bet#", player.currencyCode + signal.params.target.min);
+					view.message = StringUtils.replace(LanguageModel.MINBETIS, "#bet#", player.currencyCode + signal.params.target.min);
 					break;
 			}
 			view.highlightMessageBG(MESSAGE_COLOR_ERROR);
@@ -179,7 +179,7 @@ package com.newco.grand.core.common.view.mediators {
 		private function showWinnings(signal:BaseSignal):void {
 			var winnings:Number= player.winnings;
 			setTimeout(function():void {
-				var winningStr:String=StringUtils.replace(Language.YOUWON, "#winnings#", player.currencyCode + String(StringUtils.floatCorrection(winnings)));
+				var winningStr:String=StringUtils.replace(LanguageModel.YOUWON, "#winnings#", player.currencyCode + String(StringUtils.floatCorrection(winnings)));
 				view.message =winningStr; 
 				view.highlightMessageBG(MESSAGE_COLOR_SUCCESS);
 				signalBus.dispatch(BalanceEvent.LOAD);

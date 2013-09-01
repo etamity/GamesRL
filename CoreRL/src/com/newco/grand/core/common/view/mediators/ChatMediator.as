@@ -7,7 +7,7 @@ package com.newco.grand.core.common.view.mediators {
 	import com.newco.grand.core.common.model.Chat;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.IGameData;
-	import com.newco.grand.core.common.model.Language;
+	import com.newco.grand.core.common.model.LanguageModel;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.view.interfaces.IChatView;
 	import com.newco.grand.core.utils.GameUtils;
@@ -58,7 +58,7 @@ package com.newco.grand.core.common.view.mediators {
 		}
 		
 		private function setDealer(signal:BaseSignal):void {
-			view.dealer = Language.DEALER + ": " + game.dealer;
+			view.dealer = LanguageModel.DEALER + ": " + game.dealer;
 		}
 		
 		private function setWelcomeMessage(signal:BaseSignal):void {

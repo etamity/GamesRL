@@ -1,9 +1,9 @@
-package com.newco.grand.core.common.view.scorecard.display.road.behaviours {
+package com.newco.grand.core.components.scorecard.display.road.behaviours {
 	
-	import com.newco.grand.core.common.view.scorecard.data.ResultTypes;
-	import com.newco.grand.core.common.view.scorecard.display.road.IRoadModifiable;
-	import com.newco.grand.core.common.view.scorecard.display.road.result.IResult;
-	import com.newco.grand.core.common.view.scorecard.display.road.result.Result;
+	import com.newco.grand.core.components.scorecard.data.ResultTypes;
+	import com.newco.grand.core.components.scorecard.display.road.IRoadModifiable;
+	import com.newco.grand.core.components.scorecard.display.road.result.IResult;
+	import com.newco.grand.core.components.scorecard.display.road.result.Result;
 	
 	import flash.display.MovieClip;
 

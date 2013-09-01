@@ -1,13 +1,13 @@
-package com.newco.grand.core.common.view.scorecard.display {
+package com.newco.grand.core.components.scorecard.display {
 	
-	import com.newco.grand.core.common.view.scorecard.data.ResultTypes;
-	import com.newco.grand.core.common.view.scorecard.display.road.IRoad;
-	import com.newco.grand.core.common.view.scorecard.display.road.Road;
-	import com.newco.grand.core.common.view.scorecard.display.road.behaviours.AllRoadsAddBehaviour;
-	import com.newco.grand.core.common.view.scorecard.display.road.result.IResult;
-	import com.newco.grand.core.common.view.scorecard.display.tabs.ITabMenu;
-	import com.newco.grand.core.common.view.scorecard.display.tabs.TabMenu;
-	import com.newco.grand.core.common.model.Language;
+	import com.newco.grand.core.components.scorecard.data.ResultTypes;
+	import com.newco.grand.core.components.scorecard.display.road.IRoad;
+	import com.newco.grand.core.components.scorecard.display.road.Road;
+	import com.newco.grand.core.components.scorecard.display.road.behaviours.AllRoadsAddBehaviour;
+	import com.newco.grand.core.components.scorecard.display.road.result.IResult;
+	import com.newco.grand.core.components.scorecard.display.tabs.ITabMenu;
+	import com.newco.grand.core.components.scorecard.display.tabs.TabMenu;
+	import com.newco.grand.core.common.model.LanguageModel;
 	import com.newco.grand.core.common.view.ui.buttons.GeneralButtonEvent;
 	import com.newco.grand.core.common.view.ui.buttons.IGeneralButton;
 	import com.newco.grand.core.common.view.ui.views.BaseView;
@@ -94,10 +94,10 @@ package com.newco.grand.core.common.view.scorecard.display {
 			_tabMenu.addEventListener(GeneralButtonEvent.CLICK, onTabClick);
 			
 			var b:Array = _tabMenu.buttons;
-			IGeneralButton(b[0]).label = Language.BIGROAD;
-			IGeneralButton(b[1]).label = Language.BIGEYEBOYROAD;
-			IGeneralButton(b[2]).label = Language.SMALLROAD;
-			IGeneralButton(b[3]).label = Language.COCKROACHROAD;
+			IGeneralButton(b[0]).label = LanguageModel.BIGROAD;
+			IGeneralButton(b[1]).label = LanguageModel.BIGEYEBOYROAD;
+			IGeneralButton(b[2]).label = LanguageModel.SMALLROAD;
+			IGeneralButton(b[3]).label = LanguageModel.COCKROACHROAD;
 		}
 		
 		protected function onTabClick(e:GeneralButtonEvent):void {

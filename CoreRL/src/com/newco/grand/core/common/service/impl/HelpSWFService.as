@@ -53,9 +53,9 @@ package com.newco.grand.core.common.service.impl
 		private function setConfig(signal:LoaderSignal, mc:MovieClip):void {
 			display=mc;
 			display.init(true);
-			display.loadHelp(FlashVars.GAMECLIENT, FlashVars.GAMECLIENT);
-			display.x = contextView.view.stage.stageWidth / 2 - display.width/2;
-			display.y = contextView.view.stage.stageHeight / 2 - display.height/2;
+			display.loadHelp(flashVars.game,flashVars.game);
+			display.x = 200;
+			display.y = 100;
 			display.visible = true;
 			contextView.view.addChild(display);
 			if (_onComplete!=null)

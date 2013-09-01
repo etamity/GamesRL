@@ -35,7 +35,7 @@ package com.newco.grand.core.common.model {
 		public static var AIR_MODE:Boolean=false;
 		public static var DEBUG_MODE:Boolean=true;
 		
-		public static var GAMECLIENT:String;
+		public static var GAMECLIENT:String="baccarat";
 		private var root:DisplayObjectContainer;
 		
 		//blackjack

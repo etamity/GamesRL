@@ -1,6 +1,6 @@
-package com.newco.grand.core.common.view.scorecard.display.road.grid {
+package com.newco.grand.core.components.scorecard.display.road.grid {
 	
-	import com.newco.grand.core.common.view.scorecard.display.road.result.IResult;
+	import com.newco.grand.core.components.scorecard.display.road.result.IResult;
 	import com.newco.grand.core.common.view.ui.views.IBaseView;
 
 	public interface IGrid extends IBaseView {

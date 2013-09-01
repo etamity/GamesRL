@@ -13,10 +13,10 @@ package com.newco.grand.core.common.view.mediators
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.GameState;
 	import com.newco.grand.core.common.model.IGameData;
-	import com.newco.grand.core.common.model.Language;
+	import com.newco.grand.core.common.model.LanguageModel;
 	import com.newco.grand.core.common.model.Player;
 	import com.newco.grand.core.common.model.SignalBus;
-	import com.newco.grand.core.common.model.Style;
+	import com.newco.grand.core.common.model.StyleModel;
 	import com.newco.grand.core.common.model.URLSModel;
 	import com.newco.grand.core.common.view.interfaces.ITaskbarView;
 	import com.newco.grand.core.utils.FormatUtils;
@@ -149,10 +149,10 @@ package com.newco.grand.core.common.view.mediators
 
 			}*/
 
-			var menuXML:XML=new XML(Style['MENUBAR_XML']);
+			var menuXML:XML=new XML(StyleModel['MENUBAR_XML']);
 			for each (var node:XML in menuXML.children())
 			{
-				var label:String=Language[String(node.@label).toLocaleUpperCase()] || node.@label;
+				var label:String=LanguageModel[String(node.@label).toLocaleUpperCase()] || node.@label;
 				var url:String=FormatUtils.formetURL(node.@url, {"{sessionId}": flashVars.sessionId, "{site}": flashVars.site, "{lang}": flashVars.lang});
 
 				if (menuXML.children().length() == 1)
@@ -270,16 +270,16 @@ package com.newco.grand.core.common.view.mediators
 			switch (type)
 			{
 				case TaskbarActionEvent.FULLSCREEN_CLICKED:
-					view.showTooltip(target, game.fullscreen ? Language.RESTORE : Language.FULLSCREEN);
+					view.showTooltip(target, game.fullscreen ? LanguageModel.RESTORE : LanguageModel.FULLSCREEN);
 					break;
 				case TaskbarActionEvent.HELP_CLICKED:
-					view.showTooltip(target, Language.HELP);
+					view.showTooltip(target, LanguageModel.HELP);
 					break;
 				case TaskbarActionEvent.HISTORY_CLICKED:
-					view.showTooltip(target, Language.HISTORY);
+					view.showTooltip(target, LanguageModel.HISTORY);
 					break;
 				case TaskbarActionEvent.SOUND_CLICKED:
-					view.showTooltip(target, game.sound ? Language.SOUNDON:Language.SOUNDOFF);
+					view.showTooltip(target, game.sound ? LanguageModel.SOUNDON:LanguageModel.SOUNDOFF);
 					break;
 			}
 		}

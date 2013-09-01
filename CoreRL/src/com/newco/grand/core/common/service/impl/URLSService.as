@@ -42,6 +42,7 @@ package com.newco.grand.core.common.service.impl
 			urlsModel.authentication= xml.common.authentication;
 			urlsModel.balance= xml.common.balance;
 			urlsModel.chatConfig= xml.common.chatConfig;
+			urlsModel.historySWF=xml.common.historySWF;
 			urlsModel.freeplay= xml.common.freeplay;
 			urlsModel.help= xml.common.help;
 			urlsModel.language= xml.common.language;

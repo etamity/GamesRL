@@ -7,10 +7,12 @@ package com.newco.grand.core.common.service.impl
 	import com.newco.grand.core.common.controller.signals.StateTableConfigEvent;
 	import com.newco.grand.core.common.controller.signals.UIEvent;
 	import com.newco.grand.core.common.controller.signals.WinnersEvent;
-	import com.newco.grand.core.common.model.Language;
+	import com.newco.grand.core.common.model.LanguageModel;
 	import com.newco.grand.core.common.model.SignalBus;
-	import com.newco.grand.core.common.model.Style;
+	import com.newco.grand.core.common.model.StyleModel;
 	import com.newco.grand.core.common.model.URLSModel;
+	import com.evolutiongaming.ui.Language;
+	import com.evolutiongaming.ui.Style;
 	import com.newco.grand.core.common.service.api.IService;
 	import com.newco.grand.core.utils.GameUtils;
 	
@@ -48,10 +50,12 @@ package com.newco.grand.core.common.service.impl
 		
 		private function setLanguage(signal:LoaderSignal, xml:XML):void {
 			//debug(xml);
+			
+			Language.getInstance().xml=xml;
 			var nodeName:String;
 			for each (var node:XML in xml.children()) {
 				nodeName = String(node.name().localName).toUpperCase();
-				Language[nodeName] = node.text();
+				LanguageModel[nodeName] = node.text();
 			}
 			//service.remove(Constants.ASSET_LANGUAGE);
 			loadStyle();
@@ -68,20 +72,21 @@ package com.newco.grand.core.common.service.impl
 		
 		private function setStyle(signal:LoaderSignal, xml:XML):void {
 			debug(xml);
+			Style.getInstance().xml=xml;
 			var nodeName:String;
 			var attributes:XMLList;
 			for each (var node:XML in xml.children()) {
 				nodeName = String(node.name().localName).toUpperCase();
-				Style[nodeName] = node.text();
+				StyleModel[nodeName] = node.text();
 				attributes = node.@*;
 				for each (var node_att:XML in attributes) {
-					Style[nodeName + "_" + node.name()] = node;
+					StyleModel[nodeName + "_" + node.name()] = node;
 				}
 				if(node.children().length() > 0) {
-					Style[nodeName + "_XML"] = node;
+					StyleModel[nodeName + "_XML"] = node;
 				}
 			}
-			Style.XMLDATA= xml;
+			StyleModel.XMLDATA= xml;
 			//service.remove(Constants.ASSET_STYLE);
 			signalBus.dispatch(StartupDataEvent.LOADED);
 			signalBus.dispatch(StateTableConfigEvent.LOAD);

@@ -3,7 +3,7 @@ package com.newco.grand.core.common.view {
 	import com.newco.grand.core.common.controller.signals.BetEvent;
 	import com.newco.grand.core.common.controller.signals.TaskbarActionEvent;
 	import com.newco.grand.core.common.controller.signals.TooltipEvent;
-	import com.newco.grand.core.common.model.Language;
+	import com.newco.grand.core.common.model.LanguageModel;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.view.interfaces.ITaskbarView;
 	import com.newco.grand.core.utils.FormatUtils;
@@ -110,7 +110,7 @@ package com.newco.grand.core.common.view {
 			_display.chat.visible = false;
 			_display.chat.mouseEnabled=false;
 			_display.settings.mouseEnabled=false;
-			_display.history.mouseEnabled=false;
+			//_display.history.mouseEnabled=false;
 			_display.help.mouseEnabled=false;
 
 			/*clear.mouseChildren = false;
@@ -150,7 +150,7 @@ package com.newco.grand.core.common.view {
 			_display.chat.visible=false;
 			_display.settings.visible=false;
 			_display.history.visible=true;
-			_display.help.visible=true;
+			_display.help.visible=false;
 			favouritesBtn.enabled=false;
 			favouritesBtn.skin.visible=false;
 			confirmBtn.skin.visible=false;
@@ -202,19 +202,19 @@ package com.newco.grand.core.common.view {
 			return this;
 		}
 		public function setLanguage():void{
-			balanceLabel=Language.BALANCE;
-			betLabel=Language.BET;
-			gameLabel=Language.GAMEID;
-			myaccountLabel=Language.MYACCOUNT;
+			balanceLabel=LanguageModel.BALANCE;
+			betLabel=LanguageModel.BET;
+			gameLabel=LanguageModel.GAMEID;
+			myaccountLabel=LanguageModel.MYACCOUNT;
 			myaccountLabel="";
 
-			repeatButton.label=Language.REBET;
-			doubleButton.label=Language.DOUBLEBET;
-			undoButton.label=Language.UNDO;
-			clearButton.label=Language.CLEARALL
-			confirmButton.label=Language.CONFIRM;
-			favouritesButton.label=Language.FAVOURITES
-			lobbyLabel=Language.LOBBY;
+			repeatButton.label=LanguageModel.REBET;
+			doubleButton.label=LanguageModel.DOUBLEBET;
+			undoButton.label=LanguageModel.UNDO;
+			clearButton.label=LanguageModel.CLEARALL
+			confirmButton.label=LanguageModel.CONFIRM;
+			favouritesButton.label=LanguageModel.FAVOURITES
+			lobbyLabel=LanguageModel.LOBBY;
 		}
 		
 		

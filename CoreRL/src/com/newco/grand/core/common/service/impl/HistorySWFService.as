@@ -46,13 +46,14 @@ package com.newco.grand.core.common.service.impl
 			} else
 			{
 				display.visible=true;
+				display.init(flashVars.user_id, false);
 			}
 		}
 		private function setConfig(signal:LoaderSignal, mc:MovieClip):void {
 			display=mc;
 			display.init(flashVars.user_id, true);
-			display.x = contextView.view.stage.stageWidth / 2 - display.width/2;
-			display.y = contextView.view.stage.stageHeight / 2 - display.height/2;
+			display.x = 200;
+			display.y = 100;
 			display.visible = true;
 			contextView.view.addChild(display);
 			if (_onComplete!=null)

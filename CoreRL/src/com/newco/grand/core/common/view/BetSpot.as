@@ -101,14 +101,6 @@
 
 		}
 
-		public function highlight():void {
-			//_asset.alpha = 0.5;
-		}
-
-		public function removeHighlight():void {
-			//_asset.alpha = 0.5;
-		}
-
 		public function placeChip(evt:MouseEvent):void {
 			placeBetOnTable(chipSelected);
 		}
@@ -221,7 +213,7 @@
 		}
 		
 		public function disable():void {
-			removeHighlight();
+			//removeHighlight();
 			//_asset.visible = false;
 			_asset.mouseEnabled = false;
 			_asset.buttonMode = false;

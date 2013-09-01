@@ -1,6 +1,6 @@
 package com.newco.grand.core.common.model {
 	
-	public dynamic class Style extends Actor {
+	public dynamic class StyleModel extends Actor {
 		public static var BGCOLOR1:String;
 		public static var BGCOLOR2:String;
 		public static var OVERLAY:String;

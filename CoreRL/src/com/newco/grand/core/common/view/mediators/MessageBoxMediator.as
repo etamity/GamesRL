@@ -6,7 +6,7 @@ package com.newco.grand.core.common.view.mediators
 	import com.newco.grand.core.common.controller.signals.ModelReadyEvent;
 	import com.newco.grand.core.common.controller.signals.SocketDataEvent;
 	import com.newco.grand.core.common.model.IGameData;
-	import com.newco.grand.core.common.model.Language;
+	import com.newco.grand.core.common.model.LanguageModel;
 	import com.newco.grand.core.common.model.Player;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.view.MessageBoxView;
@@ -61,12 +61,12 @@ package com.newco.grand.core.common.view.mediators
 		}
 		private function setupModel(signal:BaseSignal):void {
 			view.init();
-			view.message = Language.PLEASEWAIT;
+			view.message = LanguageModel.PLEASEWAIT;
 			eventMap.mapListener(view.stage, Event.RESIZE, onStageResize);
 		}
 		
 		private function startTimer(signal:BaseSignal):void{
-			view.message = Language.PLACEBETS;
+			view.message = LanguageModel.PLACEBETS;
 			view.removeMessageHighlightBG();
 		}
 		private function setMessage(signal:BaseSignal):void {
@@ -76,7 +76,7 @@ package com.newco.grand.core.common.view.mediators
 					break;
 				
 				case SocketDataEvent.HANDLE_CANCEL:
-					view.message = Language.GAMECANCELLED;
+					view.message = LanguageModel.GAMECANCELLED;
 					view.highlightMessageBG(MESSAGE_COLOR_ERROR);
 					//stopTimer();
 					break;
@@ -87,17 +87,17 @@ package com.newco.grand.core.common.view.mediators
 		private function setBetMessage(signal:BaseSignal):void {
 			switch(signal.type) {
 				case BetEvent.BETS_ACCEPTED:
-					view.message = Language.BETSACCEPTED;
+					view.message = LanguageModel.BETSACCEPTED;
 					view.highlightMessageBG(TIMER_COLOR_DEFAULT);
 					break;
 				
 				case BetEvent.NOT_ALL_BETS_ACCEPTED:
-					view.message = Language.NOTALLBETSACCEPTED;
+					view.message = LanguageModel.NOTALLBETSACCEPTED;
 					view.highlightMessageBG(MESSAGE_COLOR_WARNING);
 					break;
 				
 				case BetEvent.BETS_REJECTED:
-					view.message = Language.BETSREJECTED;
+					view.message = LanguageModel.BETSREJECTED;
 					view.highlightMessageBG(MESSAGE_COLOR_ERROR);
 					break;
 			}
@@ -107,10 +107,10 @@ package com.newco.grand.core.common.view.mediators
 		private function setLimitsMessage(signal:BaseSignal):void {
 			switch(signal.type) {
 				case MessageEvent.SHOW_NOT_ENOUGH_MONEY:
-					view.message = Language.NOTENOUGHMONEY;
+					view.message = LanguageModel.NOTENOUGHMONEY;
 					break;
 				case MessageEvent.SHOW_MAX_TABLE:
-					view.message = StringUtils.replace(Language.MAXTABLEBETIS, "#bet#", player.currencyCode + game.max);
+					view.message = StringUtils.replace(LanguageModel.MAXTABLEBETIS, "#bet#", player.currencyCode + game.max);
 					break;
 				case MessageEvent.SHOW_MAX_SPOT:
 					//view.message = StringUtils.replace(Language.MAXBETIS, "#bet#", player.currencyCode + event.obj.max);
@@ -122,7 +122,7 @@ package com.newco.grand.core.common.view.mediators
 		
 		private function showWinnings(signal:BaseSignal):void {
 			setTimeout(function():void {
-				view.message = StringUtils.replace(Language.YOUWON, "#winnings#", player.currencyCode + player.winnings);
+				view.message = StringUtils.replace(LanguageModel.YOUWON, "#winnings#", player.currencyCode + player.winnings);
 				view.highlightMessageBG(MESSAGE_COLOR_SUCCESS);
 			}, 2000);
 			view.show();

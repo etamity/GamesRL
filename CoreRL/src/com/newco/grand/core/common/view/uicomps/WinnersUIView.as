@@ -1,6 +1,6 @@
 package com.newco.grand.core.common.view.uicomps {
 	
-	import com.newco.grand.core.common.model.Language;
+	import com.newco.grand.core.common.model.LanguageModel;
 	import com.newco.grand.core.utils.GameUtils;
 	import com.newco.grand.core.common.view.interfaces.IPlayersView;
 	import com.smart.uicore.controls.DataGrid;
@@ -37,8 +37,8 @@ package com.newco.grand.core.common.view.uicomps {
 		}
 		
 		public function language():void{
-			listView.labels[0] = Language.PLAYERNAME;
-			listView.labels[1] = Language.PLAYERWINS;
+			listView.labels[0] = LanguageModel.PLAYERNAME;
+			listView.labels[1] = LanguageModel.PLAYERWINS;
 		}
 		public function resize(width:Number,height:Number):void{
 			listView.setSize(width,height);

@@ -1,8 +1,8 @@
-package com.newco.grand.core.common.view.scorecard.display {
+package com.newco.grand.core.components.scorecard.display {
 	
-	import com.newco.grand.core.common.view.scorecard.data.ResultTypes;
-	import com.newco.grand.core.common.view.scorecard.display.road.IRoad;
-	import com.newco.grand.core.common.view.scorecard.display.road.result.IResult;
+	import com.newco.grand.core.components.scorecard.data.ResultTypes;
+	import com.newco.grand.core.components.scorecard.display.road.IRoad;
+	import com.newco.grand.core.components.scorecard.display.road.result.IResult;
 	
 	/**
 	 * This class is responsible for assigning the correct 2 cells of the

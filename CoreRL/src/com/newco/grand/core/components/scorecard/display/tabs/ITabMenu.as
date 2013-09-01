@@ -1,4 +1,4 @@
-package com.newco.grand.core.common.view.scorecard.display.tabs {
+package com.newco.grand.core.components.scorecard.display.tabs {
 	
 	import com.newco.grand.core.common.view.ui.buttons.IGeneralButton;
 	import com.newco.grand.core.common.view.ui.views.IBaseView;

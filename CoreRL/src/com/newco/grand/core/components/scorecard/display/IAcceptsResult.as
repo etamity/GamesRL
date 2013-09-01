@@ -1,4 +1,4 @@
-package com.newco.grand.core.common.view.scorecard.display {
+package com.newco.grand.core.components.scorecard.display {
 	import com.newco.grand.core.common.view.ui.views.IBaseView;
 	
 	/**

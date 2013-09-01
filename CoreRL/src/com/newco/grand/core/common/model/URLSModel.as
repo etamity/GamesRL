@@ -8,6 +8,7 @@ package com.newco.grand.core.common.model
 		
 		private var _authentication:String = "https://livecasino.smartliveaffiliates.com/cgibin/SmartAuthentication";
 		private var _login:String 		= "http://m.smartlivecasino.com/WebServices/Login.aspx";
+		private var _lobbySWF:String 		= "/player/games/LobbyRL.swf";
 		private var _lobby:String 		= "/player/lobbyXML.jsp";
 		private var _help:String 		= "/player/games/help/Help.swf";
 		private var _historySWF:String 		= "/player/games/history/History.swf";
@@ -93,6 +94,12 @@ package com.newco.grand.core.common.model
 		public function set balance(value:String):void {
 			_balance = value;
 		}
+		public function get lobbySWF():String {
+			return server + _lobbySWF;
+		}
+		public function set lobbySWF(value:String):void {
+			_lobbySWF = value;
+		}
 		public function get lobby():String {
 			return server + _lobby;
 		}
@@ -101,7 +108,7 @@ package com.newco.grand.core.common.model
 		}
 		public function get help():String {
 			if( flashVars.localhost )
-				return "player/games/help/Help.swf";
+				return "player/games/help/HelpRL.swf";
 			return server + _help;
 		}
 		public function set help(value:String):void {
@@ -110,7 +117,7 @@ package com.newco.grand.core.common.model
 		
 		public function get historySWF():String {
 			if( flashVars.localhost )
-				return "/player/games/history/History.swf";
+				return "/player/games/history/HistoryRL.swf";
 			return server + _historySWF;
 		}
 		public function set historySWF(value:String):void {

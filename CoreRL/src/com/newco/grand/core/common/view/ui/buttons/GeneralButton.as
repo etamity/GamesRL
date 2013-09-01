@@ -1,6 +1,6 @@
 package com.newco.grand.core.common.view.ui.buttons {
 
-	import com.newco.grand.core.common.model.Style;
+	import com.newco.grand.core.common.model.StyleModel;
 	import com.newco.grand.core.common.view.ui.text.IText;
 	import com.newco.grand.core.common.view.ui.text.Text;
 	import com.newco.grand.core.common.view.ui.views.BaseView;
@@ -253,12 +253,12 @@ package com.newco.grand.core.common.view.ui.buttons {
 					style += "_";
 				}
 
-				_defaultColour1 = Style.getColor(Style.DEFAULTBTNCOLOR1);
-				_defaultColour2 = Style.getColor(Style.DEFAULTBTNCOLOR2);
-				_rollOverColour1 = Style.getColor(Style.ROLLOVERBTNCOLOR1);
-				_rollOverColour2 = Style.getColor(Style.ROLLOVERBTNCOLOR2);
-				_selectedColour1 =Style.getColor(Style.SELECTEDBTNCOLOR1);
-				_selectedColour2 = Style.getColor(Style.SELECTEDBTNCOLOR2);
+				_defaultColour1 = StyleModel.getColor(StyleModel.DEFAULTBTNCOLOR1);
+				_defaultColour2 = StyleModel.getColor(StyleModel.DEFAULTBTNCOLOR2);
+				_rollOverColour1 = StyleModel.getColor(StyleModel.ROLLOVERBTNCOLOR1);
+				_rollOverColour2 = StyleModel.getColor(StyleModel.ROLLOVERBTNCOLOR2);
+				_selectedColour1 =StyleModel.getColor(StyleModel.SELECTEDBTNCOLOR1);
+				_selectedColour2 = StyleModel.getColor(StyleModel.SELECTEDBTNCOLOR2);
 
 				if (_mouseState == MOUSE_STATE_OVER || _mouseState == MOUSE_STATE_CLICK) {
 					onMouseOver();

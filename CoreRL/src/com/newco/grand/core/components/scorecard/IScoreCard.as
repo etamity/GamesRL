@@ -1,6 +1,6 @@
-package com.newco.grand.core.common.view.scorecard {
+package com.newco.grand.core.components.scorecard {
 	
-	import com.newco.grand.core.common.view.scorecard.display.IScoreCardsDisplay;
+	import com.newco.grand.core.components.scorecard.display.IScoreCardsDisplay;
 	
 	public interface IScoreCard {
 		function init(width:Number=200, height:Number=200, showTabs:Boolean=true, showAllRoadsAtOnce:Boolean=false, tableId:String = "", txtClr:uint = 0xFFFFFF, url:String = ""):void
