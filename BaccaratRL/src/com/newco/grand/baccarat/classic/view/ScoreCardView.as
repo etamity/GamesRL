@@ -1,7 +1,7 @@
 package com.newco.grand.baccarat.classic.view
 {
-	import com.newco.grand.core.common.model.Style;
-	import com.newco.grand.core.common.view.scorecard.ScoreCard;
+	import com.newco.grand.core.common.model.StyleModel;
+	import com.newco.grand.core.components.scorecard.ScoreCard;
 	
 	import flash.display.MovieClip;
 	import flash.display.SimpleButton;
@@ -35,7 +35,7 @@ package com.newco.grand.baccarat.classic.view
 		}
 		
 		public function init(width:Number = 200, height:Number = 200, showTabs:Boolean = true, showAllRoadsAtOnce:Boolean = false, tableId:String = ""):void{
-			scoreCardPanel.init(width,height,showTabs,showAllRoadsAtOnce,tableId, Style.getColor(Style.DEFAULTBTNCOLOR1));
+			scoreCardPanel.init(width,height,showTabs,showAllRoadsAtOnce,tableId, StyleModel.getColor(StyleModel.DEFAULTBTNCOLOR1));
 			visible=true;
 		}
 	}

@@ -65,6 +65,8 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.service.impl.BalanceService;
 	import com.newco.grand.core.common.service.impl.ChatConfigService;
 	import com.newco.grand.core.common.service.impl.ConfigService;
+	import com.newco.grand.core.common.service.impl.HelpSWFService;
+	import com.newco.grand.core.common.service.impl.HistorySWFService;
 	import com.newco.grand.core.common.service.impl.LanguageService;
 	import com.newco.grand.core.common.service.impl.LoginService;
 	import com.newco.grand.core.common.service.impl.PlayerService;
@@ -215,6 +217,8 @@ package com.newco.grand.baccarat.configs
 			injector.map(ChatConfigService).asSingleton();
 			injector.map(SeatService).asSingleton();
 			injector.map(TableConfigService).asSingleton();
+			injector.map(HelpSWFService).asSingleton();
+			injector.map(HistorySWFService).asSingleton();
 		}
 
 		public function mapMediators():void

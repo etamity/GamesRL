@@ -145,6 +145,7 @@ package com.newco.grand.baccarat.classic.view {
 				betspotmc.display.highlight.visible=false;
 				betspotmc.x = betspot.x;
 				betspotmc.y = betspot.y;
+				betspotmc.display.alpha=1;
 				betspotmc.display.visible=true;
 				betspot.visible=false;
 				addChild(betspotmc.display);
