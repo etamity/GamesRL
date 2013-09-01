@@ -14,11 +14,11 @@ package com.newco.grand.lobby.configs
 	import com.newco.grand.core.common.model.URLSModel;
 	import com.newco.grand.core.common.service.impl.BalanceService;
 	import com.newco.grand.core.common.service.impl.ConfigService;
+	import com.newco.grand.core.common.service.impl.HelpSWFService;
+	import com.newco.grand.core.common.service.impl.HistorySWFService;
 	import com.newco.grand.core.common.service.impl.URLSService;
 	import com.newco.grand.core.common.service.impl.XMLService;
-	import com.newco.grand.lobby.classic.controller.commands.HistoryCommand;
 	import com.newco.grand.lobby.classic.controller.commands.LobbyDataCommand;
-	import com.newco.grand.lobby.classic.controller.signals.LobbyEvents;
 	import com.newco.grand.lobby.classic.model.LobbyModel;
 	import com.newco.grand.lobby.classic.view.HistoryView;
 	import com.newco.grand.lobby.classic.view.LobbyView;
@@ -84,6 +84,8 @@ package com.newco.grand.lobby.configs
 			injector.map(URLSService).asSingleton();
 			injector.map(URLSModel).asSingleton();
 			injector.map(BalanceService).asSingleton();
+			injector.map(HelpSWFService).asSingleton();
+			injector.map(HistorySWFService).asSingleton();
 		}
 		
 		public function mapMediators():void
