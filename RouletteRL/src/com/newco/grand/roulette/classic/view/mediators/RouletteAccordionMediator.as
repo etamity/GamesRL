@@ -1,7 +1,8 @@
 package com.newco.grand.roulette.classic.view.mediators
 {
 	import com.newco.grand.core.common.controller.signals.BaseSignal;
-	import com.newco.grand.core.common.model.Language;
+	import com.newco.grand.core.common.controller.signals.VideoEvent;
+	import com.newco.grand.core.common.model.LanguageModel;
 	import com.newco.grand.core.common.view.mediators.AccordionMediator;
 	import com.newco.grand.core.common.view.uicomps.PlayersUIView;
 	import com.newco.grand.core.common.view.uicomps.WinnersUIView;
@@ -9,7 +10,6 @@ package com.newco.grand.roulette.classic.view.mediators
 	import com.newco.grand.roulette.classic.view.SideBetSpotsView;
 	import com.newco.grand.roulette.classic.view.StatisticsView;
 	import com.smart.uicore.controls.events.AccordionEvent;
-	import com.newco.grand.core.common.controller.signals.VideoEvent;
 	
 	
 	public class RouletteAccordionMediator extends AccordionMediator
@@ -20,18 +20,18 @@ package com.newco.grand.roulette.classic.view.mediators
 		}
 		override public function addViews(signal:BaseSignal):void {
 			
-			view.add(new StatisticsView(), Language.STATISTICS);
-			view.add(new PlayersUIView(), Language.PLAYERS);
-			view.add(new WinnersUIView(), Language.WINNERLIST);
-			view.add(new SideBetSpotsView(), Language.PLAYERSBETS);
-			view.add(new FavouritesBetsView(), Language.FAVOURITES);
+			view.add(new StatisticsView(), LanguageModel.STATISTICS);
+			view.add(new PlayersUIView(), LanguageModel.PLAYERS);
+			view.add(new WinnersUIView(), LanguageModel.WINNERLIST);
+			view.add(new SideBetSpotsView(), LanguageModel.PLAYERSBETS);
+			view.add(new FavouritesBetsView(), LanguageModel.FAVOURITES);
 			
 			view.display.addEventListener(AccordionEvent.SELECTED,doSelected);
 
 			resize();
 		}
 		private function doSelected(evt:AccordionEvent):void{
-			if (evt.label==Language.PLAYERSBETS)
+			if (evt.label==LanguageModel.PLAYERSBETS)
 			{
 				signalBus.dispatch(VideoEvent.FULLSCREEN);
 			}

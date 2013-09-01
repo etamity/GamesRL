@@ -7,7 +7,7 @@ package com.newco.grand.roulette.classic.service {
 	import com.newco.grand.core.common.controller.signals.WinnersEvent;
 	import com.newco.grand.core.common.model.Constants;
 	import com.newco.grand.core.common.model.GameState;
-	import com.newco.grand.core.common.model.Language;
+	import com.newco.grand.core.common.model.LanguageModel;
 	import com.newco.grand.core.common.model.Player;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.service.SocketService;
@@ -111,7 +111,7 @@ package com.newco.grand.roulette.classic.service {
 				case Constants.SOCKET_GAME_RESULT:
 					game.resultXML = node;
 					game.result=Number(String(node).split(" ")[0]); 
-					game.statusMessage  = node +" " +Language.WIN ;
+					game.statusMessage  = node +" " +LanguageModel.WIN ;
 					//dispatch(new SocketDataEvent(SocketDataEvent.HANDLE_RESULT, node));
 					signalBus.dispatch(SocketDataEvent.HANDLE_RESULT,{node:node});
 					break;

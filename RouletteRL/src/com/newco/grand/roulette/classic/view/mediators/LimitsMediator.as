@@ -3,13 +3,12 @@ package com.newco.grand.roulette.classic.view.mediators {
 	import com.newco.grand.core.common.controller.signals.BaseSignal;
 	import com.newco.grand.core.common.controller.signals.ModelReadyEvent;
 	import com.newco.grand.core.common.controller.signals.StateTableConfigEvent;
-	import com.newco.grand.core.common.model.Language;
 	import com.newco.grand.core.common.model.Player;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.utils.GameUtils;
 	import com.newco.grand.roulette.classic.model.GameDataModel;
 	import com.newco.grand.roulette.classic.view.LimitsView;
-	
+	import com.newco.grand.core.common.model.LanguageModel;
 	import flash.events.Event;
 	
 	import robotlegs.bender.bundles.mvcs.Mediator;
@@ -44,11 +43,11 @@ package com.newco.grand.roulette.classic.view.mediators {
 		
 		private function setupModel(signal:BaseSignal):void {
 			view.init();
-			view.minLabel = Language.MIN;
-			view.maxLabel = Language.MAX;
+			view.minLabel = LanguageModel.MIN;
+			view.maxLabel = LanguageModel.MAX;
 			view.titleLabel = game.table;
-			view.betLabel = Language.BETLABEL;
-			view.payoutLabel = Language.PAYOUT;
+			view.betLabel = LanguageModel.BETLABEL;
+			view.payoutLabel = LanguageModel.PAYOUT;
 			eventMap.mapListener(view.stage, Event.RESIZE, onStageResize);
 		}		
 		
@@ -57,7 +56,7 @@ package com.newco.grand.roulette.classic.view.mediators {
 			view.maxLimit = player.currencyCode + " " + game.max;
 			
 			for (var i:int = 0; i < ALL_LIMITS.length; i++) {
-				view.addLimits(Language[ALL_LIMITS[i].toUpperCase()], game[ALL_LIMITS[i] + "Min"], game[ALL_LIMITS[i] + "Max"], ALL_PAYOUTS[i], i);
+				view.addLimits(LanguageModel[ALL_LIMITS[i].toUpperCase()], game[ALL_LIMITS[i] + "Min"], game[ALL_LIMITS[i] + "Max"], ALL_PAYOUTS[i], i);
 			}
 		}
 		

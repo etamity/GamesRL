@@ -33,7 +33,7 @@ package com.newco.grand.roulette.classic.controller.commands
 		}
 		
 		override public function execute():void {
-			loadLobby();
+			//loadLobby();
 		}
 		
 		/** load help swf file **/
@@ -58,7 +58,7 @@ package com.newco.grand.roulette.classic.controller.commands
 		/** load lobby swf file **/
 		private function loadLobby():void {
 			debug(urls.lobby);
-			service.addLoader(new SWFLoader(new URLRequest(urls.lobby), Constants.ASSET_LOBBY));
+			service.addLoader(new SWFLoader(new URLRequest(urls.lobbySWF), Constants.ASSET_LOBBY));
 			service.getLoader(Constants.ASSET_LOBBY).onError.add(showError);
 			service.getLoader(Constants.ASSET_LOBBY).onComplete.add(setLobby);
 			service.start();

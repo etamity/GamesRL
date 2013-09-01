@@ -42,11 +42,14 @@ package com.newco.grand.roulette.classic.service
 		
 		public function load(onComplete:Function=null):void
 		{
+			loadState();
 		}
 		
 		private function loadState():void {
 			debug("State ",urls.state);
-		/*	service.addLoader(new XMLLoader(new URLRequest(stateUrl), Constants.SERVER_STATE));
+		
+			/*	
+			service.addLoader(new XMLLoader(new URLRequest(stateUrl), Constants.SERVER_STATE));
 			service.getLoader(Constants.SERVER_STATE).onError.add(showError);
 			service.getLoader(Constants.SERVER_STATE).onComplete.add(setState);			
 			service.start();*/
@@ -141,7 +144,7 @@ package com.newco.grand.roulette.classic.service
 			game.server= xml["gameconfig-param"].@broadcast_ip2;
 			
 			//service.remove(Constants.SERVER_TABLE_CONFIG);
-			var streams:Array=new Array(xml["gameconfig-param"].@low_stream,xml["gameconfig-param"].@med_stream,xml["gameconfig-param"].@high_stream);
+			var streams:Array=new Array(xml["gameconfig-param"].@low_stream,xml["gameconfig-param"].@med_stream,xml["gameconfig-param"].@hi_stream);
 			game.videoStreams=streams;
 			
 			loadSettings();

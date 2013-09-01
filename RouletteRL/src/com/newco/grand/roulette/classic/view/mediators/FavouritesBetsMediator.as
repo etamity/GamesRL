@@ -5,7 +5,7 @@ package com.newco.grand.roulette.classic.view.mediators
 	import com.newco.grand.core.common.controller.signals.ModelReadyEvent;
 	import com.newco.grand.core.common.controller.signals.SocketDataEvent;
 	import com.newco.grand.core.common.model.GameState;
-	import com.newco.grand.core.common.model.Language;
+	import com.newco.grand.core.common.model.LanguageModel;
 	import com.newco.grand.core.common.model.Player;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.roulette.classic.controller.signals.DataGirdEvent;
@@ -49,9 +49,9 @@ package com.newco.grand.roulette.classic.view.mediators
 			view.clearBtn.skin.addEventListener(MouseEvent.CLICK,doClearAction);
 			view.deleteBtn.skin.addEventListener(MouseEvent.CLICK,doDeleteAction);
 			
-			view.applyBtn.label= Language.APPLYBUTTON;
-			view.clearBtn.label= Language.CLEARBUTTON;
-			view.deleteBtn.label= Language.DELETEBUTTON;
+			view.applyBtn.label= LanguageModel.APPLYBUTTON;
+			view.clearBtn.label= LanguageModel.CLEARBUTTON;
+			view.deleteBtn.label= LanguageModel.DELETEBUTTON;
 			signalBus.add(BetEvent.FAVOURITES, addFaouritesBets);
 			signalBus.add(BetEvent.CLOSE_BETS, closeBetting);
 			signalBus.add(SocketDataEvent.HANDLE_TIMER, checkBettingState);
