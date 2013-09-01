@@ -3,12 +3,13 @@ package com.newco.grand.core.common.service.impl
 	import com.newco.grand.core.common.controller.signals.MessageEvent;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.SignalBus;
+	import com.newco.grand.core.common.service.api.IService;
 	import com.newco.grand.core.utils.GameUtils;
 	
 	import org.assetloader.signals.ErrorSignal;
 	import org.assetloader.signals.LoaderSignal;
 	
-	public class ConfigService
+	public class ConfigService implements IService
 	{
 		private var _xmlurl:String="xml/configs.xml";
 		[Inject]

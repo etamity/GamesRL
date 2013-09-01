@@ -38,7 +38,7 @@
 			lastBet = 0;
 			_asset.buttonMode = true;
 			_asset.mouseChildren = false;
-			_asset.alpha = 0;
+			//_asset.alpha = 0;
 			asset.addChild(_chipHolder);
 		}
 
@@ -102,11 +102,11 @@
 		}
 
 		public function highlight():void {
-			_asset.alpha = 0.5;
+			//_asset.alpha = 0.5;
 		}
 
 		public function removeHighlight():void {
-			_asset.alpha = 0;
+			//_asset.alpha = 0.5;
 		}
 
 		public function placeChip(evt:MouseEvent):void {
@@ -222,7 +222,7 @@
 		
 		public function disable():void {
 			removeHighlight();
-			_asset.visible = false;
+			//_asset.visible = false;
 			_asset.mouseEnabled = false;
 			_asset.buttonMode = false;
 			_asset.removeEventListener(MouseEvent.ROLL_OVER, rollOver);
@@ -231,7 +231,7 @@
 		}
 
 		public function enable():void {
-			_asset.visible = true;
+			//_asset.visible = true;
 			_asset.mouseEnabled = true;
 			_asset.buttonMode = true;
 			_asset.addEventListener(MouseEvent.ROLL_OVER, rollOver);

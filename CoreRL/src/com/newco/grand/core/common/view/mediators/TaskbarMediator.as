@@ -66,7 +66,10 @@ package com.newco.grand.core.common.view.mediators
 		
 		public var GAMELOBBY:String="GAMELOBBY";
 		
+		public var GAMEHELP:String="GAMEHELP";
+		
 		private var lobbyMC:MovieClip;
+		private var helpMC:MovieClip;
 		override public function initialize():void
 		{
 
@@ -213,6 +216,11 @@ package com.newco.grand.core.common.view.mediators
 		
 			
 		}
+		
+		private function loadHelp():void{
+			
+		}
+		
 		private function setConfig(signal:LoaderSignal, mc:MovieClip):void {
 			lobbyMC=mc;
 			contextView.view.addChild(lobbyMC);

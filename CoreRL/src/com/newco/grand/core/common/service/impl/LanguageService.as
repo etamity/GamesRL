@@ -7,7 +7,6 @@ package com.newco.grand.core.common.service.impl
 	import com.newco.grand.core.common.controller.signals.StateTableConfigEvent;
 	import com.newco.grand.core.common.controller.signals.UIEvent;
 	import com.newco.grand.core.common.controller.signals.WinnersEvent;
-	import com.newco.grand.core.common.model.Constants;
 	import com.newco.grand.core.common.model.Language;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.model.Style;
@@ -15,10 +14,6 @@ package com.newco.grand.core.common.service.impl
 	import com.newco.grand.core.common.service.api.IService;
 	import com.newco.grand.core.utils.GameUtils;
 	
-	import flash.net.URLRequest;
-	
-	import org.assetloader.core.IAssetLoader;
-	import org.assetloader.loaders.XMLLoader;
 	import org.assetloader.signals.ErrorSignal;
 	import org.assetloader.signals.LoaderSignal;
 	

@@ -149,8 +149,8 @@ package com.newco.grand.core.common.view {
 			
 			_display.chat.visible=false;
 			_display.settings.visible=false;
-			_display.history.visible=false;
-			_display.help.visible=false;
+			_display.history.visible=true;
+			_display.help.visible=true;
 			favouritesBtn.enabled=false;
 			favouritesBtn.skin.visible=false;
 			confirmBtn.skin.visible=false;
@@ -294,7 +294,12 @@ package com.newco.grand.core.common.view {
 					break;
 				case _display.lobby:
 					_signalBus.dispatch(TaskbarActionEvent.LOBBY_CLICKED,{eventType:TaskbarActionEvent.LOBBY_CLICKED});
-						
+					break;
+				case _display.help:
+					_signalBus.dispatch(TaskbarActionEvent.BUTTON_CLICKED,{eventType:TaskbarActionEvent.HELP_CLICKED});
+					break;
+				case _display.history:
+					_signalBus.dispatch(TaskbarActionEvent.LOBBY_CLICKED,{eventType:TaskbarActionEvent.HISTORY_CLICKED});	
 					break;
 			}
 			

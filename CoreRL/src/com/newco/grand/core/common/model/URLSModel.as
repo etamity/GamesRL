@@ -10,6 +10,7 @@ package com.newco.grand.core.common.model
 		private var _login:String 		= "http://m.smartlivecasino.com/WebServices/Login.aspx";
 		private var _lobby:String 		= "/player/lobbyXML.jsp";
 		private var _help:String 		= "/player/games/help/Help.swf";
+		private var _historySWF:String 		= "/player/games/history/History.swf";
 		private var _freeplay:String 	= "/cgibin/mobile_launcher.jsp";
 		private var _language:String 	= "/player/games/languages/";
 		private var _style:String 		= "/player/games/styles/";
@@ -105,6 +106,15 @@ package com.newco.grand.core.common.model
 		}
 		public function set help(value:String):void {
 			_help = value;
+		}
+		
+		public function get historySWF():String {
+			if( flashVars.localhost )
+				return "/player/games/history/History.swf";
+			return server + _historySWF;
+		}
+		public function set historySWF(value:String):void {
+			_historySWF = value;
 		}
 		public function get login():String {
 			

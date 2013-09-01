@@ -2,17 +2,12 @@ package com.newco.grand.core.common.service.impl
 {
 	import com.newco.grand.core.common.controller.signals.MessageEvent;
 	import com.newco.grand.core.common.controller.signals.PlayersEvent;
-	import com.newco.grand.core.common.model.Constants;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.model.URLSModel;
 	import com.newco.grand.core.common.service.api.IService;
 	import com.newco.grand.core.utils.GameUtils;
 	
-	import flash.net.URLRequest;
-	
-	import org.assetloader.core.IAssetLoader;
-	import org.assetloader.loaders.XMLLoader;
 	import org.assetloader.signals.ErrorSignal;
 	import org.assetloader.signals.LoaderSignal;
 	
