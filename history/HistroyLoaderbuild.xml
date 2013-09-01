@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="history_loader"
+	default="build">
+
+	<property file="../libs/common.build.properties"/>
+	<property name="OUTPUT_DIR"
+		value="../release/player/games/history"/>
+	<property name="SRC_DIR"
+		value="src"/>
+	<property name="ASSETS_DIR"
+		value="assets"/>
+	<property name="CORE_SWC"
+		value="../core/bin/core.swc"/>
+	<property name="COMMON_LIBS"
+		value="../libs"/>
+
+	<taskdef name="mxmlc"
+		classname="flex.ant.MxmlcTask"
+		classpath="${FLEX_HOME}/ant/lib/flexTasks.jar"/>
+
+	<target name="build">
+		<echo message="building history..."/>
+		<antcall target="compile_loader"/>
+	</target>
+	<target name="compile_loader">
+		<mxmlc file="${SRC_DIR}/com/slc/games/history/HistoryLoader.as"
+			output="${OUTPUT_DIR}/HistoryLoader.swf"
+			locale="${LOCALE}"
+			static-rsls="false"
+			static-link-runtime-shared-libraries="true">
+			<default-size 
+				width="200" height="200"/>
+			<default-frame-rate>30</default-frame-rate>
+			<default-background-color>0x000000</default-background-color>
+			<load-config filename="${FLEX_HOME}/frameworks/flex-config.xml"/>
+			<source-path path-element="${SRC_DIR}"/>
+			<library-path file="${FLEX_HOME}/frameworks/libs/textLayout.swc"
+				append="true"/>
+			<library-path file="${FLEX_HOME}/frameworks/libs/osmf.swc"
+				append="true"/>
+			<library-path file="${FLEX_HOME}/frameworks/libs/flash-integration.swc"
+				append="true"/>
+			<library-path file="${FLEX_HOME}/frameworks/libs/flex.swc"
+				append="true"/>
+			<library-path file="${FLEX_HOME}/frameworks/libs/utilities.swc"
+				append="true"/>
+			<external-library-path file="${FLEX_HOME}/frameworks/libs/player/10.2/playerglobal.swc"
+				append="true"/>
+			<library-path file="${FLEX_HOME}/frameworks/libs/flash-integration.swc"
+				append="true"/>
+			<library-path file="${FLEX_HOME}/frameworks/libs/flex.swc"
+				append="true"/>
+			<library-path file="${FLEX_HOME}/frameworks/libs/utilities.swc"
+				append="true"/>
+			<library-path file="${CORE_SWC}"
+				append="true"/>
+			<library-path dir="${COMMON_LIBS}"
+				includes="*.swc"
+				append="true"/>
+		</mxmlc>
+	</target>
+	<target name="compile">
+		<mxmlc file="${SRC_DIR}/com/slc/games/history/History.as"
+			output="${OUTPUT_DIR}/History.swf"
+			locale="${LOCALE}"
+			static-rsls="false"
+			static-link-runtime-shared-libraries="true">
+			<default-size 
+				width="550" height="360"/>
+			<default-frame-rate>30</default-frame-rate>
+			<default-background-color>0x000000</default-background-color>
+			<load-config filename="${FLEX_HOME}/frameworks/flex-config.xml"/>
+			<source-path path-element="${SRC_DIR}"/>
+			<library-path file="${FLEX_HOME}/frameworks/libs/textLayout.swc"
+				append="true"/>
+			<library-path file="${FLEX_HOME}/frameworks/libs/osmf.swc"
+				append="true"/>
+			<library-path file="${FLEX_HOME}/frameworks/libs/flash-integration.swc"
+				append="true"/>
+			<library-path file="${FLEX_HOME}/frameworks/libs/flex.swc"
+				append="true"/>
+			<library-path file="${FLEX_HOME}/frameworks/libs/utilities.swc"
+				append="true"/>
+			<external-library-path file="${FLEX_HOME}/frameworks/libs/player/10.2/playerglobal.swc"
+				append="true"/>
+			<library-path file="${FLEX_HOME}/frameworks/libs/flash-integration.swc"
+				append="true"/>
+			<library-path file="${FLEX_HOME}/frameworks/libs/flex.swc"
+				append="true"/>
+			<library-path file="${FLEX_HOME}/frameworks/libs/utilities.swc"
+				append="true"/>
+			<library-path file="${CORE_SWC}"
+				append="true"/>
+			<library-path file="${ASSETS_DIR}/History.swc"
+				append="true"/>
+			<library-path dir="${COMMON_LIBS}"
+				includes="*.swc"
+				append="true"/>
+		</mxmlc>
+
+	</target>
+
+	<target name="copy">
+		<copy file="bin-debug/history.swf"
+			todir="../launcher/src/swf"/>
+	</target>
+
+</project>
