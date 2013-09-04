@@ -62,7 +62,7 @@ package com.newco.grand.baccarat.classic.view.mediators {
 			signalBus.add(BetEvent.REPEAT, repeat);
 			signalBus.add(BetEvent.DOUBLE, double);
 			signalBus.add(BetEvent.CONFRIM, confirm);
-			signalBus.add(BaccaratEvent.MAKEBETSPOT, makeBets);
+			//signalBus.add(BaccaratEvent.MAKEBETSPOT, makeBets);
 		}
 		
 		private function confirm(signal:BaseSignal):void{
@@ -101,7 +101,7 @@ package com.newco.grand.baccarat.classic.view.mediators {
 			view.signalBus.add(MessageEvent.SHOW_MIN_SPOT,showTooltip);
 			view.signalBus.add(MessageEvent.SHOW_NOT_ENOUGH_MONEY,showTooltip);
 			view.signalBus.add(MessageEvent.SHOW_WINNINGS,showTooltip);
-			view.signalBus.add(BetEvent.MAKEBET,makePanelBets);
+			//view.signalBus.add(BetEvent.MAKEBET,makePanelBets);
 			
 		}
 		private function makePanelBets(signal:BaseSignal):void{
@@ -201,7 +201,6 @@ package com.newco.grand.baccarat.classic.view.mediators {
 				player.betString = view.betString;
 				countBets();
 				signalBus.dispatch(BetEvent.SEND_BETS);
-			
 			}
 			view.disableBetting();
 		}

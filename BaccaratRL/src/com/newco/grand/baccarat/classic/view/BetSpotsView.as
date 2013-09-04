@@ -226,7 +226,7 @@ package com.newco.grand.baccarat.classic.view {
 			_betchipMC.chipValue = _betspotMC.chipValue;
 			_betchipMC.updateChipColor(_betspotMC.lastChipPlaced);
 			//makeBetsignal.dispatch(value);
-			_signalBus.dispatch(BetEvent.MAKEBET,{side:value});
+			//_signalBus.dispatch(BetEvent.MAKEBET,{side:value});
 		} 
 		
 		public function set chipSelecedValue(value:Number):void {

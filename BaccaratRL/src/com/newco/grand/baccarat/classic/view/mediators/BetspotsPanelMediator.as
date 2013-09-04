@@ -41,7 +41,7 @@ package com.newco.grand.baccarat.classic.view.mediators
 		private function setupModel(signal:BaseSignal):void {
 			view.init();
 			eventMap.mapListener(contextView.view.stage, Event.RESIZE, onStageResize);
-			signalBus.add(BaccaratEvent.MAKEBETPANEL, makePanelBet);
+			//signalBus.add(BaccaratEvent.MAKEBETPANEL, makePanelBet);
 			signalBus.add(BetEvent.CLOSE_BETS, closeBetting);
 			signalBus.add(SocketDataEvent.HANDLE_TIMER, checkBettingState);
 			signalBus.add(SocketDataEvent.HANDLE_CANCEL, clearBets);

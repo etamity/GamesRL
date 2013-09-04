@@ -87,6 +87,7 @@ package com.newco.grand.baccarat.classic.service {
 				case Constants.SOCKET_GAME_STATE:
 					switch (node){
 						case Constants.BETS_CLOSED:
+							debug("[SOCKET_GAME_STATE] : "+ node.toXMLString());
 							//eventDispatcher.dispatchEvent(new BetEvent(BetEvent.CLOSE_BETS));
 							signalBus.dispatch(BetEvent.CLOSE_BETS,{node:node});
 							break;
