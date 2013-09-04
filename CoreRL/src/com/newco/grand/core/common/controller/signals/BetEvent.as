@@ -9,6 +9,7 @@ package com.newco.grand.core.common.controller.signals {
 		public static const CLOSE_BETS:String = "BetEvent.CLOSE_BETS";
 		public static const NEIGHBOUR_BETS:String = "BetEvent.NEIGHBOUR_BETS";
 		public static const SEND_BETS:String = "BetEvent.SEND_BETS";
+		public static const CLOSING_BETS:String = "BetEvent.CLOSING_BETS";
 		public static const BETS_ACCEPTED:String = "BetEvent.BETS_ACCEPTED";
 		public static const BETS_REJECTED:String = "BetEvent.BETS_REJECTED";
 		public static const NOT_ALL_BETS_ACCEPTED:String = "BetEvent.NOT_ALL_BETS_ACCEPTED";

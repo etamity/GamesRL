@@ -33,13 +33,14 @@ package com.newco.grand.core.common.service.impl
 		
 		[Inject]
 		public var signalBus:SignalBus;
+
 		public function SendBetsService()
 		{
 		}
 		
 		public function load(onComplete:Function=null):void
 		{
-			sendBets();
+				sendBets();
 		}
 		
 
@@ -52,6 +53,7 @@ package com.newco.grand.core.common.service.impl
 			service.start();*/
 			debug(urls.sendBets + "?user_id=" + flashvars.user_id + "&table_id=" + flashvars.table_id + "&vt_id="+flashvars.vt_id + "&game_id=" + game.gameID + player.betString + "&noOfBets=" + player.betCount);
 			service.loadURL(urls.sendBets,betsResponse,showError);
+	
 		}
 		
 		private function betsResponse(signal:LoaderSignal, xml:XML):void {
@@ -63,7 +65,10 @@ package com.newco.grand.core.common.service.impl
 				player.balance = Number(xml.balance);
 				signalBus.dispatch(BetEvent.BETS_ACCEPTED);
 				signalBus.dispatch(BalanceEvent.LOADED);
+		
 			}
+			
+			
 			/*if (service.getLoader(Constants.SERVER_SEND_BETS)!=null)
 				service.remove(Constants.SERVER_SEND_BETS);*/
 			

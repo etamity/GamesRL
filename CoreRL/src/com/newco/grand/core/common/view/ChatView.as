@@ -26,9 +26,9 @@ package com.newco.grand.core.common.view {
 			visible = false;
 			Scroll.scrollTarget =_display.receiveTxt;
 			Scroll.direction="vertical";
-			Scroll.x=199.35;
-			Scroll.y=27.65;
-			Scroll.height=137.95;
+			Scroll.x=198;
+			Scroll.y=44;
+			Scroll.height=130;
 			addChild(Scroll);
 		}
 		public function initDisplay():void{

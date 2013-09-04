@@ -42,8 +42,11 @@
 			asset.addChild(_chipHolder);
 		}
 
-		public function id():int{
+		public function get id():int{
 			return _id;
+		}
+		public function set id(val:int):void{
+			 _id=val;
 		}
 		public function get mainChip():Betchip{
 			var chip:Betchip=null;

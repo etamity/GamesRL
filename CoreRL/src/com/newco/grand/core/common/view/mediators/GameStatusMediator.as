@@ -94,7 +94,8 @@ package com.newco.grand.core.common.view.mediators {
 		}
 		
 		private function reset(evt:TimerEvent):void {
-			view.message = LanguageModel.NOMOREBETS;			view.timerColor = TIMER_COLOR_CLOSED;
+			view.message = LanguageModel.NOMOREBETS;			
+			view.timerColor = TIMER_COLOR_CLOSED;
 			view.timer = "00";
 			_timer.stop();
 			view.setLightSOff();
