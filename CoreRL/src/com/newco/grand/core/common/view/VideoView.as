@@ -141,7 +141,7 @@ package com.newco.grand.core.common.view {
 			{       
 				// Otherwise attach it to a Video object      
 				_display.video.visible=true;
-				_display.bg.visible=true;
+				_display.bg.visible=false;
 				if (_stageVideoInUse)       
 					_stageVideoInUse = false;       
 				_classicVideoInUse = true;       
