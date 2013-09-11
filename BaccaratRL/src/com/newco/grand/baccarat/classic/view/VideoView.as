@@ -14,6 +14,7 @@ package com.newco.grand.baccarat.classic.view
 			super();
 			showFullSize=true;
 			_display.bg.visible=false;
+			_display.frame.visible=false;
 		}
 		
 		override public function align():void{
