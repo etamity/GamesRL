@@ -1,5 +1,7 @@
 package com.newco.grand.core.common.service.impl
 {
+	import com.evolutiongaming.ui.Language;
+	import com.evolutiongaming.ui.Style;
 	import com.newco.grand.core.common.controller.signals.ChatEvent;
 	import com.newco.grand.core.common.controller.signals.MessageEvent;
 	import com.newco.grand.core.common.controller.signals.PlayersEvent;
@@ -11,82 +13,98 @@ package com.newco.grand.core.common.service.impl
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.model.StyleModel;
 	import com.newco.grand.core.common.model.URLSModel;
-	import com.evolutiongaming.ui.Language;
-	import com.evolutiongaming.ui.Style;
 	import com.newco.grand.core.common.service.api.IService;
 	import com.newco.grand.core.utils.GameUtils;
-	
+
 	import org.assetloader.signals.ErrorSignal;
 	import org.assetloader.signals.LoaderSignal;
-	
+
+	import robotlegs.bender.framework.api.ILogger;
+
 	public class LanguageService implements IService
 	{
-		
+
 		[Inject]
 		public var service:XMLService;
-		
+
 		[Inject]
 		public var urls:URLSModel;
-		
+
 		[Inject]
 		public var signalBus:SignalBus;
-		
+
+
+		[Inject]
+		public var logger:ILogger;
+
 		public function LanguageService()
 		{
 		}
-		
+
 		public function load(onComplete:Function=null):void
 		{
 			loadLanguage();
 		}
 		private function loadLanguage():void {
 			debug(urls.language);
-			/*service.addLoader(new XMLLoader(new URLRequest(urls.language), Constants.ASSET_LANGUAGE));
-			service.getLoader(Constants.ASSET_LANGUAGE).onError.add(showError);
-			service.getLoader(Constants.ASSET_LANGUAGE).onComplete.add(setLanguage);			
-			service.start();*/
 			service.loadURL(urls.language,setLanguage,showError);
 		}
-		
+
 		private function setLanguage(signal:LoaderSignal, xml:XML):void {
 			//debug(xml);
-			
+
 			Language.getInstance().xml=xml;
 			var nodeName:String;
-			for each (var node:XML in xml.children()) {
-				nodeName = String(node.name().localName).toUpperCase();
-				LanguageModel[nodeName] = node.text();
+			try
+			{
+				for each (var node:XML in xml.children()) {
+
+					nodeName = String(node.name().localName).toUpperCase();
+					LanguageModel[nodeName] = node.text();
+				}
 			}
-			//service.remove(Constants.ASSET_LANGUAGE);
+			catch (err:Error)
+			{
+				signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:err.name+" : "+ err.message +" on node:" +node});
+
+			}finally{
+
 			loadStyle();
+			}
 		}
-		
+
 		private function loadStyle():void {
 			debug(urls.style);			
-			/*service.addLoader(new XMLLoader(new URLRequest(urls.style), Constants.ASSET_STYLE));
-			service.getLoader(Constants.ASSET_STYLE).onError.add(showError);
-			service.getLoader(Constants.ASSET_STYLE).onComplete.add(setStyle);
-			service.start();*/
 			service.loadURL(urls.style,setStyle,showError);
 		}
-		
+
 		private function setStyle(signal:LoaderSignal, xml:XML):void {
 			debug(xml);
 			Style.getInstance().xml=xml;
 			var nodeName:String;
 			var attributes:XMLList;
-			for each (var node:XML in xml.children()) {
-				nodeName = String(node.name().localName).toUpperCase();
-				StyleModel[nodeName] = node.text();
-				attributes = node.@*;
-				for each (var node_att:XML in attributes) {
-					StyleModel[nodeName + "_" + node.name()] = node;
-				}
-				if(node.children().length() > 0) {
-					StyleModel[nodeName + "_XML"] = node;
+			try
+			{
+				StyleModel.XMLDATA= xml;
+				for each (var node:XML in xml.children()) {
+					nodeName = String(node.name().localName).toUpperCase();
+					StyleModel[nodeName] = node.text();
+					attributes = node.@*;
+					for each (var node_att:XML in attributes) {
+						StyleModel[nodeName + "_" + node.name()] = node;
+					}
+					if(node.children().length() > 0) {
+						StyleModel[nodeName + "_XML"] = node;
+					}
 				}
 			}
-			StyleModel.XMLDATA= xml;
+			catch (err:Error)
+			{
+				signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:err.name+" : "+ err.message +" on node:" +node});
+
+			}
+			finally{
+
 			//service.remove(Constants.ASSET_STYLE);
 			signalBus.dispatch(StartupDataEvent.LOADED);
 			signalBus.dispatch(StateTableConfigEvent.LOAD);
@@ -94,15 +112,17 @@ package com.newco.grand.core.common.service.impl
 			signalBus.dispatch(UIEvent.SETUP_ASSET);
 			signalBus.dispatch(PlayersEvent.LOAD);
 			signalBus.dispatch(WinnersEvent.LOAD);
+			}
 		}
-		
+
 		private function showError(signal:ErrorSignal):void {
 			debug("error " + signal.message);
 			signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:signal.message});
 		}
-		
+
 		private function debug(...args):void {
-			GameUtils.log(this, args);
+			logger.debug(args);
 		}
 	}
 }
+
