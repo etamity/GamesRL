@@ -8,13 +8,13 @@ package com.newco.grand.baccarat.classic.controller.commands
 	import com.newco.grand.baccarat.classic.view.GameStatusView;
 	import com.newco.grand.baccarat.classic.view.ScoreCardView;
 	import com.newco.grand.baccarat.classic.view.TableGraphicView;
+	import com.newco.grand.baccarat.classic.view.TaskbarView;
 	import com.newco.grand.baccarat.classic.view.VideoView;
 	import com.newco.grand.core.common.controller.commands.BaseCommand;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.view.ErrorMessageView;
 	import com.newco.grand.core.common.view.LoginView;
 	import com.newco.grand.core.common.view.StageView;
-	import com.newco.grand.core.common.view.TaskbarView;
 	import com.newco.grand.core.utils.GameUtils;
 	
 	import robotlegs.bender.extensions.contextView.ContextView;
@@ -36,8 +36,8 @@ package com.newco.grand.baccarat.classic.controller.commands
 		private function setupView():void {
 			
 			contextView.view.addChild(new StageView());
-			contextView.view.addChild(new VideoView());
 			contextView.view.addChild(new TableGraphicView());
+			contextView.view.addChild(new VideoView());
 			contextView.view.addChild(new LoginView());
 			contextView.view.addChild(new ScoreCardView());
 			contextView.view.addChild(new AccordionUIView());

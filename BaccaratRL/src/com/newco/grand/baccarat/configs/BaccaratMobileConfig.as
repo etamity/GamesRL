@@ -7,9 +7,10 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.baccarat.classic.service.GameSocketService;
 	import com.newco.grand.baccarat.classic.service.TableConfigService;
 	import com.newco.grand.baccarat.classic.view.AnimationPanelView;
-	import com.newco.grand.baccarat.classic.view.ScoreCardView;
+	import com.newco.grand.baccarat.classic.view.BetSpotsView;
 	import com.newco.grand.baccarat.classic.view.interfaces.IBetSpotsView;
 	import com.newco.grand.baccarat.classic.view.interfaces.ICardsPanelView;
+	import com.newco.grand.baccarat.classic.view.interfaces.IScoreCardView;
 	import com.newco.grand.baccarat.classic.view.interfaces.ITableGraphicView;
 	import com.newco.grand.baccarat.classic.view.mediators.AnimationMeditor;
 	import com.newco.grand.baccarat.classic.view.mediators.BaccaratAccordionMediator;
@@ -18,7 +19,6 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.baccarat.classic.view.mediators.ScoreCardMediator;
 	import com.newco.grand.baccarat.classic.view.mediators.TableGraphicMediator;
 	import com.newco.grand.baccarat.mobile.controller.SetupViewCommand;
-	import com.newco.grand.baccarat.mobile.view.BetSpotsView;
 	import com.newco.grand.baccarat.mobile.view.CardsPanelView;
 	import com.newco.grand.baccarat.mobile.view.TableGraphicView;
 	import com.newco.grand.core.common.controller.commands.BalanceCommand;
@@ -54,9 +54,9 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.model.SignalConstants;
 	import com.newco.grand.core.common.model.URLSModel;
+	import com.newco.grand.core.common.model.VideoModel;
 	import com.newco.grand.core.common.service.ChatSocketService;
 	import com.newco.grand.core.common.service.ISocketService;
-	import com.newco.grand.core.common.model.VideoModel;
 	import com.newco.grand.core.common.service.impl.BalanceService;
 	import com.newco.grand.core.common.service.impl.ChatConfigService;
 	import com.newco.grand.core.common.service.impl.ConfigService;
@@ -70,11 +70,7 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.service.impl.XMLService;
 	import com.newco.grand.core.common.view.ChatView;
 	import com.newco.grand.core.common.view.ErrorMessageView;
-	import com.newco.grand.core.common.view.GameStatusView;
 	import com.newco.grand.core.common.view.LoginView;
-	import com.newco.grand.core.common.view.StageView;
-	import com.newco.grand.core.common.view.TaskbarView;
-	import com.newco.grand.core.common.view.VideoView;
 	import com.newco.grand.core.common.view.interfaces.IAccordion;
 	import com.newco.grand.core.common.view.interfaces.IErrorMessageView;
 	import com.newco.grand.core.common.view.interfaces.IGameStatusView;
@@ -90,7 +86,6 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.view.mediators.TaskbarMediator;
 	import com.newco.grand.core.common.view.mediators.VideoMediator;
 	import com.newco.grand.core.mobile.controller.commands.StartupCommand;
-	import com.newco.grand.core.mobile.view.GameStatusView;
 	import com.newco.grand.core.mobile.view.StageView;
 	import com.newco.grand.core.mobile.view.TaskbarView;
 	import com.newco.grand.core.mobile.view.VideoView;
@@ -149,7 +144,7 @@ package com.newco.grand.baccarat.configs
 			contextView.view.addChild(new LoginView());
 			//contextView.view.addChild(new AccordionUIView());
 			contextView.view.addChild(new TaskbarView());
-			contextView.view.addChild(new GameStatusView())
+			//contextView.view.addChild(new GameStatusView())
 			//contextView.view.addChild(new ChatView());
 			contextView.view.addChild(new BetSpotsView());
 			contextView.view.addChild(new CardsPanelView());
@@ -217,7 +212,7 @@ package com.newco.grand.baccarat.configs
 			mediatorMap.map(IBetSpotsView).toMediator(BetSpotsMediator);
 			mediatorMap.map(ICardsPanelView).toMediator(CardsPanelMediator);
 			mediatorMap.map(AnimationPanelView).toMediator(AnimationMeditor);
-			mediatorMap.map(ScoreCardView).toMediator(ScoreCardMediator);
+			mediatorMap.map(IScoreCardView).toMediator(ScoreCardMediator);
 			//mediatorMap.map(MessageBoxView).toMediator(MessageBoxMediator);
 			mediatorMap.map(IErrorMessageView).toMediator(ErrorMessageMediator);
 			//mediatorMap.map(BetspotsPanelView).toMediator(BetspotsPanelMediator);

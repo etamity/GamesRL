@@ -13,12 +13,13 @@ package com.newco.grand.baccarat.classic.view
 		{
 			super();
 			showFullSize=true;
+			_display.bg.visible=false;
 		}
 		
 		override public function align():void{
 			x = 0;
 			y = 0;
-			setSize(805, 610);
+			setSize(1186, 667);
 		}
 		
 		override public function resizeVideo(event:MouseEvent=null):void {

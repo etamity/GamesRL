@@ -50,7 +50,11 @@ package com.newco.grand.baccarat.classic.view {
 			visible = false;
 			_display.stop();
 		}
-		
+		public function align():void {			
+			visible = true;
+			//x=x-200;
+			
+		}
 		public function get signalBus():SignalBus{
 			return _signalBus;
 		}
@@ -126,11 +130,7 @@ package com.newco.grand.baccarat.classic.view {
 			}
 		}
 		
-		public function align():void {			
-			visible = true;
-			x=x-200;
-			
-		}
+
 		
 		
 		private function createBetSpots():void {

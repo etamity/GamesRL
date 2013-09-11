@@ -22,7 +22,7 @@ package com.newco.grand.baccarat.classic.view.mediators
 			//shoeStatsMc.x= view.display.stage.stageWidth - shoeStatsMc.width;
 			
 			view.view.addChild(shoeStatsMc);
-			view.display.y=130;
+			view.display.y=190;
 			view.compHeight= view.compHeight -50;
 			
 			/*var statsButton:SMButton=new SMButton(new LastResultAsset());

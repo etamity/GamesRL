@@ -3,7 +3,6 @@ package
 	import com.newco.grand.baccarat.configs.BaccaratBundle;
 	import com.newco.grand.baccarat.configs.BaccaratMobileConfig;
 	import com.newco.grand.core.common.model.FlashVars;
-	import com.smart.uicore.controls.ToolTip;
 	
 	import flash.display.Sprite;
 	import flash.events.Event;

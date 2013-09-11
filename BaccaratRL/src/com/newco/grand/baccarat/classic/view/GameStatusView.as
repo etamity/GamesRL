@@ -13,7 +13,7 @@ package com.newco.grand.baccarat.classic.view
 			visible = true;
 		}
 		override public function align():void {
-			x = 666;
+			x = 840;
 		}
 	}
 }

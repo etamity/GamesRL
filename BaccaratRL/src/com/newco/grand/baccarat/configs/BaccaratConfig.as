@@ -7,11 +7,11 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.baccarat.classic.service.GameSocketService;
 	import com.newco.grand.baccarat.classic.service.TableConfigService;
 	import com.newco.grand.baccarat.classic.view.AnimationPanelView;
-	import com.newco.grand.baccarat.classic.view.ScoreCardView;
 	import com.newco.grand.baccarat.classic.view.TournamentView;
 	import com.newco.grand.baccarat.classic.view.interfaces.IBetSpotsView;
 	import com.newco.grand.baccarat.classic.view.interfaces.IBetspotsPanelView;
 	import com.newco.grand.baccarat.classic.view.interfaces.ICardsPanelView;
+	import com.newco.grand.baccarat.classic.view.interfaces.IScoreCardView;
 	import com.newco.grand.baccarat.classic.view.interfaces.ITableGraphicView;
 	import com.newco.grand.baccarat.classic.view.mediators.AnimationMeditor;
 	import com.newco.grand.baccarat.classic.view.mediators.BaccaratAccordionMediator;
@@ -235,7 +235,7 @@ package com.newco.grand.baccarat.configs
 			mediatorMap.map(IBetSpotsView).toMediator(BetSpotsMediator);
 			mediatorMap.map(ICardsPanelView).toMediator(CardsPanelMediator);
 			mediatorMap.map(AnimationPanelView).toMediator(AnimationMeditor);
-			mediatorMap.map(ScoreCardView).toMediator(ScoreCardMediator);
+			mediatorMap.map(IScoreCardView).toMediator(ScoreCardMediator);
 			mediatorMap.map(MessageBoxView).toMediator(MessageBoxMediator);
 			mediatorMap.map(IBetspotsPanelView).toMediator(BetspotsPanelMediator);
 			mediatorMap.map(PlayersUIView).toMediator(PlayersMediator);

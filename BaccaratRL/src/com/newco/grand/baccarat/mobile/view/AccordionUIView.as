@@ -1,4 +1,4 @@
-package com.newco.grand.baccarat.classic.view
+package com.newco.grand.baccarat.mobile.view
 {
 	import com.newco.grand.core.common.view.uicomps.AccordionUIView;
 	
@@ -8,10 +8,12 @@ package com.newco.grand.baccarat.classic.view
 		{
 			super();
 		}
+		
 		override public function align():void{
 			x= stage.stageWidth -width;
+			y=190;
 			display.y=190;
-			_compHeight=420;
+			_compHeight=320;
 			_display.setSize(_compWidth,_compHeight);
 			visible=true;
 		}
