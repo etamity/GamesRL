@@ -2,7 +2,7 @@ package com.newco.grand.baccarat.classic.view
 {
 	import com.newco.grand.baccarat.classic.view.interfaces.IScoreCardView;
 	import com.newco.grand.core.common.model.StyleModel;
-	import com.newco.grand.core.components.scorecard.ScoreCard;
+	import com.newco.grand.baccarat.classic.view.scorecard.ScoreCard;
 	
 	import flash.display.SimpleButton;
 	import flash.display.Sprite;
