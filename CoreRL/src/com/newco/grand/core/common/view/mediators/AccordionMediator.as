@@ -37,7 +37,7 @@ package com.newco.grand.core.common.view.mediators {
 		
 		}
 		public function resize():void{
-			signalBus.dispatch(UIEvent.RESIZE,{width:164,height:view.contentHeight-10})
+			signalBus.dispatch(UIEvent.RESIZE,{width:194,height:300});
 		}
 		
 		private function onStageResize(event:Event):void {

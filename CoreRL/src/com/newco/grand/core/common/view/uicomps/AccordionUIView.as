@@ -11,7 +11,7 @@ package com.newco.grand.core.common.view.uicomps
 	{
 		protected var _display:Accordion;
 		
-		protected var _compWidth:Number=170;
+		protected var _compWidth:Number=200;
 		protected var _compHeight:Number=529;
 		
 		public function AccordionUIView()
@@ -22,8 +22,8 @@ package com.newco.grand.core.common.view.uicomps
 			_display.setStyle(ButtonStyle.TEXT_COLOR,"#FFFFFF");
 			_display.setStyle(ButtonStyle.TEXT_OVER_COLOR,"#00CC00");
 			_display.setStyle(ButtonStyle.TEXT_DOWN_COLOR,"#00CC00");
-			_display.defaultButtonHeight=32;
-			_display.defaultGapHeight=7;
+			_display.defaultButtonHeight=26;
+			_display.defaultGapHeight=2;
 	
 		}
 		public function get view():Sprite{

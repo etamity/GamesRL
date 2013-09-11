@@ -17,7 +17,7 @@ package com.newco.grand.core.common.view {
 		private const DEALER_FONT_COLOUR:String 	= "#FFFF99";
 		private const USER_JOIN_FONT_COLOUR:String 	= "#00FF00";
 		private const USER_LEFT_FONT_COLOUR:String 	= "#FF0000";	
-		private var Scroll:UIScrollBar= new UIScrollBar();
+		protected var Scroll:UIScrollBar= new UIScrollBar();
 		
 		public var _sendSignal:Signal=new Signal();
 		protected var _display:*;

@@ -8,6 +8,7 @@ package com.newco.grand.core.mobile.controller.commands {
 	import com.newco.grand.core.common.model.URLSModel;
 	import com.newco.grand.core.common.service.impl.ConfigService;
 	import com.newco.grand.core.common.service.impl.URLSService;
+	import com.smart.uicore.controls.managers.SkinLoader;
 	
 	import flash.events.IOErrorEvent;
 	
@@ -28,16 +29,16 @@ package com.newco.grand.core.mobile.controller.commands {
 			if(flashVars.localhost) {
 				configService.load(function ():void{
 					urlsService.load(function ():void{
-						//SkinLoader.loadSkinFile("skins/skin.swf",onStart,onError,null,null);
-						onStart();
+						SkinLoader.loadSkinFile("skins/skin.swf",onStart,onError,null,null);
+						//onStart();
 					});
 				});
 			
 			}
 			else{
 				urlsService.load(function ():void{
-					//SkinLoader.loadSkinFile(urls.skin,onStart,onError,null,null);
-					onStart();
+					SkinLoader.loadSkinFile(urls.skin,onStart,onError,null,null);
+					//onStart();
 				});
 
 	

@@ -14,7 +14,7 @@ package com.newco.grand.core.mobile.view{
 			}
 			override public function align():void {			
 				x = 0;
-				y=870;
+				y=830;
 			}
 		}
 }

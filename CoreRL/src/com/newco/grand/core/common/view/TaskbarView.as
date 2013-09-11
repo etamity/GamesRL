@@ -47,7 +47,7 @@ package com.newco.grand.core.common.view {
 		
 		private var confirmBtn:SMButton;
 		private var favouritesBtn:SMButton;
-		
+		private var lobbyBtn:SMButton;
 		/*private var _buttonClickedSignal:Signal= new Signal();
 		private var _showDefaultSignal:Signal= new Signal();
 		private var _menuitemClickedSignal:Signal= new Signal();
@@ -104,7 +104,7 @@ package com.newco.grand.core.common.view {
 			doubleBtn = new SMButton(_display.double);
 			confirmBtn = new SMButton(_display.confirm);
 			favouritesBtn = new SMButton(_display.favourites);
-			
+			lobbyBtn =new SMButton(_display.lobby);
 			
 			_display.responsible.visible = false;
 			_display.chat.visible = false;
@@ -121,10 +121,10 @@ package com.newco.grand.core.common.view {
 			/*clear.buttonMode = true;
 			undo.buttonMode = true;
 			repeat.buttonMode = true;
-			double.buttonMode = true;*/
+			double.buttonMode = true;
 			_display.lobby.mouseChildren = false;
 			_display.lobby.buttonMode = true;
-			_display.lobby.visible=true;
+			_display.lobby.visible=true;*/
 			_display.myaccount.buttonMode = true;
 			
 			_display.fullscreen.addEventListener(MouseEvent.ROLL_OVER, buttonRollOver);
@@ -143,7 +143,7 @@ package com.newco.grand.core.common.view {
 			_display.history.addEventListener(MouseEvent.CLICK, buttonClick);
 			
 			_display.myaccount.addEventListener(MouseEvent.CLICK, myAccountClick);
-			_display.lobby.addEventListener(MouseEvent.CLICK, buttonClick);
+			lobbyBtn.skin.addEventListener(MouseEvent.CLICK, buttonClick);
 			myAccountEnabled(false);
 			
 			
@@ -386,7 +386,7 @@ package com.newco.grand.core.common.view {
 		}
 		
 		public function set lobbyLabel(value:String):void {
-			_display.lobby.label.htmlText = '<b>'+value+'</b>';
+			//_display.lobby.label.htmlText = '<b>'+value+'</b>';
 		}
 		
 		public function enableUndo():void {
@@ -626,7 +626,7 @@ package com.newco.grand.core.common.view {
 				chip = _display.chipsMC["chip" + i] as MovieClip;
 				chip.base.color.stop();
 				chip.value.text = FormatUtils.formatChipStackText(value[i]);
-				chip.value.setTextFormat(getTextFormat(11));
+				//chip.value.setTextFormat(getTextFormat(11));
 				if (_chips[i]!=0)
 				GameUtils.adjustFilter(chip.base.color, value[i]);
 				else
@@ -657,7 +657,7 @@ package com.newco.grand.core.common.view {
 		}
 		
 		private function getTextFormat(textSize:int):TextFormat {
-			var format:TextFormat = new TextFormat("Arial", textSize, 0x000000, true);
+			var format:TextFormat = new TextFormat("Arial", textSize, 0xFFFFFF, true);
 			return format;
 		}
 		
