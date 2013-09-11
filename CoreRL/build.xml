@@ -69,4 +69,20 @@
 				<arg line="--output ${bin.path}/${ant.project.name}.swc"/>
 			</exec>
 		</target>
+	
+	<target name="build-swc-skin_V1">
+			<echo message="Building swf ${ant.project.name}.swc"/>
+			<exec executable="${compc}" dir="${basedir}" failonerror="true">
+				<arg line="--debug=${mode.debug}"/>
+				<arg line="--optimize=true"/>
+				<arg line="--swf-version=${swf.version}"/>
+				<arg line="--include-sources+='${src.path}'"/>
+				<arg line="--library-path+='${libs.path}'"/>
+				<arg line="--library-path+='${assets.path}/mobile'"/>
+				<arg line="--library-path+='${assets.path}/components'"/>
+				<arg line="--library-path+='${assets.path}/skin_V1'"/>
+				<arg line="--external-library-path+='${flexframework.lib}/framework.swc'"/>
+				<arg line="--output ${bin.path}/${ant.project.name}.swc"/>
+			</exec>
+		</target>
 </project>
