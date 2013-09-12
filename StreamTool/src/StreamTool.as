@@ -65,7 +65,7 @@ package
 		private var _streamName:String;
 		private var _server:String;
 		private var _application:String;
-		private var _url:String="rtmp://213.86.83.8/smartlivecasinolive-live/7BJ1";
+		private var _url:String="rtmp://makati.fms.smartgaminggroup.com/SGGLive/R3_Cam1";
 		
 		//rtmp://213.86.83.8/smartlivecasinolive-live/7BJ1
 		//http://213.86.1.217:1935/SGGLive/R1800/playlist.m3u8
@@ -136,7 +136,7 @@ package
 			button.label="Connect";
 			text.x=200;
 			text.width=350;
-			text.text="rtmp://213.86.83.8/smartlivecasinolive-live/R1";
+			text.text=_url;
 			button.x=text.x+text.width;
 			addChild(text);
 			addChild(button)
