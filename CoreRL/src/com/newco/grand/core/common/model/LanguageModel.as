@@ -1,856 +1,440 @@
 package com.newco.grand.core.common.model {
 	
 	public dynamic class LanguageModel extends Actor {
-		
-		public static const languageXML:XML	=
-		<?xml version="1.0" encoding="utf-8"?> 
-		<game>
-			<!-- Preloader -->
-			<loading><![CDATA[Loading...]]></loading>
-			<loadingaudio><![CDATA[Loading Audio...]]></loadingaudio>
-			<loadingstyle><![CDATA[Loading language, styles..]]></loadingstyle>
-			<loadinggamedata><![CDATA[Loading Game Details...]]></loadinggamedata>
-		
-			<connectingtogameserver><![CDATA[Establishing connection...]]></connectingtogameserver>
-			<loadingbalance><![CDATA[Loading Balance...]]></loadingbalance>
-			<loadingvideo><![CDATA[Connecting to Live Video...]]></loadingvideo>
-			<live><![CDATA[LIVE]]></live>
-			<videotooltip><![CDATA[CLICK TO ZOOM-IN VIDEO]]></videotooltip>
-			<videotooltipout><![CDATA[CLICK TO ZOOM-OUT VIDEO]]></videotooltipout>
-			<optimizingvideo><![CDATA[Optimising Video...]]></optimizingvideo>
-		
-			<loadinginit><![CDATA[Initializing Game...]]></loadinginit>
-			<loadingresources><![CDATA[Loading resources...]]></loadingresources>
-			<loadingconfig><![CDATA[Loading table configuration...]]></loadingconfig>
-		
-			<winnerlist><![CDATA[WINNER LIST]]></winnerlist>
-			
-			<!-- History -->
-			<historytitle><![CDATA[History]]></historytitle>
-			<gametype><![CDATA[Game Type]]></gametype>
-			<time><![CDATA[Time]]></time>
-			<amount><![CDATA[Amount]]></amount>
-			<date><![CDATA[Date]]></date>
-			<stake><![CDATA[Stake]]></stake>
-			<winlose><![CDATA[Win/Lose]]></winlose>
-			<transactiontime><![CDATA[Transaction Time]]></transactiontime>
-			<transactiontype><![CDATA[Transaction Type]]></transactiontype>
-			<enteredby><![CDATA[Entered By]]></enteredby>
-			<transactionstatus><![CDATA[Status]]></transactionstatus>
-			<notes><![CDATA[Notes]]></notes>
-			<betheading><![CDATA[Bet]]></betheading>
-			<resultheading><![CDATA[Result]]></resultheading>
-			<participation><![CDATA[Participation ID]]></participation>
-			<netcash><![CDATA[Net cash]]></netcash>
-			<theplayerhand><![CDATA[Player Hand]]></theplayerhand>
-			<thebankerhand><![CDATA[Banker Hand]]></thebankerhand>
-			<seatname><![CDATA[Seat Name]]></seatname>
-			<score><![CDATA[Score]]></score>
-			<payoff><![CDATA[Payoff]]></payoff>
-			<insurance><![CDATA[Insurance:]]></insurance>
-			<cards><![CDATA[Cards]]></cards>
-			<accounthistory><![CDATA[Account History]]></accounthistory>
-			<currentactivity><![CDATA[Current Activity]]></currentactivity>
-			<backtoaccounthistory><![CDATA[Back to Account History]]></backtoaccounthistory>
-			<backtogamehistory><![CDATA[Back to Game History]]></backtogamehistory>
-			<noactivity><![CDATA[There was no activity during this period]]></noactivity>
-			<stakereturned><![CDATA[Stake Returned]]></stakereturned>
-			<win><![CDATA[Win]]></win>
-		
-			<!-- Roulette Statistics -->
-			<statistics><![CDATA[STATISTICS]]></statistics>
-			<statisticstip><![CDATA[CLICK TO SEE STATISTICS]]></statisticstip>
-			<roulettestatstitle><![CDATA[Roulette Statistics (Last 100 Games)]]></roulettestatstitle>
-			<winsbutton><![CDATA[Wins]]></winsbutton>
-			<betsbutton><![CDATA[Bets]]></betsbutton>
-			<resultsbutton><![CDATA[Results]]></resultsbutton>
-			<hotnumbers><![CDATA[Hot Numbers]]></hotnumbers>
-			<coldnumbers><![CDATA[Cold Numbers]]></coldnumbers>
-			
-			<!-- Help -->
-			<helptitle><![CDATA[Help]]></helptitle>
-			
-			<!-- Baccarat -->
-			<player><![CDATA[PLAYER]]></player>
-			<banker><![CDATA[BANKER]]></banker>
-			<tie><![CDATA[TIE]]></tie>
-			<pair_player><![CDATA[PLAYER PAIR]]></pair_player>
-			<pair_banker><![CDATA[BANKER PAIR]]></pair_banker>
-			<twoway><![CDATA[2 WAY]]></twoway>
-			<threeway><![CDATA[3 WAY]]></threeway>
-			<bigroad><![CDATA[BIG ROAD]]></bigroad>
-			<bigeyeboyroad><![CDATA[BIG EYE BOY]]></bigeyeboyroad>
-			<smallroad><![CDATA[SMALL ROAD]]></smallroad>
-			<cockroachroad><![CDATA[COCKROACH]]></cockroachroad>
-		
-			<!-- Blackjack -->
-			<sithere><![CDATA[SIT HERE]]></sithere>
-			<unseat><![CDATA[LEAVE SEAT]]></unseat>
-			<multiseat><![CDATA[MULTI SEAT]]></multiseat>
-			<multiseattip><![CDATA[CLICK FOR ANOTHER SEAT]]></multiseattip>
-			<seattaken><![CDATA[SEAT TAKEN]]></seattaken>
-			<confirm><![CDATA[CONFIRM]]></confirm>
-			<decisiontitle><![CDATA[PLEASE CHOOSE AN OPTION]]></decisiontitle>
-			<hit><![CDATA[HIT]]></hit>
-			<stand><![CDATA[STAND]]></stand>
-			<doubledown><![CDATA[DOUBLE]]></doubledown>
-			<insurancetitle><![CDATA[INSURANCE?]]></insurancetitle>
-			<yes><![CDATA[YES]]></yes>
-			<no><![CDATA[NO]]></no>
-		
-			<!-- Lobby -->
-			<lobby><![CDATA[SWITCH TABLE]]></lobby>
-			<loadinglobbyxml><![CDATA[Loading Tables...]]></loadinglobbyxml>
-			<baccarat><![CDATA[LIVE BACCARAT]]></baccarat>
-			<blackjack><![CDATA[LIVE BLACKJACK]]></blackjack>
-			<roulette><![CDATA[LIVE ROULETTE]]></roulette>
-			<auto><![CDATA[LIVE AUTO ROULETTE]]></auto>
-			<dealer><![CDATA[DEALER]]></dealer>
-			<account><![CDATA[ACCOUNT]]></account>
-			<myaccount><![CDATA[MY ACCOUNT]]></myaccount>
-			<tableinfo><![CDATA[TABLE INFORMATION]]></tableinfo>
-			<players><![CDATA[PLAYERS]]></players>
-			<results><![CDATA[RESULTS]]></results>
-			<viewtable><![CDATA[VIEW TABLE]]></viewtable>
-			<currenttable><![CDATA[YOUR CURRENT TABLE]]></currenttable>
-			<hometext><![CDATA[CLICK ON ANY LIVE GAME BELOW TO VIEW THE TABLES]]></hometext>
-			<vtabletext><![CDATA[PLEASE SELECT THE TABLE LIMITS FOR #table#]]></vtabletext>
-			<gamemodetext><![CDATA[PLEASE SELECT THE VIEW TO PLAY #table# WITH LIMITS #min# - #max#]]></gamemodetext>
-			<chooseroulette><![CDATA[PLEASE CHOOSE A ROULETTE TABLE BELOW]]></chooseroulette>
-			<choosebaccarat><![CDATA[PLEASE CHOOSE A BACCARAT TABLE BELOW]]></choosebaccarat>
-			<chooseblackjack><![CDATA[PLEASE CHOOSE A BLACKJACK TABLE BELOW]]></chooseblackjack>
-			<chooseminiroulette><![CDATA[PLEASE CHOOSE A MINI ROULETTE TABLE BELOW]]></chooseminiroulette>
-			<chooseminibaccarat><![CDATA[PLEASE CHOOSE A MINI BACCARAT TABLE BELOW]]></chooseminibaccarat>
-			<chooseminiblackjack><![CDATA[PLEASE CHOOSE A MINI BLACKJACK TABLE BELOW]]></chooseminiblackjack>
-		
-			<screenname><![CDATA[SCREEN NAME]]></screenname>
-			<screennamelabel><![CDATA[Please enter a valid screen name]]></screennamelabel>
-			<screennameerror1><![CDATA[Invalid screen name]]></screennameerror1>
-			<screennameerror2><![CDATA[Screen name already exists]]></screennameerror2>
-			<seaterror1><![CDATA[Please try a different seat]]></seaterror1>
-			<seaterror2><![CDATA[You don't have enough money to take a seat.]]></seaterror2>
-		
-			<view1><![CDATA[3D VIEW]]></view1>
-			<view2><![CDATA[CLASSIC VIEW]]></view2>	
-			<view3><![CDATA[PAIRS]]></view3>
-			<view4><![CDATA[ASIAN]]></view4>
-			<normal><![CDATA[NORMAL]]></normal>
-			<switchvideo><![CDATA[SWITCH VIDEO]]></switchvideo>
-		
-			<details_blackjack><![CDATA[Live Blackjack - The fastest live dealer Blackjack in the world. Same deal speed as if you were in a real Casino. ]]></details_blackjack>
-			<details_blackjack_vip><![CDATA[VIP Blackjack - Play live Blackjack with other high rollers]]></details_blackjack_vip>
-			<details_blackjack_betbehind><![CDATA[Play behind Blackjack. Bet on other players. When they win, you win !]]></details_blackjack_betbehind>
-			<details_baccarat><![CDATA[Enjoy live Baccarat in the environment it is meant to be played in.]]></details_baccarat>
-			<details_baccarat_vip><![CDATA[live dealer VIP baccarat, a chance to play with high stakes.]]></details_baccarat_vip>
-			<details_roulette><![CDATA[Play standard Roulette with one game per minute.]]></details_roulette>
-			<details_roulette_vip><![CDATA[VIP Roulette. Play VIP Roulette with one game every minute. High betting limits for high rollers]]></details_roulette_vip>
-			<details_roulette_blue><![CDATA[Play our brand new Grand Roulette with your favourite presenters. Fast and interactive. Open 6 PM till 12 PM (GMT) every day.]]></details_roulette_blue>
-			<details_roulette_european><![CDATA[Play LIVE and experience the truest Live Roulette available online. Place your bets and speak to our lovely croupiers amongst the best graphics online everyday between 6pm and 12am (GMT)!]]></details_roulette_european>
-			<details_roulette_auto><![CDATA[Fully automated Roulette wheel produced by Cammegh, The World's Finest Roulette Wheel.]]></details_roulette_auto>
-			<details_roulette_brown><![CDATA[Spinning every 45 seconds, our fully air powered Roulette wheel is the fastest live roulette in the world! Play jet Roulette with the table limit ranging from 0.25 right up to 500 every hour of every day!.]]></details_roulette_brown>
-		
-			<bonusterms><![CDATA[<b>You are eligible for a <u>*BONUS_CURRENCY* *BONUS_AMOUNT*</u> *BONUS_NAME* bonus!<br/><br/>Amount will be added to your bonus account, if you accept the following terms:<br><br><u>BONUS AGREEMENT:</u><br/><br/>ACCEPTING THIS BONUS OF *BONUS_CURRENCY* *BONUS_AMOUNT* SIGNIFIES THAT YOU ACCEPT THE OBLIGATION TO PLACE AT LEAST <u>*BONUS_CURRENCY* *MIN_BET*</u> IN BETS ON APPROVED GAMES BEFORE CASHING OUT ANY FUNDS. THIS REQUIREMENT WILL BE ENFORCED BY OUR ACCOUNTING DEPARTMENT ACCORDING TO THE BONUS AGREEMENT.</b>]]></bonusterms>
-			<signmeup><![CDATA[YES, SIGN ME UP!]]></signmeup>
-			<nothanks><![CDATA[NO, THANKS]]></nothanks>
-			
-			<!-- Balance Popup -->
-			<balancedetails><![CDATA[BALANCE DETAILS]]></balancedetails>
-			<bonusbalance><![CDATA[BONUS BALANCE]]></bonusbalance>
-			<currentplaythrough><![CDATA[CURRENT PLAYTHROUGH]]></currentplaythrough>
-			<requiredplaythrough><![CDATA[REQUIRED PLAYTHROUGH]]></requiredplaythrough>
-		
-			<!-- Settings Popup -->
-			<settings><![CDATA[SETTINGS]]></settings>
-			<autofullscreen><![CDATA[Auto Fullscreen]]></autofullscreen>
-			<videoquality><![CDATA[VIDEO QUALITY SETTINGS:]]></videoquality>
-			<autoadjust><![CDATA[AUTO ADJUST]]></autoadjust>
-			<lowquality><![CDATA[LOW]]></lowquality>
-			<medquality><![CDATA[MEDIUM]]></medquality>
-			<highquality><![CDATA[HIGH]]></highquality>
-			<suppresschat><![CDATA[HIDE OTHER PLAYERS CHAT]]></suppresschat>
-		
-			<!-- Chat Help Text
-			<chelp1><![CDATA[Introducing LIVE VIDEO Common Draw Roulette]]></chelp1>
-			<chelp2><![CDATA[You are watching the World's Finest Roulette Wheel]]></chelp2>
-			<chelp3><![CDATA[The Fully Automatic Cammegh Slingshot 2]]></chelp3>
-			<chelp4><![CDATA[Found in the World's Top Casinos]]></chelp4>
-			<chelp5><![CDATA[Powered by Compressed Air]]></chelp5>
-			<chelp6><![CDATA[Broadcasting LIVE - at least 60 games per hour]]></chelp6>
-			<chelp7><![CDATA[Press the CHAT button to send a message to other Players or Customer Service]]></chelp7>
-			-->
-		
-			<!-- Chat & Participant messages -->
-			<welcometo><![CDATA[Welcome to Live]]></welcometo>
-			<chat><![CDATA[CHAT]]></chat>
-			<clicktochat><![CDATA[CLICK TO CHAT]]></clicktochat>
-			<playersontable><![CDATA[#count# player(s) at the table]]></playersontable>
-			<playerontable><![CDATA[#player# is at the table]]></playerontable>
-			<winmsg><![CDATA[#player# wins #amount#]]></winmsg>
-		
-			<!-- Idle& Session Expired Messages -->
-			<idlemessage><![CDATA[Game paused due to inactivity. Click OK to continue.]]></idlemessage>
-			<sessionexpired><![CDATA[Your session has expired because you were inactive for too long. Please return to the site to log in again. ]]></sessionexpired>
-			
-			<!-- Betting Options -->
-			<rebet><![CDATA[REPEAT]]></rebet>
-			<doublebet><![CDATA[DOUBLE]]></doublebet>
-			<undo><![CDATA[UNDO]]></undo>
-			<clearall><![CDATA[CLEAR ALL]]></clearall>
-		
-			<!-- Bet Limits Panel -->
-			<betlimits><![CDATA[BET LIMITS]]></betlimits>
-			<min><![CDATA[MIN]]></min>
-			<max><![CDATA[MAX]]></max>
-			<payout><![CDATA[PAYOUT]]></payout>
-			<betlabel><![CDATA[BET]]></betlabel>
-			<alllimitstip><![CDATA[CLICK TO SEE ALL LIMITS]]></alllimitstip>
-			<dozen><![CDATA[DOZEN]]></dozen>
-			<corner><![CDATA[CORNER]]></corner>
-			<high><![CDATA[HIGH]]></high>
-			<low><![CDATA[LOW]]></low>
-			<straight><![CDATA[STRAIGHT]]></straight>
-			<even><![CDATA[EVEN]]></even>
-			<odd><![CDATA[ODD]]></odd>
-			<trio><![CDATA[STREET]]></trio>
-			<column><![CDATA[COLUMN]]></column>
-			<split><![CDATA[SPLIT]]></split>
-			<red><![CDATA[RED]]></red>
-			<black><![CDATA[BLACK]]></black>
-			<green><![CDATA[GREEN]]></green>
-			<five_number><![CDATA[FIVE NUMBER]]></five_number>
-			<six_number><![CDATA[SIX NUMBER]]></six_number>
-			<six><![CDATA[SIX NUMBER]]></six>
-			<five><![CDATA[FIVE NUMBER]]></five>
-		
-			<!-- Task Bar -->
-			<balance><![CDATA[BALANCE]]></balance>
-			<session_balance><![CDATA[BALANCE]]></session_balance>
-			<bonus><![CDATA[BONUS]]></bonus>
-			<bet><![CDATA[TOTAL BET]]></bet>
-			<gameid><![CDATA[GAME TIME]]></gameid>	
-			<cashier><![CDATA[CASHIER]]></cashier>
-			<deposit><![CDATA[DEPOSIT]]></deposit>
-			<back><![CDATA[BACK]]></back>
-			<close><![CDATA[CLOSE]]></close>
-			<history><![CDATA[HISTORY]]></history>	
-			<help><![CDATA[HELP]]></help>
-			<responsible><![CDATA[RESPONSIBLE]]></responsible>
-			<fullscreen><![CDATA[FULL SCREEN]]></fullscreen>
-			<restore><![CDATA[RESTORE]]></restore>
-			<soundon><![CDATA[AUDIO ON]]></soundon>
-			<soundoff><![CDATA[AUDIO OFF]]></soundoff>
-			<chatonhelp><![CDATA[CHAT ALREADY OPEN]]></chatonhelp>
-			<chaton><![CDATA[SHOW CHAT]]></chaton>
-			<chatoff><![CDATA[HIDE CHAT]]></chatoff>	
-			<changetable><![CDATA[CHANGE TABLE]]></changetable>
-			<bonusdetails><![CDATA[CLICK TO SEE BALANCE & BONUS DETAILS]]></bonusdetails>
-			<QUICK_DEPOSIT><![CDATA[QUICK DEPOSIT]]></QUICK_DEPOSIT>
-			<!-- Game Status Panel -->
-			<table><![CDATA[TABLE]]></table>
-			<pleasewait><![CDATA[PLEASE WAIT]]></pleasewait>
-			<placebets><![CDATA[PLACE YOUR BETS]]></placebets>
-			<betsclosing><![CDATA[CLOSING BETS SOON]]></betsclosing>	
-			<betsclosinggeneric><![CDATA[CLOSING BETS SOON]]></betsclosinggeneric>
-			<nomorebets><![CDATA[BETS CLOSED]]></nomorebets>	
-			<sendingbets><![CDATA[SENDING BETS]]></sendingbets>
-			<betsaccepted><![CDATA[BETS ACCEPTED]]></betsaccepted>
-			<notallbetsaccepted><![CDATA[NOT ALL BETS ACCEPTED]]></notallbetsaccepted>
-			<betsrejected><![CDATA[BETS REJECTED]]></betsrejected>
-			<waitingforbets><![CDATA[WAITING FOR BETS]]></waitingforbets>
-			<waitingfornextgame><![CDATA[WAITING FOR NEXT GAME]]></waitingfornextgame>
-			<waitingfordecision><![CDATA[WAITING FOR DECISION]]></waitingfordecision>
-			<waitingforinsurance><![CDATA[WAITING FOR INSURANCE]]></waitingforinsurance>
-			<waitingforcard><![CDATA[DEALING]]></waitingforcard>
-			<waitingforresult><![CDATA[WAITING FOR RESULT]]></waitingforresult>
-			<gameover><![CDATA[GAME OVER]]></gameover>
-			<gamecancelled><![CDATA[GAME CANCELLED]]></gamecancelled>
-			<open><![CDATA[OPEN]]></open>
-			<closing><![CDATA[CLOSING]]></closing>
-			<closed><![CDATA[CLOSED]]></closed>
-			<result><![CDATA[RESULT: #result#]]></result>
-			<youwon><![CDATA[YOU WIN: #winnings#]]></youwon>
-			<gameinprogress><![CDATA[GAME IN PROGRESSING...]]></gameinprogress>
-			
-			<!-- Game Table Tool Tips -->
-			<minbetis><![CDATA[MINIMUM BET IS #bet#]]></minbetis>
-			<maxbetis><![CDATA[MAXIMUM BET IS #bet#]]></maxbetis>
-			<mintablebetis><![CDATA[MINIMUM TABLE BET IS #bet#]]></mintablebetis>
-			<maxtablebetis><![CDATA[MAXIMUM TABLE BET IS #bet#]]></maxtablebetis>
-			<notenoughmoney><![CDATA[INSUFFICIENT FUNDS]]></notenoughmoney>
-		
-			<!-- Error/Warning/Information Messages -->
-			<warning><![CDATA[Warning (#id#)]]></warning>
-			<information><![CDATA[Information (#id#)]]></information>
-			<error><![CDATA[Error (#id#)]]></error>
-			<lowbalance><![CDATA[Your account balance is too low to play. Please deposit funds into your account.]]></lowbalance>
-			<error_ok><![CDATA[OK]]></error_ok>
-			<generic_wheel_error id="7001"><![CDATA[Temporary communication error. Please wait for the next game round.]]></generic_wheel_error>
-			<generic_communication_error id="7002"><![CDATA[Communication error. Please contact Customer Support for assistance.]]></generic_communication_error>
-			<generic_placebets_error id="7003"><![CDATA[You bets were not accepted by the server. Please contact Customer Support for assistance.]]></generic_placebets_error>
-			<generic_balance_error id="7004"><![CDATA[Temporary problem displaying your updated balance. Please Customer Support for assistance.]]></generic_balance_error>
-			<game_cancelled id="7005"><![CDATA[The game has been cancelled. Please wait for the next game.]]></game_cancelled>
-			<!-- All Server Side Error Messages -->
-			<error_10104><![CDATA[You do not have sufficient funds to place this bet.]]></error_10104>
-			<error_10103><![CDATA[Your account is currently disabled. Please contact Customer Support for assistance.]]></error_10103>
-			<error_10102><![CDATA[Your account has been suspended. Please contact Customer Support for assistance.]]></error_10102>
-			<error_2400><![CDATA[Your session has expired. Please log in again.]]></error_2400>
-			<error_1000><![CDATA[Please contact Customer Support for assistance.]]></error_1000>
-			<error_1400><![CDATA[Please contact Customer Support for assistance.]]></error_1400>
-			<error_1500><![CDATA[Please contact Customer Support for assistance.]]></error_1500>
-			<error_10106><![CDATA[Please contact Customer Support for assistance.]]></error_10106>
-			<error_10100><![CDATA[Please contact Customer Support for assistance.]]></error_10100>
-			<error_10101><![CDATA[Please contact Customer Support for assistance.]]></error_10101>
-			<error_10105><![CDATA[Please contact Customer Support for assistance.]]></error_10105>
-			<error_20100><![CDATA[You do not meet the minimum age requirement to play.]]></error_20100>
-			<error_20101><![CDATA[You are temporarily unable to register an alias.]]></error_20101>
-			<error_20102><![CDATA[There is a temporary problem retrieving your balance.]]></error_20102>
-			<error_20103><![CDATA[There is a temporary problem transferring funds to the casino.]]></error_20103>
-			<error_20104><![CDATA[There is a temporary problem retrieving exchange rates.]]></error_20104>
-			<error_010><![CDATA[Please contact Customer Support for assistance.]]></error_010>
-			<error_0><![CDATA[Please contact Customer Support for assistance.]]></error_0>
-			<error_10002><![CDATA[Please contact Customer Support for assistance.]]></error_10002>
-			<error_10003><![CDATA[Your session has expired. Please log in again.]]></error_10003>
-			<error_10004><![CDATA[Please contact Customer Support for assistance.]]></error_10004>
-			<error_10005><![CDATA[Please contact Customer Support for assistance.]]></error_10005>
-			<error_10006><![CDATA[Your bets for this round have already been accepted.]]></error_10006>
-			<error_10007><![CDATA[Your account has been suspended. Please contact Customer Support for assistance.]]></error_10007>
-			<error_10008><![CDATA[You do not have sufficient funds to place this bet.]]></error_10008>
-			<error_1001><![CDATA[There is a temporary problem with the game server.]]></error_1001>
-			<error_1002><![CDATA[Please contact Customer Support for assistance.]]></error_1002>
-			<error_1003><![CDATA[Please contact Customer Support for assistance.]]></error_1003>
-			<error_1004><![CDATA[You have lost your seat. Please restart the game.]]></error_1004>
-			<error_1005><![CDATA[You have attempted to place an invalid bet. Please contact Customer Support for assistance.]]></error_1005>
-			<error_1006><![CDATA[Please wait for the next round to begin.]]></error_1006>
-			<error_1007><![CDATA[Your bet was not received in time. Please try again in the next round.]]></error_1007>
-			<error_1008><![CDATA[Your bets were not accepted. Please try again in the next round.]]></error_1008>
-			<error_1009><![CDATA[Your bet was not accepted as it exceeds the maximum stake allowed on an inside bet.]]></error_1009>
-			<error_1010><![CDATA[Your bet was not accepted as it exceeds the maximum stake allowed on an outside bet.]]></error_1010>
-			<error_1011><![CDATA[The server was unable to process your bet. Please contact Customer Support for assistance.]]></error_1011>
-			<error_1012><![CDATA[Your bet was not accepted as it exceeds the maximum stake allowed at this table.]]></error_1012>
-			<error_1013><![CDATA[Your bet was not accepted as it does not meet the minimum required amount.]]></error_1013>
-			<error_1014><![CDATA[Please contact Customer Support for assistance.]]></error_1014>
-			<error_1015><![CDATA[Please contact Customer Support for assistance.]]></error_1015>
-			<error_1016><![CDATA[Please contact Customer Support for assistance.]]></error_1016>
-			<error_1017><![CDATA[Your turn has ended.]]></error_1017>
-			<error_1018><![CDATA[The time allowed for your decision on this turn has ended.]]></error_1018>
-			<error_1019><![CDATA[You cannot alter your game decision.]]></error_1019>
-			<error_1020><![CDATA[An error at your seat has occurred. Please restart the game in a new browser window.]]></error_1020>
-			<error_1021><![CDATA[It is not your turn. The decision will be made by another player.]]></error_1021>
-			<error_1022><![CDATA[The selected decision is invalid. Please make a different decision.]]></error_1022>
-			<error_1023><![CDATA[Error. Action to split could not be performed. Please contact Customer Support.]]></error_1023>
-			<error_1024><![CDATA[Error. Action to double down could not be performed. Please contact Customer Support.]]></error_1024>
-			<error_1025><![CDATA[Error transmitting game results. Please restart the game in a new browser window.]]></error_1025>
-			<error_1026><![CDATA[Error. Action to purchase insurance could not be performed. Please contact Customer Support.]]></error_1026>
-			<error_1027><![CDATA[You have already purchased insurance for this round.]]></error_1027>
-			<error_1028><![CDATA[The bet you have attempted to place is invalid. Please contact Customer Support.]]></error_1028>
-			<error_1029><![CDATA[The bet you have attempted to place is invalid. Please contact Customer Support.]]></error_1029>
-			<error_1030><![CDATA[The bet you have attempted to place is invalid. Please contact Customer Support.]]></error_1030>
-			<error_1031><![CDATA[The seat that you have chosen is already occupied, please select a vacant seat.]]></error_1031>
-			<error_1032><![CDATA[Please contact Customer Support for assistance.]]></error_1032>
-			<error_1033><![CDATA[Please contact Customer Support for assistance.]]></error_1033>
-			<error_2000><![CDATA[Please contact Customer Support for assistance.]]></error_2000>
-			<error_2001><![CDATA[The attempted action failed. Please try again.]]></error_2001>
-			<error_2002><![CDATA[Please restart the game in a new browser window. If the problem persists, contact Customer Support for assistance.]]></error_2002>
-			<error_2003><![CDATA[Your bet may not exceed the maximum betting limit.]]></error_2003>
-			<error_2004><![CDATA[Your bet must meet the minimum betting limit.]]></error_2004>
-			<error_2005><![CDATA[Your balance is insufficient to cover this bet. Please visit the cashier to make a deposit.]]></error_2005>
-			<error_2006><![CDATA[Unfortunately, our services are unavailable in your country of residence.]]></error_2006>
-			<error_2007><![CDATA[To log in, please enter your username and password.]]></error_2007>
-			<error_2008><![CDATA[Invalid username or password. Please try again.]]></error_2008>
-			<error_104><![CDATA[Please restart the game in a new browser window.]]></error_104>
-			
-			<neighbourspecialbets><![CDATA[NEIGHBOUR & SPECIAL BETS]]></neighbourspecialbets>
-			<!-- Special Bets -->
-			<specialbets><![CDATA[SPECIAL BETS]]></specialbets>
-			<specialbet18><![CDATA[Tiers du cylindre]]></specialbet18>
-			<specialbet17><![CDATA[Voisins du zero]]></specialbet17>
-			<specialbet16><![CDATA[Orphelins en plein]]></specialbet16>
-			<specialbet15><![CDATA[Orphelins a cheval]]></specialbet15>
-			<specialbet14><![CDATA[Finale en plein 0]]></specialbet14>
-			<specialbet13><![CDATA[Finale en plein 1]]></specialbet13>
-			<specialbet12><![CDATA[Finale en plein 2]]></specialbet12>
-			<specialbet11><![CDATA[Finale en plein 3]]></specialbet11>
-			<specialbet10><![CDATA[Finale en plein 4]]></specialbet10>
-			<specialbet9><![CDATA[Finale en plein 5]]></specialbet9>
-			<specialbet8><![CDATA[Finale en plein 6]]></specialbet8>
-			<specialbet7><![CDATA[Finale en plein 7]]></specialbet7>
-			<specialbet6><![CDATA[Finale en plein 8]]></specialbet6>
-			<specialbet5><![CDATA[Finale en plein 9]]></specialbet5>
-			<specialbet4><![CDATA[Finale 0/3]]></specialbet4>
-			<specialbet3><![CDATA[Finale 1/4]]></specialbet3>
-			<specialbet2><![CDATA[Finale 2/5]]></specialbet2>
-			<specialbet1><![CDATA[Finale 3/6]]></specialbet1>
-		
-			<!-- Neighbour Bets -->
-			<neighbourbets><![CDATA[NEIGHBOUR BETS]]></neighbourbets>
-			<neighbourbets1><![CDATA[Voisins]]></neighbourbets1>
-			<neighbourbets2><![CDATA[Orphelins]]></neighbourbets2>
-			<neighbourbets3><![CDATA[Tier]]></neighbourbets3>
-			<neighbourbets4><![CDATA[ZERO GAME]]></neighbourbets4>
-			<lowriskcommonmsg><![CDATA[BET RESTRICTIONS APPLY]]></lowriskcommonmsg>
-		
-			<notsittingpage><![CDATA[You are no longer sitting at this table. Please close this window and launch the game again.]]></notsittingpage>
-			<errorpage><![CDATA[There has been a problem with the Live Casino. Please try again later. Error Code: EV02]]></errorpage>
-			<missingpage><![CDATA[The page you have requested was not found on our Live Casino Server.<br />Please check the URL and try again or contact the customer support. Error Code: EV03]]></missingpage>
-			<loginpage><![CDATA[There has been a problem with the Live Casino.<br />User authentication failed or your session may be expired, please close the browser and try again. Error Code: EV01]]></loginpage>
-		
-			<!-- Bet Behind -->
-			<betbehind><![CDATA[Bet Behind]]></betbehind>
-			<betbehind_info><![CDATA[If a player you are betting on chooses to split or double down, your stake will be doubled. If you DO NOT want to double your stake in these circumstances, please UNCHECK the boxes below.]]></betbehind_info>
-			<betbehind_note><![CDATA[Note: If you bet on a player who chooses not to place a bet, your stake will be returned to you.]]></betbehind_note>
-			<betbehind_doublestake><![CDATA[Double my stake if player doubles down]]></betbehind_doublestake>
-			<betbehind_splitsdoublestake><![CDATA[Double my stake if player splits]]></betbehind_splitsdoublestake>
-		
-			<!-- Mini -->
-			<miniroulette><![CDATA[MINI LIVE ROULETTE]]></miniroulette>
-			<miniblackjack><![CDATA[MINI LIVE BLACKJACK]]></miniblackjack>
-			<minibaccarat><![CDATA[MINI LIVE BACCARAT]]></minibaccarat>
-			<mini><![CDATA[MINI]]></mini>
-			<balancemini><![CDATA[Balance]]></balancemini>
-			<betmini><![CDATA[Bet]]></betmini>
-			<gameidmini><![CDATA[Game Time]]></gameidmini>
-			<placebetsmini><![CDATA[BET NOW]]></placebetsmini>
-			<betsclosingmini><![CDATA[BETS CLOSING]]></betsclosingmini>
-			<nomorebetsmini><![CDATA[BETS CLOSED]]></nomorebetsmini>
-			<chipbuttonmini><![CDATA[CLICK TO CHANGE CHIP VALUE]]></chipbuttonmini>
-			<notifyplacechip><![CDATA[WHEN BET TIME STARTS, PLEASE SELECT A CHIP AND PLACE YOUR BET]]></notifyplacechip>
-			<notifywinning><![CDATA[YOU WIN #win#]]></notifywinning>
-			<minivideotooltip><![CDATA[CLICK TO TOGGLE VIEW]]></minivideotooltip>
-			<minivideotooltipout><![CDATA[CLICK TO TOGGLE VIEW]]></minivideotooltipout>
-			<viewmini><![CDATA[CHANGE VIEW]]></viewmini>
-		
-			<!-- AAMS -->
-			<AAMSLimitsTitle><![CDATA[Money to bring to the game: ]]></AAMSLimitsTitle>
-			<AAMSRegulationLimit><![CDATA[Regulation limit: ]]></AAMSRegulationLimit>
-			<AAMSFullBalance><![CDATA[Full balance: ]]></AAMSFullBalance>
-			<AAMSOtherLimit><![CDATA[Other]]></AAMSOtherLimit>
-		
-			<AAMSLoadingMsg><![CDATA[Please wait...]]></AAMSLoadingMsg>
-			<AAMSAmountError><![CDATA[Invalid amount. Please try again.]]></AAMSAmountError>
-			<AAMSMinAmountError><![CDATA[Amount should be greater that minimum table limit.]]></AAMSMinAmountError>
-			<AAMSBalanceError><![CDATA[Insufficient Balance.]]></AAMSBalanceError>
-			<AAMSStartGameError><![CDATA[Please try again.]]></AAMSStartGameError>
-		
-			<AAMSParticipationID><![CDATA[Participation ID:]]></AAMSParticipationID>
-			<AAMSSessionID><![CDATA[Session ID:]]></AAMSSessionID>
-			<AAMSRoundID><![CDATA[Round ID:]]></AAMSRoundID>
-		
-			<double><![CDATA[Double Down:]]></double>
-			<splithand><![CDATA[Split:]]></splithand>
-			<gamestart><![CDATA[Game Start:]]></gamestart>
-			<gameend><![CDATA[Game End:]]></gameend>
-			<gametime><![CDATA[Game Time:]]></gametime>
-		
-			<error_3001><![CDATA[Your account is currently disabled. For further details please contact our support team.]]></error_3001>
-			<error_3002><![CDATA[Your current session balance is insufficient. To continue playing, you must set new limits.]]></error_3002>
-			<error_3003><![CDATA[Your bet exceeds the regulation limit. To continue playing, please close and reopen the game or reload.]]></error_3003>
-			<lowsessionbalance><![CDATA[Your account balance is too low to play. Please set new session limit to continue playing.]]></lowsessionbalance>
-			<historylastgame><![CDATA[Your last uncompleted game]]></historylastgame>
-			
-			<!-- social messages -->
-			<social_tooltip_facebook><![CDATA[Share your winnings! (Press CTRL + V to paste the message)]]></social_tooltip_facebook>
-			<social_tooltip_twitter><![CDATA[Share your winnings!]]></social_tooltip_twitter>
-			<socoal_message_roulette><![CDATA[I have just won #winnings# on Live #game# at #casino# with lucky spin #winner#!]]></socoal_message_roulette>
-			<socoal_message_blackjack><![CDATA[I have just won #winnings# on Live #game# at #casino#!]]></socoal_message_blackjack>
-			<socoal_message_baccarat><![CDATA[I have just won #winnings# on Live #game# at #casino#!]]></socoal_message_baccarat>
-			
-			<realplay><![CDATA[Want to play for real now?]]></realplay>
-			<nofreeplay><![CDATA[NO FREE PLAY]]></nofreeplay>
-			
-			
-			<!-- New String 1-->
-			
-			<wifi_connection><![CDATA[Please note that this application requires high bandwidth for live video streaming.
-		Video will only be enabled with active WiFi connection.]]></wifi_connection>
-			<enter_email><![CDATA[Please enter your email address below to play any of the games for free.]]></enter_email>
-			<free_play><![CDATA[Free Play]]></free_play>
-			<real_play><![CDATA[Real Play]]></real_play>
-			
-			<postcode><![CDATA[Postcode]]></postcode>
-			<city_town><![CDATA[City / Town]]></city_town>
-			<address><![CDATA[Address]]></address>
-			<email_address><![CDATA[Email Address]]></email_address>
-			<confirm_password><![CDATA[Confirm Password]]></confirm_password>
-			<password><![CDATA[Password]]></password>
-		
-			<username><![CDATA[Username]]></username>
-			<surname><![CDATA[Surname]]></surname>
-			<first_name><![CDATA[First Name]]></first_name>
-			<new_user><![CDATA[New User? Click the button below and register.]]></new_user>
-			<register><![CDATA[REGISTER]]></register>
-			<cancel><![CDATA[CANCEL]]></cancel>
-			
-			<next><![CDATA[NEXT]]></next>
-			
-			<dob><![CDATA[Date of Birth]]></dob>
-			<choose_stream><![CDATA[PLEASE CHOOSE YOUR STREAM BELOW]]></choose_stream>
-			<acception1><![CDATA[I wish to be notified of future promotions and bonuses.]]></acception1>
-			<acception2><![CDATA[I am over 18 years of age and have read and accepted 
-		Terms and Conditions. ]]></acception2>
-			
-			<!-- New String 2-->
-			
-			
-			<login><![CDATA[Login]]></login>
-			<logout><![CDATA[Logout]]></logout>
-			<enter_valid_email><![CDATA[Please enter a valid email address.]]></enter_valid_email>
-			<registration><![CDATA[Registration]]></registration>
-			<enter_valid_username><![CDATA[PLEASE ENTER A VALID USERNAME.]]></enter_valid_username>
-			<enter_valid_password><![CDATA[PLEASE ENTER A VALID PASSWORD.]]></enter_valid_password>
-			<enter_valid_username_password><![CDATA[PLEASE ENTER A VALID USERNAME AND PASSWORD.]]></enter_valid_username_password>
-			<enter_valid_voucherid><![CDATA[PLEASE ENTER A VALID VOUCHERID AND AMOUNT.]]></enter_valid_voucherid>
-			<deposit_declined><![CDATA[Deposit Declined]]></deposit_declined>
-			<not_valid_voucherid><![CDATA[VOUCHERID NOT VALID, PLEASE USE VALID VOUCHER.]]></not_valid_voucherid>
-			<uk_allow_only><![CDATA[YOU ARE ONLY ALLOWED TO PLAY FROM UK]]></uk_allow_only>
-			<login_failed><![CDATA[LOGIN FAILED. PLEASE TRY AGAIN.]]></login_failed>
-			<login_success><![CDATA[Login Success.]]></login_success>
-			<io_connection_error><![CDATA[IO CONNECTION ERROR: PLEASE TRY AGAIN LATER.]]></io_connection_error>
-			
-			<tap_to_closelobby><![CDATA[PLEASE TAP HERE TO CLOSE LOBBY]]></tap_to_closelobby>
-			<security_error><![CDATA[SECURITY ERROR. PLEASE TRY AGAIN LATER.]]></security_error>
-		
-			<enter_voucherid_amount><![CDATA[Please enter a valid voucherid and amount.]]></enter_voucherid_amount>
-			
-			<voucher_success><![CDATA[Voucher Successfully approved!!]]></voucher_success>
-			<join_now><![CDATA[JOIN NOW]]></join_now>
-			<login_now><![CDATA[LOGIN NOW]]></login_now>
-			<login_uk_only><![CDATA[You can only login and play from UK. Please contact customer support if you have problems playing from UK.]]></login_uk_only>
-		
-			
-			<country><![CDATA[Country]]></country>
-			<security_question><![CDATA[Security Question]]></security_question>
-			<security_answer><![CDATA[Security Answer]]></security_answer>
-			<mobile_number><![CDATA[Mobile Number]]></mobile_number>
-			<currency><![CDATA[Currency]]></currency>
-			<withdrwal><![CDATA[WITHDRAWAL]]></withdrwal>
-			<terms_conditions><![CDATA[You must agree to the Terms and Conditions.]]></terms_conditions>
-			<registration_failed><![CDATA[Registration Failed]]></registration_failed>
-			<registration_success><![CDATA[Registration Success!! {'\n\n'}Please tap here to continue play with real money.]]></registration_success>
-			<continue_play><![CDATA[CONTINUE PLAY]]></continue_play>
-			<username_exist><![CDATA[Username Already Exist]]></username_exist>
-			<enter_required_fields><![CDATA[Please ennter required fields..]]></enter_required_fields>
-			
-			<potential_suspended_user><![CDATA[Potential Suspended User,{'\n'}Please contact customer care (OR) try with different emailid, names and mobile number]]></potential_suspended_user>
-			<withdrwal_amount><![CDATA[Please enter withdrwal method and Amount.]]></withdrwal_amount>
-			<no_withdrwal_method><![CDATA[You don't have any Withdrawal method so for, Please contact customer care.]]></no_withdrwal_method>
-			<withdrwal_method><![CDATA[Withdraw Method]]></withdrwal_method>
-			<enter_amount><![CDATA[Enter your Amount]]></enter_amount>
-			<withdrwal_success><![CDATA[Withdrawal request successful.]]></withdrwal_success>
-			<valid_from><![CDATA[Valid From]]></valid_from>
-			<valid_thru><![CDATA[Valid Thru]]></valid_thru>	
-			<cardholders><![CDATA[Cardholders Name-Surname]]></cardholders>		
-			<credit_card_number><![CDATA[Credit Card Number (16 digit)]]></credit_card_number>	
-			<unexpected_error><![CDATA[Unexpected Error, Please try again later.]]></unexpected_error>
-			<generic_error><![CDATA[Generic Error, Please again later.]]></generic_error>
-			<duplicate_screenname><![CDATA[Duplicate screen name, Please verify your firstname and surname.]]></duplicate_screenname>
-			<duplicate_phone_no><![CDATA[Duplicate Phone No, Please verify your phone no.]]></duplicate_phone_no>
-			<duplicate_email><![CDATA[Duplicate Email Id, Please vefiry your email Id.]]></duplicate_email>
-			
-			<account_id><![CDATA[Account Id]]></account_id>
-			<account_name><![CDATA[Account Holder's Name]]></account_name>
-			<account_currency><![CDATA[Account Currency]]></account_currency>	
-			<bank_name><![CDATA[Bank Name]]></bank_name>	
-			<bank_account_no><![CDATA[IBAN/Bank Account No]]></bank_account_no>	
-			<swift_code><![CDATA[Swift Code]]></swift_code>	
-			<game_in_progress><![CDATA[GAME IN PROGRESS]]></game_in_progress>
-			<place_bet_now><![CDATA[PLACE YOUR BETS NOW]]></place_bet_now>
-			<bank_address><![CDATA[Bank Address]]></bank_address>
-		
-			<loading_freeplay><![CDATA[Loading Free Play...]]></loading_freeplay>
-			<loading_realplay><![CDATA[Loading Real Play...]]></loading_realplay>	
-			<selected_method><![CDATA[Selected methods: {#withdrawalText#} - Min Limit:€ 20.00]]></selected_method>	
-			
-			<existing_cards><![CDATA[Existing Cards]]></existing_cards>
-			<moneyBookers_email><![CDATA[MoneyBookers Email]]></moneyBookers_email>
-			<neteller_email><![CDATA[Neteller Email]]></neteller_email>
-			<cardholder_surname><![CDATA[Cardholders Name-Surname]]></cardholder_surname>
-			<withdrwal_error><![CDATA[WITHDRAWAL ERROR.{'\n\n'}]]></withdrwal_error>
-			<go_best_card><![CDATA[Go Best Card Number]]></go_best_card>
-			<Click2Pay_notavaliable><![CDATA[Click2Pay NOT AVAILABLE.]]></Click2Pay_notavaliable>
-			
-			
-				<!-- roulette rotbotleg -->
-			<winnerlist><![CDATA[WINNERLIST]]></winnerlist>
-			<playername><![CDATA[NAME]]></playername>
-			<playerwins><![CDATA[AMOUNT]]></playerwins>
-			<playersbets><![CDATA[PLAYERS BETS]]></playersbets>
-			<favourites><![CDATA[FAVOURITES]]></favourites>
-			<baccarat_betspotspanel><![CDATA[BETSPOTS]]></baccarat_betspotspanel>
-			<applybutton><![CDATA[Apply]]></applybutton>
-			<deletebutton><![CDATA[Delete]]></deletebutton>
-			<clearbutton><![CDATA[Clear]]></clearbutton>
-				<!-- FACEBOOK-->
-			
-			<!-- FACEBOOK MESSAGEBOX-->
-			
-		
-			<text_offline><![CDATA[THIS PLAYER IS CURRENTLY UNAVAILABLE]]></text_offline>
-			<text_message_title><![CDATA[You got a new message]]></text_message_title>
-			<text_content_message><![CDATA[Hi there,You got a new message form #USERNAME#.]]></text_content_message>
-			<userspots_title><![CDATA[YOU CAN CHAT TO THE PLAYERS BELOW]]></userspots_title>
-			<text_warning_empty><![CDATA[You can't send blank message,please fill the title or message content.]]></text_warning_empty>
-			
-			<message_title><![CDATA[You win a prize]]></message_title>
-			<message_box><![CDATA[Mail Box]]></message_box>
-			<message_win><![CDATA[You win #AMOUNT# !! ]]></message_win>
-			<message_win_coins><![CDATA[Congratulations!! You've won #AMOUNT#!! Do you want to post to your wall ?]]></message_win_coins>
-			<message_win_virtualgood><![CDATA[You win a #GIFT# Gift,you can send it to your friends or dealer.]]></message_win_virtualgood>
-			<facebook_wall_caption><![CDATA[Win Message]]></facebook_wall_caption>
-			<facebook_send_gift_title><![CDATA[Hey #USERNAME#, guess what I sent to you.]]></facebook_send_gift_title>
-			<facebook_send_gift><![CDATA[Hi #USERNAME#, I m sending a #GIFT# to you from Smart Live Social Roulette! Check it out!]]></facebook_send_gift>
-			<facebook_send_invite><![CDATA[Hi #USERNAME#, please help me play this live TV game! I'm trying to get an item from the Wheel of Fortune. Thanks!]]></facebook_send_invite>
-			
-			<facebook_inviteBtn><![CDATA[Invite]]></facebook_inviteBtn>
-			
-			<warning_information><![CDATA[Information]]></warning_information>
-			<information_gift_notcompelete><![CDATA[Sorry,it seems you haven't collect the completion parts of gift. You are not going to send a part of gift to your friends right?]]></information_gift_notcompelete>
-			<information_chat_to_dealer><![CDATA[Chatting to the dealer requires #AMOUNT# Coins.]]></information_chat_to_dealer>
-			
-			<facebook_wall_coins_message><![CDATA[BUYA! I've won #AMOUNT# on Smart Live Social Roulette!]]></facebook_wall_coins_message>
-			
-			
-			<facebook_wall_link><![CDATA[http://apps.facebook.com/socialwyn/]]></facebook_wall_link>
-			<facebook_wall_picture><![CDATA[https://livecasino.smartliveaffiliates.com/cgibin/affiliates/slc/images/mini_social.jpg]]></facebook_wall_picture>
-			<facebook_wall_description><![CDATA[I played Smart Live Social Roulette and won. Play and chat to real presenters in london!]]></facebook_wall_description>
-			<facebook_wall_name><![CDATA[I've won #AMOUNT# at Smart Live Social Roulette!]]></facebook_wall_name>
-			
-			<chat_to_dealer><![CDATA[CHAT TO DEALER]]></chat_to_dealer>
-			
-			<lotto_draw_window_title><![CDATA[PLEASE CHOOSE YOUR DRAW TIMES]]></lotto_draw_window_title>
-			<lotto_draw_window_content><![CDATA[CHOOSE A DRAW TIMES:]]></lotto_draw_window_content>
-			<lotto_win><![CDATA[Wow! You've matched #AMOUNT# number from #TICKETID# ticket.  Check your ticket to see how much you've won!]]></lotto_win>
-			<lotto_drawTitleTxt><![CDATA[DRAW ID]]></lotto_drawTitleTxt>
-			<lotto_timeTitleTxt><![CDATA[GAME TIME]]></lotto_timeTitleTxt>
-			<lotto_priceTitleTxt><![CDATA[PRICE]]></lotto_priceTitleTxt>
-			<lotto_playTitleTxt><![CDATA[PLAY]]></lotto_playTitleTxt>
-			<lotto_warning_empty><![CDATA[You need to have 6 numbers to play lotto.]]></lotto_warning_empty>
-			<lotto_warning_coins_not_enough><![CDATA[Sorry, you don't have enough coins to buy a ticket. Go and play to earn it!]]></lotto_warning_coins_not_enough>
-			<buy_coins_not_enough><![CDATA[Sorry, you need more coins to buy. Go and play to earn it!]]></buy_coins_not_enough>
-			<lotto_warning_senddata><![CDATA[Your ticket is being purchased, please wait...]]></lotto_warning_senddata>
-		
-			<hardcoremode><![CDATA[/cgibin/facebook/chat_board_fb.jsp?game=roulette&gameType=hard_core&table_id=#TABLEID#&lang=en&client=slc&gameInterface=view1]]></hardcoremode>
-		
-			<hint1_betting><![CDATA[Welcome to Smart Live Social Roulette.  Select a chip and select the numbers. Good luck!]]></hint1_betting>
-			
-			<user_bar_btn0><![CDATA[BUY CHIPS]]></user_bar_btn0>
-			<user_bar_btn1><![CDATA[LOBBY]]></user_bar_btn1>
-			<user_bar_btn2><![CDATA[EARN CHIPS]]></user_bar_btn2>
-			<user_bar_btn3><![CDATA[GIFT SHOP]]></user_bar_btn3>
-			<user_menu_btn4><![CDATA[PRO MODE]]></user_menu_btn4>
-		
-			<user_menu_btn0><![CDATA[BUY CHIPS]]></user_menu_btn0>
-			<user_menu_btn1><![CDATA[LOBBY]]></user_menu_btn1>
-			<user_menu_btn2><![CDATA[EARN CHIPS]]></user_menu_btn2>
-			<user_menu_btn3><![CDATA[GIFT SHOP]]></user_menu_btn3>
-			<user_menu_mailbox><![CDATA[MAILBOX]]></user_menu_mailbox>
-			
-		
-			<gamemode><![CDATA[/cgibin/facebook/chat_board_fb.jsp?game=roulette&gameType=#GAMETYPE#&table_id=#TABLEID#&vt_id=#VTID#&lang=en&client=#CLIENT#&gameInterface=view1]]></gamemode>
-			<promode><![CDATA[hard_core]]></promode>
-			<funnymode><![CDATA[facebook_roulette_v4]]></funnymode>
-		
-			<user_bar_mute><![CDATA[MUTE SOUND]]></user_bar_mute>
-			
-			<buy_gift_message><![CDATA[A #NAME#, cost #AMOUNT# Coins, would you like to buy it?]]></buy_gift_message>
-			<already_got_message><![CDATA[Sorry, you already have this gift, you can't buy more than one of them.]]></already_got_message>
-			<buy_ticket><![CDATA[BUY TICKET]]></buy_ticket>
-			<standup><![CDATA[STAND UP]]></standup>
-			
-			<tooltip_chips><![CDATA[SELECT A CHIP TO MAKE BET]]></tooltip_chips>
-			<tooltip_lotto><![CDATA[PLAY LOTTO BY ENTERING YOUR FAVOURITE NUMBERS!]]></tooltip_lotto>
-			<tooltip_betspots><![CDATA[PICK YOUR FAVOURITE NUMBERS ON THE BOARD]]></tooltip_betspots>
-			<tooltip_video><![CDATA[WATCH THE WHEEL AND FOLLOW THE BALL TO SEE THE RESULT!]]></tooltip_video>
-			<tooltip_wheel><![CDATA[CLICK SPIN NOW!]]></tooltip_wheel>
-			<tooltip_beel><![CDATA[#NUMBER# GAME(S) TO GO BEFORE YOU CAN SPIN THE WHEEL OF FORTUNE!]]></tooltip_beel>
-			<tooltip_beelfinal><![CDATA[WHEEL OF FORTUNE UNLOCKED!  CLICK OK TO SPIN THE WHEEL. ]]></tooltip_beelfinal>
-			<tooltip_gameinprogress><![CDATA[GAME IN PROGRESS, PLEASE WAIT FOR RESULT]]></tooltip_gameinprogress>
-			
-			<loadingtxt><![CDATA[Smart Live Social Roulette : Play ROULETTE, WHEEL OF FORTUNE and LOTTO in one game!]]></loadingtxt>
-			
-			<video_panel_mute><![CDATA[MUTE VIDEO]]></video_panel_mute>
-			<video_panel_zoomin><![CDATA[ZOOM IN]]></video_panel_zoomin>
-			<video_panel_fullscreen><![CDATA[FULLSCREEN MODE]]></video_panel_fullscreen>
-			<balance_low_message><![CDATA[Sorry, you're out of Chips !! Please buy some chips.]]></balance_low_message>
-			<balance_added_message><![CDATA[Congratulations! You've just received #AMOUNT# chips.]]></balance_added_message>
-			<coins_added_message><![CDATA[Congratulations! You've just received #AMOUNT# coins.]]></coins_added_message>
-			<invate_all_friends><![CDATA[Hi #USERNAME#, invite your friends to play Smart Live Social Roulette, let's play together!]]></invate_all_friends>
-			<jackpot><![CDATA[JACKPOT]]></jackpot>
-			<chatfromsever><![CDATA[Hello #USERNAME#, good luck and have fun!]]></chatfromsever>
-		
-		
-			<!-- Table Name Translation -->
-			<tablename id="1"><![CDATA[Sky 863 - Live Roulette]]></tablename>
-			<tablename id="2"><![CDATA[Auto Roulette]]></tablename>
-			<tablename id="3"><![CDATA[Low Auto Roulette]]></tablename>
-			<tablename id="hiey8yx1hkkgqawl"><![CDATA[Rapid Roulette]]></tablename>
-			<tablename id="48z5pjps3ntvqc1b"><![CDATA[Grand Auto Brown]]></tablename>
-			<tablename id="7kqbll806q26x44k"><![CDATA[Grand Auto Black]]></tablename>
-			<tablename id="l5aug44hhzr3qvxs"><![CDATA[7 Seat Blackjack]]></tablename>
-			
-			<tablename id="41"><![CDATA[Baccarat]]></tablename>
-			
-		</game>
-		
-		
-		public static var LOADING:String="Loading...";
-		public static var LOADINGAUDIO:String="Loading Audio...";
-		public static var LOADINGSTYLE:String="Loading language, styles..";
-		public static var LOADINGGAMEDATA:String="Loading Game Details...";
-		public static var CONNECTINGTOGAMESERVER:String="Establishing connection...";
-		public static var LOADINGBALANCE:String="Loading Balance...";
-		public static var LOADINGVIDEO:String="Connecting to Live Video...";
-		public static var LIVE:String="LIVE";
-		public static var VIDEOTOOLTIP:String="CLICK TO ZOOM-IN VIDEO";
-		public static var VIDEOTOOLTIPOUT:String="CLICK TO ZOOM-OUT VIDEO";
-		public static var OPTIMIZINGVIDEO:String="Optimising Video...";
-		
-		public static var NODEALER:String="No Dealer";
-		public static var WELCOMETO:String="Welcome to ";
-		
-		public static var TABLE:String;
-		public static var PLEASEWAIT:String;
-		public static var PLACEBETS:String;
-		public static var BETSCLOSING:String;
-		public static var BETSCLOSINGGENERIC:String;
-		public static var NOMOREBETS:String;
-		public static var SENDINGBETS:String;
-		public static var BETSACCEPTED:String;
-		public static var NOTALLBETSACCEPTED:String;
-		public static var BETSREJECTED:String;
-		public static var WAITINGFORBETS:String;
-		public static var WAITINGFORNEXTGAME:String;
-		public static var WAITINGFORDECISION:String;
-		public static var WAITINGFORINSURANCE:String;
-		public static var WAITINGFORCARD:String;
-		public static var WAITINGFORRESULT:String;
-		public static var GAMEOVER:String;
-		public static var GAMECANCELLED:String;
-		public static var OPEN:String;
-		public static var CLOSING:String;
-		public static var CLOSED:String;
-		public static var RESULT:String;
-		public static var YOUWON:String;
-		
-		public static var SITHERE:String;
-		public static var UNSEAT:String;
-		public static var MULTISEAT:String;
-		public static var HIT:String;
-		public static var STAND:String;
-		public static var DOUBLE:String;
-		public static var INSURANCE:String;
-		public static var YES:String;
-		public static var NO:String;
-		
-		//Game Table Tool Tips
-		public static var MINBETIS:String;
-		public static var MAXBETIS:String;
-		public static var MINTABLEBETIS:String;
-		public static var MAXTABLEBETIS:String;
-		public static var NOTENOUGHMONEY:String;
-		
-		// Bet Limits Panel
-		public static var BETLIMITS:String;
-		public static var MIN:String;
-		public static var MAX:String;
-		public static var PAYOUT:String;
-		public static var BETLABEL:String;
-		public static var ALLLIMITSTIP:String;
-		public static var DOZEN:String;
-		public static var CORNER:String;
-		public static var HIGH:String;
-		public static var LOW:String;
-		public static var STRAIGHT:String;
-		public static var EVEN:String;
-		public static var ODD:String;
-		public static var TRIO:String;		
-		public static var COLUMN:String;
-		public static var SPLIT:String;
-		public static var RED:String;
-		public static var BLACK:String;
-		public static var GREEN:String;
-		public static var FIVE_NUMBER:String;
-		public static var SIX_NUMBER:String;
-		public static var SIX:String;
-		public static var FIVE:String;
-		
-		//Betting Options
-		public static var REBET:String;
-		public static var DOUBLEBET:String;
-		public static var UNDO:String;
-		public static var CLEARALL:String;
-		public static var CONFIRM:String;
-		public static var FAVOURITES:String;
-		public static var BALANCE:String;
-		public static var BONUS:String;
-		public static var BET:String;
-		public static var GAMEID:String;
-		public static var CASHIER:String;
-		public static var HISTORY:String;
-		public static var HELP:String;
-		public static var RESPONSIBLE:String;
-		public static var FULLSCREEN:String;		
-		public static var RESTORE:String;
-		public static var SOUNDON:String;
-		public static var SOUNDOFF:String;
-		public static var CHATONHELP:String;
-		public static var CHATON:String;
-		public static var CHATOFF:String;
-		public static var CHANGETABLE:String;
-		public static var BONUSDETAILS:String;
-		public static var VIEW1:String;
-		public static var VIEW2:String;
-		public static var VIEW3:String;
-		public static var VIEW4:String;
-		
-		//Settings Popup
-		public static var SETTINGS:String;		
-		public static var AUTOFULLSCREEN:String;
-		public static var VIDEOQUALITY:String;
-		public static var AUTOADJUST:String;
-		public static var LOWQUALITY:String;
-		public static var MEDQUALITY:String;
-		public static var HIGHQUALITY:String;
-		public static var SUPPRESSCHAT:String;
-		
-		//Lobby
-		public static var LOBBY:String;
-		public static var LOADINGLOBBYXML:String;
-		public static var BACCARAT:String;		
-		public static var BLACKJACK:String;
-		public static var ROULETTE:String;
-		public static var SLINGSHOT:String;
-		public static var DEALER:String;
-		public static var ACCOUNT:String;
-		public static var MYACCOUNT:String;
-		public static var TABLEINFO:String;
-		public static var PLAYERS:String;
-		public static var RESULTS:String;
-		public static var VIEWTABLE:String;
-		public static var CURRENTTABLE:String;
-		public static var HOMETEXT:String;
-		public static var VTABLETEXT:String;
-		public static var GAMEMODETEXT:String;
-		public static var CHOOSEROULETTE:String;
-		public static var CHOOSEBACCARAT:String;
-		public static var CHOOSEBLACKJACK:String;
-		
-		public static var STATISTICS:String;
-		public static var WINNERLIST:String;
-		public static var PLAYERNAME:String;
-		public static var PLAYERWINS:String;
-		public static var PLAYERSBETS:String;
-		
-		public static var APPLYBUTTON:String;
-		public static var DELETEBUTTON:String;
-		public static var CLEARBUTTON:String;
-		public static var WIN:String;
-		
-		public static var BIGROAD:String;
-		public static var BIGEYEBOYROAD:String;
-		public static var SMALLROAD:String;
-		public static var COCKROACHROAD:String;
-		
-		public static var BACCARAT_BETSPOTSPANEL:String;
+		public static var LOADING:String = "Loading...";
+		public static var LOADINGAUDIO:String = "Loading Audio...";
+		public static var LOADINGSTYLE:String = "Loading language, styles..";
+		public static var LOADINGGAMEDATA:String = "Loading Game Details...";
+		public static var CONNECTINGTOGAMESERVER:String = "Establishing connection...";
+		public static var LOADINGBALANCE:String = "Loading Balance...";
+		public static var LOADINGVIDEO:String = "Connecting to Live Video...";
+		public static var LIVE:String = "LIVE";
+		public static var VIDEOTOOLTIP:String = "CLICK TO ZOOM-IN VIDEO";
+		public static var VIDEOTOOLTIPOUT:String = "CLICK TO ZOOM-OUT VIDEO";
+		public static var OPTIMIZINGVIDEO:String = "Optimising Video...";
+		public static var LOADINGINIT:String = "Initializing Game...";
+		public static var LOADINGRESOURCES:String = "Loading resources...";
+		public static var LOADINGCONFIG:String = "Loading table configuration...";
+		public static var HISTORYTITLE:String = "History";
+		public static var GAMETYPE:String = "Game Type";
+		public static var TIME:String = "Time";
+		public static var AMOUNT:String = "Amount";
+		public static var DATE:String = "Date";
+		public static var STAKE:String = "Stake";
+		public static var WINLOSE:String = "Win/Lose";
+		public static var TRANSACTIONTIME:String = "Transaction Time";
+		public static var TRANSACTIONTYPE:String = "Transaction Type";
+		public static var ENTEREDBY:String = "Entered By";
+		public static var TRANSACTIONSTATUS:String = "Status";
+		public static var NOTES:String = "Notes";
+		public static var BETHEADING:String = "Bet";
+		public static var RESULTHEADING:String = "Result";
+		public static var PARTICIPATION:String = "Participation ID";
+		public static var NETCASH:String = "Net cash";
+		public static var THEPLAYERHAND:String = "Player Hand";
+		public static var THEBANKERHAND:String = "Banker Hand";
+		public static var SEATNAME:String = "Seat Name";
+		public static var SCORE:String = "Score";
+		public static var PAYOFF:String = "Payoff";
+		public static var INSURANCE:String = "Insurance:";
+		public static var CARDS:String = "Cards";
+		public static var ACCOUNTHISTORY:String = "Account History";
+		public static var CURRENTACTIVITY:String = "Current Activity";
+		public static var BACKTOACCOUNTHISTORY:String = "Back to Account History";
+		public static var BACKTOGAMEHISTORY:String = "Back to Game History";
+		public static var NOACTIVITY:String = "There was no activity during this period";
+		public static var STAKERETURNED:String = "Stake Returned";
+		public static var WIN:String = "Win";
+		public static var STATISTICS:String = "STATISTICS";
+		public static var STATISTICSTIP:String = "CLICK TO SEE STATISTICS";
+		public static var ROULETTESTATSTITLE:String = "Roulette Statistics (Last 100 Games)";
+		public static var WINSBUTTON:String = "Wins";
+		public static var BETSBUTTON:String = "Bets";
+		public static var RESULTSBUTTON:String = "Results";
+		public static var HOTNUMBERS:String = "Hot Numbers";
+		public static var COLDNUMBERS:String = "Cold Numbers";
+		public static var HELPTITLE:String = "Help";
+		public static var PLAYER:String = "PLAYER";
+		public static var BANKER:String = "BANKER";
+		public static var TIE:String = "TIE";
+		public static var PAIR_PLAYER:String = "PLAYER PAIR";
+		public static var PAIR_BANKER:String = "BANKER PAIR";
+		public static var TWOWAY:String = "2 WAY";
+		public static var THREEWAY:String = "3 WAY";
+		public static var BIGROAD:String = "BIG ROAD";
+		public static var BIGEYEBOYROAD:String = "BIG EYE BOY";
+		public static var SMALLROAD:String = "SMALL ROAD";
+		public static var COCKROACHROAD:String = "COCKROACH";
+		public static var SITHERE:String = "SIT HERE";
+		public static var UNSEAT:String = "LEAVE SEAT";
+		public static var MULTISEAT:String = "MULTI SEAT";
+		public static var MULTISEATTIP:String = "CLICK FOR ANOTHER SEAT";
+		public static var SEATTAKEN:String = "SEAT TAKEN";
+		public static var CONFIRM:String = "CONFIRM";
+		public static var DECISIONTITLE:String = "PLEASE CHOOSE AN OPTION";
+		public static var HIT:String = "HIT";
+		public static var STAND:String = "STAND";
+		public static var DOUBLEDOWN:String = "DOUBLE";
+		public static var INSURANCETITLE:String = "INSURANCE?";
+		public static var YES:String = "YES";
+		public static var NO:String = "NO";
+		public static var LOBBY:String = "SWITCH TABLE";
+		public static var LOADINGLOBBYXML:String = "Loading Tables...";
+		public static var BACCARAT:String = "LIVE BACCARAT";
+		public static var BLACKJACK:String = "LIVE BLACKJACK";
+		public static var ROULETTE:String = "LIVE ROULETTE";
+		public static var AUTO:String = "LIVE AUTO ROULETTE";
+		public static var DEALER:String = "DEALER";
+		public static var ACCOUNT:String = "ACCOUNT";
+		public static var MYACCOUNT:String = "MY ACCOUNT";
+		public static var TABLEINFO:String = "TABLE INFORMATION";
+		public static var PLAYERS:String = "PLAYERS";
+		public static var RESULTS:String = "RESULTS";
+		public static var VIEWTABLE:String = "VIEW TABLE";
+		public static var CURRENTTABLE:String = "YOUR CURRENT TABLE";
+		public static var HOMETEXT:String = "CLICK ON ANY LIVE GAME BELOW TO VIEW THE TABLES";
+		public static var VTABLETEXT:String = "PLEASE SELECT THE TABLE LIMITS FOR #table#";
+		public static var GAMEMODETEXT:String = "PLEASE SELECT THE VIEW TO PLAY #table# WITH LIMITS #min# - #max#";
+		public static var CHOOSEROULETTE:String = "PLEASE CHOOSE A ROULETTE TABLE BELOW";
+		public static var CHOOSEBACCARAT:String = "PLEASE CHOOSE A BACCARAT TABLE BELOW";
+		public static var CHOOSEBLACKJACK:String = "PLEASE CHOOSE A BLACKJACK TABLE BELOW";
+		public static var CHOOSEMINIROULETTE:String = "PLEASE CHOOSE A MINI ROULETTE TABLE BELOW";
+		public static var CHOOSEMINIBACCARAT:String = "PLEASE CHOOSE A MINI BACCARAT TABLE BELOW";
+		public static var CHOOSEMINIBLACKJACK:String = "PLEASE CHOOSE A MINI BLACKJACK TABLE BELOW";
+		public static var SCREENNAME:String = "SCREEN NAME";
+		public static var SCREENNAMELABEL:String = "Please enter a valid screen name";
+		public static var SCREENNAMEERROR1:String = "Invalid screen name";
+		public static var SCREENNAMEERROR2:String = "Screen name already exists";
+		public static var SEATERROR1:String = "Please try a different seat";
+		public static var SEATERROR2:String = "You don't have enough money to take a seat.";
+		public static var VIEW1:String = "3D VIEW";
+		public static var VIEW2:String = "CLASSIC VIEW";
+		public static var VIEW3:String = "PAIRS";
+		public static var VIEW4:String = "ASIAN";
+		public static var NORMAL:String = "NORMAL";
+		public static var SWITCHVIDEO:String = "SWITCH VIDEO";
+		public static var DETAILS_BLACKJACK:String = "Live Blackjack - The fastest live dealer Blackjack in the world. Same deal speed as if you were in a real Casino. ";
+		public static var DETAILS_BLACKJACK_VIP:String = "VIP Blackjack - Play live Blackjack with other high rollers";
+		public static var DETAILS_BLACKJACK_BETBEHIND:String = "Play behind Blackjack. Bet on other players. When they win, you win !";
+		public static var DETAILS_BACCARAT:String = "Enjoy live Baccarat in the environment it is meant to be played in.";
+		public static var DETAILS_BACCARAT_VIP:String = "live dealer VIP baccarat, a chance to play with high stakes.";
+		public static var DETAILS_ROULETTE:String = "Play standard Roulette with one game per minute.";
+		public static var DETAILS_ROULETTE_VIP:String = "VIP Roulette. Play VIP Roulette with one game every minute. High betting limits for high rollers";
+		public static var DETAILS_ROULETTE_BLUE:String = "Play our brand new Grand Roulette with your favourite presenters. Fast and interactive. Open 6 PM till 12 PM (GMT) every day.";
+		public static var DETAILS_ROULETTE_EUROPEAN:String = "Play LIVE and experience the truest Live Roulette available online. Place your bets and speak to our lovely croupiers amongst the best graphics online everyday between 6pm and 12am (GMT)!";
+		public static var DETAILS_ROULETTE_AUTO:String = "Fully automated Roulette wheel produced by Cammegh, The World's Finest Roulette Wheel.";
+		public static var DETAILS_ROULETTE_BROWN:String = "Spinning every 45 seconds, our fully air powered Roulette wheel is the fastest live roulette in the world! Play jet Roulette with the table limit ranging from 0.25 right up to 500 every hour of every day!.";
+		public static var BONUSTERMS:String = "<b>You are eligible for a <u>*BONUS_CURRENCY* *BONUS_AMOUNT*</u> *BONUS_NAME* bonus!<br/><br/>Amount will be added to your bonus account, if you accept the following terms:<br><br><u>BONUS AGREEMENT:</u><br/><br/>ACCEPTING THIS BONUS OF *BONUS_CURRENCY* *BONUS_AMOUNT* SIGNIFIES THAT YOU ACCEPT THE OBLIGATION TO PLACE AT LEAST <u>*BONUS_CURRENCY* *MIN_BET*</u> IN BETS ON APPROVED GAMES BEFORE CASHING OUT ANY FUNDS. THIS REQUIREMENT WILL BE ENFORCED BY OUR ACCOUNTING DEPARTMENT ACCORDING TO THE BONUS AGREEMENT.</b>";
+		public static var SIGNMEUP:String = "YES, SIGN ME UP!";
+		public static var NOTHANKS:String = "NO, THANKS";
+		public static var BALANCEDETAILS:String = "BALANCE DETAILS";
+		public static var BONUSBALANCE:String = "BONUS BALANCE";
+		public static var CURRENTPLAYTHROUGH:String = "CURRENT PLAYTHROUGH";
+		public static var REQUIREDPLAYTHROUGH:String = "REQUIRED PLAYTHROUGH";
+		public static var SETTINGS:String = "SETTINGS";
+		public static var AUTOFULLSCREEN:String = "Auto Fullscreen";
+		public static var VIDEOQUALITY:String = "VIDEO QUALITY SETTINGS:";
+		public static var AUTOADJUST:String = "AUTO ADJUST";
+		public static var LOWQUALITY:String = "LOW";
+		public static var MEDQUALITY:String = "MEDIUM";
+		public static var HIGHQUALITY:String = "HIGH";
+		public static var SUPPRESSCHAT:String = "HIDE OTHER PLAYERS CHAT";
+		public static var WELCOMETO:String = "Welcome to Live";
+		public static var CHAT:String = "CHAT";
+		public static var CLICKTOCHAT:String = "CLICK TO CHAT";
+		public static var PLAYERSONTABLE:String = "#count# player(s) at the table";
+		public static var PLAYERONTABLE:String = "#player# is at the table";
+		public static var WINMSG:String = "#player# wins #amount#";
+		public static var IDLEMESSAGE:String = "Game paused due to inactivity. Click OK to continue.";
+		public static var SESSIONEXPIRED:String = "Your session has expired because you were inactive for too long. Please return to the site to log in again. ";
+		public static var REBET:String = "REPEAT";
+		public static var DOUBLEBET:String = "DOUBLE";
+		public static var UNDO:String = "UNDO";
+		public static var CLEARALL:String = "CLEAR ALL";
+		public static var BETLIMITS:String = "BET LIMITS";
+		public static var MIN:String = "MIN";
+		public static var MAX:String = "MAX";
+		public static var PAYOUT:String = "PAYOUT";
+		public static var BETLABEL:String = "BET";
+		public static var ALLLIMITSTIP:String = "CLICK TO SEE ALL LIMITS";
+		public static var DOZEN:String = "DOZEN";
+		public static var CORNER:String = "CORNER";
+		public static var HIGH:String = "HIGH";
+		public static var LOW:String = "LOW";
+		public static var STRAIGHT:String = "STRAIGHT";
+		public static var EVEN:String = "EVEN";
+		public static var ODD:String = "ODD";
+		public static var TRIO:String = "STREET";
+		public static var COLUMN:String = "COLUMN";
+		public static var SPLIT:String = "SPLIT";
+		public static var RED:String = "RED";
+		public static var BLACK:String = "BLACK";
+		public static var GREEN:String = "GREEN";
+		public static var FIVE_NUMBER:String = "FIVE NUMBER";
+		public static var SIX_NUMBER:String = "SIX NUMBER";
+		public static var SIX:String = "SIX NUMBER";
+		public static var FIVE:String = "FIVE NUMBER";
+		public static var BALANCE:String = "BALANCE";
+		public static var SESSION_BALANCE:String = "BALANCE";
+		public static var BONUS:String = "BONUS";
+		public static var BET:String = "TOTAL BET";
+		public static var GAMEID:String = "GAME TIME";
+		public static var CASHIER:String = "CASHIER";
+		public static var DEPOSIT:String = "DEPOSIT";
+		public static var BACK:String = "BACK";
+		public static var CLOSE:String = "CLOSE";
+		public static var HISTORY:String = "HISTORY";
+		public static var HELP:String = "HELP";
+		public static var RESPONSIBLE:String = "RESPONSIBLE";
+		public static var FULLSCREEN:String = "FULL SCREEN";
+		public static var RESTORE:String = "RESTORE";
+		public static var SOUNDON:String = "AUDIO ON";
+		public static var SOUNDOFF:String = "AUDIO OFF";
+		public static var CHATONHELP:String = "CHAT ALREADY OPEN";
+		public static var CHATON:String = "SHOW CHAT";
+		public static var CHATOFF:String = "HIDE CHAT";
+		public static var CHANGETABLE:String = "CHANGE TABLE";
+		public static var BONUSDETAILS:String = "CLICK TO SEE BALANCE & BONUS DETAILS";
+		public static var QUICK_DEPOSIT:String = "QUICK DEPOSIT";
+		public static var TABLE:String = "TABLE";
+		public static var PLEASEWAIT:String = "PLEASE WAIT";
+		public static var PLACEBETS:String = "PLACE YOUR BETS";
+		public static var BETSCLOSING:String = "CLOSING BETS SOON";
+		public static var BETSCLOSINGGENERIC:String = "CLOSING BETS SOON";
+		public static var NOMOREBETS:String = "BETS CLOSED";
+		public static var SENDINGBETS:String = "SENDING BETS";
+		public static var BETSACCEPTED:String = "BETS ACCEPTED";
+		public static var NOTALLBETSACCEPTED:String = "NOT ALL BETS ACCEPTED";
+		public static var BETSREJECTED:String = "BETS REJECTED";
+		public static var WAITINGFORBETS:String = "WAITING FOR BETS";
+		public static var WAITINGFORNEXTGAME:String = "WAITING FOR NEXT GAME";
+		public static var WAITINGFORDECISION:String = "WAITING FOR DECISION";
+		public static var WAITINGFORINSURANCE:String = "WAITING FOR INSURANCE";
+		public static var WAITINGFORCARD:String = "DEALING";
+		public static var WAITINGFORRESULT:String = "WAITING FOR RESULT";
+		public static var GAMEOVER:String = "GAME OVER";
+		public static var GAMECANCELLED:String = "GAME CANCELLED";
+		public static var OPEN:String = "OPEN";
+		public static var CLOSING:String = "CLOSING";
+		public static var CLOSED:String = "CLOSED";
+		public static var RESULT:String = "RESULT: #result#";
+		public static var YOUWON:String = "YOU WIN: #winnings#";
+		public static var GAMEINPROGRESS:String = "GAME IN PROGRESSING...";
+		public static var MINBETIS:String = "MINIMUM BET IS #bet#";
+		public static var MAXBETIS:String = "MAXIMUM BET IS #bet#";
+		public static var MINTABLEBETIS:String = "MINIMUM TABLE BET IS #bet#";
+		public static var MAXTABLEBETIS:String = "MAXIMUM TABLE BET IS #bet#";
+		public static var NOTENOUGHMONEY:String = "INSUFFICIENT FUNDS";
+		public static var WARNING:String = "Warning (#id#)";
+		public static var INFORMATION:String = "Information (#id#)";
+		public static var ERROR:String = "Error (#id#)";
+		public static var LOWBALANCE:String = "Your account balance is too low to play. Please deposit funds into your account.";
+		public static var ERROR_OK:String = "OK";
+		public static var GENERIC_WHEEL_ERROR:String = "Temporary communication error. Please wait for the next game round.";
+		public static var GENERIC_COMMUNICATION_ERROR:String = "Communication error. Please contact Customer Support for assistance.";
+		public static var GENERIC_PLACEBETS_ERROR:String = "You bets were not accepted by the server. Please contact Customer Support for assistance.";
+		public static var GENERIC_BALANCE_ERROR:String = "Temporary problem displaying your updated balance. Please Customer Support for assistance.";
+		public static var GAME_CANCELLED:String = "The game has been cancelled. Please wait for the next game.";
+		public static var ERROR_10104:String = "You do not have sufficient funds to place this bet.";
+		public static var ERROR_10103:String = "Your account is currently disabled. Please contact Customer Support for assistance.";
+		public static var ERROR_10102:String = "Your account has been suspended. Please contact Customer Support for assistance.";
+		public static var ERROR_2400:String = "Your session has expired. Please log in again.";
+		public static var ERROR_1000:String = "Please contact Customer Support for assistance.";
+		public static var ERROR_1400:String = "Please contact Customer Support for assistance.";
+		public static var ERROR_1500:String = "Please contact Customer Support for assistance.";
+		public static var ERROR_10106:String = "Please contact Customer Support for assistance.";
+		public static var ERROR_10100:String = "Please contact Customer Support for assistance.";
+		public static var ERROR_10101:String = "Please contact Customer Support for assistance.";
+		public static var ERROR_10105:String = "Please contact Customer Support for assistance.";
+		public static var ERROR_20100:String = "You do not meet the minimum age requirement to play.";
+		public static var ERROR_20101:String = "You are temporarily unable to register an alias.";
+		public static var ERROR_20102:String = "There is a temporary problem retrieving your balance.";
+		public static var ERROR_20103:String = "There is a temporary problem transferring funds to the casino.";
+		public static var ERROR_20104:String = "There is a temporary problem retrieving exchange rates.";
+		public static var ERROR_010:String = "Please contact Customer Support for assistance.";
+		public static var ERROR_0:String = "Please contact Customer Support for assistance.";
+		public static var ERROR_10002:String = "Please contact Customer Support for assistance.";
+		public static var ERROR_10003:String = "Your session has expired. Please log in again.";
+		public static var ERROR_10004:String = "Please contact Customer Support for assistance.";
+		public static var ERROR_10005:String = "Please contact Customer Support for assistance.";
+		public static var ERROR_10006:String = "Your bets for this round have already been accepted.";
+		public static var ERROR_10007:String = "Your account has been suspended. Please contact Customer Support for assistance.";
+		public static var ERROR_10008:String = "You do not have sufficient funds to place this bet.";
+		public static var ERROR_1001:String = "There is a temporary problem with the game server.";
+		public static var ERROR_1002:String = "Please contact Customer Support for assistance.";
+		public static var ERROR_1003:String = "Please contact Customer Support for assistance.";
+		public static var ERROR_1004:String = "You have lost your seat. Please restart the game.";
+		public static var ERROR_1005:String = "You have attempted to place an invalid bet. Please contact Customer Support for assistance.";
+		public static var ERROR_1006:String = "Please wait for the next round to begin.";
+		public static var ERROR_1007:String = "Your bet was not received in time. Please try again in the next round.";
+		public static var ERROR_1008:String = "Your bets were not accepted. Please try again in the next round.";
+		public static var ERROR_1009:String = "Your bet was not accepted as it exceeds the maximum stake allowed on an inside bet.";
+		public static var ERROR_1010:String = "Your bet was not accepted as it exceeds the maximum stake allowed on an outside bet.";
+		public static var ERROR_1011:String = "The server was unable to process your bet. Please contact Customer Support for assistance.";
+		public static var ERROR_1012:String = "Your bet was not accepted as it exceeds the maximum stake allowed at this table.";
+		public static var ERROR_1013:String = "Your bet was not accepted as it does not meet the minimum required amount.";
+		public static var ERROR_1014:String = "Please contact Customer Support for assistance.";
+		public static var ERROR_1015:String = "Please contact Customer Support for assistance.";
+		public static var ERROR_1016:String = "Please contact Customer Support for assistance.";
+		public static var ERROR_1017:String = "Your turn has ended.";
+		public static var ERROR_1018:String = "The time allowed for your decision on this turn has ended.";
+		public static var ERROR_1019:String = "You cannot alter your game decision.";
+		public static var ERROR_1020:String = "An error at your seat has occurred. Please restart the game in a new browser window.";
+		public static var ERROR_1021:String = "It is not your turn. The decision will be made by another player.";
+		public static var ERROR_1022:String = "The selected decision is invalid. Please make a different decision.";
+		public static var ERROR_1023:String = "Error. Action to split could not be performed. Please contact Customer Support.";
+		public static var ERROR_1024:String = "Error. Action to double down could not be performed. Please contact Customer Support.";
+		public static var ERROR_1025:String = "Error transmitting game results. Please restart the game in a new browser window.";
+		public static var ERROR_1026:String = "Error. Action to purchase insurance could not be performed. Please contact Customer Support.";
+		public static var ERROR_1027:String = "You have already purchased insurance for this round.";
+		public static var ERROR_1028:String = "The bet you have attempted to place is invalid. Please contact Customer Support.";
+		public static var ERROR_1029:String = "The bet you have attempted to place is invalid. Please contact Customer Support.";
+		public static var ERROR_1030:String = "The bet you have attempted to place is invalid. Please contact Customer Support.";
+		public static var ERROR_1031:String = "The seat that you have chosen is already occupied, please select a vacant seat.";
+		public static var ERROR_1032:String = "Please contact Customer Support for assistance.";
+		public static var ERROR_1033:String = "Please contact Customer Support for assistance.";
+		public static var ERROR_2000:String = "Please contact Customer Support for assistance.";
+		public static var ERROR_2001:String = "The attempted action failed. Please try again.";
+		public static var ERROR_2002:String = "Please restart the game in a new browser window. If the problem persists, contact Customer Support for assistance.";
+		public static var ERROR_2003:String = "Your bet may not exceed the maximum betting limit.";
+		public static var ERROR_2004:String = "Your bet must meet the minimum betting limit.";
+		public static var ERROR_2005:String = "Your balance is insufficient to cover this bet. Please visit the cashier to make a deposit.";
+		public static var ERROR_2006:String = "Unfortunately, our services are unavailable in your country of residence.";
+		public static var ERROR_2007:String = "To log in, please enter your username and password.";
+		public static var ERROR_2008:String = "Invalid username or password. Please try again.";
+		public static var ERROR_104:String = "Please restart the game in a new browser window.";
+		public static var NEIGHBOURSPECIALBETS:String = "NEIGHBOUR & SPECIAL BETS";
+		public static var SPECIALBETS:String = "SPECIAL BETS";
+		public static var SPECIALBET18:String = "Tiers du cylindre";
+		public static var SPECIALBET17:String = "Voisins du zero";
+		public static var SPECIALBET16:String = "Orphelins en plein";
+		public static var SPECIALBET15:String = "Orphelins a cheval";
+		public static var SPECIALBET14:String = "Finale en plein 0";
+		public static var SPECIALBET13:String = "Finale en plein 1";
+		public static var SPECIALBET12:String = "Finale en plein 2";
+		public static var SPECIALBET11:String = "Finale en plein 3";
+		public static var SPECIALBET10:String = "Finale en plein 4";
+		public static var SPECIALBET9:String = "Finale en plein 5";
+		public static var SPECIALBET8:String = "Finale en plein 6";
+		public static var SPECIALBET7:String = "Finale en plein 7";
+		public static var SPECIALBET6:String = "Finale en plein 8";
+		public static var SPECIALBET5:String = "Finale en plein 9";
+		public static var SPECIALBET4:String = "Finale 0/3";
+		public static var SPECIALBET3:String = "Finale 1/4";
+		public static var SPECIALBET2:String = "Finale 2/5";
+		public static var SPECIALBET1:String = "Finale 3/6";
+		public static var NEIGHBOURBETS:String = "NEIGHBOUR BETS";
+		public static var NEIGHBOURBETS1:String = "Voisins";
+		public static var NEIGHBOURBETS2:String = "Orphelins";
+		public static var NEIGHBOURBETS3:String = "Tier";
+		public static var NEIGHBOURBETS4:String = "ZERO GAME";
+		public static var LOWRISKCOMMONMSG:String = "BET RESTRICTIONS APPLY";
+		public static var NOTSITTINGPAGE:String = "You are no longer sitting at this table. Please close this window and launch the game again.";
+		public static var ERRORPAGE:String = "There has been a problem with the Live Casino. Please try again later. Error Code: EV02";
+		public static var MISSINGPAGE:String = "The page you have requested was not found on our Live Casino Server.<br />Please check the URL and try again or contact the customer support. Error Code: EV03";
+		public static var LOGINPAGE:String = "There has been a problem with the Live Casino.<br />User authentication failed or your session may be expired, please close the browser and try again. Error Code: EV01";
+		public static var BETBEHIND:String = "Bet Behind";
+		public static var BETBEHIND_INFO:String = "If a player you are betting on chooses to split or double down, your stake will be doubled. If you DO NOT want to double your stake in these circumstances, please UNCHECK the boxes below.";
+		public static var BETBEHIND_NOTE:String = "Note: If you bet on a player who chooses not to place a bet, your stake will be returned to you.";
+		public static var BETBEHIND_DOUBLESTAKE:String = "Double my stake if player doubles down";
+		public static var BETBEHIND_SPLITSDOUBLESTAKE:String = "Double my stake if player splits";
+		public static var MINIROULETTE:String = "MINI LIVE ROULETTE";
+		public static var MINIBLACKJACK:String = "MINI LIVE BLACKJACK";
+		public static var MINIBACCARAT:String = "MINI LIVE BACCARAT";
+		public static var MINI:String = "MINI";
+		public static var BALANCEMINI:String = "Balance";
+		public static var BETMINI:String = "Bet";
+		public static var GAMEIDMINI:String = "Game Time";
+		public static var PLACEBETSMINI:String = "BET NOW";
+		public static var BETSCLOSINGMINI:String = "BETS CLOSING";
+		public static var NOMOREBETSMINI:String = "BETS CLOSED";
+		public static var CHIPBUTTONMINI:String = "CLICK TO CHANGE CHIP VALUE";
+		public static var NOTIFYPLACECHIP:String = "WHEN BET TIME STARTS, PLEASE SELECT A CHIP AND PLACE YOUR BET";
+		public static var NOTIFYWINNING:String = "YOU WIN #win#";
+		public static var MINIVIDEOTOOLTIP:String = "CLICK TO TOGGLE VIEW";
+		public static var MINIVIDEOTOOLTIPOUT:String = "CLICK TO TOGGLE VIEW";
+		public static var VIEWMINI:String = "CHANGE VIEW";
+		public static var AAMSLIMITSTITLE:String = "Money to bring to the game: ";
+		public static var AAMSREGULATIONLIMIT:String = "Regulation limit: ";
+		public static var AAMSFULLBALANCE:String = "Full balance: ";
+		public static var AAMSOTHERLIMIT:String = "Other";
+		public static var AAMSLOADINGMSG:String = "Please wait...";
+		public static var AAMSAMOUNTERROR:String = "Invalid amount. Please try again.";
+		public static var AAMSMINAMOUNTERROR:String = "Amount should be greater that minimum table limit.";
+		public static var AAMSBALANCEERROR:String = "Insufficient Balance.";
+		public static var AAMSSTARTGAMEERROR:String = "Please try again.";
+		public static var AAMSPARTICIPATIONID:String = "Participation ID:";
+		public static var AAMSSESSIONID:String = "Session ID:";
+		public static var AAMSROUNDID:String = "Round ID:";
+		public static var DOUBLE:String = "Double Down:";
+		public static var SPLITHAND:String = "Split:";
+		public static var GAMESTART:String = "Game Start:";
+		public static var GAMEEND:String = "Game End:";
+		public static var GAMETIME:String = "Game Time:";
+		public static var ERROR_3001:String = "Your account is currently disabled. For further details please contact our support team.";
+		public static var ERROR_3002:String = "Your current session balance is insufficient. To continue playing, you must set new limits.";
+		public static var ERROR_3003:String = "Your bet exceeds the regulation limit. To continue playing, please close and reopen the game or reload.";
+		public static var LOWSESSIONBALANCE:String = "Your account balance is too low to play. Please set new session limit to continue playing.";
+		public static var HISTORYLASTGAME:String = "Your last uncompleted game";
+		public static var SOCIAL_TOOLTIP_FACEBOOK:String = "Share your winnings! (Press CTRL + V to paste the message)";
+		public static var SOCIAL_TOOLTIP_TWITTER:String = "Share your winnings!";
+		public static var SOCOAL_MESSAGE_ROULETTE:String = "I have just won #winnings# on Live #game# at #casino# with lucky spin #winner#!";
+		public static var SOCOAL_MESSAGE_BLACKJACK:String = "I have just won #winnings# on Live #game# at #casino#!";
+		public static var SOCOAL_MESSAGE_BACCARAT:String = "I have just won #winnings# on Live #game# at #casino#!";
+		public static var REALPLAY:String = "Want to play for real now?";
+		public static var NOFREEPLAY:String = "NO FREE PLAY";
+		public static var WIFI_CONNECTION:String = "Please note that this application requires high bandwidth for live video streaming. Video will only be enabled with active WiFi connection.";
+		public static var ENTER_EMAIL:String = "Please enter your email address below to play any of the games for free.";
+		public static var FREE_PLAY:String = "Free Play";
+		public static var REAL_PLAY:String = "Real Play";
+		public static var POSTCODE:String = "Postcode";
+		public static var CITY_TOWN:String = "City / Town";
+		public static var ADDRESS:String = "Address";
+		public static var EMAIL_ADDRESS:String = "Email Address";
+		public static var CONFIRM_PASSWORD:String = "Confirm Password";
+		public static var PASSWORD:String = "Password";
+		public static var USERNAME:String = "Username";
+		public static var SURNAME:String = "Surname";
+		public static var FIRST_NAME:String = "First Name";
+		public static var NEW_USER:String = "New User? Click the button below and register.";
+		public static var REGISTER:String = "REGISTER";
+		public static var CANCEL:String = "CANCEL";
+		public static var NEXT:String = "NEXT";
+		public static var DOB:String = "Date of Birth";
+		public static var CHOOSE_STREAM:String = "PLEASE CHOOSE YOUR STREAM BELOW";
+		public static var ACCEPTION1:String = "I wish to be notified of future promotions and bonuses.";
+		public static var ACCEPTION2:String = "I am over 18 years of age and have read and accepted Terms and Conditions. ";
+		public static var LOGIN:String = "Login";
+		public static var LOGOUT:String = "Logout";
+		public static var ENTER_VALID_EMAIL:String = "Please enter a valid email address.";
+		public static var REGISTRATION:String = "Registration";
+		public static var ENTER_VALID_USERNAME:String = "PLEASE ENTER A VALID USERNAME.";
+		public static var ENTER_VALID_PASSWORD:String = "PLEASE ENTER A VALID PASSWORD.";
+		public static var ENTER_VALID_USERNAME_PASSWORD:String = "PLEASE ENTER A VALID USERNAME AND PASSWORD.";
+		public static var ENTER_VALID_VOUCHERID:String = "PLEASE ENTER A VALID VOUCHERID AND AMOUNT.";
+		public static var DEPOSIT_DECLINED:String = "Deposit Declined";
+		public static var NOT_VALID_VOUCHERID:String = "VOUCHERID NOT VALID, PLEASE USE VALID VOUCHER.";
+		public static var UK_ALLOW_ONLY:String = "YOU ARE ONLY ALLOWED TO PLAY FROM UK";
+		public static var LOGIN_FAILED:String = "LOGIN FAILED. PLEASE TRY AGAIN.";
+		public static var LOGIN_SUCCESS:String = "Login Success.";
+		public static var IO_CONNECTION_ERROR:String = "IO CONNECTION ERROR: PLEASE TRY AGAIN LATER.";
+		public static var TAP_TO_CLOSELOBBY:String = "PLEASE TAP HERE TO CLOSE LOBBY";
+		public static var SECURITY_ERROR:String = "SECURITY ERROR. PLEASE TRY AGAIN LATER.";
+		public static var ENTER_VOUCHERID_AMOUNT:String = "Please enter a valid voucherid and amount.";
+		public static var VOUCHER_SUCCESS:String = "Voucher Successfully approved!!";
+		public static var JOIN_NOW:String = "JOIN NOW";
+		public static var LOGIN_NOW:String = "LOGIN NOW";
+		public static var LOGIN_UK_ONLY:String = "You can only login and play from UK. Please contact customer support if you have problems playing from UK.";
+		public static var WINNERLIST:String = "WINNERLIST";
+		public static var PLAYERNAME:String = "NAME";
+		public static var PLAYERWINS:String = "AMOUNT";
+		public static var PLAYERSBETS:String = "PLAYERS BETS";
+		public static var FAVOURITES:String = "FAVOURITES";
+		public static var BACCARAT_BETSPOTSPANEL:String = "BETSPOTS";
+		public static var APPLYBUTTON:String = "Apply";
+		public static var DELETEBUTTON:String = "Delete";
+		public static var CLEARBUTTON:String = "Clear";
+
 		public static var TOURNAMENT:String = "Tournament";
 	}
 }

@@ -10,6 +10,8 @@ package com.newco.grand.core.common.service {
 	import flash.events.SecurityErrorEvent;
 	import flash.net.XMLSocket;
 	
+	import robotlegs.bender.framework.api.ILogger;
+	
 	public class SocketService extends Actor implements ISocketService {
 		
 		[Inject]
@@ -17,6 +19,10 @@ package com.newco.grand.core.common.service {
 	
 		private var _socket:XMLSocket;
 		private var _socketOpen:Boolean;
+		
+		
+		[Inject]
+		public var logger:ILogger;
 		
 		public function SocketService() {
 			_socket = new XMLSocket();
@@ -85,7 +91,7 @@ package com.newco.grand.core.common.service {
 		}
 		
 		protected function debug(...args):void {
-			trace(this, args);
+			logger.debug(args);
 		}
 	}
 }

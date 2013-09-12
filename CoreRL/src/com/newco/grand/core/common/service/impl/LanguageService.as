@@ -55,13 +55,21 @@ package com.newco.grand.core.common.service.impl
 
 			Language.getInstance().xml=xml;
 			var nodeName:String;
+
 			try
 			{
+				//trace("====================================================");
+				
 				for each (var node:XML in xml.children()) {
 
 					nodeName = String(node.name().localName).toUpperCase();
 					LanguageModel[nodeName] = node.text();
+					//trace('public static var '+ nodeName +':String = "' + node.text() +'";');
+				
+					
 				}
+				
+				//trace("====================================================");
 			}
 			catch (err:Error)
 			{
@@ -71,6 +79,7 @@ package com.newco.grand.core.common.service.impl
 
 			loadStyle();
 			}
+			
 		}
 
 		private function loadStyle():void {
