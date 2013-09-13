@@ -14,8 +14,8 @@ package {
 	import robotlegs.bender.framework.api.IContext;
 	import robotlegs.bender.framework.impl.Context;
 	
-	[SWF(width = "1186", height = "667", frameRate = "30", backgroundColor = "#4C4C4C")]
-	//[SWF(width = "100", height = "100", frameRate = "30", backgroundColor = "#000000")]
+	//[SWF(width = "1186", height = "667", frameRate = "30", backgroundColor = "#4C4C4C")]
+	[SWF(width = "990", height = "610", frameRate = "30", backgroundColor = "#000000")]
 	public class RouletteRL extends Sprite {
 		
 		protected var context:IContext; 
