@@ -29,7 +29,7 @@ package com.newco.grand.core.common.controller.commands {
 				configService.load(function ():void{
 					urlsService.load(function ():void{
 						if (FlashVars.SKIN_ENABLE==true)
-						SkinLoader.loadSkinFile("skins/skin.swf",onStart,onError,null,null);
+						 SkinLoader.loadSkinFile("skins/skin.swf",onStart,onError,null,null);
 						else
 						signalBus.dispatch(SignalConstants.STARTUP_COMPLETE);	
 					});
@@ -39,7 +39,7 @@ package com.newco.grand.core.common.controller.commands {
 			else{
 				urlsService.load(function ():void{
 					if (FlashVars.SKIN_ENABLE==true)
-					SkinLoader.loadSkinFile(urls.skin,onStart,onError,null,null);
+						SkinLoader.loadSkinFile(urls.skin,onStart,onError,null,null);
 					else
 					signalBus.dispatch(SignalConstants.STARTUP_COMPLETE);	
 				});

@@ -64,7 +64,7 @@ package com.newco.grand.core.common.service.impl
 				urlsModel.state =xml.baccarat.state;
 				urlsModel.winners=xml.baccarat.winners;
 				urlsModel.statistics=xml.baccarat.statistics;
-				urlsModel.skin=(xml.baccarat.skin!=undefined)?xml.baccarat.skin:xml.common.skin;
+				urlsModel.skin=(xml.baccarat.skin!=undefined)?xml.baccarat.skin:xml.common. _skin;
 			}
 			
 			if (StringUtils.trim(FlashVars.GAMECLIENT.toLowerCase())==StringUtils.trim(Constants.ROULETTE.toLowerCase()))

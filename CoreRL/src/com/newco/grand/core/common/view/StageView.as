@@ -4,22 +4,18 @@ package com.newco.grand.core.common.view {
 	import flash.display.Sprite;
 	
 	
-	public class StageView extends Sprite implements IStageView {		
-		protected var _display:*;
+	public class StageView extends UIView implements IStageView {		
 		public function StageView() {
-			visible = true;
-			initDisplay();
+			super();
+			visible=true;
 
 		}
-		public function initDisplay():void{
+		override public function initDisplay():void{
 			_display=new StageAsset();
 			addChild(_display);
 		}
-		public function init():void {
-			align();
-		}
-		
-		public function align():void {
+
+		override public function align():void {
 			//bg.width = stage.stageWidth;
 			//bg.height = stage.stageHeight;
 			//preloaderMC.x = (bg.width - preloaderMC.width) / 2;
@@ -30,9 +26,7 @@ package com.newco.grand.core.common.view {
 			_display.preloaderMC.visible = true;
 			_display.preloaderMC.play();
 		}
-		public function get display():*{
-			return this;
-		}
+
 		public function hidePreloader():void {
 			_display.preloaderMC.visible = false;
 			_display.preloaderMC.stop();

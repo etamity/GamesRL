@@ -1,46 +1,42 @@
 package com.newco.grand.core.common.view {
+	import com.newco.grand.core.common.model.LanguageModel;
 	import com.newco.grand.core.common.view.interfaces.IGameStatusView;
 	
-	import flash.display.Sprite;
 	import flash.text.TextFieldAutoSize;
 	import flash.text.TextFormat;
 
-	public class GameStatusView extends Sprite implements IGameStatusView {
+	public class GameStatusView extends UIView implements IGameStatusView {
 		
 		private var _messageFormat:TextFormat = new TextFormat("Arial", 14, 0xFFAF32, true);
 		private var _blinkCounter:int = 0;
-		protected var _display:*;
+		protected var _skin:GameStatusAsset;
 		public function GameStatusView() {
-			visible = false
-			initDisplay();
+			super();
 		}
-		public function initDisplay():void{
-			_display=new GameStatusAsset();
-			addChild(_display);
-		}
-		public function init():void {
-			align();
-			visible = true;
-			//_display.time.visible=false;
+		override public function initDisplay():void{
+			 _skin=new GameStatusAsset();
+			addChild( _skin);
+			_display= _skin;
 			setLightSOff();
-			//messageBlinkBG.visible = false;
 		}
-		public function get display():*{
-			return _display;
+
+		override public function updateLanguage():void{
+			_display.titleTxt.text=LanguageModel.GAMETIMER;
 		}
-		public function align():void {			
+		override public function align():void {			
 			x = 626;
 			y = 0;
+			visible = true;
 		}
 		
 		private function alignMessage():void {
 			_display.messageTxt.autoSize = TextFieldAutoSize.CENTER;
-			_display.messageTxt.y = 108 + (87.85 - _display.messageTxt.height) / 2;
+			_display.messageTxt.y = 108 + (87.85 -  _display.messageTxt.height) / 2;
 		}
 		
 		public function set message(value:String):void {
 			_display.messageTxt.text = value;
-			_display.messageTxt.setTextFormat(_messageFormat);
+			 _display.messageTxt.setTextFormat(_messageFormat);
 			alignMessage();
 		}
 		

@@ -57,6 +57,9 @@ package com.newco.grand.core.common.model {
 		public static var PLAYER:String = "PLAYER";
 		public static var BANKER:String = "BANKER";
 		public static var TIE:String = "TIE";
+		public static var NATURAL:String = "NATURAL";
+		public static var GAMENUMBER:String = "GAME NUMBER";
+		
 		public static var PAIR_PLAYER:String = "PLAYER PAIR";
 		public static var PAIR_BANKER:String = "BANKER PAIR";
 		public static var TWOWAY:String = "2 WAY";
@@ -178,7 +181,7 @@ package com.newco.grand.core.common.model {
 		public static var SESSION_BALANCE:String = "BALANCE";
 		public static var BONUS:String = "BONUS";
 		public static var BET:String = "TOTAL BET";
-		public static var GAMEID:String = "GAME TIME";
+		public static var GAMEID:String = "GAME ID";
 		public static var CASHIER:String = "CASHIER";
 		public static var DEPOSIT:String = "DEPOSIT";
 		public static var BACK:String = "BACK";
@@ -370,7 +373,7 @@ package com.newco.grand.core.common.model {
 		public static var SPLITHAND:String = "Split:";
 		public static var GAMESTART:String = "Game Start:";
 		public static var GAMEEND:String = "Game End:";
-		public static var GAMETIME:String = "Game Time:";
+		public static var GAMETIMER:String = "Game Timer";
 		public static var ERROR_3001:String = "Your account is currently disabled. For further details please contact our support team.";
 		public static var ERROR_3002:String = "Your current session balance is insufficient. To continue playing, you must set new limits.";
 		public static var ERROR_3003:String = "Your bet exceeds the regulation limit. To continue playing, please close and reopen the game or reload.";
@@ -436,5 +439,9 @@ package com.newco.grand.core.common.model {
 		public static var CLEARBUTTON:String = "Clear";
 
 		public static var TOURNAMENT:String = "Tournament";
+		public static var SEND:String = "SEND";
+
+		
+		
 	}
 }

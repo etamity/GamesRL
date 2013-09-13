@@ -2,23 +2,20 @@ package com.newco.grand.core.common.service.impl
 {
 	import com.evolutiongaming.ui.Language;
 	import com.evolutiongaming.ui.Style;
-	import com.newco.grand.core.common.controller.signals.ChatEvent;
+	import com.newco.grand.core.common.controller.signals.LanguageAndStylesEvent;
+	import com.newco.grand.core.common.controller.signals.LoginEvent;
 	import com.newco.grand.core.common.controller.signals.MessageEvent;
-	import com.newco.grand.core.common.controller.signals.PlayersEvent;
 	import com.newco.grand.core.common.controller.signals.StartupDataEvent;
-	import com.newco.grand.core.common.controller.signals.StateTableConfigEvent;
-	import com.newco.grand.core.common.controller.signals.UIEvent;
-	import com.newco.grand.core.common.controller.signals.WinnersEvent;
+	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.LanguageModel;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.model.StyleModel;
 	import com.newco.grand.core.common.model.URLSModel;
 	import com.newco.grand.core.common.service.api.IService;
-	import com.newco.grand.core.utils.GameUtils;
-
+	
 	import org.assetloader.signals.ErrorSignal;
 	import org.assetloader.signals.LoaderSignal;
-
+	
 	import robotlegs.bender.framework.api.ILogger;
 
 	public class LanguageService implements IService
@@ -32,7 +29,8 @@ package com.newco.grand.core.common.service.impl
 
 		[Inject]
 		public var signalBus:SignalBus;
-
+		[Inject]
+		public var flashVars:FlashVars;
 
 		[Inject]
 		public var logger:ILogger;
@@ -115,12 +113,15 @@ package com.newco.grand.core.common.service.impl
 			finally{
 
 			//service.remove(Constants.ASSET_STYLE);
-			signalBus.dispatch(StartupDataEvent.LOADED);
-			signalBus.dispatch(StateTableConfigEvent.LOAD);
-			signalBus.dispatch(ChatEvent.LOAD_CONFIG);
-			signalBus.dispatch(UIEvent.SETUP_ASSET);
-			signalBus.dispatch(PlayersEvent.LOAD);
-			signalBus.dispatch(WinnersEvent.LOAD);
+				signalBus.dispatch(LanguageAndStylesEvent.LOADED);
+				if(flashVars.localhost) {
+					signalBus.dispatch(LoginEvent.INITIALIZE);
+				} else 
+				{
+					signalBus.dispatch(LoginEvent.LOGIN_SUCCESS);
+					signalBus.dispatch(StartupDataEvent.SEAT);
+					signalBus.dispatch(StartupDataEvent.LOAD);
+				}
 			}
 		}
 

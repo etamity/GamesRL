@@ -1,18 +1,18 @@
 package com.newco.grand.core.common.view
 {
+	import com.newco.grand.core.common.model.BaseObject;
 	import com.newco.grand.core.utils.GameUtils;
 	
 	import flash.display.DisplayObject;
 	import flash.display.DisplayObjectContainer;
 	import flash.display.SimpleButton;
-	import flash.display.Sprite;
 	import flash.filters.ColorMatrixFilter;
 	import flash.text.TextField;
 	
 	import fl.motion.AdjustColor;
 	
 
-	public class SMButton
+	public class SMButton extends BaseObject
 	{
 		private var button:SimpleButton;
 		public var url:String;

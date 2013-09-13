@@ -27,7 +27,9 @@ package com.newco.grand.core.common.view {
 		public function init():void {			
 			align();
 		}
-		
+		public function updateLanguage():void{
+			
+		}
 		public function align():void {
 			visible = true;
 			Scroll.visible=false;

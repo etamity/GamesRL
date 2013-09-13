@@ -25,6 +25,9 @@ package com.newco.grand.core.common.view.uicomps {
 			sets.push(new DataGridColumnSet(dgCol2Name,"winnings",-55));
 			playersListDgMc.initColumns(sets);
 		}
+		public function updateLanguage():void{
+			
+		}
 		public function initDisplay():void{
 		}
 		public function init():void {			

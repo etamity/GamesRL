@@ -2,48 +2,40 @@ package com.newco.grand.core.common.view
 {
 	import com.newco.grand.core.common.view.interfaces.IErrorMessageView;
 	
-	import flash.display.Sprite;
 	import flash.events.MouseEvent;
 	
-	public class ErrorMessageView extends Sprite implements IErrorMessageView
+	public class ErrorMessageView extends UIView implements IErrorMessageView
 	{
-		protected var _display:*;
+		protected var _skin:ErrorMessageAsset;
 		public function ErrorMessageView()
 		{
 			super();
-			initDisplay();
-			_display.errorMsg.text="";
 			visible=false;
-			_display.closeBtn.addEventListener(MouseEvent.CLICK,doHideEvent);
 		}
-		public function initDisplay():void
+		override public function initDisplay():void
 		{
-			_display= new ErrorMessageAsset();
-			addChild(_display);
+			 _skin= new ErrorMessageAsset();
+			addChild( _skin);
+			 _skin.errorMsg.text="";
+			 _skin.closeBtn.addEventListener(MouseEvent.CLICK,doHideEvent);
+			_display= _skin;
 		}
-		public function init():void
-		{
-			align()
-		}
+
 		private function doHideEvent(evt:MouseEvent):void{
 			visible=false;
 		}
 		public function setErrorMessage(val:String):void{
 			align();
-			_display.errorMsg.htmlText+=val+"<br />";
+			 _skin.errorMsg.htmlText+=val+"<br />";
 			
 			visible=true;
 			
 		}
-		public function align():void
+		override public function align():void
 		{
-			x=(stage.stageWidth-_display.width)/2;
-			y= stage.stageHeight-_display.height;
-		}
-		
-		public function get display():*
-		{
-			return this;
+			x=(stage.stageWidth- _skin.width)/2;
+			y= stage.stageHeight- _skin.height;
+			visible=false;
 		}
 		
 

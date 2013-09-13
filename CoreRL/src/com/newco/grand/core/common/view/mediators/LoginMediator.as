@@ -1,7 +1,9 @@
 package com.newco.grand.core.common.view.mediators {
 	
 	import com.newco.grand.core.common.controller.signals.BaseSignal;
+	import com.newco.grand.core.common.controller.signals.LanguageAndStylesEvent;
 	import com.newco.grand.core.common.controller.signals.LoginEvent;
+	import com.newco.grand.core.common.model.LanguageModel;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.model.vo.UserLoginData;
 	import com.newco.grand.core.common.view.interfaces.ILoginView;
@@ -27,7 +29,7 @@ package com.newco.grand.core.common.view.mediators {
 		private var _loginSO:SharedObject;
 
 		override public function initialize():void {
-
+			signalBus.add(LanguageAndStylesEvent.LOADED,setupLanguage);
 			signalBus.add(LoginEvent.INITIALIZE,setupModel);
 		}
 		
@@ -40,12 +42,15 @@ package com.newco.grand.core.common.view.mediators {
 			signalBus.add(LoginEvent.LOGIN_FAILURE,setError);
 			
 		}
-		
+		private function setupLanguage(signal:BaseSignal):void {
+			view.init();	
+		}
+
 		private function initializeView():void {
-			view.init();
-			view.id = "adi";
-			view.password = "adi123";
-			_loginSO = SharedObject.getLocal("login");
+
+			view.id = "joey";
+			view.password = "joe123";
+			_loginSO = SharedObject.getLocal("cplogin");
 			if (_loginSO.data.id != null) {
 				view.id = _loginSO.data.id;
 			}	
@@ -64,7 +69,7 @@ package com.newco.grand.core.common.view.mediators {
 				_loginSO.flush();
 			}
 			else {
-				view.error = "Please enter a valid username and password.";
+				view.error = LanguageModel.ENTER_VALID_USERNAME_PASSWORD; //"Please enter a valid username and password.";
 			}
 		}
 		
@@ -78,7 +83,7 @@ package com.newco.grand.core.common.view.mediators {
 		
 		private function setError(signal:BaseSignal):void {
 			view.display.visible = true;
-			view.error = "Login Failed. Please try again.";
+			view.error = LanguageModel.LOGIN_FAILED;//"Login Failed. Please try again.";
 		}
 		
 		private function onStageResize(event:Event):void {

@@ -85,7 +85,7 @@ package com.newco.grand.core.common.model
 		}
 		
 		public function get skin():String{
-			return server +_skin;
+			return server + _skin;
 		}
 		
 		public function set skin(value:String):void{

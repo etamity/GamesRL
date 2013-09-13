@@ -26,6 +26,9 @@ package com.newco.grand.core.common.view.uicomps
 			_display.defaultGapHeight=2;
 	
 		}
+	    public function updateLanguage():void{
+			
+		}
 		public function get view():Sprite{
 			return this;
 		}
@@ -47,6 +50,7 @@ package com.newco.grand.core.common.view.uicomps
 		}
 		public function init():void
 		{
+			updateLanguage();
 			align();
 		}
 		

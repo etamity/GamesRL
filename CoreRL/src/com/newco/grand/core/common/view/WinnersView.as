@@ -10,31 +10,21 @@ package com.newco.grand.core.common.view {
 	import fl.controls.dataGridClasses.DataGridColumn;
 	import fl.data.DataProvider;
 
-	public class WinnersView extends Sprite implements IPlayersView {
+	public class WinnersView extends UIView implements IPlayersView {
 		
 		private var _players:XML;
 		private var dgCol1Name:String = "Player";
 		private var dgCol2Name:String = "Amount";
 		private var winnersList:Array;
 		private var playersListDgMc:DataGrid;
-		protected var _display:*;
 		public function WinnersView() {
-			visible = false;
-			initDisplay();
-			createDataGrid(null);
+			super();
 
 		}		
-		public function initDisplay():void{
-			//_display=new StageAsset();
+		override public function initDisplay():void{
+			createDataGrid(null);
 		}
-		public function get display():*{
-			return this;
-		}
-		public function init():void {			
-			align();
-	
 
-		}
 		
 		public function setSize(newWidth:Number, newHeight:Number):void{
 
@@ -64,9 +54,6 @@ package com.newco.grand.core.common.view {
 			style.font = "Arial";
 			playersListDgMc.setStyle("headerTextFormat",style);
 			playersListDgMc.setRendererStyle("textFormat",style);
-		}
-		public function align():void {
-			visible = true;
 		}
 		
 		public function get players():XML {

@@ -19,7 +19,9 @@ package com.newco.grand.core.common.view.uicomps
 		}
 		public function initDisplay():void{
 		}
-		
+		public function updateLanguage():void{
+			
+		}
 		public function align():void {
 			visible = true;
 		}

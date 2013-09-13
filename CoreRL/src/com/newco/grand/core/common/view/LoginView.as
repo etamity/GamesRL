@@ -1,37 +1,35 @@
 package com.newco.grand.core.common.view {
+	import com.newco.grand.core.common.model.LanguageModel;
 	import com.newco.grand.core.common.view.interfaces.ILoginView;
 	import com.newco.grand.core.utils.StringUtils;
 	
-	import flash.display.Sprite;
 	import flash.events.MouseEvent;
 	
 	import org.osflash.signals.Signal;
 	
-	public class LoginView extends Sprite implements ILoginView {
+	public class LoginView extends UIView implements ILoginView {
 		private var _loginSignal:Signal=new Signal();
-		protected var _display:*;
+		protected var _skin:LoginAsset;
 		public function LoginView() {
-			visible = false;
-			initDisplay();
+			super();
 		}		
-		public function initDisplay():void{
-			_display=new LoginAsset();
-			addChild(_display);
+		override public function updateLanguage():void{
+			 _skin.loginBtnLabel.text=LanguageModel.LOGIN;
+			 _skin.userNameLabel.text=LanguageModel.USERNAME;
+			 _skin.passwordLabel.text=LanguageModel.PASSWORD;
+		}
+		override public function initDisplay():void{
+			 _skin=new LoginAsset();
+			 _skin.loginBtnLabel.mouseEnabled=false;
+			addChild( _skin);
+			 _skin.loginBtn.addEventListener(MouseEvent.CLICK, login);
+			
+			_display= _skin;
 		}
 		
-		public function init():void {			
-			align();
-			_display.loginBtn.addEventListener(MouseEvent.CLICK, login);
-		}
-		
-		public function get display():*{
-			return this;
-		}
-		
-		public function align():void {
+		override public function align():void {
 			x = (stage.stageWidth  - width) / 2;
 			y = (stage.stageHeight  - height) / 2;
-			visible = true;
 		}
 		public function get loginSignal():Signal{
 			return _loginSignal;
@@ -42,11 +40,11 @@ package com.newco.grand.core.common.view {
 		}
 		
 		public function set id(value:String):void {
-			_display.loginTxt.text = value;
+			_display.userNameTxt.text = value;
 		}
 		
 		public function get id():String {
-			return StringUtils.trim(_display.loginTxt.text);
+			return StringUtils.trim(_display.userNameTxt.text);
 		}
 		
 		public function get password():String {

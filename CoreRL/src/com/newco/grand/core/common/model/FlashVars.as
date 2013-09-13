@@ -25,7 +25,7 @@ package com.newco.grand.core.common.model {
 		public var game_url:String;
 		
 		public var game:String         = "";
-		public var gametype:String     = "";
+		public var gametype:String     = "classic";
 		
 		public var videoplayer:String  ="";
 		public var streamUrl:String  ="";

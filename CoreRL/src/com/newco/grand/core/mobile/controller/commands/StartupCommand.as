@@ -29,7 +29,7 @@ package com.newco.grand.core.mobile.controller.commands {
 			if(flashVars.localhost) {
 				configService.load(function ():void{
 					urlsService.load(function ():void{
-						SkinLoader.loadSkinFile("skins/skin.swf",onStart,onError,null,null);
+						 SkinLoader.loadSkinFile("skins/skin.swf",onStart,onError,null,null);
 						//onStart();
 					});
 				});

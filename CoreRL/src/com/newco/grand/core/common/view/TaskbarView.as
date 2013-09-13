@@ -10,7 +10,6 @@ package com.newco.grand.core.common.view {
 	import com.newco.grand.core.utils.GameUtils;
 	
 	import flash.display.MovieClip;
-	import flash.display.Sprite;
 	import flash.events.MouseEvent;
 	import flash.filters.ColorMatrixFilter;
 	import flash.geom.Point;
@@ -19,7 +18,7 @@ package com.newco.grand.core.common.view {
 	
 	import caurina.transitions.Tweener;
 	
-	public class TaskbarView extends Sprite implements ITaskbarView {
+	public class TaskbarView extends UIView implements ITaskbarView {
 		
 		private const ICON_OFF:String = "off";
 		private const ICON_OFF_OVER:String = "offover";
@@ -61,14 +60,25 @@ package com.newco.grand.core.common.view {
 		
 		private var _signalBus:SignalBus=new SignalBus();
 		
-		protected var _display:*;
-		
 		
 		private var buttonsPTs:Array;
 		
+		
+		protected var _skin:TaskbarAsset;
 		public function TaskbarView() {
-			visible = false;
-			initDisplay();
+			super();
+		
+		}
+		
+		override public function initDisplay():void{
+			 _skin=new TaskbarAsset();
+			_display= _skin;
+			addChild( _display);
+			initSkin();
+		}
+		
+		
+		protected function initSkin():void{
 			_display.sound.iconMC.gotoAndStop(ICON_OFF);
 			_display.fullscreen.iconMC.gotoAndStop(ICON_OFF);
 			_display.chat.iconMC.gotoAndStop(ICON_OFF);
@@ -93,26 +103,29 @@ package com.newco.grand.core.common.view {
 			_display.responsible.mouseChildren = false;
 			_display.settings.mouseChildren = false;
 			
+			_display.language.iconMC.gotoAndStop(ICON_OFF);
+			_display.language.mouseChildren = false;
+			_display.language.buttonMode = true;
 			/*settings.visible = false;
-		
+			
 			help.visible = false;
 			history.visible = false;*/
 			
-			clearBtn = new SMButton(_display.clear);
-			undoBtn = new SMButton(_display.undo);
-			repeatBtn = new SMButton(_display.repeat);
-			doubleBtn = new SMButton(_display.double);
-			confirmBtn = new SMButton(_display.confirm);
-			favouritesBtn = new SMButton(_display.favourites);
-			lobbyBtn =new SMButton(_display.lobby);
+			clearBtn = new SMButton( _display.clear);
+			undoBtn = new SMButton( _display.undo);
+			repeatBtn = new SMButton( _display.repeat);
+			doubleBtn = new SMButton( _display.double);
+			confirmBtn = new SMButton( _display.confirm);
+			favouritesBtn = new SMButton( _display.favourites);
+			lobbyBtn =new SMButton( _display.lobby);
 			
 			_display.responsible.visible = false;
 			_display.chat.visible = false;
 			_display.chat.mouseEnabled=false;
 			_display.settings.mouseEnabled=false;
-			//_display.history.mouseEnabled=false;
+			// _display.history.mouseEnabled=false;
 			_display.help.mouseEnabled=false;
-
+			
 			/*clear.mouseChildren = false;
 			undo.mouseChildren = false;
 			repeat.mouseChildren = false;
@@ -143,7 +156,7 @@ package com.newco.grand.core.common.view {
 			_display.history.addEventListener(MouseEvent.CLICK, buttonClick);
 			
 			_display.myaccount.addEventListener(MouseEvent.CLICK, myAccountClick);
-			lobbyBtn.skin.addEventListener(MouseEvent.CLICK, buttonClick);
+			lobbyBtn. skin.addEventListener(MouseEvent.CLICK, buttonClick);
 			myAccountEnabled(false);
 			
 			
@@ -152,22 +165,30 @@ package com.newco.grand.core.common.view {
 			_display.history.visible=true;
 			_display.help.visible=false;
 			favouritesBtn.enabled=false;
-			favouritesBtn.skin.visible=false;
-			confirmBtn.skin.visible=false;
+			favouritesBtn. skin.visible=false;
+			confirmBtn. skin.visible=false;
 			buttonsPTs=[];
 			
 			
-			buttonsPTs.push(new Point(clearBtn.skin.x,clearBtn.skin.y));
-			buttonsPTs.push(new Point(undoBtn.skin.x,undoBtn.skin.y));
-			buttonsPTs.push(new Point(repeatBtn.skin.x,repeatBtn.skin.y));
-			buttonsPTs.push(new Point(doubleBtn.skin.x,doubleBtn.skin.y));
+			buttonsPTs.push(new Point(clearBtn. skin.x,clearBtn. skin.y));
+			buttonsPTs.push(new Point(undoBtn. skin.x,undoBtn. skin.y));
+			buttonsPTs.push(new Point(repeatBtn. skin.x,repeatBtn. skin.y));
+			buttonsPTs.push(new Point(doubleBtn. skin.x,doubleBtn. skin.y));
 			
+			
+			game = "--";
+			//enableChips();
+			disbleUndo();
+			disbleClear();
+			disbleRepeat();
+			disbleDouble();
+			disbleConfirm();
+			disbleFavourites();
+			addTooltip();
+			
+			soundButtonON_OFF=SoundMixer.soundTransform.volume;
 		}
 		
-		public function initDisplay():void{
-			_display=new TaskbarAsset();
-			addChild(_display);
-		}
 		/*public function get buttonClickedSignal:Signal{
 			return _buttonClickedSignal;
 		}
@@ -198,10 +219,7 @@ package com.newco.grand.core.common.view {
 		public function get chipClickedSignal:Signal{
 			return _chipClickedSignal;
 		}*/
-		public function get display():*{
-			return this;
-		}
-		public function setLanguage():void{
+		override public function updateLanguage():void{
 			balanceLabel=LanguageModel.BALANCE;
 			betLabel=LanguageModel.BET;
 			gameLabel=LanguageModel.GAMEID;
@@ -220,29 +238,14 @@ package com.newco.grand.core.common.view {
 		
 		
 		public function myAccountEnabled(val:Boolean):void{
-			_display.myaccount.mouseEnabled=val;
-			_display.myaccount.buttonMode=val;
-			_display.myaccount.visible=val;
+			 _display.myaccount.mouseEnabled=val;
+			 _display.myaccount.buttonMode=val;
+			 _display.myaccount.visible=val;
 		}
 		
-		public function init():void {
-			game = "--";
-			//enableChips();
-			align();
-			disbleUndo();
-			disbleClear();
-			disbleRepeat();
-			disbleDouble();
-			disbleConfirm();
-			disbleFavourites();
-			addTooltip();
-			visible = true;
-			soundButtonON_OFF=SoundMixer.soundTransform.volume;
-			setLanguage();
-		}
-		
-		public function align():void {			
-			//_display.bg.width = stage.stageWidth;
+		override public function align():void {
+
+			// _display.bg.width = stage.stageWidth;
 			x = 0;
 			//y = stage.stageHeight - height;
 			y=523;
@@ -286,19 +289,19 @@ package com.newco.grand.core.common.view {
 			var target:MovieClip= event.target as MovieClip;
 			
 			switch (target){
-				case _display.fullscreen:
+				case  _display.fullscreen:
 					_signalBus.dispatch(TaskbarActionEvent.BUTTON_CLICKED,{eventType:TaskbarActionEvent.FULLSCREEN_CLICKED});
 					break;
-				case _display.sound:
+				case  _display.sound:
 					_signalBus.dispatch(TaskbarActionEvent.BUTTON_CLICKED,{eventType:TaskbarActionEvent.SOUND_CLICKED});
 					break;
-				case _display.lobby:
+				case  _display.lobby:
 					_signalBus.dispatch(TaskbarActionEvent.LOBBY_CLICKED,{eventType:TaskbarActionEvent.LOBBY_CLICKED});
 					break;
-				case _display.help:
+				case  _display.help:
 					_signalBus.dispatch(TaskbarActionEvent.BUTTON_CLICKED,{eventType:TaskbarActionEvent.HELP_CLICKED});
 					break;
-				case _display.history:
+				case  _display.history:
 					_signalBus.dispatch(TaskbarActionEvent.LOBBY_CLICKED,{eventType:TaskbarActionEvent.HISTORY_CLICKED});	
 					break;
 			}
@@ -342,51 +345,53 @@ package com.newco.grand.core.common.view {
 		}
 		
 		public function set balanceLabel(value:String):void {
-			_display.balanceMC.title.htmlText = '<b>'+value+'</b>';
+			 _display.balanceMC.title.htmlText = '<b>'+value+'</b>';
+			 _display.balanceCenterMC.title.htmlText = '<b>'+value+'</b>';
+			
 		}
 		
 		public function set balance(value:String):void {
-			_display.balanceMC.value.htmlText = '<b>'+value+'</b>';
+			 _display.balanceMC.value.htmlText = '<b>'+value+'</b>';
 		}
 		
 		public function set betLabel(value:String):void {
-			_display.betMC.title.htmlText = '<b>'+value+'</b>';
+			 _display.betMC.title.htmlText = '<b>'+value+'</b>';
 		}
 		
 		public function set bet(value:String):void {
-			_display.betMC.value.htmlText = '<b>'+value+'</b>';
+			 _display.betMC.value.htmlText = '<b>'+value+'</b>';
 		}
 		
 		public function set gameLabel(value:String):void {
-			_display.gameMC.title.htmlText = '<b>'+value+'</b>';
+			 _display.gameMC.title.htmlText = '<b>'+value+'</b>';
 		}
 		
 		public function set game(value:String):void {
-			_display.gameMC.value.htmlText = '<b>'+value+'</b>';
+			 _display.gameMC.value.htmlText = '<b>'+value+'</b>';
 		}
 		
 		public function set myaccountLabel(value:String):void {
-			_display.myaccount.label.htmlText = '<b>'+value+'</b>';
+			 _display.myaccount.label.htmlText = '<b>'+value+'</b>';
 		}
 		
 		public function set repeatLabel(value:String):void {
-			_display.repeat.label.htmlText = '<b>'+value+'</b>';
+			// _display.repeat.label.htmlText = '<b>'+value+'</b>';
 		}
 		
 		public function set doubleLabel(value:String):void {
-			_display.double.label.htmlText = '<b>'+value+'</b>';
+			// _display.double.label.htmlText = '<b>'+value+'</b>';
 		}
 		
 		public function set undoLabel(value:String):void {
-			_display.undo.label.htmlText = '<b>'+value+'</b>';
+			// _display.undo.label.htmlText = '<b>'+value+'</b>';
 		}
 		
 		public function set clearLabel(value:String):void {
-			_display.clear.label.htmlText = '<b>'+value+'</b>';
+			// _display.clear.label.htmlText = '<b>'+value+'</b>';
 		}
 		
 		public function set lobbyLabel(value:String):void {
-			//_display.lobby.label.htmlText = '<b>'+value+'</b>';
+			// _display.lobby.label.htmlText = '<b>'+value+'</b>';
 		}
 		
 		public function enableUndo():void {
@@ -394,7 +399,7 @@ package com.newco.grand.core.common.view {
 			undo.mouseEnabled = true;
 			undo.addEventListener(MouseEvent.CLICK, buttonAction);*/
 			undoBtn.enabled=true;
-			undoBtn.skin.addEventListener(MouseEvent.CLICK, buttonAction);
+			undoBtn. skin.addEventListener(MouseEvent.CLICK, buttonAction);
 		}
 		
 		public function disbleUndo():void {
@@ -402,29 +407,29 @@ package com.newco.grand.core.common.view {
 			undo.mouseEnabled = false;
 			undo.removeEventListener(MouseEvent.CLICK, buttonAction);*/
 			undoBtn.enabled=false;
-			undoBtn.skin.removeEventListener(MouseEvent.CLICK, buttonAction);
+			undoBtn. skin.removeEventListener(MouseEvent.CLICK, buttonAction);
 			
 		}
 		
 		
 		public function slideUpButtons():void{
-			Tweener.addTween(clearBtn.skin,{y:buttonsPTs[0].y, time:0.5});
-			Tweener.addTween(undoBtn.skin,{y:buttonsPTs[1].y, time:0.5});
-			Tweener.addTween(repeatBtn.skin,{y:buttonsPTs[2].y, time:0.5});
-			Tweener.addTween(doubleBtn.skin,{y:buttonsPTs[3].y, time:0.5});
+			Tweener.addTween(clearBtn. skin,{y:buttonsPTs[0].y, time:0.5});
+			Tweener.addTween(undoBtn. skin,{y:buttonsPTs[1].y, time:0.5});
+			Tweener.addTween(repeatBtn. skin,{y:buttonsPTs[2].y, time:0.5});
+			Tweener.addTween(doubleBtn. skin,{y:buttonsPTs[3].y, time:0.5});
 		}
 		public function slideDownButtons():void{
-			Tweener.addTween(undoBtn.skin,{y:100, time:0.5});
-			Tweener.addTween(repeatBtn.skin,{y:100, time:0.5});
-			Tweener.addTween(clearBtn.skin,{y:100, time:0.5});
-			Tweener.addTween(doubleBtn.skin,{y:100, time:0.5});
+			Tweener.addTween(undoBtn. skin,{y:100, time:0.5});
+			Tweener.addTween(repeatBtn. skin,{y:100, time:0.5});
+			Tweener.addTween(clearBtn. skin,{y:100, time:0.5});
+			Tweener.addTween(doubleBtn. skin,{y:100, time:0.5});
 		}
 		public function enableClear():void {
 			/*clear.filters = null;
 			clear.mouseEnabled = true;
 			clear.addEventListener(MouseEvent.CLICK, buttonAction);*/
 			clearBtn.enabled=true;
-			clearBtn.skin.addEventListener(MouseEvent.CLICK, buttonAction);
+			clearBtn. skin.addEventListener(MouseEvent.CLICK, buttonAction);
 
 			
 		}
@@ -434,14 +439,14 @@ package com.newco.grand.core.common.view {
 			clear.mouseEnabled = false;
 			clear.removeEventListener(MouseEvent.CLICK, buttonAction);*/
 			clearBtn.enabled=false;
-			clearBtn.skin.removeEventListener(MouseEvent.CLICK, buttonAction);
+			clearBtn. skin.removeEventListener(MouseEvent.CLICK, buttonAction);
 		}
 		
 		public function enableRepeat():void {
 			/*repeat.filters = null;
 			repeat.mouseEnabled = true;
 			repeat.addEventListener(MouseEvent.CLICK, buttonAction);*/
-			repeatBtn.skin.addEventListener(MouseEvent.CLICK, buttonAction);
+			repeatBtn. skin.addEventListener(MouseEvent.CLICK, buttonAction);
 			repeatBtn.enabled=true;
 			
 		
@@ -451,7 +456,7 @@ package com.newco.grand.core.common.view {
 			/*repeat.filters = [_colorMat];
 			repeat.mouseEnabled = false;
 			repeat.removeEventListener(MouseEvent.CLICK, buttonAction);*/
-			repeatBtn.skin.removeEventListener(MouseEvent.CLICK, buttonAction);
+			repeatBtn. skin.removeEventListener(MouseEvent.CLICK, buttonAction);
 			repeatBtn.enabled=false;
 	
 		}
@@ -460,7 +465,7 @@ package com.newco.grand.core.common.view {
 			/*double.filters = null;
 			double.mouseEnabled = true;
 			double.addEventListener(MouseEvent.CLICK, buttonAction);*/
-			doubleBtn.skin.addEventListener(MouseEvent.CLICK, buttonAction);
+			doubleBtn. skin.addEventListener(MouseEvent.CLICK, buttonAction);
 			doubleBtn.enabled=true;
 			
 		}
@@ -469,7 +474,7 @@ package com.newco.grand.core.common.view {
 			/*double.filters = [_colorMat];
 			double.mouseEnabled = false;
 			double.removeEventListener(MouseEvent.CLICK, buttonAction);*/
-			doubleBtn.skin.removeEventListener(MouseEvent.CLICK, buttonAction);
+			doubleBtn. skin.removeEventListener(MouseEvent.CLICK, buttonAction);
 			doubleBtn.enabled=false;
 		}
 		
@@ -477,7 +482,7 @@ package com.newco.grand.core.common.view {
 			/*double.filters = null;
 			double.mouseEnabled = true;
 			double.addEventListener(MouseEvent.CLICK, buttonAction);*/
-			confirmBtn.skin.addEventListener(MouseEvent.CLICK, buttonAction);
+			confirmBtn. skin.addEventListener(MouseEvent.CLICK, buttonAction);
 			confirmBtn.enabled=true;
 			
 		}
@@ -486,7 +491,7 @@ package com.newco.grand.core.common.view {
 			/*double.filters = [_colorMat];
 			double.mouseEnabled = false;
 			double.removeEventListener(MouseEvent.CLICK, buttonAction);*/
-			confirmBtn.skin.removeEventListener(MouseEvent.CLICK, buttonAction);
+			confirmBtn. skin.removeEventListener(MouseEvent.CLICK, buttonAction);
 			confirmBtn.enabled=false;
 		}
 		
@@ -496,7 +501,7 @@ package com.newco.grand.core.common.view {
 			/*double.filters = null;
 			double.mouseEnabled = true;
 			double.addEventListener(MouseEvent.CLICK, buttonAction);*/
-			favouritesBtn.skin.addEventListener(MouseEvent.CLICK, buttonAction);
+			favouritesBtn. skin.addEventListener(MouseEvent.CLICK, buttonAction);
 			favouritesBtn.enabled=true;
 			
 		}
@@ -505,7 +510,7 @@ package com.newco.grand.core.common.view {
 			/*double.filters = [_colorMat];
 			double.mouseEnabled = false;
 			double.removeEventListener(MouseEvent.CLICK, buttonAction);*/
-			favouritesBtn.skin.removeEventListener(MouseEvent.CLICK, buttonAction);
+			favouritesBtn. skin.removeEventListener(MouseEvent.CLICK, buttonAction);
 			favouritesBtn.enabled=false;
 		}
 		public function disableButtons():void{
@@ -521,9 +526,9 @@ package com.newco.grand.core.common.view {
 		
 		public function set soundButtonON_OFF(val:int):void {
 			if(val == 0)
-				_display.sound.iconMC.gotoAndStop(ICON_OFF);
+				 _display.sound.iconMC.gotoAndStop(ICON_OFF);
 			else 
-				_display.sound.iconMC.gotoAndStop(ICON_ON);
+				 _display.sound.iconMC.gotoAndStop(ICON_ON);
 		}
 		
 		
@@ -539,8 +544,8 @@ package com.newco.grand.core.common.view {
 		private function myAccountClick(event:MouseEvent = null):void {
 			if(_menuItems != null) {
 				_menuItems.visible = !_menuItems.visible;
-				_menuItems.x = _display.myaccount.x;
-				_menuItems.y = _display.myaccount.y - (_menuItems.height + _display.myaccount.height);
+				_menuItems.x =  _display.myaccount.x;
+				_menuItems.y =  _display.myaccount.y - (_menuItems.height +  _display.myaccount.height);
 			} else {
 				_signalBus.dispatch(TaskbarActionEvent.MENUITEM_CLICKED,{url:_myAccountURL});
 				//_menuitemClickedSignal.dispatch(_myAccountURL);
@@ -591,7 +596,7 @@ package com.newco.grand.core.common.view {
 			for (var i:int = 0; i < CHIPS_COUNT; i++) {
 				if (_chips[i]!=0)
 				{
-				chipClip = _display.chipsMC["chip" + i] as MovieClip;
+				chipClip =  _display.chipsMC["chip" + i] as MovieClip;
 				chipClip.gotoAndStop(1);
 				chipClip.buttonMode = true;
 				chipClip.mouseChildren = false;
@@ -605,7 +610,7 @@ package com.newco.grand.core.common.view {
 		public function disbleChips():void {
 			var chipClip:MovieClip;
 			for (var i:int = 0; i < CHIPS_COUNT; i++) {
-				chipClip = _display.chipsMC["chip" + i] as MovieClip;
+				chipClip =  _display.chipsMC["chip" + i] as MovieClip;
 				chipClip.gotoAndStop(1);
 				chipClip.buttonMode = false;
 				chipClip.mouseChildren = false;
@@ -623,7 +628,7 @@ package com.newco.grand.core.common.view {
 			_chips = value;
 			var chip:MovieClip;
 			for (var i:int = 0; i < value.length; i++) {
-				chip = _display.chipsMC["chip" + i] as MovieClip;
+				chip =  _display.chipsMC["chip" + i] as MovieClip;
 				chip.base.color.stop();
 				chip.value.text = FormatUtils.formatChipStackText(value[i]);
 				//chip.value.setTextFormat(getTextFormat(11));
@@ -635,8 +640,8 @@ package com.newco.grand.core.common.view {
 				chip.selected.visible = false;
 		
 			}
-			_display.chipsMC.visible = true;
-			switchSelectedChip(_display.chipsMC.chip0);
+			 _display.chipsMC.visible = true;
+			switchSelectedChip( _display.chipsMC.chip0);
 		}
 		
 		private function chipClicked(event:MouseEvent):void	{
@@ -649,7 +654,7 @@ package com.newco.grand.core.common.view {
 		private function switchSelectedChip(target:MovieClip):void {
 			var chipClip:MovieClip;
 			for (var i:int = 0; i < CHIPS_COUNT; i++) {
-				chipClip = _display.chipsMC["chip" + i] as MovieClip;
+				chipClip =  _display.chipsMC["chip" + i] as MovieClip;
 				chipClip.selected.visible = false;
 			}
 			target.selected.visible = true;
@@ -659,11 +664,6 @@ package com.newco.grand.core.common.view {
 		private function getTextFormat(textSize:int):TextFormat {
 			var format:TextFormat = new TextFormat("Arial", textSize, 0xFFFFFF, true);
 			return format;
-		}
-		
-		private function debug(... args):void
-		{
-			GameUtils.log(this, args);
 		}
 	}
 }

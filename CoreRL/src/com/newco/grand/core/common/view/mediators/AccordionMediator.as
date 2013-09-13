@@ -1,8 +1,8 @@
 package com.newco.grand.core.common.view.mediators {
 	
 	import com.newco.grand.core.common.controller.signals.BaseSignal;
+	import com.newco.grand.core.common.controller.signals.LanguageAndStylesEvent;
 	import com.newco.grand.core.common.controller.signals.ModelReadyEvent;
-	import com.newco.grand.core.common.controller.signals.StartupDataEvent;
 	import com.newco.grand.core.common.controller.signals.UIEvent;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.view.interfaces.IAccordion;
@@ -25,7 +25,7 @@ package com.newco.grand.core.common.view.mediators {
 		
 		override public function initialize():void {
 			signalBus.add(ModelReadyEvent.READY, setupModel);
-			signalBus.add(StartupDataEvent.LOADED, addViews);
+			signalBus.add(LanguageAndStylesEvent.LOADED, addViews);
 		}
 		
 		private function setupModel(signal:BaseSignal):void {

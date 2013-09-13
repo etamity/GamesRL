@@ -11,6 +11,7 @@ package com.newco.grand.core.mobile.view{
 			override public function initDisplay():void{
 				_display=new Mobile_TaskbarAsset();
 				addChild(_display);
+				initSkin();
 			}
 			override public function align():void {			
 				x = 0;
