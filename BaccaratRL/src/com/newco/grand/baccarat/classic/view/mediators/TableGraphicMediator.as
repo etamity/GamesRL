@@ -27,7 +27,7 @@ package com.newco.grand.baccarat.classic.view.mediators
 		}
 		private function setupModel(signal:BaseSignal):void {
 			
-			view.align();
+			view.init();
 			
 		}
 	}

@@ -18,10 +18,6 @@ package com.newco.grand.baccarat.classic.view.mediators
 		}
 		override public function initialize():void {
 			super.initialize();
-			var shoeStatsMc:ShoeStatsAsset =new ShoeStatsAsset();
-			//shoeStatsMc.x= view.display.stage.stageWidth - shoeStatsMc.width;
-			
-			view.view.addChild(shoeStatsMc);
 			view.display.y=190;
 			view.compHeight= view.compHeight -50;
 			

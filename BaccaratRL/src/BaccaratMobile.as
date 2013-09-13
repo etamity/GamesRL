@@ -23,7 +23,7 @@ package
 		
 		private function onAddToStage(evt:Event):void{
 			removeEventListener(Event.ADDED_TO_STAGE,onAddToStage);
-			FlashVars.SKIN_ENABLE=false;
+			FlashVars. SKIN_ENABLE=false;
 			FlashVars.AIR_MODE=true;
 			start();
 		}

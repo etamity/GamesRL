@@ -7,11 +7,14 @@ package com.newco.grand.baccarat.classic.controller.commands
 	import com.newco.grand.baccarat.classic.view.ChatView;
 	import com.newco.grand.baccarat.classic.view.GameStatusView;
 	import com.newco.grand.baccarat.classic.view.ScoreCardView;
+	import com.newco.grand.baccarat.classic.view.StatisticsView;
 	import com.newco.grand.baccarat.classic.view.TableGraphicView;
 	import com.newco.grand.baccarat.classic.view.TaskbarView;
 	import com.newco.grand.baccarat.classic.view.VideoView;
 	import com.newco.grand.core.common.controller.commands.BaseCommand;
+	import com.newco.grand.core.common.controller.signals.LanguageAndStylesEvent;
 	import com.newco.grand.core.common.model.FlashVars;
+	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.view.ErrorMessageView;
 	import com.newco.grand.core.common.view.LoginView;
 	import com.newco.grand.core.common.view.StageView;
@@ -23,7 +26,8 @@ package com.newco.grand.baccarat.classic.controller.commands
 	{
 		[Inject]
 		public var contextView:ContextView;
-		
+		[Inject]
+		public var signalBus:SignalBus;
 		public function SetupViewCommand()
 		{
 			super();
@@ -42,6 +46,7 @@ package com.newco.grand.baccarat.classic.controller.commands
 			contextView.view.addChild(new ScoreCardView());
 			contextView.view.addChild(new AccordionUIView());
 
+			contextView.view.addChild(new StatisticsView());
 			contextView.view.addChild(new TaskbarView());
 			contextView.view.addChild(new GameStatusView())
 			contextView.view.addChild(new ChatView());
@@ -49,12 +54,13 @@ package com.newco.grand.baccarat.classic.controller.commands
 			contextView.view.addChild(new CardsPanelView());
 			contextView.view.addChild(new AnimationPanelView());
 
+			
 
 			
 			
 			if (FlashVars.DEBUG_MODE==true)
 				contextView.view.addChild(new ErrorMessageView());
-
+			signalBus.dispatch(LanguageAndStylesEvent.LOAD);
 		}
 		
 		private function debug(...args):void {

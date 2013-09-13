@@ -1,5 +1,6 @@
 package com.newco.grand.baccarat.classic.view.mediators
 {
+	import com.newco.grand.baccarat.classic.view.interfaces.IStatisticsView;
 	import com.newco.grand.core.common.controller.signals.BaseSignal;
 	import com.newco.grand.core.common.controller.signals.ModelReadyEvent;
 	import com.newco.grand.core.common.model.SignalBus;
@@ -10,6 +11,8 @@ package com.newco.grand.baccarat.classic.view.mediators
 	{
 		[Inject]
 		public var signalBus:SignalBus;
+		[Inject]
+		public var view:IStatisticsView;
 		public function StatisticsMediator()
 		{
 			super();
@@ -19,7 +22,7 @@ package com.newco.grand.baccarat.classic.view.mediators
 
 		}
 		private function setupModel(signal:BaseSignal):void {
-
+			view.init();
 		}
 
 	}

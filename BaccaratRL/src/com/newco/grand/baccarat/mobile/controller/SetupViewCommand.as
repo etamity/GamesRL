@@ -8,7 +8,9 @@ package com.newco.grand.baccarat.mobile.controller
 	import com.newco.grand.baccarat.mobile.view.ScoreCardView;
 	import com.newco.grand.baccarat.mobile.view.TableGraphicView;
 	import com.newco.grand.core.common.controller.commands.BaseCommand;
+	import com.newco.grand.core.common.controller.signals.LanguageAndStylesEvent;
 	import com.newco.grand.core.common.model.FlashVars;
+	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.view.ErrorMessageView;
 	import com.newco.grand.core.common.view.LoginView;
 	import com.newco.grand.core.mobile.view.StageView;
@@ -22,7 +24,8 @@ package com.newco.grand.baccarat.mobile.controller
 	{
 		[Inject]
 		public var contextView:ContextView;
-		
+		[Inject]
+		public var signalBus:SignalBus;
 		public function SetupViewCommand()
 		{
 			super();
@@ -51,9 +54,7 @@ package com.newco.grand.baccarat.mobile.controller
 
 
 			
-			
-			if (FlashVars.DEBUG_MODE==true)
-				contextView.view.addChild(new ErrorMessageView());
+			signalBus.dispatch(LanguageAndStylesEvent.LOAD);
 
 		}
 		

@@ -4,18 +4,18 @@ package com.newco.grand.baccarat.classic.view {
 	import com.newco.grand.baccarat.classic.view.interfaces.IBetSpotsView;
 	import com.newco.grand.core.common.controller.signals.BetEvent;
 	import com.newco.grand.core.common.controller.signals.HighlightEvent;
+	import com.newco.grand.core.common.model.LanguageModel;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.view.BetSpot;
 	import com.newco.grand.core.common.view.Betchip;
+	import com.newco.grand.core.common.view.UIView;
 	import com.newco.grand.core.utils.FormatUtils;
-	import com.newco.grand.core.utils.GameUtils;
 	
 	import flash.display.MovieClip;
-	import flash.display.Sprite;
 	import flash.geom.Point;
 	import flash.utils.Dictionary;
 
-	public class BetSpotsView extends Sprite implements IBetSpotsView{
+	public class BetSpotsView extends UIView implements IBetSpotsView{
 		private var _betspotMC:BetSpot;
 		private var _betchipMC:Betchip;
 		private var _chipsPlacedOrder:Array = [];
@@ -33,9 +33,7 @@ package com.newco.grand.baccarat.classic.view {
 		
 		private var _chipSelecedValue:Number=0;
 		private var _balance:Number=0;
-		protected var _display:*;
 		public function BetSpotsView() {
-			initDisplay();
 			_betSpotsArray=new Array();
 			_betSpotsName = new Array(
 				BaccaratConstants.PLAYER, 
@@ -46,25 +44,29 @@ package com.newco.grand.baccarat.classic.view {
 			);
 			_payouts = new Array(2, 1.95, 9, 12, 12);
 			_betSpotHash=new Dictionary();
-			hideSpotsMc();
-			visible = false;
-			_display.stop();
+			super();
 		}
-		public function align():void {			
-			visible = true;
-			//x=x-200;
-			
-		}
+
 		public function get signalBus():SignalBus{
 			return _signalBus;
 		}
-		public function initDisplay():void{
+		
+		
+		override public function updateLanguage():void{
+			getBetspotByName(BaccaratConstants.PLAYER).display.label.text=LanguageModel.PLAYER;
+			getBetspotByName(BaccaratConstants.BANKER).display.label.text=LanguageModel.BANKER;
+			getBetspotByName(BaccaratConstants.TIE).display.label.text=LanguageModel.TIE;
+			/*getBetspotByName(BaccaratConstants.PAIRBANKER).display.label.text=LanguageModel.PAIR_BANKER;
+			getBetspotByName(BaccaratConstants.PAIRPLAYER).display.label.text=LanguageModel.PAIR_PLAYER;*/
+		}
+			
+		
+		override public function initDisplay():void{
 			_display= new BetSpotsAsset();
 			addChild(_display);
+			_display.stop();
 		}
-		public function get display():*{
-			return this;
-		}
+
 		public function get chipSelecedValue():Number{
 			return _chipSelecedValue;
 		}
@@ -84,7 +86,7 @@ package com.newco.grand.baccarat.classic.view {
 					_betSpotsName.pop();
 					_betSpotsName.pop();
 					label=mode;
-				break;
+					break;
 				case BaccaratConstants.TYPE_DRAGONTIGER:
 					_betSpotsName.pop();
 					_betSpotsName.pop();
@@ -102,6 +104,7 @@ package com.newco.grand.baccarat.classic.view {
 					break;
 			}
 			_display.gotoAndStop(label);
+			hideSpotsMc();
 			createBetSpots();
 			disableBetting();
 		}
@@ -109,10 +112,6 @@ package com.newco.grand.baccarat.classic.view {
 		public function set multiChips(value:Boolean):void{
 			 _multiChips=value;
 		}
-		public function init():void {
-			align();
-		}
-		
 		public function registerPoints(dictionary:Dictionary):void{
 			for (var i:uint = 0; i < _betSpotsName.length; i++) {
 				_betspotMC = _betSpotsArray[i];
@@ -394,9 +393,7 @@ package com.newco.grand.baccarat.classic.view {
 			_betspotMC = getBetspotByName(side);
 			return _betspotMC.chipValue;
 		}
-		private function debug(...args):void {
-			GameUtils.log(this, args);
-		}
+
 	}
 }
 

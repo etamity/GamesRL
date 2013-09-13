@@ -11,12 +11,14 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.baccarat.classic.view.interfaces.IBetSpotsView;
 	import com.newco.grand.baccarat.classic.view.interfaces.ICardsPanelView;
 	import com.newco.grand.baccarat.classic.view.interfaces.IScoreCardView;
+	import com.newco.grand.baccarat.classic.view.interfaces.IStatisticsView;
 	import com.newco.grand.baccarat.classic.view.interfaces.ITableGraphicView;
 	import com.newco.grand.baccarat.classic.view.mediators.AnimationMeditor;
 	import com.newco.grand.baccarat.classic.view.mediators.BaccaratAccordionMediator;
 	import com.newco.grand.baccarat.classic.view.mediators.BetSpotsMediator;
 	import com.newco.grand.baccarat.classic.view.mediators.CardsPanelMediator;
 	import com.newco.grand.baccarat.classic.view.mediators.ScoreCardMediator;
+	import com.newco.grand.baccarat.classic.view.mediators.StatisticsMediator;
 	import com.newco.grand.baccarat.classic.view.mediators.TableGraphicMediator;
 	import com.newco.grand.baccarat.mobile.controller.SetupViewCommand;
 	import com.newco.grand.baccarat.mobile.view.CardsPanelView;
@@ -27,6 +29,7 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.controller.commands.ChatConnectionCommand;
 	import com.newco.grand.core.common.controller.commands.ChatReceiveMessageCommand;
 	import com.newco.grand.core.common.controller.commands.ChatSendMessageCommand;
+	import com.newco.grand.core.common.controller.commands.LanguageAndStylesCommnad;
 	import com.newco.grand.core.common.controller.commands.LoginCommand;
 	import com.newco.grand.core.common.controller.commands.PlayersCommand;
 	import com.newco.grand.core.common.controller.commands.SeatCommand;
@@ -38,6 +41,7 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.controller.signals.BalanceEvent;
 	import com.newco.grand.core.common.controller.signals.BetEvent;
 	import com.newco.grand.core.common.controller.signals.ChatEvent;
+	import com.newco.grand.core.common.controller.signals.LanguageAndStylesEvent;
 	import com.newco.grand.core.common.controller.signals.LoginEvent;
 	import com.newco.grand.core.common.controller.signals.PlayersEvent;
 	import com.newco.grand.core.common.controller.signals.SocketEvent;
@@ -215,6 +219,7 @@ package com.newco.grand.baccarat.configs
 			mediatorMap.map(IScoreCardView).toMediator(ScoreCardMediator);
 			//mediatorMap.map(MessageBoxView).toMediator(MessageBoxMediator);
 			mediatorMap.map(IErrorMessageView).toMediator(ErrorMessageMediator);
+			mediatorMap.map(IStatisticsView).toMediator(StatisticsMediator);
 			//mediatorMap.map(BetspotsPanelView).toMediator(BetspotsPanelMediator);
 			//mediatorMap.map(PlayersUIView).toMediator(PlayersMediator);
 			//mediatorMap.map(WinnersUIView).toMediator(WinnersMediator);
@@ -227,6 +232,7 @@ package com.newco.grand.baccarat.configs
 			commandMap.mapSignal(signalBus.signal(LoginEvent.LOGIN), LoginCommand);
 			commandMap.mapSignal(signalBus.signal(StartupDataEvent.SEAT), SeatCommand);
 			commandMap.mapSignal(signalBus.signal(StartupDataEvent.LOAD), StartupDataCommand);
+			commandMap.mapSignal(signalBus.signal(LanguageAndStylesEvent.LOAD), LanguageAndStylesCommnad);
 			commandMap.mapSignal(signalBus.signal(BalanceEvent.LOAD), BalanceCommand);
 			commandMap.mapSignal(signalBus.signal(StateTableConfigEvent.LOAD), StateTableConfigCommand);
 			commandMap.mapSignal(signalBus.signal(ChatEvent.LOAD_CONFIG), ChatConfigCommand);

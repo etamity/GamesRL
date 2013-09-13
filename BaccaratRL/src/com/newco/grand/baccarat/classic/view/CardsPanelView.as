@@ -2,15 +2,15 @@ package com.newco.grand.baccarat.classic.view
 {	
 	import com.newco.grand.baccarat.classic.model.BaccaratConstants;
 	import com.newco.grand.baccarat.classic.view.interfaces.ICardsPanelView;
+	import com.newco.grand.core.common.view.UIView;
 	import com.newco.grand.core.utils.GameUtils;
 	
 	import flash.display.MovieClip;
-	import flash.display.Sprite;
 	import flash.geom.Point;
 	
 	import caurina.transitions.Tweener;
 	
-	public class CardsPanelView extends Sprite implements ICardsPanelView
+	public class CardsPanelView extends UIView implements ICardsPanelView
 	{
 		public var cardsData:Array=new Array(
 			"c101","c102","c103","c104","c105","c106","c107","c108","c109","c110","c111","c112","c113",
@@ -32,40 +32,30 @@ package com.newco.grand.baccarat.classic.view
 		
 		private var cardsMc:MovieClip;
 
-		protected var _display:*;
+		protected var _skin:CardsPanelAsset;
 		
 		public function CardsPanelView()
 		{
-			initDisplay();
+			super();
+		}
+
+		override public function initDisplay():void{
+			 _skin=new CardsPanelAsset();
+			addChild( _skin);
+			_display= _skin;
 			bankerCards=new Array();
 			playerCards=new Array();
-			bankerCardPt= new Point(_display.BankerSide.x+50,_display.BankerSide.y-80);
-			playerCardPt= new Point(_display.playerSide.x+50,_display.playerSide.y-80);
+			bankerCardPt= new Point( _skin.BankerSide.x+50, _skin.BankerSide.y-80);
+			playerCardPt= new Point( _skin.playerSide.x+50, _skin.playerSide.y-80);
 			cardsMc=new MovieClip();
-			_display.addChild(cardsMc);
+			_skin.addChild(cardsMc);
 			refreshScore();
 			visible=false;
+		}
 
-		}
-		public function init():void{
-			align();
-		}
-		public function align():void{
-			visible=true;
-			//x=x-200;
-		}
-		public function initDisplay():void{
-			_display=new CardsPanelAsset();
-			addChild(_display);
-		}
-		
-		public function get display():*{
-			return _display;
-		}
-		
 		public function refreshScore():void{
-			_display.BankerSide.label.text = String(totalScore(BaccaratConstants.BANKER));
-			_display.playerSide.label.text = String(totalScore(BaccaratConstants.PLAYER));
+			 _skin.BankerSide.label.text = String(totalScore(BaccaratConstants.BANKER));
+			 _skin.playerSide.label.text = String(totalScore(BaccaratConstants.PLAYER));
 		}
 
 		public function totalScore(side:String):int{
@@ -183,8 +173,6 @@ package com.newco.grand.baccarat.classic.view
 			card.y=start.y;
 			Tweener.addTween(card,{alpha:1,x:end.x,y:end.y, time: 1, onComplete:complete,onCompleteParams:[card]});
 		}
-		private function debug(...args):void {
-			GameUtils.log(this, args);
-		}
+
 	}
 }

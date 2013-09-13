@@ -1,6 +1,6 @@
 ﻿package com.newco.grand.baccarat.classic.view.tournamenet  {
 	
-	public class PlayerItem extends PlayerItemSkin {
+	public class PlayerItem extends PlayerItemSkin{
 
 		public function PlayerItem() {
 			

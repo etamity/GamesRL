@@ -84,7 +84,6 @@ package com.newco.grand.baccarat.classic.view.mediators {
 		}
 		
 		private function initializeView():void {
-			
 			view.setMode(flashVars.gametype);
 			view.registerPoints(game.layoutPoints);
 			view.init();

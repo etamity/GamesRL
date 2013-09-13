@@ -1,31 +1,21 @@
 package com.newco.grand.baccarat.classic.view
 {
 	import com.newco.grand.baccarat.classic.view.interfaces.ITableGraphicView;
+	import com.newco.grand.core.common.view.UIView;
 	
-	import flash.display.Sprite;
-	
-	public class TableGraphicView extends Sprite implements ITableGraphicView
+	public class TableGraphicView extends UIView implements ITableGraphicView
 	{
-		protected var _display:*;
+		protected var _skin:TableGraphicAsset;
 		public function TableGraphicView()
 		{
-			initDisplay();
-			visible=false;
+			super();
 			
 		}
-		public function init():void{
-			align();
+		override public function initDisplay():void{
+			 _skin=new TableGraphicAsset();
+			addChild(_skin);
+			_display=_skin;
 		}
-		
-		public function align():void{
-			visible=true;
-		}
-		public function get display():*{
-			return this;
-		}
-		public function initDisplay():void{
-			_display=new TableGraphicAsset();
-			addChild(_display);
-		}
+
 	}
 }

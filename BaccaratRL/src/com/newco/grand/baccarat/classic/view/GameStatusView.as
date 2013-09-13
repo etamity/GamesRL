@@ -8,10 +8,6 @@ package com.newco.grand.baccarat.classic.view
 		{
 			super();
 		}
-		override public function init():void {
-			super.init();
-			visible = true;
-		}
 		override public function align():void {
 			x = 840;
 		}

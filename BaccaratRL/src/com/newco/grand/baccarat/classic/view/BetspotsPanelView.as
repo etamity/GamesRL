@@ -40,6 +40,10 @@ package com.newco.grand.baccarat.classic.view
 		public function get display():*{
 			return _display;
 		}
+		
+		public function updateLanguage():void{
+			
+		}
 		public function init():void
 		{
 			scrollPane.y=10;
