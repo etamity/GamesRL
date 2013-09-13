@@ -12,11 +12,10 @@
 	<videotooltip><![CDATA[单击放大视频]]></videotooltip>
 	<videotooltipout><![CDATA[单击缩小视频]]></videotooltipout>
 	<optimizingvideo><![CDATA[优化视频中...]]></optimizingvideo> 
-	<loadinginit><![CDATA[Initializing Game...]]></loadinginit>
-	<loadingresources><![CDATA[Loading resources...]]></loadingresources>
-	<loadingconfig><![CDATA[Loading table configuration...]]></loadingconfig>
+	<loadinginit><![CDATA[初始化游戏中...]]></loadinginit>
+	<loadingresources><![CDATA[加载资源中...]]></loadingresources>
+	<loadingconfig><![CDATA[加载游戏参数中...]]></loadingconfig>
 
-	<winnerlist><![CDATA[WINNER LIST]]></winnerlist>
 	
 	<!-- History -->
 	<historytitle><![CDATA[记录]]></historytitle>
@@ -67,6 +66,8 @@
 	<player><![CDATA[玩家]]></player>
 	<banker><![CDATA[庄家]]></banker>
 	<tie><![CDATA[平局]]></tie>
+	<natural><![CDATA[普通]]></natural>
+	<gamenumber><![CDATA[局数]]></gamenumber>
 	<pair_player><![CDATA[玩家对]]></pair_player>
 	<pair_banker><![CDATA[庄家对]]></pair_banker>
 	<twoway><![CDATA[2 路]]></twoway>
@@ -102,7 +103,7 @@
 	<account><![CDATA[账户]]></account>
 	<myaccount><![CDATA[我的账户]]></myaccount>
 	<tableinfo><![CDATA[赌桌信息]]></tableinfo>
-	<players><![CDATA[玩家]]></players>
+	<players><![CDATA[在线玩家]]></players>
 	<results><![CDATA[结果]]></results>
 	<viewtable><![CDATA[查看赌桌]]></viewtable>
 	<currenttable><![CDATA[您的当前赌桌]]></currenttable>
@@ -432,7 +433,7 @@
 	<splithand><![CDATA[分离:]]></splithand>
 	<gamestart><![CDATA[游戏开始:]]></gamestart>
 	<gameend><![CDATA[游戏结束:]]></gameend>
-	<gametime><![CDATA[游戏时间:]]></gametime>
+	<gametimer><![CDATA[游戏计时器]]></gametimer>
 
 	<error_3001><![CDATA[您的帐号当前不可用， 更多的信息请联系游戏支持小组。]]></error_3001>
 	<error_3002><![CDATA[您当前的回合余额不足， 想继续玩,您必须设置新的限制。]]></error_3002>
@@ -446,8 +447,8 @@
 	<socoal_message_roulette><![CDATA[我刚刚和幸运儿 #winner# 一起在 #casino# 的真人#game# 赢了#winnings# !]]></socoal_message_roulette>
 	<socoal_message_blackjack><![CDATA[我刚刚从#casino# 的#game# 赢了 #winnings# !]]></socoal_message_blackjack>
 	<socoal_message_baccarat><![CDATA[我刚刚从#casino# 的#game# 赢了 #winnings# !]]></socoal_message_baccarat>
-	<realplay><![CDATA[Want to play for real now?]]></realplay>
-	<nofreeplay><![CDATA[NO FREE PLAY]]></nofreeplay>
+	<realplay><![CDATA[玩现金游戏]]></realplay>
+	<nofreeplay><![CDATA[没有免费游戏]]></nofreeplay>
 	
 	
 	<!-- New String 1-->
@@ -463,19 +464,19 @@ Video will only be enabled with active WiFi connection.]]></wifi_connection>
 	<address><![CDATA[Address]]></address>
 	<email_address><![CDATA[Email Address]]></email_address>
 	<confirm_password><![CDATA[Confirm Password]]></confirm_password>
-	<password><![CDATA[Password]]></password>
+	<password><![CDATA[密码]]></password>
 
-	<username><![CDATA[Username]]></username>
-	<surname><![CDATA[Surname]]></surname>
-	<first_name><![CDATA[First Name]]></first_name>
-	<new_user><![CDATA[New User? Click the button below and register.]]></new_user>
-	<register><![CDATA[REGISTER]]></register>
-	<cancel><![CDATA[CANCEL]]></cancel>
+	<username><![CDATA[用户名]]></username>
+	<surname><![CDATA[姓]]></surname>
+	<first_name><![CDATA[名]]></first_name>
+	<new_user><![CDATA[新用户？请点击注册按钮注册新用户]]></new_user>
+	<register><![CDATA[注册]]></register>
+	<cancel><![CDATA[取消]]></cancel>
 	
-	<next><![CDATA[NEXT]]></next>
+	<next><![CDATA[下一步]]></next>
 	
-	<dob><![CDATA[Date of Birth]]></dob>
-	<choose_stream><![CDATA[PLEASE CHOOSE YOUR STREAM BELOW]]></choose_stream>
+	<dob><![CDATA[生日]]></dob>
+	<choose_stream><![CDATA[请选择下面的游戏]]></choose_stream>
 	<acception1><![CDATA[I wish to be notified of future promotions and bonuses.]]></acception1>
 	<acception2><![CDATA[I am over 18 years of age and have read and accepted 
 Terms and Conditions. ]]></acception2>
@@ -483,8 +484,8 @@ Terms and Conditions. ]]></acception2>
 	<!-- New String 2-->
 	
 	
-	<login><![CDATA[Login]]></login>
-	<logout><![CDATA[Logout]]></logout>
+	<login><![CDATA[登录]]></login>
+	<logout><![CDATA[注销]]></logout>
 	<enter_valid_email><![CDATA[Please enter a valid email address.]]></enter_valid_email>
 	<registration><![CDATA[Registration]]></registration>
 	<enter_valid_username><![CDATA[PLEASE ENTER A VALID USERNAME.]]></enter_valid_username>
@@ -494,8 +495,8 @@ Terms and Conditions. ]]></acception2>
 	<deposit_declined><![CDATA[Deposit Declined]]></deposit_declined>
 	<not_valid_voucherid><![CDATA[VOUCHERID NOT VALID, PLEASE USE VALID VOUCHER.]]></not_valid_voucherid>
 	<uk_allow_only><![CDATA[YOU ARE ONLY ALLOWED TO PLAY FROM UK]]></uk_allow_only>
-	<login_failed><![CDATA[LOGIN FAILED. PLEASE TRY AGAIN.]]></login_failed>
-	<login_success><![CDATA[Login Success.]]></login_success>
+	<login_failed><![CDATA[登录失败，请重试..。]]></login_failed>
+	<login_success><![CDATA[登录成功！]]></login_success>
 	<io_connection_error><![CDATA[IO CONNECTION ERROR: PLEASE TRY AGAIN LATER.]]></io_connection_error>
 	
 	<tap_to_closelobby><![CDATA[PLEASE TAP HERE TO CLOSE LOBBY]]></tap_to_closelobby>
@@ -562,124 +563,16 @@ Terms and Conditions. ]]></acception2>
 	
 	
 		<!-- roulette rotbotleg -->
-	<winnerlist><![CDATA[WINNERLIST]]></winnerlist>
-	<playername><![CDATA[NAME]]></playername>
-	<playerwins><![CDATA[AMOUNT]]></playerwins>
-	<playersbets><![CDATA[PLAYERS BETS]]></playersbets>
-	<favourites><![CDATA[FAVOURITES]]></favourites>
+	<winnerlist><![CDATA[赢家排行榜]]></winnerlist>
+	<playername><![CDATA[玩家姓名]]></playername>
+	<playerwins><![CDATA[金额]]></playerwins>
+	<playersbets><![CDATA[玩家下注]]></playersbets>
+	<favourites><![CDATA[偏好下注]]></favourites>
 	<baccarat_betspotspanel><![CDATA[BETSPOTS]]></baccarat_betspotspanel>
-	<applybutton><![CDATA[Apply]]></applybutton>
-	<deletebutton><![CDATA[Delete]]></deletebutton>
-	<clearbutton><![CDATA[Clear]]></clearbutton>
-		<!-- FACEBOOK-->
-	
-	<!-- FACEBOOK MESSAGEBOX-->
-	
-
-	<text_offline><![CDATA[THIS PLAYER IS CURRENTLY UNAVAILABLE]]></text_offline>
-	<text_message_title><![CDATA[You got a new message]]></text_message_title>
-	<text_content_message><![CDATA[Hi there,You got a new message form #USERNAME#.]]></text_content_message>
-	<userspots_title><![CDATA[YOU CAN CHAT TO THE PLAYERS BELOW]]></userspots_title>
-	<text_warning_empty><![CDATA[You can't send blank message,please fill the title or message content.]]></text_warning_empty>
-	
-	<message_title><![CDATA[You win a prize]]></message_title>
-	<message_box><![CDATA[Mail Box]]></message_box>
-	<message_win><![CDATA[You win #AMOUNT# !! ]]></message_win>
-	<message_win_coins><![CDATA[Congratulations!! You've won #AMOUNT#!! Do you want to post to your wall ?]]></message_win_coins>
-	<message_win_virtualgood><![CDATA[You win a #GIFT# Gift,you can send it to your friends or dealer.]]></message_win_virtualgood>
-	<facebook_wall_caption><![CDATA[Win Message]]></facebook_wall_caption>
-	<facebook_send_gift_title><![CDATA[Hey #USERNAME#, guess what I sent to you.]]></facebook_send_gift_title>
-	<facebook_send_gift><![CDATA[Hi #USERNAME#, I m sending a #GIFT# to you from Smart Live Social Roulette! Check it out!]]></facebook_send_gift>
-	<facebook_send_invite><![CDATA[Hi #USERNAME#, please help me play this live TV game! I'm trying to get an item from the Wheel of Fortune. Thanks!]]></facebook_send_invite>
-	
-	<facebook_inviteBtn><![CDATA[Invite]]></facebook_inviteBtn>
-	
-	<warning_information><![CDATA[Information]]></warning_information>
-	<information_gift_notcompelete><![CDATA[Sorry,it seems you haven't collect the completion parts of gift. You are not going to send a part of gift to your friends right?]]></information_gift_notcompelete>
-	<information_chat_to_dealer><![CDATA[Chatting to the dealer requires #AMOUNT# Coins.]]></information_chat_to_dealer>
-	
-	<facebook_wall_coins_message><![CDATA[BUYA! I've won #AMOUNT# on Smart Live Social Roulette!]]></facebook_wall_coins_message>
-	
-	
-	<facebook_wall_link><![CDATA[http://apps.facebook.com/socialwyn/]]></facebook_wall_link>
-	<facebook_wall_picture><![CDATA[https://livecasino.smartliveaffiliates.com/cgibin/affiliates/slc/images/mini_social.jpg]]></facebook_wall_picture>
-	<facebook_wall_description><![CDATA[I played Smart Live Social Roulette and won. Play and chat to real presenters in london!]]></facebook_wall_description>
-	<facebook_wall_name><![CDATA[I've won #AMOUNT# at Smart Live Social Roulette!]]></facebook_wall_name>
-	
-	<chat_to_dealer><![CDATA[CHAT TO DEALER]]></chat_to_dealer>
-	
-	<lotto_draw_window_title><![CDATA[PLEASE CHOOSE YOUR DRAW TIMES]]></lotto_draw_window_title>
-	<lotto_draw_window_content><![CDATA[CHOOSE A DRAW TIMES:]]></lotto_draw_window_content>
-	<lotto_win><![CDATA[Wow! You've matched #AMOUNT# number from #TICKETID# ticket.  Check your ticket to see how much you've won!]]></lotto_win>
-	<lotto_drawTitleTxt><![CDATA[DRAW ID]]></lotto_drawTitleTxt>
-	<lotto_timeTitleTxt><![CDATA[GAME TIME]]></lotto_timeTitleTxt>
-	<lotto_priceTitleTxt><![CDATA[PRICE]]></lotto_priceTitleTxt>
-	<lotto_playTitleTxt><![CDATA[PLAY]]></lotto_playTitleTxt>
-	<lotto_warning_empty><![CDATA[You need to have 6 numbers to play lotto.]]></lotto_warning_empty>
-	<lotto_warning_coins_not_enough><![CDATA[Sorry, you don't have enough coins to buy a ticket. Go and play to earn it!]]></lotto_warning_coins_not_enough>
-	<buy_coins_not_enough><![CDATA[Sorry, you need more coins to buy. Go and play to earn it!]]></buy_coins_not_enough>
-	<lotto_warning_senddata><![CDATA[Your ticket is being purchased, please wait...]]></lotto_warning_senddata>
-
-	<hardcoremode><![CDATA[/cgibin/facebook/chat_board_fb.jsp?game=roulette&gameType=hard_core&table_id=#TABLEID#&lang=en&client=slc&gameInterface=view1]]></hardcoremode>
-
-	<hint1_betting><![CDATA[Welcome to Smart Live Social Roulette.  Select a chip and select the numbers. Good luck!]]></hint1_betting>
-	
-	<user_bar_btn0><![CDATA[BUY CHIPS]]></user_bar_btn0>
-	<user_bar_btn1><![CDATA[LOBBY]]></user_bar_btn1>
-	<user_bar_btn2><![CDATA[EARN CHIPS]]></user_bar_btn2>
-	<user_bar_btn3><![CDATA[GIFT SHOP]]></user_bar_btn3>
-	<user_menu_btn4><![CDATA[PRO MODE]]></user_menu_btn4>
-
-	<user_menu_btn0><![CDATA[BUY CHIPS]]></user_menu_btn0>
-	<user_menu_btn1><![CDATA[LOBBY]]></user_menu_btn1>
-	<user_menu_btn2><![CDATA[EARN CHIPS]]></user_menu_btn2>
-	<user_menu_btn3><![CDATA[GIFT SHOP]]></user_menu_btn3>
-	<user_menu_mailbox><![CDATA[MAILBOX]]></user_menu_mailbox>
-	
-
-	<gamemode><![CDATA[/cgibin/facebook/chat_board_fb.jsp?game=roulette&gameType=#GAMETYPE#&table_id=#TABLEID#&vt_id=#VTID#&lang=en&client=#CLIENT#&gameInterface=view1]]></gamemode>
-	<promode><![CDATA[hard_core]]></promode>
-	<funnymode><![CDATA[facebook_roulette_v4]]></funnymode>
-
-	<user_bar_mute><![CDATA[MUTE SOUND]]></user_bar_mute>
-	
-	<buy_gift_message><![CDATA[A #NAME#, cost #AMOUNT# Coins, would you like to buy it?]]></buy_gift_message>
-	<already_got_message><![CDATA[Sorry, you already have this gift, you can't buy more than one of them.]]></already_got_message>
-	<buy_ticket><![CDATA[BUY TICKET]]></buy_ticket>
-	<standup><![CDATA[STAND UP]]></standup>
-	
-	<tooltip_chips><![CDATA[SELECT A CHIP TO MAKE BET]]></tooltip_chips>
-	<tooltip_lotto><![CDATA[PLAY LOTTO BY ENTERING YOUR FAVOURITE NUMBERS!]]></tooltip_lotto>
-	<tooltip_betspots><![CDATA[PICK YOUR FAVOURITE NUMBERS ON THE BOARD]]></tooltip_betspots>
-	<tooltip_video><![CDATA[WATCH THE WHEEL AND FOLLOW THE BALL TO SEE THE RESULT!]]></tooltip_video>
-	<tooltip_wheel><![CDATA[CLICK SPIN NOW!]]></tooltip_wheel>
-	<tooltip_beel><![CDATA[#NUMBER# GAME(S) TO GO BEFORE YOU CAN SPIN THE WHEEL OF FORTUNE!]]></tooltip_beel>
-	<tooltip_beelfinal><![CDATA[WHEEL OF FORTUNE UNLOCKED!  CLICK OK TO SPIN THE WHEEL. ]]></tooltip_beelfinal>
-	<tooltip_gameinprogress><![CDATA[GAME IN PROGRESS, PLEASE WAIT FOR RESULT]]></tooltip_gameinprogress>
-	
-	<loadingtxt><![CDATA[Smart Live Social Roulette : Play ROULETTE, WHEEL OF FORTUNE and LOTTO in one game!]]></loadingtxt>
-	
-	<video_panel_mute><![CDATA[MUTE VIDEO]]></video_panel_mute>
-	<video_panel_zoomin><![CDATA[ZOOM IN]]></video_panel_zoomin>
-	<video_panel_fullscreen><![CDATA[FULLSCREEN MODE]]></video_panel_fullscreen>
-	<balance_low_message><![CDATA[Sorry, you're out of Chips !! Please buy some chips.]]></balance_low_message>
-	<balance_added_message><![CDATA[Congratulations! You've just received #AMOUNT# chips.]]></balance_added_message>
-	<coins_added_message><![CDATA[Congratulations! You've just received #AMOUNT# coins.]]></coins_added_message>
-	<invate_all_friends><![CDATA[Hi #USERNAME#, invite your friends to play Smart Live Social Roulette, let's play together!]]></invate_all_friends>
-	<jackpot><![CDATA[JACKPOT]]></jackpot>
-	<chatfromsever><![CDATA[Hello #USERNAME#, good luck and have fun!]]></chatfromsever>
-
-
-	<!-- Table Name Translation -->
-	<tablename id="1"><![CDATA[Sky 863 - Live Roulette]]></tablename>
-	<tablename id="2"><![CDATA[Auto Roulette]]></tablename>
-	<tablename id="3"><![CDATA[Low Auto Roulette]]></tablename>
-	<tablename id="hiey8yx1hkkgqawl"><![CDATA[Rapid Roulette]]></tablename>
-	<tablename id="48z5pjps3ntvqc1b"><![CDATA[Grand Auto Brown]]></tablename>
-	<tablename id="7kqbll806q26x44k"><![CDATA[Grand Auto Black]]></tablename>
-	<tablename id="l5aug44hhzr3qvxs"><![CDATA[7 Seat Blackjack]]></tablename>
-	
-	<tablename id="41"><![CDATA[Baccarat]]></tablename>
-	
+	<applybutton><![CDATA[应用]]></applybutton>
+	<deletebutton><![CDATA[删除]]></deletebutton>
+	<clearbutton><![CDATA[清空]]></clearbutton>
+	<tournament><![CDATA[竞赛排行磅]]></tournament>
+	<send><![CDATA[发送]]></send>
 	
 </game>
