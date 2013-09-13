@@ -49,6 +49,9 @@ package com.newco.grand.roulette.classic.view {
 			specialBetsMC.visible = false;
 			visible = false;
 		}
+		public function updateLanguage():void{
+			
+		}
 		public function get updateBetSignal():Signal{
 			return _updateBetSignal;
 		}
@@ -186,11 +189,11 @@ package com.newco.grand.roulette.classic.view {
 		}
 		
 		public function highlightSpot(value:String):void {
-			getBetspotByName((value)).highlight();
+			getBetspotByName((value)).display.alpha=0.5;
 		}
 		
 		public function removeHighlightSpot(value:String):void {
-			getBetspotByName((value)).removeHighlight();
+			getBetspotByName((value)).display.alpha=0;
 		}
 		
 		public function createChip(value:String):void {

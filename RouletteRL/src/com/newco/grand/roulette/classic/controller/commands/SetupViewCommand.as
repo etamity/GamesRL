@@ -1,20 +1,23 @@
 package com.newco.grand.roulette.classic.controller.commands
 {
 	import com.newco.grand.core.common.controller.commands.BaseCommand;
+	import com.newco.grand.core.common.controller.signals.LanguageAndStylesEvent;
 	import com.newco.grand.core.common.model.FlashVars;
+	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.model.URLSModel;
-	import com.newco.grand.roulette.classic.view.ChatView;
-	import com.newco.grand.roulette.classic.view.GameStatusView;
+	import com.newco.grand.core.common.view.ErrorMessageView;
 	import com.newco.grand.core.common.view.LoginView;
 	import com.newco.grand.core.common.view.StageView;
 	import com.newco.grand.core.common.view.TaskbarView;
-	import com.newco.grand.roulette.classic.view.VideoView;
-	import com.newco.grand.roulette.classic.view.AccordionUIView;
 	import com.newco.grand.core.utils.GameUtils;
+	import com.newco.grand.roulette.classic.view.AccordionUIView;
 	import com.newco.grand.roulette.classic.view.BetSpotsView;
+	import com.newco.grand.roulette.classic.view.ChatView;
+	import com.newco.grand.roulette.classic.view.GameStatusView;
 	import com.newco.grand.roulette.classic.view.LimitsView;
 	import com.newco.grand.roulette.classic.view.LobbyView;
 	import com.newco.grand.roulette.classic.view.ResultsClassicView;
+	import com.newco.grand.roulette.classic.view.VideoView;
 	
 	import org.assetloader.core.IAssetLoader;
 	
@@ -36,7 +39,8 @@ package com.newco.grand.roulette.classic.controller.commands
 		
 		[Inject]
 		public var flashVars:FlashVars;
-		
+		[Inject]
+		public var signalBus:SignalBus;
 		public function SetupViewCommand()
 		{
 			super();
@@ -62,6 +66,11 @@ package com.newco.grand.roulette.classic.controller.commands
 			contextView.view.addChild(new LobbyView());
 			//contextView.addChild(new StageInfoView());
 			
+			
+			if (FlashVars.DEBUG_MODE==true)
+				contextView.view.addChild(new ErrorMessageView());
+
+			signalBus.dispatch(LanguageAndStylesEvent.LOAD);
 		}
 		
 		private function debug(...args):void {

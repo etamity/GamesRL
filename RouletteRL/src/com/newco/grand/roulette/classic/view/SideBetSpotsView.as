@@ -68,6 +68,10 @@ package com.newco.grand.roulette.classic.view {
 		public function get display():*{
 			return this;
 		}
+		
+		public function updateLanguage():void{
+			
+		}
 		public function initDisplay():void{
 			
 		}
@@ -186,11 +190,11 @@ package com.newco.grand.roulette.classic.view {
 		}
 		
 		public function highlightSpot(value:String):void {
-			getBetspotByName((value)).highlight();
+			getBetspotByName((value)).display.alpha=0.5;
 		}
 		
 		public function removeHighlightSpot(value:String):void {
-			getBetspotByName((value)).removeHighlight();
+			getBetspotByName((value)).display.alpha=0;
 		}
 		
 		public function createChip(value:String):void {
