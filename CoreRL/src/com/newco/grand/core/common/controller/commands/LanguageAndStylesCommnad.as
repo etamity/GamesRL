@@ -1,19 +1,45 @@
 package com.newco.grand.core.common.controller.commands
 {
+	import com.newco.grand.core.common.controller.signals.LanguageAndStylesEvent;
+	import com.newco.grand.core.common.controller.signals.LoginEvent;
+	import com.newco.grand.core.common.controller.signals.StartupDataEvent;
+	import com.newco.grand.core.common.model.FlashVars;
+	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.service.impl.LanguageService;
+	import com.newco.grand.core.common.service.impl.StyleService;
 	
 	import robotlegs.bender.bundles.mvcs.Command;
 	
 	public class LanguageAndStylesCommnad extends Command
 	{
 		[Inject]
-		public var service:LanguageService;
+		public var langService:LanguageService;
+		[Inject]
+		public var styleService:StyleService;
+		[Inject]
+		public var flashVars:FlashVars;
+		[Inject]
+		public var signalBus:SignalBus;
 		public function LanguageAndStylesCommnad()
 		{
 			super();
 		}
 		override public function execute():void {
-			service.load();	
+			langService.load();
+			styleService.load(function ():void{
+				signalBus.dispatch(LanguageAndStylesEvent.LOADED);
+				if(flashVars.localhost) {
+					signalBus.dispatch(LoginEvent.INITIALIZE);
+				} else 
+				{
+					signalBus.dispatch(LoginEvent.LOGIN_SUCCESS);
+					signalBus.dispatch(StartupDataEvent.SEAT);
+					signalBus.dispatch(StartupDataEvent.LOAD);
+				}
+				}
+				);
+			
+		
 		}
 		
 	}

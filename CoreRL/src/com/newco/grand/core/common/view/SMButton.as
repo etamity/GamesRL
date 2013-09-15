@@ -6,10 +6,13 @@ package com.newco.grand.core.common.view
 	import flash.display.DisplayObject;
 	import flash.display.DisplayObjectContainer;
 	import flash.display.SimpleButton;
+	import flash.events.MouseEvent;
 	import flash.filters.ColorMatrixFilter;
 	import flash.text.TextField;
 	
 	import fl.motion.AdjustColor;
+	
+	import org.osflash.signals.Signal;
 	
 
 	public class SMButton extends BaseObject
@@ -21,11 +24,12 @@ package com.newco.grand.core.common.view
 		public var upStateText:TextField;
 		private var _params:Object=new Object();
 		
-
+		public var onClick:Signal=new Signal();
 		public function SMButton(btn:SimpleButton)
 		{
 			super();
 			button=btn;
+			button.addEventListener(MouseEvent.CLICK,doClick);
 			var sp:DisplayObjectContainer=button.upState as DisplayObjectContainer;
 			if (sp!=null) {
 				var n:uint=sp.numChildren;
@@ -39,7 +43,9 @@ package com.newco.grand.core.common.view
 				}
 			}
 		}
-		
+		private function doClick(evt:MouseEvent):void{
+			onClick.dispatch(this);
+		}
 		public function get params():Object{
 			return _params;
 		}

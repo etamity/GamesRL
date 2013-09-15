@@ -1,5 +1,6 @@
 package com.newco.grand.core.common.view
 {
+	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.view.interfaces.IUIView;
 	
 	import flash.display.Sprite;
@@ -10,7 +11,6 @@ package com.newco.grand.core.common.view
 	{
 		[Inject]
 		public var logger:ILogger
-		
 		protected var _display:*;
 		public function UIView()
 		{

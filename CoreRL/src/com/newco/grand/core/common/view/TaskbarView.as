@@ -6,6 +6,7 @@ package com.newco.grand.core.common.view {
 	import com.newco.grand.core.common.model.LanguageModel;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.view.interfaces.ITaskbarView;
+	import com.newco.grand.core.common.view.uicomps.LanguagePanelView;
 	import com.newco.grand.core.utils.FormatUtils;
 	import com.newco.grand.core.utils.GameUtils;
 	
@@ -63,7 +64,7 @@ package com.newco.grand.core.common.view {
 		
 		private var buttonsPTs:Array;
 		
-		
+		private var languagePanel:LanguagePanelView;
 		protected var _skin:TaskbarAsset;
 		public function TaskbarView() {
 			super();
@@ -144,22 +145,27 @@ package com.newco.grand.core.common.view {
 			_display.history.addEventListener(MouseEvent.ROLL_OVER, buttonRollOver);
 			_display.help.addEventListener(MouseEvent.ROLL_OVER, buttonRollOver);
 			_display.sound.addEventListener(MouseEvent.ROLL_OVER, buttonRollOver);
+			_display.language.addEventListener(MouseEvent.ROLL_OVER, buttonRollOver);
 			
 			_display.fullscreen.addEventListener(MouseEvent.ROLL_OUT, buttonRollOut);
 			_display.history.addEventListener(MouseEvent.ROLL_OUT, buttonRollOut);
 			_display.help.addEventListener(MouseEvent.ROLL_OUT, buttonRollOut);
 			_display.sound.addEventListener(MouseEvent.ROLL_OUT, buttonRollOut);
+			_display.language.addEventListener(MouseEvent.ROLL_OUT, buttonRollOut);
 			
 			_display.fullscreen.addEventListener(MouseEvent.CLICK, buttonClick);
 			_display.sound.addEventListener(MouseEvent.CLICK, buttonClick);
 			_display.help.addEventListener(MouseEvent.CLICK, buttonClick);
 			_display.history.addEventListener(MouseEvent.CLICK, buttonClick);
+			_display.language.addEventListener(MouseEvent.CLICK, buttonClick);
 			
 			_display.myaccount.addEventListener(MouseEvent.CLICK, myAccountClick);
 			lobbyBtn. skin.addEventListener(MouseEvent.CLICK, buttonClick);
 			myAccountEnabled(false);
 			
 			
+			
+			_display.language
 			_display.chat.visible=false;
 			_display.settings.visible=false;
 			_display.history.visible=true;
@@ -175,6 +181,15 @@ package com.newco.grand.core.common.view {
 			buttonsPTs.push(new Point(repeatBtn. skin.x,repeatBtn. skin.y));
 			buttonsPTs.push(new Point(doubleBtn. skin.x,doubleBtn. skin.y));
 			
+			languagePanel=new LanguagePanelView();
+			addChild(languagePanel);
+			languagePanel.x=_display.language.x -languagePanel.width/2;
+			languagePanel.y= _display.language.y -languagePanel.height; 
+			languagePanel.visible=false;
+			languagePanel.onChange.add(function (btn:SMButton):void{
+				_signalBus.dispatch(TaskbarActionEvent.LOAD_LANGUAGE ,{eventType:TaskbarActionEvent.LOAD_LANGUAGE,lang:btn.params.lang});	
+				
+			});
 			
 			game = "--";
 			//enableChips();
@@ -188,6 +203,13 @@ package com.newco.grand.core.common.view {
 			
 			soundButtonON_OFF=SoundMixer.soundTransform.volume;
 		}
+		
+		
+		public function loadLanguages(data:XML):void{
+			languagePanel.load(data);
+			languagePanel.y= _display.language.y -languagePanel.height;
+		}
+		
 		
 		/*public function get buttonClickedSignal:Signal{
 			return _buttonClickedSignal;
@@ -248,7 +270,7 @@ package com.newco.grand.core.common.view {
 			// _display.bg.width = stage.stageWidth;
 			x = 0;
 			//y = stage.stageHeight - height;
-			y=523;
+			y=550;
 		}
 		
 		private function addTooltip():void {
@@ -304,6 +326,9 @@ package com.newco.grand.core.common.view {
 				case  _display.history:
 					_signalBus.dispatch(TaskbarActionEvent.LOBBY_CLICKED,{eventType:TaskbarActionEvent.HISTORY_CLICKED});	
 					break;
+				case  _display.language:
+					languagePanel.visible=!languagePanel.visible;
+					break;
 			}
 			
 			//_buttonClickedSignal.dispatch(event.target);
@@ -352,6 +377,7 @@ package com.newco.grand.core.common.view {
 		
 		public function set balance(value:String):void {
 			 _display.balanceMC.value.htmlText = '<b>'+value+'</b>';
+			 _display.balanceCenterMC.value.htmlText = '<b>'+value+'</b>';
 		}
 		
 		public function set betLabel(value:String):void {

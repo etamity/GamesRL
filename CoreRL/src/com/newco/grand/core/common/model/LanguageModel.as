@@ -440,7 +440,7 @@ package com.newco.grand.core.common.model {
 
 		public static var TOURNAMENT:String = "Tournament";
 		public static var SEND:String = "SEND";
-
+		public static var LANGUAGE:String = "LANGUAGE";
 		
 		
 	}

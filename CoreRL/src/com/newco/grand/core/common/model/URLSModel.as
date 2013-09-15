@@ -33,6 +33,7 @@ package com.newco.grand.core.common.model
 		private var _accountHistory:String = "player/audit/historyXML2.jsp";
 		private var _activityHistory:String=  "player/audit/historyXML.jsp";
 		
+		private var _languages:XML;
 		private var _urlsXml:XML ;
 		[Inject]
 		public var flashVars:FlashVars;
@@ -47,7 +48,12 @@ package com.newco.grand.core.common.model
 		{
 			super();
 		}
-		
+		public function get languages():XML{
+			return _languages;
+		}
+		public function set languages(val:XML):void{
+			_languages=val;
+		}
 		public function get urlsXml():XML{
 			return _urlsXml;
 		}
@@ -158,7 +164,7 @@ package com.newco.grand.core.common.model
 		
 		public function get language():String {
 			if( flashVars.localhost )
-				return "xml/" + flashVars.lang + ".xml";
+				return "xml/langs/" + flashVars.lang + ".xml";
 			
 			return server + _language + flashVars.lang + ".xml";
 		}

@@ -4,6 +4,7 @@ package com.newco.grand.core.common.view.mediators
 	import com.newco.grand.core.common.controller.signals.BalanceEvent;
 	import com.newco.grand.core.common.controller.signals.BaseSignal;
 	import com.newco.grand.core.common.controller.signals.BetEvent;
+	import com.newco.grand.core.common.controller.signals.LanguageAndStylesEvent;
 	import com.newco.grand.core.common.controller.signals.MessageEvent;
 	import com.newco.grand.core.common.controller.signals.ModelReadyEvent;
 	import com.newco.grand.core.common.controller.signals.SocketDataEvent;
@@ -18,6 +19,8 @@ package com.newco.grand.core.common.view.mediators
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.model.StyleModel;
 	import com.newco.grand.core.common.model.URLSModel;
+	import com.newco.grand.core.common.service.impl.LanguageService;
+	import com.newco.grand.core.common.view.SMButton;
 	import com.newco.grand.core.common.view.interfaces.ITaskbarView;
 	import com.newco.grand.core.utils.FormatUtils;
 	import com.newco.grand.core.utils.GameUtils;
@@ -63,7 +66,8 @@ package com.newco.grand.core.common.view.mediators
 		[Inject]
 		public var urls:URLSModel;
 		
-		
+		[Inject]
+		public var langService:LanguageService;
 		public var GAMELOBBY:String="GAMELOBBY";
 		
 		public var GAMEHELP:String="GAMEHELP";
@@ -85,12 +89,16 @@ package com.newco.grand.core.common.view.mediators
 		private function setupModel(signal:BaseSignal):void
 		{
 			view.init();
+			view.loadLanguages(urls.languages);
 			createMenuBar();
 			addViewListeners();
 			eventMap.mapListener(contextView.view.stage, Event.RESIZE, onStageResize);
 		
 		}
-
+		private function doLangChange(btn:SMButton):void{
+			flashVars.lang=btn.params.lang;
+			langService.load();
+		}
 		private function addViewListeners():void
 		{
 
@@ -116,6 +124,8 @@ package com.newco.grand.core.common.view.mediators
 			view.signalBus.add(BetEvent.FAVOURITES, betButtonAction);
 			view.signalBus.add(TaskbarActionEvent.CHIP_CLICKED, onChipClicked);
 			view.signalBus.add(TaskbarActionEvent.LOBBY_CLICKED, launchLobby);
+			view.signalBus.add(TaskbarActionEvent.LOAD_LANGUAGE, buttonAction);
+		
 		}
 
 		private function createMenuBar():void
@@ -260,6 +270,11 @@ package com.newco.grand.core.common.view.mediators
 					//eventDispatcher.dispatchEvent(new TaskbarActionEvent(TaskbarActionEvent.SOUND_CLICKED));
 					signalBus.dispatch(TaskbarActionEvent.SOUND_CLICKED);
 					break;
+				case TaskbarActionEvent.LOAD_LANGUAGE:
+					flashVars.lang=signal.params.lang;
+					signalBus.dispatch(LanguageAndStylesEvent.LANGUAGE_LOAD);
+					break;
+
 			}
 		}
 

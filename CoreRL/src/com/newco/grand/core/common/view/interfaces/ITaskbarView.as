@@ -48,6 +48,8 @@ package com.newco.grand.core.common.view.interfaces
 		function createMenuItem(label:String, url:String):void;
 		function set myaccountLabel(value:String):void;
 		function set game(value:String):void;
+		
+		function loadLanguages(data:XML):void;
 	}
 	
 }

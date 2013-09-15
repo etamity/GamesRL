@@ -17,6 +17,8 @@ package com.newco.grand.core.common.controller.signals {
 		public static const FULLSCREEN_CLICKED:String = "TaskbarActionEvent.FULLSCREEN_CLICKED";
 		public static const LOBBY_CLICKED:String = "TaskbarActionEvent.LOBBY_CLICKED";
 		public static const MENUITEM_CLICKED:String = "TaskbarActionEvent.MENUITEM_CLICKED";
+		public static const LOAD_LANGUAGE:String = "TaskbarActionEvent.LOAD_LANGUAGE";
+		
 		
 	}
 }

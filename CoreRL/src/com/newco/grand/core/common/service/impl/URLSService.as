@@ -56,7 +56,8 @@ package com.newco.grand.core.common.service.impl
 			urlsModel.tournament=xml.common.tournament;
 			urlsModel.accountHistory=xml.common.accountHistory;
 			urlsModel.activityHistory=xml.common.activityHistory;
-			
+			urlsModel.languages=xml.languages[0];
+			debug("urlsModel.languages",urlsModel.languages);
 			
 			if (StringUtils.trim(FlashVars.GAMECLIENT.toLowerCase())==StringUtils.trim(Constants.BACCARAT.toLowerCase()))
 			{

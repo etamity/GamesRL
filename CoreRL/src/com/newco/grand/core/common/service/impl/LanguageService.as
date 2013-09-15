@@ -3,9 +3,8 @@ package com.newco.grand.core.common.service.impl
 	import com.evolutiongaming.ui.Language;
 	import com.evolutiongaming.ui.Style;
 	import com.newco.grand.core.common.controller.signals.LanguageAndStylesEvent;
-	import com.newco.grand.core.common.controller.signals.LoginEvent;
 	import com.newco.grand.core.common.controller.signals.MessageEvent;
-	import com.newco.grand.core.common.controller.signals.StartupDataEvent;
+	import com.newco.grand.core.common.model.BaseObject;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.LanguageModel;
 	import com.newco.grand.core.common.model.SignalBus;
@@ -15,10 +14,8 @@ package com.newco.grand.core.common.service.impl
 	
 	import org.assetloader.signals.ErrorSignal;
 	import org.assetloader.signals.LoaderSignal;
-	
-	import robotlegs.bender.framework.api.ILogger;
 
-	public class LanguageService implements IService
+	public class LanguageService extends BaseObject implements IService
 	{
 
 		[Inject]
@@ -31,16 +28,15 @@ package com.newco.grand.core.common.service.impl
 		public var signalBus:SignalBus;
 		[Inject]
 		public var flashVars:FlashVars;
-
-		[Inject]
-		public var logger:ILogger;
-
+		
+		private var onComplete:Function;
 		public function LanguageService()
 		{
 		}
 
 		public function load(onComplete:Function=null):void
 		{
+			this.onComplete=onComplete;
 			loadLanguage();
 		}
 		private function loadLanguage():void {
@@ -111,17 +107,11 @@ package com.newco.grand.core.common.service.impl
 
 			}
 			finally{
+				signalBus.dispatch(LanguageAndStylesEvent.LANGUAGE_LOADED);
+				if (onComplete!=null)
+					onComplete();
 
-			//service.remove(Constants.ASSET_STYLE);
-				signalBus.dispatch(LanguageAndStylesEvent.LOADED);
-				if(flashVars.localhost) {
-					signalBus.dispatch(LoginEvent.INITIALIZE);
-				} else 
-				{
-					signalBus.dispatch(LoginEvent.LOGIN_SUCCESS);
-					signalBus.dispatch(StartupDataEvent.SEAT);
-					signalBus.dispatch(StartupDataEvent.LOAD);
-				}
+				
 			}
 		}
 
@@ -130,9 +120,6 @@ package com.newco.grand.core.common.service.impl
 			signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:signal.message});
 		}
 
-		private function debug(...args):void {
-			logger.debug(args);
-		}
 	}
 }
 
