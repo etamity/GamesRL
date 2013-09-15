@@ -49,7 +49,7 @@ package com.newco.grand.core.common.view.interfaces
 		function set myaccountLabel(value:String):void;
 		function set game(value:String):void;
 		
-		function loadLanguages(data:XML):void;
+		function loadLanguages(data:XML,path:String):void;
 	}
 	
 }

@@ -1,6 +1,7 @@
 package com.newco.grand.core.common.view.mediators {
 	
 	import com.newco.grand.core.common.controller.signals.BaseSignal;
+	import com.newco.grand.core.common.controller.signals.LanguageAndStylesEvent;
 	import com.newco.grand.core.common.controller.signals.UIEvent;
 	import com.newco.grand.core.common.controller.signals.VideoEvent;
 	import com.newco.grand.core.common.model.FlashVars;
@@ -53,6 +54,10 @@ package com.newco.grand.core.common.view.mediators {
 			signalBus.add(VideoEvent.CONNECT,initializeVideo);
 			signalBus.add(VideoEvent.PLAY,setVideoStream);
 			signalBus.add(VideoEvent.FULLSCREEN,videoFullscreen);
+			signalBus.add(LanguageAndStylesEvent.LANGUAGE_LOADED, updateLanguage);
+		}
+		private function updateLanguage(signal:BaseSignal):void{
+			view.updateLanguage();
 		}
 		private function onRemoveFromStageEvent(evt:Event):void{
 			view.stream.close();

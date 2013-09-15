@@ -14,6 +14,7 @@ package com.newco.grand.core.common.model
 		private var _historySWF:String 		= "/player/games/history/History.swf";
 		private var _freeplay:String 	= "/cgibin/mobile_launcher.jsp";
 		private var _language:String 	= "/player/games/languages/";
+		private var _langICON:String 	= "/player/games/xml/langs/png/";
 		private var _style:String 		= "/player/games/styles/";
 		
 		private var _state:String 		= "/cgibin/roulette/state.jsp";
@@ -111,6 +112,14 @@ package com.newco.grand.core.common.model
 		}
 		public function set lobby(value:String):void {
 			_lobby = value;
+		}
+		public function get langICON():String {
+			if( flashVars.localhost )
+				return "xml/langs/png/";
+			return server + _langICON;
+		}
+		public function set langICON(value:String):void {
+			_langICON = value;
 		}
 		public function get help():String {
 			if( flashVars.localhost )

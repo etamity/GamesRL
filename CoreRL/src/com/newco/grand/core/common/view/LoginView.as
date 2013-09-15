@@ -28,8 +28,11 @@ package com.newco.grand.core.common.view {
 		}
 		
 		override public function align():void {
+			if (stage!=null)
+			{
 			x = (stage.stageWidth  - width) / 2;
 			y = (stage.stageHeight  - height) / 2;
+			}
 		}
 		public function get loginSignal():Signal{
 			return _loginSignal;

@@ -10,7 +10,7 @@ package com.newco.grand.core.common.controller.commands
 	
 	import robotlegs.bender.bundles.mvcs.Command;
 	
-	public class LanguageAndStylesCommnad extends Command
+	public class LanguageAndStylesCommand extends Command
 	{
 		[Inject]
 		public var langService:LanguageService;
@@ -20,7 +20,7 @@ package com.newco.grand.core.common.controller.commands
 		public var flashVars:FlashVars;
 		[Inject]
 		public var signalBus:SignalBus;
-		public function LanguageAndStylesCommnad()
+		public function LanguageAndStylesCommand()
 		{
 			super();
 		}

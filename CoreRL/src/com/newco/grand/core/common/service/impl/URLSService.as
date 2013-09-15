@@ -46,6 +46,7 @@ package com.newco.grand.core.common.service.impl
 			urlsModel.freeplay= xml.common.freeplay;
 			urlsModel.help= xml.common.help;
 			urlsModel.language= xml.common.language;
+			urlsModel.langICON= xml.common.langICON;
 			urlsModel.lobby= xml.common.lobby;
 			urlsModel.login= xml.common.login;
 			urlsModel.players= xml.common.players;

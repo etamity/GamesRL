@@ -2,6 +2,7 @@ package com.newco.grand.core.common.view.mediators {
 	
 	import com.newco.grand.core.common.controller.signals.BaseSignal;
 	import com.newco.grand.core.common.controller.signals.ChatEvent;
+	import com.newco.grand.core.common.controller.signals.LanguageAndStylesEvent;
 	import com.newco.grand.core.common.controller.signals.ModelReadyEvent;
 	import com.newco.grand.core.common.controller.signals.SocketDataEvent;
 	import com.newco.grand.core.common.model.Chat;
@@ -43,9 +44,13 @@ package com.newco.grand.core.common.view.mediators {
 			signalBus.signal(SocketDataEvent.HANDLE_DEALER).add(setDealer);
 			signalBus.signal(ChatEvent.SHOW_WELCOME_MESSAGE).add(setWelcomeMessage);
 			signalBus.signal(ChatEvent.SHOW_MESSAGE).add(setMessage);
+
 		}
-		
+		private function updateLanguage(signal:BaseSignal):void{
+			view.updateLanguage();
+		}
 		private function setupModel(signal:BaseSignal):void {
+			signalBus.add(LanguageAndStylesEvent.LANGUAGE_LOADED, updateLanguage);
 			view.init();
 			eventMap.mapListener(contextView.view.stage, Event.RESIZE, onStageResize);
 			view.sendSignal.add(sendMessage);

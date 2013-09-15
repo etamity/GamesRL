@@ -85,11 +85,15 @@ package com.newco.grand.core.common.view.mediators
 			signalBus.add(BetEvent.TOTAL_BET,updateBet);
 			signalBus.add(BetEvent.CLOSE_BETS,disableButtons);
 		}
+		private function updateLanguage(signal:BaseSignal):void{
+			view.updateLanguage();
+		}
 
 		private function setupModel(signal:BaseSignal):void
 		{
+			signalBus.add(LanguageAndStylesEvent.LANGUAGE_LOADED, updateLanguage);
 			view.init();
-			view.loadLanguages(urls.languages);
+			view.loadLanguages(urls.languages,urls.langICON);
 			createMenuBar();
 			addViewListeners();
 			eventMap.mapListener(contextView.view.stage, Event.RESIZE, onStageResize);

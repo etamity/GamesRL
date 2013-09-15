@@ -14,6 +14,8 @@ package com.newco.grand.core.common.view.uicomps
 	{
 		
 		public var onChange:Signal=new Signal();
+		
+		public var path:String;
 		public function LanguagePanelView()
 		{
 			super();
@@ -31,6 +33,7 @@ package com.newco.grand.core.common.view.uicomps
 				langBtn.label=lang[i].@name;
 				langBtn.params.lang=lang[i].@code;
 				langBtn.onClick.add(function (btn:SMButton):void{
+					visible=false;
 					onChange.dispatch(btn);
 				});
 				langBtn.skin.x= 5;
@@ -38,7 +41,7 @@ package com.newco.grand.core.common.view.uicomps
 				addChild(langBtn.skin);
 				var loader:Loader = new Loader();
 				loader.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR, onError); 
-				var urlIcon:String= "xml/langs/png/"+lang[i].@icon+".png";
+				var urlIcon:String= path +lang[i].@icon+".png";
 				trace(urlIcon);
 				loader.load(new URLRequest(urlIcon));
 				loader.x=langBtn.skin.x;

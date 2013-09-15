@@ -1,5 +1,6 @@
 package com.newco.grand.core.common.view.uicomps
 {
+	import com.newco.grand.core.common.model.LanguageModel;
 	import com.newco.grand.core.common.view.interfaces.IAccordion;
 	import com.smart.uicore.controls.Accordion;
 	import com.smart.uicore.controls.modeStyles.ButtonStyle;
@@ -26,8 +27,7 @@ package com.newco.grand.core.common.view.uicomps
 			_display.defaultGapHeight=2;
 	
 		}
-	    public function updateLanguage():void{
-			
+		public function updateLanguage():void{
 		}
 		public function get view():Sprite{
 			return this;
@@ -59,6 +59,8 @@ package com.newco.grand.core.common.view.uicomps
 			_display.setSize(_compWidth,_compHeight);
 			
 		}
+		
+	
 		public function resize(width:Number,height:Number):void{
 			_display.setSize(width,height);
 		}

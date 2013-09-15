@@ -1,6 +1,7 @@
 package com.newco.grand.core.common.view.mediators {
 	
 	import com.newco.grand.core.common.controller.signals.BaseSignal;
+	import com.newco.grand.core.common.controller.signals.LanguageAndStylesEvent;
 	import com.newco.grand.core.common.controller.signals.LoginEvent;
 	import com.newco.grand.core.common.controller.signals.ModelReadyEvent;
 	import com.newco.grand.core.common.controller.signals.StateTableConfigEvent;
@@ -48,12 +49,16 @@ package com.newco.grand.core.common.view.mediators {
 			signalBus.add(TaskbarActionEvent.HELP_CLICKED,toggleHelp);
 
 		}
+		private function updateLanguage(signal:BaseSignal):void{
+			view.updateLanguage();
+		}
 		private function errorEvents():void{
 			//signalBus.add(LoginEvent.LOGIN_SUCCESS,hidePreloader);
 			//signalBus.add(LoginEvent.LOGIN_FAILURE,hidePreloader);
 		}
 		
 		private function setupModel(signal:BaseSignal):void {
+			signalBus.add(LanguageAndStylesEvent.LANGUAGE_LOADED, updateLanguage);
 			view.init();
 			eventMap.mapListener(contextView.view.stage, Event.RESIZE, onStageResize);
 			

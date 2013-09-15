@@ -26,6 +26,7 @@ package com.newco.grand.core.common.view.mediators {
 			signalBus.add(ModelReadyEvent.READY, setupModel);
 			signalBus.add(PlayersEvent.LOADED, showPlayers);
 			signalBus.add(UIEvent.RESIZE, resize);
+			
 		}
 		
 		private function setupModel(signal:BaseSignal):void {

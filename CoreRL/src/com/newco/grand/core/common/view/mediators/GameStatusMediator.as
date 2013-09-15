@@ -3,6 +3,7 @@ package com.newco.grand.core.common.view.mediators {
 	import com.newco.grand.core.common.controller.signals.BalanceEvent;
 	import com.newco.grand.core.common.controller.signals.BaseSignal;
 	import com.newco.grand.core.common.controller.signals.BetEvent;
+	import com.newco.grand.core.common.controller.signals.LanguageAndStylesEvent;
 	import com.newco.grand.core.common.controller.signals.MessageEvent;
 	import com.newco.grand.core.common.controller.signals.ModelReadyEvent;
 	import com.newco.grand.core.common.controller.signals.SocketDataEvent;
@@ -67,11 +68,14 @@ package com.newco.grand.core.common.view.mediators {
 		}
 		
 		private function setupModel(signal:BaseSignal):void {
+			signalBus.add(LanguageAndStylesEvent.LANGUAGE_LOADED, updateLanguage);
 			view.init();
 			view.message = LanguageModel.PLEASEWAIT;
 			eventMap.mapListener(contextView.view.stage, Event.RESIZE, onStageResize);
 		}
-
+		private function updateLanguage(signal:BaseSignal):void {
+			view.updateLanguage();	
+		}
 		private function startTimer(signal:BaseSignal):void {
 			view.message = LanguageModel.PLACEBETS;
 			view.timerColor = TIMER_COLOR_DEFAULT;

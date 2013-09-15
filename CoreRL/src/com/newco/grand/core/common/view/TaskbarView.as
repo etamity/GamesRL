@@ -205,7 +205,8 @@ package com.newco.grand.core.common.view {
 		}
 		
 		
-		public function loadLanguages(data:XML):void{
+		public function loadLanguages(data:XML,path:String):void{
+			languagePanel.path=path;
 			languagePanel.load(data);
 			languagePanel.y= _display.language.y -languagePanel.height;
 		}

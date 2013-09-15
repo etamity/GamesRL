@@ -29,11 +29,12 @@ package com.newco.grand.core.common.view.mediators {
 		private var _loginSO:SharedObject;
 
 		override public function initialize():void {
-			signalBus.add(LanguageAndStylesEvent.LOADED,setupLanguage);
 			signalBus.add(LoginEvent.INITIALIZE,setupModel);
+			signalBus.add(LanguageAndStylesEvent.LANGUAGE_LOADED, updateLanguage);
 		}
 		
 		private function setupModel(signal:BaseSignal):void {
+		
 			initializeView();			
 			eventMap.mapListener(contextView.view.stage, Event.RESIZE, onStageResize);
 			
@@ -42,7 +43,7 @@ package com.newco.grand.core.common.view.mediators {
 			signalBus.add(LoginEvent.LOGIN_FAILURE,setError);
 			
 		}
-		private function setupLanguage(signal:BaseSignal):void {
+		private function updateLanguage(signal:BaseSignal):void {
 			view.init();	
 		}
 
