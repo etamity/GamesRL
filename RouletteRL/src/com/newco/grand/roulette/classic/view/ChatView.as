@@ -9,7 +9,7 @@ package com.newco.grand.roulette.classic.view
 			super();
 		}
 		override public function align():void {			
-			x =0;
+			x =775;
 			//x = 0;
 			//y = 0;
 		}

@@ -79,7 +79,7 @@ package com.newco.grand.roulette.classic.view {
 		
 		public function align():void {			
 			//x = 168;
-			y = 235;
+			//y = 235;
 			visible = true;
 		}
 

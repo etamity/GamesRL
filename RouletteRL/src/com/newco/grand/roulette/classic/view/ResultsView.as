@@ -35,8 +35,8 @@ package com.newco.grand.roulette.classic.view {
 		}
 		
 		public function align():void {
-			x = stage.stageWidth - width -170;
-			y = 206;
+			x = 665;
+			y = 236;
 			visible = true;
 		}
 

@@ -11,8 +11,8 @@ package com.newco.grand.roulette.classic.view
 			super();
 		}
 		override public function align():void{
-			x = 360;
-			setSize(448, 318);
+			//x = 360;
+			setSize(662, 372);
 		}
 		
 		override public function resizeVideo(event:MouseEvent=null):void {
@@ -39,7 +39,7 @@ package com.newco.grand.roulette.classic.view
 				//_display.bg.visible=false;
 				//Tweener.addTween(_display.bg, {width:455, time:0.75, transition:"easeInOutQuart", onUpdate:function():void {resize(); }});
 				//Tweener.addTween(_display.bg, {height:325, time:0.75, transition:"easeInOutQuart",onUpdate:function():void {resize(); }});
-				Tweener.addTween(this, {x:360,scaleX:1, time:0.75, transition:"easeInOutQuart"});
+				Tweener.addTween(this, {x:0,scaleX:1, time:0.75, transition:"easeInOutQuart"});
 				Tweener.addTween(this, {y:0,scaleY:1, time:0.75, transition:"easeInOutQuart", onComplete:function ():void{
 					//videoFullscreenSignal.dispatch(event.target);
 					//signalBus.dispatch(UIEvent.VIDEO_FULLSCREEN,{target:event.target});
