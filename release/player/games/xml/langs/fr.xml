@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8"?> 
+<game>
+	<!-- Preloader -->
+	<loading><![CDATA[Chargement...]]></loading>
+	<loadingaudio><![CDATA[Chargement du son...]]></loadingaudio>
+	<loadingstyle><![CDATA[Chargement du style...]]></loadingstyle>
+	<loadinggamedata><![CDATA[Chargement du jeu et des données de table...]]></loadinggamedata>
+	<connectingtogameserver><![CDATA[Connexion au serveur de jeu...]]></connectingtogameserver>
+	<loadingbalance><![CDATA[Chargement du solde...]]></loadingbalance>
+	<loadingvideo><![CDATA[Connexion à la vidéo en direct...]]></loadingvideo>
+	<live><![CDATA[D I R E C T]]></live>
+	<videotooltip><![CDATA[CLIQUER POUR UN ZOOM AVANT SUR LA VIDEO]]></videotooltip>
+	<videotooltipout><![CDATA[CLIQUER POUR UN ZOOM ARRIERE SUR LA VIDEO]]></videotooltipout>
+	<optimizingvideo><![CDATA[Optimising Video...]]></optimizingvideo>
+
+	<!-- History -->
+	<historytitle><![CDATA[Historique]]></historytitle>
+	<gametype><![CDATA[Type de jeu]]></gametype>
+	<time><![CDATA[Heure]]></time>
+	<amount><![CDATA[Montant]]></amount>
+	<date><![CDATA[Date]]></date>
+	<stake><![CDATA[Mise]]></stake>
+	<winlose><![CDATA[Gain/Perte]]></winlose>
+	<transactiontime><![CDATA[Heure de la transaction]]></transactiontime>
+	<transactiontype><![CDATA[Type de transaction]]></transactiontype>
+	<enteredby><![CDATA[Saisie par]]></enteredby>
+	<transactionstatus><![CDATA[Etat]]></transactionstatus>
+	<notes><![CDATA[Remarques]]></notes>
+	<betheading><![CDATA[Mise]]></betheading>
+	<resultheading><![CDATA[Résultat]]></resultheading>
+	<participation><![CDATA[Participation ID]]></participation>
+	<netcash><![CDATA[Gain net]]></netcash>
+	<theplayerhand><![CDATA[Main du joueur]]></theplayerhand>
+	<thebankerhand><![CDATA[Main du banquier]]></thebankerhand>
+	<seatname><![CDATA[Nom de la place]]></seatname>
+	<score><![CDATA[Score]]></score>
+	<payoff><![CDATA[Gain]]></payoff>
+	<insurance><![CDATA[Assurance:]]></insurance>
+	<cards><![CDATA[Cartes]]></cards>
+	<accounthistory><![CDATA[Historique du compte]]></accounthistory>
+	<currentactivity><![CDATA[Activité actuelle]]></currentactivity>
+	<backtoaccounthistory><![CDATA[Retour à l'historique de compte]]></backtoaccounthistory>
+	<backtogamehistory><![CDATA[Retour à l'historique de jeu]]></backtogamehistory>
+	<noactivity><![CDATA[Aucune activité durant cette période]]></noactivity>
+	<stakereturned><![CDATA[Stake Returned]]></stakereturned>
+	<win><![CDATA[Win]]></win>
+
+	<!-- Roulette Statistics -->
+	<statistics><![CDATA[STATISTIQUES]]></statistics>
+	<statisticstip><![CDATA[CLICK TO SEE STATISTICS]]></statisticstip>
+	<roulettestatstitle><![CDATA[Statistiques de Roulette : 100 dernières parties]]></roulettestatstitle>
+	<winsbutton><![CDATA[Gains]]></winsbutton>
+	<betsbutton><![CDATA[Mises]]></betsbutton>
+	<resultsbutton><![CDATA[Résultats]]></resultsbutton>
+	<hotnumbers><![CDATA[Numéros chauds]]></hotnumbers>
+	<coldnumbers><![CDATA[Numéros froids]]></coldnumbers>
+	
+	<!-- Help -->
+	<helptitle><![CDATA[Aide]]></helptitle>
+	
+	<!-- Baccarat -->
+	<player><![CDATA[JOUEUR]]></player>
+	<banker><![CDATA[BANQUIER]]></banker>
+	<tie><![CDATA[EGALITE]]></tie>
+	<pair_player><![CDATA[PAIRE JOUEUR]]></pair_player>
+	<pair_banker><![CDATA[PAIRE BANQUIER]]></pair_banker>
+	<twoway><![CDATA[2 WAY]]></twoway>
+	<threeway><![CDATA[3 WAY]]></threeway>
+	<bigroad><![CDATA[BIG ROAD]]></bigroad>
+	<bigeyeboyroad><![CDATA[BIG EYE BOY]]></bigeyeboyroad>
+	<smallroad><![CDATA[SMALL ROAD]]></smallroad>
+	<cockroachroad><![CDATA[COCKROACH]]></cockroachroad>
+
+	<!-- Blackjack -->
+	<sithere><![CDATA[S'asseoir ici]]></sithere>
+	<unseat><![CDATA[QUITTER LA PLACE]]></unseat>
+	<multiseat><![CDATA[PLUSIEURS PLACES]]></multiseat>
+	<multiseattip><![CDATA[CLICK FOR ANOTHER SEAT]]></multiseattip>
+	<seattaken><![CDATA[PLACE PRISE]]></seattaken>
+	<confirm><![CDATA[CONFIRMER]]></confirm>
+	<decisiontitle><![CDATA[CHOISISSEZ UNE OPTION.]]></decisiontitle>
+	<hit><![CDATA[TIRER]]></hit>
+	<stand><![CDATA[RESTER]]></stand>
+	<doubledown><![CDATA[DOUBLE]]></doubledown>
+	<insurancetitle><![CDATA[ASSURANCE ?]]></insurancetitle>
+	<yes><![CDATA[OUI]]></yes>
+	<no><![CDATA[NON]]></no>
+
+	<!-- Lobby -->
+	<lobby><![CDATA[MENU DES JEUX EN DIRECT]]></lobby>
+	<loadinglobbyxml><![CDATA[Chargement des tables...]]></loadinglobbyxml>
+	<baccarat><![CDATA[BACCARAT EN DIRECT]]></baccarat>
+	<blackjack><![CDATA[BLACKJACK EN DIRECT]]></blackjack>
+	<roulette><![CDATA[ROULETTE EN DIRECT]]></roulette>
+	<slingshot><![CDATA[SLINGSHOT EN DIRECT]]></slingshot>
+	<dealer><![CDATA[DONNEUR]]></dealer>
+	<account><![CDATA[COMPTE]]></account>
+	<myaccount><![CDATA[MON COMPTE]]></myaccount>
+	<tableinfo><![CDATA[INFORMATIONS SUR LA TABLE]]></tableinfo>
+	<players><![CDATA[JOUEURS]]></players>
+	<results><![CDATA[RESULTATS]]></results>
+	<viewtable><![CDATA[VOIR LA TABLE]]></viewtable>
+	<currenttable><![CDATA[VOTRE TABLE ACTUELLE]]></currenttable>
+	<hometext><![CDATA[CLIQUEZ SUR UN JEU EN DIRECT CI-DESSOUS POUR VOIR LES TABLES.]]></hometext>
+	<vtabletext><![CDATA[SELECTIONNEZ LES LIMITES DE TABLE POUR #table#.]]></vtabletext>
+	<gamemodetext><![CDATA[SELECTIONNEZ LA VUE POUR JOUER A LA TABLE #table# AVEC LES LIMITES #min# - #max#.]]></gamemodetext>
+	<chooseroulette><![CDATA[CHOISISSEZ UNE TABLE DE ROULETTE CI-DESSOUS.]]></chooseroulette>
+	<choosebaccarat><![CDATA[CHOISISSEZ UNE TABLE DE BACCARAT CI-DESSOUS.]]></choosebaccarat>
+	<chooseblackjack><![CDATA[CHOISISSEZ UNE TABLE DE BLACKJACK CI-DESSOUS.]]></chooseblackjack>
+	<chooseminiroulette><![CDATA[PLEASE CHOOSE A MINI ROULETTE TABLE BELOW]]></chooseminiroulette>
+	<chooseminibaccarat><![CDATA[PLEASE CHOOSE A MINI BACCARAT TABLE BELOW]]></chooseminibaccarat>
+	<chooseminiblackjack><![CDATA[PLEASE CHOOSE A MINI BLACKJACK TABLE BELOW]]></chooseminiblackjack>
+
+	<screenname><![CDATA[PSEUDONYME]]></screenname>
+	<screennamelabel><![CDATA[Veuillez entrer un pseudonyme valide.]]></screennamelabel>
+	<screennameerror1><![CDATA[Pseudonyme non valide]]></screennameerror1>
+	<screennameerror2><![CDATA[Le pseudonyme existe déjà.]]></screennameerror2>
+	<seaterror1><![CDATA[Veuillez essayer une autre place.]]></seaterror1>
+	<seaterror2><![CDATA[Le solde de votre compte est insuffisant pour prendre une place.]]></seaterror2>
+
+	<view1><![CDATA[VUE 3D]]></view1>
+	<view2><![CDATA[VUE CLASSIQUE]]></view2>
+	<view3><![CDATA[PAIRES]]></view3>
+	<view4><![CDATA[ASIATIQUE]]></view4>
+	<normal><![CDATA[NORMAL]]></normal>
+	<switchvideo><![CDATA[SWITCH VIDEO]]></switchvideo>
+
+	<details_blackjack><![CDATA[Live Blackjack - The fastest live dealer Blackjack in the world. Same deal speed as if you were in a real Casino. ]]></details_blackjack>
+	<details_blackjack_vip><![CDATA[VIP Blackjack - Play live Blackjack with other high rollers]]></details_blackjack_vip>
+	<details_blackjack_betbehind><![CDATA[Play behind Blackjack. Bet on other players. When they win, you win !]]></details_blackjack_betbehind>
+	<details_baccarat><![CDATA[Enjoy live Baccarat in the environment it is meant to be played in.]]></details_baccarat>
+	<details_baccarat_vip><![CDATA[live dealer VIP baccarat, a chance to play with high stakes.]]></details_baccarat_vip>
+	<details_roulette><![CDATA[Play standard Roulette with one game per minute.]]></details_roulette>
+	<details_roulette_vip><![CDATA[VIP Roulette. Play VIP Roulette with one game every minute. High betting limits for high rollers]]></details_roulette_vip>
+	<details_roulette_blue><![CDATA[Play our brand new Grand Roulette with your favourite presenters. Fast and interactive. Open 6 PM till 12 PM (GMT) every day.]]></details_roulette_blue>
+	<details_roulette_european><![CDATA[Play LIVE and experience the truest Live Roulette available online. Place your bets and speak to our lovely croupiers amongst the best graphics online everyday between 6pm and 12am (GMT)!]]></details_roulette_european>
+	<details_roulette_auto><![CDATA[Fully automated Roulette wheel produced by Cammegh, The World's Finest Roulette Wheel.]]></details_roulette_auto>
+	<details_roulette_brown><![CDATA[Spinning every 45 seconds, our fully air powered Roulette wheel is the fastest live roulette in the world! Play jet Roulette with the table limit ranging from 0.25 right up to 500 every hour of every day!.]]></details_roulette_brown>
+
+	<bonusterms><![CDATA[<b>Vous avez droit à un bonus *BONUS_NAME* de <u>*BONUS_AMOUNT* *BONUS_CURRENCY*</u> !<br/><br/>Le montant sera ajouté à votre compte de bonus si vous acceptez les conditions suivantes :<br><br><u>CONTRAT DE BONUS :</u><br/><br/>L'ACCEPTATION DE CE BONUS DE *BONUS_AMOUNT* *BONUS_CURRENCY* SIGNIFIE QUE VOUS ACCEPTEZ L'OBLIGATION DE PLACER AU MINIMUM <u>*MIN_BET* *BONUS_CURRENCY*</u> DE MISES SUR LES JEUX APPROUVES AVANT DE RETIRER LES FONDS. CETTE EXIGENCE SERA MISE EN PLACE PAR NOTRE SERVICE COMPTABILITE CONFORMEMENT AU CONTRAT DE BONUS.</b>]]></bonusterms>
+	<signmeup><![CDATA[OUI, JE VEUX M'INSCRIRE !]]></signmeup>
+	<nothanks><![CDATA[NON MERCI.]]></nothanks>
+	
+	<!-- Balance Popup -->
+	<balancedetails><![CDATA[DETAILS DU SOLDE]]></balancedetails>
+	<bonusbalance><![CDATA[SOLDE DE BONUS]]></bonusbalance>
+	<currentplaythrough><![CDATA[REMISE EN JEU ACTUELLE]]></currentplaythrough>
+	<requiredplaythrough><![CDATA[REMISE EN JEU REQUISE]]></requiredplaythrough>
+
+	<!-- Settings Popup -->
+	<settings><![CDATA[PARAMETRES]]></settings>
+	<autofullscreen><![CDATA[ZOOM AVANT AUTO SUR LA VIDEO PENDANT LE LANCER]]></autofullscreen>
+	<videoquality><![CDATA[PARAMETRES DE QUALITE VIDEO :]]></videoquality>
+	<autoadjust><![CDATA[AJUSTEMENT AUTO]]></autoadjust>
+	<lowquality><![CDATA[BASSE]]></lowquality>
+	<medquality><![CDATA[MOYENNE]]></medquality>
+	<highquality><![CDATA[ELEVEE]]></highquality>
+	<suppresschat><![CDATA[MASQUER LE CHAT DES AUTRES JOUEURS]]></suppresschat>
+
+	<!-- Chat Help Text
+	<chelp1><![CDATA[Présentation de la Roulette à tirage commun avec VIDEO EN DIRECT]]></chelp1>
+	<chelp2><![CDATA[Vous regardez la plus belle roue de roulette au monde.]]></chelp2>
+	<chelp3><![CDATA[La Cammegh Slingshot 2 entièrement automatique]]></chelp3>
+	<chelp4><![CDATA[Présente dans les principaux casinos du monde]]></chelp4>
+	<chelp5><![CDATA[Fonctionnement par air comprimé]]></chelp5>
+	<chelp6><![CDATA[Diffusion en DIRECT : au moins 60 parties par heure]]></chelp6>
+	<chelp7><![CDATA[Appuyez sur le bouton CHAT pour envoyer un message aux autres joueurs ou au service client.]]></chelp7> -->
+
+	<!-- Chat & Participant messages -->
+	<welcometo><![CDATA[Bienvenue dans]]></welcometo>
+	<chat><![CDATA[CHAT]]></chat>
+	<clicktochat><![CDATA[CLIQUER POUR CHATTER]]></clicktochat>
+	<playersontable><![CDATA[#count# joueurs à la table]]></playersontable>
+	<playerontable><![CDATA[Le joueur #player# est à la table.]]></playerontable>
+	<winmsg><![CDATA[#player# remporte #amount#.]]></winmsg>
+
+	<!-- Idle& Session Expired Messages -->
+	<idlemessage><![CDATA[Jeu mis en pause pour cause d'inactivité. Cliquez sur OK pour continuer.]]></idlemessage>
+	<sessionexpired><![CDATA[Votre session a expiré car vous êtes resté inactif trop longtemps. Veuillez retourner sur le site pour vous connecter à nouveau. ]]></sessionexpired>
+	
+	<!-- Betting Options -->
+	<rebet><![CDATA[REPETER]]></rebet>
+	<doublebet><![CDATA[DOUBLER]]></doublebet>
+	<undo><![CDATA[ANNULER]]></undo>
+
+	<!-- Bet Limits Panel -->
+	<betlimits><![CDATA[LIMITES DE MISE]]></betlimits>
+	<min><![CDATA[MIN]]></min>
+	<max><![CDATA[MAX]]></max>
+	<payout><![CDATA[RAPPORT]]></payout>
+	<betlabel><![CDATA[MISE]]></betlabel>
+	<alllimitstip><![CDATA[CLIQUER POUR VOIR TOUTES LES LIMITES]]></alllimitstip>
+	<dozen><![CDATA[DOUZAINE]]></dozen>
+	<corner><![CDATA[CARRE]]></corner>
+	<high><![CDATA[PASSE]]></high>
+	<low><![CDATA[MANQUE]]></low>
+	<straight><![CDATA[EN PLEIN]]></straight>
+	<even><![CDATA[PAIR]]></even>
+	<odd><![CDATA[IMPAIR]]></odd>
+	<trio><![CDATA[TRANSVERSALE]]></trio>
+	<column><![CDATA[COLONNE]]></column>
+	<split><![CDATA[A CHEVAL]]></split>
+	<red><![CDATA[ROUGE]]></red>
+	<black><![CDATA[NOIR]]></black>
+	<green><![CDATA[GREEN]]></green>
+	<five_number><![CDATA[MISE SUR CINQ]]></five_number>
+	<six_number><![CDATA[SIXAIN]]></six_number>
+
+	<!-- Task Bar -->
+	<balance><![CDATA[SOLDE]]></balance>
+	<session_balance><![CDATA[SOLDE]]></session_balance>
+	<bonus><![CDATA[BONUS]]></bonus>
+	<bet><![CDATA[MISE TOTALE]]></bet>
+	<gameid><![CDATA[NUMERO DE PARTIE]]></gameid>
+	<cashier><![CDATA[CAISSIER]]></cashier>
+	<deposit><![CDATA[CAISSIER]]></deposit>
+	<back><![CDATA[BACK]]></back>
+	<close><![CDATA[CLOSE]]></close>
+	<history><![CDATA[HISTORIQUE]]></history>	
+	<help><![CDATA[AIDE]]></help>
+	<responsible><![CDATA[RESPONSIBLE]]></responsible>
+	<fullscreen><![CDATA[PLEIN ECRAN]]></fullscreen>
+	<restore><![CDATA[RESTAURER]]></restore>
+	<soundon><![CDATA[SON ACTIVE]]></soundon>
+	<soundoff><![CDATA[SON DESACTIVE]]></soundoff>
+	<chatonhelp><![CDATA[CHAT DEJA OUVERT (ANGLE SUPERIEUR GAUCHE)]]></chatonhelp>
+	<chaton><![CDATA[AFFICHER CHAT]]></chaton>
+	<chatoff><![CDATA[MASQUER CHAT]]></chatoff>	
+	<changetable><![CDATA[CHANGER DE TABLE]]></changetable>
+	<bonusdetails><![CDATA[CLIQUER POUR VOIR LE SOLDE ET LES DETAILS DE BONUS]]></bonusdetails>
+
+	<!-- Game Status Panel -->
+	<table><![CDATA[TABLE]]></table>
+	<pleasewait><![CDATA[VEUILLEZ PATIENTER]]></pleasewait>
+	<placebets><![CDATA[FAITES VOS JEUX.]]></placebets>
+	<betsclosing><![CDATA[RIEN NE VA PLUS.]]></betsclosing>
+	<betsclosinggeneric><![CDATA[RIEN NE VA PLUS.]]></betsclosinggeneric>
+	<nomorebets><![CDATA[LES JEUX SONT FAITS.]]></nomorebets>
+	<sendingbets><![CDATA[ENVOI DES MISES]]></sendingbets>
+	<betsaccepted><![CDATA[MISES ACCEPTEES]]></betsaccepted>
+	<notallbetsaccepted><![CDATA[CERTAINES MISES NON ACCEPTEES]]></notallbetsaccepted>
+	<betsrejected><![CDATA[MISES REFUSEES]]></betsrejected>
+	<waitingforbets><![CDATA[EN ATTENTE DES MISES]]></waitingforbets>
+	<waitingfornextgame><![CDATA[EN ATTENTE DE LA PARTIE SUIVANTE]]></waitingfornextgame>
+	<waitingfordecision><![CDATA[EN ATTENTE DE LA DECISION]]></waitingfordecision>
+	<waitingforinsurance><![CDATA[EN ATTENTE DE L'ASSURANCE]]></waitingforinsurance>
+	<waitingforcard><![CDATA[DONNE EN COURS]]></waitingforcard>
+	<waitingforresult><![CDATA[EN ATTENTE DU RESULTAT]]></waitingforresult>
+	<gameover><![CDATA[PARTIE TERMINEE]]></gameover>
+	<gamecancelled><![CDATA[PARTIE ANNULEE]]></gamecancelled>	
+	<open><![CDATA[OUVERT]]></open>
+	<closing><![CDATA[FERMETURE]]></closing>
+	<closed><![CDATA[FERME]]></closed>
+	<result><![CDATA[RESULTAT : #result#]]></result>
+	<youwon><![CDATA[VOUS AVEZ GAGNE : #winnings#]]></youwon>
+
+	<!-- Game Table Tool Tips -->
+	<minbetis><![CDATA[MISE MINIMUM : #bet#]]></minbetis>
+	<maxbetis><![CDATA[MISE MAXIMUM : #bet#]]></maxbetis>
+	<mintablebetis><![CDATA[MISE MINIMUM DE LA TABLE : #bet#]]></mintablebetis>
+	<maxtablebetis><![CDATA[MISE MAXIMUM DE LA TABLE : #bet#]]></maxtablebetis>
+	<notenoughmoney><![CDATA[FONDS INSUFFISANTS]]></notenoughmoney>
+
+	<!-- Error/Warning/Information Messages -->
+	<warning><![CDATA[Avertissement (#id#)]]></warning>
+	<information><![CDATA[Information (#id#)]]></information>
+	<error><![CDATA[Erreur (#id#)]]></error>
+	<lowbalance><![CDATA[Le solde de votre compte est trop bas pour jouer. Veuillez déposer des fonds sur votre compte.]]></lowbalance>
+	<error_ok><![CDATA[OK]]></error_ok>
+	<generic_wheel_error id="7001"><![CDATA[Erreur de communication temporaire. Veuillez attendre la partie suivante.]]></generic_wheel_error>
+	<generic_communication_error id="7002"><![CDATA[Erreur de communication. Veuillez contacter le service client pour obtenir de l'aide.]]></generic_communication_error>
+	<generic_placebets_error id="7003"><![CDATA[Vos mises n'ont pas été acceptées par le serveur. Veuillez contacter le service client pour obtenir de l'aide.]]></generic_placebets_error>
+	<generic_balance_error id="7004"><![CDATA[Un problème temporaire empêche l'affichage de votre solde mis à jour. Veuillez contacter le service client pour obtenir de l'aide.]]></generic_balance_error>
+	<game_cancelled id="7005"><![CDATA[La partie a été annulée. Veuillez attendre la partie suivante.]]></game_cancelled>
+	<!-- All Server Side Error Messages -->
+	<error_10104><![CDATA[Vous n'avez pas suffisamment de fonds pour placer cette mise.]]></error_10104>
+	<error_10103><![CDATA[Votre compte est actuellement désactivé. Veuillez contacter le service client pour obtenir de l'aide.]]></error_10103>
+	<error_10102><![CDATA[Votre compte a été suspendu. Veuillez contacter le service client pour obtenir de l'aide.]]></error_10102>
+	<error_2400><![CDATA[Votre session a expiré. Veuillez vous reconnecter.]]></error_2400>
+	<error_1000><![CDATA[Veuillez contacter le service client pour obtenir de l'aide.]]></error_1000>
+	<error_1400><![CDATA[Veuillez contacter le service client pour obtenir de l'aide.]]></error_1400>
+	<error_1500><![CDATA[Veuillez contacter le service client pour obtenir de l'aide.]]></error_1500>
+	<error_10106><![CDATA[Veuillez contacter le service client pour obtenir de l'aide.]]></error_10106>
+	<error_10100><![CDATA[Veuillez contacter le service client pour obtenir de l'aide.]]></error_10100>
+	<error_10101><![CDATA[Veuillez contacter le service client pour obtenir de l'aide.]]></error_10101>
+	<error_10105><![CDATA[Veuillez contacter le service client pour obtenir de l'aide.]]></error_10105>
+	<error_20100><![CDATA[Vous n'avez pas l'âge minimum requis pour jouer.]]></error_20100>
+	<error_20101><![CDATA[Vous êtes dans l'impossibilité temporaire d'enregistrer un alias.]]></error_20101>
+	<error_20102><![CDATA[Un problème temporaire est survenu lors de la récupération de votre solde.]]></error_20102>
+	<error_20103><![CDATA[Un problème temporaire est survenu lors du transfert de fonds vers le casino.]]></error_20103>
+	<error_20104><![CDATA[Un problème temporaire est survenu lors de la récupération des taux de change.]]></error_20104>
+	<error_010><![CDATA[Veuillez contacter le service client pour obtenir de l'aide.]]></error_010>
+	<error_0><![CDATA[Veuillez contacter le service client pour obtenir de l'aide.]]></error_0>
+	<error_10002><![CDATA[Veuillez contacter le service client pour obtenir de l'aide.]]></error_10002>
+	<error_10003><![CDATA[Votre session a expiré. Veuillez vous reconnecter.]]></error_10003>
+	<error_10004><![CDATA[Veuillez contacter le service client pour obtenir de l'aide.]]></error_10004>
+	<error_10005><![CDATA[Veuillez contacter le service client pour obtenir de l'aide.]]></error_10005>
+	<error_10006><![CDATA[Vos mises pour ce tour ont déjà été acceptées.]]></error_10006>
+	<error_10007><![CDATA[Votre compte a été suspendu. Veuillez contacter le service client pour obtenir de l'aide.]]></error_10007>
+	<error_10008><![CDATA[Vous n'avez pas suffisamment de fonds pour placer cette mise.]]></error_10008>
+	<error_1001><![CDATA[Le serveur de jeu rencontre un problème temporaire.]]></error_1001>
+	<error_1002><![CDATA[Veuillez contacter le service client pour obtenir de l'aide.]]></error_1002>
+	<error_1003><![CDATA[Veuillez contacter le service client pour obtenir de l'aide.]]></error_1003>
+	<error_1004><![CDATA[Vous avez perdu votre place. Veuillez redémarrer le jeu.]]></error_1004>
+	<error_1005><![CDATA[Vous avez essayé de placer une mise non valide. Veuillez contacter le service client pour obtenir de l'aide.]]></error_1005>
+	<error_1006><![CDATA[Veuillez attendre le début du prochain tour.]]></error_1006>
+	<error_1007><![CDATA[Votre mise n'a pas été reçue à temps. Veuillez réessayer lors du tour suivant.]]></error_1007>
+	<error_1008><![CDATA[Vos mises n'ont pas été acceptées. Veuillez réessayer lors du tour suivant.]]></error_1008>
+	<error_1009><![CDATA[Votre mise n'a pas été acceptée car elle dépasse l'enjeu maximum autorisé pour une mise intérieure.]]></error_1009>
+	<error_1010><![CDATA[Votre mise n'a pas été acceptée car elle dépasse l'enjeu maximum autorisé pour une mise extérieure.]]></error_1010>
+	<error_1011><![CDATA[Le serveur n'a pas pu traiter votre mise. Veuillez contacter le service client pour obtenir de l'aide.]]></error_1011>
+	<error_1012><![CDATA[Votre mise n'a pas été acceptée car elle dépasse l'enjeu maximum autorisé à cette table.]]></error_1012>
+	<error_1013><![CDATA[Votre mise n'a pas été acceptée car elle ne respecte pas le montant minimum requis.]]></error_1013>
+	<error_1014><![CDATA[Veuillez contacter le service client pour obtenir de l'aide.]]></error_1014>
+	<error_1015><![CDATA[Veuillez contacter le service client pour obtenir de l'aide.]]></error_1015>
+	<error_1016><![CDATA[Veuillez contacter le service client pour obtenir de l'aide.]]></error_1016>
+	<error_1017><![CDATA[Votre tour est terminé.]]></error_1017>
+	<error_1018><![CDATA[La durée autorisée pour la prise de décision pour ce tour a pris fin.]]></error_1018>
+	<error_1019><![CDATA[Vous ne pouvez pas modifier votre décision de jeu.]]></error_1019>
+	<error_1020><![CDATA[Une erreur s'est produite à votre place. Veuillez redémarrer le jeu dans une nouvelle fenêtre de navigateur.]]></error_1020>
+	<error_1021><![CDATA[Ce n'est pas encore votre tour. La décision sera prise par un autre joueur.]]></error_1021>
+	<error_1022><![CDATA[La décision sélectionnée n'est pas valable. Veuillez sélectionner une autre décision.]]></error_1022>
+	<error_1023><![CDATA[Erreur. L'action de division n'a pas pu être effectuée. Veuillez contacter le service client.]]></error_1023>
+	<error_1024><![CDATA[Erreur. L'action de doublé n'a pas pu être effectuée. Veuillez contacter le service client.]]></error_1024>
+	<error_1025><![CDATA[Erreur lors de la transmission des résultats de la partie. Veuillez redémarrer le jeu dans une nouvelle fenêtre de navigateur.]]></error_1025>
+	<error_1026><![CDATA[Erreur. L'action d'achat d'assurance n'a pas pu être effectuée. Veuillez contacter le service client.]]></error_1026>
+	<error_1027><![CDATA[Vous avez déjà acheté une assurance pour ce tour.]]></error_1027>
+	<error_1028><![CDATA[La mise que vous avez essayée de placer n'est pas valide. Veuillez contacter le service client.]]></error_1028>
+	<error_1029><![CDATA[La mise que vous avez essayée de placer n'est pas valide. Veuillez contacter le service client.]]></error_1029>
+	<error_1030><![CDATA[La mise que vous avez essayée de placer n'est pas valide. Veuillez contacter le service client.]]></error_1030>
+	<error_1031><![CDATA[La place que vous avez choisie est déjà occupée ; veuillez sélectionner une place libre.]]></error_1031>
+	<error_1032><![CDATA[Veuillez contacter le service client pour obtenir de l'aide.]]></error_1032>
+	<error_1033><![CDATA[Veuillez contacter le service client pour obtenir de l'aide.]]></error_1033>
+	<error_2000><![CDATA[Veuillez contacter le service client pour obtenir de l'aide.]]></error_2000>
+	<error_2001><![CDATA[L'action tentée a échoué. Veuillez réessayer.]]></error_2001>
+	<error_2002><![CDATA[Veuillez redémarrer le jeu dans une nouvelle fenêtre de navigateur. Si le problème persiste, contactez le service client pour obtenir de l'aide.]]></error_2002>
+	<error_2003><![CDATA[Votre mise ne doit pas dépasser la limite de mise maximale.]]></error_2003>
+	<error_2004><![CDATA[Votre mise doit respecter la limite de mise minimum.]]></error_2004>
+	<error_2005><![CDATA[Votre solde n'est pas suffisant pour couvrir cette mise. Veuillez vous rendre au niveau du caissier pour effectuer un dépôt.]]></error_2005>
+	<error_2006><![CDATA[Malheureusement, nos services ne sont pas disponibles dans votre pays de résidence.]]></error_2006>
+	<error_2007><![CDATA[Pour vous connecter, veuillez saisir vos nom d'utilisateur et mot de passe.]]></error_2007>
+	<error_2008><![CDATA[Nom d'utilisateur ou mot de passe non valide. Veuillez réessayer.]]></error_2008>
+	<error_104><![CDATA[Veuillez redémarrer le jeu dans une nouvelle fenêtre de navigateur.]]></error_104>	
+	
+	<neighbourspecialbets><![CDATA[MISES VOISINES ET SPECIALES]]></neighbourspecialbets>
+	<!-- Special Bets -->
+	<specialbets><![CDATA[MISES SPECIALES]]></specialbets>
+	<specialbet18><![CDATA[Tiers du cylindre]]></specialbet18>
+	<specialbet17><![CDATA[Voisins du zero]]></specialbet17>
+	<specialbet16><![CDATA[Orphelins en plein]]></specialbet16>
+	<specialbet15><![CDATA[Orphelins a cheval]]></specialbet15>
+	<specialbet14><![CDATA[Finale en plein 0]]></specialbet14>
+	<specialbet13><![CDATA[Finale en plein 1]]></specialbet13>
+	<specialbet12><![CDATA[Finale en plein 2]]></specialbet12>
+	<specialbet11><![CDATA[Finale en plein 3]]></specialbet11>
+	<specialbet10><![CDATA[Finale en plein 4]]></specialbet10>
+	<specialbet9><![CDATA[Finale en plein 5]]></specialbet9>
+	<specialbet8><![CDATA[Finale en plein 6]]></specialbet8>
+	<specialbet7><![CDATA[Finale en plein 7]]></specialbet7>
+	<specialbet6><![CDATA[Finale en plein 8]]></specialbet6>
+	<specialbet5><![CDATA[Finale en plein 9]]></specialbet5>
+	<specialbet4><![CDATA[Finale 0/3]]></specialbet4>
+	<specialbet3><![CDATA[Finale 1/4]]></specialbet3>
+	<specialbet2><![CDATA[Finale 2/5]]></specialbet2>
+	<specialbet1><![CDATA[Finale 3/6]]></specialbet1>
+
+	<!-- Neighbour Bets -->
+	<neighbourbets><![CDATA[MISES VOISINES]]></neighbourbets>
+	<neighbourbets1><![CDATA[Tier]]></neighbourbets1>
+	<neighbourbets2><![CDATA[Orphelins]]></neighbourbets2>
+	<neighbourbets3><![CDATA[Voisins Du Zero]]></neighbourbets3>
+
+	<lowriskcommonmsg><![CDATA[RESTRICTIONS DE MISE APPLICABLES]]></lowriskcommonmsg>
+
+	<notsittingpage><![CDATA[Vous n'avez plus de place à cette table. Veuillez fermer cette fenêtre et redémarrer le jeu.]]></notsittingpage>
+	<errorpage><![CDATA[Un problème s'est produit avec le Casino en direct. Veuillez réessayer ultérieurement. Code d'erreur : EV02]]></errorpage>
+	<missingpage><![CDATA[La page demandée est introuvable sur notre serveur de Casino en direct.<br />Veuillez vérifier l'URL, puis réessayer ou contacter le service client. Code d'erreur : EV03]]></missingpage>
+	<loginpage><![CDATA[Un problème s'est produit avec le Casino en direct.<br />L'authentification de l'utilisateur a échoué ou votre session a peut-être expiré. Veuillez fermer le navigateur et réessayer. Code d'erreur : EV01]]></loginpage>
+
+	<!-- Bet Behind -->
+	<betbehind><![CDATA[Mise arrière]]></betbehind>
+	<betbehind_info><![CDATA[Si un joueur sur lequel vous avez misé choisi d'opter pour une division ou un doublé, votre mise est doublée. Si vous NE souhaitez PAS doubler votre mise dans ce cas, veuillez DECOCHER les cases ci-dessous.]]></betbehind_info>
+	<betbehind_note><![CDATA[Remarque : Si vous misez sur un joueur qui choisit de ne pas placer de mise, vous mise vous est rendue.]]></betbehind_note>
+	<betbehind_doublestake><![CDATA[Doubler ma mise si le joueur double]]></betbehind_doublestake>
+	<betbehind_splitsdoublestake><![CDATA[Doubler ma mise si le joueur divise]]></betbehind_splitsdoublestake>
+
+	<!-- Mini -->
+	<miniroulette><![CDATA[MINI LIVE ROULETTE]]></miniroulette>
+	<miniblackjack><![CDATA[MINI LIVE BLACKJACK]]></miniblackjack>
+	<minibaccarat><![CDATA[MINI LIVE BACCARAT]]></minibaccarat>
+	<mini><![CDATA[MINI]]></mini>
+	<balancemini><![CDATA[Balance]]></balancemini>
+	<betmini><![CDATA[Bet]]></betmini>
+	<gameidmini><![CDATA[Game Time]]></gameidmini>
+	<placebetsmini><![CDATA[BET NOW]]></placebetsmini>
+	<betsclosingmini><![CDATA[BETS CLOSING]]></betsclosingmini>
+	<nomorebetsmini><![CDATA[BETS CLOSED]]></nomorebetsmini>
+	<chipbuttonmini><![CDATA[CLICK TO CHANGE CHIP VALUE]]></chipbuttonmini>
+	<notifyplacechip><![CDATA[WHEN BET TIME STARTS, PLEASE SELECT A CHIP AND PLACE YOUR BET]]></notifyplacechip>
+	<notifywinning><![CDATA[YOU WIN #win#]]></notifywinning>
+	<minivideotooltip><![CDATA[CLICK TO TOGGLE VIEW]]></minivideotooltip>
+	<minivideotooltipout><![CDATA[CLICK TO TOGGLE VIEW]]></minivideotooltipout>
+	<viewmini><![CDATA[CHANGE VIEW]]></viewmini>
+
+	<!-- AAMS -->
+	<AAMSLimitsTitle><![CDATA[Money to bring to the game: ]]></AAMSLimitsTitle>
+	<AAMSRegulationLimit><![CDATA[Regulation limit: ]]></AAMSRegulationLimit>
+	<AAMSFullBalance><![CDATA[Full balance: ]]></AAMSFullBalance>
+	<AAMSOtherLimit><![CDATA[Other]]></AAMSOtherLimit>
+
+	<AAMSLoadingMsg><![CDATA[Please wait...]]></AAMSLoadingMsg>
+	<AAMSAmountError><![CDATA[Invalid amount. Please try again.]]></AAMSAmountError>
+	<AAMSMinAmountError><![CDATA[Amount should be greater that minimum table limit.]]></AAMSMinAmountError>
+	<AAMSBalanceError><![CDATA[Insufficient Balance.]]></AAMSBalanceError>
+	<AAMSStartGameError><![CDATA[Please try again.]]></AAMSStartGameError>
+
+	<AAMSParticipationID><![CDATA[Participation ID:]]></AAMSParticipationID>
+	<AAMSSessionID><![CDATA[Session ID:]]></AAMSSessionID>
+	<AAMSRoundID><![CDATA[Round ID:]]></AAMSRoundID>
+
+	<double><![CDATA[Double Down:]]></double>
+	<splithand><![CDATA[Split:]]></splithand>
+	<gamestart><![CDATA[Game Start:]]></gamestart>
+	<gameend><![CDATA[Game End:]]></gameend>
+	<gametime><![CDATA[Game Time:]]></gametime>
+
+	<error_3001><![CDATA[Your account is currently disabled. For further details please contact our support team.]]></error_3001>
+	<error_3002><![CDATA[Your current session balance is insufficient. To continue playing, you must set new limits.]]></error_3002>
+	<error_3003><![CDATA[Your bet exceeds the regulation limit. To continue playing, please close and reopen the game or reload.]]></error_3003>
+	<lowsessionbalance><![CDATA[Your account balance is too low to play. Please set new session limit to continue playing.]]></lowsessionbalance>
+	<historylastgame><![CDATA[Your last uncompleted game]]></historylastgame>
+	
+	<!-- social messages -->
+	<social_tooltip_facebook><![CDATA[Share your winnings! (Press CTRL + V to paste the message)]]></social_tooltip_facebook>
+	<social_tooltip_twitter><![CDATA[Share your winnings!]]></social_tooltip_twitter>
+	<socoal_message_roulette><![CDATA[I have just won #winnings# on Live #game# at #casino# with lucky spin #winner#!]]></socoal_message_roulette>
+	<socoal_message_blackjack><![CDATA[I have just won #winnings# on Live #game# at #casino#!]]></socoal_message_blackjack>
+	<socoal_message_baccarat><![CDATA[I have just won #winnings# on Live #game# at #casino#!]]></socoal_message_baccarat>
+	
+	<realplay><![CDATA[Want to play for real now?]]></realplay>
+	<nofreeplay><![CDATA[NO FREE PLAY]]></nofreeplay>
+</game>

@@ -6,6 +6,8 @@
 		<login><![CDATA[/cgibin/remoteLoginGateway.jsp]]></login>
 		<balance><![CDATA[/cgibin/balance.jsp]]></balance>
 		<language><![CDATA[/player/games/languages/]]></language>
+		<langICON><![CDATA[/player/games/xml/langs/png/]]></langICON>
+		
 		<style><![CDATA[/player/games/styles/]]></style>
 		<players><![CDATA[/cgibin/common/participants.jsp]]></players>
 		<settings><![CDATA[/player/games/assets/settings.xml]]></settings>
@@ -24,7 +26,15 @@
 	</common>
 	<languages>
 		<lang code="en" icon="gb" name="English"/>
+		<lang code="tw" icon="cn" name="繁体中文"/>
 		<lang code="cn" icon="cn" name="简体中文"/>
+		<lang code="ja" icon="jp" name="日本语"/>
+		<lang code="cs" icon="cs" name="Czech"/>
+		<lang code="de" icon="de" name="German"/>
+		<lang code="fr" icon="fr" name="French"/>
+		<lang code="it" icon="it" name="Italian"/>
+		<lang code="ru" icon="ru" name="Russian"/>
+		<lang code="tr" icon="tr" name="Turkish"/>
 	</languages>
 	<roulette>
 		<results><![CDATA[/cgibin/roulette/history.jsp]]></results>
