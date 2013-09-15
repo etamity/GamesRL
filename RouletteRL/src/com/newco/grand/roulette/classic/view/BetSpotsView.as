@@ -128,6 +128,7 @@ package com.newco.grand.roulette.classic.view {
 					_betspotMC.display.name=_betspotMC.name;
 					_betspotMC.display.transform.matrix = stageSpot.transform.matrix;
 					_betspotsHash[_betspotMC.name]=_betspotMC;
+					_betspotMC.display.alpha=0;
 					addChild(_betspotMC.display);					
 					stageSpot.visible = false;
 

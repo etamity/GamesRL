@@ -69,8 +69,6 @@ package com.newco.grand.roulette.classic.controller.commands
 			
 			if (FlashVars.DEBUG_MODE==true)
 				contextView.view.addChild(new ErrorMessageView());
-
-			signalBus.dispatch(LanguageAndStylesEvent.LOAD);
 		}
 		
 		private function debug(...args):void {
