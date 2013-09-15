@@ -40,22 +40,21 @@ package com.newco.grand.baccarat.classic.view
 		}
 
 		override public function initDisplay():void{
-			 _skin=new CardsPanelAsset();
-			addChild( _skin);
-			_display= _skin;
+			_display=new CardsPanelAsset();
+			addChild( _display);
 			bankerCards=new Array();
 			playerCards=new Array();
 			bankerCardPt= new Point( _skin.BankerSide.x+50, _skin.BankerSide.y-80);
 			playerCardPt= new Point( _skin.playerSide.x+50, _skin.playerSide.y-80);
 			cardsMc=new MovieClip();
-			_skin.addChild(cardsMc);
+			_display.addChild(cardsMc);
 			refreshScore();
 			visible=false;
 		}
 
 		public function refreshScore():void{
-			 _skin.BankerSide.label.text = String(totalScore(BaccaratConstants.BANKER));
-			 _skin.playerSide.label.text = String(totalScore(BaccaratConstants.PLAYER));
+			_display.BankerSide.label.text = String(totalScore(BaccaratConstants.BANKER));
+			_display.playerSide.label.text = String(totalScore(BaccaratConstants.PLAYER));
 		}
 
 		public function totalScore(side:String):int{
@@ -120,6 +119,7 @@ package com.newco.grand.baccarat.classic.view
 		}
 		
 		public function cleanPanel():void{
+			if (cardsMc!=null)
 			GameUtils.removeChildren(cardsMc);
 			//cardsMc.removeChildren();
 			bankerCards=new Array();

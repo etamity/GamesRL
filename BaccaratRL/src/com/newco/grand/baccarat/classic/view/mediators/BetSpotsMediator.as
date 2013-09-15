@@ -7,6 +7,7 @@ package com.newco.grand.baccarat.classic.view.mediators {
 	import com.newco.grand.core.common.controller.signals.BalanceEvent;
 	import com.newco.grand.core.common.controller.signals.BaseSignal;
 	import com.newco.grand.core.common.controller.signals.BetEvent;
+	import com.newco.grand.core.common.controller.signals.LanguageAndStylesEvent;
 	import com.newco.grand.core.common.controller.signals.MessageEvent;
 	import com.newco.grand.core.common.controller.signals.ModelReadyEvent;
 	import com.newco.grand.core.common.controller.signals.SocketDataEvent;
@@ -64,13 +65,16 @@ package com.newco.grand.baccarat.classic.view.mediators {
 			signalBus.add(BetEvent.CONFRIM, confirm);
 			//signalBus.add(BaccaratEvent.MAKEBETSPOT, makeBets);
 		}
-		
+		private function updateLanguage(signal:BaseSignal):void{
+			view.updateLanguage();
+		}
 		private function confirm(signal:BaseSignal):void{
 			player.betString= view.betString;
 		}
 		
 		private function setupModel(signal:BaseSignal):void {
 			initializeView();
+			signalBus.add(LanguageAndStylesEvent.LANGUAGE_LOADED, updateLanguage);
 			eventMap.mapListener(contextView.view.stage, Event.RESIZE, onStageResize);
 			if (flashVars.gametype==BaccaratConstants.TYPE_PAIRS)
 				signalBus.add(BaccaratEvent.PAIRRESULT, processPairsResult);

@@ -6,6 +6,7 @@ package com.newco.grand.baccarat.mobile.controller
 	import com.newco.grand.baccarat.mobile.view.CardsPanelView;
 	import com.newco.grand.baccarat.mobile.view.GameStatusView;
 	import com.newco.grand.baccarat.mobile.view.ScoreCardView;
+	import com.newco.grand.baccarat.mobile.view.StatisticsView;
 	import com.newco.grand.baccarat.mobile.view.TableGraphicView;
 	import com.newco.grand.core.common.controller.commands.BaseCommand;
 	import com.newco.grand.core.common.controller.signals.LanguageAndStylesEvent;
@@ -43,7 +44,9 @@ package com.newco.grand.baccarat.mobile.controller
 			//contextView.view.addChild(new AccordionUIView());
 			contextView.view.addChild(new TaskbarView());
 			contextView.view.addChild(new GameStatusView())
+			contextView.view.addChild(new StatisticsView());
 			contextView.view.addChild(new ScoreCardView());
+			
 			contextView.view.addChild(new AccordionUIView());
 			contextView.view.addChild(new BetSpotsView());
 			contextView.view.addChild(new CardsPanelView());

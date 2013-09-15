@@ -63,6 +63,9 @@ package com.newco.grand.baccarat.classic.view.scorecard {
 			}
 		}
 		
+		public function updateLanguage():void{
+			_scoreCardsDisplay.updateLanguage();
+		}
 		public function updateResults(type:String, score:uint):void {
 			_scoreCardsDisplay.newResult(type, score, _txtClr);
 		}

@@ -100,6 +100,15 @@ package com.newco.grand.baccarat.classic.view.scorecard.display {
 			IGeneralButton(b[3]).label = LanguageModel.COCKROACHROAD;
 		}
 		
+		
+		public function updateLanguage():void{
+			var b:Array = _tabMenu.buttons;
+			IGeneralButton(b[0]).label = LanguageModel.BIGROAD;
+			IGeneralButton(b[1]).label = LanguageModel.BIGEYEBOYROAD;
+			IGeneralButton(b[2]).label = LanguageModel.SMALLROAD;
+			IGeneralButton(b[3]).label = LanguageModel.COCKROACHROAD;
+		}
+		
 		protected function onTabClick(e:GeneralButtonEvent):void {
 			hideAllRoads();
 			var r:IRoad = _roads[e.id];

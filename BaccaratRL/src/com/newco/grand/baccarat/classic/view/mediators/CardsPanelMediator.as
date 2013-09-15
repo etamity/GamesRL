@@ -3,6 +3,7 @@ package com.newco.grand.baccarat.classic.view.mediators
 	import com.newco.grand.baccarat.classic.controller.signals.BaccaratEvent;
 	import com.newco.grand.baccarat.classic.view.interfaces.ICardsPanelView;
 	import com.newco.grand.core.common.controller.signals.BaseSignal;
+	import com.newco.grand.core.common.controller.signals.LanguageAndStylesEvent;
 	import com.newco.grand.core.common.controller.signals.ModelReadyEvent;
 	import com.newco.grand.core.common.controller.signals.SocketDataEvent;
 	import com.newco.grand.core.common.model.SignalBus;
@@ -23,11 +24,16 @@ package com.newco.grand.baccarat.classic.view.mediators
 		override public function initialize():void {
 			signalBus.add(ModelReadyEvent.READY, setupModel);
 			signalBus.add(BaccaratEvent.CARD, issueCard);
-			signalBus.add(SocketDataEvent.HANDLE_GAME, cleanCardPanel);
-			signalBus.add(SocketDataEvent.HANDLE_CANCEL, cleanCardPanel);
-
+;
+		
+		}
+		private function updateLanguage(signal:BaseSignal):void{
+			view.updateLanguage();
 		}
 		private function setupModel(signal:BaseSignal):void {
+			signalBus.add(LanguageAndStylesEvent.LANGUAGE_LOADED, updateLanguage);		
+			signalBus.add(SocketDataEvent.HANDLE_GAME, cleanCardPanel);
+			signalBus.add(SocketDataEvent.HANDLE_CANCEL, cleanCardPanel)
 			view.init();
 		}
 		private function cleanCardPanel(signal:BaseSignal):void{

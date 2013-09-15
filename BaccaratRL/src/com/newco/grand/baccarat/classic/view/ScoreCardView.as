@@ -27,6 +27,10 @@ package com.newco.grand.baccarat.classic.view
 			_display= _skin;
 	
 		}
+		
+		override public function updateLanguage():void{
+			scoreCardPanel.updateLanguage();
+		}
 		override public function align():void {
 			x=0;
 			y=0;

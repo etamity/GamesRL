@@ -29,6 +29,7 @@ package com.newco.grand.baccarat.classic.view.mediators
 			view.display.y=40;
 			view.compHeight= view.compHeight -40;*/
 		}
+		
 		private function doShowHideStats(evt:MouseEvent):void{
 			signalBus.dispatch(StatisticsEvent.SHOWHIDE);
 		}

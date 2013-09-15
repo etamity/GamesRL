@@ -1,5 +1,6 @@
 package com.newco.grand.baccarat.classic.view
 {
+	import com.newco.grand.core.common.model.LanguageModel;
 	import com.newco.grand.core.common.view.uicomps.AccordionUIView;
 	
 	public class AccordionUIView extends com.newco.grand.core.common.view.uicomps.AccordionUIView
@@ -8,6 +9,13 @@ package com.newco.grand.baccarat.classic.view
 		{
 			super();
 		}
+		
+		override public function updateLanguage():void{
+			_display.buttons[0].label= LanguageModel.PLAYERS;
+			_display.buttons[1].label= LanguageModel.WINNERLIST;
+			_display.buttons[2].label= LanguageModel.TOURNAMENT;
+		}
+		
 		override public function align():void{
 			x= stage.stageWidth -width;
 			display.y=190;

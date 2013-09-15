@@ -5,6 +5,7 @@ package com.newco.grand.baccarat.classic.view.mediators
 	import com.newco.grand.baccarat.classic.service.AnimationService;
 	import com.newco.grand.baccarat.classic.view.interfaces.IScoreCardView;
 	import com.newco.grand.core.common.controller.signals.BaseSignal;
+	import com.newco.grand.core.common.controller.signals.LanguageAndStylesEvent;
 	import com.newco.grand.core.common.controller.signals.ModelReadyEvent;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.SignalBus;
@@ -58,6 +59,10 @@ package com.newco.grand.baccarat.classic.view.mediators
 			
 			//view.closeBtn.addEventListener(MouseEvent.CLICK,doShowHide);
 			extended=true;
+		
+		}
+		private function updateLanguage(signal:BaseSignal):void{
+			view.updateLanguage();
 		}
 		private function doShowHide(evt:MouseEvent):void{
 			extended=!extended;
@@ -67,6 +72,7 @@ package com.newco.grand.baccarat.classic.view.mediators
 		
 		}
 		private function setupModel(signal:BaseSignal):void {
+			signalBus.add(LanguageAndStylesEvent.LANGUAGE_LOADED, updateLanguage);
 			view.initView(377, 187, true, false, flashvars.table_id);
 			view.init();
 			

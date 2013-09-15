@@ -4,6 +4,7 @@ package com.newco.grand.baccarat.classic.view.mediators
 	import com.newco.grand.baccarat.classic.view.interfaces.IBetspotsPanelView;
 	import com.newco.grand.core.common.controller.signals.BaseSignal;
 	import com.newco.grand.core.common.controller.signals.BetEvent;
+	import com.newco.grand.core.common.controller.signals.LanguageAndStylesEvent;
 	import com.newco.grand.core.common.controller.signals.ModelReadyEvent;
 	import com.newco.grand.core.common.controller.signals.SocketDataEvent;
 	import com.newco.grand.core.common.controller.signals.UIEvent;
@@ -37,6 +38,10 @@ package com.newco.grand.baccarat.classic.view.mediators
 		override public function initialize():void {
 			signalBus.add(UIEvent.RESIZE, resize);
 			signalBus.add(ModelReadyEvent.READY, setupModel);
+			signalBus.add(LanguageAndStylesEvent.LANGUAGE_LOADED, updateLanguage);
+		}
+		private function updateLanguage(signal:BaseSignal):void{
+			view.updateLanguage();
 		}
 		private function setupModel(signal:BaseSignal):void {
 			view.init();

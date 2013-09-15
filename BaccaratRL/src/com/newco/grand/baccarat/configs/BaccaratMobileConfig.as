@@ -29,7 +29,8 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.controller.commands.ChatConnectionCommand;
 	import com.newco.grand.core.common.controller.commands.ChatReceiveMessageCommand;
 	import com.newco.grand.core.common.controller.commands.ChatSendMessageCommand;
-	import com.newco.grand.core.common.controller.commands.LanguageAndStylesCommnad;
+	import com.newco.grand.core.common.controller.commands.LanguageAndStylesCommand;
+	import com.newco.grand.core.common.controller.commands.LanguageCommand;
 	import com.newco.grand.core.common.controller.commands.LoginCommand;
 	import com.newco.grand.core.common.controller.commands.PlayersCommand;
 	import com.newco.grand.core.common.controller.commands.SeatCommand;
@@ -69,6 +70,7 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.service.impl.PlayerService;
 	import com.newco.grand.core.common.service.impl.SeatService;
 	import com.newco.grand.core.common.service.impl.SendBetsService;
+	import com.newco.grand.core.common.service.impl.StyleService;
 	import com.newco.grand.core.common.service.impl.URLSService;
 	import com.newco.grand.core.common.service.impl.WinnerListService;
 	import com.newco.grand.core.common.service.impl.XMLService;
@@ -195,6 +197,7 @@ package com.newco.grand.baccarat.configs
 			injector.map(LoginService).asSingleton();
 			injector.map(WinnerListService).asSingleton();
 			injector.map(LanguageService).asSingleton();
+			injector.map(StyleService).asSingleton();
 			injector.map(BalanceService).asSingleton();
 			injector.map(SendBetsService).asSingleton();
 			injector.map(PlayerService).asSingleton();
@@ -232,7 +235,8 @@ package com.newco.grand.baccarat.configs
 			commandMap.mapSignal(signalBus.signal(LoginEvent.LOGIN), LoginCommand);
 			commandMap.mapSignal(signalBus.signal(StartupDataEvent.SEAT), SeatCommand);
 			commandMap.mapSignal(signalBus.signal(StartupDataEvent.LOAD), StartupDataCommand);
-			commandMap.mapSignal(signalBus.signal(LanguageAndStylesEvent.LOAD), LanguageAndStylesCommnad);
+			commandMap.mapSignal(signalBus.signal(LanguageAndStylesEvent.LOAD), LanguageAndStylesCommand, true);
+			commandMap.mapSignal(signalBus.signal(LanguageAndStylesEvent.LANGUAGE_LOAD), LanguageCommand);
 			commandMap.mapSignal(signalBus.signal(BalanceEvent.LOAD), BalanceCommand);
 			commandMap.mapSignal(signalBus.signal(StateTableConfigEvent.LOAD), StateTableConfigCommand);
 			commandMap.mapSignal(signalBus.signal(ChatEvent.LOAD_CONFIG), ChatConfigCommand);
