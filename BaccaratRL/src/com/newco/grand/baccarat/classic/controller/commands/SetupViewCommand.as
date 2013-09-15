@@ -12,7 +12,6 @@ package com.newco.grand.baccarat.classic.controller.commands
 	import com.newco.grand.baccarat.classic.view.TaskbarView;
 	import com.newco.grand.baccarat.classic.view.VideoView;
 	import com.newco.grand.core.common.controller.commands.BaseCommand;
-	import com.newco.grand.core.common.controller.signals.LanguageAndStylesEvent;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.view.ErrorMessageView;
@@ -54,13 +53,9 @@ package com.newco.grand.baccarat.classic.controller.commands
 			contextView.view.addChild(new CardsPanelView());
 			contextView.view.addChild(new AnimationPanelView());
 
-			
-
-			
-			
 			if (FlashVars.DEBUG_MODE==true)
 				contextView.view.addChild(new ErrorMessageView());
-			signalBus.dispatch(LanguageAndStylesEvent.LOAD);
+
 		}
 		
 		private function debug(...args):void {

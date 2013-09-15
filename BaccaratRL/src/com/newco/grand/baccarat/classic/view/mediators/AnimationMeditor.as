@@ -8,6 +8,7 @@ package com.newco.grand.baccarat.classic.view.mediators
 	import com.newco.grand.core.common.controller.signals.BaseSignal;
 	import com.newco.grand.core.common.controller.signals.ModelReadyEvent;
 	import com.newco.grand.core.common.controller.signals.SocketDataEvent;
+	import com.newco.grand.core.common.model.Constants;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.Player;
 	import com.newco.grand.core.common.model.SignalBus;
@@ -51,6 +52,7 @@ package com.newco.grand.baccarat.classic.view.mediators
 		
 		private function processResult(signal:BaseSignal):void{
 			var sideName:String=signal.params.node;
+			if (flashVars.game==Constants.BACCARAT.toLowerCase())
 			animationService.fadeIn(view.showWinningCup(),game.layoutPoints[sideName]);
 			if (player.winnings>0)
 			animationService.fadeInCenter(view.showWinningBox(player.currencyCode+String(player.winnings),signal.params.node));
