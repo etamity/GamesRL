@@ -22,6 +22,10 @@
 		<tournament><![CDATA[/player/games/xml/tournament.xml]]></tournament>
 		<opengame><![CDATA[/player/chat_board.jsp]]></opengame>
 	</common>
+	<languages>
+		<lang code="en" icon="gb" name="English"/>
+		<lang code="cn" icon="cn" name="简体中文"/>
+	</languages>
 	<roulette>
 		<results><![CDATA[/cgibin/roulette/history.jsp]]></results>
 		<statistics><![CDATA[/cgibin/roulette/stats.jsp]]></statistics>

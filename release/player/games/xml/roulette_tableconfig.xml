@@ -6,17 +6,17 @@
 <gameconfig-param corner_bet_min="0.1"/>
 <gameconfig-param chip_amounts="0.1,1,5,25,100,500"/>
 <gameconfig-param high_bet_max="500.0"/>
-<gameconfig-param low_mob="R3"/>
+<gameconfig-param low_mob="R1"/>
 <gameconfig-param wheel_rounds="3"/>
-<gameconfig-param med_mob="R3"/>
+<gameconfig-param med_mob="R1"/>
 <gameconfig-param straight_bet_min="0.1"/>
 <gameconfig-param wheel_spinTime="50"/>
-<gameconfig-param low_stream="R3"/>
+<gameconfig-param low_stream="R1"/>
 <gameconfig-param timings="24/7"/>
-<gameconfig-param med_cctv_stream="R3"/>
+<gameconfig-param med_cctv_stream="R1"/>
 <gameconfig-param winner_today="true"/>
-<gameconfig-param low_cctv_stream="R3"/>
-<gameconfig-param high_mob="R3"/>
+<gameconfig-param low_cctv_stream="R1"/>
+<gameconfig-param high_mob="R1"/>
 <gameconfig-param lotto_enable="true"/>
 <gameconfig-param even_bet_max="500.0"/>
 <gameconfig-param statistic_enable="true"/>
@@ -28,7 +28,7 @@
 <gameconfig-param system_invite_BalanceAdd="500"/>
 <gameconfig-param split_bet_min="0.1"/>
 <gameconfig-param priority="5"/>
-<gameconfig-param high_stream="R3"/>
+<gameconfig-param high_stream="R1"/>
 <gameconfig-param six_number_bet_max="150.0"/>
 <gameconfig-param black_bet_min="0.1"/>
 <gameconfig-param trio_bet_min="0.1"/>
@@ -49,7 +49,7 @@
 <gameconfig-param showLottoTooTipsTimes="2"/>
 <gameconfig-param high_bet_min="0.1"/>
 <gameconfig-param game_number_name="A"/>
-<gameconfig-param med_stream="R3"/>
+<gameconfig-param med_stream="R1"/>
 <gameconfig-param straight_bet_max="25.0"/>
 <gameconfig-param winner_showTime="9000"/>
 <gameconfig-param system_autoLoadTime="60000"/>
@@ -70,6 +70,6 @@
 <gameconfig-param statistic_count="50"/>
 <gameconfig-param low_bet_min="0.1"/>
 <gameconfig-param wheel_randomRate="100"/>
-<gameconfig-param high_cctv_stream="R3"/>
+<gameconfig-param high_cctv_stream="R1"/>
 <gameconfig-param jackpot_showResult="false"/>
 </response>

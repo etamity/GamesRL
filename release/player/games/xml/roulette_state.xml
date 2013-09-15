@@ -28,11 +28,11 @@
 <table_bet_min_limit>0.1</table_bet_min_limit>
 <table_bet_max_limit>500.0</table_bet_max_limit>
 <chip_amounts>0.1,1,5,25,100,500</chip_amounts>
-<low_stream>test.mp4</low_stream>
-<med_stream>test.mp4</med_stream>
-<high_stream>test.mp4</high_stream>
-<low_cctv_stream>test.mp4</low_cctv_stream>
-<med_cctv_stream>test.mp4</med_cctv_stream>
-<high_cctv_stream>test.mp4</high_cctv_stream>
+<low_stream>R1</low_stream>
+<med_stream>R1</med_stream>
+<high_stream>R1</high_stream>
+<low_cctv_stream>R1</low_cctv_stream>
+<med_cctv_stream>R1</med_cctv_stream>
+<high_cctv_stream>R1</high_cctv_stream>
 <remote_ip>213.121.175.60</remote_ip>
 </response>
