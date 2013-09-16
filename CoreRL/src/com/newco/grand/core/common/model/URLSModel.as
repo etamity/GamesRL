@@ -273,6 +273,8 @@ package com.newco.grand.core.common.model
 		}
 		
 		public function get statistics():String {
+			if( flashVars.localhost )
+				return "xml/scoreborad.xml";
 			return server + _statistics;
 		}
 		public function set statistics(value:String):void {

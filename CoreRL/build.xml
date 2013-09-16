@@ -32,6 +32,7 @@
 			<arg line="--include-sources+='${src.path}'"/>
 			<arg line="--library-path+='${libs.path}'"/>
 			<arg line="--library-path+='${assets.path}'"/>
+			<arg line="--library-path+='${assets.path}/components'"/>
 			<arg line="--library-path+='${assets.path}/mobile'"/>
 			<arg line="--external-library-path+='${flexframework.lib}/framework.swc'"/>
 			<arg line="--output ${bin.path}/${ant.project.name}.swc"/>
@@ -45,6 +46,7 @@
 			<arg line="--swf-version=${swf.version}"/>
 			<arg line="--include-sources+='${src.path}'"/>
 			<arg line="--library-path+='${libs.path}'"/>
+			<arg line="--library-path+='${assets.path}/components'"/>
 			<arg line="--library-path+='${assets.path}/mobile'"/>
 			<arg line="--library-path+='${assets.path}/skin_glass'"/>
 			<arg line="--external-library-path+='${flexframework.lib}/framework.swc'"/>
@@ -60,6 +62,7 @@
 				<arg line="--swf-version=${swf.version}"/>
 				<arg line="--include-sources+='${src.path}'"/>
 				<arg line="--library-path+='${libs.path}'"/>
+				<arg line="--library-path+='${assets.path}/components'"/>
 				<arg line="--library-path+='${assets.path}/mobile'"/>
 				<arg line="--library-path+='${assets.path}/skin_gorgeous'"/>
 				<arg line="--external-library-path+='${flexframework.lib}/framework.swc'"/>
@@ -75,6 +78,7 @@
 				<arg line="--swf-version=${swf.version}"/>
 				<arg line="--include-sources+='${src.path}'"/>
 				<arg line="--library-path+='${libs.path}'"/>
+				<arg line="--library-path+='${assets.path}/components'"/>
 				<arg line="--library-path+='${assets.path}/mobile'"/>
 				<arg line="--library-path+='${assets.path}/skin_V1'"/>
 				<arg line="--external-library-path+='${flexframework.lib}/framework.swc'"/>

@@ -77,7 +77,10 @@ package com.newco.grand.core.common.service.impl
 				urlsModel.statistics=xml.roulette.statistics;
 				urlsModel.skin=(xml.roulette.skin!=undefined)?xml.baccarat.skin:xml.common.skin;
 			}
-			
+			if (StringUtils.trim(FlashVars.GAMECLIENT.toLowerCase())==StringUtils.trim(Constants.LOBBY.toLowerCase()))
+			{
+				urlsModel.statistics=xml.baccarat.statistics;
+			}
 			
 			urlsModel.urlsXml=xml;
 			if (_onComplete!=null)
