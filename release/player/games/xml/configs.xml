@@ -14,7 +14,8 @@
 	userid="" 
 	room="game-o3d9tx3u8kd0yawc-i6t6y1jcdxih0wex" 
 	lang="cn" 
-	server="live.extremelivegaming.com"
+	server="http://live.extremelivegaming.com"
+	socketServer="live.extremelivegaming.com"
 	></casino>
 
 	<!--
