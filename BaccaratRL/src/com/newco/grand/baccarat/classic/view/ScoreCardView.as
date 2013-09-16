@@ -1,7 +1,7 @@
 package com.newco.grand.baccarat.classic.view
 {
 	import com.newco.grand.baccarat.classic.view.interfaces.IScoreCardView;
-	import com.newco.grand.baccarat.classic.view.scorecard.ScoreCard;
+	import com.newco.grand.core.common.components.scorecard.ScoreCard;
 	import com.newco.grand.core.common.model.StyleModel;
 	import com.newco.grand.core.common.view.UIView;
 	
