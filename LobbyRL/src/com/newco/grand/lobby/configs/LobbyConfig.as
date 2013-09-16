@@ -123,7 +123,7 @@ package com.newco.grand.lobby.configs
 			mediatorMap.mediate(contextView.view);
 			contextView.view.addChild(new LobbyView());
 			contextView.view.addChild(new TablesView());
-			contextView.view.addChild(new HistoryView());
+			//contextView.view.addChild(new HistoryView());
 			signalBus.dispatch(SignalConstants.STARTUP);
 		}
 	}

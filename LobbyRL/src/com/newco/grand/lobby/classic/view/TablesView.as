@@ -106,7 +106,7 @@ package com.newco.grand.lobby.classic.view
 
 						btablemc.x= pt.x;
 						btablemc.y= pt.y;
-						btablemc.display.screenshot.gotoAndStop(i%PAGE_COUNT);
+						//btablemc.display.screenshot.gotoAndStop(i%PAGE_COUNT);
 						var url:String=_scoreBoradUrl+"?table_id=#TABLE_ID#";
 						btablemc.loadScore(url);
 						/*setTimeout(function ():void{

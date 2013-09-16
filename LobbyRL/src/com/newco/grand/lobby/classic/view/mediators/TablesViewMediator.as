@@ -57,10 +57,8 @@ package com.newco.grand.lobby.classic.view.mediators
 		}
 		private function setupModel(signal:BaseSignal):void{
 			var url:String;
-			if (flashvars.localhost==true)
-				url=flashvars.server+urlsModel.urlsXml.baccarat.statistics;
-			else
-				url=urlsModel.urlsXml.baccarat.statistics;
+		
+			url=urlsModel.statistics;//flashvars.server+urlsModel.urlsXml.baccarat.statistics;
 			view.scoreBoradUrl=url;
 			loadTable();
 		}
