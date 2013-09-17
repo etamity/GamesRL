@@ -22,7 +22,7 @@ package com.newco.grand.core.common.view {
 		public var _sendSignal:Signal=new Signal();
 		protected var _skin:ChatAsset;
 		
-		private var sendBtn:SMButton;
+		protected var sendBtn:SMButton;
 		public function ChatView() {
 			super();
 		}
@@ -43,7 +43,7 @@ package com.newco.grand.core.common.view {
 			return _sendSignal;
 		}
 		override public function updateLanguage():void{
-			 _skin.titleTxt.text =LanguageModel.CHAT;
+			_display.titleTxt.text =LanguageModel.CHAT;
 			 sendBtn.label=LanguageModel.SEND;
 		}
 		override public function align():void {			
@@ -51,18 +51,18 @@ package com.newco.grand.core.common.view {
 		}
 		
 		public function set dealer(value:String):void {
-			 _skin.titleTxt.text =LanguageModel.CHAT + " -- " + value;
+			_display.titleTxt.text =LanguageModel.CHAT + " -- " + value;
 		}
 		
 		public function setWelcomeMessage(message:String):void {
-			_skin.receiveTxt.htmlText = getMessageFormatted(message, DEFAULT_FONT_COLOUR);
+			_display.receiveTxt.htmlText = getMessageFormatted(message, DEFAULT_FONT_COLOUR);
 			addListeners();
 		}
 		
 		public function setMessage(sender:String, message:String):void {
-			_skin.receiveTxt.htmlText += (sender != "") ? getMessageFormatted(sender + ": ", DEFAULT_FONT_COLOUR) + getMessageFormatted(message, TEXT_FONT_COLOUR) : getMessageFormatted(message, TEXT_FONT_COLOUR);
+			_display.receiveTxt.htmlText += (sender != "") ? getMessageFormatted(sender + ": ", DEFAULT_FONT_COLOUR) + getMessageFormatted(message, TEXT_FONT_COLOUR) : getMessageFormatted(message, TEXT_FONT_COLOUR);
 			//receiveTxt.verticalScrollPosition = receiveTxt.maxVerticalScrollPosition;
-			_skin.receiveTxt.scrollV += Math.ceil(message.length / 20);
+			_display.receiveTxt.scrollV += Math.ceil(message.length / 20);
 		    Scroll.update();
 		}
 		
