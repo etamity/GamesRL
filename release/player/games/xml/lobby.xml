@@ -55,6 +55,15 @@
 			
 			<vtable id="ikzwgcwlysgqepar" vt_id="tbfxz2rx0oi36a2d" name="Baccarat" dealer="nodealer" dealerid="nodealer" min="1.0" max="100.0" priority="0" table_type="" game_type=""/>
 			
+			
+			
+			<!-- shit table  -->
+			<table id="ikzwgcwlysgqepar" vt_id="" name="Baccarat Super Six" dealer="nodealer" dealerid="nodealer" min="5.0" max="100.0" priority="0" table_type="" game_type=""/>
+			<vtable id="ikzwgcwlysgqepar" vt_id="NA" name="Baccarat" dealer="nodealer" dealerid="nodealer" min="5.0" max="100.0" priority="0" table_type="" game_type=""/>
+			
+			
+			<vtable id="ikzwgcwlysgqepar" vt_id="tbfxz2rx0oi36a2d" name="Baccarat" dealer="nodealer" dealerid="nodealer" min="1.0" max="100.0" priority="0" table_type="" game_type=""/>
+			
 		</baccarat>
 		
 	</gametable>
