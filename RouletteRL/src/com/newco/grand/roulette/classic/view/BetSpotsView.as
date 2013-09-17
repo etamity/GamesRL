@@ -1,12 +1,10 @@
 package com.newco.grand.roulette.classic.view {
 	
-	import com.newco.grand.core.common.controller.signals.BetEvent;
-	import com.newco.grand.core.common.controller.signals.HighlightEvent;
 	import com.newco.grand.core.common.view.BetSpot;
 	import com.newco.grand.core.common.view.Betchip;
-	import com.newco.grand.roulette.classic.view.interfaces.IBetSpotsView;
 	import com.newco.grand.core.utils.FormatUtils;
 	import com.newco.grand.core.utils.GameUtils;
+	import com.newco.grand.roulette.classic.view.interfaces.IBetSpotsView;
 	
 	import flash.display.MovieClip;
 	import flash.events.MouseEvent;
@@ -60,6 +58,12 @@ package com.newco.grand.roulette.classic.view {
 		}
 		public function get neighbourBetsSignal():Signal{
 			return _neighbourBetsSignal;
+		}
+		public function get higilightNeighbourSignal():Signal{
+			return _higilightNeighbourSignal;
+		}
+		public function get removeNeighbourSignal():Signal{
+			return _removeNeighbourSignal;
 		}
 		public function get hightLightSignal():Signal{
 			return _hightLightSignal;
@@ -153,7 +157,7 @@ package com.newco.grand.roulette.classic.view {
 		
 		private function placeNeighbourBets(evt:MouseEvent):void {
 			//dispatchEvent(new BetEvent(BetEvent.NEIGHBOUR_BETS, evt.target.name));
-			neighbourBetsSignal.dispatch(BetEvent.NEIGHBOUR_BETS,this);
+			neighbourBetsSignal.dispatch(evt.target.name);
 		}
 		
 		private function updateChipBet(target:String):void {
@@ -181,12 +185,12 @@ package com.newco.grand.roulette.classic.view {
 		
 		private function higilightNeighbour(evt:MouseEvent):void {
 
-			_higilightNeighbourSignal.dispatch(HighlightEvent.HIGHLIGHT,this);
+			_higilightNeighbourSignal.dispatch(evt.target.name);
 		}
 		
 		private function removeHigilightNeighbour(evt:MouseEvent):void {
 
-			_removeNeighbourSignal.dispatch(HighlightEvent.REMOVE_HIGHLIGHT,this)
+			_removeNeighbourSignal.dispatch(evt.target.name)
 		}
 		
 		public function highlightSpot(value:String):void {

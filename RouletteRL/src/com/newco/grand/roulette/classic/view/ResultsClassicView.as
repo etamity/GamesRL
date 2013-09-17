@@ -32,7 +32,7 @@ package com.newco.grand.roulette.classic.view {
 		}
 		
 		public function align():void {
-			x = 655;
+			x = 658;
 			y = 236;
 			visible = true;
 		}

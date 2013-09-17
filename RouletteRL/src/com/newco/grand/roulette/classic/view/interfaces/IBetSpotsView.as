@@ -23,6 +23,8 @@ package com.newco.grand.roulette.classic.view.interfaces
 		function get neighbourBetsSignal():Signal;
 		function get hightLightSignal():Signal;
 		function get removeLightSignal():Signal;
+		function get higilightNeighbourSignal():Signal;
+		function get removeNeighbourSignal():Signal;
 		function showWinningNumber(i:int):void;
 		function get lastBet():Number;
 		function getWinnings(i:int, payout:int):Number;

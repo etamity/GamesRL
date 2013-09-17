@@ -11,11 +11,11 @@ package com.newco.grand.roulette.classic.view.mediators {
 	import com.newco.grand.core.common.model.Player;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.view.BetSpot;
-	import com.newco.grand.roulette.classic.view.interfaces.IBetSpotsView;
 	import com.newco.grand.core.utils.GameUtils;
 	import com.newco.grand.roulette.classic.controller.signals.DataGirdEvent;
 	import com.newco.grand.roulette.classic.model.BetspotData;
 	import com.newco.grand.roulette.classic.model.GameDataModel;
+	import com.newco.grand.roulette.classic.view.interfaces.IBetSpotsView;
 	
 	import flash.events.Event;
 	
@@ -173,14 +173,16 @@ package com.newco.grand.roulette.classic.view.mediators {
 			view.neighbourBetsSignal.add(placeNeighbourBets);
 			view.hightLightSignal.add(highlight);
 			view.removeLightSignal.add(removeHighlight);
+			//view.removeNeighbourSignal.add();
+			//view.higilightNeighbourSignal.add();
 		}
 		
 		private function onStageResize(event:Event):void {
 			view.align();
 		}
 		
-		private function placeNeighbourBets(target:BetSpot):void {
-			var highlights:Array = BetspotData[target.name.toUpperCase()];
+		private function placeNeighbourBets(targetName:String):void {
+			var highlights:Array = BetspotData[targetName.toUpperCase()];
 			if (highlights != null && highlights.length > 0) {
 				for (var i:uint = 0; i < highlights.length; i++) {
 					view.createBet(game.chipSelected, highlights[i]);
