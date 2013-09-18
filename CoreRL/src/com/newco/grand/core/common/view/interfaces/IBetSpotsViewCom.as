@@ -1,6 +1,6 @@
 package com.newco.grand.core.common.view.interfaces
 {
-	import org.osflash.signals.Signal;
+	
 
 	public interface IBetSpotsViewCom extends IUIView
 	{

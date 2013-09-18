@@ -24,7 +24,7 @@
 		public var hightLightSignal:Signal=new Signal();
 		public var removeLightSignal:Signal=new Signal();
 		
-		private var _asset:MovieClip;
+		private var _display:MovieClip;
 		private var _name:String;
 		
 		private var _chipHolder:MovieClip=new MovieClip();
@@ -32,12 +32,12 @@
 		private var _id:int;
 		
 		public function BetSpot(asset:MovieClip) {
-			_asset=asset;
+			_display=asset;
 			chipsPlaced = [];
 			chipValue = 0;
 			lastBet = 0;
-			_asset.buttonMode = true;
-			_asset.mouseChildren = false;
+			_display.buttonMode = true;
+			_display.mouseChildren = false;
 			//_asset.alpha = 0;
 			asset.addChild(_chipHolder);
 		}
@@ -56,42 +56,42 @@
 			return chip; 
 		}
 		public function get x():Number{
-			return _asset.x;
+			return _display.x;
 		}
 		public function get y():Number{
-			return _asset.y;
+			return _display.y;
 		}
 		
 		public function set x(val:Number):void{
-			_asset.x =val;
+			_display.x =val;
 		}
 		public function set y(val:Number):void{
-			_asset.y=val;
+			_display.y=val;
 		}
 		
 		public function get display():MovieClip{
-			 return _asset;
+			 return _display;
 		}
 		public function get name():String{
 			return _name;
 		}
 		public function set name(val:String):void{
 			_name=val;
-			_asset.name=val;
+			_display.name=val;
 		}
 		
 		public function get chipSelected():Number {
-			var betspotView:IBetSpotsViewCom= _asset.parent as IBetSpotsViewCom;
+			var betspotView:IBetSpotsViewCom= _display.parent as IBetSpotsViewCom;
 			return betspotView.chipSelecedValue;
 		}
 		public function get balance():Number {
-			var betspotView:IBetSpotsViewCom= _asset.parent as IBetSpotsViewCom;
+			var betspotView:IBetSpotsViewCom= _display.parent as IBetSpotsViewCom;
 			return betspotView.balance;
 		}
 
 		private function rollOver(evt:MouseEvent):void {
 			hightLightSignal.dispatch(this.name);
-			_asset.visible = true;
+			_display.visible = true;
 			if (chipValue > 0 && chipValue < min) {
 
 				messageSignal.dispatch(MessageEvent.SHOW_MIN_SPOT,this);
@@ -116,7 +116,7 @@
 		}
 		public function placeBetOnTable(value:Number):void {
 			var newValue:Number = chipValue + value;
-			var totalBetPlaced:Number = (_asset.parent as IBetSpotsViewCom).getTotalBet() + value;
+			var totalBetPlaced:Number = (_display.parent as IBetSpotsViewCom).getTotalBet() + value;
 			debug("totalBetPlaced",totalBetPlaced,"balance",balance,"newValue",newValue,"max",max);
 			if(totalBetPlaced <= balance && balance > 0) {
 				if(newValue <= max) {
@@ -216,22 +216,21 @@
 		}
 		
 		public function disable():void {
-			//removeHighlight();
-			//_asset.visible = false;
-			_asset.mouseEnabled = false;
-			_asset.buttonMode = false;
-			_asset.removeEventListener(MouseEvent.ROLL_OVER, rollOver);
-			_asset.removeEventListener(MouseEvent.ROLL_OUT, rollOut);
-			_asset.removeEventListener(MouseEvent.MOUSE_DOWN, placeChip);
+			//_display.visible = false;
+			_display.mouseEnabled = false;
+			_display.buttonMode = false;
+			_display.removeEventListener(MouseEvent.ROLL_OVER, rollOver);
+			_display.removeEventListener(MouseEvent.ROLL_OUT, rollOut);
+			_display.removeEventListener(MouseEvent.MOUSE_DOWN, placeChip);
 		}
 
 		public function enable():void {
-			//_asset.visible = true;
-			_asset.mouseEnabled = true;
-			_asset.buttonMode = true;
-			_asset.addEventListener(MouseEvent.ROLL_OVER, rollOver);
-			_asset.addEventListener(MouseEvent.ROLL_OUT, rollOut);
-			_asset.addEventListener(MouseEvent.MOUSE_DOWN, placeChip);			
+			//_display.visible = true;
+			_display.mouseEnabled = true;
+			_display.buttonMode = true;
+			_display.addEventListener(MouseEvent.ROLL_OVER, rollOver);
+			_display.addEventListener(MouseEvent.ROLL_OUT, rollOut);
+			_display.addEventListener(MouseEvent.MOUSE_DOWN, placeChip);			
 		}
 
 		public function calculateBJWin(result0:String, result1:String = ""):void {

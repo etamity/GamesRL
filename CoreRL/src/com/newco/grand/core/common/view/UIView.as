@@ -1,16 +1,12 @@
 package com.newco.grand.core.common.view
 {
-	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.view.interfaces.IUIView;
+	import com.newco.grand.core.utils.GameUtils;
 	
 	import flash.display.Sprite;
 	
-	import robotlegs.bender.framework.api.ILogger;
-	
 	public class UIView extends Sprite implements IUIView
 	{
-		[Inject]
-		public var logger:ILogger
 		protected var _display:*;
 		public function UIView()
 		{
@@ -20,7 +16,6 @@ package com.newco.grand.core.common.view
 
 		public function init():void
 		{
-	
 			updateLanguage();
 			visible=true;
 			align();
@@ -49,7 +44,8 @@ package com.newco.grand.core.common.view
 		
 		public function debug(...args):void
 		{
-			logger.debug(args);
+			//logger.debug(args);
+			GameUtils.log(this,args);
 		}
 	}
 }

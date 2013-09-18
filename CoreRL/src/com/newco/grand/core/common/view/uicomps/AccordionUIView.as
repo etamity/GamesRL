@@ -4,7 +4,6 @@ package com.newco.grand.core.common.view.uicomps
 	import com.smart.uicore.controls.Accordion;
 	import com.smart.uicore.controls.modeStyles.ButtonStyle;
 	
-	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	
 	public class AccordionUIView extends Sprite implements IAccordion
@@ -60,9 +59,9 @@ package com.newco.grand.core.common.view.uicomps
 		public function resize(width:Number,height:Number):void{
 			_display.setSize(width,height);
 		}
-		public function add(mc:MovieClip, title:String, toolTipMsg:String=""):void
+		public function add(content:Sprite, title:String, toolTipMsg:String=""):void
 		{
-			_display.add(title,mc);
+			_display.add(title,content);
 			//IUIView(mc).setSize(170,529-_accordion.buttons.length*_accordion.defaultButtonHeight);
 		}
 	}
