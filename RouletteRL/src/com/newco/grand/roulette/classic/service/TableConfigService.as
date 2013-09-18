@@ -3,6 +3,7 @@ package com.newco.grand.roulette.classic.service
 	import com.newco.grand.core.common.controller.signals.ModelReadyEvent;
 	import com.newco.grand.core.common.controller.signals.SocketEvent;
 	import com.newco.grand.core.common.controller.signals.StateTableConfigEvent;
+	import com.newco.grand.core.common.controller.signals.UIEvent;
 	import com.newco.grand.core.common.controller.signals.VideoEvent;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.Player;
@@ -95,6 +96,7 @@ package com.newco.grand.roulette.classic.service
 			signalBus.dispatch(SocketEvent.CONNECT_GAME);
 			signalBus.dispatch(VideoEvent.CONNECT);
 			signalBus.dispatch(StateTableConfigEvent.LOADED);
+			signalBus.dispatch(UIEvent.SETUP_LAYOUT);
 			
 			//service.remove(Constants.SERVER_SETTING);
 		}

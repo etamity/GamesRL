@@ -1,8 +1,11 @@
 package com.newco.grand.roulette.classic.view {
 	
+	import com.newco.grand.core.common.view.UIView;
+	import com.newco.grand.roulette.classic.view.interfaces.IResultsClassicView;
+	
 	import flash.display.MovieClip;
 	
-	public class ResultsClassicView extends LastTenNumberAsset {
+	public class ResultsClassicView extends UIView implements IResultsClassicView{
 		
 		private const RESULT_COLOR_RED:uint = 0xFF0000;
 		private const RESULT_COLOR_BLACK:uint = 0xFFAF32;
@@ -17,21 +20,11 @@ package com.newco.grand.roulette.classic.view {
 			visible = false;
 		}		
 		
-		public function init():void {
-		/*	for (var i:uint = 0; i < 15; i++) {
-				var row:TextField = new TextField();
-				row.name = "row" + i;
-				row.selectable = false;
-				row.x = 0;
-				row.y = 5;
-				row.height = 16;
-				row.width = 22;
-				addChild(row);
-			}*/
-			align();
+		override public function initDisplay():void{
+			_display=new LastTenNumberAsset();
+			addChild(_display);
 		}
-		
-		public function align():void {
+		override public function align():void {
 			x = 658;
 			y = 236;
 			visible = true;
@@ -64,7 +57,7 @@ package com.newco.grand.roulette.classic.view {
 		
 		private function showHistory():void {
 			for (var i:uint =0; i < _results.length; i++) {
-				var row:MovieClip = MovieClip(getChildByName("LastBetMc" + (9-i)));
+				var row:MovieClip = MovieClip(_display.getChildByName("LastBetMc" + (9-i)));
 				//var rowFormat:TextFormat;
 				
 				row.NumberMc.gotoAndStop(int(_results[i].value)+1);

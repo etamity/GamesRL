@@ -7,7 +7,9 @@ package com.newco.grand.roulette.classic.view {
 	import com.newco.grand.core.utils.FormatUtils;
 	import com.newco.grand.core.utils.GameUtils;
 	import com.newco.grand.roulette.classic.view.interfaces.IBetSpotsView;
+	
 	import flash.display.MovieClip;
+	import flash.display.Sprite;
 	import flash.events.MouseEvent;
 	import flash.geom.Rectangle;
 	import flash.utils.Dictionary;
@@ -59,13 +61,19 @@ package com.newco.grand.roulette.classic.view {
 		public function get neighbourBetsSignal():Signal{
 			return _neighbourBetsSignal;
 		}
+		public function get higilightNeighbourSignal():Signal{
+			return _higilightNeighbourSignal;
+		}
+		public function get removeNeighbourSignal():Signal{
+			return _removeNeighbourSignal;
+		}
 		public function get hightLightSignal():Signal{
 			return _hightLightSignal;
 		}
 		public function get removeLightSignal():Signal{
 			return _removeLightSignal;
 		}
-		public function get display():*{
+		public function get view():Sprite{
 			return this;
 		}
 		

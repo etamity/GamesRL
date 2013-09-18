@@ -4,7 +4,7 @@ package com.newco.grand.roulette.classic.view.mediators
 	import com.newco.grand.core.common.controller.signals.TaskbarActionEvent;
 	import com.newco.grand.core.common.controller.signals.UIEvent;
 	import com.newco.grand.core.common.model.SignalBus;
-	import com.newco.grand.roulette.classic.view.LobbyView;
+	import com.newco.grand.roulette.classic.view.interfaces.ILobbyView;
 	
 	import flash.display.MovieClip;
 	import flash.events.Event;
@@ -12,7 +12,7 @@ package com.newco.grand.roulette.classic.view.mediators
 	public class LobbyMediator extends BaseMediator
 	{
 		[Inject]
-		public var view:LobbyView;
+		public var view:ILobbyView;
 		
 		private var subLobby:MovieClip;
 		
@@ -35,7 +35,7 @@ package com.newco.grand.roulette.classic.view.mediators
 		}
 		
 		private function launchLobby(signal:BaseSignal):void {
-			view.visible = true;
+			view.view.visible = true;
 			debug('loading lobby..');
 		}
 		

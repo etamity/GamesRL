@@ -7,7 +7,7 @@ package com.newco.grand.roulette.classic.view.mediators {
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.utils.GameUtils;
 	import com.newco.grand.roulette.classic.model.GameDataModel;
-	import com.newco.grand.roulette.classic.view.ResultsClassicView;
+	import com.newco.grand.roulette.classic.view.interfaces.IResultsClassicView;
 	
 	import flash.events.Event;
 	
@@ -16,7 +16,7 @@ package com.newco.grand.roulette.classic.view.mediators {
 	public class ResultsClassicMediator extends Mediator{
 		
 		[Inject]
-		public var view:ResultsClassicView;
+		public var view:IResultsClassicView;
 		
 		[Inject]
 		public var game:GameDataModel;

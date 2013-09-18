@@ -3,20 +3,22 @@ package com.newco.grand.roulette.classic.view.mediators {
 	import com.newco.grand.core.common.controller.signals.BaseSignal;
 	import com.newco.grand.core.common.controller.signals.ModelReadyEvent;
 	import com.newco.grand.core.common.controller.signals.StateTableConfigEvent;
+	import com.newco.grand.core.common.model.LanguageModel;
 	import com.newco.grand.core.common.model.Player;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.utils.GameUtils;
 	import com.newco.grand.roulette.classic.model.GameDataModel;
-	import com.newco.grand.roulette.classic.view.LimitsView;
-	import com.newco.grand.core.common.model.LanguageModel;
+	import com.newco.grand.roulette.classic.view.interfaces.ILimitsView;
+	
 	import flash.events.Event;
 	
 	import robotlegs.bender.bundles.mvcs.Mediator;
+	import robotlegs.bender.extensions.contextView.ContextView;
 	
 	public class LimitsMediator extends Mediator{
 		
 		[Inject]
-		public var view:LimitsView;
+		public var view:ILimitsView;
 		
 		[Inject]
 		public var game:GameDataModel;
@@ -27,7 +29,8 @@ package com.newco.grand.roulette.classic.view.mediators {
 		[Inject]
 		public var signalBus:SignalBus;
 		
-		
+		[Inject]
+		public var contextView:ContextView;
 		
 		private const ALL_LIMITS:Array  = new Array("straight", "split", "trio", "corner", "six", "column", "dozen", "red", "black", "even", "odd", "high", "low");
 		private const ALL_PAYOUTS:Array = new Array(35, 17, 11, 8, 5, 2, 2, 1, 1, 1, 1, 1, 1);
@@ -48,7 +51,7 @@ package com.newco.grand.roulette.classic.view.mediators {
 			view.titleLabel = game.table;
 			view.betLabel = LanguageModel.BETLABEL;
 			view.payoutLabel = LanguageModel.PAYOUT;
-			eventMap.mapListener(view.stage, Event.RESIZE, onStageResize);
+			eventMap.mapListener(contextView.view.stage, Event.RESIZE, onStageResize);
 		}		
 		
 		private function setLimits(signal:BaseSignal):void {

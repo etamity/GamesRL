@@ -26,7 +26,7 @@ package com.newco.grand.roulette.classic.view.mediators
 			view.add(new SideBetSpotsView(), LanguageModel.PLAYERSBETS);
 			view.add(new FavouritesBetsView(), LanguageModel.FAVOURITES);
 			
-			view.display.addEventListener(AccordionEvent.SELECTED,doSelected);
+			view.view.addEventListener(AccordionEvent.SELECTED,doSelected);
 
 			resize();
 		}

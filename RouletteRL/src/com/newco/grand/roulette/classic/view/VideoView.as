@@ -1,9 +1,10 @@
 package com.newco.grand.roulette.classic.view
 {
 	import com.newco.grand.core.common.view.VideoView;
-	import caurina.transitions.Tweener;
+	
 	import flash.events.MouseEvent;
-	import com.newco.grand.core.common.controller.signals.UIEvent;
+	
+	import caurina.transitions.Tweener;
 	public class VideoView extends com.newco.grand.core.common.view.VideoView
 	{
 		public function VideoView()

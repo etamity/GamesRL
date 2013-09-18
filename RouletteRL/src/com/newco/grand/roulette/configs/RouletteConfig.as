@@ -75,6 +75,7 @@ package com.newco.grand.roulette.configs
 	import com.newco.grand.core.common.view.uicomps.PlayersUIView;
 	import com.newco.grand.core.common.view.uicomps.WinnersUIView;
 	import com.newco.grand.roulette.classic.controller.commands.SetupAssetCommand;
+	import com.newco.grand.roulette.classic.controller.commands.SetupLayoutCommand;
 	import com.newco.grand.roulette.classic.controller.commands.SetupViewCommand;
 	import com.newco.grand.roulette.classic.controller.commands.StateTableConfigCommand;
 	import com.newco.grand.roulette.classic.controller.commands.StatisticsCommand;
@@ -83,13 +84,13 @@ package com.newco.grand.roulette.configs
 	import com.newco.grand.roulette.classic.service.GameSocketService;
 	import com.newco.grand.roulette.classic.service.TableConfigService;
 	import com.newco.grand.roulette.classic.view.FavouritesBetsView;
-	import com.newco.grand.roulette.classic.view.LimitsView;
-	import com.newco.grand.roulette.classic.view.LobbyView;
 	import com.newco.grand.roulette.classic.view.PlayersBetsView;
-	import com.newco.grand.roulette.classic.view.ResultsClassicView;
 	import com.newco.grand.roulette.classic.view.StageInfoView;
 	import com.newco.grand.roulette.classic.view.StatisticsView;
 	import com.newco.grand.roulette.classic.view.interfaces.IBetSpotsView;
+	import com.newco.grand.roulette.classic.view.interfaces.ILimitsView;
+	import com.newco.grand.roulette.classic.view.interfaces.ILobbyView;
+	import com.newco.grand.roulette.classic.view.interfaces.IResultsClassicView;
 	import com.newco.grand.roulette.classic.view.mediators.BetSpotsMediator;
 	import com.newco.grand.roulette.classic.view.mediators.FavouritesBetsMediator;
 	import com.newco.grand.roulette.classic.view.mediators.LimitsMediator;
@@ -213,14 +214,15 @@ package com.newco.grand.roulette.configs
 			injector.map(HelpSWFService).asSingleton();
 			injector.map(HistorySWFService).asSingleton();
 			
+			
 		}
 		public function mapMediators():void{
 			mediatorMap.map(IStageView).toMediator(StageMediator);
 			mediatorMap.map(ILoginView).toMediator(LoginMediator);
 			mediatorMap.map(IBetSpotsView).toMediator(BetSpotsMediator);
 			mediatorMap.map(IVideoView).toMediator(VideoMediator);
-			mediatorMap.map(LimitsView).toMediator(LimitsMediator);
-			mediatorMap.map(ResultsClassicView).toMediator(ResultsClassicMediator);
+			mediatorMap.map(ILimitsView).toMediator(LimitsMediator);
+			mediatorMap.map(IResultsClassicView).toMediator(ResultsClassicMediator);
 			mediatorMap.map(ITaskbarView).toMediator(TaskbarMediator);
 			mediatorMap.map(StageInfoView).toMediator(StageInfoMediator);
 			mediatorMap.map(IGameStatusView).toMediator(GameStatusMediator);
@@ -232,7 +234,7 @@ package com.newco.grand.roulette.configs
 			mediatorMap.map(IAccordion).toMediator(RouletteAccordionMediator);
 			mediatorMap.map(StatisticsView).toMediator(StatisticsMediator);
 			//mediatorMap.map(MessageBoxView).toMediator(MessageBoxMediator);
-			mediatorMap.map(LobbyView).toMediator(LobbyMediator);
+			mediatorMap.map(ILobbyView).toMediator(LobbyMediator);
 
 		}
 		public function mapCommands():void{
@@ -262,7 +264,8 @@ package com.newco.grand.roulette.configs
 			
 			commandMap.mapSignal(signalBus.signal(BetEvent.SEND_BETS), BetsCommand);
 			commandMap.mapSignal(signalBus.signal(UIEvent.SETUP_ASSET), SetupAssetCommand);
-			commandMap.mapSignal(signalBus.signal(UIEvent.SETUP_VIEWS), SetupViewCommand);
+			commandMap.mapSignal(signalBus.signal(UIEvent.SETUP_VIEWS), SetupViewCommand,true);
+			commandMap.mapSignal(signalBus.signal(UIEvent.SETUP_LAYOUT), SetupLayoutCommand);
 			commandMap.mapSignal(signalBus.signal(TaskbarActionEvent.HELP_CLICKED), HelpSWFCommand);
 			commandMap.mapSignal(signalBus.signal(TaskbarActionEvent.HISTORY_CLICKED), HistorySWFCommand);
 		}

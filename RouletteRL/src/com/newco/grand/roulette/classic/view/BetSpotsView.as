@@ -2,8 +2,8 @@ package com.newco.grand.roulette.classic.view {
 	
 	import com.newco.grand.core.common.view.BetSpot;
 	import com.newco.grand.core.common.view.Betchip;
+	import com.newco.grand.core.common.view.UIView;
 	import com.newco.grand.core.utils.FormatUtils;
-	import com.newco.grand.core.utils.GameUtils;
 	import com.newco.grand.roulette.classic.view.interfaces.IBetSpotsView;
 	
 	import flash.display.MovieClip;
@@ -13,7 +13,7 @@ package com.newco.grand.roulette.classic.view {
 	
 	import org.osflash.signals.Signal;
 	
-	public class BetSpotsView extends BetspotsAsset implements IBetSpotsView{
+	public class BetSpotsView extends UIView implements IBetSpotsView{
 		
 		public const SPOTS:Number = 166;
 		public const NEIGHBOUR_SPOTS:Number = 39;
@@ -43,12 +43,14 @@ package com.newco.grand.roulette.classic.view {
 		
 		private var _betspotsHash:Dictionary=new Dictionary();
 		public function BetSpotsView() {
+			super();
 			createBetspots();
-			specialBetsMC.visible = false;
+			_display.specialBetsMC.visible = false;
 			visible = false;
 		}
-		public function updateLanguage():void{
-			
+		override public function initDisplay():void{
+			_display=new BetspotsAsset();
+			addChild(_display);
 		}
 		public function get updateBetSignal():Signal{
 			return _updateBetSignal;
@@ -71,21 +73,7 @@ package com.newco.grand.roulette.classic.view {
 		public function get removeLightSignal():Signal{
 			return _removeLightSignal;
 		}
-		public function get display():*{
-			return this;
-		}
-		public function initDisplay():void{
-			
-		}
-		public function init():void {
-			align();
-		}
-		
-		public function align():void {			
-			//x = 168;
-			//y = 235;
-			visible = true;
-		}
+
 
 		public function get chipSelecedValue():Number{
 			return _chipSelecedValue;
@@ -124,8 +112,8 @@ package com.newco.grand.roulette.classic.view {
 		private function createBetspots():void {
 			var stageSpot:MovieClip;
 			for (var i:int = 2; i < SPOTS; i++) {
-				if (getChildByName("dz" + i) != null) {
-					stageSpot = MovieClip(getChildByName("dz" + i));
+				if (_display.getChildByName("dz" + i) != null) {
+					stageSpot = MovieClip(_display.getChildByName("dz" + i));
 					_betspotMC = new BetSpot(new BetspotAsset());
 					_betspotMC.name = "bs" + i;
 					//_betspotMC.id=i;
@@ -143,7 +131,7 @@ package com.newco.grand.roulette.classic.view {
 				}
 			}
 			//getChildByName("bs2").mask = zeroMask;
-			getBetspotByName("bs2").display.mask = zeroMask;
+			getBetspotByName("bs2").display.mask = _display.zeroMask;
 			_winMarkerMC = new WinMarker();
 			_winMarkerMC.visible = false;
 			addChild(_winMarkerMC);
@@ -203,7 +191,7 @@ package com.newco.grand.roulette.classic.view {
 		
 		public function createChip(value:String):void {
 			_betspotMC = getBetspotByName(value);
-			_betchipMC=Betchip(getChildByName(value + "chip"));
+			_betchipMC=Betchip(_display.getChildByName(value + "chip"));
 			if (_betchipMC==null)
 			{
 				_betchipMC = new Betchip();
@@ -263,7 +251,7 @@ package com.newco.grand.roulette.classic.view {
 		
 		public function getWinnings(i:int, payout:int):Number {
 			_betspotMC = getBetspotByName("bs" + i);
-			_betchipMC = Betchip(getChildByName("bs" + i + "chip"));
+			_betchipMC = Betchip(_display.getChildByName("bs" + i + "chip"));
 			if (_betspotMC != null && _betchipMC != null) {
 				_betchipMC.chipValue = _betspotMC.chipValue * payout;
 				_betchipMC.updateChipColor(999);
@@ -288,7 +276,7 @@ package com.newco.grand.roulette.classic.view {
 				var lastBet:String = _chipsPlacedOrder[_chipsPlacedOrder.length - 1];
 				_betspotMC = getBetspotByName(lastBet);
 				_betspotMC.undo();
-				_betchipMC = Betchip(getChildByName(lastBet + "chip"));
+				_betchipMC = Betchip(_display.getChildByName(lastBet + "chip"));
 				if(_betspotMC.chipValue > 0) {
 					_betchipMC.chipValue = _betspotMC.chipValue;
 					_betchipMC.updateChipColor(_betspotMC.lastChipPlaced);
@@ -332,7 +320,7 @@ package com.newco.grand.roulette.classic.view {
 			var bet:Number;
 			for (var i:int = 2; i < SPOTS; i++) {
 				_betspotMC = getBetspotByName(("bs" + i));
-				_betchipMC = Betchip(getChildByName("bs" + i + "chip"));
+				_betchipMC = Betchip(_display.getChildByName("bs" + i + "chip"));
 				if(_betchipMC != null) {
 					bet = FormatUtils.floatCorrection(_betspotMC.chipValue);
 					if (bet > 0 && bet >= _betspotMC.min) {
@@ -375,10 +363,10 @@ package com.newco.grand.roulette.classic.view {
 				}
 			}
 			for (i = 0; i <= NEIGHBOUR_SPOTS; i++) {
-				MovieClip(neighbourBetsMC.popup.getChildByName("nb" + i)).buttonMode = true;
-				MovieClip(neighbourBetsMC.popup.getChildByName("nb" + i)).addEventListener(MouseEvent.ROLL_OVER, higilightNeighbour);
-				MovieClip(neighbourBetsMC.popup.getChildByName("nb" + i)).addEventListener(MouseEvent.ROLL_OUT, removeHigilightNeighbour);
-				MovieClip(neighbourBetsMC.popup.getChildByName("nb" + i)).addEventListener(MouseEvent.CLICK, placeNeighbourBets);
+				MovieClip(_display.neighbourBetsMC.popup.getChildByName("nb" + i)).buttonMode = true;
+				MovieClip(_display.neighbourBetsMC.popup.getChildByName("nb" + i)).addEventListener(MouseEvent.ROLL_OVER, higilightNeighbour);
+				MovieClip(_display.neighbourBetsMC.popup.getChildByName("nb" + i)).addEventListener(MouseEvent.ROLL_OUT, removeHigilightNeighbour);
+				MovieClip(_display.neighbourBetsMC.popup.getChildByName("nb" + i)).addEventListener(MouseEvent.CLICK, placeNeighbourBets);
 			}
 		}
 		
@@ -389,7 +377,7 @@ package com.newco.grand.roulette.classic.view {
 					_betspotMC.disable();
 					if(_betspotMC.chipsPlaced.length > 0) {
 
-						_betchipMC = Betchip(getChildByName("bs" + i + "chip"));
+						_betchipMC = Betchip(_display.getChildByName("bs" + i + "chip"));
 						if (_betchipMC != null) {
 							_betchipMC.disable();
 						}
@@ -398,21 +386,21 @@ package com.newco.grand.roulette.classic.view {
 				}
 			}
 			for (i = 0; i <= NEIGHBOUR_SPOTS; i++) {
-				MovieClip(neighbourBetsMC.popup.getChildByName("nb" + i)).buttonMode = false;
-				MovieClip(neighbourBetsMC.popup.getChildByName("nb" + i)).mouseChildren = false;
-				MovieClip(neighbourBetsMC.popup.getChildByName("nb" + i)).removeEventListener(MouseEvent.ROLL_OVER, higilightNeighbour);
-				MovieClip(neighbourBetsMC.popup.getChildByName("nb" + i)).removeEventListener(MouseEvent.ROLL_OUT, removeHigilightNeighbour);
-				MovieClip(neighbourBetsMC.popup.getChildByName("nb" + i)).removeEventListener(MouseEvent.CLICK, placeNeighbourBets);
-				MovieClip(neighbourBetsMC.popup.getChildByName("nb" + i)).alpha = 0;
+				MovieClip(_display.neighbourBetsMC.popup.getChildByName("nb" + i)).buttonMode = false;
+				MovieClip(_display.neighbourBetsMC.popup.getChildByName("nb" + i)).mouseChildren = false;
+				MovieClip(_display.neighbourBetsMC.popup.getChildByName("nb" + i)).removeEventListener(MouseEvent.ROLL_OVER, higilightNeighbour);
+				MovieClip(_display.neighbourBetsMC.popup.getChildByName("nb" + i)).removeEventListener(MouseEvent.ROLL_OUT, removeHigilightNeighbour);
+				MovieClip(_display.neighbourBetsMC.popup.getChildByName("nb" + i)).removeEventListener(MouseEvent.CLICK, placeNeighbourBets);
+				MovieClip(_display.neighbourBetsMC.popup.getChildByName("nb" + i)).alpha = 0;
 			}
 		}
 		
 		public function clearBets():void {
 			for (var i:int = 2; i < SPOTS; i++) {
 				_betspotMC = getBetspotByName(("bs" + i));
-				if (getChildByName("bs" + i + "chip") != null) {
+				if (_display.getChildByName("bs" + i + "chip") != null) {
 					_betspotMC.clean();
-					removeChild(getChildByName("bs" + i + "chip"));
+					removeChild(_display.getChildByName("bs" + i + "chip"));
 				}
 			}
 			_chipsPlacedOrder = [];
@@ -431,8 +419,5 @@ package com.newco.grand.roulette.classic.view {
 			return bet;
 		}
 		
-		private function debug(...args):void {
-			GameUtils.log(this, args);
-		}
 	}
 }
