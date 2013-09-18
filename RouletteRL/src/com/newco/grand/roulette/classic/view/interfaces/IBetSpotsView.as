@@ -1,7 +1,9 @@
 package com.newco.grand.roulette.classic.view.interfaces
 {
 	import com.newco.grand.core.common.view.interfaces.IBetSpotsViewCom;
+	
 	import org.osflash.signals.Signal;
+	
 	public interface IBetSpotsView extends IBetSpotsViewCom
 	{
 		function clearBets():void;
@@ -31,5 +33,6 @@ package com.newco.grand.roulette.classic.view.interfaces
 		function repeat():void;
 		function setLimits(i:int, min:int, max:int):void;
 		function enableBetting():void;
+		
 	}
 }

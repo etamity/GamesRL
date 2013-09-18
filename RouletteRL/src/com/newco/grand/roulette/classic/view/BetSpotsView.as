@@ -73,8 +73,8 @@ package com.newco.grand.roulette.classic.view {
 		public function get removeLightSignal():Signal{
 			return _removeLightSignal;
 		}
-
-
+		
+		
 		public function get chipSelecedValue():Number{
 			return _chipSelecedValue;
 		}
@@ -99,8 +99,8 @@ package com.newco.grand.roulette.classic.view {
 				betSpotMc= getBetspotByName(("bs"+String(bets)));
 				amount=int(value[1]);
 				if(_betspotMC != null){
-				betSpotMc.placeBetOnTable(amount);
-
+					betSpotMc.placeBetOnTable(amount);
+					
 				}
 				
 				
@@ -123,7 +123,7 @@ package com.newco.grand.roulette.classic.view {
 					_betspotMC.display.alpha=0;
 					addChild(_betspotMC.display);					
 					stageSpot.visible = false;
-
+					
 					_betspotMC.updateBetSignal.add(updateBet);
 					_betspotMC.messageSignal.add(setMessage);
 					_betspotMC.hightLightSignal.add(highlight);
@@ -162,22 +162,22 @@ package com.newco.grand.roulette.classic.view {
 		}
 		
 		private function highlight(target:String):void {
-
+			
 			_hightLightSignal.dispatch(target);
 		}
 		
 		private function removeHighlight(target:String):void {
-
+			
 			_removeLightSignal.dispatch(target);
 		}
 		
 		private function higilightNeighbour(evt:MouseEvent):void {
-
+			
 			_higilightNeighbourSignal.dispatch(evt.target.name);
 		}
 		
 		private function removeHigilightNeighbour(evt:MouseEvent):void {
-
+			
 			_removeNeighbourSignal.dispatch(evt.target.name)
 		}
 		
@@ -191,7 +191,7 @@ package com.newco.grand.roulette.classic.view {
 		
 		public function createChip(value:String):void {
 			_betspotMC = getBetspotByName(value);
-			_betchipMC=Betchip(_display.getChildByName(value + "chip"));
+			_betchipMC=Betchip(getChildByName(value + "chip"));
 			if (_betchipMC==null)
 			{
 				_betchipMC = new Betchip();
@@ -206,12 +206,12 @@ package com.newco.grand.roulette.classic.view {
 				_betchipMC.removeLightSignal.add(removeHighlight);
 				_betchipMC.betspotName = _betspotMC.name;
 				addChild(_betchipMC);
-		
+				
 				swapChildren(_betchipMC, getChildAt(numChildren - 1));
 			}
 			_betchipMC.updateChipColor(_betspotMC.lastChipPlaced);
 			_betchipMC.chipValue = _betspotMC.chipValue;
-		
+			
 		}
 		
 		public function set chipSelected(value:Number):void {
@@ -219,8 +219,8 @@ package com.newco.grand.roulette.classic.view {
 		}
 		
 		public function get chipSelected():Number {
-
-			 return _chipSelecedValue;
+			
+			return _chipSelecedValue;
 		}
 		
 		
@@ -234,9 +234,9 @@ package com.newco.grand.roulette.classic.view {
 		
 		public function set balance(value:Number):void {
 			/*for (var i:uint = 2; i < SPOTS; i++) {
-				if (getChildByName("bs" + i) != null) {
-					_betspotMC = getBetspotByName(("bs" + i));
-				}
+			if (getChildByName("bs" + i) != null) {
+			_betspotMC = getBetspotByName(("bs" + i));
+			}
 			}
 			if (_betspotMC!=null)
 			_betspotMC.balance = value;*/
@@ -251,7 +251,7 @@ package com.newco.grand.roulette.classic.view {
 		
 		public function getWinnings(i:int, payout:int):Number {
 			_betspotMC = getBetspotByName("bs" + i);
-			_betchipMC = Betchip(_display.getChildByName("bs" + i + "chip"));
+			_betchipMC = Betchip(getChildByName("bs" + i + "chip"));
 			if (_betspotMC != null && _betchipMC != null) {
 				_betchipMC.chipValue = _betspotMC.chipValue * payout;
 				_betchipMC.updateChipColor(999);
@@ -276,7 +276,7 @@ package com.newco.grand.roulette.classic.view {
 				var lastBet:String = _chipsPlacedOrder[_chipsPlacedOrder.length - 1];
 				_betspotMC = getBetspotByName(lastBet);
 				_betspotMC.undo();
-				_betchipMC = Betchip(_display.getChildByName(lastBet + "chip"));
+				_betchipMC = Betchip(getChildByName(lastBet + "chip"));
 				if(_betspotMC.chipValue > 0) {
 					_betchipMC.chipValue = _betspotMC.chipValue;
 					_betchipMC.updateChipColor(_betspotMC.lastChipPlaced);
@@ -320,7 +320,7 @@ package com.newco.grand.roulette.classic.view {
 			var bet:Number;
 			for (var i:int = 2; i < SPOTS; i++) {
 				_betspotMC = getBetspotByName(("bs" + i));
-				_betchipMC = Betchip(_display.getChildByName("bs" + i + "chip"));
+				_betchipMC = Betchip(getChildByName("bs" + i + "chip"));
 				if(_betchipMC != null) {
 					bet = FormatUtils.floatCorrection(_betspotMC.chipValue);
 					if (bet > 0 && bet >= _betspotMC.min) {
@@ -360,6 +360,7 @@ package com.newco.grand.roulette.classic.view {
 				_betspotMC = getBetspotByName(("bs" + i));
 				if (_betspotMC != null) {
 					_betspotMC.enable();
+					_betspotMC.display.visible=true;
 				}
 			}
 			for (i = 0; i <= NEIGHBOUR_SPOTS; i++) {
@@ -375,14 +376,15 @@ package com.newco.grand.roulette.classic.view {
 				_betspotMC = getBetspotByName(("bs" + i));
 				if (_betspotMC != null) {
 					_betspotMC.disable();
+					_betspotMC.display.visible=false;
 					if(_betspotMC.chipsPlaced.length > 0) {
-
-						_betchipMC = Betchip(_display.getChildByName("bs" + i + "chip"));
+						
+						_betchipMC = Betchip(getChildByName("bs" + i + "chip"));
 						if (_betchipMC != null) {
 							_betchipMC.disable();
 						}
 					}
-				
+					
 				}
 			}
 			for (i = 0; i <= NEIGHBOUR_SPOTS; i++) {
@@ -398,9 +400,9 @@ package com.newco.grand.roulette.classic.view {
 		public function clearBets():void {
 			for (var i:int = 2; i < SPOTS; i++) {
 				_betspotMC = getBetspotByName(("bs" + i));
-				if (_display.getChildByName("bs" + i + "chip") != null) {
+				if (getChildByName("bs" + i + "chip") != null) {
 					_betspotMC.clean();
-					removeChild(_display.getChildByName("bs" + i + "chip"));
+					removeChild(getChildByName("bs" + i + "chip"));
 				}
 			}
 			_chipsPlacedOrder = [];
@@ -421,3 +423,5 @@ package com.newco.grand.roulette.classic.view {
 		
 	}
 }
+
+

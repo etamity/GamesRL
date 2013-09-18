@@ -71,11 +71,12 @@ package com.newco.grand.roulette.classic.controller.commands
 			injector.map(ILoginView).toValue(contextView.view.addChild(new LoginView()));
 			injector.map(IBetSpotsView).toValue(contextView.view.addChild(new BetSpotsView()));
 			injector.map(IAccordion).toValue(contextView.view.addChild(new AccordionUIView()));
-			injector.map(ILimitsView).toValue(contextView.view.addChild(new LimitsView()));
+
 			injector.map(IGameStatusView).toValue(contextView.view.addChild(new GameStatusView()));
 			injector.map(IChatView).toValue(contextView.view.addChild(new ChatView()));
 			injector.map(IResultsClassicView).toValue(contextView.view.addChild(new ResultsClassicView()));
 			injector.map(IVideoView).toValue(contextView.view.addChild(new VideoView()));
+			injector.map(ILimitsView).toValue(contextView.view.addChild(new LimitsView()));
 			injector.map(ITaskbarView).toValue(contextView.view.addChild(new TaskbarView()));
 			injector.map(ILobbyView).toValue(contextView.view.addChild(new LobbyView()));
 			

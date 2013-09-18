@@ -14,8 +14,8 @@ package com.newco.grand.roulette.classic.view
 			_display.buttons[0].label= LanguageModel.STATISTICS;
 			_display.buttons[1].label= LanguageModel.PLAYERS;
 			_display.buttons[2].label= LanguageModel.WINNERLIST;
-			_display.buttons[3].label= LanguageModel.PLAYERSBETS;
-			_display.buttons[4].label= LanguageModel.FAVOURITES;
+			//_display.buttons[3].label= LanguageModel.PLAYERSBETS;
+			_display.buttons[3].label= LanguageModel.FAVOURITES;
 		}
 		
 		override public function align():void{

@@ -132,7 +132,9 @@ package com.newco.grand.roulette.configs
 		public var contextView:ContextView;
 		
 		protected var gameData:GameDataModel=new GameDataModel();
+		
 		protected var signalBus:SignalBus=new SignalBus();
+		
 		protected var service:IAssetLoader;
 		
 		public function RouletteConfig()
@@ -235,6 +237,7 @@ package com.newco.grand.roulette.configs
 			mediatorMap.map(StatisticsView).toMediator(StatisticsMediator);
 			//mediatorMap.map(MessageBoxView).toMediator(MessageBoxMediator);
 			mediatorMap.map(ILobbyView).toMediator(LobbyMediator);
+			trace("mapMediators");
 
 		}
 		public function mapCommands():void{

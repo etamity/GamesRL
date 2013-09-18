@@ -6,6 +6,7 @@ package com.newco.grand.roulette.classic.controller.commands
 	import com.newco.grand.core.common.view.interfaces.ITaskbarView;
 	import com.newco.grand.core.utils.GameUtils;
 	import com.newco.grand.roulette.classic.view.interfaces.IBetSpotsView;
+	import com.newco.grand.roulette.classic.view.interfaces.ILimitsView;
 	
 	import robotlegs.bender.extensions.contextView.ContextView;
 
@@ -29,6 +30,8 @@ package com.newco.grand.roulette.classic.controller.commands
 		[Inject]
 		public var chatView:IChatView;
 		
+		[Inject]
+		public var limitsView:ILimitsView;
 		public function SetupLayoutCommand()
 		{
 			super();
@@ -39,11 +42,12 @@ package com.newco.grand.roulette.classic.controller.commands
 		}
 
 		private function setupLayout():void{
-			taskbarView.view.y=520;
-		
-			gameStatusView.view.x=655;
-			chatView.view.x=450;
-			betSpotsView.view.y=500;
+			taskbarView.view.y=550;
+			gameStatusView.view.x=665;
+			chatView.view.x=810;
+			limitsView.view.y=494;
+			limitsView.view.x=5;
+			betSpotsView.view.y=0;
 
 		}
 		private function debug(...args):void {
