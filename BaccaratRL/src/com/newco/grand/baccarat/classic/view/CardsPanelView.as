@@ -31,25 +31,22 @@ package com.newco.grand.baccarat.classic.view
 		private var playerCards:Array;
 		
 		private var cardsMc:MovieClip;
-
-		protected var _skin:CardsPanelAsset;
 		
 		public function CardsPanelView()
 		{
 			super();
+			bankerCards=new Array();
+			playerCards=new Array();
+			bankerCardPt= new Point( _display.BankerSide.x+50, _display.BankerSide.y-80);
+			playerCardPt= new Point( _display.playerSide.x+50, _display.playerSide.y-80);
+			cardsMc=new MovieClip();
+			_display.addChild(cardsMc);
+			refreshScore();
 		}
 
 		override public function initDisplay():void{
 			_display=new CardsPanelAsset();
 			addChild( _display);
-			bankerCards=new Array();
-			playerCards=new Array();
-			bankerCardPt= new Point( _skin.BankerSide.x+50, _skin.BankerSide.y-80);
-			playerCardPt= new Point( _skin.playerSide.x+50, _skin.playerSide.y-80);
-			cardsMc=new MovieClip();
-			_display.addChild(cardsMc);
-			refreshScore();
-			visible=false;
 		}
 
 		public function refreshScore():void{

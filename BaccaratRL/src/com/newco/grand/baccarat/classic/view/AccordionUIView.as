@@ -18,7 +18,7 @@ package com.newco.grand.baccarat.classic.view
 		
 		override public function align():void{
 			x= stage.stageWidth -width;
-			display.y=190;
+			view.y=190;
 			_compHeight=420;
 			_display.setSize(_compWidth,_compHeight);
 			visible=true;

@@ -37,7 +37,7 @@ package com.newco.grand.baccarat.classic.view
 			_display= new BetspotsPanelAsset();
 			addChild(_display);
 		}
-		public function get display():*{
+		public function get view():*{
 			return _display;
 		}
 		

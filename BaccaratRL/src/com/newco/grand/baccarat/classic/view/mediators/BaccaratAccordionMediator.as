@@ -18,7 +18,7 @@ package com.newco.grand.baccarat.classic.view.mediators
 		}
 		override public function initialize():void {
 			super.initialize();
-			view.display.y=190;
+			view.view.y=190;
 			view.compHeight= view.compHeight -50;
 			
 			/*var statsButton:SMButton=new SMButton(new LastResultAsset());
