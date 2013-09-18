@@ -65,17 +65,15 @@ package com.newco.grand.core.common.view {
 		private var buttonsPTs:Array;
 		
 		private var languagePanel:LanguagePanelView;
-		protected var _skin:TaskbarAsset;
 		public function TaskbarView() {
 			super();
-		
+			initSkin();
 		}
 		
 		override public function initDisplay():void{
-			 _skin=new TaskbarAsset();
-			_display= _skin;
+			_display=new TaskbarAsset();
 			addChild( _display);
-			initSkin();
+	
 		}
 		
 		

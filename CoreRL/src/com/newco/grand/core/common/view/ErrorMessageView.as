@@ -6,19 +6,17 @@ package com.newco.grand.core.common.view
 	
 	public class ErrorMessageView extends UIView implements IErrorMessageView
 	{
-		protected var _skin:ErrorMessageAsset;
 		public function ErrorMessageView()
 		{
 			super();
-			visible=false;
+			_display.errorMsg.text="";
+			_display.closeBtn.addEventListener(MouseEvent.CLICK,doHideEvent);
 		}
 		override public function initDisplay():void
 		{
-			 _skin= new ErrorMessageAsset();
-			addChild( _skin);
-			 _skin.errorMsg.text="";
-			 _skin.closeBtn.addEventListener(MouseEvent.CLICK,doHideEvent);
-			_display= _skin;
+			_display= new ErrorMessageAsset();
+			addChild( _display);
+
 		}
 
 		private function doHideEvent(evt:MouseEvent):void{
@@ -26,15 +24,15 @@ package com.newco.grand.core.common.view
 		}
 		public function setErrorMessage(val:String):void{
 			align();
-			 _skin.errorMsg.htmlText+=val+"<br />";
+			_display.errorMsg.htmlText+=val+"<br />";
 			
 			visible=true;
 			
 		}
 		override public function align():void
 		{
-			x=(stage.stageWidth- _skin.width)/2;
-			y= stage.stageHeight- _skin.height;
+			x=(stage.stageWidth- _display.width)/2;
+			y= stage.stageHeight- _display.height;
 			visible=false;
 		}
 		

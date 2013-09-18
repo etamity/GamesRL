@@ -1,9 +1,10 @@
 package com.newco.grand.core.common.view {
 	
-	import com.newco.grand.core.utils.GameUtils;
 	import com.newco.grand.core.common.view.interfaces.IPlayersView;
+	import com.newco.grand.core.utils.GameUtils;
 	
 	import flash.display.MovieClip;
+	import flash.display.Sprite;
 	import flash.text.TextFormat;
 	
 	import fl.controls.UIScrollBar;
@@ -43,7 +44,7 @@ package com.newco.grand.core.common.view {
 			_players = value;
 			showPlayers();
 		}
-		public function get display():*{
+		public function get view():Sprite{
 			return this;
 		}
 		private function showPlayers():void {

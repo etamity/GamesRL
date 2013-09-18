@@ -4,15 +4,9 @@ package com.newco.grand.core.common.model
 	import com.newco.grand.core.utils.GameUtils;
 	
 	import flash.utils.Dictionary;
-	
-	import robotlegs.bender.framework.api.ILogger;
 
 	public class SignalBus
 	{
-
-		[Inject]
-		public var _logger:ILogger;
-		
 		private var _signalDictionory:Dictionary =new Dictionary();
 	
 		public function SignalBus()

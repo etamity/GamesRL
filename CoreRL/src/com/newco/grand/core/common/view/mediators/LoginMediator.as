@@ -75,15 +75,15 @@ package com.newco.grand.core.common.view.mediators {
 		}
 		
 		private function hideView(signal:BaseSignal):void {
-			view.display.visible = false;
+			view.view.visible = false;
 		}
 		
 		private function removeView(signal:BaseSignal):void {
-			view.display.parent.removeChild(view);
+			view.view.parent.removeChild(view.view);
 		}
 		
 		private function setError(signal:BaseSignal):void {
-			view.display.visible = true;
+			view.view.visible = true;
 			view.error = LanguageModel.LOGIN_FAILED;//"Login Failed. Please try again.";
 		}
 		

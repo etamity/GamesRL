@@ -275,9 +275,9 @@ package com.newco.grand.core.common.model
 		public function get statistics():String {
 			if( flashVars.localhost )
 			{
-				if (flashVars.client==Constants.ROULETTE)
+				if (FlashVars.GAMECLIENT==Constants.ROULETTE)
 					return "xml/roulette_stats.xml";
-				if (flashVars.client==Constants.BACCARAT)
+				if (FlashVars.GAMECLIENT==Constants.BACCARAT)
 					return "xml/scoreborad.xml";
 			}
 			return server + _statistics;

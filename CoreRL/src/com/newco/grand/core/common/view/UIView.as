@@ -30,9 +30,13 @@ package com.newco.grand.core.common.view
 		{
 		}
 		
-		public function get display():*
+		public function get view():Sprite
 		{
 			return this;
+		}
+		
+		public function setSkin(skin:*):void{
+			_display = skin;
 		}
 		
 		public function initDisplay():void

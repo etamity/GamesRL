@@ -1,7 +1,6 @@
 package com.newco.grand.core.common.view.interfaces
 {
 	import flash.display.MovieClip;
-	import flash.display.Sprite;
 
 	public interface IAccordion extends IUIView
 	{		
@@ -9,6 +8,5 @@ package com.newco.grand.core.common.view.interfaces
 		function get contentHeight():int;
 		function set compHeight(val:int):void;
 		function get compHeight():int;
-		function get view():Sprite;
 	}
 }

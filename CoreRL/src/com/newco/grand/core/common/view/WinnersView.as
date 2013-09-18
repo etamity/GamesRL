@@ -2,7 +2,6 @@ package com.newco.grand.core.common.view {
 	
 	import com.newco.grand.core.common.view.interfaces.IPlayersView;
 	
-	import flash.display.Sprite;
 	import flash.events.MouseEvent;
 	import flash.text.TextFormat;
 	

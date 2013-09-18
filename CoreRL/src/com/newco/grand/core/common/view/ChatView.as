@@ -20,24 +20,23 @@ package com.newco.grand.core.common.view {
 		protected var Scroll:UIScrollBar= new UIScrollBar();
 		
 		public var _sendSignal:Signal=new Signal();
-		protected var _skin:ChatAsset;
-		
+
 		protected var sendBtn:SMButton;
 		public function ChatView() {
 			super();
-		}
-		override public function initDisplay():void{
-			 _skin=new ChatAsset();
-			addChild( _skin);
+			
 			visible = false;
-			Scroll.scrollTarget = _skin.receiveTxt;
+			Scroll.scrollTarget = _display.receiveTxt;
 			Scroll.direction="vertical";
 			Scroll.x=198;
 			Scroll.y=44;
 			Scroll.height=130;
 			addChild(Scroll);
-			sendBtn=new SMButton(_skin.sendBtn);
-			_display= _skin;
+			sendBtn=new SMButton(_display.sendBtn);
+		}
+		override public function initDisplay():void{
+			_display=new ChatAsset();
+			addChild( _display);
 		}
 		public function get sendSignal():Signal{
 			return _sendSignal;
@@ -82,7 +81,7 @@ package com.newco.grand.core.common.view {
 		}
 		
 		private function sendMessage(event:MouseEvent = null):void {			
-			if(_skin.sendTxt.text != "") {
+			if(_display.sendTxt.text != "") {
 				//dispatchEvent(new ChatEvent(ChatEvent.SEND_MESSAGE));
 				_sendSignal.dispatch();
 			}

@@ -9,15 +9,14 @@ package com.newco.grand.core.common.view {
 		
 		private var _messageFormat:TextFormat = new TextFormat("Arial", 14, 0xFFAF32, true);
 		private var _blinkCounter:int = 0;
-		protected var _skin:GameStatusAsset;
+
 		public function GameStatusView() {
 			super();
+			setLightSOff();
 		}
 		override public function initDisplay():void{
-			 _skin=new GameStatusAsset();
-			addChild( _skin);
-			_display= _skin;
-			setLightSOff();
+			_display=new GameStatusAsset();
+			addChild( _display);
 		}
 
 		override public function updateLanguage():void{

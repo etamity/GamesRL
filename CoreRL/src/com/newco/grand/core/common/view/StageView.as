@@ -1,8 +1,6 @@
 package com.newco.grand.core.common.view {
 	import com.newco.grand.core.common.view.interfaces.IStageView;
 	
-	import flash.display.Sprite;
-	
 	
 	public class StageView extends UIView implements IStageView {		
 		public function StageView() {

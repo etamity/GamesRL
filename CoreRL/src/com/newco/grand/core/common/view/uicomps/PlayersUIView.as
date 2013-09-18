@@ -5,6 +5,7 @@ package com.newco.grand.core.common.view.uicomps
 	import com.smart.uicore.controls.proxy.CustomListItem;
 	
 	import flash.display.MovieClip;
+	import flash.display.Sprite;
 	
 	public class PlayersUIView extends MovieClip implements IPlayersView
 	{
@@ -38,7 +39,7 @@ package com.newco.grand.core.common.view.uicomps
 			_players = value;
 			showPlayers();
 		}
-		public function get display():*{
+		public function get view():Sprite{
 			return this;
 		}
 		private function showPlayers():void {

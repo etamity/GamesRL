@@ -9,22 +9,21 @@ package com.newco.grand.core.common.view {
 	
 	public class LoginView extends UIView implements ILoginView {
 		private var _loginSignal:Signal=new Signal();
-		protected var _skin:LoginAsset;
 		public function LoginView() {
 			super();
+			_display.loginBtnLabel.mouseEnabled=false;
+			_display.loginBtn.addEventListener(MouseEvent.CLICK, login);
 		}		
 		override public function updateLanguage():void{
-			 _skin.loginBtnLabel.text=LanguageModel.LOGIN;
-			 _skin.userNameLabel.text=LanguageModel.USERNAME;
-			 _skin.passwordLabel.text=LanguageModel.PASSWORD;
+			_display.loginBtnLabel.text=LanguageModel.LOGIN;
+			_display.userNameLabel.text=LanguageModel.USERNAME;
+			_display.passwordLabel.text=LanguageModel.PASSWORD;
 		}
 		override public function initDisplay():void{
-			 _skin=new LoginAsset();
-			 _skin.loginBtnLabel.mouseEnabled=false;
-			addChild( _skin);
-			 _skin.loginBtn.addEventListener(MouseEvent.CLICK, login);
+			_display=new LoginAsset();
+			addChild( _display);
+
 			
-			_display= _skin;
 		}
 		
 		override public function align():void {

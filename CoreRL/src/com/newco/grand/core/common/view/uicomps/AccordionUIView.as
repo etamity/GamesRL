@@ -1,6 +1,5 @@
 package com.newco.grand.core.common.view.uicomps
 {
-	import com.newco.grand.core.common.model.LanguageModel;
 	import com.newco.grand.core.common.view.interfaces.IAccordion;
 	import com.smart.uicore.controls.Accordion;
 	import com.smart.uicore.controls.modeStyles.ButtonStyle;
@@ -29,15 +28,12 @@ package com.newco.grand.core.common.view.uicomps
 		}
 		public function updateLanguage():void{
 		}
-		public function get view():Sprite{
-			return this;
-		}
 		public function initDisplay():void{
 			_display=new Accordion();
 			addChild(_display);
 		}
-		public function get display():*{
-			return _display;
+		public function get view():Sprite{
+			return this;
 		}
 		public function get contentHeight():int{
 			return _compHeight- _display.buttons.length*(_display.defaultButtonHeight+_display.defaultGapHeight);

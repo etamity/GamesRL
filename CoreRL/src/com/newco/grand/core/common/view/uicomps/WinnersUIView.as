@@ -1,12 +1,13 @@
 package com.newco.grand.core.common.view.uicomps {
 	
 	import com.newco.grand.core.common.model.LanguageModel;
-	import com.newco.grand.core.utils.GameUtils;
 	import com.newco.grand.core.common.view.interfaces.IPlayersView;
+	import com.newco.grand.core.utils.GameUtils;
 	import com.smart.uicore.controls.DataGrid;
 	import com.smart.uicore.controls.support.DataGridColumnSet;
 	
 	import flash.display.MovieClip;
+	import flash.display.Sprite;
 	
 
 	public class WinnersUIView extends MovieClip implements IPlayersView {
@@ -66,7 +67,7 @@ package com.newco.grand.core.common.view.uicomps {
 		
 
 		}
-		public function get display():*{
+		public function get view():Sprite{
 			return this;
 		}
 		public function get listView():DataGrid{
