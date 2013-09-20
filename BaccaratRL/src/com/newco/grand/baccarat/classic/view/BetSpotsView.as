@@ -4,12 +4,15 @@ package com.newco.grand.baccarat.classic.view {
 	import com.newco.grand.baccarat.classic.view.interfaces.IBetSpotsView;
 	import com.newco.grand.core.common.controller.signals.BetEvent;
 	import com.newco.grand.core.common.controller.signals.HighlightEvent;
+	import com.newco.grand.core.common.controller.signals.MessageEvent;
 	import com.newco.grand.core.common.model.LanguageModel;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.view.BetSpot;
 	import com.newco.grand.core.common.view.Betchip;
+	import com.newco.grand.core.common.view.Tooltip;
 	import com.newco.grand.core.common.view.UIView;
 	import com.newco.grand.core.utils.FormatUtils;
+	import com.newco.grand.core.utils.StringUtils;
 	
 	import flash.display.MovieClip;
 	import flash.geom.Point;
@@ -33,6 +36,8 @@ package com.newco.grand.baccarat.classic.view {
 		
 		private var _chipSelecedValue:Number=0;
 		private var _balance:Number=0;
+
+		
 		public function BetSpotsView() {
 			_betSpotsArray=new Array();
 			_betSpotsName = new Array(
@@ -45,6 +50,11 @@ package com.newco.grand.baccarat.classic.view {
 			_payouts = new Array(2, 1.95, 9, 12, 12);
 			_betSpotHash=new Dictionary();
 			super();
+			
+			
+
+			
+			
 		}
 
 		public function get signalBus():SignalBus{
@@ -155,12 +165,13 @@ package com.newco.grand.baccarat.classic.view {
 				betspotmc.messageSignal.add(setMessage);
 				
 			}
-			
+
 		}
 		
 		private function setMessage(type:String,target:BetSpot):void {
 			//dispatchEvent(event);
 			//messageSignal.dispatch(type,target);
+
 			_signalBus.dispatch(type,{target:target});
 		}
 		
