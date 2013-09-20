@@ -8,10 +8,13 @@ package com.newco.grand.roulette.classic.view.mediators {
 	import com.newco.grand.core.common.controller.signals.StateTableConfigEvent;
 	import com.newco.grand.core.common.controller.signals.TaskbarActionEvent;
 	import com.newco.grand.core.common.model.GameState;
+	import com.newco.grand.core.common.model.LanguageModel;
 	import com.newco.grand.core.common.model.Player;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.view.BetSpot;
+	import com.newco.grand.core.common.view.Tooltip;
 	import com.newco.grand.core.utils.GameUtils;
+	import com.newco.grand.core.utils.StringUtils;
 	import com.newco.grand.roulette.classic.controller.signals.DataGirdEvent;
 	import com.newco.grand.roulette.classic.model.BetspotData;
 	import com.newco.grand.roulette.classic.model.GameDataModel;
@@ -53,6 +56,8 @@ package com.newco.grand.roulette.classic.view.mediators {
 		private const STRAIGHTS:Array        = new Array(2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39);
 		private const TRIOS:Array            = new Array(131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 157, 158);
 		
+		
+		private var _tooltip:Tooltip=new Tooltip();
 		override public function initialize():void {
 			signalBus.add(ModelReadyEvent.READY, setupModel);
 			signalBus.add(SocketDataEvent.HANDLE_TIMER, checkBettingState);
@@ -167,7 +172,8 @@ package com.newco.grand.roulette.classic.view.mediators {
 		private function initializeView():void {
 			view.init();
 			view.chipSelected = game.chipSelected;
-		
+			_tooltip=new Tooltip();
+			contextView.view.addChild(_tooltip);
 			view.updateBetSignal.add(updateTotalBet);
 			view.messageSignal.add(showTooltip)
 			view.neighbourBetsSignal.add(placeNeighbourBets);
@@ -282,6 +288,25 @@ package com.newco.grand.roulette.classic.view.mediators {
 		}
 		
 		private function showTooltip(type:String,target:BetSpot):void {
+			
+			switch(type) {
+				case MessageEvent.SHOW_NOT_ENOUGH_MONEY:
+					_tooltip.showTooltip(target.display,LanguageModel.NOTENOUGHMONEY);
+					break;
+				case MessageEvent.SHOW_MAX_TABLE:
+					//view.message = StringUtils.replace(LanguageModel.MAXTABLEBETIS, "#bet#", player.currencyCode + game.max);
+					_tooltip.showTooltip(target.display, StringUtils.replace(LanguageModel.MAXTABLEBETIS, "#bet#", String(game.max)));
+					break;
+				case MessageEvent.SHOW_MAX_SPOT:
+					_tooltip.showTooltip(target.display, StringUtils.replace(LanguageModel.MAXTABLEBETIS, "#bet#", String(target.max)));
+					
+					//view.message = StringUtils.replace(LanguageModel.MAXBETIS, "#bet#", player.currencyCode + signal.params.target.max);
+				case MessageEvent.SHOW_MIN_SPOT:
+					//view.message = StringUtils.replace(LanguageModel.MINBETIS, "#bet#", player.currencyCode + signal.params.target.min);
+					_tooltip.showTooltip(target.display,StringUtils.replace(LanguageModel.MINBETIS, "#bet#", String(target.min)));
+					
+					break;
+			}
 			signalBus.dispatch(type,  {target:target});		
 		}
 		

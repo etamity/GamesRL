@@ -12,7 +12,8 @@ package com.newco.grand.roulette.classic.view
 			_display=new ChatAsset();
 			addChild(_display);
 		}*/
-		override public function align():void {			
+		override public function align():void {	
+			this.Scroll.x= 155;
 			x =810;
 			//x = 0;
 			//y = 0;
