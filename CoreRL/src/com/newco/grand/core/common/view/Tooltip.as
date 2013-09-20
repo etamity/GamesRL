@@ -47,6 +47,7 @@ package com.newco.grand.core.common.view {
 			y = _target.y - height - TOOLTIP_Y_POSITION;
 			
 			visible = true;
+			trace(this,"showTooltip");
 			alpha = 0;
 			Tweener.removeTweens(this);
 			Tweener.addTween(this, {time:0.2, alpha:1, delay:TIME_BEFORE_SHOWING_TOOLTIP, onComplete:hideTooltip, onCompleteParams:[TIME_BEFORE_HIDING_TOOLTIP]});
