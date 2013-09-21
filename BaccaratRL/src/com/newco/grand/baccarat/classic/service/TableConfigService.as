@@ -135,7 +135,7 @@ package com.newco.grand.baccarat.classic.service
 			
 			//service.remove(Constants.SERVER_TABLE_CONFIG);
 			
-			var streams:Array=new Array(xml["gameconfig-param"].@low_stream,xml["gameconfig-param"].@med_stream,xml["gameconfig-param"].@high_stream);
+			var streams:Array=new Array(xml["gameconfig-param"].@low_stream,xml["gameconfig-param"].@med_stream,xml["gameconfig-param"].@hi_stream);
 			game.videoStreams=streams;
 			debug("game.videoStreams:",game.videoStreams);
 			loadSettings();
