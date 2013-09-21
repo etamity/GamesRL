@@ -7,7 +7,7 @@
 <gameconfig-param table="classic"/>
 <gameconfig-param game_type="classic"/>
 <gameconfig-param table_bet_max_limit="500"/>
-<gameconfig-param table_bet_min_limit="5"/>
+<gameconfig-param table_bet_min_limit="1"/>
 <gameconfig-param siteAssignedTable="2"/>
 <gameconfig-param table_id="41"/>
 
@@ -21,4 +21,8 @@
 <gameconfig-param player_pairs_bet_max="1000"/>
 <gameconfig-param banker_pairs_bet_min="1"/>
 <gameconfig-param banker_pairs_bet_max="1000"/>
+<gameconfig-param low_stream="baccarat_generic_med"/>
+<gameconfig-param med_stream="baccarat_generic_med"/>
+<gameconfig-param hi_stream="baccarat_generic_med"/>
+
 </response>

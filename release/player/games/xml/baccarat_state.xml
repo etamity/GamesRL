@@ -10,7 +10,7 @@
 <seatmax>400</seatmax>
 <userid>9ieozu30vtcwuri4</userid>
 <table_name>Baccarat</table_name>
-<table_bet_min_limit>5.0</table_bet_min_limit>
+<table_bet_min_limit>1.0</table_bet_min_limit>
 <table_bet_max_limit>50000.0</table_bet_max_limit>
 <chip_amounts>1,5,25,100,500,1000</chip_amounts>
 <live_stream>baccarat_generic_med</live_stream>
