@@ -158,7 +158,14 @@
 			clean();
 			placeBetOnTable(lastBet * 2);
 		}
-
+		public function highlight():void {
+			_display.alpha=1;
+			
+		}		
+		public function hideHighlight():void {
+			_display.alpha = 0;
+		}
+		
 		public function undo():void {
 			if (chipsPlaced.length > 0) {
 				chipValue = chipValue - chipsPlaced[chipsPlaced.length - 1];

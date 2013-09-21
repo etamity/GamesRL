@@ -19,7 +19,7 @@ package com.newco.grand.core.common.view {
 		private const TEXT_Y_POSITION:uint = 2;
 		private const FONT_SIZE:uint = 10;
 		private const BREATHING_SPACE:uint = 16;
-		private const TIME_BEFORE_SHOWING_TOOLTIP:Number = 0.5;
+		private const TIME_BEFORE_SHOWING_TOOLTIP:Number = 0.1;
 		private const TIME_BEFORE_HIDING_TOOLTIP:Number = 2;
 		
 		public function Tooltip() {
