@@ -35,6 +35,9 @@ package com.newco.grand.core.common.controller.commands {
 		}
 		private function onStart():void{
 			signalBus.dispatch(UIEvent.SETUP_VIEWS);
+			var localhost:String=(flashVars.localhost==true)?"localhost:true":"localhost=false";
+			signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:localhost+": tableid: "+
+				flashVars.table_id + " server:"+flashVars.server});
 			if(flashVars.localhost) {
 				configService.load(function ():void{
 					urlsService.load(function ():void{
