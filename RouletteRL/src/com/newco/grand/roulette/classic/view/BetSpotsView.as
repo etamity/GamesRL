@@ -4,6 +4,7 @@ package com.newco.grand.roulette.classic.view {
 	import com.newco.grand.core.common.view.Betchip;
 	import com.newco.grand.core.common.view.UIView;
 	import com.newco.grand.core.utils.FormatUtils;
+	import com.newco.grand.roulette.classic.model.BetspotData;
 	import com.newco.grand.roulette.classic.view.interfaces.IBetSpotsView;
 	
 	import flash.display.MovieClip;
@@ -18,7 +19,7 @@ package com.newco.grand.roulette.classic.view {
 		public const SPOTS:Number = 166;
 		public const NEIGHBOUR_SPOTS:Number = 39;
 		
-		private var _betspotMC:BetSpot;
+		protected var _betspotMC:BetSpot;
 		private var _betchipMC:Betchip;
 		private var _winMarkerMC:WinMarker;
 		private var _chipsPlacedOrder:Array = [];
@@ -40,8 +41,10 @@ package com.newco.grand.roulette.classic.view {
 		
 		private var _chipSelecedValue:Number=0;
 		private var _balance:Number=0;
-		
 		private var _betspotsHash:Dictionary=new Dictionary();
+		
+		protected var betspotClass:Class;
+		
 		public function BetSpotsView() {
 			super();
 			createBetspots();
@@ -50,6 +53,7 @@ package com.newco.grand.roulette.classic.view {
 		}
 		override public function initDisplay():void{
 			_display=new BetspotsAsset();
+			betspotClass=BetspotAsset;
 			addChild(_display);
 		}
 		public function get updateBetSignal():Signal{
@@ -106,7 +110,7 @@ package com.newco.grand.roulette.classic.view {
 				
 			}
 		}
-		private function getBetspotByName(val:String):BetSpot{
+		public function getBetspotByName(val:String):BetSpot{
 			return _betspotsHash[val] as BetSpot;
 		}
 		private function createBetspots():void {
@@ -114,7 +118,7 @@ package com.newco.grand.roulette.classic.view {
 			for (var i:int = 2; i < SPOTS; i++) {
 				if (_display.getChildByName("dz" + i) != null) {
 					stageSpot = MovieClip(_display.getChildByName("dz" + i));
-					_betspotMC = new BetSpot(new BetspotAsset());
+					_betspotMC = new BetSpot(new betspotClass());
 					_betspotMC.name = "bs" + i;
 					//_betspotMC.id=i;
 					_betspotMC.display.name=_betspotMC.name;
@@ -143,7 +147,7 @@ package com.newco.grand.roulette.classic.view {
 			messageSignal.dispatch(type,target);
 		}
 		
-		private function placeNeighbourBets(evt:MouseEvent):void {
+		protected function placeNeighbourBets(evt:MouseEvent):void {
 			//dispatchEvent(new BetEvent(BetEvent.NEIGHBOUR_BETS, evt.target.name));
 			neighbourBetsSignal.dispatch(evt.target.name);
 		}
@@ -153,7 +157,7 @@ package com.newco.grand.roulette.classic.view {
 			_betspotMC.placeBetOnTable(_chipSelecedValue);
 		}
 		
-		private function updateBet(target:BetSpot):void {
+		protected function updateBet(target:BetSpot):void {
 			if(!_repeat) {
 				_chipsPlacedOrder.push(target.name);
 			}
@@ -161,32 +165,91 @@ package com.newco.grand.roulette.classic.view {
 			updateBetSignal.dispatch(target);
 		}
 		
-		private function highlight(target:String):void {
-			
+		protected function highlight(target:String):void {
+			var highlights:Array=BetspotData[target.toUpperCase()];
+			if (highlights != null && highlights.length > 0)
+			{
+				for (var i:uint=0; i < highlights.length; i++)
+				{
+					_betspotMC=getBetspotByName("bs" + highlights[i]);
+					if (_betspotMC != null)
+					{
+						_betspotMC.highlight();
+					}
+				}
+			}
+			else if (getBetspotByName(target) != null)
+			{
+				_betspotMC=getBetspotByName(target);
+				_betspotMC.highlight();
+			}
 			_hightLightSignal.dispatch(target);
 		}
 		
-		private function removeHighlight(target:String):void {
-			
+		protected function removeHighlight(target:String):void {
+			var highlights:Array=BetspotData[target.toUpperCase()];
+			//trace(val.toUpperCase());
+			if (highlights != null && highlights.length > 0)
+			{
+				for (var i:uint=0; i < highlights.length; i++)
+				{
+					_betspotMC=getBetspotByName("bs" + highlights[i]);
+					if (_betspotMC != null)
+					{
+						_betspotMC.hideHighlight();
+					}
+				}
+			}
+			else if (getBetspotByName(target) != null)
+			{
+				_betspotMC=getBetspotByName(target);
+				_betspotMC.hideHighlight();
+			}
 			_removeLightSignal.dispatch(target);
 		}
 		
-		private function higilightNeighbour(evt:MouseEvent):void {
-			
+		protected function higilightNeighbour(evt:MouseEvent):void {
+			highlight(evt.target.name);
+			var highlights:Array=BetspotData[evt.target.name.toUpperCase()];
+			if (highlights != null && highlights.length > 0)
+			{
+				var betSpotMC:MovieClip;
+				for (var i:uint=0; i < highlights.length; i++)
+				{
+					betSpotMC=MovieClip(evt.target.parent.getChildByName("nb" + highlights[i]));
+					if (betSpotMC != null)
+					{
+						betSpotMC.alpha=1;
+					}
+				}
+			}
 			_higilightNeighbourSignal.dispatch(evt.target.name);
+	
 		}
 		
-		private function removeHigilightNeighbour(evt:MouseEvent):void {
-			
-			_removeNeighbourSignal.dispatch(evt.target.name)
+		protected function removeHigilightNeighbour(evt:MouseEvent):void {
+			removeHighlight(evt.target.name);
+			var highlights:Array=BetspotData[evt.target.name.toUpperCase()];
+			if (highlights != null && highlights.length > 0)
+			{	var betSpotMC:MovieClip;
+				for (var i:uint=0; i < highlights.length; i++)
+				{
+					betSpotMC=MovieClip(evt.target.parent.getChildByName("nb" + highlights[i]));
+					if (betSpotMC != null)
+					{
+						betSpotMC.alpha=0;
+					}
+				}
+			}
+			_removeNeighbourSignal.dispatch(evt.target.name);
 		}
 		
 		public function highlightSpot(value:String):void {
-			getBetspotByName((value)).display.alpha=0.5;
+			getBetspotByName(value).display.alpha=0.5;
 		}
 		
 		public function removeHighlightSpot(value:String):void {
-			getBetspotByName((value)).display.alpha=0;
+			getBetspotByName(value).display.alpha=0;
 		}
 		
 		public function createChip(value:String):void {

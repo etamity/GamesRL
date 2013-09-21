@@ -217,6 +217,25 @@ package com.newco.grand.roulette.classic.model {
 		public static const SP16:Array  = new Array(4, 9, 12, 17, 20, 23, 34, 37);
 		public static const SP17:Array  = new Array(158, 158, 125, 125, 79, 87, 93, 94, 107);
 		public static const SP18:Array  = new Array(58, 80, 88, 67, 102, 108);
+		/**
+		 * Zero Game Bets
+		 */
+		public static var ZEROBETS:Array  = new Array(2,6,15,18,29,35,38);
+		public static var BZEROBETS:Array  = new Array(156,87,29,107);
+		
+		/**
+		 * Final Bets
+		 */
+		public static var F0:Array  = new Array(2,13,23,33);
+		public static var F1:Array  = new Array(4,14,24,34);
+		public static var F2:Array  = new Array(5,15,25,35);
+		public static var F3:Array  = new Array(6,16,26,36);
+		public static var F4:Array  = new Array(7,17,27,37);
+		public static var F5:Array  = new Array(8,18,28,38);
+		public static var F6:Array  = new Array(9,19,29,39);
+		public static var F7:Array  = new Array(10,20,30);
+		public static var F8:Array  = new Array(11,21,31);
+		public static var F9:Array  = new Array(12,22,32);
 		
 		public static const DATA:XML = 
 			<response>
