@@ -59,12 +59,14 @@ package com.newco.grand.roulette.configs
 	import com.newco.grand.core.common.service.impl.XMLService;
 	import com.newco.grand.core.common.view.interfaces.IAccordion;
 	import com.newco.grand.core.common.view.interfaces.IChatView;
+	import com.newco.grand.core.common.view.interfaces.IErrorMessageView;
 	import com.newco.grand.core.common.view.interfaces.IGameStatusView;
 	import com.newco.grand.core.common.view.interfaces.ILoginView;
 	import com.newco.grand.core.common.view.interfaces.IStageView;
 	import com.newco.grand.core.common.view.interfaces.ITaskbarView;
 	import com.newco.grand.core.common.view.interfaces.IVideoView;
 	import com.newco.grand.core.common.view.mediators.ChatMediator;
+	import com.newco.grand.core.common.view.mediators.ErrorMessageMediator;
 	import com.newco.grand.core.common.view.mediators.GameStatusMediator;
 	import com.newco.grand.core.common.view.mediators.LoginMediator;
 	import com.newco.grand.core.common.view.mediators.PlayersMediator;
@@ -236,6 +238,7 @@ package com.newco.grand.roulette.configs
 			mediatorMap.map(IAccordion).toMediator(RouletteAccordionMediator);
 			mediatorMap.map(StatisticsView).toMediator(StatisticsMediator);
 			//mediatorMap.map(MessageBoxView).toMediator(MessageBoxMediator);
+			mediatorMap.map(IErrorMessageView).toMediator(ErrorMessageMediator);
 			mediatorMap.map(ILobbyView).toMediator(LobbyMediator);
 			trace("mapMediators");
 

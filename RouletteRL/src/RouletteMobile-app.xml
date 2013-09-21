@@ -23,7 +23,7 @@
 	<filename>Live Roulette</filename>
 	<name>Live Roulette</name> -->
 	
-	<id>com.smartlivecasino.roulette</id>
+	<id>innovation.apps.Xproject</id>
 	<filename>Roulette</filename>
 	<name>Roulette</name>
 
@@ -113,7 +113,7 @@
 
         <!-- The render mode for the app (either auto, cpu, gpu, or direct). Optional. Default auto -->
 
-        <!--<renderMode>direct</renderMode>-->
+    	<!--<renderMode>direct</renderMode>-->
 
 		<!-- Whether or not to pan when a soft keyboard is raised or lowered (either "pan" or "none").  Optional.  Defaults "pan." -->
 		<!-- <softKeyboardBehavior></softKeyboardBehavior> -->

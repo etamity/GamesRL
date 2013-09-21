@@ -59,12 +59,14 @@ package com.newco.grand.roulette.configs
 	import com.newco.grand.core.common.service.impl.XMLService;
 	import com.newco.grand.core.common.view.interfaces.IAccordion;
 	import com.newco.grand.core.common.view.interfaces.IChatView;
+	import com.newco.grand.core.common.view.interfaces.IErrorMessageView;
 	import com.newco.grand.core.common.view.interfaces.IGameStatusView;
 	import com.newco.grand.core.common.view.interfaces.ILoginView;
 	import com.newco.grand.core.common.view.interfaces.IStageView;
 	import com.newco.grand.core.common.view.interfaces.ITaskbarView;
 	import com.newco.grand.core.common.view.interfaces.IVideoView;
 	import com.newco.grand.core.common.view.mediators.ChatMediator;
+	import com.newco.grand.core.common.view.mediators.ErrorMessageMediator;
 	import com.newco.grand.core.common.view.mediators.GameStatusMediator;
 	import com.newco.grand.core.common.view.mediators.LoginMediator;
 	import com.newco.grand.core.common.view.mediators.PlayersMediator;
@@ -235,6 +237,7 @@ package com.newco.grand.roulette.configs
 			mediatorMap.map(FavouritesBetsView).toMediator(FavouritesBetsMediator);
 			mediatorMap.map(IAccordion).toMediator(RouletteAccordionMediator);
 			mediatorMap.map(StatisticsView).toMediator(StatisticsMediator);
+			mediatorMap.map(IErrorMessageView).toMediator(ErrorMessageMediator);
 			//mediatorMap.map(MessageBoxView).toMediator(MessageBoxMediator);
 			mediatorMap.map(ILobbyView).toMediator(LobbyMediator);
 			
@@ -252,14 +255,14 @@ package com.newco.grand.roulette.configs
 			
 			commandMap.mapSignal(signalBus.signal(BalanceEvent.LOAD), BalanceCommand);
 			commandMap.mapSignal(signalBus.signal(StateTableConfigEvent.LOAD), StateTableConfigCommand);
-			commandMap.mapSignal(signalBus.signal(PlayersEvent.LOAD), PlayersCommand);
-			commandMap.mapSignal(signalBus.signal(WinnersEvent.LOAD), WinnersCommand);
-			commandMap.mapSignal(signalBus.signal(StatisticsEvent.LOAD), StatisticsCommand);
+			//commandMap.mapSignal(signalBus.signal(PlayersEvent.LOAD), PlayersCommand);
+			//commandMap.mapSignal(signalBus.signal(WinnersEvent.LOAD), WinnersCommand);
+			//commandMap.mapSignal(signalBus.signal(StatisticsEvent.LOAD), StatisticsCommand);
 			
-			commandMap.mapSignal(signalBus.signal(ChatEvent.LOAD_CONFIG), ChatConfigCommand);
-			commandMap.mapSignal(signalBus.signal(ChatEvent.CONNECT), ChatConnectionCommand);
-			commandMap.mapSignal(signalBus.signal(ChatEvent.PROCESS_MESSAGE), ChatReceiveMessageCommand);
-			commandMap.mapSignal(signalBus.signal(ChatEvent.SEND_MESSAGE), ChatSendMessageCommand);
+			//commandMap.mapSignal(signalBus.signal(ChatEvent.LOAD_CONFIG), ChatConfigCommand);
+			//commandMap.mapSignal(signalBus.signal(ChatEvent.CONNECT), ChatConnectionCommand);
+			//commandMap.mapSignal(signalBus.signal(ChatEvent.PROCESS_MESSAGE), ChatReceiveMessageCommand);
+			//commandMap.mapSignal(signalBus.signal(ChatEvent.SEND_MESSAGE), ChatSendMessageCommand);
 			
 			commandMap.mapSignal(signalBus.signal(SocketEvent.CONNECT_GAME), SocketConnectionCommand);
 			commandMap.mapSignal(signalBus.signal(VideoEvent.CONNECT), VideoConnectionCommand);

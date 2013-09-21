@@ -1,7 +1,7 @@
 package com.newco.grand.roulette.mobile.controller.commands
 {
 	import com.newco.grand.core.common.controller.commands.BaseCommand;
-	import com.newco.grand.core.common.view.interfaces.IChatView;
+	import com.newco.grand.core.common.view.interfaces.IErrorMessageView;
 	import com.newco.grand.core.common.view.interfaces.IGameStatusView;
 	import com.newco.grand.core.common.view.interfaces.ITaskbarView;
 	import com.newco.grand.core.utils.GameUtils;
@@ -33,6 +33,9 @@ package com.newco.grand.roulette.mobile.controller.commands
 		
 		[Inject]
 		public var limitsView:ILimitsView;
+		
+		//[Inject]
+		//public var errorView:IErrorMessageView;
 		public function SetupLayoutCommand()
 		{
 			super();
@@ -51,6 +54,7 @@ package com.newco.grand.roulette.mobile.controller.commands
 			limitsView.view.y=446;
 			limitsView.view.x=0;
 			betSpotsView.view.y=0;
+			//errorView.view.y=errorView.view.stage.stageHeight-errorView.view.height;
 
 		}
 		private function debug(...args):void {
