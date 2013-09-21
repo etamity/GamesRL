@@ -10,6 +10,8 @@ package com.newco.grand.core.common.service.impl
 	import com.newco.grand.core.utils.GameUtils;
 	import com.newco.grand.core.utils.StringUtils;
 	
+	import flash.errors.IOError;
+	
 	import org.assetloader.signals.ErrorSignal;
 	import org.assetloader.signals.LoaderSignal;
 	
@@ -91,19 +93,28 @@ package com.newco.grand.core.common.service.impl
 		public function load(onComplete:Function=null):void{
 			debug("loading Config  " + _xmlurl);
 			debug("Server  " + flashVars.server);
-
+			_onComplete=onComplete;
+			try{
 		
 			if (flashVars.localhost==false)
 			{
 				_xmlurl=flashVars.server+"/player/games/xml/urls.xml";
 			}
 				
-			
-			_onComplete=onComplete;
 			service.loadURL(_xmlurl,setConfig,showError);
+			}
+			catch (err:IOError)
+			{
+				debug("error " + err.errorID + " : " +err.message);
+				signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:err.errorID + " : " +err.message});
+			}
+			finally{
+				if (_onComplete!=null)
+					_onComplete();
+			}
 		}
 		private function showError(signal:ErrorSignal):void {
-			signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:signal.message});
+			signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:signal.message + " : " + _xmlurl});
 			debug("error " + signal.message);
 		}
 		private function debug(...args):void {

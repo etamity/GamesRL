@@ -15,7 +15,6 @@ package com.newco.grand.core.common.controller.commands {
 		}
 		
 		override public function execute():void	{
-			signalBus.dispatch(UIEvent.SETUP_VIEWS);
 			signalBus.dispatch(LanguageAndStylesEvent.LOAD);
 		}
 		

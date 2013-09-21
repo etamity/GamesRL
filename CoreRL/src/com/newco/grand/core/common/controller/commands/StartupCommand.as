@@ -1,6 +1,7 @@
 package com.newco.grand.core.common.controller.commands {
 	
 	import com.newco.grand.core.common.controller.signals.MessageEvent;
+	import com.newco.grand.core.common.controller.signals.UIEvent;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.model.SignalConstants;
@@ -25,29 +26,29 @@ package com.newco.grand.core.common.controller.commands {
 		public var urls:URLSModel;
 		
 		override public function execute():void {	
+			
+			
+			if (FlashVars.SKIN_ENABLE==true)
+				SkinLoader.loadSkinFile("skins/skin.swf",onStart,onError,null,null);
+			else
+				onStart();
+		}
+		private function onStart():void{
+			signalBus.dispatch(UIEvent.SETUP_VIEWS);
 			if(flashVars.localhost) {
 				configService.load(function ():void{
 					urlsService.load(function ():void{
-						if (FlashVars.SKIN_ENABLE==true)
-						 SkinLoader.loadSkinFile("skins/skin.swf",onStart,onError,null,null);
-						else
-						signalBus.dispatch(SignalConstants.STARTUP_COMPLETE);	
+						signalBus.dispatch(SignalConstants.STARTUP_COMPLETE);
 					});
 				});
 				
 			}
 			else{
 				urlsService.load(function ():void{
-					if (FlashVars.SKIN_ENABLE==true)
-						SkinLoader.loadSkinFile(urls.skin,onStart,onError,null,null);
-					else
 					signalBus.dispatch(SignalConstants.STARTUP_COMPLETE);	
 				});
 			}
-
-		}
-		private function onStart():void{
-			signalBus.dispatch(SignalConstants.STARTUP_COMPLETE);
+			
 		}
 		private function onError(evt:IOErrorEvent):void{
 			signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:evt.text});

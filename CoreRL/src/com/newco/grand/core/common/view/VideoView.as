@@ -111,7 +111,7 @@ package com.newco.grand.core.common.view {
 		public function toggleStageVideo(on:Boolean):void       
 		{              
 			// if StageVideo is available, attach the NetStream to StageVideo       
-			if (on)       
+			if (on==true)       
 			{       
 				_stageVideoInUse = true;       
 				if ( _sv == null )       
@@ -139,8 +139,7 @@ package com.newco.grand.core.common.view {
 				 _display.bg.visible=false;
 				if (_stageVideoInUse)       
 					_stageVideoInUse = false;       
-				_classicVideoInUse = true;       
-				 _display.video.attachNetStream(_stream);       
+				_classicVideoInUse = true;           
 			
 				//stage.addChildAt(video, 0);       
 			}          
@@ -179,7 +178,9 @@ package com.newco.grand.core.common.view {
 		
 		public function set stream(value:NetStream): void {
 			_stream=value;
-			 _display.video.attachNetStream(_stream);       
+			 _display.video.attachNetStream(_stream);  
+			 _display.video.visible=true;
+			// addChild(_display);
 			visible = true;
 		}
 		

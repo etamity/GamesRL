@@ -53,10 +53,10 @@ package com.newco.grand.core.common.service.impl
 		public function load(onComplete:Function=null):void{
 			debug("loading Config  " + _xmlurl);
 			_onComplete=onComplete;
-			service.loadURL(_xmlurl,setConfig);
+			service.loadURL(_xmlurl,setConfig,showError);
 		}
 		private function showError(signal:ErrorSignal):void {
-			signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:signal.message});
+			signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:signal.message + " : " + signal.type});
 			debug("error " + signal.message);
 		}
 		private function debug(...args):void {
