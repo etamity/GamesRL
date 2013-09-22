@@ -121,13 +121,9 @@
 			if(totalBetPlaced <= balance && balance > 0) {
 				if(newValue <= max) {
 				
-					if (newValue >=min){
-						updateBet(value);
-						updateBetSignal.dispatch(this);
-					}
-					else{
+					if (newValue<min)
 						messageSignal.dispatch(MessageEvent.SHOW_MIN_SPOT ,this);
-					}
+			
 				}
 				else {
 					messageSignal.dispatch(MessageEvent.SHOW_MAX_SPOT,this)
@@ -136,6 +132,8 @@
 			else {
 				messageSignal.dispatch(MessageEvent.SHOW_NOT_ENOUGH_MONEY,this);
 			}
+			updateBet(value);
+			updateBetSignal.dispatch(this);
 		}
 		
 		public function updateBet(value:Number):void {
