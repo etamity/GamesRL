@@ -26,8 +26,8 @@ package com.newco.grand.roulette.classic.view
 				//_display.bg.visible=false;
 				//signalBus.dispatch(UIEvent.VIDEO_FULLSCREEN,{target:event.target});
 				
-				Tweener.addTween(this, {x:0,scaleX:1.8, time:0.75, transition:"easeInOutQuart"});
-				Tweener.addTween(this, {y:0,scaleY:1.58, time:0.75, transition:"easeInOutQuart", onComplete:function ():void{
+				Tweener.addTween(this, {x:0,width:986, time:0.75, transition:"easeInOutQuart"});
+				Tweener.addTween(this, {y:0,height:600, time:0.75, transition:"easeInOutQuart", onComplete:function ():void{
 					//videoFullscreenSignal.dispatch(event.target);
 					
 					_display.videoButton.addEventListener(MouseEvent.CLICK, showFullscreen);
@@ -40,8 +40,8 @@ package com.newco.grand.roulette.classic.view
 				//_display.bg.visible=false;
 				//Tweener.addTween(_display.bg, {width:455, time:0.75, transition:"easeInOutQuart", onUpdate:function():void {resize(); }});
 				//Tweener.addTween(_display.bg, {height:325, time:0.75, transition:"easeInOutQuart",onUpdate:function():void {resize(); }});
-				Tweener.addTween(this, {x:0,scaleX:1, time:0.75, transition:"easeInOutQuart"});
-				Tweener.addTween(this, {y:0,scaleY:1, time:0.75, transition:"easeInOutQuart", onComplete:function ():void{
+				Tweener.addTween(this, {x:0,width:662, time:0.75, transition:"easeInOutQuart"});
+				Tweener.addTween(this, {y:0,height:372, time:0.75, transition:"easeInOutQuart", onComplete:function ():void{
 					//videoFullscreenSignal.dispatch(event.target);
 					//signalBus.dispatch(UIEvent.VIDEO_FULLSCREEN,{target:event.target});
 					_display.videoButton.addEventListener(MouseEvent.CLICK, showFullscreen);

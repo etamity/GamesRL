@@ -8,10 +8,10 @@ package com.newco.grand.roulette.classic.view
 		{
 			super();
 		}
-	/*	override public function initDisplay():void{
-			_display=new ChatAsset();
+		override public function initDisplay():void{
+			_display=new ChatAssetRL();
 			addChild(_display);
-		}*/
+		}
 		override public function align():void {	
 			this.Scroll.x= 155;
 			x =810;

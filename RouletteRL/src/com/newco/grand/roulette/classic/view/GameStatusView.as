@@ -15,5 +15,6 @@ package com.newco.grand.roulette.classic.view
 			x = 665;
 			y = 0;
 		}
+
 	}
 }

@@ -1,5 +1,6 @@
 package {
 	
+	import com.demonsters.debugger.MonsterDebugger;
 	import com.newco.grand.core.common.model.Constants;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.roulette.configs.RouletteBundle;
@@ -21,7 +22,7 @@ package {
 		protected var context:IContext; 
 		
 		public function RouletteRL() {
-		
+			MonsterDebugger.initialize(this);
 			//stage.scaleMode = StageScaleMode.NO_SCALE;
 			//stage.align = StageAlign.TOP_LEFT;
 			addEventListener(Event.ADDED_TO_STAGE,onAddToStage);
