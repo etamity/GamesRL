@@ -3,6 +3,7 @@ package com.newco.grand.core.common.service.impl
 	import com.newco.grand.core.common.controller.signals.MessageEvent;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.SignalBus;
+	import com.newco.grand.core.common.model.URLSModel;
 	import com.newco.grand.core.common.service.api.IService;
 	import com.newco.grand.core.utils.GameUtils;
 	
@@ -11,7 +12,8 @@ package com.newco.grand.core.common.service.impl
 	
 	public class ConfigService implements IService
 	{
-		private var _xmlurl:String="xml/configs.xml";
+		[Inject]
+		public var urls:URLSModel;
 		[Inject]
 		public var flashVars:FlashVars;
 		[Inject]
@@ -42,7 +44,7 @@ package com.newco.grand.core.common.service.impl
 			var streamUrl:String=xml.casino.@streamUrl;
 			parameters.streamUrl =streamUrl;
 			flashVars.params= parameters;
-			
+			urls.server=xml.casino.@server;
 			debug("[flashvars.streamUrl]",flashVars.streamUrl);
 
 			
@@ -51,9 +53,9 @@ package com.newco.grand.core.common.service.impl
 		}
 		
 		public function load(onComplete:Function=null):void{
-			debug("loading Config  " + _xmlurl);
+			debug("loading Config  " + urls.flashVarsConfig);
 			_onComplete=onComplete;
-			service.loadURL(_xmlurl,setConfig,showError);
+			service.loadURL(urls.flashVarsConfig,setConfig,showError);
 		}
 		private function showError(signal:ErrorSignal):void {
 			signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:signal.message + " : " + signal.type});

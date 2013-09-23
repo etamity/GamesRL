@@ -27,7 +27,6 @@ package com.newco.grand.core.common.service.impl
 		public var service:XMLService;
 		[Inject]
 		public var signalBus:SignalBus;
-		private var _xmlurl:String="xml/urls.xml";
 		
 		private var _onComplete:Function;
 		
@@ -41,6 +40,12 @@ package com.newco.grand.core.common.service.impl
 			debug("GameType:"+FlashVars.GAMECLIENT.toLowerCase(),Constants.BACCARAT.toLowerCase());
 			//urlsModel.server= xml.common.server;
 			urlsModel.server=flashVars.server;
+			
+			if (xml.common.server!=null && 
+				xml.common.server!=undefined && 
+				xml.common.server!="")
+				urlsModel.server= xml.common.server;
+			
 			urlsModel.authentication= xml.common.authentication;
 			urlsModel.balance= xml.common.balance;
 			urlsModel.chatConfig= xml.common.chatConfig;
@@ -84,29 +89,23 @@ package com.newco.grand.core.common.service.impl
 				urlsModel.statistics=xml.baccarat.statistics;
 			}
 			
-			urlsModel.urlsXml=xml;
+			urlsModel.xml=xml;
 			if (_onComplete!=null)
 			_onComplete();
 			
 			debug("state:",urlsModel.state);
 		}
 		public function load(onComplete:Function=null):void{
-			debug("loading Config  " + _xmlurl);
+			debug("loading Config  " + urlsModel.urlConfig);
 			debug("Server  " + flashVars.server);
 			_onComplete=onComplete;
 			try{
-		
-			if (flashVars.localhost==false)
-			{
-				_xmlurl=flashVars.server+"/player/games/xml/urls.xml";
-			}
-				
-			service.loadURL(_xmlurl,setConfig,showError);
+			service.loadURL(urlsModel.urlConfig,setConfig,showError);
 			}
 			catch (err:IOError)
 			{
 				debug("error " + err.errorID + " : " +err.message);
-				signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:err.errorID + " : " +err.message});
+				//signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:err.errorID + " : " +err.message});
 			}
 			finally{
 				if (_onComplete!=null)
@@ -114,7 +113,7 @@ package com.newco.grand.core.common.service.impl
 			}
 		}
 		private function showError(signal:ErrorSignal):void {
-			signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:signal.message + " : " + _xmlurl});
+			signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:signal.message + " : " + urlsModel.urlConfig});
 			debug("error " + signal.message);
 		}
 		private function debug(...args):void {

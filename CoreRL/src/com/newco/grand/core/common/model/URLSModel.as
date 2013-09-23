@@ -4,7 +4,7 @@ package com.newco.grand.core.common.model
 	
 	public class URLSModel extends Actor
 	{		
-		private var _server:String 		= "https://extreme.smartgaminggroup.com";
+		private var _server:String 		= "https://livecasino.smartliveaffiliates.com";
 		
 		private var _authentication:String = "https://livecasino.smartliveaffiliates.com/cgibin/SmartAuthentication";
 		private var _login:String 		= "http://m.smartlivecasino.com/WebServices/Login.aspx";
@@ -31,11 +31,14 @@ package com.newco.grand.core.common.model
 		private var _skin:String        = "/player/games/prepare/skins/skin.swf";
 		private var _tournament:String 	= "/xml/tournament.xml";
 		
-		private var _accountHistory:String = "player/audit/historyXML2.jsp";
-		private var _activityHistory:String=  "player/audit/historyXML.jsp";
+		private var _accountHistory:String = "/player/audit/historyXML2.jsp";
+		private var _activityHistory:String=  "/player/audit/historyXML.jsp";
 		
 		private var _languages:XML;
-		private var _urlsXml:XML ;
+		
+		private var _urlConfig:String=  "/cgibin/settings/urls.xml";
+		private var _flashVarsConfig:String=  "/cgibin/settings/configs.xml";
+		private var _xml:XML ;
 		[Inject]
 		public var flashVars:FlashVars;
 		
@@ -55,11 +58,24 @@ package com.newco.grand.core.common.model
 		public function set languages(val:XML):void{
 			_languages=val;
 		}
-		public function get urlsXml():XML{
-			return _urlsXml;
+		public function get flashVarsConfig():String{
+			var file:String=_flashVarsConfig;
+			if( flashVars.localhost )
+				file= "xml/configs/configs_" + FlashVars.GAMECLIENT.toLowerCase()+".xml";
+			return file;
 		}
-		public function set urlsXml(val:XML):void{
-			 _urlsXml=val;
+		
+		public function get urlConfig():String{
+			if( flashVars.localhost )
+				return "xml/urls.xml";
+			return _urlConfig;
+		}
+		
+		public function get xml():XML{
+			return _xml;
+		}
+		public function set xml(val:XML):void{
+			 _xml=val;
 		}
 		public function testing():void {
 			//_authentication = "http://everest.smartlivegaming.com/cgibin/SmartAuthentication";

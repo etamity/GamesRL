@@ -212,8 +212,8 @@ package com.newco.grand.core.common.view {
 		}
 		
 		public function setFullSizeScreen():void{
-			 _display.video.width = 800;
-			 _display.video.height = 560;
+			 _display.video.width = 986;
+			 _display.video.height = 670;
 			 _display.video.x=0;
 			 _display.video.y=0;
 			 _display.frame.visible=false;

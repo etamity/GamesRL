@@ -1,5 +1,7 @@
 package com.newco.grand.core.utils {
 	
+	import com.demonsters.debugger.MonsterDebugger;
+	
 	import flash.display.DisplayObject;
 	import flash.display.DisplayObjectContainer;
 	import flash.display.GradientType;
@@ -375,8 +377,10 @@ package com.newco.grand.core.utils {
 			return false;
 		}
 		
-		public static function log(...args):void {
-			trace(args);
+		public static function log(caller:*,...args):void {
+			trace(caller,args);
+
+			MonsterDebugger.trace(caller, args);
 		}
 	}
 }
