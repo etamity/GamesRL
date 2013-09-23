@@ -3,18 +3,18 @@
 	<casino 
 	game="roulette" 
 	gametype="tv_roulette" 
-	tableid="48z5pjps3ntvqc1b"
-	
-	streamUrl="test.mp4"     
+	tableid="7nyiaws9tgqrzaz3"
+	streamUrl="" 
+
 	videoplayer="video"
 	client="slc" 
 	vtid="" 
 	userid="" 
-	room="game-7nyiaws9tgqrzaz3-rvu4z17kx9010qv2" 
-	lang="en" 
-	server="livecasino.smartliveaffiliates.com"
-	/>
-
+	room="game-o3d9tx3u8kd0yawc-i6t6y1jcdxih0wex" 
+	lang="cn" 
+	server="http://livecasino.smartliveaffiliates.com"
+	socketServer="livecasino.smartliveaffiliates.com"
+	></casino>
 
 
 
