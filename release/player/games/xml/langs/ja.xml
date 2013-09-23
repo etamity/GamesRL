@@ -422,7 +422,7 @@
 	<splithand><![CDATA[Split:]]></splithand>
 	<gamestart><![CDATA[Game Start:]]></gamestart>
 	<gameend><![CDATA[Game End:]]></gameend>
-	<gametime><![CDATA[Game Time:]]></gametime>
+	<gametimer><![CDATA[Game Time:]]></gametimer>
 
 	<error_3001><![CDATA[Your account is currently disabled. For further details please contact our support team.]]></error_3001>
 	<error_3002><![CDATA[Your current session balance is insufficient. To continue playing, you must set new limits.]]></error_3002>
