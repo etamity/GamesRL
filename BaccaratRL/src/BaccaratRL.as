@@ -1,5 +1,6 @@
 package
 {
+	import com.demonsters.debugger.MonsterDebugger;
 	import com.newco.grand.baccarat.configs.BaccaratBundle;
 	import com.newco.grand.baccarat.configs.BaccaratConfig;
 	import com.newco.grand.core.common.model.Constants;
@@ -22,6 +23,7 @@ package
 		protected var context:IContext; 
 		public function BaccaratRL()
 		{
+			MonsterDebugger.initialize(this);
 			addEventListener(Event.ADDED_TO_STAGE,onAddToStage);
 		}
 		
