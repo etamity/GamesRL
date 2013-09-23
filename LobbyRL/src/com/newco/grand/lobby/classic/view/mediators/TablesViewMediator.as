@@ -78,7 +78,7 @@ package com.newco.grand.lobby.classic.view.mediators
 		
 		
 		private function openGameEvent(table:TableModel):void{
-			var url:String=urlsModel.urlsXml.common.opengame+"?game="+table.game+"&table_id="+table.tableid+"&gameType="+table.gameType+"&lang=en&client=generic&gameInterface=view1";
+			var url:String=urlsModel.xml.common.opengame+"?game="+table.game+"&table_id="+table.tableid+"&gameType="+table.gameType+"&lang=en&client=generic&gameInterface=view1";
 			var urlRequest:URLRequest = new URLRequest(url);
 			navigateToURL(urlRequest, "_self");
 			
