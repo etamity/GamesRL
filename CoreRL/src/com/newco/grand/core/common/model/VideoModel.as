@@ -120,15 +120,21 @@ package com.newco.grand.core.common.model {
 			debug("server: "+_server);
 			debug("streamName: "+_streamName);
 			debug("application: "+_application);
-			debug("streamName: "+_streamName);
 			debug("rtmp://" + _server + "/" + _application);
+			debug("httpStream: "+game.httpStream);
 		
-			
-			if (_server!="" && _application!="" && _streamName.search(".mp4")==-1)
-				_connection.connect("rtmp://" + _server + "/" + _application);
-			else if (_streamName.search(".mp4")!=-1){
+			if (game.httpStream=="")
+			{
+				if (_server!="" && _application!="" && _streamName.search(".mp4")==-1)
+					_connection.connect("rtmp://" + _server + "/" + _application);
+				else if (_streamName.search(".mp4")!=-1){
+					_connection.connect(null);
+					//connectStream();
+				}
+			}else
+			{
+				_streamName=game.httpStream;
 				_connection.connect(null);
-				//connectStream();
 			}
 			
 			//_videoCheckTimer.start();
@@ -147,6 +153,7 @@ package com.newco.grand.core.common.model {
 			//_video.stream = _stream;
 			signalBus.dispatch(VideoEvent.PLAY,{stream:_stream});
 			debug("streamName: "+StringUtils.trim(_streamName));
+			
 			_stream.play(StringUtils.trim(_streamName));
 		}
 		

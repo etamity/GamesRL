@@ -69,6 +69,6 @@ package com.newco.grand.core.common.model
 		  
 		 function set game(value:String):void;
 		 function get layoutPoints():Dictionary;
-
+		 function get httpStream():String;
 	}
 }

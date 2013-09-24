@@ -9,12 +9,12 @@ package com.newco.grand.core.common.service.impl
 	import com.newco.grand.core.common.controller.signals.WinnersEvent;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.Player;
+	import com.newco.grand.core.common.model.SettingsModel;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.model.TableConfig;
 	import com.newco.grand.core.common.model.TableState;
 	import com.newco.grand.core.common.model.URLSModel;
 	import com.newco.grand.core.common.service.api.IService;
-	import com.newco.grand.core.common.service.impl.XMLService;
 	import com.newco.grand.core.utils.GameUtils;
 	
 	import org.assetloader.signals.ErrorSignal;
@@ -44,6 +44,9 @@ package com.newco.grand.core.common.service.impl
 		[Inject]
 		public var tableState:TableState;
 		
+		[Inject]
+		public var settings:SettingsModel;
+		
 		public function TableConfigService()
 		{
 		}
@@ -65,9 +68,9 @@ package com.newco.grand.core.common.service.impl
 		
 		private function setState(signal:LoaderSignal, xml:XML):void {
 			debug(xml);
-			/*game.chips = String(xml.chip_amounts).split(",");
-			game.table = xml.table_name;
-			player.currencyCode = xml.currency_code;*/
+			//game.chips = String(xml.chip_amounts).split(",");
+			//game.table = xml.table_name;
+			player.currencyCode = xml.currency_code;
 			tableState.xml=xml;
 			
 			//service.remove(Constants.SERVER_STATE);
@@ -93,7 +96,8 @@ package com.newco.grand.core.common.service.impl
 			
 			//game.server = xml["videoservers"];
 			//game.videoSettings=xml;
-			
+			settings.xml=xml;
+			signalBus.dispatch(StateTableConfigEvent.SETUP);
 			signalBus.dispatch(StateTableConfigEvent.LOADED);
 			signalBus.dispatch(ModelReadyEvent.READY);
 			signalBus.dispatch(SocketEvent.CONNECT_GAME);

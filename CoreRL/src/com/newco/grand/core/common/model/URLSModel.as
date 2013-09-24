@@ -37,7 +37,7 @@ package com.newco.grand.core.common.model
 		private var _languages:XML;
 		
 		private var _urlConfig:String=  "/cgibin/settings/urls.xml";
-		private var _flashVarsConfig:String=  "/cgibin/settings/configs.xml";
+		private var _flashVarsConfig:String=  "/cgibin/configs/configs.xml";
 		private var _xml:XML ;
 		[Inject]
 		public var flashVars:FlashVars;

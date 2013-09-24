@@ -13,8 +13,8 @@ package com.newco.grand.core.common.controller.commands {
 		[Inject]
 		public var signalBus:SignalBus;
 		override public function execute():void {
-			signalBus.dispatch(StartupDataEvent.LOADED);
 			signalBus.dispatch(StateTableConfigEvent.LOAD);
+			signalBus.dispatch(StartupDataEvent.LOADED);
 			signalBus.dispatch(ChatEvent.LOAD_CONFIG);
 			signalBus.dispatch(UIEvent.SETUP_ASSET);
 			signalBus.dispatch(PlayersEvent.LOAD);

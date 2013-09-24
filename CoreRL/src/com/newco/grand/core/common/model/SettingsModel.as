@@ -1,9 +1,9 @@
 package com.newco.grand.core.common.model
 {
-	public class Settings
+	public class SettingsModel
 	{
 		private var xmlData:XML;
-		public function Settings()
+		public function SettingsModel()
 		{
 		}
 		public function set xml(val:XML):void {

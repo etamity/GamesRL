@@ -5,6 +5,6 @@ package com.newco.grand.core.common.controller.signals {
 		
 		public static const LOAD:String = "StateTableConfigEvent.LOAD";
 		public static const LOADED:String = "StateTableConfigEvent.LOADED";
-
+		public static const SETUP:String = "StateTableConfigEvent.SETUP";
 	}
 }
