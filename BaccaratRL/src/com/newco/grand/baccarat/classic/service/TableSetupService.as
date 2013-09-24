@@ -20,7 +20,7 @@ package com.newco.grand.baccarat.classic.service
 	import org.assetloader.signals.HttpStatusSignal;
 	import org.assetloader.signals.LoaderSignal;
 	
-	public class TableConfigService implements IService
+	public class TableSetupService
 	{
 		[Inject]
 		public var service:XMLService;
@@ -40,23 +40,11 @@ package com.newco.grand.baccarat.classic.service
 		[Inject]
 		public var signalBus:SignalBus;
 		
-		public function TableConfigService()
+		public function TableSetupService()
 		{
 		}
-		
-		public function load(onComplete:Function=null):void
-		{
-			loadState();
-		}
-		private function loadState():void {
+		private function setup():void {
 
-			debug("State ",urls.state);
-			/*service.addLoader(new XMLLoader(new URLRequest(stateUrl), Constants.SERVER_STATE));
-			service.getLoader(Constants.SERVER_STATE).onError.add(showError);
-			service.getLoader(Constants.SERVER_STATE).onHttpStatus.add(showStatus);
-			service.getLoader(Constants.SERVER_STATE).onComplete.add(setState);	
-			service.start();*/
-			service.loadURL(urls.state,setState,showError);
 		}
 		
 		private function setState(signal:LoaderSignal, xml:XML):void {
@@ -137,7 +125,6 @@ package com.newco.grand.baccarat.classic.service
 			
 			var streams:Array=new Array(xml["gameconfig-param"].@low_stream,xml["gameconfig-param"].@med_stream,xml["gameconfig-param"].@hi_stream);
 			game.videoStreams=streams;
-			game.httpStream=xml["gameconfig-param"].@httpStream;
 			debug("game.videoStreams:",game.videoStreams);
 			loadSettings();
 			
