@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<game>
+
+
+	<casino 
+	game="roulette" 
+	gametype="tv_roulette" 
+	tableid="7nyiaws9tgqrzaz3"
+	streamUrl="" 
+
+	videoplayer="video"
+	client="slc" 
+	vtid="" 
+	userid="" 
+	room="game-o3d9tx3u8kd0yawc-i6t6y1jcdxih0wex" 
+	lang="cn" 
+	server="http://livecasino.smartliveaffiliates.com"
+	socketServer="livecasino.smartliveaffiliates.com"
+	></casino>
+
+	<!--
+
+
+	<casino 
+	game="baccarat" 
+	gametype="classic" 
+	tableid="ikzwgcwlysgqepar" 
+	streamUrl="rtmp://213.86.83.8/smartlivecasinolive-live/R1" 
+	videoplayer="video"
+	client="slc" vtid=""
+	userid="9ieozu30vtcwuri4" 
+	room="game-7nyiaws9tgqrzaz3-rvu4z17kx9010qv2" 
+	lang="en" 
+	server="livecasino.smartliveaffiliates.com"
+	></casino> 
+
+	-->
+
+	<!--**********************Backup Information********************** -->
+	
+	<!-- 
+	streamUrl="rtmp://213.86.83.8/smartlivecasinolive-live/R1" 
+	
+	server="http://live.extremelivegaming.com"
+	socketServer="live.extremelivegaming.com"
+	
+	
+	server="http://livecasino.smartliveaffiliates.com"
+	socketServer="livecasino.smartliveaffiliates.com"
+	
+	rtmp://213.86.83.8/smartlivecasinolive-live/cc1
+	
+	rtmp://110.92.24.106/m888/table1_3
+	-->
+</game>
