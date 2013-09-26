@@ -3,6 +3,7 @@ package com.newco.grand.core.common.controller.commands
 	import com.newco.grand.core.common.controller.signals.LanguageAndStylesEvent;
 	import com.newco.grand.core.common.controller.signals.LoginEvent;
 	import com.newco.grand.core.common.controller.signals.StartupDataEvent;
+	import com.newco.grand.core.common.controller.signals.UIEvent;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.service.impl.LanguageService;
@@ -29,6 +30,7 @@ package com.newco.grand.core.common.controller.commands
 			styleService.load(function ():void{
 				signalBus.dispatch(LanguageAndStylesEvent.LOADED);
 				if(flashVars.localhost) {
+					signalBus.dispatch(UIEvent.SETUP_VIEWS);
 					signalBus.dispatch(LoginEvent.INITIALIZE);
 				} else 
 				{

@@ -101,8 +101,8 @@ package com.newco.grand.core.common.view.mediators {
 			if (flashVars.videoplayer=="stagevideo"){
 			view.toggleStageVideo(true);
 			}
-			/*else if (flashVars.videoplayer=="video" || flashVars.videoplayer=="")
-			view.toggleStageVideo(false);*/
+			else if (flashVars.videoplayer=="video" || flashVars.videoplayer=="")
+			view.toggleStageVideo(false);
 		}
 		
 		private function onStageResize(event:Event):void {

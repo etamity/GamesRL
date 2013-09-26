@@ -34,8 +34,8 @@ package com.newco.grand.core.common.controller.commands {
 				onStart();
 		}
 		private function onStart():void{
-			signalBus.dispatch(UIEvent.SETUP_VIEWS);
 			if(flashVars.localhost) {
+				urls.testing();
 				configService.load(function ():void{
 					urlsService.load(function ():void{
 						signalBus.dispatch(SignalConstants.STARTUP_COMPLETE);

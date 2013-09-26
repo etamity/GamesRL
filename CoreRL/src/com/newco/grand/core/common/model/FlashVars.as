@@ -1,4 +1,5 @@
 package com.newco.grand.core.common.model {
+	import com.demonsters.debugger.MonsterDebugger;
 	import com.newco.grand.core.utils.GameUtils;
 	
 	import flash.display.DisplayObjectContainer;
@@ -11,7 +12,7 @@ package com.newco.grand.core.common.model {
 		public var port:int 			= 5654;
 		
 		// For testing Roulette
-		public var server:String 		= "http://livecasino.smartliveaffiliates.com";	
+		public var server:String 		= "http://192.168.0.3/ios";	
 		public var socketServer:String	= "livecasino.smartliveaffiliates.com";		
 		public var table_id:String 		= "7nyiaws9tgqrzaz3";
 		public var vt_id:String 		= "";
@@ -38,6 +39,9 @@ package com.newco.grand.core.common.model {
 		public static var GAMECLIENT:String="baccarat";
 		private var root:DisplayObjectContainer;
 		
+		public var debugIP:String=	"192.168.0.3";	
+		
+		public var urlsconfig:String= "urls.xml";	
 		//blackjack
 		/*public var server:String = "singlewallet.smartlivegaming.com";
 		public var port:int = 5654;
@@ -59,6 +63,8 @@ package com.newco.grand.core.common.model {
 			game_url = root.stage.loaderInfo.url;
 		}
 		public function set params(param:Object):void{
+			MonsterDebugger.initialize(root,debugIP);
+			debug(this,debugIP);
 			parse(param);
 			parameters=param;
 		}

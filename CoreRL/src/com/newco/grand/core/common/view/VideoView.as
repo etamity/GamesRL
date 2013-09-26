@@ -3,6 +3,7 @@ package com.newco.grand.core.common.view {
 	import com.newco.grand.core.common.controller.signals.UIEvent;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.view.interfaces.IVideoView;
+	import com.newco.grand.core.utils.StringUtils;
 	
 	import flash.events.MouseEvent;
 	import flash.events.StageVideoEvent;
@@ -179,8 +180,6 @@ package com.newco.grand.core.common.view {
 		public function set stream(value:NetStream): void {
 			_stream=value;
 			 _display.video.attachNetStream(_stream);  
-			 _display.video.visible=true;
-			// addChild(_display);
 			visible = true;
 		}
 		

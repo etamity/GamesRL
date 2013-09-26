@@ -1,11 +1,11 @@
 package com.newco.grand.core.common.model
 {
 	import com.newco.grand.core.utils.GameUtils;
-	
+
 	public class URLSModel extends Actor
 	{		
-		private var _server:String 		= "https://livecasino.smartliveaffiliates.com";
-		
+		private var _server:String 		= "http://192.168.0.3/ios";
+
 		private var _authentication:String = "https://livecasino.smartliveaffiliates.com/cgibin/SmartAuthentication";
 		private var _login:String 		= "http://m.smartlivecasino.com/WebServices/Login.aspx";
 		private var _lobbySWF:String 		= "/player/games/LobbyRL.swf";
@@ -16,7 +16,7 @@ package com.newco.grand.core.common.model
 		private var _language:String 	= "/player/games/languages/";
 		private var _langICON:String 	= "/player/games/xml/langs/png/";
 		private var _style:String 		= "/player/games/styles/";
-		
+
 		private var _state:String 		= "/cgibin/roulette/state.jsp";
 		private var _tableConfig:String = "/cgibin/tableconfig.jsp";
 		private var _sendBets:String 	= "/cgibin/roulette/placebets.jsp";
@@ -30,28 +30,70 @@ package com.newco.grand.core.common.model
 		private var _seat:String        = "/cgibin/sitdown.jsp";
 		private var _skin:String        = "/player/games/prepare/skins/skin.swf";
 		private var _tournament:String 	= "/xml/tournament.xml";
-		
+
 		private var _accountHistory:String = "/player/audit/historyXML2.jsp";
 		private var _activityHistory:String=  "/player/audit/historyXML.jsp";
-		
+
 		private var _languages:XML;
-		
+
 		private var _urlConfig:String=  "/cgibin/settings/urls.xml";
 		private var _flashVarsConfig:String=  "/cgibin/configs/configs.xml";
 		private var _xml:XML ;
 		[Inject]
 		public var flashVars:FlashVars;
-		
+
 		[Inject]
 		public var game:IGameData;
-		
+
 		[Inject]
 		public var player:Player;
-		
+
 		public function URLSModel()
 		{
 			super();
 		}
+		public function testing():void{
+			flashVars.urlsconfig="localhost_urls.xml";
+			_server = "";
+			_authentication = "https://livecasino.smartliveaffiliates.com/cgibin/SmartAuthentication";
+			_login 		= "http://m.smartlivecasino.com/WebServices/Login.aspx";
+			_lobbySWF 		= "https://livecasino.smartliveaffiliates.com/player/games/LobbyRL.swf";
+			_lobby 		= "https://livecasino.smartliveaffiliates.com/player/lobbyXML.jsp";
+			_help 		= "https://livecasino.smartliveaffiliates.com/player/games/help/Help.swf";
+			_historySWF 	= "https://livecasino.smartliveaffiliates.com/player/games/history/History.swf";
+			_freeplay 	= "https://livecasino.smartliveaffiliates.com/cgibin/mobile_launcher.jsp";
+			_language 	= _server+"/xml/langs/";
+			_langICON 	= _server+"/xml/langs/png/";
+			_style 		= _server+"/xml/";
+
+			_state 		=_server+"/xml/" + FlashVars.GAMECLIENT.toLowerCase()+"_state.xml";
+			_tableConfig 	=  _server+"/xml/" + FlashVars.GAMECLIENT.toLowerCase()+"_tableconfig.xml";
+			_sendBets 	= "https://livecasino.smartliveaffiliates.com/cgibin/roulette/placebets.jsp";
+			_chatConfig =_server+ "/xml/chat_config.xml";
+			_results 	= "https://livecasino.smartliveaffiliates.com//cgibin/roulette/history.jsp";
+
+			if (FlashVars.GAMECLIENT==Constants.ROULETTE)
+				_statistics= _server+"/xml/roulette_stats.xml";
+			if (FlashVars.GAMECLIENT==Constants.BACCARAT)
+				_statistics= _server+"/xml/scoreborad.xml";
+
+
+			_players 	= _server+"/xml/participants.xml";
+			_winners 	= _server+"/xml/winnerlist.xml";
+			_settings 	= _server+"/xml/settings.xml";
+			_balance 	= _server+"/xml/balance.xml";
+			_seat        =_server+ "/xml/sitdown.xml";
+			_skin        = _server+"/xml/skins/skin.swf";
+			_tournament 	=_server+ "/xml/tournament.xml";
+
+			_accountHistory = "https://livecasino.smartliveaffiliates.com//player/audit/historyXML2.jsp";
+			_activityHistory=  "https://livecasino.smartliveaffiliates.com//player/audit/historyXML.jsp";
+
+			_urlConfig=  _server+"/xml/configs/"+flashVars.urlsconfig;
+			_flashVarsConfig=  _server+"/xml/configs/configs_"+FlashVars.GAMECLIENT.toLowerCase()+".xml";
+		}
+
+		
 		public function get languages():XML{
 			return _languages;
 		}
@@ -59,58 +101,56 @@ package com.newco.grand.core.common.model
 			_languages=val;
 		}
 		public function get flashVarsConfig():String{
-			var file:String=_flashVarsConfig;
-			if( flashVars.localhost )
-				file= "xml/configs/configs_" + FlashVars.GAMECLIENT.toLowerCase()+".xml";
-			return file;
+			var index:int = _flashVarsConfig.search("://");
+			if (index>=0)
+				return  _flashVarsConfig;
+			return _server+_flashVarsConfig;
 		}
-		
+
 		public function get urlConfig():String{
-			if( flashVars.localhost )
-				return "xml/urls.xml";
-			return _urlConfig;
+			var index:int = _urlConfig.search("://");
+			if (index>=0)
+				return  _urlConfig;
+			return _server+_urlConfig;
 		}
-		
+
 		public function get xml():XML{
 			return _xml;
 		}
 		public function set xml(val:XML):void{
-			 _xml=val;
-		}
-		public function testing():void {
-			//_authentication = "http://everest.smartlivegaming.com/cgibin/SmartAuthentication";
-			//_server = "http://everest.smartlivegaming.com";
-			_server = "https://livecasino.smartliveaffiliates.com";
+			_xml=val;
 		}
 		public function get tournament():String {
-			if( flashVars.localhost )
-				return "xml/tournament.xml";
+			var index:int = _tournament.search("://");
+			if (index>=0)
+				return  _tournament;
 			return _server+_tournament;
 		}
-		
+
 		public function set tournament(value:String):void {
 			_tournament = value;
 		}
-		
+
 		public function set server(value:String):void {
 			_server = value;
 		}
-		
+
 		public function get server():String {
 			if (_server.indexOf("://")==-1)
 				return _server="https://"+_server;
 			return _server;
 		}
 		public function get balance():String {
-			if( flashVars.localhost )
-				return "xml/balance.xml";
+			var index:int = _balance.search("://");
+			if (index>=0)
+				return  _balance;
 			return server + _balance;
 		}
-		
+
 		public function get skin():String{
 			return server + _skin;
 		}
-		
+
 		public function set skin(value:String):void{
 			_skin=value;
 		}
@@ -118,209 +158,236 @@ package com.newco.grand.core.common.model
 			_balance = value;
 		}
 		public function get lobbySWF():String {
+			var index:int = _lobbySWF.search("://");
+			if (index>=0)
+				return  _lobbySWF;
 			return server + _lobbySWF;
 		}
 		public function set lobbySWF(value:String):void {
 			_lobbySWF = value;
 		}
 		public function get lobby():String {
+			var index:int = _lobby.search("://");
+			if (index>=0)
+				return  _lobby;
 			return server + _lobby;
 		}
 		public function set lobby(value:String):void {
 			_lobby = value;
 		}
 		public function get langICON():String {
-			if( flashVars.localhost )
-				return "xml/langs/png/";
+			var index:int = _langICON.search("://");
+			if (index>=0)
+				return  _langICON;
 			return server + _langICON;
 		}
 		public function set langICON(value:String):void {
 			_langICON = value;
 		}
 		public function get help():String {
-			if( flashVars.localhost )
-				return "player/games/help/HelpRL.swf";
+			var index:int = _help.search("://");
+			if (index>=0)
+				return  _help;
 			return server + _help;
 		}
 		public function set help(value:String):void {
 			_help = value;
 		}
-		
+
 		public function get historySWF():String {
-			if( flashVars.localhost )
-				return "/player/games/history/HistoryRL.swf";
+			var index:int = _historySWF.search("://");
+			if (index>=0)
+				return  _historySWF;
 			return server + _historySWF;
 		}
 		public function set historySWF(value:String):void {
 			_historySWF = value;
 		}
 		public function get login():String {
-			
+
 			var index:int = _login.search("://");
 			if (index>=0)
-			return  _login;
+				return  _login+ "?username=#USERNAME#&password=#PASSWORD#";
 			else
-			return server + _login+ "?username=#USERNAME#&password=#PASSWORD#";
+				return server + _login+ "?username=#USERNAME#&password=#PASSWORD#";
 		}
 
 		public function get accountHistory():String{
+			var index:int = _accountHistory.search("://");
+			if (index>=0)
+				return  _accountHistory;
 			return  server +_accountHistory;
 		}
 		public function set accountHistory(val:String):void{
-			 _accountHistory= val;
+			_accountHistory= val;
 		}
 		public function set activityHistory(val:String):void{
-			 _activityHistory=val;
+			_activityHistory=val;
 		}
 		public function get activityHistory():String{
+			var index:int = _activityHistory.search("://");
+			if (index>=0)
+				return  _activityHistory;
 			return  server +_activityHistory;
 		}
 		public function set login(value:String):void {
 			_login = value;
 		}
-		
+
 		public function get freeplay():String {
+			var index:int = _freeplay.search("://");
+			if (index>=0)
+				return _freeplay + "?client="+ flashVars.client +"&version=social&aid=onlinecasinolar";
 			return server + _freeplay + "?client="+ flashVars.client +"&version=social&aid=onlinecasinolar";
 		}
-		
+
 		public function set freeplay(value:String):void {
 			_freeplay = value;
 		}
-		
+
 		public function get language():String {
-			if( flashVars.localhost )
-				return "xml/langs/" + flashVars.lang + ".xml";
-			
+			var index:int = _language.search("://");
+			if (index>=0)
+				return  _language + flashVars.lang + ".xml";
+
 			return server + _language + flashVars.lang + ".xml";
 		}
-		
+
 		public function set language(value:String):void {
 			_language = value;
 		}
-		
+
 		public function get style():String {
-			if( flashVars.localhost )
-				return "xml/" + flashVars.client + ".xml";
-			
+			var index:int = _style.search("://");
+			if (index>=0)
+				return _style + flashVars.client  + ".xml";
+
 			//return server + _style + flashVars.client + ".xml";
 			return server + _style + flashVars.client  + ".xml";
 		}
-		
+
 		public function set style(value:String):void {
 			_style = value;
 		}
-		
-		
+
+
 		public function get authentication():String {
 			var index:int = _authentication.search("://");
 			if (index>=0)
 				return  _authentication;
-			else
-				return server + _authentication
+
+			return server + _authentication
 		}
-		
+
 		public function set authentication(value:String):void {
 			_authentication = value;
 		}
-		
+
 		public function get state():String {
-			if( flashVars.localhost )
-				return "xml/" + FlashVars.GAMECLIENT.toLowerCase()+"_state.xml";
+			var index:int = _state.search("://");
+			if (index>=0)
+				return  _state+ "?table_id=" + flashVars.table_id+"&vt_id="+flashVars.vt_id;
 			return server + _state+ "?table_id=" + flashVars.table_id+"&vt_id="+flashVars.vt_id;
 		}
-		
+
 		public function set state(value:String):void {
 			_state = value;
 		}
-		
+
 		public function get tableConfig():String {
-			if( flashVars.localhost )
-				return "xml/" + FlashVars.GAMECLIENT.toLowerCase()+"_tableconfig.xml";
+			var index:int = _tableConfig.search("://");
+			if (index>=0)
+				return _tableConfig+ "?table_id=" + flashVars.table_id+"&vt_id="+flashVars.vt_id;
 			return server + _tableConfig+ "?table_id=" + flashVars.table_id+"&vt_id="+flashVars.vt_id;
 		}
-		
+
 		public function set tableConfig(value:String):void {
 			_tableConfig = value;
 		}
-		
+
 		public function get sendBets():String {
+			var index:int = _sendBets.search("://");
+			if (index>=0)
+				return _sendBets + "?user_id=" + flashVars.user_id+ "&table_id=" + flashVars.table_id+ "&vt_id="+flashVars.vt_id + "&game_id=" + game.gameID + player.betString + "&noOfBets=" + player.betCount;
 			return server + _sendBets + "?user_id=" + flashVars.user_id+ "&table_id=" + flashVars.table_id+ "&vt_id="+flashVars.vt_id + "&game_id=" + game.gameID + player.betString + "&noOfBets=" + player.betCount;
 		}
-		
+
 		public function set sendBets(value:String):void {
 			_sendBets = value;
 		}
-		
+
 		public function get chatConfig():String {
-			if( flashVars.localhost )
-				return "xml/chat_config.xml";
+			var index:int = _chatConfig.search("://");
+			if (index>=0)
+				return _chatConfig + "?room_id=" + flashVars.room;
 			return server + _chatConfig + "?room_id=" + flashVars.room;
 		}
-		
+
 		public function set chatConfig(value:String):void {
 			_chatConfig = value;
 		}
-		
+
 		public function get results():String {
 			return server + _results;
 		}
-		
+
 		public function set results(value:String):void {
 			_results = value;
 		}
-		
+
 		public function get players():String {
-			if( flashVars.localhost )
-				return "xml/participants.xml";
+			var index:int = _players.search("://");
+			if (index>=0)
+				return  _players+ "?table_id=" + flashVars.table_id+"&vt_id="+flashVars.vt_id;
 			return server + _players+ "?table_id=" + flashVars.table_id+"&vt_id="+flashVars.vt_id;
 		}
-		
+
 		public function set players(value:String):void {
 			_players = value;
 		}
 
 		public function get winners():String {
-			if( flashVars.localhost )
-				return "xml/winnerlist.xml";
+			var index:int = _winners.search("://");
+			if (index>=0)
+				return  _winners+"?mode=top";
 			return server + _winners+"?mode=top";
 		}
 		public function set winners(value:String):void {
 			_winners = value;
 		}
-		
+
 		public function get statistics():String {
-			if( flashVars.localhost )
-			{
-				if (FlashVars.GAMECLIENT==Constants.ROULETTE)
-					return "xml/roulette_stats.xml";
-				if (FlashVars.GAMECLIENT==Constants.BACCARAT)
-					return "xml/scoreborad.xml";
-			}
+			var index:int = _statistics.search("://");
+			if (index>=0)
+				return _statistics;
 			return server + _statistics;
 		}
 		public function set statistics(value:String):void {
 			_statistics = value;
 		}
-		
+
 		public function get seat():String {
-			if( flashVars.localhost )
-				return "xml/sitdown.xml";
+			var index:int = _seat.search("://");
+			if (index>=0)
+				return  _seat + "?table_id=" + flashVars.table_id+"&vt_id="+flashVars.vt_id;
 			return server + _seat + "?table_id=" + flashVars.table_id+"&vt_id="+flashVars.vt_id;
 		}
 		public function set seat(value:String):void {
 			_seat = value;
 		}
-		
+
 		public function get settings():String{
-			if( flashVars.localhost )
-				return "xml/settings.xml";
+			var index:int = _settings.search("://");
+			if (index>=0)
+				return _settings;
 			return server + _settings;
 		}
 		public function set settings(value:String):void{
-			 _settings = value;
+			_settings = value;
 		}
 		private function debug(...args):void {
 			GameUtils.log(this, args);
 		}
 	}
 }
+

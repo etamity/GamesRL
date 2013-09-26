@@ -55,6 +55,9 @@ package com.newco.grand.core.common.model {
 		
 		private var _maxBuffer:uint;
 		
+		private var _buffer_min:uint;
+		
+		
 		private var _bwCheck:uint;
 		
 		[Inject]
@@ -92,6 +95,7 @@ package com.newco.grand.core.common.model {
 			_availabilityTimer.addEventListener(TimerEvent.TIMER, checkStreamAvailability);
 			
 			_maxBuffer = 5;
+			_buffer_min=1;
 			_bwCheck = 500;
 		}		
 		private function asyncErrorHandler(event:AsyncErrorEvent):void {
@@ -112,7 +116,9 @@ package com.newco.grand.core.common.model {
 			_videoStartTime = getTimer();
 			createConnection();
 		}
-		
+		public function get stream():NetStream{
+			return _stream;
+		}
 		public function connect(streamUrl:String):void{
 			_connection.connect(streamUrl);
 		}
@@ -149,8 +155,8 @@ package com.newco.grand.core.common.model {
 			_stream.addEventListener(NetStatusEvent.NET_STATUS, netStatusHandler);
 			_stream.addEventListener(IOErrorEvent.IO_ERROR, IOErrorHandler);
 			_stream.client = { onBWDone: function():void{} };
-			_stream.bufferTime =0.3;
-			//_video.stream = _stream;
+			_stream.bufferTime =delay;
+			_stream.bufferTimeMax = _maxBuffer;
 			signalBus.dispatch(VideoEvent.PLAY,{stream:_stream});
 			debug("streamName: "+StringUtils.trim(_streamName));
 			
@@ -208,6 +214,22 @@ package com.newco.grand.core.common.model {
 			_streamAvailable = true;
 			//_video.onMetaData(info);
 		}
+		public function get delay():Number {
+			var delay:uint = 0;
+			if (_streamAvailable && stream != null) {
+				delay = (buffer > 3) ? 3 : buffer;
+			}
+			return delay;
+		}
+		
+		public function get buffer():Number {
+			if (_streamAvailable && stream != null) {
+				return _stream.bufferLength;
+			}
+			else {
+				return 0.1;
+			}
+		}
 		
 		public function close(... args):void {
 			_stream.close();
@@ -252,6 +274,7 @@ package com.newco.grand.core.common.model {
 			_settings = settings;
 			_maxBuffer = Number(settings.buffer_max) + 1;
 			_bwCheck = Number(settings.bandwidth);
+			_buffer_min=Number(settings.buffer_min);
 			_streamIndex = _streams.length - 1;
 			
 			

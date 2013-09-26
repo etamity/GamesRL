@@ -90,6 +90,8 @@ package com.newco.grand.core.common.service.impl
 			}
 			
 			urlsModel.xml=xml;
+			
+			
 			if (_onComplete!=null)
 			_onComplete();
 			
