@@ -23,7 +23,6 @@ package
 		protected var context:IContext; 
 		public function BaccaratRL()
 		{
-			MonsterDebugger.initialize(this);
 			addEventListener(Event.ADDED_TO_STAGE,onAddToStage);
 		}
 		
