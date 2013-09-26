@@ -12,10 +12,10 @@
 	userid="9ieozu30vtcwuri4" 
 	room="game-o3d9tx3u8kd0yawc-i6t6y1jcdxih0wex" 
 	lang="cn" 
-	server="http://livecasino.smartliveaffiliates.com"
+	server="http://192.168.0.3"
 	socketServer="livecasino.smartliveaffiliates.com"
 	debugIP="192.168.0.3"
-	urls="xml/configs/urls.xml"
+	urls="http://192.168.0.3/cgibin/appconfig/xml/configs/urls.xml"
 	>
 	</casino>
 	
@@ -63,5 +63,8 @@
 	rtmp://213.86.83.8/smartlivecasinolive-live/cc1
 	
 	rtmp://110.92.24.106/m888/table1_3
+	
+	
+	http://www.overdigital.com/2012/01/09/the-ultimate-guide-to-understanding-advanced-video-delivery-with-air-for-mobile/
 	-->
 </game>
