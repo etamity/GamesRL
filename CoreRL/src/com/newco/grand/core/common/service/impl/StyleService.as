@@ -46,7 +46,7 @@ package com.newco.grand.core.common.service.impl
 
 		private function setStyle(signal:LoaderSignal, xml:XML):void
 		{
-			debug(xml);
+			//debug(xml);
 			Style.getInstance().xml=xml;
 			var nodeName:String;
 			var attributes:XMLList;

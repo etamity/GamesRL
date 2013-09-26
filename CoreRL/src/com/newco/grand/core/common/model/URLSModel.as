@@ -4,7 +4,7 @@ package com.newco.grand.core.common.model
 
 	public class URLSModel extends Actor
 	{		
-		private var _server:String 		= "http://192.168.0.3/ios";
+		private var _server:String 		= "https://livecasino.smartliveaffiliates.com";
 
 		private var _authentication:String = "https://livecasino.smartliveaffiliates.com/cgibin/SmartAuthentication";
 		private var _login:String 		= "http://m.smartlivecasino.com/WebServices/Login.aspx";
@@ -35,9 +35,7 @@ package com.newco.grand.core.common.model
 		private var _activityHistory:String=  "/player/audit/historyXML.jsp";
 
 		private var _languages:XML;
-
-		private var _urlConfig:String=  "/cgibin/settings/urls.xml";
-		private var _flashVarsConfig:String=  "/cgibin/configs/configs.xml";
+		private var _flashVarsConfig:String=  "xml/configs/configs.xml";
 		private var _xml:XML ;
 		[Inject]
 		public var flashVars:FlashVars;
@@ -52,47 +50,6 @@ package com.newco.grand.core.common.model
 		{
 			super();
 		}
-		public function testing():void{
-			flashVars.urlsconfig="localhost_urls.xml";
-			_server = "";
-			_authentication = "https://livecasino.smartliveaffiliates.com/cgibin/SmartAuthentication";
-			_login 		= "http://m.smartlivecasino.com/WebServices/Login.aspx";
-			_lobbySWF 		= "https://livecasino.smartliveaffiliates.com/player/games/LobbyRL.swf";
-			_lobby 		= "https://livecasino.smartliveaffiliates.com/player/lobbyXML.jsp";
-			_help 		= "https://livecasino.smartliveaffiliates.com/player/games/help/Help.swf";
-			_historySWF 	= "https://livecasino.smartliveaffiliates.com/player/games/history/History.swf";
-			_freeplay 	= "https://livecasino.smartliveaffiliates.com/cgibin/mobile_launcher.jsp";
-			_language 	= _server+"/xml/langs/";
-			_langICON 	= _server+"/xml/langs/png/";
-			_style 		= _server+"/xml/";
-
-			_state 		=_server+"/xml/" + FlashVars.GAMECLIENT.toLowerCase()+"_state.xml";
-			_tableConfig 	=  _server+"/xml/" + FlashVars.GAMECLIENT.toLowerCase()+"_tableconfig.xml";
-			_sendBets 	= "https://livecasino.smartliveaffiliates.com/cgibin/roulette/placebets.jsp";
-			_chatConfig =_server+ "/xml/chat_config.xml";
-			_results 	= "https://livecasino.smartliveaffiliates.com//cgibin/roulette/history.jsp";
-
-			if (FlashVars.GAMECLIENT==Constants.ROULETTE)
-				_statistics= _server+"/xml/roulette_stats.xml";
-			if (FlashVars.GAMECLIENT==Constants.BACCARAT)
-				_statistics= _server+"/xml/scoreborad.xml";
-
-
-			_players 	= _server+"/xml/participants.xml";
-			_winners 	= _server+"/xml/winnerlist.xml";
-			_settings 	= _server+"/xml/settings.xml";
-			_balance 	= _server+"/xml/balance.xml";
-			_seat        =_server+ "/xml/sitdown.xml";
-			_skin        = _server+"/xml/skins/skin.swf";
-			_tournament 	=_server+ "/xml/tournament.xml";
-
-			_accountHistory = "https://livecasino.smartliveaffiliates.com//player/audit/historyXML2.jsp";
-			_activityHistory=  "https://livecasino.smartliveaffiliates.com//player/audit/historyXML.jsp";
-
-			_urlConfig=  _server+"/xml/configs/"+flashVars.urlsconfig;
-			_flashVarsConfig=  _server+"/xml/configs/configs_"+FlashVars.GAMECLIENT.toLowerCase()+".xml";
-		}
-
 		
 		public function get languages():XML{
 			return _languages;
@@ -101,17 +58,7 @@ package com.newco.grand.core.common.model
 			_languages=val;
 		}
 		public function get flashVarsConfig():String{
-			var index:int = _flashVarsConfig.search("://");
-			if (index>=0)
-				return  _flashVarsConfig;
-			return _server+_flashVarsConfig;
-		}
-
-		public function get urlConfig():String{
-			var index:int = _urlConfig.search("://");
-			if (index>=0)
-				return  _urlConfig;
-			return _server+_urlConfig;
+			return _flashVarsConfig;
 		}
 
 		public function get xml():XML{
@@ -262,7 +209,6 @@ package com.newco.grand.core.common.model
 			if (index>=0)
 				return _style + flashVars.client  + ".xml";
 
-			//return server + _style + flashVars.client + ".xml";
 			return server + _style + flashVars.client  + ".xml";
 		}
 

@@ -37,7 +37,6 @@ package com.newco.grand.core.common.service.impl
 		}
 		private function setConfig(signal:LoaderSignal, xml:XML):void {
 			debug(xml);
-			debug("GameType:"+FlashVars.GAMECLIENT.toLowerCase(),Constants.BACCARAT.toLowerCase());
 			//urlsModel.server= xml.common.server;
 			urlsModel.server=flashVars.server;
 			
@@ -73,7 +72,7 @@ package com.newco.grand.core.common.service.impl
 				urlsModel.state =xml.baccarat.state;
 				urlsModel.winners=xml.baccarat.winners;
 				urlsModel.statistics=xml.baccarat.statistics;
-				urlsModel.skin=(xml.baccarat.skin!=undefined)?xml.baccarat.skin:xml.common. _skin;
+				urlsModel.skin=(xml.baccarat.skin!=undefined)?xml.baccarat.skin:xml.common.skin;
 			}
 			
 			if (StringUtils.trim(FlashVars.GAMECLIENT.toLowerCase())==StringUtils.trim(Constants.ROULETTE.toLowerCase()))
@@ -98,24 +97,20 @@ package com.newco.grand.core.common.service.impl
 			debug("state:",urlsModel.state);
 		}
 		public function load(onComplete:Function=null):void{
-			debug("loading Config  " + urlsModel.urlConfig);
-			debug("Server  " + flashVars.server);
+			debug("loading urls xml:  " + flashVars.urls);
+			debug("Server:  " + flashVars.server);
 			_onComplete=onComplete;
 			try{
-			service.loadURL(urlsModel.urlConfig,setConfig,showError);
+			service.loadURL(flashVars.urls,setConfig,showError);
 			}
 			catch (err:IOError)
 			{
 				debug("error " + err.errorID + " : " +err.message);
 				//signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:err.errorID + " : " +err.message});
 			}
-			finally{
-				if (_onComplete!=null)
-					_onComplete();
-			}
 		}
 		private function showError(signal:ErrorSignal):void {
-			signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:signal.message + " : " + urlsModel.urlConfig});
+			signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:signal.message + " : " + flashVars.urls});
 			debug("error " + signal.message);
 		}
 		private function debug(...args):void {

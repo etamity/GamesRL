@@ -12,7 +12,7 @@ package com.newco.grand.core.common.model {
 		public var port:int 			= 5654;
 		
 		// For testing Roulette
-		public var server:String 		= "http://192.168.0.3/ios";	
+		public var server:String 		= "http://livecasino.smartliveaffiliates.com";	
 		public var socketServer:String	= "livecasino.smartliveaffiliates.com";		
 		public var table_id:String 		= "7nyiaws9tgqrzaz3";
 		public var vt_id:String 		= "";
@@ -30,18 +30,25 @@ package com.newco.grand.core.common.model {
 		
 		public var videoplayer:String  ="";
 		public var streamUrl:String  ="";
+		public var urls:String  ="http://livecasino.smartliveaffiliates.com/cgibin/appconfig/xml/configs/urls.xml";
 		public var parameters:Object;
 		
 		public static var SKIN_ENABLE:Boolean=false;
-		public static var AIR_MODE:Boolean=false;
 		public static var DEBUG_MODE:Boolean=true;
 		
+		
+		public static const AIR_PLATFORM:String="AIR";
+		public static const WEB_PLATFORM:String="WEB";
+		public static const DESKTOP_PLATFORM:String="DESKTOP";
+		
+		public static var PLATFORM:String=AIR_PLATFORM;
 		public static var GAMECLIENT:String="baccarat";
+		
+		
+		
 		private var root:DisplayObjectContainer;
 		
 		public var debugIP:String=	"192.168.0.3";	
-		
-		public var urlsconfig:String= "urls.xml";	
 		//blackjack
 		/*public var server:String = "singlewallet.smartlivegaming.com";
 		public var port:int = 5654;
@@ -73,15 +80,11 @@ package com.newco.grand.core.common.model {
 		}
 		public function get localhost():Boolean {
 			var result:Boolean=false;
-			if (AIR_MODE==false)
-			{
 				if (game_url!=null)
 				if( game_url.indexOf("file:///") != -1) { 
 					result= true;
 				}else
 					result=false;
-			}else
-				result=true;
 			return result;
 		}
 

@@ -29,22 +29,26 @@ package com.newco.grand.core.common.service.impl
 
 		}
 		private function setConfig(signal:LoaderSignal,xml:XML):void {
-			debug(xml);
+			var casino:XMLList=xml.casino.(@game==FlashVars.GAMECLIENT.toLowerCase());
+			debug("game:",FlashVars.GAMECLIENT.toLowerCase(),casino.toXMLString());
+			
 			var parameters:Object ={};
-			parameters.server=xml.casino.@server;
-			parameters.game = xml.casino.@game;
-			parameters.client=xml.casino.@client;
-			parameters.table_id=xml.casino.@tableid;
-			parameters.vt_id=xml.casino.@vtid;
-			parameters.lang=xml.casino.@lang;
-			parameters.room=xml.casino.@room;
-			parameters.user_id=xml.casino.@userid;
-			parameters.gametype=xml.casino.@gametype;
-			parameters.videoplayer=xml.casino.@videoplayer;
-			var streamUrl:String=xml.casino.@streamUrl;
-			parameters.streamUrl =streamUrl;
+			parameters.server=casino.@server;
+			parameters.game = casino.@game;
+			parameters.client=casino.@client;
+			parameters.table_id=casino.@tableid;
+			parameters.vt_id=casino.@vtid;
+			parameters.lang=casino.@lang;
+			parameters.room=casino.@room;
+			parameters.user_id=casino.@userid;
+			parameters.gametype=casino.@gametype;
+			parameters.videoplayer=casino.@videoplayer;
+			parameters.socketServer=casino.@socketServer;
+			parameters.debugIP=casino.@debugIP;
+			parameters.urls=casino.@urls;
+			parameters.streamUrl =casino.@streamUrl;
 			flashVars.params= parameters;
-			urls.server=xml.casino.@server;
+			urls.server=casino.@server;
 			debug("[flashvars.streamUrl]",flashVars.streamUrl);
 
 			

@@ -37,8 +37,7 @@ package com.newco.grand.core.common.controller.commands
 					signalBus.dispatch(LoginEvent.LOGIN_SUCCESS);
 					signalBus.dispatch(StartupDataEvent.SEAT);
 					signalBus.dispatch(StartupDataEvent.LOAD);
-				}
-				}
+				}}
 				);
 			
 		
