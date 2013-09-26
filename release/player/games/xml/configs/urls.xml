@@ -5,8 +5,8 @@
 		<authentication><![CDATA[https://livecasino.smartliveaffiliates.com/cgibin/SmartAuthentication]]></authentication>
 		<login><![CDATA[/cgibin/remoteLoginGateway.jsp]]></login>
 		<balance><![CDATA[/cgibin/balance.jsp]]></balance>
-		<language><![CDATA[/player/games/languages/]]></language>
-		<langICON><![CDATA[/player/games/xml/langs/png/]]></langICON>
+		<language><![CDATA[/cgibin/appconfig/xml/langs/]]></language>
+		<langICON><![CDATA[/cgibin/appconfig/xml/langs/png/]]></langICON>
 		
 		<style><![CDATA[/player/games/styles/]]></style>
 		<players><![CDATA[/cgibin/common/participants.jsp]]></players>
