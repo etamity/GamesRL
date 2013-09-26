@@ -74,10 +74,12 @@
 			<arg line="-keystore ${ios.certificate.path}"/>
 			<arg line="-storetype pkcs12"/>
 			<arg line="-storepass ${ios.certificate.password}"/>
-			<arg line="${bin.path}/${ant.project.name}.ipa"/>
+			<arg line="MobileBin/${ant.project.name}.ipa"/>
 			<arg line="${src.path}/${ant.project.name}-app.xml"/>
 			<!--<arg line="icon48.png icon72.png icon128.png icon512.png"/>-->
 			<arg line="-C ${bin.path}"/>
+			<arg line="skins"/>
+			<arg line="xml"/>
 			<arg line="${ant.project.name}.swf"/>
 			<!-- <arg line="TiledMap"/> -->
 		</exec>
@@ -95,6 +97,8 @@
 			<arg line="${src.path}/${ant.project.name}-app.xml"/>
 			<!--<arg line="icon48.png icon72.png icon128.png icon512.png"/>-->
 			<arg line="-C ${bin.path}"/>
+			<arg line="skins"/>
+			<arg line="xml"/>
 			<arg line="${ant.project.name}.swf"/>
 		</exec>
 	</target>
