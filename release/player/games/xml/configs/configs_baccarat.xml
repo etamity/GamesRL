@@ -11,5 +11,7 @@
 	room="game-7nyiaws9tgqrzaz3-rvu4z17kx9010qv2" 
 	lang="en" 
 	server="livecasino.smartliveaffiliates.com"
+	
+	debugIP="192.168.0.3"
 	></casino> 
 </game>

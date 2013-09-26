@@ -12,8 +12,11 @@
 	userid="" 
 	room="game-o3d9tx3u8kd0yawc-i6t6y1jcdxih0wex" 
 	lang="cn" 
-	server="http://livecasino.smartliveaffiliates.com"
+	server="http://192.168.0.3/ios"
 	socketServer="livecasino.smartliveaffiliates.com"
+	
+	urlsconfig="localhost_urls.xml"
+	debugIP="192.168.0.3"
 	></casino>
 
 
