@@ -43,11 +43,15 @@ package com.newco.grand.roulette.classic.controller.commands
 
 		private function setupLayout():void{
 			taskbarView.view.y=550;
+			taskbarView.view.visible=false;
 			gameStatusView.view.x=665;
+			gameStatusView.view.visible=false;
 			chatView.view.x=810;
+			chatView.view.visible=false;
 			limitsView.view.y=494;
 			limitsView.view.x=5;
 			betSpotsView.view.y=0;
+			betSpotsView.view.visible=false;
 
 		}
 		private function debug(...args):void {
