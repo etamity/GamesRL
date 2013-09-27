@@ -29,11 +29,11 @@
 	userid="9ieozu30vtcwuri4" 
 	room="game-7nyiaws9tgqrzaz3-rvu4z17kx9010qv2" 
 	lang="en" 
-	server="livecasino.smartliveaffiliates.com"
-	
-	urls="xml/configs/urls.xml"
-	
+	server="http://192.168.0.3"
+	socketServer="livecasino.smartliveaffiliates.com"
 	debugIP="192.168.0.3"
+	urls="http://192.168.0.3/cgibin/appconfig/xml/configs/urls.xml"
+
 	></casino> 
 
 	<casino 
@@ -48,9 +48,10 @@
 	userid="" 
 	room="game-o3d9tx3u8kd0yawc-i6t6y1jcdxih0wex" 
 	lang="cn" 
-	server="http://livecasino.smartliveaffiliates.com"
+	server="http://192.168.0.3"
 	socketServer="livecasino.smartliveaffiliates.com"
 	debugIP="192.168.0.3"
+	urls="http://192.168.0.3/cgibin/appconfig/xml/configs/urls.xml"
 	></casino>
 
 
