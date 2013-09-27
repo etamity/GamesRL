@@ -26,6 +26,7 @@ package com.newco.grand.core.common.model {
 		private static const RELOAD:String = "reload";
 		private static const UPGRADE:String = "up";
 		private static const DOWNGRADE:String = "down";
+	
 		
 		private var _servers:Array = new Array("213.86.83.8");
 		private var _streams:Array = new Array("R1"); //7BJ1 , "TvRoulette2"
@@ -157,7 +158,7 @@ package com.newco.grand.core.common.model {
 			_stream.client = { onBWDone: function():void{} };
 			_stream.bufferTime =delay;
 			_stream.bufferTimeMax = _maxBuffer;
-			signalBus.dispatch(VideoEvent.PLAY,{stream:_stream});
+			signalBus.dispatch(VideoEvent.PLAY,{stream:_stream,stagevideo:(game.httpStream=="")?false:true});
 			debug("streamName: "+StringUtils.trim(_streamName));
 			
 			_stream.play(StringUtils.trim(_streamName));

@@ -22,8 +22,7 @@ package com.newco.grand.core.common.view {
 	import org.osmf.net.StreamType;
 	import org.osmf.net.StreamingURLResource;
 	
-	public class VideoView extends UIView implements IVideoView {
-		
+	public class VideoView extends UIView implements IVideoView {		
 		protected var _fullscreen:Boolean=false;
 		
 		private var _sv:StageVideo=null;  

@@ -4,6 +4,7 @@ package com.newco.grand.core.common.view.mediators {
 	import com.newco.grand.core.common.controller.signals.LanguageAndStylesEvent;
 	import com.newco.grand.core.common.controller.signals.UIEvent;
 	import com.newco.grand.core.common.controller.signals.VideoEvent;
+	import com.newco.grand.core.common.model.Constants;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.model.VideoModel;
@@ -95,13 +96,13 @@ package com.newco.grand.core.common.view.mediators {
 		}
 		private function setVideoStream(signal:BaseSignal):void {
 			view.stream = signal.params.stream;
-			
+			var stagevideo:Boolean= signal.params.stagevideo;
 			//view.stream.play(videoSevvice.streamName);
 			debug(flashVars.videoplayer);
-			if (flashVars.videoplayer=="stagevideo"){
+			if (flashVars.videoplayer==Constants.STAGEVIDEO_TYPE.toLowerCase() || stagevideo==true){
 			view.toggleStageVideo(true);
 			}
-			else if (flashVars.videoplayer=="video" || flashVars.videoplayer=="")
+			else if (flashVars.videoplayer==Constants.VIDEO_TYPE.toLowerCase() || flashVars.videoplayer=="")
 			view.toggleStageVideo(false);
 		}
 		

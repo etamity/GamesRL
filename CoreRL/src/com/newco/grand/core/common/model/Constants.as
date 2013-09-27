@@ -37,6 +37,8 @@ package com.newco.grand.core.common.model {
 		public static const SOCKET_DECISIONINC:String 		= "decisioninc";
 		
 		
+		public static const STAGEVIDEO_TYPE:String = "stagevideo";
+		public static const VIDEO_TYPE:String = "video";
 		
 		public static const SETTLE_END:String 				= "SETTLE_END";
 		public static const SETTLE_CANCEL:String 			= "SETTLE_CANCEL";
