@@ -35,6 +35,7 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.controller.commands.PlayersCommand;
 	import com.newco.grand.core.common.controller.commands.SeatCommand;
 	import com.newco.grand.core.common.controller.commands.SocketConnectionCommand;
+	import com.newco.grand.core.common.controller.commands.StartupCommand;
 	import com.newco.grand.core.common.controller.commands.StartupCompleteCommand;
 	import com.newco.grand.core.common.controller.commands.StartupDataCommand;
 	import com.newco.grand.core.common.controller.commands.VideoConnectionCommand;
@@ -91,7 +92,6 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.view.mediators.StageMediator;
 	import com.newco.grand.core.common.view.mediators.TaskbarMediator;
 	import com.newco.grand.core.common.view.mediators.VideoMediator;
-	import com.newco.grand.core.mobile.controller.commands.StartupCommand;
 	import com.newco.grand.core.mobile.view.StageView;
 	import com.newco.grand.core.mobile.view.TaskbarView;
 	import com.newco.grand.core.mobile.view.VideoView;
