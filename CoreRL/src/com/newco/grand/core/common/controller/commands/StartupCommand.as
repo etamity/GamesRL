@@ -34,9 +34,10 @@ package com.newco.grand.core.common.controller.commands {
 				onStart();
 		}
 		private function onStart():void{
-			if(flashVars.localhost) {
+			if(flashVars.localhost==true || FlashVars.PLATFORM==FlashVars.AIR_PLATFORM) {
 				configService.load(function ():void{
 					urlsService.load(function ():void{
+						signalBus.dispatch(UIEvent.SETUP_VIEWS);
 						signalBus.dispatch(SignalConstants.STARTUP_COMPLETE);
 					});
 				});

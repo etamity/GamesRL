@@ -224,7 +224,7 @@ package com.newco.grand.core.common.model {
 		
 		public function get buffer():Number {
 			if (_streamAvailable && stream != null) {
-				return _stream.bufferLength;
+				return _stream.bufferLength+0.3;
 			}
 			else {
 				return 0.1;

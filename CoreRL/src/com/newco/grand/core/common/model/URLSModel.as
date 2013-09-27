@@ -35,7 +35,7 @@ package com.newco.grand.core.common.model
 		private var _activityHistory:String=  "/player/audit/historyXML.jsp";
 
 		private var _languages:XML;
-		private var _flashVarsConfig:String=  "xml/configs/configs.xml";
+		private var _flashVarsConfig:String= "xml/configs/configs.xml";
 		private var _xml:XML ;
 		[Inject]
 		public var flashVars:FlashVars;

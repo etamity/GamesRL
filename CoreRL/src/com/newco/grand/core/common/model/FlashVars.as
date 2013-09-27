@@ -48,7 +48,7 @@ package com.newco.grand.core.common.model {
 		
 		private var root:DisplayObjectContainer;
 		
-		public var debugIP:String=	"192.168.0.3";	
+		public var debugIP:String=	"";	
 		//blackjack
 		/*public var server:String = "singlewallet.smartlivegaming.com";
 		public var port:int = 5654;
@@ -65,13 +65,10 @@ package com.newco.grand.core.common.model {
 			game_url = root.stage.loaderInfo.url;
 		}
 		private function onAddToStage(evt:Event):void{
-
 			params=root.stage.loaderInfo.parameters;
 			game_url = root.stage.loaderInfo.url;
 		}
 		public function set params(param:Object):void{
-			MonsterDebugger.initialize(root,debugIP);
-			debug(this,debugIP);
 			parse(param);
 			parameters=param;
 		}
@@ -89,12 +86,24 @@ package com.newco.grand.core.common.model {
 		}
 
 		protected function onParseError(key:String, value:String, error:Error) : void {
-		
+			GameUtils.log(FlashVars, key,value,error);
 		}
 
+		public function parseXML(xml:XML):void{
+			var obj:Object=new Object();
+			var value:String;
+			for each(var node:XML in xml.attributes()) {
+				obj[node.localName()]=String(node);
+			}	
+			parse(obj);
+		}
+
+		
 		protected function parse(params:Object):void {
-			var types : Array = new Array("array", "boolean", "int", "number", "string", "xml");
+			if (params.debugIP!=null && params.debugIP!="")
+			MonsterDebugger.initialize(root.stage,params.debugIP);
 			
+			var types : Array = new Array("array", "boolean", "int", "number", "string", "xml");
 			for(var key:String in params) {
 				var value:String = params[key];
 				var keySplit:Array = key.split("_");

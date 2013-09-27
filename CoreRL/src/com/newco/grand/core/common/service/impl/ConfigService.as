@@ -1,5 +1,6 @@
 package com.newco.grand.core.common.service.impl
 {
+	import com.demonsters.debugger.MonsterDebugger;
 	import com.newco.grand.core.common.controller.signals.MessageEvent;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.SignalBus;
@@ -10,6 +11,8 @@ package com.newco.grand.core.common.service.impl
 	import org.assetloader.signals.ErrorSignal;
 	import org.assetloader.signals.LoaderSignal;
 	
+	import robotlegs.bender.extensions.contextView.ContextView;
+	
 	public class ConfigService implements IService
 	{
 		[Inject]
@@ -18,7 +21,8 @@ package com.newco.grand.core.common.service.impl
 		public var flashVars:FlashVars;
 		[Inject]
 		public var service:XMLService;
-		
+		[Inject]
+		public var contextView:ContextView;
 		[Inject]
 		public var signalBus:SignalBus;
 		
@@ -29,10 +33,10 @@ package com.newco.grand.core.common.service.impl
 
 		}
 		private function setConfig(signal:LoaderSignal,xml:XML):void {
+			debug("Config:",xml);
 			var casino:XMLList=xml.casino.(@game==FlashVars.GAMECLIENT.toLowerCase());
 			debug("game:",FlashVars.GAMECLIENT.toLowerCase(),casino.toXMLString());
-			
-			var parameters:Object ={};
+			/*var parameters:Object ={};
 			parameters.server=casino.@server;
 			parameters.game = casino.@game;
 			parameters.client=casino.@client;
@@ -47,10 +51,14 @@ package com.newco.grand.core.common.service.impl
 			parameters.debugIP=casino.@debugIP;
 			parameters.urls=casino.@urls;
 			parameters.streamUrl =casino.@streamUrl;
-			flashVars.params= parameters;
-			urls.server=casino.@server;
-			debug("[flashvars.streamUrl]",flashVars.streamUrl);
-
+			flashVars.params= parameters;*/
+			flashVars.parseXML(new XML(casino.toXMLString()));
+			urls.server=flashVars.server;
+			debug("flashvars.server:",flashVars.server);
+			debug("flashvars.streamUrl:",flashVars.streamUrl);
+			debug("flashvars.localhost:  " + flashVars.localhost);
+			debug("flashvars.game_url:  " + flashVars.game_url);
+			
 			
 			if (_onComplete!=null)
 				_onComplete();
@@ -59,6 +67,7 @@ package com.newco.grand.core.common.service.impl
 		public function load(onComplete:Function=null):void{
 			debug("loading Config  " + urls.flashVarsConfig);
 			_onComplete=onComplete;
+			signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:urls.flashVarsConfig+"::"+flashVars.game_url});
 			service.loadURL(urls.flashVarsConfig,setConfig,showError);
 		}
 		private function showError(signal:ErrorSignal):void {

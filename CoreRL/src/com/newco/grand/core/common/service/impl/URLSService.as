@@ -50,6 +50,8 @@ package com.newco.grand.core.common.service.impl
 			urlsModel.chatConfig= xml.common.chatConfig;
 			urlsModel.historySWF=xml.common.historySWF;
 			urlsModel.freeplay= xml.common.freeplay;
+			urlsModel.style= xml.common.style;
+			urlsModel.seat= xml.common.seat;
 			urlsModel.help= xml.common.help;
 			urlsModel.language= xml.common.language;
 			urlsModel.langICON= xml.common.langICON;
