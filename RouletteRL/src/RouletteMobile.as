@@ -1,6 +1,5 @@
 package {
 	
-	import com.demonsters.debugger.MonsterDebugger;
 	import com.newco.grand.core.common.model.Constants;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.roulette.configs.RouletteBundle;
@@ -16,8 +15,8 @@ package {
 	import robotlegs.bender.framework.impl.Context;
 	
 	//[SWF(width = "1186", height = "667", frameRate = "30", backgroundColor = "#4C4C4C")]
-	//[SWF(width = "960", height = "640", frameRate = "30", backgroundColor = "#000000")]
-	[SWF(width = "100", height = "100", frameRate = "30", backgroundColor = "#000000")]
+	[SWF(width = "960", height = "640", frameRate = "30", backgroundColor = "#000000")]
+	//[SWF(width = "100", height = "100", frameRate = "30", backgroundColor = "#000000")]
 	public class RouletteMobile extends Sprite {
 		
 		protected var context:IContext; 

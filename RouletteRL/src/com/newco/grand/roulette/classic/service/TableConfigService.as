@@ -112,7 +112,7 @@ package com.newco.grand.roulette.classic.service
 		}
 		
 		private function setTableConfig(signal:LoaderSignal, xml:XML):void {
-			//debug(xml);
+			debug(xml);
 			game.min = xml["gameconfig-param"].@table_bet_min_limit;
 			game.max = xml["gameconfig-param"].@table_bet_max_limit;
 			game.dozenMin = xml["gameconfig-param"].@dozen_bet_min;
@@ -148,7 +148,7 @@ package com.newco.grand.roulette.classic.service
 			//service.remove(Constants.SERVER_TABLE_CONFIG);
 			var streams:Array=new Array(xml["gameconfig-param"].@low_stream,xml["gameconfig-param"].@med_stream,xml["gameconfig-param"].@hi_stream);
 			game.videoStreams=streams;
-			
+			game.httpStream=xml["gameconfig-param"].@httpStream;
 			loadSettings();
 			
 		}
