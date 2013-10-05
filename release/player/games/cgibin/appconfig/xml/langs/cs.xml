@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8"?> 
+<game>
+	<!-- Preloader -->
+	<loading><![CDATA[Načítání...]]></loading>
+	<loadingaudio><![CDATA[Načítání zvuku...]]></loadingaudio>
+	<loadingstyle><![CDATA[Načítání stylu...]]></loadingstyle>
+	<loadinggamedata><![CDATA[Načítání dat hry a stolu...]]></loadinggamedata>
+	<connectingtogameserver><![CDATA[Připojování k hernímu serveru...]]></connectingtogameserver>
+	<loadingbalance><![CDATA[Načítání zůstatku...]]></loadingbalance>
+	<loadingvideo><![CDATA[Připojování k živému videu...]]></loadingvideo>
+	<live><![CDATA[ŽIVĚ]]></live>
+	<videotooltip><![CDATA[KLIKNUTÍM PŘIBLÍŽÍTE VIDEO]]></videotooltip>
+	<videotooltipout><![CDATA[KLIKNUTÍM ODDÁLÍTE VIDEO]]></videotooltipout>
+	<optimizingvideo><![CDATA[Optimising Video...]]></optimizingvideo>
+
+	<!-- History -->
+	<historytitle><![CDATA[Historie]]></historytitle>
+	<gametype><![CDATA[Typ hry]]></gametype>
+	<time><![CDATA[Čas]]></time>
+	<amount><![CDATA[Částka]]></amount>
+	<date><![CDATA[Datum]]></date>
+	<stake><![CDATA[Vklad]]></stake>
+	<winlose><![CDATA[Výhra/prohra]]></winlose>
+	<transactiontime><![CDATA[Doba transakce]]></transactiontime>
+	<transactiontype><![CDATA[Typ transakce]]></transactiontype>
+	<enteredby><![CDATA[Vloženo]]></enteredby>
+	<transactionstatus><![CDATA[Stav]]></transactionstatus>
+	<notes><![CDATA[Poznámky]]></notes>
+	<betheading><![CDATA[Sázka]]></betheading>
+	<resultheading><![CDATA[Výsledek]]></resultheading>
+	<participation><![CDATA[Participation ID]]></participation>
+	<netcash><![CDATA[Čistá výhra]]></netcash>
+	<theplayerhand><![CDATA[List hráče]]></theplayerhand>
+	<thebankerhand><![CDATA[List bankéře]]></thebankerhand>
+	<seatname><![CDATA[Název místa]]></seatname>
+	<score><![CDATA[Skóre]]></score>
+	<payoff><![CDATA[Výplata]]></payoff>
+	<insurance><![CDATA[Pojištění:]]></insurance>
+	<cards><![CDATA[Karty]]></cards>
+	<accounthistory><![CDATA[Historie účtu]]></accounthistory>
+	<currentactivity><![CDATA[Aktuální činnost]]></currentactivity>
+	<backtoaccounthistory><![CDATA[Zpět k historii účtu]]></backtoaccounthistory>
+	<backtogamehistory><![CDATA[Zpět k historii her]]></backtogamehistory>
+	<noactivity><![CDATA[V tomto období nebyla žádná činnost]]></noactivity>
+	<stakereturned><![CDATA[Stake Returned]]></stakereturned>
+	<win><![CDATA[Win]]></win>
+
+	<!-- Roulette Statistics -->
+	<statistics><![CDATA[STATISTIKA]]></statistics>
+	<statisticstip><![CDATA[CLICK TO SEE STATISTICS]]></statisticstip>
+	<roulettestatstitle><![CDATA[Statistika rulety – posledních 100 her]]></roulettestatstitle>
+	<winsbutton><![CDATA[Výhry]]></winsbutton>
+	<betsbutton><![CDATA[Sázky]]></betsbutton>
+	<resultsbutton><![CDATA[Výsledky]]></resultsbutton>
+	<hotnumbers><![CDATA[Výherní čísla]]></hotnumbers>
+	<coldnumbers><![CDATA[Nevýherní čísla]]></coldnumbers>
+	
+	<!-- Help -->
+	<helptitle><![CDATA[Nápověda]]></helptitle>
+	
+	<!-- Baccarat -->
+	<player><![CDATA[HRÁČ]]></player>
+	<banker><![CDATA[BANKÉŘ]]></banker>
+	<tie><![CDATA[REMÍZA]]></tie>
+	<pair_player><![CDATA[PÁR HRÁČE]]></pair_player>
+	<pair_banker><![CDATA[PÁR BANKÉŘE]]></pair_banker>
+	<twoway><![CDATA[2 WAY]]></twoway>
+	<threeway><![CDATA[3 WAY]]></threeway>
+	<bigroad><![CDATA[BIG ROAD]]></bigroad>
+	<bigeyeboyroad><![CDATA[BIG EYE BOY]]></bigeyeboyroad>
+	<smallroad><![CDATA[SMALL ROAD]]></smallroad>
+	<cockroachroad><![CDATA[COCKROACH]]></cockroachroad>
+
+	<!-- Blackjack -->
+	<sithere><![CDATA[POSADIT]]></sithere>
+	<unseat><![CDATA[OPUSTIT MÍSTO]]></unseat>
+	<multiseat><![CDATA[VÍCE MÍST]]></multiseat>
+	<multiseattip><![CDATA[CLICK FOR ANOTHER SEAT]]></multiseattip>
+	<seattaken><![CDATA[MÍSTO OBSAZENO]]></seattaken>
+	<confirm><![CDATA[POTVRDIT]]></confirm>
+	<decisiontitle><![CDATA[VYBERTE MOŽNOST]]></decisiontitle>
+	<hit><![CDATA[DALŠÍ KARTA]]></hit>
+	<stand><![CDATA[STÁT]]></stand>
+	<doubledown><![CDATA[ZDVOJNÁSOBIT]]></doubledown>
+	<insurancetitle><![CDATA[POJIŠTĚNÍ?]]></insurancetitle>
+	<yes><![CDATA[ANO]]></yes>
+	<no><![CDATA[NE]]></no>
+
+	<!-- Lobby -->
+	<lobby><![CDATA[NABÍDKA ŽIVÝCH HER]]></lobby>
+	<loadinglobbyxml><![CDATA[Načítání stolů...]]></loadinglobbyxml>
+	<baccarat><![CDATA[ŽIVÝ BACCARAT]]></baccarat>
+	<blackjack><![CDATA[ŽIVÝ BLACKJACK]]></blackjack>
+	<roulette><![CDATA[ŽIVÁ RULETA]]></roulette>
+	<slingshot><![CDATA[ŽIVÝ SLINGSHOT]]></slingshot>
+	<dealer><![CDATA[KRUPIÉR]]></dealer>
+	<account><![CDATA[ÚČET]]></account>
+	<myaccount><![CDATA[MŮJ ÚČET]]></myaccount>
+	<tableinfo><![CDATA[INFORMACE O STOLU]]></tableinfo>
+	<players><![CDATA[HRÁČI]]></players>
+	<results><![CDATA[VÝSLEDKY]]></results>
+	<viewtable><![CDATA[ZOBRAZIT STŮL]]></viewtable>
+	<currenttable><![CDATA[VÁŠ AKTUÁLNÍ STŮL]]></currenttable>
+	<hometext><![CDATA[KLIKNUTÍM NA LIBOVOLNOU Z NÁSLEDUJÍCÍCH ŽIVÝCH HER ZOBRAZÍTE STOLY]]></hometext>
+	<vtabletext><![CDATA[VYBERTE LIMITY STOLU PRO #table#]]></vtabletext>
+	<gamemodetext><![CDATA[VYBERTE ZOBRAZENÍ HRY #table# S LIMITY #min# AŽ #max#]]></gamemodetext>
+	<chooseroulette><![CDATA[VYBERTE SI NÍŽE STŮL S RULETOU]]></chooseroulette>
+	<choosebaccarat><![CDATA[VYBERTE SI NÍŽE STŮL S BACCARATEM]]></choosebaccarat>
+	<chooseblackjack><![CDATA[VYBERTE SI NÍŽE STŮL S BLACKJACKEM]]></chooseblackjack>
+	<chooseminiroulette><![CDATA[PLEASE CHOOSE A MINI ROULETTE TABLE BELOW]]></chooseminiroulette>
+	<chooseminibaccarat><![CDATA[PLEASE CHOOSE A MINI BACCARAT TABLE BELOW]]></chooseminibaccarat>
+	<chooseminiblackjack><![CDATA[PLEASE CHOOSE A MINI BLACKJACK TABLE BELOW]]></chooseminiblackjack>
+
+	<screenname><![CDATA[PŘEZDÍVKA]]></screenname>
+	<screennamelabel><![CDATA[Zadejte platnou přezdívku]]></screennamelabel>
+	<screennameerror1><![CDATA[Neplatná přezdívka]]></screennameerror1>
+	<screennameerror2><![CDATA[Přezdívka již existuje]]></screennameerror2>
+	<seaterror1><![CDATA[Vyzkoušejte jiné místo]]></seaterror1>
+	<seaterror2><![CDATA[Nemáte dostatek peněz k usednutí.]]></seaterror2>
+
+	<view1><![CDATA[3D ZOBRAZENÍ]]></view1>
+	<view2><![CDATA[KLASICKÉ ZOBRAZENÍ]]></view2>
+	<view3><![CDATA[PÁRY]]></view3>
+	<view4><![CDATA[ASIJSKÉ]]></view4>
+	<normal><![CDATA[NORMAL]]></normal>
+	<switchvideo><![CDATA[SWITCH VIDEO]]></switchvideo>
+
+	<details_blackjack><![CDATA[Live Blackjack - The fastest live dealer Blackjack in the world. Same deal speed as if you were in a real Casino. ]]></details_blackjack>
+	<details_blackjack_vip><![CDATA[VIP Blackjack - Play live Blackjack with other high rollers]]></details_blackjack_vip>
+	<details_blackjack_betbehind><![CDATA[Play behind Blackjack. Bet on other players. When they win, you win !]]></details_blackjack_betbehind>
+	<details_baccarat><![CDATA[Enjoy live Baccarat in the environment it is meant to be played in.]]></details_baccarat>
+	<details_baccarat_vip><![CDATA[live dealer VIP baccarat, a chance to play with high stakes.]]></details_baccarat_vip>
+	<details_roulette><![CDATA[Play standard Roulette with one game per minute.]]></details_roulette>
+	<details_roulette_vip><![CDATA[VIP Roulette. Play VIP Roulette with one game every minute. High betting limits for high rollers]]></details_roulette_vip>
+	<details_roulette_blue><![CDATA[Play our brand new Grand Roulette with your favourite presenters. Fast and interactive. Open 6 PM till 12 PM (GMT) every day.]]></details_roulette_blue>
+	<details_roulette_european><![CDATA[Play LIVE and experience the truest Live Roulette available online. Place your bets and speak to our lovely croupiers amongst the best graphics online everyday between 6pm and 12am (GMT)!]]></details_roulette_european>
+	<details_roulette_auto><![CDATA[Fully automated Roulette wheel produced by Cammegh, The World's Finest Roulette Wheel.]]></details_roulette_auto>
+	<details_roulette_brown><![CDATA[Spinning every 45 seconds, our fully air powered Roulette wheel is the fastest live roulette in the world! Play jet Roulette with the table limit ranging from 0.25 right up to 500 every hour of every day!.]]></details_roulette_brown>
+
+	<bonusterms><![CDATA[<b>Máte nárok na bonus *BONUS_NAME* ve výši <u>*BONUS_CURRENCY* *BONUS_AMOUNT*</u>!<br/><br/>Částka bude připsána na váš bonusový účet, pokud přijmete následující podmínky:<br><br><u>SMLOUVA O BONUSU:</u><br/><br/>PŘIJETÍM TOHOTO BONUSU *BONUS_CURRENCY* *BONUS_AMOUNT* SOUHLASÍTE S TÍM, ŽE PŘED VYBRÁNÍM JAKÝCHKOLI PENĚZ, BUDETE MUSET VE SCHVÁLENÝCH HRÁCH UZAVŘÍT SÁZKY V MINIMÁLNÍ VÝŠI <u>*BONUS_CURRENCY* *MIN_BET*</u>. TENTO POŽADAVEK BUDE VYNUCEN NAŠÍM ÚČETNÍM ODDĚLENÍM V SOULADU SE SMLOUVOU O BONUSU.</b>]]></bonusterms>
+	<signmeup><![CDATA[ANO, MÁM ZÁJEM!]]></signmeup>
+	<nothanks><![CDATA[NE, DÍKY.]]></nothanks>
+	
+	<!-- Balance Popup -->
+	<balancedetails><![CDATA[INFORMACE O ZŮSTATKU]]></balancedetails>
+	<bonusbalance><![CDATA[BONUSOVÝ ZŮSTATEK]]></bonusbalance>
+	<currentplaythrough><![CDATA[AKTUÁLNĚ VSAZENO]]></currentplaythrough>
+	<requiredplaythrough><![CDATA[POŽADOVANÉ SÁZKY]]></requiredplaythrough>
+
+	<!-- Settings Popup -->
+	<settings><![CDATA[NASTAVENÍ]]></settings>
+	<autofullscreen><![CDATA[AUTOMATICKÉ PŘIBLÍŽENÍ VIDEA PŘI TOČENÍ]]></autofullscreen>
+	<videoquality><![CDATA[NASTAVENÍ KVALITY OBRAZU:]]></videoquality>
+	<autoadjust><![CDATA[AUTOMATICKÉ NASTAVENÍ]]></autoadjust>
+	<lowquality><![CDATA[NÍZKÁ]]></lowquality>
+	<medquality><![CDATA[STŘEDNÍ]]></medquality>
+	<highquality><![CDATA[VYSOKÁ]]></highquality>
+	<suppresschat><![CDATA[SKRÝT CHAT PŘED OSTATNÍMI HRÁČI]]></suppresschat>
+
+	<!-- Chat Help Text
+	<chelp1><![CDATA[Představujeme ruletu se společným tahem a ŽIVÝM VIDEEM]]></chelp1>
+	<chelp2><![CDATA[Sledujete nejlepší ruletu na světě]]></chelp2>
+	<chelp3><![CDATA[Plně automatická hra Cammegh Slingshot 2]]></chelp3>
+	<chelp4><![CDATA[Nachází se v nejlepších kasinech na světě]]></chelp4>
+	<chelp5><![CDATA[Poháněná stlačeným vzduchem]]></chelp5>
+	<chelp6><![CDATA[ŽIVÝ přenos – minimálně 60 her za hodinu]]></chelp6>
+	<chelp7><![CDATA[Stisknutím tlačítka CHAT můžete zaslat zprávu ostatním hráčům nebo zákaznickému servisu]]></chelp7>-->
+
+	<!-- Chat & Participant messages -->
+	<welcometo><![CDATA[Vítá vás]]></welcometo>
+	<chat><![CDATA[CHAT]]></chat>
+	<clicktochat><![CDATA[KLIKNUTÍM AKTIVUJETE CHAT]]></clicktochat>
+	<playersontable><![CDATA[Počet hráčů u stolu: #count#]]></playersontable>
+	<playerontable><![CDATA[Hráč #player# je u stolu]]></playerontable>
+	<winmsg><![CDATA[Hráč #player# vyhrává #amount#]]></winmsg>
+
+	<!-- Idle& Session Expired Messages -->
+	<idlemessage><![CDATA[Hra byla pozastavena kvůli nečinnosti. Pokračovat můžete kliknutím na tlačítko OK.]]></idlemessage>
+	<sessionexpired><![CDATA[Platnost relace vypršela, protože jste byli příliš dlouho neaktivní. Chcete-li se znovu přihlásit, vraťte se na stránky. ]]></sessionexpired>
+	
+	<!-- Betting Options -->
+	<rebet><![CDATA[OPAKOVAT]]></rebet>
+	<doublebet><![CDATA[ZDVOJNÁSOBIT]]></doublebet>
+	<undo><![CDATA[ZPĚT]]></undo>
+
+	<!-- Bet Limits Panel -->
+	<betlimits><![CDATA[SÁZKOVÉ LIMITY]]></betlimits>
+	<min><![CDATA[MIN]]></min>
+	<max><![CDATA[MAX]]></max>
+	<payout><![CDATA[VÝPLATA]]></payout>
+	<betlabel><![CDATA[SÁZKA]]></betlabel>
+	<alllimitstip><![CDATA[KLIKNUTÍM ZOBRAZÍTE VŠECHNY LIMITY]]></alllimitstip>
+	<dozen><![CDATA[TUCET]]></dozen>
+	<corner><![CDATA[ROH]]></corner>
+	<high><![CDATA[VYSOKÁ]]></high>
+	<low><![CDATA[NÍZKÁ]]></low>
+	<straight><![CDATA[JEDNO ČÍSLO]]></straight>
+	<even><![CDATA[SUDÁ]]></even>
+	<odd><![CDATA[LICHÁ]]></odd>
+	<trio><![CDATA[STREET]]></trio>
+	<column><![CDATA[SLOUPEC]]></column>
+	<split><![CDATA[DVĚ ČÍSLA]]></split>
+	<red><![CDATA[ČERVENÁ]]></red>
+	<black><![CDATA[ČERNÁ]]></black>
+	<green><![CDATA[ZELENÁ]]></green>
+	<five_number><![CDATA[PĚT ČÍSEL]]></five_number>
+	<six_number><![CDATA[ŠEST ČÍSEL]]></six_number>
+
+	<!-- Task Bar -->
+	<balance><![CDATA[ZŮSTATEK]]></balance>
+	<session_balance><![CDATA[ZŮSTATEK]]></session_balance>
+	<bonus><![CDATA[BONUS]]></bonus>
+	<bet><![CDATA[CELKOVÁ SÁZKA]]></bet>
+	<gameid><![CDATA[ČÍSLO HRY]]></gameid>
+	<cashier><![CDATA[POKLADNÍK]]></cashier>
+	<deposit><![CDATA[POKLADNÍK]]></deposit>
+	<back><![CDATA[BACK]]></back>
+	<close><![CDATA[CLOSE]]></close>
+	<history><![CDATA[HISTORIE]]></history>	
+	<help><![CDATA[NÁPOVĚDA]]></help>
+	<responsible><![CDATA[RESPONSIBLE]]></responsible>
+	<fullscreen><![CDATA[CELÁ OBRAZOVKA]]></fullscreen>
+	<restore><![CDATA[OBNOVIT]]></restore>
+	<soundon><![CDATA[ZVUK ZAPNUTÝ]]></soundon>
+	<soundoff><![CDATA[ZVUK VYPNUTÝ]]></soundoff>
+	<chatonhelp><![CDATA[CHAT JE UŽ OTEVŘENÝ (LEVÝ HORNÍ ROH)]]></chatonhelp>
+	<chaton><![CDATA[ZOBRAZIT CHAT]]></chaton>
+	<chatoff><![CDATA[SKRÝT CHAT]]></chatoff>	
+	<changetable><![CDATA[ZMĚNIT STŮL]]></changetable>
+	<bonusdetails><![CDATA[KLIKNUTÍM ZOBRAZÍTE INFORMACE O ZŮSTATKU A BONUSU]]></bonusdetails>
+
+	<!-- Game Status Panel -->
+	<table><![CDATA[STŮL]]></table>
+	<pleasewait><![CDATA[POČKEJTE PROSÍM]]></pleasewait>
+	<placebets><![CDATA[UMÍSTĚTE SÁZKY]]></placebets>
+	<betsclosing><![CDATA[SÁZENÍ SE BRZY UZAVŘE]]></betsclosing>
+	<betsclosinggeneric><![CDATA[SÁZENÍ SE BRZY UZAVŘE]]></betsclosinggeneric>
+	<nomorebets><![CDATA[ŽÁDNÉ DALŠÍ SÁZKY]]></nomorebets>
+	<sendingbets><![CDATA[ODESÍLÁNÍ SÁZEK]]></sendingbets>
+	<betsaccepted><![CDATA[SÁZKY PŘIJATY]]></betsaccepted>
+	<notallbetsaccepted><![CDATA[NEBYLY PŘIJATY VŠECHNY SÁZKY]]></notallbetsaccepted>
+	<betsrejected><![CDATA[SÁZKY ODMÍTNUTY]]></betsrejected>
+	<waitingforbets><![CDATA[ČEKÁNÍ NA SÁZKY]]></waitingforbets>
+	<waitingfornextgame><![CDATA[ČEKÁNÍ NA DALŠÍ HRU]]></waitingfornextgame>
+	<waitingfordecision><![CDATA[ČEKÁNÍ NA ROZHODNUTÍ]]></waitingfordecision>
+	<waitingforinsurance><![CDATA[ČEKÁNÍ NA POJIŠTĚNÍ]]></waitingforinsurance>
+	<waitingforcard><![CDATA[ROZDÁVÁNÍ]]></waitingforcard>
+	<waitingforresult><![CDATA[ČEKÁNÍ NA VÝSLEDEK]]></waitingforresult>
+	<gameover><![CDATA[KONEC HRY]]></gameover>
+	<gamecancelled><![CDATA[HRA ZRUŠENA]]></gamecancelled>	
+	<open><![CDATA[OTEVŘENO]]></open>
+	<closing><![CDATA[ZAVÍRÁNÍ]]></closing>
+	<closed><![CDATA[ZAVŘENO]]></closed>
+	<result><![CDATA[VÝSLEDEK: #result#]]></result>
+	<youwon><![CDATA[VAŠE VÝHRA: #winnings#]]></youwon>
+
+	<!-- Game Table Tool Tips -->
+	<minbetis><![CDATA[MINIMÁLNÍ SÁZKA JE #bet#]]></minbetis>
+	<maxbetis><![CDATA[MAXIMÁLNÍ SÁZKA JE #bet#]]></maxbetis>
+	<mintablebetis><![CDATA[MINIMÁLNÍ SÁZKA U STOLU JE #bet#]]></mintablebetis>
+	<maxtablebetis><![CDATA[MAXIMÁLNÍ SÁZKA U STOLU JE #bet#]]></maxtablebetis>
+	<notenoughmoney><![CDATA[NEDOSTATEK PENĚZ]]></notenoughmoney>
+
+	<!-- Error/Warning/Information Messages -->
+	<warning><![CDATA[Upozornění (#id#)]]></warning>
+	<information><![CDATA[Informace (#id#)]]></information>
+	<error><![CDATA[Chyba (#id#)]]></error>
+	<lowbalance><![CDATA[Zůstatek na účtu je pro hru příliš malý. Vložte na účet peníze.]]></lowbalance>
+	<error_ok><![CDATA[OK]]></error_ok>
+	<generic_wheel_error id="7001"><![CDATA[Dočasná chyba v komunikaci. Počkejte na další herní kolo.]]></generic_wheel_error>
+	<generic_communication_error id="7002"><![CDATA[Chyba v komunikaci. Obraťte se prosím na zákaznickou podporu.]]></generic_communication_error>
+	<generic_placebets_error id="7003"><![CDATA[Vaše sázky nebyly serverem přijaty. Obraťte se prosím na zákaznickou podporu.]]></generic_placebets_error>
+	<generic_balance_error id="7004"><![CDATA[Dočasný problém se zobrazením aktualizovaného zůstatku. Pomoc můžete získat od zákaznické podpory.]]></generic_balance_error>
+	<game_cancelled id="7005"><![CDATA[Hra byla zrušena. Počkejte na další hru.]]></game_cancelled>
+	<!-- All Server Side Error Messages -->
+	<error_10104><![CDATA[K uzavření této sázky nemáte dostatek peněz.]]></error_10104>
+	<error_10103><![CDATA[Účet je momentálně deaktivován. Obraťte se prosím na zákaznickou podporu.]]></error_10103>
+	<error_10102><![CDATA[Váš účet byl deaktivován. Obraťte se prosím na zákaznickou podporu.]]></error_10102>
+	<error_2400><![CDATA[Platnost relace vypršela. Přihlaste se znovu.]]></error_2400>
+	<error_1000><![CDATA[Obraťte se prosím na zákaznickou podporu.]]></error_1000>
+	<error_1400><![CDATA[Obraťte se prosím na zákaznickou podporu.]]></error_1400>
+	<error_1500><![CDATA[Obraťte se prosím na zákaznickou podporu.]]></error_1500>
+	<error_10106><![CDATA[Obraťte se prosím na zákaznickou podporu.]]></error_10106>
+	<error_10100><![CDATA[Obraťte se prosím na zákaznickou podporu.]]></error_10100>
+	<error_10101><![CDATA[Obraťte se prosím na zákaznickou podporu.]]></error_10101>
+	<error_10105><![CDATA[Obraťte se prosím na zákaznickou podporu.]]></error_10105>
+	<error_20100><![CDATA[Nesplňujete požadavek na minimální věk pro hru.]]></error_20100>
+	<error_20101><![CDATA[Momentálně nelze registrovat přezdívku.]]></error_20101>
+	<error_20102><![CDATA[Existuje dočasný problém s načtením zůstatku.]]></error_20102>
+	<error_20103><![CDATA[Existuje dočasný problém s převodem peněz do kasina.]]></error_20103>
+	<error_20104><![CDATA[Existuje dočasný problém s načtením směnných kurzů.]]></error_20104>
+	<error_010><![CDATA[Obraťte se prosím na zákaznickou podporu.]]></error_010>
+	<error_0><![CDATA[Obraťte se prosím na zákaznickou podporu.]]></error_0>
+	<error_10002><![CDATA[Obraťte se prosím na zákaznickou podporu.]]></error_10002>
+	<error_10003><![CDATA[Platnost relace vypršela. Přihlaste se znovu.]]></error_10003>
+	<error_10004><![CDATA[Obraťte se prosím na zákaznickou podporu.]]></error_10004>
+	<error_10005><![CDATA[Obraťte se prosím na zákaznickou podporu.]]></error_10005>
+	<error_10006><![CDATA[Vaše sázky pro toto kolo už byly přijaty.]]></error_10006>
+	<error_10007><![CDATA[Váš účet byl deaktivován. Obraťte se prosím na zákaznickou podporu.]]></error_10007>
+	<error_10008><![CDATA[K uzavření této sázky nemáte dostatek peněz.]]></error_10008>
+	<error_1001><![CDATA[Existuje dočasný problém s herním serverem.]]></error_1001>
+	<error_1002><![CDATA[Obraťte se prosím na zákaznickou podporu.]]></error_1002>
+	<error_1003><![CDATA[Obraťte se prosím na zákaznickou podporu.]]></error_1003>
+	<error_1004><![CDATA[Ztratili jste místo. Restartujte hru.]]></error_1004>
+	<error_1005><![CDATA[Pokusili jste se uzavřít neplatnou sázku. Obraťte se prosím na zákaznickou podporu.]]></error_1005>
+	<error_1006><![CDATA[Počkejte, dokud nezačne další kolo.]]></error_1006>
+	<error_1007><![CDATA[Sázka nebyla přijata včas. Zkuste to znovu v příštím kole.]]></error_1007>
+	<error_1008><![CDATA[Vaše sázky nebyly přijaty. Zkuste to znovu v příštím kole.]]></error_1008>
+	<error_1009><![CDATA[Vaše sázka nebyla přijata, protože překračuje maximální vklad povolený pro vnitřní sázku.]]></error_1009>
+	<error_1010><![CDATA[Vaše sázka nebyla přijata, protože překračuje maximální vklad povolený pro vnější sázku.]]></error_1010>
+	<error_1011><![CDATA[Server nemohl zpracovat vaši sázku. Obraťte se prosím na zákaznickou podporu.]]></error_1011>
+	<error_1012><![CDATA[Vaše sázka nebyla přijata, protože překračuje maximální vklad povolený u tohoto stolu.]]></error_1012>
+	<error_1013><![CDATA[Vaše sázka nebyla přijata, protože je menší než minimální povolená sázka.]]></error_1013>
+	<error_1014><![CDATA[Obraťte se prosím na zákaznickou podporu.]]></error_1014>
+	<error_1015><![CDATA[Obraťte se prosím na zákaznickou podporu.]]></error_1015>
+	<error_1016><![CDATA[Obraťte se prosím na zákaznickou podporu.]]></error_1016>
+	<error_1017><![CDATA[Váš tah skončil.]]></error_1017>
+	<error_1018><![CDATA[Čas vyhrazený pro vaše rozhodnutí v tomto kole vypršel.]]></error_1018>
+	<error_1019><![CDATA[Rozhodnutí ve hře nelze změnit.]]></error_1019>
+	<error_1020><![CDATA[Došlo k chybě na vašem místě. Restartujte hru v novém okně prohlížeče.]]></error_1020>
+	<error_1021><![CDATA[Teď není řada na vás. Rozhodnutí provede jiný hráč.]]></error_1021>
+	<error_1022><![CDATA[Vybrané rozhodnutí není platné. Proveďte jiné rozhodnutí.]]></error_1022>
+	<error_1023><![CDATA[Chyba. Rozdělení nebylo možné provést. Obraťte se na zákaznickou podporu.]]></error_1023>
+	<error_1024><![CDATA[Chyba. Zdvojnásobení nebylo možné provést. Obraťte se na zákaznickou podporu.]]></error_1024>
+	<error_1025><![CDATA[Chyba při přenosu výsledků hry. Restartujte hru v novém okně prohlížeče.]]></error_1025>
+	<error_1026><![CDATA[Chyba. Koupení pojištění nebylo možné provést. Obraťte se na zákaznickou podporu.]]></error_1026>
+	<error_1027><![CDATA[Pro toto kolo jste už koupili pojištění.]]></error_1027>
+	<error_1028><![CDATA[Sázka, kterou jste se pokusili uzavřít, není platná. Obraťte se na zákaznickou podporu.]]></error_1028>
+	<error_1029><![CDATA[Sázka, kterou jste se pokusili uzavřít, není platná. Obraťte se na zákaznickou podporu.]]></error_1029>
+	<error_1030><![CDATA[Sázka, kterou jste se pokusili uzavřít, není platná. Obraťte se na zákaznickou podporu.]]></error_1030>
+	<error_1031><![CDATA[Místo, které jste zvolili, je již obsazeno jiným hráčem. Vyberte si volné místo.]]></error_1031>
+	<error_1032><![CDATA[Obraťte se prosím na zákaznickou podporu.]]></error_1032>
+	<error_1033><![CDATA[Obraťte se prosím na zákaznickou podporu.]]></error_1033>
+	<error_2000><![CDATA[Obraťte se prosím na zákaznickou podporu.]]></error_2000>
+	<error_2001><![CDATA[Akce se nezdařila. Zkuste to znovu.]]></error_2001>
+	<error_2002><![CDATA[Restartujte hru v novém okně prohlížeče. Pokud problém přetrvává, obraťte se na zákaznickou podporu.]]></error_2002>
+	<error_2003><![CDATA[Sázka nesmí překročit maximální sázkový limit.]]></error_2003>
+	<error_2004><![CDATA[Sázka musí splňovat minimální sázkový limit.]]></error_2004>
+	<error_2005><![CDATA[Zůstatek není dostatečný na pokrytí této sázky. Přejděte do části Pokladník a vložte peníze.]]></error_2005>
+	<error_2006><![CDATA[Naše služby bohužel nejsou k dispozici v zemi, ve které bydlíte.]]></error_2006>
+	<error_2007><![CDATA[Chcete-li se přihlásit, zadejte uživatelské jméno a heslo.]]></error_2007>
+	<error_2008><![CDATA[Neplatné uživatelské jméno nebo heslo. Zkuste to znovu.]]></error_2008>
+	<error_104><![CDATA[Restartujte hru v novém okně prohlížeče.]]></error_104>	
+	
+	<neighbourspecialbets><![CDATA[SÁZKY NEIGHBOUR A SPECIÁLNÍ SÁZKY]]></neighbourspecialbets>
+	<!-- Special Bets -->
+	<specialbets><![CDATA[SPECIÁLNÍ SÁZKY]]></specialbets>
+	<specialbet18><![CDATA[Tiers du cylindre]]></specialbet18>
+	<specialbet17><![CDATA[Voisins du zero]]></specialbet17>
+	<specialbet16><![CDATA[Orphelins en plein]]></specialbet16>
+	<specialbet15><![CDATA[Orphelins a cheval]]></specialbet15>
+	<specialbet14><![CDATA[Finale en plein 0]]></specialbet14>
+	<specialbet13><![CDATA[Finale en plein 1]]></specialbet13>
+	<specialbet12><![CDATA[Finale en plein 2]]></specialbet12>
+	<specialbet11><![CDATA[Finale en plein 3]]></specialbet11>
+	<specialbet10><![CDATA[Finale en plein 4]]></specialbet10>
+	<specialbet9><![CDATA[Finale en plein 5]]></specialbet9>
+	<specialbet8><![CDATA[Finale en plein 6]]></specialbet8>
+	<specialbet7><![CDATA[Finale en plein 7]]></specialbet7>
+	<specialbet6><![CDATA[Finale en plein 8]]></specialbet6>
+	<specialbet5><![CDATA[Finale en plein 9]]></specialbet5>
+	<specialbet4><![CDATA[Finale 0/3]]></specialbet4>
+	<specialbet3><![CDATA[Finale 1/4]]></specialbet3>
+	<specialbet2><![CDATA[Finale 2/5]]></specialbet2>
+	<specialbet1><![CDATA[Finale 3/6]]></specialbet1>
+
+	<!-- Neighbour Bets -->
+	<neighbourbets><![CDATA[SÁZKY NEIGHBOUR]]></neighbourbets>
+	<neighbourbets1><![CDATA[Tier]]></neighbourbets1>
+	<neighbourbets2><![CDATA[Orphelins]]></neighbourbets2>
+	<neighbourbets3><![CDATA[Voisins Du Zero]]></neighbourbets3>
+
+	<lowriskcommonmsg><![CDATA[PLATÍ OMEZENÍ PRO SÁZKY]]></lowriskcommonmsg>
+
+	<notsittingpage><![CDATA[U tohoto stolu už nesedíte. Zavřete toto okno a spusťte hru znovu.]]></notsittingpage>
+	<errorpage><![CDATA[Došlo k problému v živém kasinu. Zkuste to znovu později. Kód chyby: EV02]]></errorpage>
+	<missingpage><![CDATA[Požadovaná stránka nebyla na serveru živého kasina nalezena.<br />Zkontrolujte adresu URL a zkuste to znovu nebo se obraťte na zákaznickou podporu. Kód chyby: EV03]]></missingpage>
+	<loginpage><![CDATA[Došlo k problému v živém kasinu.<br />Ověření uživatele se nezdařilo nebo vypršela platnost vaší relace. Ukončete prohlížeč a zkuste to znovu. Kód chyby: EV01]]></loginpage>
+
+	<!-- Bet Behind -->
+	<betbehind><![CDATA[Sázení na hráče]]></betbehind>
+	<betbehind_info><![CDATA[Pokud hráč, na kterého jste vsadili, rozdělí karty nebo zdvojnásobí sázku, vaše sázka bude zdvojnásobena. Pokud v takových situacích NECHCETE zdvojnásobovat sázku, ZRUŠTE ZAŠKRTNUTÍ následujících políček.]]></betbehind_info>
+	<betbehind_note><![CDATA[Poznámka: Pokud vsadíte na hráče, který se rozhodne neuzavírat sázku, sázka vám bude vrácena.]]></betbehind_note>
+	<betbehind_doublestake><![CDATA[Zdvojnásobit sázku, pokud hráč zdvojnásobí sázku]]></betbehind_doublestake>
+	<betbehind_splitsdoublestake><![CDATA[Zdvojnásobit sázku, pokud hráč rozdělí karty]]></betbehind_splitsdoublestake>
+
+	<!-- Mini -->
+	<miniroulette><![CDATA[MINI LIVE ROULETTE]]></miniroulette>
+	<miniblackjack><![CDATA[MINI LIVE BLACKJACK]]></miniblackjack>
+	<minibaccarat><![CDATA[MINI LIVE BACCARAT]]></minibaccarat>
+	<mini><![CDATA[MINI]]></mini>
+	<balancemini><![CDATA[Balance]]></balancemini>
+	<betmini><![CDATA[Bet]]></betmini>
+	<gameidmini><![CDATA[Game Time]]></gameidmini>
+	<placebetsmini><![CDATA[BET NOW]]></placebetsmini>
+	<betsclosingmini><![CDATA[BETS CLOSING]]></betsclosingmini>
+	<nomorebetsmini><![CDATA[BETS CLOSED]]></nomorebetsmini>
+	<chipbuttonmini><![CDATA[CLICK TO CHANGE CHIP VALUE]]></chipbuttonmini>
+	<notifyplacechip><![CDATA[WHEN BET TIME STARTS, PLEASE SELECT A CHIP AND PLACE YOUR BET]]></notifyplacechip>
+	<notifywinning><![CDATA[YOU WIN #win#]]></notifywinning>
+	<minivideotooltip><![CDATA[CLICK TO TOGGLE VIEW]]></minivideotooltip>
+	<minivideotooltipout><![CDATA[CLICK TO TOGGLE VIEW]]></minivideotooltipout>
+	<viewmini><![CDATA[CHANGE VIEW]]></viewmini>
+
+	<!-- AAMS -->
+	<AAMSLimitsTitle><![CDATA[Money to bring to the game: ]]></AAMSLimitsTitle>
+	<AAMSRegulationLimit><![CDATA[Regulation limit: ]]></AAMSRegulationLimit>
+	<AAMSFullBalance><![CDATA[Full balance: ]]></AAMSFullBalance>
+	<AAMSOtherLimit><![CDATA[Other]]></AAMSOtherLimit>
+
+	<AAMSLoadingMsg><![CDATA[Please wait...]]></AAMSLoadingMsg>
+	<AAMSAmountError><![CDATA[Invalid amount. Please try again.]]></AAMSAmountError>
+	<AAMSMinAmountError><![CDATA[Amount should be greater that minimum table limit.]]></AAMSMinAmountError>
+	<AAMSBalanceError><![CDATA[Insufficient Balance.]]></AAMSBalanceError>
+	<AAMSStartGameError><![CDATA[Please try again.]]></AAMSStartGameError>
+
+	<AAMSParticipationID><![CDATA[Participation ID:]]></AAMSParticipationID>
+	<AAMSSessionID><![CDATA[Session ID:]]></AAMSSessionID>
+	<AAMSRoundID><![CDATA[Round ID:]]></AAMSRoundID>
+
+	<double><![CDATA[Double Down:]]></double>
+	<splithand><![CDATA[Split:]]></splithand>
+	<gamestart><![CDATA[Game Start:]]></gamestart>
+	<gameend><![CDATA[Game End:]]></gameend>
+	<gametime><![CDATA[Game Time:]]></gametime>
+
+	<error_3001><![CDATA[Your account is currently disabled. For further details please contact our support team.]]></error_3001>
+	<error_3002><![CDATA[Your current session balance is insufficient. To continue playing, you must set new limits.]]></error_3002>
+	<error_3003><![CDATA[Your bet exceeds the regulation limit. To continue playing, please close and reopen the game or reload.]]></error_3003>
+	<lowsessionbalance><![CDATA[Your account balance is too low to play. Please set new session limit to continue playing.]]></lowsessionbalance>
+	<historylastgame><![CDATA[Your last uncompleted game]]></historylastgame>
+	
+	<!-- social messages -->
+	<social_tooltip_facebook><![CDATA[Share your winnings! (Press CTRL + V to paste the message)]]></social_tooltip_facebook>
+	<social_tooltip_twitter><![CDATA[Share your winnings!]]></social_tooltip_twitter>
+	<socoal_message_roulette><![CDATA[I have just won #winnings# on Live #game# at #casino# with lucky spin #winner#!]]></socoal_message_roulette>
+	<socoal_message_blackjack><![CDATA[I have just won #winnings# on Live #game# at #casino#!]]></socoal_message_blackjack>
+	<socoal_message_baccarat><![CDATA[I have just won #winnings# on Live #game# at #casino#!]]></socoal_message_baccarat>
+	
+	<realplay><![CDATA[Want to play for real now?]]></realplay>
+	<nofreeplay><![CDATA[NO FREE PLAY]]></nofreeplay>
+</game>

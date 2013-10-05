@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<results>
+<result score="1">player</result>
+<result score="7">banker</result>
+<result score="5">banker</result>
+<result score="7">player</result>
+<result score="9">banker</result>
+<result score="9">banker</result>
+<result score="8">banker</result>
+<result score="9">player</result>
+<result score="3">player</result>
+<result score="9">banker</result>
+</results>

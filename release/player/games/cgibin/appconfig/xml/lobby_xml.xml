@@ -1,0 +1,191 @@
+<?xml version="1.0"?>
+<gametable>
+   <casinoid><![CDATA[0rnu7w1c8xhbuhtn]]></casinoid>
+   <userid><![CDATA[qsppb8350ousepw0]]></userid>
+   <server><![CDATA[livecasino.smartliveaffiliates.com]]></server>
+   <balance><![CDATA[5120]]></balance>
+   <streamSever mode="rtmp"><![CDATA[213.86.83.8/smartlivecasinolive-live]]></streamSever>
+   <opengame><![CDATA[/player/chat_board.jsp]]></opengame>
+   <maingame><![CDATA[baccarat]]></maingame>
+	<roulette>
+		
+		<table streamName="R1" table_id="vctlz20yfnmp1ylr" vt_id="swoc8t9zf7a4vzpx" name="Auto Roulette" dealer="nodealer" dealerid="nodealer" min="100.0" max="50000.0" priority="4" table_type="" game_type="auto" timings="24 HOURS" seats="999"  stream="R2" start_time="0" end_time="24">
+		
+		
+		</table>
+		
+		<table streamName="R1" table_id="vctlz20yfnmp1ylr" vt_id="swoc8t9zf7a4vzpx" name="Social Roulette" dealer="suzanne" dealerid="suzanne" min="1.0" max="1000.0" priority="6" table_type="" game_type="social" timings="09:00 � 18:00(GMT)" seats="999" stream="R1_TV_MOB" start_time="9" end_time="6">
+
+		</table>
+		
+		
+		<table streamName="R1" table_id="vctlz20yfnmp1ylr" vt_id="swoc8t9zf7a4vzpx" name="Rapid Roulette" dealer="suzanne" dealerid="suzanne" min="100.0" max="10000.0" priority="3" table_type="" game_type="blue" timings="18:00 � 00:00 (GMT)" seats="999" stream="R3_Cam1"  start_time="17" end_time="24">
+		</table>
+
+		
+	</roulette>
+	
+	<blackjack>
+		<table streamName="7BJ1" table_id="uwd2bl2khwcikjlz" vt_id="" name="7 Seat Blackjack" dealer="nodealer" dealerid="nodealer" min="1.0" max="500.0" priority="0" table_type="" game_type="" timings="" ></table>
+		
+	</blackjack>
+	<baccarat>
+		<table streamName="R1" table_id="crej46fqnnnlgl4w" vt_id="" name="Baccarat" dealer="nodealer" dealerid="nodealer" min="5.0" max="500.0" priority="0" table_type="classic" game_type="classic" timings="22:00 � 00:00(GMT)" >
+			<shoes>
+			<shoe winner="b" score="20" type=""/>
+			<shoe winner="b" score="10" type="pairs"/>
+			<shoe winner="p" score="28" type="pairs"/>
+			<shoe winner="p" score="45" type="natural"/>
+			<shoe winner="p" score="85" type="pairs"/>
+			<shoe winner="b" score="20" type=""/>
+			<shoe winner="t" score="5"  type=""/>
+			<shoe winner="p" score="28" type=""/>
+			<shoe winner="p" score="45" type=""/>
+			<shoe winner="p" score="85" type=""/>
+			</shoes>
+			<shoes>
+			<shoe winner="b" score="60"  type="pairs"/>
+			<shoe winner="b" score="85"  type=""/>
+			<shoe winner="p" score="68"  type=""/>
+			<shoe winner="p" score="69"  type=""/>
+			<shoe winner="p" score="36"  type="natural"/>
+			<shoe winner="t" score="7" type=""/>
+			<shoe winner="t" score="8" type=""/>
+			<shoe winner="t" score="28" type="natural"/>
+			<shoe winner="p" score="45" type="pairs"/>
+			<shoe winner="p" score="85" type=""/>
+			</shoes>
+			<shoes>			
+			<shoe winner="b" score="60" type=""/>
+			<shoe winner="b" score="85" type=""/>
+			<shoe winner="b" score="68" type="pairs"/>
+			<shoe winner="p" score="69" type=""/>
+			<shoe winner="p" score="36" type="pairs"/>
+			<shoe winner="p" score="37" type=""/>
+			<shoe winner="b" score="27" type=""/>
+			<shoe winner="t" score="28" type=""/>
+			<shoe winner="t" score="45" type="natural"/>
+			<shoe winner="p" score="85" type=""/>
+			<shoe winner="p" score="45" type=""/>
+			<shoe winner="b" score="85" type=""/>
+			</shoes>
+		</table>
+		<table streamName="7BJ1" table_id="crej46fqnnnlgl4w" vt_id="" name="Lucky Pairs" dealer="nodealer" dealerid="nodealer" min="5.0" max="500.0" priority="0" table_type="classic" game_type="classic" timings="22:00 � 00:00(GMT)" >
+			<shoes>
+			<shoe winner="b" score="20" type=""/>
+			<shoe winner="b" score="10" type="pairs"/>
+			<shoe winner="p" score="28" type="pairs"/>
+			<shoe winner="p" score="85" type="pairs"/>
+			<shoe winner="b" score="20" type=""/>
+			<shoe winner="t" score="5"  type=""/>
+			<shoe winner="p" score="45" type=""/>
+			<shoe winner="p" score="85" type=""/>
+			</shoes>
+			<shoes>
+			<shoe winner="b" score="60"  type="pairs"/>
+			<shoe winner="b" score="85"  type=""/>
+			<shoe winner="p" score="68"  type=""/>
+			<shoe winner="t" score="7" type=""/>
+			<shoe winner="t" score="8" type=""/>
+			<shoe winner="t" score="28" type="natural"/>
+			<shoe winner="p" score="45" type="pairs"/>
+			<shoe winner="p" score="85" type=""/>
+			</shoes>
+			<shoes>			
+			<shoe winner="b" score="60" type=""/>
+			<shoe winner="b" score="85" type=""/>
+			<shoe winner="b" score="68" type="pairs"/>
+			<shoe winner="p" score="69" type=""/>
+			<shoe winner="p" score="36" type="pairs"/>
+			<shoe winner="p" score="37" type=""/>
+			<shoe winner="t" score="45" type="natural"/>
+			<shoe winner="p" score="85" type=""/>
+			<shoe winner="p" score="45" type=""/>
+			<shoe winner="b" score="85" type=""/>
+			</shoes>
+			
+			<shoes>
+			<shoe winner="p" score="60"  type="pairs"/>
+			<shoe winner="p" score="85"  type=""/>
+			<shoe winner="b" score="68"  type=""/>
+			<shoe winner="b" score="69"  type=""/>
+			<shoe winner="p" score="36"  type="natural"/>
+			<shoe winner="t" score="7" type=""/>
+			<shoe winner="t" score="8" type=""/>
+			<shoe winner="b" score="28" type="natural"/>
+			<shoe winner="p" score="45" type="pairs"/>
+			<shoe winner="p" score="85" type=""/>
+			</shoes>
+		</table>
+		<table streamName="R1" table_id="crej46fqnnnlgl4w" vt_id="" name="Super Six" dealer="nodealer" dealerid="nodealer" min="5.0" max="500.0" priority="0" table_type="classic" game_type="classic" timings="22:00 � 00:00(GMT)" >
+			<shoes>			
+			<shoe winner="b" score="60" type=""/>
+			<shoe winner="b" score="85" type=""/>
+			<shoe winner="b" score="68" type="pairs"/>
+			<shoe winner="p" score="69" type=""/>
+			<shoe winner="p" score="36" type="pairs"/>
+			<shoe winner="t" score="45" type="natural"/>
+			<shoe winner="b" score="85" type=""/>
+			</shoes>
+			
+			<shoes>
+			<shoe winner="p" score="60"  type="pairs"/>
+			<shoe winner="p" score="85"  type=""/>
+			<shoe winner="p" score="36"  type="natural"/>
+			<shoe winner="t" score="7" type=""/>
+			<shoe winner="p" score="45" type="pairs"/>
+			<shoe winner="p" score="85" type=""/>
+			</shoes>
+			</table>
+			<table streamName="7BJ1" table_id="crej46fqnnnlgl4w" vt_id="" name="Dragon & Tiger" dealer="nodealer" dealerid="nodealer" min="5.0" max="500.0" priority="0" table_type="classic" game_type="classic" timings="22:00 � 00:00(GMT)" >
+			<shoes>
+			<shoe winner="b" score="60"  type="pairs"/>
+			<shoe winner="b" score="85"  type=""/>
+			<shoe winner="p" score="68"  type=""/>
+			<shoe winner="t" score="7" type=""/>
+			<shoe winner="t" score="8" type=""/>
+			<shoe winner="t" score="28" type="natural"/>
+			<shoe winner="p" score="45" type="pairs"/>
+			<shoe winner="p" score="85" type=""/>
+			</shoes>
+			<shoes>			
+			<shoe winner="b" score="60" type=""/>
+			<shoe winner="b" score="85" type=""/>
+			<shoe winner="b" score="68" type="pairs"/>
+			<shoe winner="p" score="69" type=""/>
+			<shoe winner="b" score="85" type=""/>
+			</shoes>
+			
+			<shoes>
+			<shoe winner="p" score="60"  type="pairs"/>
+			<shoe winner="p" score="85"  type=""/>
+			<shoe winner="b" score="68"  type=""/>
+			<shoe winner="b" score="69"  type=""/>
+			<shoe winner="p" score="36"  type="natural"/>
+			<shoe winner="t" score="7" type=""/>
+			<shoe winner="t" score="8" type=""/>
+			<shoe winner="b" score="28" type="natural"/>
+			<shoe winner="p" score="45" type="pairs"/>
+			<shoe winner="p" score="85" type=""/>
+			</shoes>
+			<shoes>			
+			<shoe winner="b" score="60" type=""/>
+			<shoe winner="b" score="85" type=""/>
+			<shoe winner="b" score="68" type="pairs"/>
+			<shoe winner="p" score="45" type=""/>
+			<shoe winner="b" score="85" type=""/>
+			</shoes>	
+			<shoes>
+			<shoe winner="b" score="60"  type="pairs"/>
+			<shoe winner="b" score="85"  type=""/>
+			<shoe winner="p" score="68"  type=""/>
+			<shoe winner="t" score="7" type=""/>
+			<shoe winner="t" score="8" type=""/>
+			<shoe winner="t" score="28" type="natural"/>
+			<shoe winner="p" score="45" type="pairs"/>
+			<shoe winner="p" score="85" type=""/>
+			</shoes>
+			</table>
+	</baccarat>
+	
+</gametable>

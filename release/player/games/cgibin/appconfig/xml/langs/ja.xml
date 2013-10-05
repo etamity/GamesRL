@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8"?> 
+<game>
+	<!-- Preloader -->
+	<loading><![CDATA[読み込み中...]]></loading>
+	<loadingaudio><![CDATA[オーディオを読み込み中...]]></loadingaudio>
+	<loadingstyle><![CDATA[スタイルを読み込み中...]]></loadingstyle>
+	<loadinggamedata><![CDATA[ゲームとテーブルデータを読み込み中...]]></loadinggamedata>
+	<connectingtogameserver><![CDATA[ゲームサーバーに接続中...]]></connectingtogameserver>
+	<loadingbalance><![CDATA[残高を読み込み中...]]></loadingbalance>
+	<loadingvideo><![CDATA[ライブビデオに接続中...]]></loadingvideo>
+	<live><![CDATA[ライブ]]></live>
+	<videotooltip><![CDATA[ビデオを拡大するにはクリックしてください]]></videotooltip>
+	<videotooltipout><![CDATA[ビデオを縮小するにはクリックしてください]]></videotooltipout>
+	<optimizingvideo><![CDATA[Optimising Video...]]></optimizingvideo>
+
+	<!-- History -->
+	<historytitle><![CDATA[履歴]]></historytitle>
+	<gametype><![CDATA[ゲームの種類]]></gametype>
+	<time><![CDATA[時間]]></time>
+	<amount><![CDATA[額]]></amount>
+	<date><![CDATA[年月日]]></date>
+	<stake><![CDATA[賭け金]]></stake>
+	<winlose><![CDATA[勝ち/負け]]></winlose>
+	<transactiontime><![CDATA[取り引き時間]]></transactiontime>
+	<transactiontype><![CDATA[取り引きの種類]]></transactiontype>
+	<enteredby><![CDATA[入力者]]></enteredby>
+	<transactionstatus><![CDATA[ステータス]]></transactionstatus>
+	<notes><![CDATA[注記]]></notes>
+	<betheading><![CDATA[賭け金]]></betheading>
+	<resultheading><![CDATA[結果]]></resultheading>
+	<participation><![CDATA[Participation ID]]></participation>
+	<netcash><![CDATA[現金払い]]></netcash>
+	<theplayerhand><![CDATA[プレイヤーの持ち札]]></theplayerhand>
+	<thebankerhand><![CDATA[バンカーの持ち札]]></thebankerhand>
+	<seatname><![CDATA[席名]]></seatname>
+	<score><![CDATA[得点]]></score>
+	<payoff><![CDATA[配当]]></payoff>
+	<insurance><![CDATA[インシュランス]]></insurance>
+	<cards><![CDATA[カード]:]]></cards>
+	<accounthistory><![CDATA[口座の履歴]]></accounthistory>
+	<currentactivity><![CDATA[現在のアクティビティ]]></currentactivity>
+	<backtoaccounthistory><![CDATA[口座の履歴に戻る]]></backtoaccounthistory>
+	<backtogamehistory><![CDATA[ゲームの履歴に戻る]]></backtogamehistory>
+	<noactivity><![CDATA[今回の期間中は、アクティビティはありませんでした]]></noactivity>
+	<stakereturned><![CDATA[Stake Returned]]></stakereturned>
+	<win><![CDATA[Win]]></win>
+
+	<!-- Roulette Statistics -->
+	<statistics><![CDATA[統計]]></statistics>
+	<statisticstip><![CDATA[CLICK TO SEE STATISTICS]]></statisticstip>
+	<roulettestatstitle><![CDATA[ルーレットの統計 - 過去 100 回のゲーム]]></roulettestatstitle>
+	<winsbutton><![CDATA[勝ち]]></winsbutton>
+	<betsbutton><![CDATA[掛け金]]></betsbutton>
+	<resultsbutton><![CDATA[結果]]></resultsbutton>
+	<hotnumbers><![CDATA[ホットナンバー]]></hotnumbers>
+	<coldnumbers><![CDATA[コールドナンバー]]></coldnumbers>
+	
+	<!-- Help -->
+	<helptitle><![CDATA[ヘルプ]]></helptitle>
+	
+	<!-- Baccarat -->
+	<player><![CDATA[プレイヤー]]></player>
+	<banker><![CDATA[バンカー]]></banker>
+	<tie><![CDATA[タイ]]></tie>
+	<pair_player><![CDATA[プレイヤーペア]]></pair_player>
+	<pair_banker><![CDATA[バンカーペア]]></pair_banker>
+	<twoway><![CDATA[二点]]></twoway>
+	<threeway><![CDATA[三点]]></threeway>
+	<bigroad><![CDATA[ビッグロード]]></bigroad>
+	<bigeyeboyroad><![CDATA[ビッグアイボーイ]]></bigeyeboyroad>
+	<smallroad><![CDATA[スモールロード]]></smallroad>
+	<cockroachroad><![CDATA[ゴキブリ]]></cockroachroad>
+
+	<!-- Blackjack -->
+	<sithere><![CDATA[ここに座る]]></sithere>
+	<unseat><![CDATA[席を立つ]]></unseat>
+	<multiseat><![CDATA[マルチシート]]></multiseat>
+	<multiseattip><![CDATA[CLICK FOR ANOTHER SEAT]]></multiseattip>
+	<seattaken><![CDATA[この席はふさがっています]]></seattaken>
+	<confirm><![CDATA[確認する]]></confirm>
+	<decisiontitle><![CDATA[オプションを選択してください]]></decisiontitle>
+	<hit><![CDATA[ヒット]]></hit>
+	<stand><![CDATA[スタンド]]></stand>
+	<doubledown><![CDATA[ダブルダウン]]></doubledown>
+	<insurancetitle><![CDATA[インシュランス？]]></insurancetitle>
+	<yes><![CDATA[はい]]></yes>
+	<no><![CDATA[いいえ]]></no>
+
+	<!-- Lobby -->
+	<lobby><![CDATA[ライブゲームメニュー]]></lobby>
+	<loadinglobbyxml><![CDATA[テーブルを読み込み中...]]></loadinglobbyxml>
+	<baccarat><![CDATA[ライブバカラ]]></baccarat>
+	<blackjack><![CDATA[ライブブラックジャック]]></blackjack>
+	<roulette><![CDATA[ライブルーレット]]></roulette>
+	<slingshot><![CDATA[ライブスリングショット]]></slingshot>
+	<dealer><![CDATA[ディーラー]]></dealer>
+	<account><![CDATA[口座]]></account>
+	<myaccount><![CDATA[マイアカウント]]></myaccount>
+	<tableinfo><![CDATA[テーブル情報]]></tableinfo>
+	<players><![CDATA[プレイヤー]]></players>
+	<results><![CDATA[結果]]></results>
+	<viewtable><![CDATA[テーブルの表示]]></viewtable>
+	<currenttable><![CDATA[現在のテーブル]]></currenttable>
+	<hometext><![CDATA[以下のライブゲームをどれかクリックして、テーブルを表示する]]></hometext>
+	<vtabletext><![CDATA[#table# に対するテーブル制限を選択してください。]]></vtabletext>
+	<gamemodetext><![CDATA[#min# - #max# の制限を設けて、#table# をプレーするには表示を選択してください。 ]]></gamemodetext>
+	<chooseroulette><![CDATA[以下のルーレット・テーブルを 1 つお選びください。]]></chooseroulette>
+	<choosebaccarat><![CDATA[以下のバカラ・テーブルを 1 つお選びください。]]></choosebaccarat>
+	<chooseblackjack><![CDATA[以下のブラックジャック・テーブルを 1 つお選びください。]]></chooseblackjack>
+	<chooseminiroulette><![CDATA[PLEASE CHOOSE A MINI ROULETTE TABLE BELOW]]></chooseminiroulette>
+	<chooseminibaccarat><![CDATA[PLEASE CHOOSE A MINI BACCARAT TABLE BELOW]]></chooseminibaccarat>
+	<chooseminiblackjack><![CDATA[PLEASE CHOOSE A MINI BLACKJACK TABLE BELOW]]></chooseminiblackjack>
+
+	<screenname><![CDATA[画面名]]></screenname>
+	<screennamelabel><![CDATA[有効な画面名を入力してください。]]></screennamelabel>
+	<screennameerror1><![CDATA[画面名が正しくありません。]]></screennameerror1>
+	<screennameerror2><![CDATA[その画面名は既に使われています。]]></screennameerror2>
+	<seaterror1><![CDATA[他の席をご利用ください。]]></seaterror1>
+	<seaterror2><![CDATA[席に着くには、お金が足りません。]]></seaterror2>
+
+	<view1><![CDATA[3D 表示]]></view1>
+	<view2><![CDATA[従来の表示]]></view2>
+	<view3><![CDATA[ペア]]></view3>
+	<view4><![CDATA[アジア人]]></view4>
+	<normal><![CDATA[NORMAL]]></normal>
+	<switchvideo><![CDATA[SWITCH VIDEO]]></switchvideo>
+
+	<details_blackjack><![CDATA[Live Blackjack - The fastest live dealer Blackjack in the world. Same deal speed as if you were in a real Casino. ]]></details_blackjack>
+	<details_blackjack_vip><![CDATA[VIP Blackjack - Play live Blackjack with other high rollers]]></details_blackjack_vip>
+	<details_blackjack_betbehind><![CDATA[Play behind Blackjack. Bet on other players. When they win, you win !]]></details_blackjack_betbehind>
+	<details_baccarat><![CDATA[Enjoy live Baccarat in the environment it is meant to be played in.]]></details_baccarat>
+	<details_baccarat_vip><![CDATA[live dealer VIP baccarat, a chance to play with high stakes.]]></details_baccarat_vip>
+	<details_roulette><![CDATA[Play standard Roulette with one game per minute.]]></details_roulette>
+	<details_roulette_vip><![CDATA[VIP Roulette. Play VIP Roulette with one game every minute. High betting limits for high rollers]]></details_roulette_vip>
+	<details_roulette_blue><![CDATA[Play our brand new Grand Roulette with your favourite presenters. Fast and interactive. Open 6 PM till 12 PM (GMT) every day.]]></details_roulette_blue>
+	<details_roulette_european><![CDATA[Play LIVE and experience the truest Live Roulette available online. Place your bets and speak to our lovely croupiers amongst the best graphics online everyday between 6pm and 12am (GMT)!]]></details_roulette_european>
+	<details_roulette_auto><![CDATA[Fully automated Roulette wheel produced by Cammegh, The World's Finest Roulette Wheel.]]></details_roulette_auto>
+	<details_roulette_brown><![CDATA[Spinning every 45 seconds, our fully air powered Roulette wheel is the fastest live roulette in the world! Play jet Roulette with the table limit ranging from 0.25 right up to 500 every hour of every day!.]]></details_roulette_brown>
+
+	<bonusterms><![CDATA[<b>あなたには、<u>*BONUS_CURRENCY* *BONUS_AMOUNT*</u> *BONUS_NAME* ボーナスを受け取る資格があります！<br/><br/>以下の規約に合意する場合、その額があなたのボーナス・アカウントに追加されます。<br><br><u>[ボーナス協定:]</u><br/><br/>*BONUS_CURRENCY* *BONUS_AMOUNT* のボーナスを受け入れると承認済みのゲームにおいて、現金を引き出す前に最低 <u>*BONUS_CURRENCY* *MIN_BET*</u> の料金を賭けるという義務に合意することになります。この条件はボーナス協定に準じて、当社の経理部によって執行されることになります。</b>]]></bonusterms>
+	<signmeup><![CDATA[はい、登録します！]]></signmeup>
+	<nothanks><![CDATA[いいえ、登録しません]]></nothanks>
+	
+	<!-- Balance Popup -->
+	<balancedetails><![CDATA[残高の詳細]]></balancedetails>
+	<bonusbalance><![CDATA[ボーナスの残高]]></bonusbalance>
+	<currentplaythrough><![CDATA[現在の賭け料金]]></currentplaythrough>
+	<requiredplaythrough><![CDATA[必要な賭け料金]]></requiredplaythrough>
+
+	<!-- Settings Popup -->
+	<settings><![CDATA[設定]]></settings>
+	<autofullscreen><![CDATA[スピン中の自動ビデオ拡大]]></autofullscreen>
+	<videoquality><![CDATA[ビデオ品質の設定:]]></videoquality>
+	<autoadjust><![CDATA[自動調整]]></autoadjust>
+	<lowquality><![CDATA[ロー（低）]]></lowquality>
+	<medquality><![CDATA[ミディアム（中）]]></medquality>
+	<highquality><![CDATA[ハイ（高）]]></highquality>
+	<suppresschat><![CDATA[他のプレーヤーにチャットが見えないようにする]]></suppresschat>
+
+	<!-- Chat Help Text
+	<chelp1><![CDATA[ライブビデオ共通ドロールーレットを展開しています]]></chelp1>
+	<chelp2><![CDATA[世界最強のルーレット・ホイールをご覧いただいています]]></chelp2>
+	<chelp3><![CDATA[完全自動化の Cammegh スリングショット 2]]></chelp3>
+	<chelp4><![CDATA[世界のトップカジノを検索しました]]></chelp4>
+	<chelp5><![CDATA[圧縮空気で動作]]></chelp5>
+	<chelp6><![CDATA[ライブの放送 – 1時間 60 ゲーム以上]]></chelp6>
+	<chelp7><![CDATA[メッセージを他のプレイヤーや顧客サービスへ送信する場合は、[チャット] ボタンを押してください]]></chelp7> -->
+
+	<!-- Chat & Participant messages -->
+	<welcometo><![CDATA[ようこそ]]></welcometo>
+	<chat><![CDATA[チャット]]></chat>
+	<clicktochat><![CDATA[クリックしてチャットしてください]]></clicktochat>
+	<playersontable><![CDATA[テーブルには #count# のプレイヤーがいます]]></playersontable>
+	<playerontable><![CDATA[テーブルには #player# がいます]]></playerontable>
+	<winmsg><![CDATA[#player# が #amount# を獲得]]></winmsg>
+
+	<!-- Idle& Session Expired Messages -->
+	<idlemessage><![CDATA[非アクティブなためにゲームが一時停止しました。継続するには、[OK] をクリックします。]]></idlemessage>
+	<sessionexpired><![CDATA[長時間発信がないのでセッションの有効期限が切れました。サイトに戻って再度ログインしてください。 ]]></sessionexpired>
+	
+	<!-- Betting Options -->
+	<rebet><![CDATA[リピート]]></rebet>
+	<doublebet><![CDATA[ダブル]]></doublebet>
+	<undo><![CDATA[アンドゥー]]></undo>
+
+	<!-- Bet Limits Panel -->
+	<betlimits><![CDATA[賭け金制限]]></betlimits>
+	<min><![CDATA[最小]]></min>
+	<max><![CDATA[最大]]></max>
+	<payout><![CDATA[支払]]></payout>
+	<betlabel><![CDATA[賭け金]]></betlabel>
+	<alllimitstip><![CDATA[クリックして全ての制限を確認してください]]></alllimitstip>
+	<dozen><![CDATA[ダース]]></dozen>
+	<corner><![CDATA[コーナー]]></corner>
+	<high><![CDATA[ハイ（高）]]></high>
+	<low><![CDATA[ロー（低）]]></low>
+	<straight><![CDATA[ストレート]]></straight>
+	<even><![CDATA[イーブン]]></even>
+	<odd><![CDATA[オッド]]></odd>
+	<trio><![CDATA[ストリート]]></trio>
+	<column><![CDATA[カラム]]></column>
+	<split><![CDATA[スプリット]]></split>
+	<red><![CDATA[赤]]></red>
+	<black><![CDATA[黒]]></black>
+	<green><![CDATA[GREEN]]></green>
+	<five_number><![CDATA[ファイブナンバー]]></five_number>
+	<six_number><![CDATA[シックスナンバー]]></six_number>
+
+	<!-- Task Bar -->
+	<balance><![CDATA[残高]]></balance>
+	<session_balance><![CDATA[残高]]></session_balance>
+	<bonus><![CDATA[ボーナス]]></bonus>
+	<bet><![CDATA[合計賭け金]]></bet>
+	<gameid><![CDATA[ゲーム番号]]></gameid>
+	<cashier><![CDATA[キャッシャー]]></cashier>
+	<deposit><![CDATA[キャッシャー]]></deposit>
+	<back><![CDATA[BACK]]></back>
+	<close><![CDATA[CLOSE]]></close>
+	<history><![CDATA[履歴]]></history>	
+	<help><![CDATA[ヘルプ]]></help>
+	<responsible><![CDATA[RESPONSIBLE]]></responsible>
+	<fullscreen><![CDATA[フル画面]]></fullscreen>
+	<restore><![CDATA[リストア]]></restore>
+	<soundon><![CDATA[サウンドオン]]></soundon>
+	<soundoff><![CDATA[サウンドオフ]]></soundoff>
+	<chatonhelp><![CDATA[チャットは既に開いています（左上隅）]]></chatonhelp>
+	<chaton><![CDATA[チャットを表示]]></chaton>
+	<chatoff><![CDATA[チャットを非表示]]></chatoff>	
+	<changetable><![CDATA[テーブル変更]]></changetable>
+	<bonusdetails><![CDATA[クリックして、残高とボーナスの詳細を見ます]]></bonusdetails>
+
+	<!-- Game Status Panel -->
+	<table><![CDATA[テーブル]]></table>
+	<pleasewait><![CDATA[しばらくお待ちください]]></pleasewait>
+	<placebets><![CDATA[賭けてください]]></placebets>
+	<betsclosing><![CDATA[賭け時間の終了がせまっています]]></betsclosing>
+	<betsclosinggeneric><![CDATA[賭け時間の終了がせまっています]]></betsclosinggeneric>
+	<nomorebets><![CDATA[これ以上賭けられません]]></nomorebets>
+	<sendingbets><![CDATA[賭け金を送る]]></sendingbets>
+	<betsaccepted><![CDATA[賭けが承認されました]]></betsaccepted>
+	<notallbetsaccepted><![CDATA[賭けの一部が承認されませんでした]]></notallbetsaccepted>
+	<betsrejected><![CDATA[賭けが拒否されました]]></betsrejected>
+	<waitingforbets><![CDATA[賭けの待機中]]></waitingforbets>
+	<waitingfornextgame><![CDATA[次のゲームの待機中]]></waitingfornextgame>
+	<waitingfordecision><![CDATA[決定の待機中]]></waitingfordecision>
+	<waitingforinsurance><![CDATA[インシュランスの待機中]]></waitingforinsurance>
+	<waitingforcard><![CDATA[取り引き]]></waitingforcard>
+	<waitingforresult><![CDATA[結果の待機中]]></waitingforresult>
+	<gameover><![CDATA[ゲームオーバー]]></gameover>
+	<gamecancelled><![CDATA[ゲームはキャンセルされました]]></gamecancelled>	
+	<open><![CDATA[開く]]></open>
+	<closing><![CDATA[終了します]]></closing>
+	<closed><![CDATA[終了しました]]></closed>
+	<result><![CDATA[結果:#result#]]></result>
+	<youwon><![CDATA[あなたの勝ち:#winnings#]]></youwon>
+
+	<!-- Game Table Tool Tips -->
+	<minbetis><![CDATA[最小賭け金は #bet#]]></minbetis>
+	<maxbetis><![CDATA[最大賭け金は #bet#]]></maxbetis>
+	<mintablebetis><![CDATA[最小テーブル賭け金は #bet#]]></mintablebetis>
+	<maxtablebetis><![CDATA[最大テーブル賭け金は #bet#]]></maxtablebetis>
+	<notenoughmoney><![CDATA[資金が足りません]]></notenoughmoney>
+
+	<!-- Error/Warning/Information Messages -->
+	<warning><![CDATA[警告 (#id#)]]></warning>
+	<information><![CDATA[情報 (#id#)]]></information>
+	<error><![CDATA[エラー (#id#)]]></error>
+	<lowbalance><![CDATA[プレーするには口座の残高が足りません。口座に資金を預け入れてください。]]></lowbalance>
+	<error_ok><![CDATA[OK]]></error_ok>
+	<generic_wheel_error id="7001"><![CDATA[一時的な通信エラー。次のゲームラウンドまでしばらくお待ちください。]]></generic_wheel_error>
+	<generic_communication_error id="7002"><![CDATA[通信エラー。お困りのことがございましたら顧客サービスへお問い合わせください。]]></generic_communication_error>
+	<generic_placebets_error id="7003"><![CDATA[賭け金はサーバーによって承認されませんでした。お困りのことがございましたら顧客サービスへお問い合わせください。]]></generic_placebets_error>
+	<generic_balance_error id="7004"><![CDATA[更新された残高を一時的に表示できません。お困りのことがございましたら顧客サービスへお問い合わせください。]]></generic_balance_error>
+	<game_cancelled id="7005"><![CDATA[ゲームはキャンセルされました。次のゲームまでしばらくお待ちください。]]></game_cancelled>
+	<!-- All Server Side Error Messages -->
+	<error_10104><![CDATA[この賭け金を置くには資金が足りません。]]></error_10104>
+	<error_10103><![CDATA[口座が無効になっています。お困りのことがございましたら顧客サービスへお問い合わせください。]]></error_10103>
+	<error_10102><![CDATA[口座が凍結されています。お困りのことがございましたら顧客サービスへお問い合わせください。]]></error_10102>
+	<error_2400><![CDATA[セッションの有効期限が切れました。再度ログインしてください。]]></error_2400>
+	<error_1000><![CDATA[お困りのことがございましたら顧客サービスへお問い合わせください。]]></error_1000>
+	<error_1400><![CDATA[お困りのことがございましたら顧客サービスへお問い合わせください。]]></error_1400>
+	<error_1500><![CDATA[お困りのことがございましたら顧客サービスへお問い合わせください。]]></error_1500>
+	<error_10106><![CDATA[お困りのことがございましたら顧客サービスへお問い合わせください。]]></error_10106>
+	<error_10100><![CDATA[お困りのことがございましたら顧客サービスへお問い合わせください。]]></error_10100>
+	<error_10101><![CDATA[お困りのことがございましたら顧客サービスへお問い合わせください。]]></error_10101>
+	<error_10105><![CDATA[お困りのことがございましたら顧客サービスへお問い合わせください。]]></error_10105>
+	<error_20100><![CDATA[プレーの最年少条件を満たしていません。]]></error_20100>
+	<error_20101><![CDATA[一時的に別名を登録できません。]]></error_20101>
+	<error_20102><![CDATA[残高を一時的に取得できません。]]></error_20102>
+	<error_20103><![CDATA[カジノへ資金を一時的に送金できません。]]></error_20103>
+	<error_20104><![CDATA[為替レート一時的に取得できません。]]></error_20104>
+	<error_010><![CDATA[お困りのことがございましたら顧客サービスへお問い合わせください。]]></error_010>
+	<error_0><![CDATA[お困りのことがございましたら顧客サービスへお問い合わせください。]]></error_0>
+	<error_10002><![CDATA[お困りのことがございましたら顧客サービスへお問い合わせください。]]></error_10002>
+	<error_10003><![CDATA[セッションの有効期限が切れました。再度ログインしてください。]]></error_10003>
+	<error_10004><![CDATA[お困りのことがございましたら顧客サービスへお問い合わせください。]]></error_10004>
+	<error_10005><![CDATA[お困りのことがございましたら顧客サービスへお問い合わせください。]]></error_10005>
+	<error_10006><![CDATA[このラウンドの賭けは既に承認されています。]]></error_10006>
+	<error_10007><![CDATA[口座が凍結されています。お困りのことがございましたら顧客サービスへお問い合わせください。]]></error_10007>
+	<error_10008><![CDATA[この賭け金を置くには資金が足りません。]]></error_10008>
+	<error_1001><![CDATA[ゲームサーバーに一時的に問題が発生しました。]]></error_1001>
+	<error_1002><![CDATA[お困りのことがございましたら顧客サービスへお問い合わせください。]]></error_1002>
+	<error_1003><![CDATA[お困りのことがございましたら顧客サービスへお問い合わせください。]]></error_1003>
+	<error_1004><![CDATA[ 席がなくなりました。ゲームを再起動してください。]]></error_1004>
+	<error_1005><![CDATA[無効な賭け金を置こうとしました。お困りのことがございましたら顧客サービスへお問い合わせください。]]></error_1005>
+	<error_1006><![CDATA[次のラウンドが開始されるまでしばらくお待ちください。]]></error_1006>
+	<error_1007><![CDATA[賭け金を時間内に受け取れませんでした。次のラウンドで再度お試しください。]]></error_1007>
+	<error_1008><![CDATA[賭け金が承認されませんでした。次のラウンドで再度お試しください。]]></error_1008>
+	<error_1009><![CDATA[インサイド・ベットで許可されている最大賭け金を超えているので承認されませんでした。]]></error_1009>
+	<error_1010><![CDATA[アウトサイド・ベットで許可されている最大賭け金を超えているので承認されませんでした。]]></error_1010>
+	<error_1011><![CDATA[サーバーが賭け金を処理できませんでした。お困りのことがございましたら顧客サービスへお問い合わせください。]]></error_1011>
+	<error_1012><![CDATA[このテーブルで許可されている最大賭け金を超えているので承認されませんでした。]]></error_1012>
+	<error_1013><![CDATA[賭け金が必要な最小金額を満たしていないために承認されませんでした。]]></error_1013>
+	<error_1014><![CDATA[お困りのことがございましたら顧客サービスへお問い合わせください。]]></error_1014>
+	<error_1015><![CDATA[お困りのことがございましたら顧客サービスへお問い合わせください。]]></error_1015>
+	<error_1016><![CDATA[お困りのことがございましたら顧客サービスへお問い合わせください。]]></error_1016>
+	<error_1017><![CDATA[あなたのターンは終了しました。]]></error_1017>
+	<error_1018><![CDATA[決定するのに許可されている時間は、このターンで終了しました。]]></error_1018>
+	<error_1019><![CDATA[ゲームの決定を変更することはできません。]]></error_1019>
+	<error_1020><![CDATA[席でエラーが発生しました。新しいブラウザウィンドウでゲームを再起動してください。]]></error_1020>
+	<error_1021><![CDATA[あなたのターンではありません。決定は他のプレーヤーによって下されます。]]></error_1021>
+	<error_1022><![CDATA[選択した決定は正しくありません。他の決定を下してください。]]></error_1022>
+	<error_1023><![CDATA[エラー。スプリット操作はできません。顧客サービスへお問い合わせください。]]></error_1023>
+	<error_1024><![CDATA[エラー。ダブルダウン操作はできません。顧客サービスへお問い合わせください。]]></error_1024>
+	<error_1025><![CDATA[ゲーム結果の送信エラー。新しいブラウザウィンドウでゲームを再起動してください。]]></error_1025>
+	<error_1026><![CDATA[エラー。インシュランス購入操作はできません。顧客サービスへお問い合わせください。]]></error_1026>
+	<error_1027><![CDATA[このラウンドのインシュランスを既に購入しています。]]></error_1027>
+	<error_1028><![CDATA[置こうとした賭け金は正しくありません。顧客サービスへお問い合わせください。]]></error_1028>
+	<error_1029><![CDATA[置こうとした賭け金は正しくありません。顧客サービスへお問い合わせください。]]></error_1029>
+	<error_1030><![CDATA[置こうとした賭け金は正しくありません。顧客サービスへお問い合わせください。]]></error_1030>
+	<error_1031><![CDATA[選択された席は既にふさがっています。空席をお選びください。]]></error_1031>
+	<error_1032><![CDATA[お困りのことがございましたら顧客サービスへお問い合わせください。]]></error_1032>
+	<error_1033><![CDATA[お困りのことがございましたら顧客サービスへお問い合わせください。]]></error_1033>
+	<error_2000><![CDATA[お困りのことがございましたら顧客サービスへお問い合わせください。]]></error_2000>
+	<error_2001><![CDATA[操作の実行に失敗しました。再度お試しください。]]></error_2001>
+	<error_2002><![CDATA[新しいブラウザウィンドウでゲームを再起動してください。問題が解消されない場合は、顧客サービスへお問い合わせください。]]></error_2002>
+	<error_2003><![CDATA[賭け金は最大賭け金制限を超えることができません。]]></error_2003>
+	<error_2004><![CDATA[賭け金は最小賭け金制限に従う必要があります。]]></error_2004>
+	<error_2005><![CDATA[この賭け金を置くには残高が足りません。キャッシャーに行き預金をしてください。]]></error_2005>
+	<error_2006><![CDATA[申訳ございません。当社サービスはあなたのお住まいの国では使用できません。]]></error_2006>
+	<error_2007><![CDATA[ログインするには、ユーザー名とパスワードを入力してください。]]></error_2007>
+	<error_2008><![CDATA[ユーザー名またはパスワードが正しくありません。再度お試しください。]]></error_2008>
+	<error_104><![CDATA[新しいブラウザウィンドウでゲームを再起動してください。]]></error_104>	
+	
+	<neighbourspecialbets><![CDATA[ネイバー & スペシャル・ベット]]></neighbourspecialbets>
+	<!-- Special Bets -->
+	<specialbets><![CDATA[スペシャル・ベット]]></specialbets>
+	<specialbet18><![CDATA[Tiers du cylindre]]></specialbet18>
+	<specialbet17><![CDATA[Voisins du zero]]></specialbet17>
+	<specialbet16><![CDATA[Orphelins en plein]]></specialbet16>
+	<specialbet15><![CDATA[Orphelins a cheval]]></specialbet15>
+	<specialbet14><![CDATA[Finale en plein 0]]></specialbet14>
+	<specialbet13><![CDATA[Finale en plein 1]]></specialbet13>
+	<specialbet12><![CDATA[Finale en plein 2]]></specialbet12>
+	<specialbet11><![CDATA[Finale en plein 3]]></specialbet11>
+	<specialbet10><![CDATA[Finale en plein 4]]></specialbet10>
+	<specialbet9><![CDATA[Finale en plein 5]]></specialbet9>
+	<specialbet8><![CDATA[Finale en plein 6]]></specialbet8>
+	<specialbet7><![CDATA[Finale en plein 7]]></specialbet7>
+	<specialbet6><![CDATA[Finale en plein 8]]></specialbet6>
+	<specialbet5><![CDATA[Finale en plein 9]]></specialbet5>
+	<specialbet4><![CDATA[Finale 0/3]]></specialbet4>
+	<specialbet3><![CDATA[Finale 1/4]]></specialbet3>
+	<specialbet2><![CDATA[Finale 2/5]]></specialbet2>
+	<specialbet1><![CDATA[Finale 3/6]]></specialbet1>
+
+	<!-- Neighbour Bets -->
+	<neighbourbets><![CDATA[ネイバー・ベット]]></neighbourbets>
+	<neighbourbets1><![CDATA[Tier]]></neighbourbets1>
+	<neighbourbets2><![CDATA[Orphelins]]></neighbourbets2>
+	<neighbourbets3><![CDATA[Voisins Du Zero]]></neighbourbets3>
+
+	<lowriskcommonmsg><![CDATA[賭け金制限適用]]></lowriskcommonmsg>
+
+	<notsittingpage><![CDATA[もはやこのテーブルには着いていません。このウィンドウを閉じて再度ゲームを起動してください。]]></notsittingpage>
+	<errorpage><![CDATA[ライブカジノに問題が発生しました。後ほど再度お試しください。エラーコード:EV02]]></errorpage>
+	<missingpage><![CDATA[当社のライブカジノサーバー内では、お探しのページは見つかりませんでした。<br />URL をお確かめになり再度お試しいただくか、顧客サービスへお問い合わせください。エラーコード:EV03]]></missingpage>
+	<loginpage><![CDATA[ライブカジノに問題が発生しました。<br />ユーザー認証に失敗したか、セッションの有効期限が切れました。ブラウザを閉じて再度お試しください。エラーコード:EV01]]></loginpage>
+
+	<!-- Bet Behind -->
+	<betbehind><![CDATA[ベット・ビハインド]]></betbehind>
+	<betbehind_info><![CDATA[あなたが賭けているプレーヤーが、スプリットまたはダブルダウンを選択した場合は、あなたの賭け金は倍になります。以下のチェックボックスはオフにしてください。]]></betbehind_info>
+	<betbehind_note><![CDATA[注記:あなたが、賭けをしないと選択するプレーヤーに賭けた場合は、あなたの賭け金は返金されます。]]></betbehind_note>
+	<betbehind_doublestake><![CDATA[プレーヤーがダブルダウンをした場合は、賭け金が倍になります]]></betbehind_doublestake>
+	<betbehind_splitsdoublestake><![CDATA[プレーヤーがスプリットした場合は、賭け金が倍になります。]]></betbehind_splitsdoublestake>
+
+	<!-- Mini -->
+	<miniroulette><![CDATA[MINI LIVE ROULETTE]]></miniroulette>
+	<miniblackjack><![CDATA[MINI LIVE BLACKJACK]]></miniblackjack>
+	<minibaccarat><![CDATA[MINI LIVE BACCARAT]]></minibaccarat>
+	<mini><![CDATA[MINI]]></mini>
+	<balancemini><![CDATA[Balance]]></balancemini>
+	<betmini><![CDATA[Bet]]></betmini>
+	<gameidmini><![CDATA[Game Time]]></gameidmini>
+	<placebetsmini><![CDATA[BET NOW]]></placebetsmini>
+	<betsclosingmini><![CDATA[BETS CLOSING]]></betsclosingmini>
+	<nomorebetsmini><![CDATA[BETS CLOSED]]></nomorebetsmini>
+	<chipbuttonmini><![CDATA[CLICK TO CHANGE CHIP VALUE]]></chipbuttonmini>
+	<notifyplacechip><![CDATA[WHEN BET TIME STARTS, PLEASE SELECT A CHIP AND PLACE YOUR BET]]></notifyplacechip>
+	<notifywinning><![CDATA[YOU WIN #win#]]></notifywinning>
+	<minivideotooltip><![CDATA[CLICK TO TOGGLE VIEW]]></minivideotooltip>
+	<minivideotooltipout><![CDATA[CLICK TO TOGGLE VIEW]]></minivideotooltipout>
+	<viewmini><![CDATA[CHANGE VIEW]]></viewmini>
+
+	<!-- AAMS -->
+	<AAMSLimitsTitle><![CDATA[Money to bring to the game: ]]></AAMSLimitsTitle>
+	<AAMSRegulationLimit><![CDATA[Regulation limit: ]]></AAMSRegulationLimit>
+	<AAMSFullBalance><![CDATA[Full balance: ]]></AAMSFullBalance>
+	<AAMSOtherLimit><![CDATA[Other]]></AAMSOtherLimit>
+
+	<AAMSLoadingMsg><![CDATA[Please wait...]]></AAMSLoadingMsg>
+	<AAMSAmountError><![CDATA[Invalid amount. Please try again.]]></AAMSAmountError>
+	<AAMSMinAmountError><![CDATA[Amount should be greater that minimum table limit.]]></AAMSMinAmountError>
+	<AAMSBalanceError><![CDATA[Insufficient Balance.]]></AAMSBalanceError>
+	<AAMSStartGameError><![CDATA[Please try again.]]></AAMSStartGameError>
+
+	<AAMSParticipationID><![CDATA[Participation ID:]]></AAMSParticipationID>
+	<AAMSSessionID><![CDATA[Session ID:]]></AAMSSessionID>
+	<AAMSRoundID><![CDATA[Round ID:]]></AAMSRoundID>
+
+	<double><![CDATA[Double Down:]]></double>
+	<splithand><![CDATA[Split:]]></splithand>
+	<gamestart><![CDATA[Game Start:]]></gamestart>
+	<gameend><![CDATA[Game End:]]></gameend>
+	<gametimer><![CDATA[Game Time:]]></gametimer>
+
+	<error_3001><![CDATA[Your account is currently disabled. For further details please contact our support team.]]></error_3001>
+	<error_3002><![CDATA[Your current session balance is insufficient. To continue playing, you must set new limits.]]></error_3002>
+	<error_3003><![CDATA[Your bet exceeds the regulation limit. To continue playing, please close and reopen the game or reload.]]></error_3003>
+	<lowsessionbalance><![CDATA[Your account balance is too low to play. Please set new session limit to continue playing.]]></lowsessionbalance>
+	<historylastgame><![CDATA[Your last uncompleted game]]></historylastgame>
+	
+	<!-- social messages -->
+	<social_tooltip_facebook><![CDATA[Share your winnings! (Press CTRL + V to paste the message)]]></social_tooltip_facebook>
+	<social_tooltip_twitter><![CDATA[Share your winnings!]]></social_tooltip_twitter>
+	<socoal_message_roulette><![CDATA[I have just won #winnings# on Live #game# at #casino# with lucky spin #winner#!]]></socoal_message_roulette>
+	<socoal_message_blackjack><![CDATA[I have just won #winnings# on Live #game# at #casino#!]]></socoal_message_blackjack>
+	<socoal_message_baccarat><![CDATA[I have just won #winnings# on Live #game# at #casino#!]]></socoal_message_baccarat>
+	
+	<realplay><![CDATA[Want to play for real now?]]></realplay>
+	<nofreeplay><![CDATA[NO FREE PLAY]]></nofreeplay>
+</game>

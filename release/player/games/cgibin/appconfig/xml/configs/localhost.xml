@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<game>
+	<common>
+	    <server><![CDATA[]]></server>
+		<authentication><![CDATA[https://livecasino.smartliveaffiliates.com/cgibin/SmartAuthentication]]></authentication>
+		<login><![CDATA[/cgibin/remoteLoginGateway.jsp]]></login>
+		<balance><![CDATA[cgibin/appconfig/xml/balance.xml]]></balance>
+		<language><![CDATA[cgibin/appconfig/xml/langs/]]></language>
+		<langICON><![CDATA[cgibin/appconfig/xml/langs/png/]]></langICON>
+		
+		<style><![CDATA[cgibin/appconfig/xml/]]></style>
+		<players><![CDATA[cgibin/appconfig/xml/participants.xml]]></players>
+		<settings><![CDATA[cgibin/appconfig/xml/settings.xml]]></settings>
+		<chatConfig><![CDATA[cgibin/appconfig/xml/chat_config.xml]]></chatConfig>
+		<help><![CDATA[/player/games/help/HelpRL.swf]]></help>
+		<historySWF><![CDATA[/player/games/history/HistoryRL.swf]]></historySWF>
+		<lobby><![CDATA[/player/lobbyXML.jsp]]></lobby>
+		<freeplay><![CDATA[/cgibin/mobile_launcher.jsp]]></freeplay>
+		<tableConfig><![CDATA[cgibin/appconfig/xml/baccarat_tableconfig.xml]]></tableConfig>
+		<seat><![CDATA[cgibin/appconfig/xml/sitdown.xml]]></seat>
+		<accountHistory><![CDATA[/player/audit/historyXML2.jsp]]></accountHistory>
+		<activityHistory><![CDATA[/player/audit/historyXML.jsp]]></activityHistory>
+		<skin><![CDATA[cgibin/appconfig/skins/skin.swf]]></skin>
+		<tournament><![CDATA[cgibin/appconfig/xml/tournament.xml]]></tournament>
+		<opengame><![CDATA[/player/chat_board.jsp]]></opengame>
+	</common>
+
+	<roulette>
+		<results><![CDATA[/cgibin/roulette/history.jsp]]></results>
+		<statistics><![CDATA[cgibin/appconfig/xml/roulette_stats.xml]]></statistics>
+		<winners><![CDATA[cgibin/appconfig/xml/winnerList.xml]]></winners>
+		<sendBets><![CDATA[/cgibin/roulette/placebets.jsp]]></sendBets>
+		<state><![CDATA[cgibin/appconfig/xml/roulette_state.xml]]></state>
+	</roulette>
+	<baccarat>
+		<sendBets><![CDATA[/cgibin/baccarat/placebets.jsp]]></sendBets>
+		<state><![CDATA[cgibin/appconfig/xml/baccarat_state.xml]]></state>
+		<tableGraphic><![CDATA[/player/games/assets/baccarat/tablegraphics/]]></tableGraphic>
+		<audio><![CDATA[/player/games/assets/roulette/audio/]]></audio>
+		<statistics><![CDATA[/cgibin/baccarat/gameHistory.jsp]]></statistics>
+		<winners><![CDATA[cgibin/appconfig/xml/winnerList.xml]]></winners>
+	</baccarat>
+	
+	<languages>
+		<lang code="en" icon="gb" name="English"/>
+		<lang code="tw" icon="cn" name="繁体中文"/>
+		<lang code="cn" icon="cn" name="简体中文"/>
+	<!--<lang code="ja" icon="jp" name="日本语"/>
+		<lang code="cs" icon="cs" name="Czech"/>
+		<lang code="de" icon="de" name="German"/>
+		<lang code="fr" icon="fr" name="French"/>
+		<lang code="it" icon="it" name="Italian"/>
+		<lang code="ru" icon="ru" name="Russian"/>
+		<lang code="tr" icon="tr" name="Turkish"/> -->
+	</languages>
+</game>

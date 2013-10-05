@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<game>
+	<casino 
+	game="roulette" 
+	gametype="tv_roulette" 
+	tableid="7nyiaws9tgqrzaz3"
+	streamUrl="" 
+
+	videoplayer="video"
+	client="slc" 
+	vtid="" 
+	userid="9ieozu30vtcwuri4" 
+	room="game-o3d9tx3u8kd0yawc-i6t6y1jcdxih0wex" 
+	lang="cn" 
+	server="https://spielbank.extremelivegaming.com"
+	socketServer="spielbank.extremelivegaming.com"
+	debugIP="127.0.0.1"
+	urls="cgibin/appconifg/xml/configs/urls.xml"
+	>
+	</casino>
+	
+	<casino 
+	game="baccarat" 
+	gametype="classic" 
+	tableid="zucbi5szfr9bewqo" 
+	streamUrl=""   
+	videoplayer="video"
+	client="slc" vtid=""
+	userid="9ieozu30vtcwuri4" 
+	room="game-7nyiaws9tgqrzaz3-rvu4z17kx9010qv2" 
+	lang="en" 
+	server="http://spielbank.extremelivegaming.com"
+	socketServer="spielbank.extremelivegaming.com"
+	debugIP="127.0.0.1"
+	urls="cgibin/appconfig/xml/configs/localhost.xml"
+
+	></casino> s
+
+	<casino 
+	game="lobby" 
+	gametype="classic" 
+	tableid="7nyiaws9tgqrzaz3"
+	streamUrl="" 
+
+	videoplayer="video"
+	client="slc" 
+	vtid="" 
+	userid="" 
+	room="game-o3d9tx3u8kd0yawc-i6t6y1jcdxih0wex" 
+	lang="cn" 
+	server="http://192.168.0.3"
+	socketServer="livecasino.smartliveaffiliates.com"
+	debugIP="192.168.0.3"
+	urls="http://192.168.0.3/cgibin/appconfig/xml/configs/urls.xml"
+	></casino>
+
+
+
+	
+	<!-- 
+	streamUrl="rtmp://213.86.83.8/smartlivecasinolive-live/R1" 
+	
+	server="http://192.168.0.3"
+	socketServer="livecasino.smartliveaffiliates.com"
+	debugIP="192.168.0.3"
+	urls="http://192.168.0.3/cgibin/appconfig/xml/configs/urls.xml"
+	
+	rtmp://213.86.83.8/smartlivecasinolive-live/cc1
+	
+	rtmp://110.92.24.106/m888/table1_3
+	
+	
+	http://www.overdigital.com/2012/01/09/the-ultimate-guide-to-understanding-advanced-video-delivery-with-air-for-mobile/
+	-->
+</game>

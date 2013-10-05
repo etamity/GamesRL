@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8"?> 
+<game>
+	<!-- Preloader -->
+	<loading><![CDATA[Yükleniyor...]]></loading>
+	<loadingaudio><![CDATA[Ses Yükleniyor...]]></loadingaudio>
+	<loadingstyle><![CDATA[Stil Yükleniyor...]]></loadingstyle>
+	<loadinggamedata><![CDATA[Oyun ve Masa Verileri Yükleniyor...]]></loadinggamedata>
+	<connectingtogameserver><![CDATA[Oyun Sunucusuna Bağlanıyor...]]></connectingtogameserver>
+	<loadingbalance><![CDATA[Bakiye Yükleniyor...]]></loadingbalance>
+	<loadingvideo><![CDATA[Live Video'ya Bağlanılıyor...]]></loadingvideo>
+	<live><![CDATA[L I V E]]></live>
+	<videotooltip><![CDATA[VİDEOYU YAKINLAŞTIRMAK İÇİN TIKLATIN]]></videotooltip>
+	<videotooltipout><![CDATA[VİDEOYU UZAKLAŞTIRMAK İÇİN TIKLATIN]]></videotooltipout>
+	<optimizingvideo><![CDATA[Optimising Video...]]></optimizingvideo>
+
+	<!-- History -->
+	<historytitle><![CDATA[Geçmiş]]></historytitle>
+	<gametype><![CDATA[Oyun Türü]]></gametype>
+	<time><![CDATA[Zaman]]></time>
+	<amount><![CDATA[Miktar]]></amount>
+	<date><![CDATA[Tarih]]></date>
+	<stake><![CDATA[Bahis Tutarı]]></stake>
+	<winlose><![CDATA[Kazandı/Kaybetti]]></winlose>
+	<transactiontime><![CDATA[İşlem Süresi]]></transactiontime>
+	<transactiontype><![CDATA[İşlem Türü]]></transactiontype>
+	<enteredby><![CDATA[Giren]]></enteredby>
+	<transactionstatus><![CDATA[Durum]]></transactionstatus>
+	<notes><![CDATA[Notlar]]></notes>
+	<betheading><![CDATA[Bahis]]></betheading>
+	<resultheading><![CDATA[Sonuç]]></resultheading>
+	<participation><![CDATA[Participation ID]]></participation>
+	<netcash><![CDATA[Net nakit]]></netcash>
+	<theplayerhand><![CDATA[Oyuncunun eli]]></theplayerhand>
+	<thebankerhand><![CDATA[Bankanın eli]]></thebankerhand>
+	<seatname><![CDATA[Koltuk Adı]]></seatname>
+	<score><![CDATA[Skor]]></score>
+	<payoff><![CDATA[Ödeme]]></payoff>
+	<insurance><![CDATA[Sigorta:]]></insurance>
+	<cards><![CDATA[Kartlar]]></cards>
+	<accounthistory><![CDATA[Hesap Geçmişi]]></accounthistory>
+	<currentactivity><![CDATA[Mevcut Etkinlik]]></currentactivity>
+	<backtoaccounthistory><![CDATA[Hesap Geçmişine Geri Dön]]></backtoaccounthistory>
+	<backtogamehistory><![CDATA[Oyun Geçmişine Geri Dön]]></backtogamehistory>
+	<noactivity><![CDATA[Bu dönem içinde hiçbir etkinlik yoktu]]></noactivity>
+	<stakereturned><![CDATA[Stake Returned]]></stakereturned>
+	<win><![CDATA[Win]]></win>
+
+	<!-- Roulette Statistics -->
+	<statistics><![CDATA[İSTATİSTİKLER]]></statistics>
+	<statisticstip><![CDATA[CLICK TO SEE STATISTICS]]></statisticstip>
+	<roulettestatstitle><![CDATA[Roulette İstatistikleri - Son 100 Oyun]]></roulettestatstitle>
+	<winsbutton><![CDATA[Kazanmalar]]></winsbutton>
+	<betsbutton><![CDATA[Bahisler]]></betsbutton>
+	<resultsbutton><![CDATA[Sonuçlar]]></resultsbutton>
+	<hotnumbers><![CDATA[Çok Çıkan Numaralar]]></hotnumbers>
+	<coldnumbers><![CDATA[Az Çıkan Numaralar]]></coldnumbers>
+	
+	<!-- Help -->
+	<helptitle><![CDATA[Yardım]]></helptitle>
+	
+	<!-- Baccarat -->
+	<player><![CDATA[OYUNCU]]></player>
+	<banker><![CDATA[BANKA]]></banker>
+	<tie><![CDATA[BERABERE]]></tie>
+	<pair_player><![CDATA[OYUNCU ÇİFTİ]]></pair_player>
+	<pair_banker><![CDATA[BANKA ÇİFTİ]]></pair_banker>
+	<twoway><![CDATA[2 WAY]]></twoway>
+	<threeway><![CDATA[3 WAY]]></threeway>
+	<bigroad><![CDATA[BIG ROAD]]></bigroad>
+	<bigeyeboyroad><![CDATA[BIG EYE BOY]]></bigeyeboyroad>
+	<smallroad><![CDATA[SMALL ROAD]]></smallroad>
+	<cockroachroad><![CDATA[COCKROACH]]></cockroachroad>
+
+	<!-- Blackjack -->
+	<sithere><![CDATA[BURADA OTUR]]></sithere>
+	<unseat><![CDATA[KOLTUKTAN KALK]]></unseat>
+	<multiseat><![CDATA[ÇOKLU KOLTUK]]></multiseat>
+	<multiseattip><![CDATA[CLICK FOR ANOTHER SEAT]]></multiseattip>
+	<seattaken><![CDATA[KOLTUK ALINDI]]></seattaken>
+	<confirm><![CDATA[ONAYLA]]></confirm>
+	<decisiontitle><![CDATA[LÜTFEN BİR SEÇENEK BELİRLEYİN]]></decisiontitle>
+	<hit><![CDATA[VER]]></hit>
+	<stand><![CDATA[DUR]]></stand>
+	<doubledown><![CDATA[İKİYE KATLA]]></doubledown>
+	<insurancetitle><![CDATA[SİGORTA?]]></insurancetitle>
+	<yes><![CDATA[EVET]]></yes>
+	<no><![CDATA[HAYIR]]></no>
+
+	<!-- Lobby -->
+	<lobby><![CDATA[CANLI OYUNLAR MENÜSÜ]]></lobby>
+	<loadinglobbyxml><![CDATA[Masalar Yükleniyor...]]></loadinglobbyxml>
+	<baccarat><![CDATA[CANLI BACCARAT]]></baccarat>
+	<blackjack><![CDATA[CANLI BLACKJACK]]></blackjack>
+	<roulette><![CDATA[CANLI ROULETTE]]></roulette>
+	<slingshot><![CDATA[CANLI SLINGSHOT]]></slingshot>
+	<dealer><![CDATA[KRUPİYE]]></dealer>
+	<account><![CDATA[HESAP]]></account>
+	<myaccount><![CDATA[HESABIM]]></myaccount>
+	<tableinfo><![CDATA[MASA BİLGİLERİ]]></tableinfo>
+	<players><![CDATA[OYUNCULAR]]></players>
+	<results><![CDATA[SONUÇLAR]]></results>
+	<viewtable><![CDATA[MASAYI GÖSTER]]></viewtable>
+	<currenttable><![CDATA[MEVCUT MASANIZ]]></currenttable>
+	<hometext><![CDATA[MASALARI GÖRÜNTÜLEMEK İÇİN AŞAĞIDAKİ CANLI OYUNLARDAN İSTEDİĞİNİZİ TIKLATIN]]></hometext>
+	<vtabletext><![CDATA[LÜTFEN #table# İÇİN MASA LİMİTLERİNİ SEÇİN]]></vtabletext>
+	<gamemodetext><![CDATA[LÜTFEN #min# - #max# LİMİTLERLE #table# OYNAMAK İÇİN GÖRÜNTÜYÜ SEÇİN]]></gamemodetext>
+	<chooseroulette><![CDATA[LÜTFEN AŞAĞIDAN BİR ROULETTE MASASI SEÇİN]]></chooseroulette>
+	<choosebaccarat><![CDATA[LÜTFEN AŞAĞIDAN BİR BACCARAT MASASI SEÇİN]]></choosebaccarat>
+	<chooseblackjack><![CDATA[LÜTFEN AŞAĞIDAN BİR BLACKJACK MASASI SEÇİN]]></chooseblackjack>
+	<chooseminiroulette><![CDATA[PLEASE CHOOSE A MINI ROULETTE TABLE BELOW]]></chooseminiroulette>
+	<chooseminibaccarat><![CDATA[PLEASE CHOOSE A MINI BACCARAT TABLE BELOW]]></chooseminibaccarat>
+	<chooseminiblackjack><![CDATA[PLEASE CHOOSE A MINI BLACKJACK TABLE BELOW]]></chooseminiblackjack>
+
+	<screenname><![CDATA[EKRAN ADI]]></screenname>
+	<screennamelabel><![CDATA[Lütfen geçerli bir ekran adı girin]]></screennamelabel>
+	<screennameerror1><![CDATA[Geçersiz ekran adı]]></screennameerror1>
+	<screennameerror2><![CDATA[Ekran adı zaten var]]></screennameerror2>
+	<seaterror1><![CDATA[Lütfen farklı bir koltuk deneyin]]></seaterror1>
+	<seaterror2><![CDATA[Koltuk almak için yeterli paraya sahip değilsiniz.]]></seaterror2>
+
+	<view1><![CDATA[3B GÖRÜNÜM]]></view1>
+	<view2><![CDATA[KLASİK GÖRÜNÜM]]></view2>
+	<view3><![CDATA[ÇİFTLER]]></view3>
+	<view4><![CDATA[ASYA]]></view4>
+	<normal><![CDATA[NORMAL]]></normal>
+	<switchvideo><![CDATA[SWITCH VIDEO]]></switchvideo>
+
+	<details_blackjack><![CDATA[Live Blackjack - The fastest live dealer Blackjack in the world. Same deal speed as if you were in a real Casino. ]]></details_blackjack>
+	<details_blackjack_vip><![CDATA[VIP Blackjack - Play live Blackjack with other high rollers]]></details_blackjack_vip>
+	<details_blackjack_betbehind><![CDATA[Play behind Blackjack. Bet on other players. When they win, you win !]]></details_blackjack_betbehind>
+	<details_baccarat><![CDATA[Enjoy live Baccarat in the environment it is meant to be played in.]]></details_baccarat>
+	<details_baccarat_vip><![CDATA[live dealer VIP baccarat, a chance to play with high stakes.]]></details_baccarat_vip>
+	<details_roulette><![CDATA[Play standard Roulette with one game per minute.]]></details_roulette>
+	<details_roulette_vip><![CDATA[VIP Roulette. Play VIP Roulette with one game every minute. High betting limits for high rollers]]></details_roulette_vip>
+	<details_roulette_blue><![CDATA[Play our brand new Grand Roulette with your favourite presenters. Fast and interactive. Open 6 PM till 12 PM (GMT) every day.]]></details_roulette_blue>
+	<details_roulette_european><![CDATA[Play LIVE and experience the truest Live Roulette available online. Place your bets and speak to our lovely croupiers amongst the best graphics online everyday between 6pm and 12am (GMT)!]]></details_roulette_european>
+	<details_roulette_auto><![CDATA[Fully automated Roulette wheel produced by Cammegh, The World's Finest Roulette Wheel.]]></details_roulette_auto>
+	<details_roulette_brown><![CDATA[Spinning every 45 seconds, our fully air powered Roulette wheel is the fastest live roulette in the world! Play jet Roulette with the table limit ranging from 0.25 right up to 500 every hour of every day!.]]></details_roulette_brown>
+
+	<bonusterms><![CDATA[<b><u>*BONUS_CURRENCY* *BONUS_AMOUNT*</u> *BONUS_NAME* bonusunu almaya hak kazandınız!<br/><br/>Bu kuralları kabul ederseniz bonus miktarı bonus hesabınıza eklenecektir:<br><br><u>BONUS ANLAŞMASI:</u><br/><br/>*BONUS_CURRENCY* *BONUS_AMOUNT* BONUSUNU KABUL ETMENİZ, PARANIZI ÇEKMEDEN ÖNCE ONAYLI OYUNLARDA EN AZ <u>*BONUS_CURRENCY* *MIN_BET*</u> BAHİS OYNAMA YÜKÜMLÜLÜĞÜNÜ KABUL ETMEKTESİNİZ. BU GEREKSİNİM, BONUS SÖZLEŞMESİNE GÖRE MUHASEBE BÖLÜMÜMÜZ TARAFINDAN YÜRÜRLÜĞE KONACAKTIR.</b>]]></bonusterms>
+	<signmeup><![CDATA[EVET, BENİ KAYDET!]]></signmeup>
+	<nothanks><![CDATA[HAYIR, TEŞEKKÜRLER]]></nothanks>
+	
+	<!-- Balance Popup -->
+	<balancedetails><![CDATA[BAKİYE BİLGİLERİ]]></balancedetails>
+	<bonusbalance><![CDATA[BONUS BAKİYESİ]]></bonusbalance>
+	<currentplaythrough><![CDATA[MEVCUT OYNANANLAR]]></currentplaythrough>
+	<requiredplaythrough><![CDATA[OYNANMASI GEREKENLER]]></requiredplaythrough>
+
+	<!-- Settings Popup -->
+	<settings><![CDATA[AYARLAR]]></settings>
+	<autofullscreen><![CDATA[DÖNDÜRME SIRASINDA OTOMATİK YAKINLAŞTIR]]></autofullscreen>
+	<videoquality><![CDATA[VİDEO KALİTESİ AYARLARI:]]></videoquality>
+	<autoadjust><![CDATA[OTOMATİK AYARLA]]></autoadjust>
+	<lowquality><![CDATA[DÜŞÜK]]></lowquality>
+	<medquality><![CDATA[ORTA]]></medquality>
+	<highquality><![CDATA[YÜKSEK]]></highquality>
+	<suppresschat><![CDATA[DİĞER OYUNCULARDAN GELEN CHAT'İ GİZLE]]></suppresschat>
+
+	<!-- Chat Help Text
+	<chelp1><![CDATA[LIVE VIDEO Ortak Çekilişli Ruletin Tanıtımı]]></chelp1>
+	<chelp2><![CDATA[Dünyanın En İyi Rulet Çarkını İzliyorsunuz]]></chelp2>
+	<chelp3><![CDATA[Tam Otomatik Cammegh Slingshot 2]]></chelp3>
+	<chelp4><![CDATA[Dünyanın En İyi Casino'larında Bulunur]]></chelp4>
+	<chelp5><![CDATA[Basınçlı Hava İle Döndürülmektedir]]></chelp5>
+	<chelp6><![CDATA[Broadcasting LIVE - saatte en az 60 oyun]]></chelp6>
+	<chelp7><![CDATA[Başka Oyunculara ya da Müşteri Hizmetlerine mesaj göndermek için CHAT düğmesine basın]]></chelp7> -->
+
+	<!-- Chat & Participant messages -->
+	<welcometo><![CDATA[Hoş geldiniz]]></welcometo>
+	<chat><![CDATA[CHAT]]></chat>
+	<clicktochat><![CDATA[CHAT İÇİN TIKLATIN]]></clicktochat>
+	<playersontable><![CDATA[Masada #count# oyuncu var]]></playersontable>
+	<playerontable><![CDATA[#player# masada]]></playerontable>
+	<winmsg><![CDATA[#player#, #amount# kazandı]]></winmsg>
+
+	<!-- Idle& Session Expired Messages -->
+	<idlemessage><![CDATA[İşlem yapılmadığından oyun duraklatıldı. Devam etmek için OK'i tıklatın.]]></idlemessage>
+	<sessionexpired><![CDATA[Uzun süre hiçbir işlem yapmadığınızdan oturumunuz sona erdi. Lütfen tekrar giriş yapmak için siteye geri dönün. ]]></sessionexpired>
+	
+	<!-- Betting Options -->
+	<rebet><![CDATA[TEKRARLA]]></rebet>
+	<doublebet><![CDATA[İKİ KAT]]></doublebet>
+	<undo><![CDATA[GERİ AL]]></undo>
+
+	<!-- Bet Limits Panel -->
+	<betlimits><![CDATA[BAHİS SINIRLARI]]></betlimits>
+	<min><![CDATA[MİN]]></min>
+	<max><![CDATA[MAKS]]></max>
+	<payout><![CDATA[ÖDEME]]></payout>
+	<betlabel><![CDATA[BAHİS]]></betlabel>
+	<alllimitstip><![CDATA[TÜM LİMİTLER İÇİN TIKLATIN]]></alllimitstip>
+	<dozen><![CDATA[DÜZİNE]]></dozen>
+	<corner><![CDATA[KÖŞE]]></corner>
+	<high><![CDATA[YÜKSEK]]></high>
+	<low><![CDATA[DÜŞÜK]]></low>
+	<straight><![CDATA[DÜZ]]></straight>
+	<even><![CDATA[ÇİFT]]></even>
+	<odd><![CDATA[TEK]]></odd>
+	<trio><![CDATA[SIRA]]></trio>
+	<column><![CDATA[SÜTUN]]></column>
+	<split><![CDATA[BÖL]]></split>
+	<red><![CDATA[KIRMIZI]]></red>
+	<black><![CDATA[SİYAH]]></black>
+	<green><![CDATA[GREEN]]></green>
+	<five_number><![CDATA[BEŞ SAYI]]></five_number>
+	<six_number><![CDATA[ALTI SAYI]]></six_number>
+
+	<!-- Task Bar -->
+	<balance><![CDATA[BAKİYE]]></balance>
+	<session_balance><![CDATA[BALANCE]]></session_balance>
+	<bonus><![CDATA[BONUS]]></bonus>
+	<bet><![CDATA[TOPLAM BAHİS]]></bet>
+	<gameid><![CDATA[OYUN NUMARASI]]></gameid>
+	<cashier><![CDATA[KASİYER]]></cashier>
+	<deposit><![CDATA[KASİYER]]></deposit>
+	<back><![CDATA[BACK]]></back>
+	<close><![CDATA[CLOSE]]></close>
+	<history><![CDATA[GEÇMİŞ]]></history>
+	<help><![CDATA[YARDIM]]></help>
+	<responsible><![CDATA[RESPONSIBLE]]></responsible>
+	<fullscreen><![CDATA[TAM EKRAN]]></fullscreen>
+	<restore><![CDATA[GERİ YÜKLE]]></restore>
+	<soundon><![CDATA[SES AÇIK]]></soundon>
+	<soundoff><![CDATA[SES KAPALI]]></soundoff>
+	<chatonhelp><![CDATA[CHAT ZATEN AÇIK (SOL ÜST KÖŞEDE)]]></chatonhelp>
+	<chaton><![CDATA[CHAT'İ GÖSTER]]></chaton>
+	<chatoff><![CDATA[CHAT'İ GİZLE]]></chatoff>	
+	<changetable><![CDATA[MASAYI DEĞİŞTİR]]></changetable>
+	<bonusdetails><![CDATA[BAKİYEYİ VE BONUS AYRINTILARINI GÖRMEK İÇİN TIKLATIN]]></bonusdetails>
+
+	<!-- Game Status Panel -->
+	<table><![CDATA[MASA]]></table>
+	<pleasewait><![CDATA[LÜTFEN BEKLEYİN]]></pleasewait>
+	<placebets><![CDATA[BAHİSLERİNİZİ KOYUN]]></placebets>
+	<betsclosing><![CDATA[YAKINDA KAPANACAK BAHİSLER]]></betsclosing>
+	<betsclosinggeneric><![CDATA[YAKINDA KAPANACAK BAHİSLER]]></betsclosinggeneric>
+	<nomorebets><![CDATA[BAHİSLER KAPANDI]]></nomorebets>
+	<sendingbets><![CDATA[BAHİSLER GÖNERİLİYOR]]></sendingbets>
+	<betsaccepted><![CDATA[BAHİSLER KABUL EDİLDİ]]></betsaccepted>
+	<notallbetsaccepted><![CDATA[BAHİSLERİN HEPSİ KABUL EDİLMEDİ]]></notallbetsaccepted>
+	<betsrejected><![CDATA[BAHİSLER REDDEDİLDİ]]></betsrejected>
+	<waitingforbets><![CDATA[BAHİSLER BEKLENİYOR]]></waitingforbets>
+	<waitingfornextgame><![CDATA[SONRAKİ OYUN BEKLENİYOR]]></waitingfornextgame>
+	<waitingfordecision><![CDATA[KARAR BEKLENİYOR]]></waitingfordecision>
+	<waitingforinsurance><![CDATA[SİGORTA BEKLENİYOR]]></waitingforinsurance>
+	<waitingforcard><![CDATA[DAĞITILIYOR]]></waitingforcard>
+	<waitingforresult><![CDATA[SONUÇ BEKLENİYOR]]></waitingforresult>
+	<gameover><![CDATA[OYUN BİTTİ]]></gameover>
+	<gamecancelled><![CDATA[OYUN İPTAL EDİLDİ]]></gamecancelled>	
+	<open><![CDATA[AÇIK]]></open>
+	<closing><![CDATA[KAPANIYOR]]></closing>
+	<closed><![CDATA[KAPALI]]></closed>
+	<result><![CDATA[SONUÇ: #result#]]></result>
+	<youwon><![CDATA[KAZANDINIZ: #winnings#]]></youwon>
+
+	<!-- Game Table Tool Tips -->
+	<minbetis><![CDATA[MİNİMUM BAHİS #bet#]]></minbetis>
+	<maxbetis><![CDATA[MAKSİMUM BAHİS #bet#]]></maxbetis>
+	<mintablebetis><![CDATA[MİNİMUM MASA BAHSİ #bet#]]></mintablebetis>
+	<maxtablebetis><![CDATA[MAKSİMUM MASA BAHSİ #bet#]]></maxtablebetis>
+	<notenoughmoney><![CDATA[PARA MİKTARI YETERSİZ]]></notenoughmoney>
+
+	<!-- Error/Warning/Information Messages -->
+	<warning><![CDATA[Uyarı (#id#)]]></warning>
+	<information><![CDATA[Bilgi (#id#)]]></information>
+	<error><![CDATA[Hata (#id#)]]></error>
+	<lowbalance><![CDATA[Hesap bakiyeniz oynamak için çok düşük. Lütfen hesabınıza para aktarın.]]></lowbalance>
+	<error_ok><![CDATA[TAMAM]]></error_ok>
+	<generic_wheel_error id="7001"><![CDATA[Geçici iletişim hatası. Lütfen bir sonraki oyun turunu bekleyin.]]></generic_wheel_error>
+	<generic_communication_error id="7002"><![CDATA[İletişim hatası. Lütfen yardım almak için Müşteri Desteği ile görüşün.]]></generic_communication_error>
+	<generic_placebets_error id="7003"><![CDATA[Bahisleriniz sunucu tarafından kabul edilmedi. Lütfen yardım almak için Müşteri Desteği ile görüşün.]]></generic_placebets_error>
+	<generic_balance_error id="7004"><![CDATA[Güncellenmiş bakiyenizi göstermede geçici sorun. Lütfen yardım almak için Müşteri Desteği ile görüşün.]]></generic_balance_error>
+	<game_cancelled id="7005"><![CDATA[Oyun iptal edildi. Lütfen bir sonraki oyunu bekleyin.]]></game_cancelled>
+	<!-- All Server Side Error Messages -->
+	<error_10104><![CDATA[Bu bahsi oynamak için yeterli paranız yok.]]></error_10104>
+	<error_10103><![CDATA[Hesabınız şu anda devre dışı. Lütfen yardım almak için Müşteri Desteği ile görüşün.]]></error_10103>
+	<error_10102><![CDATA[Hesabınız askıya alındı. Lütfen yardım almak için Müşteri Desteği ile görüşün.]]></error_10102>
+	<error_2400><![CDATA[Oturumunuz zaman aşımına uğradı. Lütfen yeniden giriş yapın.]]></error_2400>
+	<error_1000><![CDATA[Lütfen yardım almak için Müşteri Desteği ile görüşün.]]></error_1000>
+	<error_1400><![CDATA[Lütfen yardım almak için Müşteri Desteği ile görüşün.]]></error_1400>
+	<error_1500><![CDATA[Lütfen yardım almak için Müşteri Desteği ile görüşün.]]></error_1500>
+	<error_10106><![CDATA[Lütfen yardım almak için Müşteri Desteği ile görüşün.]]></error_10106>
+	<error_10100><![CDATA[Lütfen yardım almak için Müşteri Desteği ile görüşün.]]></error_10100>
+	<error_10101><![CDATA[Lütfen yardım almak için Müşteri Desteği ile görüşün.]]></error_10101>
+	<error_10105><![CDATA[Lütfen yardım almak için Müşteri Desteği ile görüşün.]]></error_10105>
+	<error_20100><![CDATA[Oynamak için gerekli en düşük yaş gereksinimini karşılamıyorsunuz.]]></error_20100>
+	<error_20101><![CDATA[Geçici olarak bir rumuz kaydedemiyorsunuz.]]></error_20101>
+	<error_20102><![CDATA[Bakiyenizi almada geçici bir sorun var.]]></error_20102>
+	<error_20103><![CDATA[Paraları casino'ya aktarmada geçici bir sorun var.]]></error_20103>
+	<error_20104><![CDATA[Kur oranlarını almada geçici bir sorun var.]]></error_20104>
+	<error_010><![CDATA[Lütfen yardım almak için Müşteri Desteği ile görüşün.]]></error_010>
+	<error_0><![CDATA[Lütfen yardım almak için Müşteri Desteği ile görüşün.]]></error_0>
+	<error_10002><![CDATA[Lütfen yardım almak için Müşteri Desteği ile görüşün.]]></error_10002>
+	<error_10003><![CDATA[Oturumunuz zaman aşımına uğradı. Lütfen yeniden giriş yapın.]]></error_10003>
+	<error_10004><![CDATA[Lütfen yardım almak için Müşteri Desteği ile görüşün.]]></error_10004>
+	<error_10005><![CDATA[Lütfen yardım almak için Müşteri Desteği ile görüşün.]]></error_10005>
+	<error_10006><![CDATA[Bu tur için bahisler zaten kabul edildi.]]></error_10006>
+	<error_10007><![CDATA[Hesabınız askıya alındı. Lütfen yardım almak için Müşteri Desteği ile görüşün.]]></error_10007>
+	<error_10008><![CDATA[Bu bahsi oynamak için yeterli paranız yok.]]></error_10008>
+	<error_1001><![CDATA[Oyun sunucusuyla ilgili geçici bir sorun var.]]></error_1001>
+	<error_1002><![CDATA[Lütfen yardım almak için Müşteri Desteği ile görüşün.]]></error_1002>
+	<error_1003><![CDATA[Lütfen yardım almak için Müşteri Desteği ile görüşün.]]></error_1003>
+	<error_1004><![CDATA[Koltuğunuzu kaybettiniz. Lütfen oyunu tekrar başlatın.]]></error_1004>
+	<error_1005><![CDATA[Geçersiz bir bahis koymaya çalıştınız. Lütfen yardım almak için Müşteri Desteği ile görüşün.]]></error_1005>
+	<error_1006><![CDATA[Lütfen bir sonraki oyun turunun başlamasını bekleyin.]]></error_1006>
+	<error_1007><![CDATA[Bahsiniz zamanında alınmadı. Lütfen bir sonraki tur yeniden deneyin.]]></error_1007>
+	<error_1008><![CDATA[Bahisleriniz kabul edilmedi. Lütfen bir sonraki tur yeniden deneyin.]]></error_1008>
+	<error_1009><![CDATA[Bir iç bahis için izin verilen maksimum tutarı aştığından bahsiniz kabul edilmedi.]]></error_1009>
+	<error_1010><![CDATA[Bir dış bahis için izin verilen maksimum tutarı aştığından bahsiniz kabul edilmedi.]]></error_1010>
+	<error_1011><![CDATA[Sunucu, bahsinizi işleyemedi. Lütfen yardım almak için Müşteri Desteği ile görüşün.]]></error_1011>
+	<error_1012><![CDATA[Bu masada izin verilen maksimum tutarı aştığından bahsiniz kabul edilmedi.]]></error_1012>
+	<error_1013><![CDATA[Minimum gerekli tutarı karşılamadığından bahsiniz kabul edilmedi.]]></error_1013>
+	<error_1014><![CDATA[Lütfen yardım almak için Müşteri Desteği ile görüşün.]]></error_1014>
+	<error_1015><![CDATA[Lütfen yardım almak için Müşteri Desteği ile görüşün.]]></error_1015>
+	<error_1016><![CDATA[Lütfen yardım almak için Müşteri Desteği ile görüşün.]]></error_1016>
+	<error_1017><![CDATA[Sıranız sona erdi.]]></error_1017>
+	<error_1018><![CDATA[Bu turda karar vermeniz için izin verilen süre sona erdi.]]></error_1018>
+	<error_1019><![CDATA[Oyun kararınızı değiştiremezsiniz.]]></error_1019>
+	<error_1020><![CDATA[Koltuğunuzda bir hata oldu. Lütfen oyunu yeni bir tarayıcı penceresinde tekrar başlatın.]]></error_1020>
+	<error_1021><![CDATA[Sıra sizde değil. Karar, başka bir oyuncu tarafından verilecek.]]></error_1021>
+	<error_1022><![CDATA[Seçilen karar geçersiz. Lütfen farklı bir karar verin.]]></error_1022>
+	<error_1023><![CDATA[Hata. Bölme işlemi yapılamadı. Lütfen Müşteri Desteği ile görüşün.]]></error_1023>
+	<error_1024><![CDATA[Hata. İkiye katlama işlemi yapılamadı. Lütfen Müşteri Desteği ile görüşün.]]></error_1024>
+	<error_1025><![CDATA[Oyun sonuçlarını aktarmada hata. Lütfen oyunu yeni bir tarayıcı penceresinde tekrar başlatın.]]></error_1025>
+	<error_1026><![CDATA[Hata. Sigorta satın alma işlemi yapılamadı. Lütfen Müşteri Desteği ile görüşün.]]></error_1026>
+	<error_1027><![CDATA[Bu tur için zaten sigorta satın aldınız.]]></error_1027>
+	<error_1028><![CDATA[Koymaya çalıştığınız bahis geçersiz. Lütfen Müşteri Desteği ile görüşün.]]></error_1028>
+	<error_1029><![CDATA[Koymaya çalıştığınız bahis geçersiz. Lütfen Müşteri Desteği ile görüşün.]]></error_1029>
+	<error_1030><![CDATA[Koymaya çalıştığınız bahis geçersiz. Lütfen Müşteri Desteği ile görüşün.]]></error_1030>
+	<error_1031><![CDATA[Seçtiğiniz koltuk zaten dolu, lütfen boş bir koltuk seçin.]]></error_1031>
+	<error_1032><![CDATA[Lütfen yardım almak için Müşteri Desteği ile görüşün.]]></error_1032>
+	<error_1033><![CDATA[Lütfen yardım almak için Müşteri Desteği ile görüşün.]]></error_1033>
+	<error_2000><![CDATA[Lütfen yardım almak için Müşteri Desteği ile görüşün.]]></error_2000>
+	<error_2001><![CDATA[Yapılmaya çalışılan işlem yapılamadı. Lütfen tekrar deneyin.]]></error_2001>
+	<error_2002><![CDATA[Lütfen oyunu yeni bir tarayıcı penceresinde tekrar başlatın. Sorun devam ederse yardım için Müşteri Desteği ile görüşün.]]></error_2002>
+	<error_2003><![CDATA[Bahsiniz, maksimum bahis sınırını geçemez.]]></error_2003>
+	<error_2004><![CDATA[Bahsiniz, en düşük bahis sınırından yüksek olmalıdır.]]></error_2004>
+	<error_2005><![CDATA[Bakiyeniz bu bahsi karşılamak için yetersiz. Lütfen para yatırmak için kasiyere gidin.]]></error_2005>
+	<error_2006><![CDATA[Maalesef hizmetlerimizi, bulunduğunuz ülkede sunamıyoruz.]]></error_2006>
+	<error_2007><![CDATA[Giriş yapmak için kullanıcı adınızı ve parolanızı girin.]]></error_2007>
+	<error_2008><![CDATA[Geçersiz kullanıcı adı ya da parola. Lütfen tekrar deneyin.]]></error_2008>
+	<error_104><![CDATA[Lütfen oyunu yeni bir tarayıcı penceresinde tekrar başlatın.]]></error_104>	
+	
+	<neighbourspecialbets><![CDATA[KOMŞU VE ÖZEL BAHİSLER]]></neighbourspecialbets>
+	<!-- Special Bets -->
+	<specialbets><![CDATA[ÖZEL BAHİSLER]]></specialbets>
+	<specialbet18><![CDATA[Tiers du cylindre]]></specialbet18>
+	<specialbet17><![CDATA[Voisins du zero]]></specialbet17>
+	<specialbet16><![CDATA[Orphelins en plein]]></specialbet16>
+	<specialbet15><![CDATA[Orphelins a cheval]]></specialbet15>
+	<specialbet14><![CDATA[Finale en plein 0]]></specialbet14>
+	<specialbet13><![CDATA[Finale en plein 1]]></specialbet13>
+	<specialbet12><![CDATA[Finale en plein 2]]></specialbet12>
+	<specialbet11><![CDATA[Finale en plein 3]]></specialbet11>
+	<specialbet10><![CDATA[Finale en plein 4]]></specialbet10>
+	<specialbet9><![CDATA[Finale en plein 5]]></specialbet9>
+	<specialbet8><![CDATA[Finale en plein 6]]></specialbet8>
+	<specialbet7><![CDATA[Finale en plein 7]]></specialbet7>
+	<specialbet6><![CDATA[Finale en plein 8]]></specialbet6>
+	<specialbet5><![CDATA[Finale en plein 9]]></specialbet5>
+	<specialbet4><![CDATA[Finale 0/3]]></specialbet4>
+	<specialbet3><![CDATA[Finale 1/4]]></specialbet3>
+	<specialbet2><![CDATA[Finale 2/5]]></specialbet2>
+	<specialbet1><![CDATA[Finale 3/6]]></specialbet1>
+
+	<!-- Neighbour Bets -->
+	<neighbourbets><![CDATA[KOMŞU BAHİSLER]]></neighbourbets>
+	<neighbourbets1><![CDATA[Tier]]></neighbourbets1>
+	<neighbourbets2><![CDATA[Orphelins]]></neighbourbets2>
+	<neighbourbets3><![CDATA[Voisins Du Zero]]></neighbourbets3>
+
+	<lowriskcommonmsg><![CDATA[BAHİS KISITLAMALARI UYGULANMAKTADIR]]></lowriskcommonmsg>
+
+	<notsittingpage><![CDATA[Artık bu masada oturmuyorsunuz. Lütfen bu pencereyi kapatın ve oyunu tekrar başlatın.]]></notsittingpage>
+	<errorpage><![CDATA[Canlı Casino ile ilgili bir sorun oldu. Lütfen daha sonra tekrar deneyin. Hata Kodu: EV02]]></errorpage>
+	<missingpage><![CDATA[İstediğiniz sayfa, Canlı Casino Sunucumuzda bulunamadı.<br />Lütfen URL'yi kontrol edin ve tekrar deneyin ya da müşteri desteği ile iletişim kurun. Hata Kodu: EV03]]></missingpage>
+	<loginpage><![CDATA[Canlı Casino ile ilgili bir sorun oldu.<br />Kullanıcı kimlik doğrulaması yapılamadı ya da oturumunuz sona ermiş olabilir, lütfen tarayıcınızı kapatın ve tekrar deneyin. Hata Kodu: EV01]]></loginpage>
+
+	<!-- Bet Behind -->
+	<betbehind><![CDATA[Arkadan Bahis]]></betbehind>
+	<betbehind_info><![CDATA[Eğer bahis koyduğunuz oyuncu, bölmeyi ya da ikiye katlamayı seçerse, koyduğunuz para ikiye katlanacaktır. Eğer bu tür durumlarda bahis tutarınızın ikiye katlanmasını istemiyorsanız lütfen aşağıdaki kutuların İŞARETİNİ KALDIRIN.]]></betbehind_info>
+	<betbehind_note><![CDATA[Not: Eğer bahis oynamamaya karar veren bir oyuncu üzerine bahis koyarsanız, koyduğunuz tutar size iade edilir.]]></betbehind_note>
+	<betbehind_doublestake><![CDATA[Eğer oyuncu ikiye katlarsa bahis tutarımı ikiye katla]]></betbehind_doublestake>
+	<betbehind_splitsdoublestake><![CDATA[Eğer oyuncu bölerse bahis tutarımı ikiye katla]]></betbehind_splitsdoublestake>
+
+	<!-- Mini -->
+	<miniroulette><![CDATA[MINI LIVE ROULETTE]]></miniroulette>
+	<miniblackjack><![CDATA[MINI LIVE BLACKJACK]]></miniblackjack>
+	<minibaccarat><![CDATA[MINI LIVE BACCARAT]]></minibaccarat>
+	<mini><![CDATA[MINI]]></mini>
+	<balancemini><![CDATA[Balance]]></balancemini>
+	<betmini><![CDATA[Bet]]></betmini>
+	<gameidmini><![CDATA[Game Time]]></gameidmini>
+	<placebetsmini><![CDATA[BET NOW]]></placebetsmini>
+	<betsclosingmini><![CDATA[BETS CLOSING]]></betsclosingmini>
+	<nomorebetsmini><![CDATA[BETS CLOSED]]></nomorebetsmini>
+	<chipbuttonmini><![CDATA[CLICK TO CHANGE CHIP VALUE]]></chipbuttonmini>
+	<notifyplacechip><![CDATA[WHEN BET TIME STARTS, PLEASE SELECT A CHIP AND PLACE YOUR BET]]></notifyplacechip>
+	<notifywinning><![CDATA[YOU WIN #win#]]></notifywinning>
+	<minivideotooltip><![CDATA[CLICK TO TOGGLE VIEW]]></minivideotooltip>
+	<minivideotooltipout><![CDATA[CLICK TO TOGGLE VIEW]]></minivideotooltipout>
+	<viewmini><![CDATA[CHANGE VIEW]]></viewmini>
+
+	<!-- AAMS -->
+	<AAMSLimitsTitle><![CDATA[Money to bring to the game: ]]></AAMSLimitsTitle>
+	<AAMSRegulationLimit><![CDATA[Regulation limit: ]]></AAMSRegulationLimit>
+	<AAMSFullBalance><![CDATA[Full balance: ]]></AAMSFullBalance>
+	<AAMSOtherLimit><![CDATA[Other]]></AAMSOtherLimit>
+
+	<AAMSLoadingMsg><![CDATA[Please wait...]]></AAMSLoadingMsg>
+	<AAMSAmountError><![CDATA[Invalid amount. Please try again.]]></AAMSAmountError>
+	<AAMSMinAmountError><![CDATA[Amount should be greater that minimum table limit.]]></AAMSMinAmountError>
+	<AAMSBalanceError><![CDATA[Insufficient Balance.]]></AAMSBalanceError>
+	<AAMSStartGameError><![CDATA[Please try again.]]></AAMSStartGameError>
+
+	<AAMSParticipationID><![CDATA[Participation ID:]]></AAMSParticipationID>
+	<AAMSSessionID><![CDATA[Session ID:]]></AAMSSessionID>
+	<AAMSRoundID><![CDATA[Round ID:]]></AAMSRoundID>
+
+	<double><![CDATA[Double Down:]]></double>
+	<splithand><![CDATA[Split:]]></splithand>
+	<gamestart><![CDATA[Game Start:]]></gamestart>
+	<gameend><![CDATA[Game End:]]></gameend>
+	<gametime><![CDATA[Game Time:]]></gametime>
+
+	<error_3001><![CDATA[Your account is currently disabled. For further details please contact our support team.]]></error_3001>
+	<error_3002><![CDATA[Your current session balance is insufficient. To continue playing, you must set new limits.]]></error_3002>
+	<error_3003><![CDATA[Your bet exceeds the regulation limit. To continue playing, please close and reopen the game or reload.]]></error_3003>
+	<lowsessionbalance><![CDATA[Your account balance is too low to play. Please set new session limit to continue playing.]]></lowsessionbalance>
+	<historylastgame><![CDATA[Your last uncompleted game]]></historylastgame>
+	
+	<!-- social messages -->
+	<social_tooltip_facebook><![CDATA[Share your winnings! (Press CTRL + V to paste the message)]]></social_tooltip_facebook>
+	<social_tooltip_twitter><![CDATA[Share your winnings!]]></social_tooltip_twitter>
+	<socoal_message_roulette><![CDATA[I have just won #winnings# on Live #game# at #casino# with lucky spin #winner#!]]></socoal_message_roulette>
+	<socoal_message_blackjack><![CDATA[I have just won #winnings# on Live #game# at #casino#!]]></socoal_message_blackjack>
+	<socoal_message_baccarat><![CDATA[I have just won #winnings# on Live #game# at #casino#!]]></socoal_message_baccarat>
+	
+	<realplay><![CDATA[Want to play for real now?]]></realplay>
+	<nofreeplay><![CDATA[NO FREE PLAY]]></nofreeplay>
+</game>
