@@ -156,7 +156,7 @@ package com.newco.grand.core.common.model {
 			_stream.addEventListener(NetStatusEvent.NET_STATUS, netStatusHandler);
 			_stream.addEventListener(IOErrorEvent.IO_ERROR, IOErrorHandler);
 			_stream.client = { onBWDone: function():void{} };
-			_stream.bufferTime =delay;
+			_stream.bufferTime =0.3;//delay;
 			_stream.bufferTimeMax = _maxBuffer;
 			signalBus.dispatch(VideoEvent.PLAY,{stream:_stream,stagevideo:(game.httpStream=="")?false:true});
 			debug("streamName: "+StringUtils.trim(_streamName));
@@ -228,7 +228,7 @@ package com.newco.grand.core.common.model {
 				return _stream.bufferLength+0.3;
 			}
 			else {
-				return 0.1;
+				return 0.3;
 			}
 		}
 		
