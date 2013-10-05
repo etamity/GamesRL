@@ -31,6 +31,7 @@ package
 			ToolTip.setDefaultToolTipStyle(0,0xFFFFFF,0xDDDDDD,1,1,0x666666,0.5);
 			FlashVars.SKIN_ENABLE=true;
 			FlashVars.GAMECLIENT=Constants.BACCARAT;
+			FlashVars.PLATFORM=FlashVars.DESKTOP_PLATFORM;
 			start();
 		}
 		
