@@ -18,6 +18,7 @@ package
 	import flash.events.SecurityErrorEvent;
 	import flash.events.StageVideoAvailabilityEvent;
 	import flash.events.StageVideoEvent;
+	import flash.events.TimerEvent;
 	import flash.events.VideoEvent;
 	import flash.geom.Rectangle;
 	import flash.media.StageVideo;
@@ -28,8 +29,9 @@ package
 	import flash.text.TextField;
 	import flash.text.TextFieldAutoSize;
 	import flash.ui.Keyboard;
+	import flash.utils.Timer;
 
-	[SWF(width = "800", height = "640", frameRate = "24",wmode="direct")]
+	[SWF(width = "1184", height = "666", frameRate = "30",wmode="direct")]
 	
 	public class StreamTool extends Sprite
 	{
@@ -65,12 +67,14 @@ package
 		private var _streamName:String;
 		private var _server:String;
 		private var _application:String;
-		private var _url:String="rtmp://makati.fms.smartgaminggroup.com/SGGLive/R3_Cam1";
+		private var _url:String="rtmp://122.53.120.98/casino/baccarat/baccarat_generic_med";
 		
 		//rtmp://213.86.83.8/smartlivecasinolive-live/7BJ1
 		//http://213.86.1.217:1935/SGGLive/R1800/playlist.m3u8
 		
 		private var _debugText:TextArea;
+		
+		private var debugTimer:Timer;
 		public function StreamTool()
 		{
 			// Make sure the app is visible and stage available
@@ -186,13 +190,28 @@ package
 			
 			} };
 			ns.addEventListener(IOErrorEvent.IO_ERROR, IOError);
-			ns.bufferTime = 1;
+			ns.bufferTime = 0.3;
+			ns.bufferTimeMax = 1;
+			ns.inBufferSeek = true;
 			if (stageVideoInUse)
 			sv.attachNetStream(ns);
 			else
 			video.attachNetStream(ns);
 			
-		
+			if (debugTimer==null)
+			{
+				debugTimer=new Timer(1000);
+				debugTimer.addEventListener(TimerEvent.TIMER,function ():void{
+					_debugText.htmlText +="buffer length:" + String(ns.bufferLength) +" fps:" +String(ns.currentFPS)+ " time: "+String(ns.time);
+					if (ns.bufferLength > 2) {
+						// ns.step(1);
+						ns.seek(1);
+					}
+
+				});
+				debugTimer.start();
+			}  
+			
 			ns.play(trim(_streamName));
 			
 			
@@ -226,7 +245,7 @@ package
 		}
 		private function netStatusHandler(event:NetStatusEvent):void {
 			trace("NetStatusEvent: " + event.info.code);
-			_debugText.htmlText +=event.info.code +"<br />"
+			_debugText.htmlText +=event.info.code +"<br />";
 				switch (event.info.code) {
 					case "NetConnection.Connect.Success":
 
