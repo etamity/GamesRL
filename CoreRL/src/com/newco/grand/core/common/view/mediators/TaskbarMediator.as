@@ -345,8 +345,8 @@ package com.newco.grand.core.common.view.mediators
 		private function disableButtons(signal:BaseSignal):void
 		{
 			view.disableButtons();
-			if (FlashVars.GAMECLIENT=="baccarat")
-			 view.slideDownButtons();
+/*			if (FlashVars.GAMECLIENT=="baccarat")
+			 view.slideDownButtons();*/
 		}
 
 		private function setBalance(signal:BaseSignal):void
@@ -365,8 +365,8 @@ package com.newco.grand.core.common.view.mediators
 			
 			view.game=game.gameTime;
 			checkForRepeatAndDouble();
-			if (FlashVars.GAMECLIENT=="baccarat")
-			view.slideUpButtons();
+			/*if (FlashVars.GAMECLIENT=="baccarat")
+			view.slideUpButtons();*/
 		}
 
 		private function checkForRepeatAndDouble():void

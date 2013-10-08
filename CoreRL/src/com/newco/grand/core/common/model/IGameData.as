@@ -70,5 +70,8 @@ package com.newco.grand.core.common.model
 		 function set game(value:String):void;
 		 function get layoutPoints():Dictionary;
 		 function get httpStream():String;
+		 function set httpStream(val:String):void;
+		 function get xmodeStream():String;
+		 function set xmodeStream(val:String):void;
 	}
 }

@@ -68,6 +68,7 @@ package com.newco.grand.core.common.service.impl
 			chat.port = xml.port;
 			debug("chat.port",chat.port);
 			chat.room = xml.room;
+			flashvars.room=chat.room;
 			/*chat.serverSignupPath = xml.server_signup_path;
 			chat.serverSignupString = xml.server_signup_string;	*/		
 			

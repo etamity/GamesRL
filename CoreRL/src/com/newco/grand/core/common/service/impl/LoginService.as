@@ -59,7 +59,8 @@ package com.newco.grand.core.common.service.impl
 		
 		public function load(onComplete:Function=null):void
 		{
-			skipLogin();
+			//skipLogin();
+			loginGrand();
 		}
 		public function loginGrand():void {
 
@@ -91,7 +92,7 @@ package com.newco.grand.core.common.service.impl
 		private function checkGrandAuthenticationResponse(signal:LoaderSignal, xml:XML):void {
 			
 			debug(xml);
-			if (xml.hasOwnProperty("xml")) {
+			if (xml.hasOwnProperty("user_id")) {
 				//player.session    = xml.session;
 				flashvars.user_id = xml.user_id;
 				

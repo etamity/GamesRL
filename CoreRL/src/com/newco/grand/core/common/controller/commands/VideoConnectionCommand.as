@@ -24,59 +24,7 @@ package com.newco.grand.core.common.controller.commands {
 		override public function execute():void {
 			switch (signal.type)	{				
 				case VideoEvent.CONNECT: 
-					var streamUrl:String= flashvars.streamUrl;
-					var lowerCaseStreamUr:String= streamUrl.toLowerCase();
-					
-					if (streamUrl!="" && streamUrl.search("rtmp://")!=-1)
-					{
-						
-						if (streamUrl !=""){
-							var params:Array = String(streamUrl).split("//");
-							params.shift();
-							
-							var paramStr:String= params[0];
-							params=paramStr.split("/");
-							var sever:String = params[0];
-							var videoName:String= params[params.length-1];
-							var application:String= String(streamUrl).replace("rtmp://"+sever+"/","");
-							application=application.replace("/"+videoName,"");
 				
-							
-							game.server=sever;
-							game.videoStream=videoName;
-							game.videoApplication = application;
-	
-						}
-					}
-					
-					if (streamUrl!="" && (lowerCaseStreamUr.search(".mp4")!=-1 || lowerCaseStreamUr.search(".flv")!=-1))
-						{
-						   game.server="";
-						   game.videoStream=lowerCaseStreamUr;
-						   game.videoStreams=new Array(lowerCaseStreamUr);
-						   game.videoApplication="";
-						}
-						else
-						{
-							videoModel.servers = String(game.videoSettings.videoservers).split(",");
-							game.server=videoModel.servers[0];
-							if (game.videoSettings.application.@withGameName=="false")
-								game.videoApplication = game.videoSettings.application;
-							else
-								game.videoApplication = StringUtils.trim(game.videoSettings.application+"/"+FlashVars.GAMECLIENT.toLowerCase());
-						}
-					
-					/*if (game.server !="")
-						videoService.servers=new Array(game.server);*/
-					if (game.videoStreams !=null)
-						videoModel.streams= game.videoStreams;
-					if (game.videoApplication !="")
-						videoModel.application=game.videoApplication;
-					
-					
-					debug("[game.videoStreams]:"+game.videoStreams);
-					videoModel.settings=game.videoSettings;
-					
 					videoModel.init();
 					break;
 				

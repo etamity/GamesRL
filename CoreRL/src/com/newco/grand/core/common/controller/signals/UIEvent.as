@@ -13,6 +13,9 @@ package com.newco.grand.core.common.controller.signals
 		public static const HELP_LOADED:String 		= "UIEvent.HELP_LOADED";
 		public static const RESIZE:String 			= "UIEvent.RESIZE";
 		
+		public static const VIDEO_STOP:String    = "UIEvent.VIDEO_STOP";
+		public static const VIDEO_LOADED:String    = "UIEvent.VIDEO_LOADED";
+		public static const VIDEO_XMODE:String    = "UIEvent.VIDEO_XMODE";	
 		public static const MAKEBETS:String 			= "UIEvent.MAKEBETS";
 	}
 }

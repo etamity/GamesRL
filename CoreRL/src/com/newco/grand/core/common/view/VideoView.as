@@ -46,15 +46,19 @@ package com.newco.grand.core.common.view {
 		
 		public function VideoView() {
 			super();
-			
+			_display.video.smoothing = true;
 			_display.VideoRefreshBtn.iconMC.gotoAndStop(1);
 			_display.VideoFullscreenBtn.iconMC.gotoAndStop(1);
 			
 			_display.VideoFullscreenBtn.buttonMode = true;
 			_display.VideoRefreshBtn.buttonMode=true;
+			_display.xmodeBtn.buttonMode=true;
+			_display.stopStreamBtn.buttonMode=true;
 			_display.videoButton.addEventListener(MouseEvent.CLICK, showFullscreen);
 			_display.VideoFullscreenBtn.addEventListener(MouseEvent.CLICK, showFullscreen);
 			_display.VideoRefreshBtn.addEventListener(MouseEvent.CLICK, refreshVideo);
+			_display.xmodeBtn.addEventListener(MouseEvent.CLICK, xmodeVideo);
+			_display.stopStreamBtn.addEventListener(MouseEvent.CLICK, stopVideo);
 		}
 		
 		override public function initDisplay():void{
@@ -110,7 +114,9 @@ package com.newco.grand.core.common.view {
 		}
 		public function toggleStageVideo(on:Boolean):void       
 		{              
-			// if StageVideo is available, attach the NetStream to StageVideo       
+			// if StageVideo is available, attach the NetStream to StageVideo  
+			
+			debug("toggleStageVideo",on);
 			if (on==true)       
 			{       
 				_stageVideoInUse = true;       
@@ -118,9 +124,10 @@ package com.newco.grand.core.common.view {
 				{       
 					_sv = getStageVideo();       
 					 _display.video.visible=false;
-					
+					 _display.frame.visible=false;
 					 _display.bg.alpha=0;
 					 _display.bg.buttonMode=true;
+					 _display.bg.visible=false;
 					_sv.addEventListener(StageVideoEvent.RENDER_STATE, stageVideoStateChange);  
 				}       
 				_sv.attachNetStream(_stream);       
@@ -129,13 +136,14 @@ package com.newco.grand.core.common.view {
 					// If using StageVideo, just remove the Video object from       
 					// the display list to avoid covering the StageVideo object       
 					// (always in the background)       
-					//stage.removeChild ( video );       
+					//stage.removeChild ( video );      
 					_classicVideoInUse = false;       
 				}       
 			} else       
 			{       
 				// Otherwise attach it to a Video object      
 				 _display.video.visible=true;
+				 _display.frame.visible=true;
 				 _display.bg.visible=false;
 				if (_stageVideoInUse)       
 					_stageVideoInUse = false;       
@@ -202,6 +210,18 @@ package com.newco.grand.core.common.view {
 			_signalBus.dispatch(UIEvent.VIDEO_REFRESH,{target:event.target});
 		}
 		
+		private function stopVideo(event:MouseEvent):void {
+			
+			_display.video.clear();
+			//videoRefreshSignal.dispatch();
+			_signalBus.dispatch(UIEvent.VIDEO_STOP,{target:event.target});
+		}
+		private function xmodeVideo(event:MouseEvent):void {
+			
+			_display.video.clear();
+			//videoRefreshSignal.dispatch();
+			_signalBus.dispatch(UIEvent.VIDEO_XMODE,{target:event.target});
+		}
 		public function showFullscreen(event:MouseEvent):void {
 			resizeVideo(event);
 			_fullscreen = !_fullscreen;

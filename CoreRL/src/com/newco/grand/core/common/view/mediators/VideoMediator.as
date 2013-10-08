@@ -18,7 +18,7 @@ package com.newco.grand.core.common.view.mediators {
 	
 	import robotlegs.bender.bundles.mvcs.Mediator;
 	import robotlegs.bender.extensions.contextView.ContextView;
-	
+	import com.newco.grand.core.utils.StringUtils;
 	public class VideoMediator extends Mediator {
 		
 		[Inject]
@@ -80,10 +80,18 @@ package com.newco.grand.core.common.view.mediators {
 			eventMap.mapListener(contextView.view.stage, Event.RESIZE, onStageResize);
 			view.signalBus.add(UIEvent.VIDEO_FULLSCREEN,videoFullscreen);
 			view.signalBus.add(UIEvent.VIDEO_REFRESH,videoRefresh);
+			view.signalBus.add(UIEvent.VIDEO_STOP,videoStop);
+			view.signalBus.add(UIEvent.VIDEO_XMODE,videoXmode);
 			//view.videoFullscreenSignal.add(videoFullscreen);
 			//view.videoRefreshSignal.add(videoRefresh);
 		}
-		
+		private function videoStop(signal:BaseSignal):void {
+			videoModel.stopStream();
+			signalBus.dispatch(UIEvent.VIDEO_STOP);
+		}
+		private function videoXmode(signal:BaseSignal):void {
+			videoModel.changeStream();
+		}
 		private function setupVideo(event:VideoEvent):void {
 			/*if (flashVars.videoplayer=="stagevideo"){
 				view.toggleStageVideo(true);
@@ -97,13 +105,15 @@ package com.newco.grand.core.common.view.mediators {
 		private function setVideoStream(signal:BaseSignal):void {
 			view.stream = signal.params.stream;
 			var stagevideo:Boolean= signal.params.stagevideo;
-			//view.stream.play(videoSevvice.streamName);
-			debug(flashVars.videoplayer);
+			view.stream.play(StringUtils.trim(videoModel.streamName));
+			debug(flashVars.videoplayer,"stagevideo=",stagevideo);
 			if (flashVars.videoplayer==Constants.STAGEVIDEO_TYPE.toLowerCase() || stagevideo==true){
 			view.toggleStageVideo(true);
 			}
 			else if (flashVars.videoplayer==Constants.VIDEO_TYPE.toLowerCase() || flashVars.videoplayer=="")
 			view.toggleStageVideo(false);
+			
+			signalBus.dispatch(UIEvent.VIDEO_LOADED);
 		}
 		
 		private function onStageResize(event:Event):void {

@@ -30,12 +30,20 @@ package com.newco.grand.core.common.model
 		private var _videoStreams:Array=new Array();
 		
 		private var _httpStream:String="";
+		
+		private var _xmodeStream:String="xmode";
+		
 		public function GameData()
 		{
 			super();
 			_layoutPoints=new Dictionary();
 		}
-		
+		public function get xmodeStream():String{
+			return _xmodeStream;
+		}
+		public function set xmodeStream(val:String):void{
+			_xmodeStream=val;
+		}
 		public function get httpStream():String{
 			return _httpStream;
 		}

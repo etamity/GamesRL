@@ -11,15 +11,16 @@ package com.newco.grand.core.common.view.mediators {
 	import com.newco.grand.core.common.model.SignalConstants;
 	import com.newco.grand.core.common.view.interfaces.IStageView;
 	import com.newco.grand.core.utils.GameUtils;
-	
+	import com.newco.grand.core.common.model.FlashVars;
 	import flash.display.StageDisplayState;
 	import flash.events.Event;
 	import flash.media.SoundMixer;
 	import flash.media.SoundTransform;
-	
+	import com.newco.grand.core.common.controller.signals.VideoEvent;
+	import com.newco.grand.core.common.controller.signals.UIEvent;
 	import robotlegs.bender.bundles.mvcs.Mediator;
 	import robotlegs.bender.extensions.contextView.ContextView;
-	
+	import com.newco.grand.core.common.model.Constants;
 	public class StageMediator extends Mediator{
 		
 		[Inject]
@@ -33,7 +34,8 @@ package com.newco.grand.core.common.view.mediators {
 		
 		[Inject]
 		public var contextView:ContextView;
-		
+		[Inject]
+		public var flashVars:FlashVars;
 		private var _sound:SoundTransform = new SoundTransform();
 		
 		override public function initialize():void {
@@ -48,6 +50,16 @@ package com.newco.grand.core.common.view.mediators {
 			signalBus.add(TaskbarActionEvent.SOUND_CLICKED,toggleSound);
 			signalBus.add(TaskbarActionEvent.HELP_CLICKED,toggleHelp);
 
+			//signalBus.add(UIEvent.VIDEO_STOP, showGraphics);
+			//if (FlashVars.PLATFORM==FlashVars.DESKTOP_PLATFORM || FlashVars.PLATFORM==FlashVars.WEB_PLATFORM)
+			//if (flashVars.videoplayer==Constants.STAGEVIDEO_TYPE)
+			signalBus.add(VideoEvent.CONNECT, hideGraphics);
+		}
+		private function showGraphics(signal:BaseSignal):void {
+			view.view.visible=true;
+		}
+		private function hideGraphics(signal:BaseSignal):void {
+			view.view.visible=false;
 		}
 		private function updateLanguage(signal:BaseSignal):void{
 			view.updateLanguage();

@@ -118,6 +118,7 @@ package com.newco.grand.core.common.view {
 			favouritesBtn = new SMButton( _display.favourites);
 			lobbyBtn =new SMButton( _display.lobby);
 			
+			lobbyBtn.skin.visible=false;
 			_display.responsible.visible = false;
 			_display.chat.visible = false;
 			_display.chat.mouseEnabled=false;

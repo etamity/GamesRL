@@ -28,7 +28,9 @@ package com.newco.grand.core.common.controller.commands
 			langService.load();
 			styleService.load(function ():void{
 				signalBus.dispatch(LanguageAndStylesEvent.LOADED);
-				if(flashVars.localhost==true  || FlashVars.PLATFORM==FlashVars.AIR_PLATFORM) {
+				if(flashVars.localhost==true  || FlashVars.PLATFORM==FlashVars.AIR_PLATFORM 
+					|| FlashVars.PLATFORM==FlashVars.DESKTOP_PLATFORM
+					|| FlashVars.PLATFORM==FlashVars.TESTING_PLATFORM) {
 					signalBus.dispatch(LoginEvent.INITIALIZE);
 				} else 
 				{

@@ -3,7 +3,7 @@ package com.newco.grand.core.common.model {
 	import com.newco.grand.core.common.controller.signals.VideoEvent;
 	import com.newco.grand.core.utils.GameUtils;
 	import com.newco.grand.core.utils.StringUtils;
-	
+	import com.newco.grand.core.common.controller.signals.MessageEvent;
 	import flash.events.AsyncErrorEvent;
 	import flash.events.IOErrorEvent;
 	import flash.events.NetStatusEvent;
@@ -58,6 +58,7 @@ package com.newco.grand.core.common.model {
 		
 		private var _buffer_min:uint;
 		
+		private var _tempStreamName:String;
 		
 		private var _bwCheck:uint;
 		
@@ -70,6 +71,7 @@ package com.newco.grand.core.common.model {
 		[Inject]
 		public var signalBus:SignalBus;
 		
+		private var debugTimer:Timer;
 		public function VideoModel() {
 			NetConnection.defaultObjectEncoding = ObjectEncoding.AMF0;			
 			_connection = new NetConnection();			
@@ -95,8 +97,8 @@ package com.newco.grand.core.common.model {
 			_availabilityTimer = new Timer(10000);
 			_availabilityTimer.addEventListener(TimerEvent.TIMER, checkStreamAvailability);
 			
-			_maxBuffer = 5;
-			_buffer_min=1;
+			_maxBuffer = 1;
+			_buffer_min=0.3;
 			_bwCheck = 500;
 		}		
 		private function asyncErrorHandler(event:AsyncErrorEvent):void {
@@ -115,6 +117,7 @@ package com.newco.grand.core.common.model {
 				_server =servers[_flashvars.streamServerID]
 			}
 			_videoStartTime = getTimer();
+		
 			createConnection();
 		}
 		public function get stream():NetStream{
@@ -130,7 +133,11 @@ package com.newco.grand.core.common.model {
 			debug("rtmp://" + _server + "/" + _application);
 			debug("httpStream: "+game.httpStream);
 		
-			if (game.httpStream=="")
+			if (game.httpStream!="" && FlashVars.PLATFORM==FlashVars.AIR_PLATFORM)
+			{
+				_streamName=game.httpStream;
+				_connection.connect(null);
+			}else
 			{
 				if (_server!="" && _application!="" && _streamName.search(".mp4")==-1)
 					_connection.connect("rtmp://" + _server + "/" + _application);
@@ -138,15 +145,11 @@ package com.newco.grand.core.common.model {
 					_connection.connect(null);
 					//connectStream();
 				}
-			}else
-			{
-				_streamName=game.httpStream;
-				_connection.connect(null);
 			}
 			
 			//_videoCheckTimer.start();
 			//_availabilityTimer.start();
-			//_waitTimer.start();
+			_waitTimer.start();
 			_waiting = true;
 			_videoStopped = false;
 		}
@@ -157,11 +160,28 @@ package com.newco.grand.core.common.model {
 			_stream.addEventListener(IOErrorEvent.IO_ERROR, IOErrorHandler);
 			_stream.client = { onBWDone: function():void{} };
 			_stream.bufferTime =0.3;//delay;
+			_stream.inBufferSeek = true;
+			_stream.useHardwareDecoder=true;
 			_stream.bufferTimeMax = _maxBuffer;
-			signalBus.dispatch(VideoEvent.PLAY,{stream:_stream,stagevideo:(game.httpStream=="")?false:true});
+			signalBus.dispatch(VideoEvent.PLAY,{stream:_stream,stagevideo:(game.httpStream!="" && FlashVars.PLATFORM==FlashVars.AIR_PLATFORM)?true:false});
 			debug("streamName: "+StringUtils.trim(_streamName));
-			
-			_stream.play(StringUtils.trim(_streamName));
+			if (debugTimer==null)
+			{
+				debugTimer=new Timer(1000);
+				debugTimer.addEventListener(TimerEvent.TIMER,function ():void{
+					debug("buffer length:" + String(_stream.bufferLength) +" fps:" +String(_stream.currentFPS));
+					//signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:"buf leng:" + String(_stream.bufferLength) +" fps:" +String(_stream.currentFPS)+" livedelay: "+ String(_stream.liveDelay)+ " bufferTimeMax:"+String(_stream.bufferTimeMax) });
+				/*	if (_stream.bufferLength > 2) {
+						//_stream.step(1);
+						_stream.seek(1);
+						
+					}
+					*/
+				});
+				
+			}  
+			debugTimer.start();
+			//_stream.play(StringUtils.trim(_streamName));
 		}
 		
 		
@@ -169,7 +189,22 @@ package com.newco.grand.core.common.model {
 			_stream.removeEventListener(NetStatusEvent.NET_STATUS, netStatusHandler);
 			_connection.close();
 			_stream.close();
-			createConnection()
+			createConnection();
+		}
+		
+		public function changeStream():void{
+			_tempStreamName=_streamName;
+			_streamName=game.xmodeStream;
+			game.xmodeStream=_tempStreamName;
+			refreshStream();
+		}
+		
+		public function stopStream():void{
+			_stream.removeEventListener(NetStatusEvent.NET_STATUS, netStatusHandler);
+			_stream.close();
+			_connection.close();
+			debugTimer.stop();
+
 		}
 		
 		private function netStatusHandler(event:NetStatusEvent):void {
@@ -179,6 +214,8 @@ package com.newco.grand.core.common.model {
 					connectStream();
 					break;
 				case STREAM_NOT_FOUND:
+					game.httpStream="";
+					createConnection();
 					break;
 				case STARTED_PLAYING:
 					//_video.onVideoStarted();
@@ -188,6 +225,7 @@ package com.newco.grand.core.common.model {
 					//_connection.close();
 					_videoStopped = true;
 					_videoReconnectTimer.start();
+					debugTimer.stop();
 				
 					break;
 				case "NetConnection.Connect.Rejected":

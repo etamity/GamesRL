@@ -4,7 +4,7 @@ package com.newco.grand.core.common.model
 
 	public class URLSModel extends Actor
 	{		
-		private var _server:String 		= "https://livecasino.smartliveaffiliates.com";
+		private var _server:String 		= "https://spielbank.extremelivegaming.com";
 
 		private var _authentication:String = "https://livecasino.smartliveaffiliates.com/cgibin/SmartAuthentication";
 		private var _login:String 		= "http://m.smartlivecasino.com/WebServices/Login.aspx";
@@ -69,7 +69,8 @@ package com.newco.grand.core.common.model
 		}
 		public function get tournament():String {
 			var index:int = _tournament.search("://");
-			if (index>=0 || FlashVars.PLATFORM==FlashVars.DESKTOP_PLATFORM)
+			if (index>=0  
+				|| FlashVars.PLATFORM==FlashVars.TESTING_PLATFORM)
 				return  _tournament;
 			return _server+_tournament;
 		}
@@ -89,14 +90,16 @@ package com.newco.grand.core.common.model
 		}
 		public function get balance():String {
 			var index:int = _balance.search("://");
-			if (index>=0  || FlashVars.PLATFORM==FlashVars.DESKTOP_PLATFORM)
+			if (index>=0 
+				|| FlashVars.PLATFORM==FlashVars.TESTING_PLATFORM)
 				return  _balance;
 			return server + _balance;
 		}
 
 		public function get skin():String{
 			var index:int = _skin.search("://");
-			if (index>=0 || FlashVars.PLATFORM==FlashVars.DESKTOP_PLATFORM)
+			if (index>=0 
+				|| FlashVars.PLATFORM==FlashVars.TESTING_PLATFORM)
 				return _skin;
 			return server + _skin;
 		}
@@ -118,7 +121,8 @@ package com.newco.grand.core.common.model
 		}
 		public function get lobby():String {
 			var index:int = _lobby.search("://");
-			if (index>=0)
+			if (index>=0		
+				|| FlashVars.PLATFORM==FlashVars.TESTING_PLATFORM)
 				return  _lobby;
 			return server + _lobby;
 		}
@@ -127,7 +131,8 @@ package com.newco.grand.core.common.model
 		}
 		public function get langICON():String {
 			var index:int = _langICON.search("://");
-			if (index>=0 || FlashVars.PLATFORM==FlashVars.DESKTOP_PLATFORM)
+			if (index>=0 
+				|| FlashVars.PLATFORM==FlashVars.TESTING_PLATFORM)
 				return  _langICON;
 			return server + _langICON;
 		}
@@ -136,7 +141,8 @@ package com.newco.grand.core.common.model
 		}
 		public function get help():String {
 			var index:int = _help.search("://");
-			if (index>=0 || FlashVars.PLATFORM==FlashVars.DESKTOP_PLATFORM)
+			if (index>=0 
+				|| FlashVars.PLATFORM==FlashVars.TESTING_PLATFORM)
 				return  _help;
 			return server + _help;
 		}
@@ -197,7 +203,8 @@ package com.newco.grand.core.common.model
 
 		public function get language():String {
 			var index:int = _language.search("://");
-			if (index>=0 || FlashVars.PLATFORM==FlashVars.DESKTOP_PLATFORM)
+			if (index>=0
+				|| FlashVars.PLATFORM==FlashVars.TESTING_PLATFORM)
 				return  _language + flashVars.lang + ".xml";
 
 			return server + _language + flashVars.lang + ".xml";
@@ -209,7 +216,8 @@ package com.newco.grand.core.common.model
 
 		public function get style():String {
 			var index:int = _style.search("://");
-			if (index>=0 || FlashVars.PLATFORM==FlashVars.DESKTOP_PLATFORM)
+			if (index>=0 
+				|| FlashVars.PLATFORM==FlashVars.TESTING_PLATFORM)
 				return _style + flashVars.client  + ".xml";
 
 			return server + _style + flashVars.client  + ".xml";
@@ -234,7 +242,8 @@ package com.newco.grand.core.common.model
 
 		public function get state():String {
 			var index:int = _state.search("://");
-			if (index>=0|| FlashVars.PLATFORM==FlashVars.DESKTOP_PLATFORM)
+			if (index>=0
+				|| FlashVars.PLATFORM==FlashVars.TESTING_PLATFORM)
 				return  _state+ "?table_id=" + flashVars.table_id+"&vt_id="+flashVars.vt_id;
 			return server + _state+ "?table_id=" + flashVars.table_id+"&vt_id="+flashVars.vt_id;
 		}
@@ -245,7 +254,8 @@ package com.newco.grand.core.common.model
 
 		public function get tableConfig():String {
 			var index:int = _tableConfig.search("://");
-			if (index>=0 || FlashVars.PLATFORM==FlashVars.DESKTOP_PLATFORM)
+			if (index>=0 
+				|| FlashVars.PLATFORM==FlashVars.TESTING_PLATFORM)
 				return _tableConfig+ "?table_id=" + flashVars.table_id+"&vt_id="+flashVars.vt_id;
 			return server + _tableConfig+ "?table_id=" + flashVars.table_id+"&vt_id="+flashVars.vt_id;
 		}
@@ -267,7 +277,8 @@ package com.newco.grand.core.common.model
 
 		public function get chatConfig():String {
 			var index:int = _chatConfig.search("://");
-			if (index>=0|| FlashVars.PLATFORM==FlashVars.DESKTOP_PLATFORM)
+			if (index>=0
+				|| FlashVars.PLATFORM==FlashVars.TESTING_PLATFORM)
 				return _chatConfig + "?room_id=" + flashVars.room;
 			return server + _chatConfig + "?room_id=" + flashVars.room;
 		}
@@ -286,7 +297,8 @@ package com.newco.grand.core.common.model
 
 		public function get players():String {
 			var index:int = _players.search("://");
-			if (index>=0|| FlashVars.PLATFORM==FlashVars.DESKTOP_PLATFORM)
+			if (index>=0
+				|| FlashVars.PLATFORM==FlashVars.TESTING_PLATFORM)
 				return  _players+ "?table_id=" + flashVars.table_id+"&vt_id="+flashVars.vt_id;
 			return server + _players+ "?table_id=" + flashVars.table_id+"&vt_id="+flashVars.vt_id;
 		}
@@ -297,7 +309,8 @@ package com.newco.grand.core.common.model
 
 		public function get winners():String {
 			var index:int = _winners.search("://");
-			if (index>=0|| FlashVars.PLATFORM==FlashVars.DESKTOP_PLATFORM)
+			if (index>=0
+				|| FlashVars.PLATFORM==FlashVars.TESTING_PLATFORM)
 				return  _winners+"?mode=top";
 			return server + _winners+"?mode=top";
 		}
@@ -307,7 +320,8 @@ package com.newco.grand.core.common.model
 
 		public function get statistics():String {
 			var index:int = _statistics.search("://");
-			if (index>=0|| FlashVars.PLATFORM==FlashVars.DESKTOP_PLATFORM)
+			if (index>=0
+				|| FlashVars.PLATFORM==FlashVars.TESTING_PLATFORM)
 				return _statistics;
 			return server + _statistics;
 		}
@@ -317,7 +331,8 @@ package com.newco.grand.core.common.model
 
 		public function get seat():String {
 			var index:int = _seat.search("://");
-			if (index>=0|| FlashVars.PLATFORM==FlashVars.DESKTOP_PLATFORM)
+			if (index>=0
+				|| FlashVars.PLATFORM==FlashVars.TESTING_PLATFORM)
 				return  _seat + "?table_id=" + flashVars.table_id+"&vt_id="+flashVars.vt_id;
 			return server + _seat + "?table_id=" + flashVars.table_id+"&vt_id="+flashVars.vt_id;
 		}
@@ -327,7 +342,8 @@ package com.newco.grand.core.common.model
 
 		public function get settings():String{
 			var index:int = _settings.search("://");
-			if (index>=0|| FlashVars.PLATFORM==FlashVars.DESKTOP_PLATFORM)
+			if (index>=0
+				|| FlashVars.PLATFORM==FlashVars.TESTING_PLATFORM)
 				return _settings;
 			return server + _settings;
 		}

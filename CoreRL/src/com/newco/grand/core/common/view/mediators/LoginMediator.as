@@ -44,18 +44,19 @@ package com.newco.grand.core.common.view.mediators {
 			
 		}
 		private function updateLanguage(signal:BaseSignal):void {
-			view.init();	
+			view.updateLanguage();	
 		}
 
 		private function initializeView():void {
 
-			view.id = "joey";
-			view.password = "joe123";
+			view.id = "darwyn";
+			view.password = "smartwyn";
 			_loginSO = SharedObject.getLocal("cplogin");
 			if (_loginSO.data.id != null) {
 				view.id = _loginSO.data.id;
 			}	
 			view.loginSignal.add(login);
+			view.init();
 		}
 		
 		private function login(id:String,password:String):void {

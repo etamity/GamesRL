@@ -22,7 +22,8 @@ package com.newco.grand.core.common.view {
 		override public function initDisplay():void{
 			_display=new LoginAsset();
 			addChild( _display);
-
+			visible=false;
+			
 			
 		}
 		
@@ -32,6 +33,7 @@ package com.newco.grand.core.common.view {
 			x = (stage.stageWidth  - width) / 2;
 			y = (stage.stageHeight  - height) / 2;
 			}
+			visible=true;
 		}
 		public function get loginSignal():Signal{
 			return _loginSignal;

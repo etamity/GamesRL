@@ -2,6 +2,8 @@ package com.newco.grand.core.common.view {
 	import com.newco.grand.core.common.model.LanguageModel;
 	import com.newco.grand.core.common.view.interfaces.IGameStatusView;
 	
+	import caurina.transitions.Tweener;
+	import flash.events.MouseEvent;
 	import flash.text.TextFieldAutoSize;
 	import flash.text.TextFormat;
 
@@ -10,9 +12,28 @@ package com.newco.grand.core.common.view {
 		private var _messageFormat:TextFormat = new TextFormat("Arial", 14, 0xFFAF32, true);
 		private var _blinkCounter:int = 0;
 
+		private var closeBtn:SMButton;
+		private var _extended:Boolean=false;
 		public function GameStatusView() {
 			super();
 			setLightSOff();
+			closeBtn= new SMButton(_display.closeBtn);
+			closeBtn.skin.addEventListener(MouseEvent.CLICK,doCloseEvent);
+		}
+		private function doCloseEvent(evt:MouseEvent):void{
+			extended=!extended;
+		}
+		public function get extended():Boolean{
+			return _extended;
+		}
+		public function set extended(val:Boolean):void{
+			if (_extended==false){
+				
+				Tweener.addTween(view,{y:-170,time:0.5,onComplete:function ():void{}});
+			}else{
+				Tweener.addTween(view,{y:0,time:0.5,onComplete:function ():void{}});	
+			}
+			_extended=val;
 		}
 		override public function initDisplay():void{
 			_display=new GameStatusAsset();

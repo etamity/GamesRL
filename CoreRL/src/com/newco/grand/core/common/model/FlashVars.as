@@ -12,8 +12,8 @@ package com.newco.grand.core.common.model {
 		public var port:int 			= 5654;
 		
 		// For testing Roulette
-		public var server:String 		= "http://livecasino.smartliveaffiliates.com";	
-		public var socketServer:String	= "livecasino.smartliveaffiliates.com";		
+		public var server:String 		= "http://spielbank.extremelivegaming.com";	
+		public var socketServer:String	= "spielbank.extremelivegaming.com";		
 		public var table_id:String 		= "7nyiaws9tgqrzaz3";
 		public var vt_id:String 		= "";
 		public var user_id:String 		= "";
@@ -30,7 +30,7 @@ package com.newco.grand.core.common.model {
 		
 		public var videoplayer:String  ="";
 		public var streamUrl:String  ="";
-		public var urls:String  ="http://livecasino.smartliveaffiliates.com/cgibin/appconfig/xml/configs/urls.xml";
+		public var urls:String  =server+"/cgibin/appconfig/xml/configs/urls.xml";
 		public var parameters:Object;
 		
 		public static var SKIN_ENABLE:Boolean=false;
@@ -40,8 +40,8 @@ package com.newco.grand.core.common.model {
 		public static const AIR_PLATFORM:String="AIR";
 		public static const WEB_PLATFORM:String="WEB";
 		public static const DESKTOP_PLATFORM:String="DESKTOP";
-		
-		public static var PLATFORM:String=AIR_PLATFORM;
+		public static const TESTING_PLATFORM:String="localhost";
+		public static var PLATFORM:String="";
 		public static var GAMECLIENT:String="baccarat";
 		
 		
@@ -63,6 +63,13 @@ package com.newco.grand.core.common.model {
 			contextView.view.addEventListener(Event.ADDED_TO_STAGE,onAddToStage);
 			parse(root.stage.loaderInfo.parameters);
 			game_url = root.stage.loaderInfo.url;
+			if(FlashVars.PLATFORM==""){
+				if (localhost==true)
+				FlashVars.PLATFORM=FlashVars.DESKTOP_PLATFORM;
+				else
+				FlashVars.PLATFORM = FlashVars.WEB_PLATFORM;
+			}
+			debug("PLATFORM:",FlashVars.PLATFORM);
 		}
 		private function onAddToStage(evt:Event):void{
 			params=root.stage.loaderInfo.parameters;
@@ -102,7 +109,7 @@ package com.newco.grand.core.common.model {
 		protected function parse(params:Object):void {
 			if (params.debugIP!=null && params.debugIP!="")
 			MonsterDebugger.initialize(root.stage,params.debugIP);
-			
+				
 			var types : Array = new Array("array", "boolean", "int", "number", "string", "xml");
 			for(var key:String in params) {
 				var value:String = params[key];

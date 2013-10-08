@@ -29,13 +29,18 @@ package com.newco.grand.core.common.controller.commands {
 			
 			
 			if (FlashVars.SKIN_ENABLE==true)
+				if (flashVars.localhost==true )
 				SkinLoader.loadSkinFile("cgibin/appconfig/skins/skin.swf",onStart,onError,null,null);
+				else
+				SkinLoader.loadSkinFile("/cgibin/appconfig/skins/skin.swf",onStart,onError,null,null);	
 			else
 				onStart();
 		}
 		private function onStart():void{
-			if(flashVars.localhost==true || FlashVars.PLATFORM==FlashVars.AIR_PLATFORM 
-				|| FlashVars.PLATFORM==FlashVars.DESKTOP_PLATFORM) {
+			if(flashVars.localhost==true 
+				|| FlashVars.PLATFORM==FlashVars.AIR_PLATFORM 
+				|| FlashVars.PLATFORM==FlashVars.DESKTOP_PLATFORM
+				|| FlashVars.PLATFORM==FlashVars.TESTING_PLATFORM) {
 				configService.load(function ():void{
 					urlsService.load(function ():void{
 						signalBus.dispatch(UIEvent.SETUP_VIEWS);
@@ -46,6 +51,7 @@ package com.newco.grand.core.common.controller.commands {
 			}
 			else{
 				urlsService.load(function ():void{
+					signalBus.dispatch(UIEvent.SETUP_VIEWS);
 					signalBus.dispatch(SignalConstants.STARTUP_COMPLETE);	
 				});
 			}
