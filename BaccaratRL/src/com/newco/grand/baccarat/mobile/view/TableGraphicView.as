@@ -6,6 +6,9 @@ package com.newco.grand.baccarat.mobile.view
 	public class TableGraphicView extends com.newco.grand.baccarat.classic.view.TableGraphicView
 	{
 
+		public function TableGraphicView(){
+			super();
+		}
 		override public function align():void
 		{
 			y=515;

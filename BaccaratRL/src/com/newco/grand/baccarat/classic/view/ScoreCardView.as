@@ -3,15 +3,21 @@ package com.newco.grand.baccarat.classic.view
 	import com.newco.grand.baccarat.classic.view.interfaces.IScoreCardView;
 	import com.newco.grand.core.common.components.scorecard.ScoreCard;
 	import com.newco.grand.core.common.model.StyleModel;
+	import com.newco.grand.core.common.view.SMButton;
 	import com.newco.grand.core.common.view.UIView;
 	
 	import flash.display.SimpleButton;
 	
+	import flash.events.MouseEvent;
+	
+	import caurina.transitions.Tweener;
+	import com.newco.grand.core.common.controller.signals.BaseSignal;
 	public class ScoreCardView extends UIView implements IScoreCardView
 	{
 		private var scoreCardPanel:ScoreCard;
-		private var _closeBtn:SimpleButton;
+		private var _closeBtn:SMButton;
 		protected var _skin:ScorecardBG;
+		protected var _extended:Boolean=true;
 		public function ScoreCardView()
 		{
 			super();
@@ -25,9 +31,26 @@ package com.newco.grand.baccarat.classic.view
 			scoreCardPanel.x=10;
 			scoreCardPanel.y=5;
 			_display= _skin;
-	
+			_closeBtn=new SMButton(_skin.closeBtn);
+			
+			_closeBtn.skin.addEventListener(MouseEvent.CLICK,doShowHide);
+			extended=true;
 		}
-		
+		private function doShowHide(evt:MouseEvent):void{
+			extended=!extended;
+		}
+		public function get extended():Boolean{
+			return _extended;
+		}
+		public function set extended(val:Boolean):void{
+			if (_extended==false){
+				
+				Tweener.addTween(view,{x:-360,time:0.5,onComplete:function ():void{}});
+			}else{
+				Tweener.addTween(view,{x:0,time:0.5,onComplete:function ():void{}});	
+			}
+			_extended=val;
+		}
 		override public function updateLanguage():void{
 			scoreCardPanel.updateLanguage();
 		}
@@ -37,7 +60,7 @@ package com.newco.grand.baccarat.classic.view
 			visible=true;
 		}
 
-		public function get closeBtn():SimpleButton{
+		public function get closeBtn():SMButton{
 			return _closeBtn;
 		}
 		public function update(data:XMLList):void{

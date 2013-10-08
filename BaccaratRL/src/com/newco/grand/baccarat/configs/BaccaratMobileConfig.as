@@ -143,26 +143,7 @@ package com.newco.grand.baccarat.configs
 			//setupViews();
 			context.afterInitializing(init);
 		}
-		public function setupViews():void{
-			contextView.view.addChild(new StageView());
-			contextView.view.addChild(new VideoView());
-			contextView.view.addChild(new TableGraphicView());
-			contextView.view.addChild(new LoginView());
-			//contextView.view.addChild(new AccordionUIView());
-			contextView.view.addChild(new TaskbarView());
-			//contextView.view.addChild(new GameStatusView())
-			//contextView.view.addChild(new ChatView());
-			contextView.view.addChild(new BetSpotsView());
-			contextView.view.addChild(new CardsPanelView());
-			contextView.view.addChild(new AnimationPanelView());
-			
-			if (FlashVars.DEBUG_MODE==true)
-			contextView.view.addChild(new ErrorMessageView());
-			
-			//contextView.view.addChild(new ScoreCardView());
-			//contextView.view.addChild(new MessageBoxView());
-			
-		}
+
 		public function createInstance():void{
 			gameData.game=Constants.BACCARAT;
 			gameData.gameType=Constants.TYPE_CLASSIC;

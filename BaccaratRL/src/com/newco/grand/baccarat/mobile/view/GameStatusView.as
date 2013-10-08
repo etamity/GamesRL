@@ -9,7 +9,7 @@ package com.newco.grand.baccarat.mobile.view
 			super();
 		}
 		override public function align():void{
-			x = stage.stageWidth -200;
+			x = stage.stageWidth -154;
 			y = 0;
 		}
 		override public function initDisplay():void{

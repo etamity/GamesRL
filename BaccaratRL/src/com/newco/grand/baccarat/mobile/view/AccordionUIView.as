@@ -11,8 +11,8 @@ package com.newco.grand.baccarat.mobile.view
 		
 		override public function align():void{
 			x= stage.stageWidth -width;
-			y=190;
-			view.y=190;
+			view.y=160;
+			view.y=385;
 			_compHeight=320;
 			_display.setSize(_compWidth,_compHeight);
 			visible=true;

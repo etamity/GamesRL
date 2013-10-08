@@ -12,6 +12,9 @@ package com.newco.grand.baccarat.classic.view.mediators
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.Player;
 	import com.newco.grand.core.common.model.SignalBus;
+	import com.newco.grand.core.utils.GameUtils;
+	
+	import flash.geom.Point;
 	
 	import robotlegs.bender.bundles.mvcs.Mediator;
 	
@@ -38,8 +41,6 @@ package com.newco.grand.baccarat.classic.view.mediators
 			super();
 		}
 		override public function initialize():void {
-			//eventMap.mapListener(eventDispatcher, SocketDataEvent.HANDLE_RESULT, processResult);
-			//eventMap.mapListener(eventDispatcher, ModelReadyEvent.READY, initialize);
 			signalBus.add(ModelReadyEvent.READY, setupModel);
 			signalBus.add(SocketDataEvent.HANDLE_RESULT,processResult);
 		}
@@ -51,9 +52,11 @@ package com.newco.grand.baccarat.classic.view.mediators
 	
 		
 		private function processResult(signal:BaseSignal):void{
+
 			var sideName:String=signal.params.node;
-			if (flashVars.game==Constants.BACCARAT.toLowerCase())
-			animationService.fadeIn(view.showWinningCup(),game.layoutPoints[sideName]);
+			debug("processResult","sideName",sideName,game.layoutPoints[sideName]);
+			if (FlashVars.GAMECLIENT==Constants.BACCARAT)
+			animationService.fadeIn(view.showWinningCup(),game.layoutPoints[sideName]);//game.layoutPoints[sideName]);
 			if (player.winnings>0)
 			animationService.fadeInCenter(view.showWinningBox(player.currencyCode+String(player.winnings),signal.params.node));
 		}
@@ -80,6 +83,10 @@ package com.newco.grand.baccarat.classic.view.mediators
 			if (player.winnings>0)
 				animationService.fadeInCenter(view.showWinningBox(player.currencyCode+String(player.winnings),signal.params.node));
 
+		}
+
+		private function debug(...args):void {
+			GameUtils.log(this, args);
 		}
 	}
 }

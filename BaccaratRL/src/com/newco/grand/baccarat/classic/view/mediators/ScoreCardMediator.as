@@ -33,44 +33,24 @@ package com.newco.grand.baccarat.classic.view.mediators
 		
 		[Inject]
 		public var contextView:ContextView;	
-		private var _extended:Boolean=false;
 		public function ScoreCardMediator()
 		{
 			super();
-		}
-		public function get extended():Boolean{
-			return _extended;
-		}
-		public function set extended(val:Boolean):void{
-			if (_extended==false){
-				
-				Tweener.addTween(view,{x:contextView.view.stage.stageWidth-180,time:0.5,onComplete:function ():void{}});
-			}else{
-				Tweener.addTween(view,{x:530,time:0.5,onComplete:function ():void{}});	
-			}
-			_extended=val;
 		}
 		override public function initialize():void {
 		
 			signalBus.add(ModelReadyEvent.READY, setupModel);
 			signalBus.add(BaccaratEvent.SCORDCARD, processScoreCard);
-			signalBus.add(StatisticsEvent.SHOWHIDE,doShowHideEvent);
+			//signalBus.add(StatisticsEvent.SHOWHIDE,doShowHideEvent);
 			
-			
-			//view.closeBtn.addEventListener(MouseEvent.CLICK,doShowHide);
-			extended=true;
+
+
 		
 		}
 		private function updateLanguage(signal:BaseSignal):void{
 			view.updateLanguage();
 		}
-		private function doShowHide(evt:MouseEvent):void{
-			extended=!extended;
-		}
-		private function doShowHideEvent(signal:BaseSignal=null):void{
-			extended=!extended;
-		
-		}
+
 		private function setupModel(signal:BaseSignal):void {
 			signalBus.add(LanguageAndStylesEvent.LANGUAGE_LOADED, updateLanguage);
 			view.initView(377, 187, true, false, flashvars.table_id);

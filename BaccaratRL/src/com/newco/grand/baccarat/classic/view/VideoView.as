@@ -21,6 +21,7 @@ package com.newco.grand.baccarat.classic.view
 			x = 0;
 			y = 0;
 			setSize(1184, 666);
+			//setSize(1186, 667);
 			//setSize(1280, 720);
 		}
 		

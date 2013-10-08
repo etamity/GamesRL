@@ -14,7 +14,7 @@ package
 	import robotlegs.bender.framework.api.IContext;
 	import robotlegs.bender.framework.impl.Context;
 	
-	[SWF(width = "1186", height = "667", frameRate = "30", backgroundColor = "#4C4C4C")]
+	[SWF(width = "1186", height = "667", frameRate = "30", backgroundColor = "#4C4C4C",wmode="direct")]
 	//[SWF(width = "100", height = "100", frameRate = "30", backgroundColor = "#4C4C4C")]
 	public class BaccaratRL extends Sprite
 	{
@@ -31,7 +31,6 @@ package
 			ToolTip.setDefaultToolTipStyle(0,0xFFFFFF,0xDDDDDD,1,1,0x666666,0.5);
 			FlashVars.SKIN_ENABLE=true;
 			FlashVars.GAMECLIENT=Constants.BACCARAT;
-			FlashVars.PLATFORM=FlashVars.DESKTOP_PLATFORM;
 			start();
 		}
 		

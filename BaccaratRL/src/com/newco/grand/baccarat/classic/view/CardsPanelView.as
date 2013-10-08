@@ -48,7 +48,10 @@ package com.newco.grand.baccarat.classic.view
 			_display=new CardsPanelAsset();
 			addChild( _display);
 		}
-
+		override public function align():void{
+			visible=false;
+			x=0;
+		}
 		public function refreshScore():void{
 			_display.BankerSide.label.text = String(totalScore(BaccaratConstants.BANKER));
 			_display.playerSide.label.text = String(totalScore(BaccaratConstants.PLAYER));

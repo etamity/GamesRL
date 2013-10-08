@@ -19,7 +19,8 @@ package com.newco.grand.baccarat.classic.service
 	import org.assetloader.signals.ErrorSignal;
 	import org.assetloader.signals.HttpStatusSignal;
 	import org.assetloader.signals.LoaderSignal;
-	
+	import com.newco.grand.core.utils.StringUtils;
+	import com.newco.grand.core.common.model.VideoModel;
 	public class TableConfigService implements IService
 	{
 		[Inject]
@@ -40,6 +41,8 @@ package com.newco.grand.baccarat.classic.service
 		[Inject]
 		public var signalBus:SignalBus;
 		
+		[Inject]
+		public var videoModel:VideoModel;
 		public function TableConfigService()
 		{
 		}
@@ -66,7 +69,8 @@ package com.newco.grand.baccarat.classic.service
 			player.currencyCode = xml.currency_code;
 			
 			//service.remove(Constants.SERVER_STATE);
-			loadTableConfig();
+			loadSettings();
+
 		}
 		
 		private function loadSettings():void{
@@ -78,6 +82,8 @@ package com.newco.grand.baccarat.classic.service
 			
 			debug("Settings ",urls.settings);
 			service.loadURL(urls.settings,setSetting,showError);
+			
+	
 		}
 		
 		public function showStatus(signal:HttpStatusSignal):void{
@@ -88,14 +94,59 @@ package com.newco.grand.baccarat.classic.service
 			
 			game.server = xml["videoservers"];
 			game.videoSettings=xml;
+			var streamUrl:String= flashVars.streamUrl;
+			var lowerCaseStreamUr:String= streamUrl.toLowerCase();
+			
+			if (streamUrl!="" && streamUrl.search("rtmp://")!=-1)
+			{
+				
+				if (streamUrl !=""){
+					var params:Array = String(streamUrl).split("//");
+					params.shift();
+					
+					var paramStr:String= params[0];
+					params=paramStr.split("/");
+					var sever:String = params[0];
+					var videoName:String= params[params.length-1];
+					var application:String= String(streamUrl).replace("rtmp://"+sever+"/","");
+					application=application.replace("/"+videoName,"");
+					
+					
+					game.server=sever;
+					game.videoStream=videoName;
+					game.videoApplication = application;
+					
+				}
+			}
+			
+			if (streamUrl!="" && (lowerCaseStreamUr.search(".mp4")!=-1 || lowerCaseStreamUr.search(".flv")!=-1))
+			{
+				game.server="";
+				game.videoStream=lowerCaseStreamUr;
+				game.videoStreams=new Array(lowerCaseStreamUr);
+				game.videoApplication="";
+			}
+			else
+			{
+				videoModel.servers = String(game.videoSettings.videoservers).split(",");
+				game.server=videoModel.servers[0];
+				if (game.videoSettings.application.@withGameName=="false")
+					game.videoApplication = game.videoSettings.application;
+				else
+					game.videoApplication = StringUtils.trim(game.videoSettings.application+"/"+FlashVars.GAMECLIENT.toLowerCase());
+			}
+			
+			/*if (game.server !="")
+			videoService.servers=new Array(game.server);*/
+
 			
 			
-			signalBus.dispatch(ModelReadyEvent.READY);
-			signalBus.dispatch(SocketEvent.CONNECT_GAME);
-			signalBus.dispatch(VideoEvent.CONNECT);
-			signalBus.dispatch(StateTableConfigEvent.LOADED);
-			signalBus.dispatch(PlayersEvent.LOAD);
-			signalBus.dispatch(WinnersEvent.LOAD);
+			debug("[game.videoStreams]:"+game.videoStreams);
+			videoModel.settings=game.videoSettings;
+			
+					
+			loadTableConfig();
+
 			//service.remove(Constants.SERVER_SETTING);
 		}
 		
@@ -133,14 +184,37 @@ package com.newco.grand.baccarat.classic.service
 			game.tie_min_bet=xml["gameconfig-param"].@tie_min_bet;
 			game.videoStream= xml["gameconfig-param"].@low_stream;
 			
+			if (xml["gameconfig-param"].@videoip!="" && xml["gameconfig-param"].@videoip!=null && xml["gameconfig-param"].@videoip!=undefined)
+			{
+				game.server= xml["gameconfig-param"].@videoip;
+				debug("game.server:",game.server);
+			}
 			//service.remove(Constants.SERVER_TABLE_CONFIG);
-			
+			if (xml["gameconfig-param"].@videoapp!="" && xml["gameconfig-param"].@videoapp!=null && xml["gameconfig-param"].@videoapp!=undefined)
+			{
+				game.videoApplication= xml["gameconfig-param"].@videoapp;
+				debug("game.videoApplication:",game.videoApplication);
+			}
 			var streams:Array=new Array(xml["gameconfig-param"].@low_stream,xml["gameconfig-param"].@med_stream,xml["gameconfig-param"].@hi_stream);
 			game.videoStreams=streams;
 			game.httpStream=xml["gameconfig-param"].@httpStream;
+			if (xml["gameconfig-param"].@xmodeStream!="" && xml["gameconfig-param"].@xmodeStream!=null&& xml["gameconfig-param"].@xmodeStream!=undefined)
+			game.xmodeStream=xml["gameconfig-param"].@xmodeStream;
 			debug("game.videoStreams:",game.videoStreams);
-			loadSettings();
+	
 			
+			
+			if (game.videoStreams !=null)
+				videoModel.streams= game.videoStreams;
+			if (game.videoApplication !="")
+				videoModel.application=game.videoApplication;
+			
+			signalBus.dispatch(ModelReadyEvent.READY);
+			signalBus.dispatch(SocketEvent.CONNECT_GAME);
+			signalBus.dispatch(VideoEvent.CONNECT);
+			signalBus.dispatch(StateTableConfigEvent.LOADED);
+			signalBus.dispatch(PlayersEvent.LOAD);
+			signalBus.dispatch(WinnersEvent.LOAD);
 		}
 		
 		private function showError(signal:ErrorSignal):void {

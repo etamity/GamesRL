@@ -8,10 +8,14 @@ package com.newco.grand.baccarat.mobile.view
 		{
 			super();
 		}
-		
+		override public function initDisplay():void{
+		    _display=new Mobile_ShoeStatsAsset();
+			addChild(_display);
+			
+		}
 		override public function align():void{
 			x=stage.stageWidth-width;
-			y=220;
+			y=190;
 		}
 	}
 }

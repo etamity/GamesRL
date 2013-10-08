@@ -7,8 +7,20 @@ package com.newco.grand.baccarat.mobile.view
 		public function VideoView()
 		{
 			super();
-			this.showFullSize=true;
+			//this.showFullSize=true;
 		}
-
+		override public function initDisplay():void{
+			_display=new Mobile_VideoAsset();
+			addChild(_display);
+			_display.videoButton.mouseEnabled=false;
+			_display.frame.visible=false;
+			_display.bg.width=640;
+			_display.bg.height=514;
+		}
+		override public function align():void {			
+			x = 0;
+			setSize(640, 514);
+			//setSize(820, 610);
+		}
 	}
 }

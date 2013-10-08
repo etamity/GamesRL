@@ -15,14 +15,14 @@ package com.newco.grand.baccarat.classic.view
 			winAnimationAsset.stop();
 			winAnimationAsset.gotoAndStop(side);
 			winAnimationAsset.winAmontLabel.text=amount;
-			winAnimationAsset.visible=false;
+			winAnimationAsset.visible=true;
 			addChild(winAnimationAsset);
 			return winAnimationAsset;
 		}
 		public function showWinningCup():MovieClip{
 			var mc:WinnerBadgetAsset = new WinnerBadgetAsset();
 			mc.stop();
-			mc.visible=false;
+			//mc.visible=false;
 			addChild(mc)
 			return mc;
 		}

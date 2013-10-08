@@ -30,7 +30,7 @@ package com.newco.grand.baccarat.classic.service
 				},delayTime,mc);
 			}
 			mc.alpha=0;
-			mc.visible=true;
+			//mc.visible=false;
 			mc.x=pt.x;
 			mc.y=pt.y;
 			setTimeout(function (mc:MovieClip):void{

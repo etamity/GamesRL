@@ -49,7 +49,7 @@ package com.newco.grand.baccarat.classic.controller.commands
 			contextView.view.addChild(new TaskbarView());
 			contextView.view.addChild(new GameStatusView())
 			contextView.view.addChild(new ChatView());
-			//contextView.view.addChild(new BetSpotsView());
+			contextView.view.addChild(new BetSpotsView());
 			contextView.view.addChild(new CardsPanelView());
 			contextView.view.addChild(new AnimationPanelView());
 
