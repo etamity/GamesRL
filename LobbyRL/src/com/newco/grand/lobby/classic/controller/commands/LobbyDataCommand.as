@@ -34,7 +34,7 @@ package com.newco.grand.lobby.classic.controller.commands
 		public var lobbyModel:LobbyModel;
 
 		private const URLS_XML:String= "LOBBY_XML";
-		private var _xmlurl:String="xml/lobby.xml";
+		private var _xmlurl:String="cgibin/appconfig/xml/lobby.xml";
 		public function LobbyDataCommand()
 		{
 
