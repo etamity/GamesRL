@@ -14,7 +14,7 @@
 	
 	  <taskdef resource="flexUnitTasks.tasks" classpath="${libs.path}/flexUnitTasks-4.1.0-8.jar"/>
 	
-	<fail unless="ios.provision.path"/>
+	<fail unless="ios.provision.baccarat.path"/>
 	<fail unless="ios.certificate.path"/>
 	<fail unless="ios.certificate.password"/>
 	
@@ -70,16 +70,16 @@
 		<exec executable="${adt}" dir="${basedir}" failonerror="true">
 			<arg line="-package"/>
 			<arg line="-target ipa-app-store"/>
-			<arg line="-provisioning-profile ${ios.provision.path}"/>
+			<arg line="-provisioning-profile ${ios.provision.baccarat.path}"/>
 			<arg line="-keystore ${ios.certificate.path}"/>
 			<arg line="-storetype pkcs12"/>
 			<arg line="-storepass ${ios.certificate.password}"/>
-			<arg line="${bin.path}/${ant.project.name}.ipa"/>
+			<arg line="MobileBin/${ant.project.name}.ipa"/>
 			<arg line="${src.path}/${ant.project.name}-app.xml"/>
 			<!--<arg line="icon48.png icon72.png icon128.png icon512.png"/>-->
 			<arg line="-C ${bin.path}"/>
 			<arg line="${ant.project.name}.swf"/>
-			<arg line="xml"/>
+			<arg line="cgibin"/>
 		</exec>
 	</target>
 	<target name="build-android" depends="build-air-swf">
@@ -88,16 +88,16 @@
 			<arg line="-package"/>
 			<arg line="-target apk"/>
 			<!--  ( apk | apk-debug | apk-emulator | apk-captive-runtime ) -->
-			<arg line="-keystore ${android.certificate.path}"/>
 			<arg line="-storetype pkcs12"/>
+			<arg line="-keystore ${android.certificate.path}"/>
 			<arg line="-storepass ${android.certificate.password}"/>
-			<arg line="${bin.path}/${ant.project.name}.apk"/>
+			<arg line="MobileBin/${ant.project.name}.apk"/>
 			<arg line="${src.path}/${ant.project.name}-app.xml"/>
 			<!--<arg line="icon48.png icon72.png icon128.png icon512.png"/>-->
 			<arg line="-C ${bin.path}"/>
 			<arg line="${ant.project.name}.swf"/>
-			<arg line="xml"/>
-			<arg line="skins"/>
+			<arg line="cgibin"/>
+
 		</exec>
 	</target>
 	<!-- Run Unit Tests -->

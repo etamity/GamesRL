@@ -14,7 +14,7 @@
 	
 	  <taskdef resource="flexUnitTasks.tasks" classpath="${libs.path}/flexUnitTasks-4.1.0-8.jar"/>
 	
-	<fail unless="ios.provision.path"/>
+	<fail unless="ios.provision.baccarat.path"/>
 	<fail unless="ios.certificate.path"/>
 	<fail unless="ios.certificate.password"/>
 	
