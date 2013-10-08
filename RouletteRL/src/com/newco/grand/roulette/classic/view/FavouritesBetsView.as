@@ -21,7 +21,7 @@ package com.newco.grand.roulette.classic.view
 		public var playersListDgMc:DataGrid;
 		private var selectedPlayerIndex:int=-1;
 		
-		
+		public const SPOTS:Number = 166;
 		public var deleteBtn:SMButton;
 		public var applyBtn:SMButton;
 		public var clearBtn:SMButton;
@@ -32,6 +32,7 @@ package com.newco.grand.roulette.classic.view
 			createDataGrid(null);
 			//numbersMc.betsMc.alpha=0;
 			playersListDgMc.addEventListener(Event.CHANGE,doSelectBets);
+			hideBetspots();
 		}
 		private function doSelectBets(evt:Event):void{
 			selectedPlayerIndex = evt.target.selectedIndex;
@@ -42,7 +43,16 @@ package com.newco.grand.roulette.classic.view
 				//enabledButtons(true);
 			}
 		}
-		
+		private function hideBetspots():void {
+			var stageSpot:MovieClip;
+			for (var i:int = 2; i < SPOTS; i++) {
+				if (numbersMc.getChildByName("dz" + i) != null) {
+					stageSpot = MovieClip(numbersMc.getChildByName("dz" + i));
+					stageSpot.visible = false;
+				}
+			}
+
+		}
 		public function enabledButtons(val:Boolean):void{
 			applyBtn.enabled=val;
 			clearBtn.enabled=val;

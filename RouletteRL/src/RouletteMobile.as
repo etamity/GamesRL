@@ -32,7 +32,7 @@ package {
 			
 			FlashVars.GAMECLIENT=Constants.ROULETTE;
 			FlashVars.PLATFORM=FlashVars.AIR_PLATFORM;
-			
+			//FlashVars.PLATFORM=FlashVars.TESTING_PLATFORM;
 			UI.init(stage,24);
 			ToolTip.setDefaultToolTipStyle(0,0xFFFFFF,0xDDDDDD,1,1,0x666666,0.5);
 

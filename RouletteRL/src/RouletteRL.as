@@ -30,6 +30,7 @@ package {
 		private function onAddToStage(evt:Event):void{
 			removeEventListener(Event.ADDED_TO_STAGE,onAddToStage);
 			FlashVars.SKIN_ENABLE=true;
+			FlashVars.PLATFORM=FlashVars.WEB_PLATFORM;
 			UI.init(stage,24);
 			ToolTip.setDefaultToolTipStyle(0,0xFFFFFF,0xDDDDDD,1,1,0x666666,0.5);
 			FlashVars.GAMECLIENT=Constants.ROULETTE;

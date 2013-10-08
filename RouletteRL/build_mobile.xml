@@ -14,7 +14,7 @@
 	
 	  <taskdef resource="flexUnitTasks.tasks" classpath="${libs.path}/flexUnitTasks-4.1.0-8.jar"/>
 	
-	<fail unless="ios.provision.path"/>
+	<fail unless="ios.provision.roulette.path"/>
 	<fail unless="ios.certificate.path"/>
 	<fail unless="ios.certificate.password"/>
 	
@@ -70,7 +70,7 @@
 		<exec executable="${adt}" dir="${basedir}" failonerror="true">
 			<arg line="-package"/>
 			<arg line="-target ipa-app-store"/>
-			<arg line="-provisioning-profile ${ios.provision.path}"/>
+			<arg line="-provisioning-profile ${ios.provision.roulette.path}"/>
 			<arg line="-keystore ${ios.certificate.path}"/>
 			<arg line="-storetype pkcs12"/>
 			<arg line="-storepass ${ios.certificate.password}"/>
@@ -78,8 +78,7 @@
 			<arg line="${src.path}/${ant.project.name}-app.xml"/>
 			<!--<arg line="icon48.png icon72.png icon128.png icon512.png"/>-->
 			<arg line="-C ${bin.path}"/>
-			<arg line="skins"/>
-			<arg line="xml"/>
+			<arg line="cgibin"/>
 			<arg line="${ant.project.name}.swf"/>
 			<!-- <arg line="TiledMap"/> -->
 		</exec>
@@ -97,8 +96,7 @@
 			<arg line="${src.path}/${ant.project.name}-app.xml"/>
 			<!--<arg line="icon48.png icon72.png icon128.png icon512.png"/>-->
 			<arg line="-C ${bin.path}"/>
-			<arg line="skins"/>
-			<arg line="xml"/>
+			<arg line="cgibin"/>
 			<arg line="${ant.project.name}.swf"/>
 		</exec>
 	</target>

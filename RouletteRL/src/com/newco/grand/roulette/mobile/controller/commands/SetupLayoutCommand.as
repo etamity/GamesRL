@@ -49,8 +49,8 @@ package com.newco.grand.roulette.mobile.controller.commands
 			taskbarView.view.y=496;
 			gameStatusView.view.x=10;
 			gameStatusView.view.y=50;
-			gameResult.view.x=390;
-			gameResult.view.y=15;
+			gameResult.view.x=345;
+			gameResult.view.y=427;
 			limitsView.view.y=446;
 			limitsView.view.x=0;
 			betSpotsView.view.y=0;
