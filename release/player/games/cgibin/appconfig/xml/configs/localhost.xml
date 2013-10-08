@@ -8,7 +8,7 @@
 		<language><![CDATA[cgibin/appconfig/xml/langs/]]></language>
 		<langICON><![CDATA[cgibin/appconfig/xml/langs/png/]]></langICON>
 		
-		<style><![CDATA[cgibin/appconfig/xml/]]></style>
+		<style><![CDATA[cgibin/appconfig/xml/styles/]]></style>
 		<players><![CDATA[cgibin/appconfig/xml/participants.xml]]></players>
 		<settings><![CDATA[cgibin/appconfig/xml/settings.xml]]></settings>
 		<chatConfig><![CDATA[cgibin/appconfig/xml/chat_config.xml]]></chatConfig>
@@ -28,7 +28,7 @@
 	<roulette>
 		<results><![CDATA[/cgibin/roulette/history.jsp]]></results>
 		<statistics><![CDATA[cgibin/appconfig/xml/roulette_stats.xml]]></statistics>
-		<winners><![CDATA[cgibin/appconfig/xml/winnerList.xml]]></winners>
+		<winners><![CDATA[cgibin/appconfig/xml/winnerlist.xml]]></winners>
 		<sendBets><![CDATA[/cgibin/roulette/placebets.jsp]]></sendBets>
 		<state><![CDATA[cgibin/appconfig/xml/roulette_state.xml]]></state>
 	</roulette>
@@ -38,7 +38,7 @@
 		<tableGraphic><![CDATA[/player/games/assets/baccarat/tablegraphics/]]></tableGraphic>
 		<audio><![CDATA[/player/games/assets/roulette/audio/]]></audio>
 		<statistics><![CDATA[/cgibin/baccarat/gameHistory.jsp]]></statistics>
-		<winners><![CDATA[cgibin/appconfig/xml/winnerList.xml]]></winners>
+		<winners><![CDATA[cgibin/appconfig/xml/winnerlist.xml]]></winners>
 	</baccarat>
 	
 	<languages>

@@ -8,7 +8,7 @@
 	<bandwidth>24000</bandwidth>
 	
 	<!-- Maximum buffer length allowed before switching to a lower feed if available or seek/reload the existing stream -->
-	<buffer_max>5</buffer_max>
+	<buffer_max>3</buffer_max>
 	<!-- Minimum FPS used in conjunction with buffer_max -->
 	<fps_min>5</fps_min>
 	<!-- Maximum number of frames that can be dropped before switching -->

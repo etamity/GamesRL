@@ -3,38 +3,38 @@
 	<casino 
 	game="roulette" 
 	gametype="tv_roulette" 
-	tableid="7nyiaws9tgqrzaz3"
+	table_id="hiey8yx1hkkgqawl"
 	streamUrl="" 
 
 	videoplayer="video"
-	client="slc" 
-	vtid="" 
+	client="xlc" 
+	vt_id="" 
 	userid="9ieozu30vtcwuri4" 
 	room="game-o3d9tx3u8kd0yawc-i6t6y1jcdxih0wex" 
-	lang="cn" 
-	server="https://spielbank.extremelivegaming.com"
+	lang="en" 
+	server="http://spielbank.extremelivegaming.com"
 	socketServer="spielbank.extremelivegaming.com"
-	debugIP="127.0.0.1"
-	urls="cgibin/appconifg/xml/configs/urls.xml"
+	debugIP="192.168.1.41"
+	urls="cgibin/appconfig/xml/configs/urls.xml"
 	>
 	</casino>
 	
 	<casino 
 	game="baccarat" 
 	gametype="classic" 
-	tableid="zucbi5szfr9bewqo" 
+	table_id="ikzwgcwlysgqepar" 
 	streamUrl=""   
 	videoplayer="video"
-	client="slc" vtid=""
+	client="slc" vt_id=""
 	userid="9ieozu30vtcwuri4" 
 	room="game-7nyiaws9tgqrzaz3-rvu4z17kx9010qv2" 
 	lang="en" 
 	server="http://spielbank.extremelivegaming.com"
 	socketServer="spielbank.extremelivegaming.com"
-	debugIP="127.0.0.1"
-	urls="cgibin/appconfig/xml/configs/localhost.xml"
+	debugIP="192.168.1.41"
+	urls="cgibin/appconfig/xml/configs/urls.xml"
 
-	></casino> s
+	></casino>
 
 	<casino 
 	game="lobby" 
@@ -43,15 +43,15 @@
 	streamUrl="" 
 
 	videoplayer="video"
-	client="slc" 
+	client="xlc" 
 	vtid="" 
 	userid="" 
 	room="game-o3d9tx3u8kd0yawc-i6t6y1jcdxih0wex" 
 	lang="cn" 
-	server="http://192.168.0.3"
-	socketServer="livecasino.smartliveaffiliates.com"
-	debugIP="192.168.0.3"
-	urls="http://192.168.0.3/cgibin/appconfig/xml/configs/urls.xml"
+	server="http://spielbank.extremelivegaming.com"
+	socketServer="spielbank.extremelivegaming.com"
+	debugIP="192.168.1.41"
+	urls="cgibin/appconfig/xml/configs/localhost.xml"
 	></casino>
 
 

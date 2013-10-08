@@ -3,14 +3,14 @@
 	<common>
 	    <server><![CDATA[]]></server>
 		<authentication><![CDATA[https://livecasino.smartliveaffiliates.com/cgibin/SmartAuthentication]]></authentication>
-		<login><![CDATA[/cgibin/remoteLoginGateway.jsp]]></login>
+		<login><![CDATA[/cgibin/cpasiaAuthentication.jsp]]></login>
 		<balance><![CDATA[/cgibin/balance.jsp]]></balance>
 		<language><![CDATA[/cgibin/appconfig/xml/langs/]]></language>
 		<langICON><![CDATA[/cgibin/appconfig/xml/langs/png/]]></langICON>
 		
-		<style><![CDATA[/cgibin/appconfig/xml/]]></style>
+		<style><![CDATA[/cgibin/appconfig/xml/styles/]]></style>
 		<players><![CDATA[/cgibin/common/participants.jsp]]></players>
-		<settings><![CDATA[/player/games/assets/settings.xml]]></settings>
+		<settings><![CDATA[/cgibin/appconfig/xml/settings.xml]]></settings>
 		<chatConfig><![CDATA[/cgibin/chat/config.jsp]]></chatConfig>
 		<help><![CDATA[/player/games/help/HelpRL.swf]]></help>
 		<historySWF><![CDATA[/player/games/history/HistoryRL.swf]]></historySWF>
@@ -28,7 +28,7 @@
 	<roulette>
 		<results><![CDATA[/cgibin/roulette/history.jsp]]></results>
 		<statistics><![CDATA[/cgibin/roulette/stats.jsp]]></statistics>
-		<winners><![CDATA[/cgibin/appconfig/winnerList.jsp]]></winners>
+		<winners><![CDATA[/cgibin/appconfig/xml/winnerlist.xml]]></winners>
 		<sendBets><![CDATA[/cgibin/roulette/placebets.jsp]]></sendBets>
 		<state><![CDATA[/cgibin/roulette/state.jsp]]></state>
 	</roulette>
@@ -38,7 +38,7 @@
 		<tableGraphic><![CDATA[/player/games/assets/baccarat/tablegraphics/]]></tableGraphic>
 		<audio><![CDATA[/player/games/assets/roulette/audio/]]></audio>
 		<statistics><![CDATA[/cgibin/baccarat/gameHistory.jsp]]></statistics>
-		<winners><![CDATA[/cgibin/appconfig/winnerList.jsp]]></winners>
+		<winners><![CDATA[/cgibin/appconfig/xml/winnerlist.xml]]></winners>
 	</baccarat>
 	
 	<languages>
