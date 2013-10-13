@@ -13,6 +13,9 @@ package com.newco.grand.baccarat.mobile.view
 			addChild(_display);
 			
 		}
+		override public function set extended(val:Boolean):void{
+			_extended=val;
+		}
 		override public function align():void{
 			x=stage.stageWidth-width;
 			y=190;

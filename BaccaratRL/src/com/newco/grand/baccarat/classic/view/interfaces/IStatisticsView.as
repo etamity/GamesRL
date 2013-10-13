@@ -8,5 +8,7 @@ package com.newco.grand.baccarat.classic.view.interfaces
 	{
 		function load(data:XML):void;
 		function get showHideSignal():Signal;
+		function set extended(val:Boolean):void;
+		function get extended():Boolean;
 	}
 }

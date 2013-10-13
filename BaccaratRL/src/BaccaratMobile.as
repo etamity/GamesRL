@@ -30,6 +30,7 @@ package
 			FlashVars.GAMECLIENT=Constants.BACCARAT;
 			FlashVars.SKIN_ENABLE=false;
 			FlashVars.PLATFORM=FlashVars.AIR_PLATFORM;
+
 			//FlashVars.PLATFORM=FlashVars.TESTING_PLATFORM;	
 			start();
 		}
