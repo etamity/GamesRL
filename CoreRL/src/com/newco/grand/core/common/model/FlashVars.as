@@ -7,13 +7,14 @@ package com.newco.grand.core.common.model {
 	
 	import robotlegs.bender.extensions.contextView.ContextView;
 
+
 	public dynamic class FlashVars extends Actor {
 		
 		public var port:int 			= 5654;
 		
 		// For testing Roulette
-		public var server:String 		= "http://spielbank.extremelivegaming.com";	
-		public var socketServer:String	= "spielbank.extremelivegaming.com";		
+		public var server:String 		= "http://live.extremelivegaming.com/";	
+		public var socketServer:String	= "live.extremelivegaming.com";		
 		public var table_id:String 		= "7nyiaws9tgqrzaz3";
 		public var vt_id:String 		= "";
 		public var user_id:String 		= "";
@@ -30,7 +31,7 @@ package com.newco.grand.core.common.model {
 		
 		public var videoplayer:String  ="";
 		public var streamUrl:String  ="";
-		public var urls:String  =server+"/cgibin/appconfig/xml/configs/urls.xml";
+		public var urls:String  =server+"cgibin/appconfig/xml/configs/urls.xml";
 		public var parameters:Object;
 		
 		public static var SKIN_ENABLE:Boolean=false;
@@ -40,7 +41,7 @@ package com.newco.grand.core.common.model {
 		public static const AIR_PLATFORM:String="AIR";
 		public static const WEB_PLATFORM:String="WEB";
 		public static const DESKTOP_PLATFORM:String="DESKTOP";
-		public static const TESTING_PLATFORM:String="localhost";
+		public static const TESTING_PLATFORM:String="TESTING";
 		public static var PLATFORM:String="";
 		public static var GAMECLIENT:String="baccarat";
 		

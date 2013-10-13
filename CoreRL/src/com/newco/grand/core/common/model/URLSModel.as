@@ -4,36 +4,36 @@ package com.newco.grand.core.common.model
 
 	public class URLSModel extends Actor
 	{		
-		private var _server:String 		= "https://spielbank.extremelivegaming.com";
+		private var _server:String 		= "https://live.extremelivegaming.com/";
 
 		private var _authentication:String = "https://livecasino.smartliveaffiliates.com/cgibin/SmartAuthentication";
 		private var _login:String 		= "http://m.smartlivecasino.com/WebServices/Login.aspx";
-		private var _lobbySWF:String 		= "/player/games/LobbyRL.swf";
-		private var _lobby:String 		= "/player/lobbyXML.jsp";
-		private var _help:String 		= "/player/games/help/Help.swf";
-		private var _historySWF:String 		= "/player/games/history/History.swf";
-		private var _freeplay:String 	= "/cgibin/mobile_launcher.jsp";
-		private var _language:String 	= "/player/games/languages/";
-		private var _langICON:String 	= "/player/games/xml/langs/png/";
-		private var _style:String 		= "/player/games/styles/";
+		private var _lobbySWF:String 		= "player/games/LobbyRL.swf";
+		private var _lobby:String 		= "player/lobbyXML.jsp";
+		private var _help:String 		= "player/games/help/Help.swf";
+		private var _historySWF:String 		= "player/games/history/History.swf";
+		private var _freeplay:String 	= "cgibin/mobile_launcher.jsp";
+		private var _language:String 	= "player/games/languages/";
+		private var _langICON:String 	= "player/games/xml/langs/png/";
+		private var _style:String 		= "player/games/styles/";
 
-		private var _state:String 		= "/cgibin/roulette/state.jsp";
-		private var _tableConfig:String = "/cgibin/tableconfig.jsp";
-		private var _sendBets:String 	= "/cgibin/roulette/placebets.jsp";
-		private var _chatConfig:String 	= "/cgibin/chat/config.jsp";
-		private var _results:String 	= "/cgibin/roulette/history.jsp";
-		private var _statistics:String 	= "/cgibin/roulette/stats.jsp";
-		private var _players:String 	= "/cgibin/common/participants.jsp";
-		private var _winners:String 	= "/cgibin/facebook/winnerList.jsp";
-		private var _settings:String 	= "/player/games/assets/settings.xml";
-		private var _balance:String 	= "/cgibin/balance.jsp";
-		private var _seat:String        = "/cgibin/sitdown.jsp";
-		private var _skin:String        = "/player/games/cgibin/appconfig/skins/skin.swf";
-		private var _tournament:String 	= "/cgibin/appconfig/xml/tournament.xml";
-
-		private var _accountHistory:String = "/player/audit/historyXML2.jsp";
-		private var _activityHistory:String=  "/player/audit/historyXML.jsp";
-
+		private var _state:String 		= "cgibin/roulette/state.jsp";
+		private var _tableConfig:String = "cgibin/tableconfig.jsp";
+		private var _sendBets:String 	= "cgibin/roulette/placebets.jsp";
+		private var _chatConfig:String 	= "cgibin/chat/config.jsp";
+		private var _results:String 	= "cgibin/roulette/history.jsp";
+		private var _statistics:String 	= "cgibin/roulette/stats.jsp";
+		private var _players:String 	= "cgibin/common/participants.jsp";
+		private var _winners:String 	= "cgibin/facebook/winnerList.jsp";
+		private var _settings:String 	= "player/games/assets/settings.xml";
+		private var _balance:String 	= "cgibin/balance.jsp";
+		private var _seat:String        = "cgibin/sitdown.jsp";
+		private var _skin:String        = "player/games/cgibin/appconfig/skins/skin.swf";
+		private var _tournament:String 	= "cgibin/appconfig/xml/tournament.xml";
+		
+		private var _accountHistory:String = "player/audit/historyXML2.jsp";
+		private var _activityHistory:String=  "player/audit/historyXML.jsp";
+		private var _opengame:String 	= "player/chat_board.jsp";
 		private var _languages:XML;
 		private var _flashVarsConfig:String= "cgibin/appconfig/xml/configs/configs.xml";
 		private var _xml:XML ;
@@ -51,6 +51,47 @@ package com.newco.grand.core.common.model
 			super();
 		}
 		
+		public function get statsSummary():String{
+			var path :String =_xml.baccarat.statssummary;
+			var index:int = path.search("://");
+			if (index>=0)
+				return path+ "?table_id=" + flashVars.table_id+"&vt_id="+flashVars.vt_id;
+			return server + path+ "?table_id=" + flashVars.table_id+"&vt_id="+flashVars.vt_id;
+		}
+		
+		public function get lobbyAvatar():String {
+			var path :String =_xml.lobby.avatars
+			var index:int = path.search("://");
+			if (index>=0)
+				return path;
+			return server + path;
+		}
+		public function get lobbyBG():String {
+			var path :String;
+			
+			path =_xml.lobby.background.(@client==flashVars.client);
+			if (FlashVars.PLATFORM==FlashVars.AIR_PLATFORM)
+				path =_xml.lobby.background.(@client==flashVars.client+"_mobile");
+			
+			if (path=="" || path==null)
+				path=_xml.lobby.background.(@client=="xlc");
+			
+			var index:int = path.search("://");
+			if (index>=0)
+				return path;
+			return server + path;
+		}
+		public function get opengame():String {
+			var index:int = _opengame.search("://");
+			if (index>=0)
+				return _opengame;
+			return server + _opengame;
+		}
+
+		public function set opengame(value:String):void {
+			_opengame = value;
+		}
+
 		public function get languages():XML{
 			return _languages;
 		}
@@ -71,8 +112,8 @@ package com.newco.grand.core.common.model
 			var index:int = _tournament.search("://");
 			if (index>=0  
 				|| FlashVars.PLATFORM==FlashVars.TESTING_PLATFORM)
-				return  _tournament;
-			return _server+_tournament;
+				return  _tournament+ "?table_id=" + flashVars.table_id+"&vt_id="+flashVars.vt_id;
+			return _server+_tournament+ "?table_id=" + flashVars.table_id+"&vt_id="+flashVars.vt_id;
 		}
 
 		public function set tournament(value:String):void {
@@ -84,9 +125,9 @@ package com.newco.grand.core.common.model
 		}
 
 		public function get server():String {
-			if (_server.indexOf("://")==-1)
-				return _server="https://"+_server;
-			return _server;
+			if (flashVars.server.indexOf("://")==-1)
+				return _server="https://"+flashVars.server;
+			return flashVars.server;
 		}
 		public function get balance():String {
 			var index:int = _balance.search("://");
@@ -144,7 +185,7 @@ package com.newco.grand.core.common.model
 			if (index>=0 
 				|| FlashVars.PLATFORM==FlashVars.TESTING_PLATFORM)
 				return  _help;
-			return server + _help;
+			return server + _help+"?lang="+ flashVars.lang+"&server="+ flashVars.server;
 		}
 		public function set help(value:String):void {
 			_help = value;
@@ -154,7 +195,7 @@ package com.newco.grand.core.common.model
 			var index:int = _historySWF.search("://");
 			if (index>=0)
 				return  _historySWF;
-			return server + _historySWF;
+			return server + _historySWF+ "?user_id="+flashVars.user_id+"&lang="+ flashVars.lang+"&server="+ flashVars.server+"&client="+ flashVars.client+ "&table_id=" + flashVars.table_id+"&vt_id="+flashVars.vt_id;
 		}
 		public function set historySWF(value:String):void {
 			_historySWF = value;
@@ -311,8 +352,8 @@ package com.newco.grand.core.common.model
 			var index:int = _winners.search("://");
 			if (index>=0
 				|| FlashVars.PLATFORM==FlashVars.TESTING_PLATFORM)
-				return  _winners+"?mode=top";
-			return server + _winners+"?mode=top";
+				return  _winners+ "?table_id=" + flashVars.table_id+"&vt_id="+flashVars.vt_id;
+			return server + _winners+ "?table_id=" + flashVars.table_id+"&vt_id="+flashVars.vt_id;
 		}
 		public function set winners(value:String):void {
 			_winners = value;
@@ -333,8 +374,8 @@ package com.newco.grand.core.common.model
 			var index:int = _seat.search("://");
 			if (index>=0
 				|| FlashVars.PLATFORM==FlashVars.TESTING_PLATFORM)
-				return  _seat + "?table_id=" + flashVars.table_id+"&vt_id="+flashVars.vt_id;
-			return server + _seat + "?table_id=" + flashVars.table_id+"&vt_id="+flashVars.vt_id;
+				return  _seat + "?table_id=" + flashVars.table_id+"&vt_id="+flashVars.vt_id+"&user_id="+flashVars.user_id;
+			return server + _seat + "?table_id=" + flashVars.table_id+"&vt_id="+flashVars.vt_id+"&user_id="+flashVars.user_id;
 		}
 		public function set seat(value:String):void {
 			_seat = value;

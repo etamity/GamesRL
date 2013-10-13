@@ -59,8 +59,11 @@ package com.newco.grand.core.common.service.impl
 		
 		public function load(onComplete:Function=null):void
 		{
-			//skipLogin();
-			loginGrand();
+			//
+			if (FlashVars.PLATFORM==FlashVars.TESTING_PLATFORM)
+				skipLogin();
+			else
+				loginGrand();
 		}
 		public function loginGrand():void {
 

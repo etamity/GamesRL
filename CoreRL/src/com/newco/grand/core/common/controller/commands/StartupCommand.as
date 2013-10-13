@@ -38,7 +38,7 @@ package com.newco.grand.core.common.controller.commands {
 		}
 		private function onStart():void{
 			if(flashVars.localhost==true 
-				|| FlashVars.PLATFORM==FlashVars.AIR_PLATFORM 
+				//|| FlashVars.PLATFORM==FlashVars.AIR_PLATFORM 
 				|| FlashVars.PLATFORM==FlashVars.DESKTOP_PLATFORM
 				|| FlashVars.PLATFORM==FlashVars.TESTING_PLATFORM) {
 				configService.load(function ():void{

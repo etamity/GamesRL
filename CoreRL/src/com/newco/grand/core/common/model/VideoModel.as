@@ -1,9 +1,11 @@
 package com.newco.grand.core.common.model {
 	
+	import com.newco.grand.core.common.controller.signals.MessageEvent;
+	import com.newco.grand.core.common.controller.signals.UIEvent;
 	import com.newco.grand.core.common.controller.signals.VideoEvent;
 	import com.newco.grand.core.utils.GameUtils;
 	import com.newco.grand.core.utils.StringUtils;
-	import com.newco.grand.core.common.controller.signals.MessageEvent;
+	
 	import flash.events.AsyncErrorEvent;
 	import flash.events.IOErrorEvent;
 	import flash.events.NetStatusEvent;
@@ -72,6 +74,9 @@ package com.newco.grand.core.common.model {
 		public var signalBus:SignalBus;
 		
 		private var debugTimer:Timer;
+		
+		private var _videoForceStop:Boolean=false;
+		
 		public function VideoModel() {
 			NetConnection.defaultObjectEncoding = ObjectEncoding.AMF0;			
 			_connection = new NetConnection();			
@@ -152,13 +157,16 @@ package com.newco.grand.core.common.model {
 			_waitTimer.start();
 			_waiting = true;
 			_videoStopped = false;
+			_videoForceStop=false;
 		}
 		
 		private function connectStream():void	{
 			_stream = new NetStream(_connection);
 			_stream.addEventListener(NetStatusEvent.NET_STATUS, netStatusHandler);
 			_stream.addEventListener(IOErrorEvent.IO_ERROR, IOErrorHandler);
-			_stream.client = { onBWDone: function():void{} };
+			_stream.client = { onBWDone: function():void{
+
+			} };
 			_stream.bufferTime =0.3;//delay;
 			_stream.inBufferSeek = true;
 			_stream.useHardwareDecoder=true;
@@ -170,17 +178,11 @@ package com.newco.grand.core.common.model {
 				debugTimer=new Timer(1000);
 				debugTimer.addEventListener(TimerEvent.TIMER,function ():void{
 					debug("buffer length:" + String(_stream.bufferLength) +" fps:" +String(_stream.currentFPS));
-					//signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:"buf leng:" + String(_stream.bufferLength) +" fps:" +String(_stream.currentFPS)+" livedelay: "+ String(_stream.liveDelay)+ " bufferTimeMax:"+String(_stream.bufferTimeMax) });
-				/*	if (_stream.bufferLength > 2) {
-						//_stream.step(1);
-						_stream.seek(1);
-						
-					}
-					*/
+
 				});
 				
 			}  
-			debugTimer.start();
+			//debugTimer.start();
 			//_stream.play(StringUtils.trim(_streamName));
 		}
 		
@@ -190,6 +192,7 @@ package com.newco.grand.core.common.model {
 			_connection.close();
 			_stream.close();
 			createConnection();
+			_videoForceStop=true;
 		}
 		
 		public function changeStream():void{
@@ -210,23 +213,33 @@ package com.newco.grand.core.common.model {
 		private function netStatusHandler(event:NetStatusEvent):void {
 			debug("NetStatusEvent: " + event.info.code);
 			switch (event.info.code) {
-				case CONNECTION_SUCCESSFUL:
+				case "NetConnection.Connect.Success":
 					connectStream();
 					break;
-				case STREAM_NOT_FOUND:
+				case "NetStream.Play.StreamNotFound":
 					game.httpStream="";
 					createConnection();
+					signalBus.dispatch(UIEvent.BACKGROUND_GRAPHIC,{show:true});
 					break;
-				case STARTED_PLAYING:
+				case "NetStream.Play.Start":
 					//_video.onVideoStarted();
 					break;
-				case CONNECTION_CLOSED:
+				case "NetStream.Buffer.Full":
+					signalBus.dispatch(UIEvent.BACKGROUND_GRAPHIC,{show:false});
+					//_video.onVideoStarted();
+					break;
+				case "NetStream.Buffer.Empty":
+					//signalBus.dispatch(UIEvent.BACKGROUND_GRAPHIC,{show:true});
+					//_video.onVideoStarted();
+					break;
+				case "NetConnection.Connect.Closed":
 					//_stream.close();
 					//_connection.close();
 					_videoStopped = true;
 					_videoReconnectTimer.start();
+					
 					debugTimer.stop();
-				
+					signalBus.dispatch(UIEvent.BACKGROUND_GRAPHIC,{show:true});
 					break;
 				case "NetConnection.Connect.Rejected":
 					_server=_servers[_serverIndex];
@@ -415,7 +428,7 @@ package com.newco.grand.core.common.model {
 		}
 		
 		private function checkVideoConnection(evt:TimerEvent):void {
-			if (_videoStopped) {				
+			if (_videoStopped && _videoForceStop==false) {				
 				createConnection();
 			}
 			else {

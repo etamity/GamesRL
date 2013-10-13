@@ -3,10 +3,11 @@ package com.newco.grand.core.common.view {
 	import com.newco.grand.core.common.controller.signals.UIEvent;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.view.interfaces.IVideoView;
-	import com.newco.grand.core.utils.StringUtils;
 	
+	import flash.events.Event;
 	import flash.events.MouseEvent;
 	import flash.events.StageVideoEvent;
+	import flash.events.VideoEvent;
 	import flash.geom.Rectangle;
 	import flash.media.StageVideo;
 	import flash.net.NetStream;
@@ -59,6 +60,12 @@ package com.newco.grand.core.common.view {
 			_display.VideoRefreshBtn.addEventListener(MouseEvent.CLICK, refreshVideo);
 			_display.xmodeBtn.addEventListener(MouseEvent.CLICK, xmodeVideo);
 			_display.stopStreamBtn.addEventListener(MouseEvent.CLICK, stopVideo);
+			
+			//_display.video.addEventListener(VideoEvent.RENDER_STATE, onRenderEvent);
+		}
+		private function onRenderEvent(evt:VideoEvent):void{
+			_display.video.removeEventListener(VideoEvent.RENDER_STATE, onRenderEvent);
+			_signalBus.dispatch(UIEvent.VIDEO_LOADED,{target:evt.target});
 		}
 		
 		override public function initDisplay():void{
@@ -90,6 +97,10 @@ package com.newco.grand.core.common.view {
 			 _display.bg.buttonMode=true;
 			 _display.video.visible=false;
 			visible = true;
+		}
+		
+		public function showHidePreloader(showed:Boolean):void{
+			_display.preloader.visible=showed;
 		}
 		private function onLoaderStateChange( e:LoaderEvent ) :void
 		{
@@ -197,6 +208,10 @@ package com.newco.grand.core.common.view {
 		public function setSize(width:int, height:int):void {
 			 _display.video.width = width;
 			 _display.video.height = height;
+			 _display.bg.width = width;
+			 _display.bg.height = height;
+			 _display.preloader.x= (_display.bg.width -  _display.preloader.width )/ 2 ;
+			 _display.preloader.y=( _display.bg.height -  _display.preloader.height) / 2;
 			//resize();
 		}
 		public function get stream():NetStream{
@@ -213,6 +228,7 @@ package com.newco.grand.core.common.view {
 		private function stopVideo(event:MouseEvent):void {
 			
 			_display.video.clear();
+			_display.preloader.visible=false;
 			//videoRefreshSignal.dispatch();
 			_signalBus.dispatch(UIEvent.VIDEO_STOP,{target:event.target});
 		}

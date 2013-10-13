@@ -10,6 +10,7 @@ package com.newco.grand.core.common.view.mediators {
 	import com.newco.grand.core.common.model.VideoModel;
 	import com.newco.grand.core.common.view.interfaces.IVideoView;
 	import com.newco.grand.core.utils.GameUtils;
+	import com.newco.grand.core.utils.StringUtils;
 	
 	import flash.display.DisplayObject;
 	import flash.events.Event;
@@ -18,7 +19,6 @@ package com.newco.grand.core.common.view.mediators {
 	
 	import robotlegs.bender.bundles.mvcs.Mediator;
 	import robotlegs.bender.extensions.contextView.ContextView;
-	import com.newco.grand.core.utils.StringUtils;
 	public class VideoMediator extends Mediator {
 		
 		[Inject]
@@ -56,6 +56,7 @@ package com.newco.grand.core.common.view.mediators {
 			signalBus.add(VideoEvent.PLAY,setVideoStream);
 			signalBus.add(VideoEvent.FULLSCREEN,videoFullscreen);
 			signalBus.add(LanguageAndStylesEvent.LANGUAGE_LOADED, updateLanguage);
+			signalBus.add(UIEvent.BACKGROUND_GRAPHIC,showHidePreloader);
 		}
 		private function updateLanguage(signal:BaseSignal):void{
 			view.updateLanguage();
@@ -82,13 +83,21 @@ package com.newco.grand.core.common.view.mediators {
 			view.signalBus.add(UIEvent.VIDEO_REFRESH,videoRefresh);
 			view.signalBus.add(UIEvent.VIDEO_STOP,videoStop);
 			view.signalBus.add(UIEvent.VIDEO_XMODE,videoXmode);
+
 			//view.videoFullscreenSignal.add(videoFullscreen);
 			//view.videoRefreshSignal.add(videoRefresh);
 		}
+		
+		private function showHidePreloader(signal:BaseSignal):void{
+			var showed:Boolean=signal.params.show;
+			view.showHidePreloader(showed);
+		}
+		
 		private function videoStop(signal:BaseSignal):void {
 			videoModel.stopStream();
-			signalBus.dispatch(UIEvent.VIDEO_STOP);
+			signalBus.dispatch(UIEvent.BACKGROUND_GRAPHIC,{show:true});
 		}
+		
 		private function videoXmode(signal:BaseSignal):void {
 			videoModel.changeStream();
 		}
@@ -112,8 +121,6 @@ package com.newco.grand.core.common.view.mediators {
 			}
 			else if (flashVars.videoplayer==Constants.VIDEO_TYPE.toLowerCase() || flashVars.videoplayer=="")
 			view.toggleStageVideo(false);
-			
-			signalBus.dispatch(UIEvent.VIDEO_LOADED);
 		}
 		
 		private function onStageResize(event:Event):void {

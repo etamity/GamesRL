@@ -25,7 +25,7 @@ package com.newco.grand.core.common.view.mediators {
 		
 		override public function initialize():void {
 			signalBus.add(ModelReadyEvent.READY, setupModel);
-			signalBus.add(LanguageAndStylesEvent.LOADED, addViews);
+			addViews(null);
 
 		}
 		private function updateLanguage(signal:BaseSignal):void{
@@ -35,6 +35,7 @@ package com.newco.grand.core.common.view.mediators {
 			signalBus.add(LanguageAndStylesEvent.LANGUAGE_LOADED, updateLanguage);
 			view.init();
 			eventMap.mapListener(contextView.view.stage, Event.RESIZE, onStageResize);
+	
 		}
 		
 		public function addViews(signal:BaseSignal):void {

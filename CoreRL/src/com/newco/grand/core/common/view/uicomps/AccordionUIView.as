@@ -19,8 +19,8 @@ package com.newco.grand.core.common.view.uicomps
 			initDisplay();
 			_display.setSize(_compWidth,_compHeight);
 			_display.setStyle(ButtonStyle.TEXT_COLOR,"#FFFFFF");
-			_display.setStyle(ButtonStyle.TEXT_OVER_COLOR,"#00CC00");
-			_display.setStyle(ButtonStyle.TEXT_DOWN_COLOR,"#00CC00");
+			_display.setStyle(ButtonStyle.TEXT_OVER_COLOR,"#FFFFFF"); //#00CC00
+			_display.setStyle(ButtonStyle.TEXT_DOWN_COLOR,"#FFFFFF");
 			_display.defaultButtonHeight=26;
 			_display.defaultGapHeight=2;
 	

@@ -25,16 +25,17 @@ package com.newco.grand.core.common.view.mediators
 	import com.newco.grand.core.utils.FormatUtils;
 	import com.newco.grand.core.utils.GameUtils;
 	
+	import flash.display.Loader;
 	import flash.display.MovieClip;
 	import flash.events.Event;
+	import flash.events.MouseEvent;
+	import flash.events.ProgressEvent;
 	import flash.external.ExternalInterface;
 	import flash.net.URLRequest;
 	import flash.net.navigateToURL;
 	
 	import org.assetloader.core.IAssetLoader;
-	import org.assetloader.loaders.SWFLoader;
 	import org.assetloader.signals.ErrorSignal;
-	import org.assetloader.signals.LoaderSignal;
 	
 	import robotlegs.bender.bundles.mvcs.Mediator;
 	import robotlegs.bender.extensions.contextView.ContextView;
@@ -72,8 +73,13 @@ package com.newco.grand.core.common.view.mediators
 		
 		public var GAMEHELP:String="GAMEHELP";
 		
-		private var lobbyMC:MovieClip;
+		private var lobbyMC:MovieClip=new MovieClip();
 		private var helpMC:MovieClip;
+		private var loader:Loader = new Loader(); 
+		
+		private var preloader : MainPreloaderAsset;
+		
+
 		override public function initialize():void
 		{
 
@@ -84,6 +90,7 @@ package com.newco.grand.core.common.view.mediators
 			signalBus.add(StateTableConfigEvent.LOADED,setChips);
 			signalBus.add(BetEvent.TOTAL_BET,updateBet);
 			signalBus.add(BetEvent.CLOSE_BETS,disableButtons);
+
 		}
 		private function updateLanguage(signal:BaseSignal):void{
 			view.updateLanguage();
@@ -93,6 +100,7 @@ package com.newco.grand.core.common.view.mediators
 		{
 			signalBus.add(LanguageAndStylesEvent.LANGUAGE_LOADED, updateLanguage);
 			view.init();
+			contextView.view.addChild(lobbyMC);
 			view.loadLanguages(urls.languages,urls.langICON);
 			createMenuBar();
 			addViewListeners();
@@ -105,18 +113,6 @@ package com.newco.grand.core.common.view.mediators
 		}
 		private function addViewListeners():void
 		{
-
-			/*view.chipClickedSignal.add(onChipClicked);
-			view.buttonClickedSignal.add(buttonAction);
-			view.menuitemClickedSignal.add(menuItemClicked);
-			view.showDefaultSignal.add(showTooltip);
-			view.undoSignal.add(betButtonAction);
-			view.clearClickedSignal.add(betButtonAction);
-			view.repeatClickedSignal.add(betButtonAction);
-			view.doubleClickedSignal.add(betButtonAction);
-			view.confirmClickedSignal.add(betButtonAction);
-			view.favouritesClickedSignal.add(betButtonAction);*/
-			
 			view.signalBus.add(TaskbarActionEvent.BUTTON_CLICKED, buttonAction);
 			view.signalBus.add(TaskbarActionEvent.MENUITEM_CLICKED, menuItemClicked);
 			view.signalBus.add(TooltipEvent.SHOW_DEFAULT, showTooltip);
@@ -134,34 +130,6 @@ package com.newco.grand.core.common.view.mediators
 
 		private function createMenuBar():void
 		{
-			/*var menuXML_realplay:XML = Style.XMLDATA.realplay[0];
-			var mylabel:String = String(menuXML_realplay.@label).toLocaleUpperCase();
-			GameUtils.log("[REALPLAY]: "+menuXML_realplay);
-			if (mylabel!="" || mylabel!=null ){
-				var myurl:String   = String(menuXML_realplay.@url);
-				view.myaccountLabel = mylabel;
-				view.myAccountURL = myurl;
-				GameUtils.log("[MENUBAR_myurl]: "+myurl);
-				var myAccountEnable:Boolean=(menuXML_realplay.@enable =="true")?true:false;
-				var showtime:int=menuXML_realplay.@showtime;
-				var hidetime:int=menuXML_realplay.@hidetime;
-				var date:Date=new Date();
-				if (myAccountEnable==true)
-				{
-					if ((date.hours>=showtime) &&(date.hours<=hidetime))
-					{
-						view.myAccountEnabled(true);
-					}else
-					{
-						view.myAccountEnabled(false);
-					}
-				}
-				else
-				{
-					view.myAccountEnabled(false);
-				}
-
-			}*/
 
 			var menuXML:XML=new XML(StyleModel['MENUBAR_XML']);
 			for each (var node:XML in menuXML.children())
@@ -207,22 +175,38 @@ package com.newco.grand.core.common.view.mediators
 			//eventDispatcher.dispatchEvent(event);
 			signalBus.dispatch(TaskbarActionEvent.CHIP_CLICKED);
 		}
+		private function loadProgress(event:ProgressEvent):void {
+			var percentLoaded:Number = event.bytesLoaded/event.bytesTotal;
+			percentLoaded = Math.round(percentLoaded * 100);
+			
+			
+			preloader.label.text=String(percentLoaded) +" %";
+			preloader.gotoAndStop(percentLoaded);
+			//trace("Loading: "+percentLoaded+"%");
+		}   
 		private function launchLobby(signal:BaseSignal):void {
-			/*if (lobbyMC == null) {
-				service.add(GlobalConfig.LOBBY_SWF, {"id": "lobbyswf", context: loaderContext});
-				lobbyLoader.addEventListener(BulkProgressEvent.COMPLETE, showLobby);
-				lobbyLoader.start();
-			}
-			else {
-				setupGameType();
-			}
-			tooltipMC.hideTip();
-			*/
-			if (lobbyMC == null) {
-			service.addLoader(new SWFLoader(new URLRequest(urls.lobby), GAMELOBBY));
-			service.getLoader(GAMELOBBY).onError.add(showError);
-			service.getLoader(GAMELOBBY).onComplete.add(setConfig);			
-			service.start();
+
+			if (lobbyMC.numChildren<=0) {
+				var request:URLRequest = new URLRequest(urls.lobbySWF+"?gametype=sublobby");
+				loader.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, loadProgress);
+				loader.contentLoaderInfo.addEventListener(Event.COMPLETE, function (evt:Event):void{
+					lobbyMC.removeChild(preloader);
+					var closeBtn:SMButton=new SMButton(new CloseButtonAsset());
+					closeBtn.skin.x=1150;
+					closeBtn.skin.y=5;
+					lobbyMC.addChild(closeBtn.skin);
+					closeBtn.skin.addEventListener(MouseEvent.CLICK,function (evt:MouseEvent):void{
+						lobbyMC.visible=false;
+					})
+				});   
+				loader.load(request);
+				lobbyMC.addChild(loader);
+				
+				preloader =new MainPreloaderAsset();
+				preloader.x=(contextView.view.stage.stageWidth-preloader.width) /2;
+				preloader.y=(contextView.view.stage.stageHeight-preloader.height) /2;
+				lobbyMC.addChild(preloader);
+
 			} else
 			{
 				lobbyMC.visible=true;
@@ -235,19 +219,6 @@ package com.newco.grand.core.common.view.mediators
 			
 		}
 		
-		private function setConfig(signal:LoaderSignal, mc:MovieClip):void {
-			lobbyMC=mc;
-			contextView.view.addChild(lobbyMC);
-			
-			lobbyMC.loadLobbyXML(flashVars.table_id,false);
-			
-			//lobbyMC.popupMC = GlobalConfig.POPUP_WINDOW;
-			lobbyMC.close = true;
-			lobbyMC.popup = false;
-			lobbyMC.transparency = 0.8;
-			lobbyMC.game="roulette";
-			service.getLoader(GAMELOBBY).onComplete.remove(setConfig);
-		}
 		private function showError(signal:ErrorSignal):void {
 			debug("error " + signal.message);
 			signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:signal.message + "::" +urls.lobby});

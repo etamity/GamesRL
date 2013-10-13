@@ -27,9 +27,10 @@ package com.newco.grand.core.common.view {
 			return _extended;
 		}
 		public function set extended(val:Boolean):void{
+	
 			if (_extended==false){
 				
-				Tweener.addTween(view,{y:-170,time:0.5,onComplete:function ():void{}});
+				Tweener.addTween(view,{y:-190,time:0.5,onComplete:function ():void{}});
 			}else{
 				Tweener.addTween(view,{y:0,time:0.5,onComplete:function ():void{}});	
 			}

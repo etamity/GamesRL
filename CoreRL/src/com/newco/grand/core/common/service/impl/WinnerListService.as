@@ -48,7 +48,7 @@ package com.newco.grand.core.common.service.impl
 		}
 		
 		private function setPlayers(signal:LoaderSignal, xml:XML):void {
-			//debug(xml);			
+			debug(xml);			
 			//service.remove(Constants.SERVER_WINNERS);
 			signalBus.dispatch(WinnersEvent.LOADED,{node:xml});
 			

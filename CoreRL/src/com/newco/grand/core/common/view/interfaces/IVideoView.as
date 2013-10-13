@@ -12,5 +12,7 @@ package com.newco.grand.core.common.view.interfaces
 		function toggleStageVideo(on:Boolean):void;
 		function get signalBus():SignalBus;
 		function showFullscreen(evt:MouseEvent):void;
+		
+		function showHidePreloader(showed:Boolean):void;
 	}
 }

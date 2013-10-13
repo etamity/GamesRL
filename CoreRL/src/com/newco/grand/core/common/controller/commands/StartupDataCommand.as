@@ -5,7 +5,6 @@ package com.newco.grand.core.common.controller.commands {
 	import com.newco.grand.core.common.controller.signals.StartupDataEvent;
 	import com.newco.grand.core.common.controller.signals.StateTableConfigEvent;
 	import com.newco.grand.core.common.controller.signals.UIEvent;
-	import com.newco.grand.core.common.controller.signals.WinnersEvent;
 	import com.newco.grand.core.common.model.SignalBus;
 	
 	public class StartupDataCommand extends BaseCommand {
@@ -18,7 +17,6 @@ package com.newco.grand.core.common.controller.commands {
 			signalBus.dispatch(ChatEvent.LOAD_CONFIG);
 			signalBus.dispatch(UIEvent.SETUP_ASSET);
 			signalBus.dispatch(PlayersEvent.LOAD);
-			signalBus.dispatch(WinnersEvent.LOAD);
 		}
 		
 	}

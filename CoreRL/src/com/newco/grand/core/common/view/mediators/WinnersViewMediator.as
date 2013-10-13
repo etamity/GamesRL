@@ -2,6 +2,7 @@ package com.newco.grand.core.common.view.mediators {
 	
 	import com.newco.grand.core.common.controller.signals.BaseSignal;
 	import com.newco.grand.core.common.controller.signals.ModelReadyEvent;
+	import com.newco.grand.core.common.controller.signals.SocketDataEvent;
 	import com.newco.grand.core.common.controller.signals.UIEvent;
 	import com.newco.grand.core.common.controller.signals.WinnersEvent;
 	import com.newco.grand.core.common.model.SignalBus;
@@ -13,7 +14,7 @@ package com.newco.grand.core.common.view.mediators {
 	import robotlegs.bender.bundles.mvcs.Mediator;
 	import robotlegs.bender.extensions.contextView.ContextView;
 	
-	public class WinnersMediator extends Mediator {
+	public class WinnersViewMediator extends Mediator {
 		
 		[Inject]
 		public var view:WinnersUIView;
@@ -23,10 +24,29 @@ package com.newco.grand.core.common.view.mediators {
 		
 		[Inject]
 		public var contextView:ContextView;	
+		public static var count : int=0;
 		override public function initialize():void {
-			signalBus.add(ModelReadyEvent.READY, setupModel);
-			signalBus.add( WinnersEvent.LOADED, showPlayers);
+			signalBus.add(ModelReadyEvent.READY, setupModel,true);
+			signalBus.add(WinnersEvent.LOADED, showPlayers);
 			signalBus.add(UIEvent.RESIZE, resize);
+			signalBus.add(SocketDataEvent.HANDLE_BET, handleBet);
+			count++;
+			debug("count",count);
+			//signalBus.add(LanguageAndStylesEvent.LANGUAGE_LOADED, updateLanguage);		
+		}
+		private function handleBet(signal:BaseSignal):void {
+			debug("handleBet");
+			var userid:String=signal.params.node.@userid;
+			var amount:String=String(Number(signal.params.node.@banker) 
+				+ Number(signal.params.node.@player) 
+				+ Number(signal.params.node.@pair_banker)
+				+ Number(signal.params.node.@pair_player)
+				+ Number(signal.params.node.@tie));
+			view.updateBetAmounts(userid,amount);
+		}
+		private function updateLanguage(signal:BaseSignal):void {
+			view.updateLanguage();
+			
 		}
 		
 		private function setupModel(signal:BaseSignal):void {

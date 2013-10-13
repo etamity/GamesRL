@@ -6,14 +6,12 @@ package com.newco.grand.core.common.view {
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.text.TextFormat;
-	
-	import fl.controls.UIScrollBar;
 
 	public class PlayersView extends MovieClip implements IPlayersView{
 		
 		private var _players:XML;
 		private var _txtFormat:TextFormat = new TextFormat("Arial", 12, 0xFFFFFF, false);
-		private var Scroll:UIScrollBar= new UIScrollBar();
+		//private var Scroll:UIScrollBar= new UIScrollBar();
 		public function PlayersView() {
 			visible = false;
 			/*Scroll.scrollTarget =playersTxt;
@@ -33,7 +31,7 @@ package com.newco.grand.core.common.view {
 		}
 		public function align():void {
 			visible = true;
-			Scroll.visible=false;
+			//Scroll.visible=false;
 		}
 
 		public function get players():XML {

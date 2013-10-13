@@ -26,7 +26,7 @@ package com.newco.grand.core.common.view
 			align();
 			_display.errorMsg.htmlText+=val+"<br />";
 			
-			visible=true;
+			visible=false;
 			
 		}
 		override public function align():void

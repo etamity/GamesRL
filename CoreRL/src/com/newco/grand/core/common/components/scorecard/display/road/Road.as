@@ -5,10 +5,11 @@ package com.newco.grand.core.common.components.scorecard.display.road {
 	import com.newco.grand.core.common.components.scorecard.display.road.grid.IGrid;
 	import com.newco.grand.core.common.components.scorecard.display.road.result.IResult;
 	import com.newco.grand.core.common.view.ui.views.BaseView;
+	import com.smart.uicore.controls.ScrollPane;
 	
 	import flash.display.Sprite;
 	
-	import fl.containers.ScrollPane;
+	//import fl.containers.ScrollPane;
 
 	/**
 	 * Represents a Road of columns filled with results. This is comprised
@@ -35,9 +36,15 @@ package com.newco.grand.core.common.components.scorecard.display.road {
 		protected function init(w:Number, h:Number):void {
 			_grid = new Grid(_target.addChild(new Sprite()) as Sprite);
 			
-			_scrollPane = _target.getChildByName("scrollPane") as ScrollPane;
+			_scrollPane = new ScrollPane();//_target.getChildByName("scrollPane") as ScrollPane;
+			_target.addChild(_scrollPane)
 			_scrollPane.setSize(w, h);
-			_scrollPane.source = _grid.target;
+			//_scrollPane.source = _grid.target;
+			_scrollPane.addView(_grid.target);
+			_scrollPane.hideSkin(true);
+			_scrollPane.mouseEnabled=false;
+			_scrollPane.mouseEnabled=false;
+
 		}
 		
 		override public function get width():Number{ return _scrollPane.width; }

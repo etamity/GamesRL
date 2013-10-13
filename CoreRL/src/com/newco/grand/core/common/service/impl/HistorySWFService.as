@@ -51,11 +51,12 @@ package com.newco.grand.core.common.service.impl
 		}
 		private function setConfig(signal:LoaderSignal, mc:MovieClip):void {
 			display=mc;
-			display.init(flashVars.user_id, true);
-			display.x = 200;
-			display.y = 100;
-			display.visible = true;
 			contextView.view.addChild(display);
+			display.init(flashVars.user_id, true);
+			display.x = 314 ;
+			display.y = 100 ;
+			display.visible = true;
+
 			if (_onComplete!=null)
 				_onComplete();
 		}

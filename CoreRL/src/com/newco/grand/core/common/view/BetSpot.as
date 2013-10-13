@@ -127,13 +127,15 @@
 				}
 				else {
 					messageSignal.dispatch(MessageEvent.SHOW_MAX_SPOT,this)
-				}				
+				}	
+				
+				updateBet(value);
+				updateBetSignal.dispatch(this);
 			}
 			else {
 				messageSignal.dispatch(MessageEvent.SHOW_NOT_ENOUGH_MONEY,this);
 			}
-			updateBet(value);
-			updateBetSignal.dispatch(this);
+
 		}
 		
 		public function updateBet(value:Number):void {

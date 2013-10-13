@@ -1,12 +1,11 @@
 package com.newco.grand.core.common.view {
 	import com.newco.grand.core.common.model.LanguageModel;
 	import com.newco.grand.core.common.view.interfaces.IChatView;
+	import com.smart.uicore.controls.VScrollBar;
 	
 	import flash.events.KeyboardEvent;
 	import flash.events.MouseEvent;
 	import flash.ui.Keyboard;
-	
-	import fl.controls.UIScrollBar;
 	
 	import org.osflash.signals.Signal;
 	
@@ -17,7 +16,7 @@ package com.newco.grand.core.common.view {
 		private const DEALER_FONT_COLOUR:String 	= "#FFFF99";
 		private const USER_JOIN_FONT_COLOUR:String 	= "#00FF00";
 		private const USER_LEFT_FONT_COLOUR:String 	= "#FF0000";	
-		protected var Scroll:UIScrollBar= new UIScrollBar();
+		protected var Scroll:VScrollBar= new VScrollBar();
 		
 		public var _sendSignal:Signal=new Signal();
 
@@ -26,8 +25,8 @@ package com.newco.grand.core.common.view {
 			super();
 			
 			visible = false;
-			Scroll.scrollTarget = _display.receiveTxt;
-			Scroll.direction="vertical";
+			Scroll.setTarget(_display.receiveTxt);
+			Scroll.setSize(15,130);
 			Scroll.x=198;
 			Scroll.y=44;
 			Scroll.height=130;

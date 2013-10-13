@@ -118,7 +118,7 @@ package com.newco.grand.core.common.view {
 			favouritesBtn = new SMButton( _display.favourites);
 			lobbyBtn =new SMButton( _display.lobby);
 			
-			lobbyBtn.skin.visible=false;
+			//lobbyBtn.skin.visible=false;
 			_display.responsible.visible = false;
 			_display.chat.visible = false;
 			_display.chat.mouseEnabled=false;
@@ -159,7 +159,7 @@ package com.newco.grand.core.common.view {
 			_display.language.addEventListener(MouseEvent.CLICK, buttonClick);
 			
 			_display.myaccount.addEventListener(MouseEvent.CLICK, myAccountClick);
-			lobbyBtn. skin.addEventListener(MouseEvent.CLICK, buttonClick);
+			lobbyBtn.skin.addEventListener(MouseEvent.CLICK, doLaunchLobby);
 			myAccountEnabled(false);
 			
 			
@@ -170,8 +170,8 @@ package com.newco.grand.core.common.view {
 			_display.history.visible=true;
 			_display.help.visible=false;
 			favouritesBtn.enabled=false;
-			favouritesBtn. skin.visible=false;
-			confirmBtn. skin.visible=false;
+			favouritesBtn.skin.visible=false;
+			confirmBtn.skin.visible=false;
 			buttonsPTs=[];
 			
 			
@@ -306,6 +306,10 @@ package com.newco.grand.core.common.view {
 			_toolTip.showTooltip(target, txt);
 		}
 		
+		private function doLaunchLobby(event:MouseEvent):void {
+			_signalBus.dispatch(TaskbarActionEvent.LOBBY_CLICKED,{eventType:TaskbarActionEvent.LOBBY_CLICKED});
+			
+		}
 		private function buttonClick(event:MouseEvent):void {
 			_toolTip.hideTooltip();
 			var target:MovieClip= event.target as MovieClip;
@@ -324,7 +328,7 @@ package com.newco.grand.core.common.view {
 					_signalBus.dispatch(TaskbarActionEvent.BUTTON_CLICKED,{eventType:TaskbarActionEvent.HELP_CLICKED});
 					break;
 				case  _display.history:
-					_signalBus.dispatch(TaskbarActionEvent.LOBBY_CLICKED,{eventType:TaskbarActionEvent.HISTORY_CLICKED});	
+					_signalBus.dispatch(TaskbarActionEvent.BUTTON_CLICKED,{eventType:TaskbarActionEvent.HISTORY_CLICKED});	
 					break;
 				case  _display.language:
 					languagePanel.visible=!languagePanel.visible;
@@ -653,7 +657,7 @@ package com.newco.grand.core.common.view {
 		public function set chips(value:Array):void {
 			_chips = value;
 			var chip:MovieClip;
-			for (var i:int = 0; i < value.length; i++) {
+			for (var i:int = 0; i < CHIPS_COUNT; i++) {
 				chip =  _display.chipsMC["chip" + i] as MovieClip;
 				chip.base.color.stop();
 				chip.value.text = FormatUtils.formatChipStackText(value[i]);
