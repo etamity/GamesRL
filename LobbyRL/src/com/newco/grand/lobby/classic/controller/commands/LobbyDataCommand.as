@@ -51,7 +51,7 @@ package com.newco.grand.lobby.classic.controller.commands
 			//flashVars.user_id=xml.userid;
 			signalBus.dispatch(LobbyEvents.LOBBYDATA_LOADED);
 			signalBus.dispatch(StateTableConfigEvent.LOADED);
-			signalBus.dispatch(UIEvent.STAGE_GRAPHIC,{visible:false});
+			signalBus.dispatch(UIEvent.STAGE_GRAPHIC,{show:false});
 		}
 		private function showError(signal:ErrorSignal):void {
 			debug("error " + signal.message);
