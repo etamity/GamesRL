@@ -12,11 +12,18 @@ package com.newco.grand.lobby.classic.model
 		
 		private var _opengame:String;
 
-		
+		private var _avatarData:XML; 
 		public function LobbyModel()
 		{
 			_tableList=[];
 		}
+		public function set avatarData(val:XML):void{
+			_avatarData=val;
+		}
+		public function get avatarData():XML{
+			return _avatarData;
+		}
+		
 		public function get opengameUrl():String{
 			return _opengame;
 		}

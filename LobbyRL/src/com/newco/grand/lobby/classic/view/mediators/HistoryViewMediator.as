@@ -24,7 +24,7 @@ package com.newco.grand.lobby.classic.view.mediators
 			super();
 		}
 		override public function initialize():void {
-			signalBus.add(LobbyEvents.DATALOADED ,setupModel);
+			signalBus.add(LobbyEvents.LOBBYDATA_LOADED ,setupModel);
 		}
 		private function setupModel(signal:BaseSignal):void{
 			signalBus.add(LobbyEvents.ACCOUNTHISTORY_LOADED,doAccountHistory);

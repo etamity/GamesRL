@@ -1,11 +1,10 @@
 package com.newco.grand.lobby.classic.view
 {
+	import com.newco.grand.lobby.classic.model.TableModel;
+	
 	import flash.display.Sprite;
 	import flash.events.MouseEvent;
 	import flash.geom.Point;
-	import flash.utils.setTimeout;
-	
-	import caurina.transitions.Tweener;
 	
 	import org.osflash.signals.Signal;
 	
@@ -26,13 +25,26 @@ package com.newco.grand.lobby.classic.view
 	
 		
 		private var _scoreBoradUrl:String;
-		
+		private var _avatarsUrl:String;
+		private var _avatarsData:XML;
 		public function TablesView()
 		{
 			super();
 			addChild(baccaratLayer);
 			addChild(rouletteLayer);
 			addChild(virtualLayer);
+		}
+		public function get avatarsData():XML{
+			return _avatarsData;
+		}
+		public function set avatarsData(val:XML):void{
+			_avatarsData=val;
+		}
+		public function get avatarsUrl():String{
+			return _avatarsUrl;
+		}
+		public function set avatarsUrl(val:String):void{
+			_avatarsUrl=val;
 		}
 		public function get scoreBoradUrl():String{
 			return _scoreBoradUrl;
@@ -90,18 +102,27 @@ package com.newco.grand.lobby.classic.view
 			var end:int= (begin+PAGE_COUNT<count)?begin+PAGE_COUNT:count;
 			var btablemc:BaccaratTable;
 			var rtablemc:RouletteTable;
-			
+			var table:TableModel;
 			trace("count:",count,begin,end)
 			
 			for (var i:int =begin; i<end;i++)
 			{
-		
-					if (tables[i].game=="baccarat")
+				table=tables[i];
+				
+					if (table.game=="baccarat")
 					{   		
 						var pt:Point=new Point(layout.getChildByName("baccarattable"+String(i%PAGE_COUNT)).x,layout.getChildByName("baccarattable"+String(i%PAGE_COUNT)).y);
 						btablemc=new BaccaratTable();
-						btablemc.setModel(tables[i]);
+						btablemc.setModel(table);
 						baccaratLayer.addChild(btablemc);
+						var photo:String=_avatarsData.dealer.(@name.toLowerCase()==table.dealerName.toLowerCase()).@photo;
+						if (photo!="" && photo!=null)
+						{
+
+							var path:String=avatarsUrl+photo;
+							btablemc.loadAvatar(path);
+						}
+					
 						//btablemc.alpha=0;
 
 						btablemc.x= pt.x;

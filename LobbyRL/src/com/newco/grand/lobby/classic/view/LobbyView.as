@@ -39,7 +39,7 @@ package com.newco.grand.lobby.classic.view
 		public var historyBtn:SMButton;
 		public var helpBtn:SMButton;
 		public var backBtn:SMButton;
-		
+	
 		public function LobbyView()
 		{
 		
@@ -56,8 +56,13 @@ package com.newco.grand.lobby.classic.view
 			helpBtn=new SMButton(bottomPanel.helpBtn);
 			helpBtn.skin.addEventListener(MouseEvent.CLICK,doOpenHelp);
 			backBtn.skin.addEventListener(MouseEvent.CLICK,doBackEvent);
+			
+
 		}
-		
+		public function doCloseEvent(evt:MouseEvent):void{
+			backBtn.visible=false;
+			doBackSignal.dispatch();
+		}	
 		public function doBackEvent(evt:MouseEvent):void{
 			backBtn.visible=false;
 			doBackSignal.dispatch();

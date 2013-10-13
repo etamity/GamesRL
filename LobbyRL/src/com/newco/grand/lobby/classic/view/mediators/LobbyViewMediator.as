@@ -37,7 +37,7 @@ package com.newco.grand.lobby.classic.view.mediators
 			super();
 		}
 		override public function initialize():void {
-			signalBus.add(LobbyEvents.DATALOADED ,setupModel);
+			signalBus.add(LobbyEvents.LOBBYDATA_LOADED ,setupModel);
 			signalBus.add(BalanceEvent.LOADED ,setBalance);
 			signalBus.add(LobbyEvents.SHOW_VIRTUALTABLE ,doShowVirtualTable);
 			view.loadHistorySignal.add(doLoadHistory);

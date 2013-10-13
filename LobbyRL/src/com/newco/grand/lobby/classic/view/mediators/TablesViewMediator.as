@@ -39,7 +39,7 @@ package com.newco.grand.lobby.classic.view.mediators
 		}
 		override public function initialize():void {
 	
-			signalBus.add(LobbyEvents.DATALOADED ,setupModel);
+			signalBus.add(LobbyEvents.LOBBYDATA_LOADED ,setupModel);
 			signalBus.add(LobbyEvents.SHOW_TABLE,doShowTable);
 			view.selectSignal.add(doSelectTable);
 			view.openGameSignal.add(openGameEvent);
@@ -60,6 +60,8 @@ package com.newco.grand.lobby.classic.view.mediators
 		
 			url=urlsModel.statistics;//flashvars.server+urlsModel.urlsXml.baccarat.statistics;
 			view.scoreBoradUrl=url;
+			view.avatarsUrl=urlsModel.lobbyAvatar;
+			view.avatarsData=lobbyModel.avatarData;
 			loadTable();
 		}
 		private function doShowTable(signal:BaseSignal):void{
@@ -78,7 +80,7 @@ package com.newco.grand.lobby.classic.view.mediators
 		
 		
 		private function openGameEvent(table:TableModel):void{
-			var url:String=urlsModel.xml.common.opengame+"?game="+table.game+"&table_id="+table.tableid+"&gameType="+table.gameType+"&lang=en&client=generic&gameInterface=view1";
+			var url:String=urlsModel.opengame+"?game="+table.game+"&table_id="+table.tableid+"&gameType="+table.gameType+"&lang="+flashvars.lang+"&client="+flashvars.client;
 			var urlRequest:URLRequest = new URLRequest(url);
 			navigateToURL(urlRequest, "_self");
 			
