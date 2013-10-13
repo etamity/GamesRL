@@ -73,7 +73,7 @@ package com.newco.grand.roulette.configs
 	import com.newco.grand.core.common.view.mediators.StageMediator;
 	import com.newco.grand.core.common.view.mediators.TaskbarMediator;
 	import com.newco.grand.core.common.view.mediators.VideoMediator;
-	import com.newco.grand.core.common.view.mediators.WinnersMediator;
+	import com.newco.grand.core.common.view.mediators.WinnersViewMediator;
 	import com.newco.grand.core.common.view.uicomps.PlayersUIView;
 	import com.newco.grand.core.common.view.uicomps.WinnersUIView;
 	import com.newco.grand.roulette.classic.controller.commands.SetupAssetCommand;
@@ -232,7 +232,7 @@ package com.newco.grand.roulette.configs
 			mediatorMap.map(IGameStatusView).toMediator(GameStatusMediator);
 			mediatorMap.map(IChatView).toMediator(ChatMediator);
 			mediatorMap.map(PlayersUIView).toMediator(PlayersMediator);
-			mediatorMap.map(WinnersUIView).toMediator(WinnersMediator);
+			mediatorMap.map(WinnersUIView).toMediator(WinnersViewMediator);
 			mediatorMap.map(PlayersBetsView).toMediator(PlayersBetsMediator);
 			mediatorMap.map(FavouritesBetsView).toMediator(FavouritesBetsMediator);
 			mediatorMap.map(IAccordion).toMediator(RouletteAccordionMediator);

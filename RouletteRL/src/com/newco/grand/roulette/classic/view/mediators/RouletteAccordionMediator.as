@@ -23,7 +23,7 @@ package com.newco.grand.roulette.classic.view.mediators
 			view.add(new PlayersUIView(), LanguageModel.PLAYERS);
 			view.add(new WinnersUIView(), LanguageModel.WINNERLIST);
 			//view.add(new SideBetSpotsView(), LanguageModel.PLAYERSBETS);
-			view.add(new FavouritesBetsView(), LanguageModel.FAVOURITES);
+			//view.add(new FavouritesBetsView(), LanguageModel.FAVOURITES);
 			
 			view.view.addEventListener(AccordionEvent.SELECTED,doSelected);
 

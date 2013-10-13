@@ -11,11 +11,10 @@ package com.newco.grand.roulette.classic.view.mediators
 	import com.newco.grand.roulette.classic.controller.signals.DataGirdEvent;
 	import com.newco.grand.roulette.classic.model.GameDataModel;
 	import com.newco.grand.roulette.classic.view.FavouritesBetsView;
+	import com.smart.uicore.controls.proxy.DataProvider;
 	
 	import flash.events.MouseEvent;
 	import flash.text.TextFormat;
-	
-	import fl.data.DataProvider;
 	
 	import robotlegs.bender.bundles.mvcs.Mediator;
 
@@ -82,7 +81,7 @@ package com.newco.grand.roulette.classic.view.mediators
 			view.playersListDgMc.removeAll();
 		}
 		private function doDeleteAction(evt:MouseEvent):void{
-			view.playersListDgMc.removeItem(view.playersListDgMc.selectedItem);
+			view.playersListDgMc.removeItemAt(view.playersListDgMc.selectedIndex);
 		}
 		private function loadPlayersBets(item:Object):void{
 			var betString:String=item.betString;

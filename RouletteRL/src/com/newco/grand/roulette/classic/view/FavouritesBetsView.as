@@ -2,14 +2,12 @@ package com.newco.grand.roulette.classic.view
 {	
 	import com.newco.grand.core.common.view.Betchip;
 	import com.newco.grand.core.common.view.SMButton;
+	import com.smart.uicore.controls.DataGrid;
+	import com.smart.uicore.controls.support.DataGridColumnSet;
 	
 	import flash.display.MovieClip;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
-	import flash.text.TextFormat;
-	
-	import fl.controls.DataGrid;
-	import fl.controls.dataGridClasses.DataGridColumn;
 	
 	import org.osflash.signals.Signal;
 
@@ -107,26 +105,16 @@ package com.newco.grand.roulette.classic.view
 		private function createDataGrid(evt:MouseEvent):void{
 		
 			playersListDgMc= new DataGrid();
-			playersListDgMc.width=164;
-			playersListDgMc.height=136;
-			playersListDgMc.x=2.65;
-			playersListDgMc.y=270.75;
+			playersListDgMc.setSize(164,136);
+			//playersListDgMc.x=2.65;
+			//playersListDgMc.y=270.75;
 
 			addChild(playersListDgMc);
 			
-			var col1:DataGridColumn = new DataGridColumn(dgCol1Name);
-			var col2:DataGridColumn = new DataGridColumn(dgCol2Name);
-			col2.sortOptions = Array.NUMERIC;
-			playersListDgMc.columns = [col1, col2];
-			playersListDgMc.columns[0].width = 85;
-			playersListDgMc.columns[1].width = 65;
-			var style:TextFormat = new TextFormat();
-			style.bold = false;
-			style.size = 11;
-			style.color = 0x9E9581;
-			style.font = "Arial";
-			playersListDgMc.setStyle("headerTextFormat",style);
-			playersListDgMc.setRendererStyle("textFormat",style);
+			var sets:Vector.<DataGridColumnSet> = new Vector.<DataGridColumnSet>();
+			sets.push(new DataGridColumnSet(dgCol1Name,"first_name",-65));
+			sets.push(new DataGridColumnSet(dgCol2Name,"amount",-35));
+			playersListDgMc.initColumns(sets);
 			
 			
 	

@@ -1,7 +1,5 @@
 package com.newco.grand.roulette.classic.view {
-	
-	
-	
+
 	public class SideBetSpotsView extends BetSpotsView{
 		public function SideBetSpotsView() {
 			super();

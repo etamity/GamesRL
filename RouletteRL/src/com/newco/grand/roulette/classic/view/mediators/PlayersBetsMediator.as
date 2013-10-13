@@ -7,8 +7,7 @@ package com.newco.grand.roulette.classic.view.mediators
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.roulette.classic.model.GameDataModel;
 	import com.newco.grand.roulette.classic.view.PlayersBetsView;
-	
-	import fl.data.DataProvider;
+	import com.smart.uicore.controls.proxy.DataProvider;
 	
 	import robotlegs.bender.bundles.mvcs.Mediator;
 
