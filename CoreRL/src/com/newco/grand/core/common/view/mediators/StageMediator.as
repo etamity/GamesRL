@@ -55,9 +55,10 @@ package com.newco.grand.core.common.view.mediators {
 			//if (FlashVars.PLATFORM==FlashVars.DESKTOP_PLATFORM || FlashVars.PLATFORM==FlashVars.WEB_PLATFORM)
 			//if (flashVars.videoplayer==Constants.STAGEVIDEO_TYPE)
 			signalBus.add(UIEvent.STAGE_GRAPHIC, showHideGraphics);
+			//signalBus.add(UIEvent.BACKGROUND_GRAPHIC, showHideGraphics);
 		}
 		private function showHideGraphics(signal:BaseSignal):void {
-			var show:Boolean=signal.params.visible;
+			var show:Boolean=signal.params.show;
 			view.view.visible=show;
 		}
 		private function updateLanguage(signal:BaseSignal):void{

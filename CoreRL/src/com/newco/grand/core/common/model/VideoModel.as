@@ -136,7 +136,7 @@ package com.newco.grand.core.common.model {
 			debug("application: "+_application);
 			debug("rtmp://" + _server + "/" + _application);
 			debug("httpStream: "+game.httpStream);
-			signalBus.dispatch(UIEvent.STAGE_GRAPHIC,{visible:true});
+			signalBus.dispatch(UIEvent.STAGE_GRAPHIC,{show:true});
 			if (game.httpStream!="" && FlashVars.PLATFORM==FlashVars.AIR_PLATFORM)
 			{
 				_streamName=game.httpStream;
@@ -226,6 +226,7 @@ package com.newco.grand.core.common.model {
 					break;
 				case "NetStream.Buffer.Full":
 					signalBus.dispatch(UIEvent.BACKGROUND_GRAPHIC,{show:false});
+		
 					//_video.onVideoStarted();
 					break;
 				case "NetStream.Buffer.Empty":
