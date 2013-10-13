@@ -10,8 +10,12 @@ package com.newco.grand.baccarat.classic.view.mediators
 	
 	import flash.events.MouseEvent;
 	
+	import caurina.transitions.Tweener;
+	
 	public class BaccaratAccordionMediator extends AccordionMediator
 	{
+		protected var _extended:Boolean=false;
+		
 		public function BaccaratAccordionMediator()
 		{
 			super();
@@ -20,7 +24,7 @@ package com.newco.grand.baccarat.classic.view.mediators
 			super.initialize();
 			view.view.y=190;
 			view.compHeight= view.compHeight -50;
-			
+			signalBus.add(StatisticsEvent.SHOWHIDE,doShowHideEvent);
 			/*var statsButton:SMButton=new SMButton(new LastResultAsset());
 			
 			statsButton.skin.addEventListener(MouseEvent.CLICK,doShowHideStats);
@@ -29,12 +33,25 @@ package com.newco.grand.baccarat.classic.view.mediators
 			view.display.y=40;
 			view.compHeight= view.compHeight -40;*/
 		}
-		
-		private function doShowHideStats(evt:MouseEvent):void{
-			signalBus.dispatch(StatisticsEvent.SHOWHIDE);
+		public function doShowHideEvent(signal:BaseSignal):void {
+			var show:Boolean=signal.params.extended;
+			extended=show;
+		}
+		public function get extended():Boolean{
+			return _extended;
+		}
+		public function set extended(val:Boolean):void{
+			
+			if (_extended==false){
+				
+				Tweener.addTween(view,{x:contextView.view.stage.stageWidth,time:0.5,onComplete:function ():void{}});
+			}else{
+				Tweener.addTween(view,{x:contextView.view.stage.stageWidth-view.view.width,time:0.5,onComplete:function ():void{}});	
+			}
+			_extended=val;
 		}
 		override public function addViews(signal:BaseSignal):void {
-			view.add(new PlayersUIView(), LanguageModel.PLAYERS);
+			//view.add(new PlayersUIView(), LanguageModel.PLAYERS);
 			view.add(new WinnersUIView(), LanguageModel.WINNERLIST);
 			//view.add(new BetspotsPanelView(), Language.BACCARAT_BETSPOTSPANEL);
 			view.add(new TournamentView(), LanguageModel.TOURNAMENT);

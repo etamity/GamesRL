@@ -8,7 +8,7 @@ package com.newco.grand.baccarat.classic.view
 		{
 			super();
 		}
-		
+
 		override public function align():void{
 			y=550;
 		}

@@ -83,7 +83,7 @@ package com.newco.grand.baccarat.classic.service
 			signalBus.dispatch(VideoEvent.CONNECT);
 			signalBus.dispatch(StateTableConfigEvent.LOADED);
 			signalBus.dispatch(PlayersEvent.LOAD);
-			signalBus.dispatch(WinnersEvent.LOAD);
+			//signalBus.dispatch(WinnersEvent.LOAD);
 			//service.remove(Constants.SERVER_SETTING);
 		}
 		

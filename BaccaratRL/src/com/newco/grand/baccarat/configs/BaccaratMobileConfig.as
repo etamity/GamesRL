@@ -1,13 +1,15 @@
 package com.newco.grand.baccarat.configs
 {
 	import com.newco.grand.baccarat.classic.controller.commands.StateTableConfigCommand;
+	import com.newco.grand.baccarat.classic.controller.commands.StatsSummaryCommand;
+	import com.newco.grand.baccarat.classic.controller.signals.StatisticsEvent;
 	import com.newco.grand.baccarat.classic.controller.signals.WinnersEvent;
 	import com.newco.grand.baccarat.classic.model.GameDataModel;
 	import com.newco.grand.baccarat.classic.service.AnimationService;
 	import com.newco.grand.baccarat.classic.service.GameSocketService;
+	import com.newco.grand.baccarat.classic.service.StatsSummaryService;
 	import com.newco.grand.baccarat.classic.service.TableConfigService;
 	import com.newco.grand.baccarat.classic.view.AnimationPanelView;
-	import com.newco.grand.baccarat.classic.view.BetSpotsView;
 	import com.newco.grand.baccarat.classic.view.interfaces.IBetSpotsView;
 	import com.newco.grand.baccarat.classic.view.interfaces.ICardsPanelView;
 	import com.newco.grand.baccarat.classic.view.interfaces.IScoreCardView;
@@ -21,8 +23,6 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.baccarat.classic.view.mediators.StatisticsMediator;
 	import com.newco.grand.baccarat.classic.view.mediators.TableGraphicMediator;
 	import com.newco.grand.baccarat.mobile.controller.SetupViewCommand;
-	import com.newco.grand.baccarat.mobile.view.CardsPanelView;
-	import com.newco.grand.baccarat.mobile.view.TableGraphicView;
 	import com.newco.grand.core.common.controller.commands.BalanceCommand;
 	import com.newco.grand.core.common.controller.commands.BetsCommand;
 	import com.newco.grand.core.common.controller.commands.ChatConfigCommand;
@@ -76,8 +76,6 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.service.impl.WinnerListService;
 	import com.newco.grand.core.common.service.impl.XMLService;
 	import com.newco.grand.core.common.view.ChatView;
-	import com.newco.grand.core.common.view.ErrorMessageView;
-	import com.newco.grand.core.common.view.LoginView;
 	import com.newco.grand.core.common.view.interfaces.IAccordion;
 	import com.newco.grand.core.common.view.interfaces.IErrorMessageView;
 	import com.newco.grand.core.common.view.interfaces.IGameStatusView;
@@ -92,9 +90,6 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.view.mediators.StageMediator;
 	import com.newco.grand.core.common.view.mediators.TaskbarMediator;
 	import com.newco.grand.core.common.view.mediators.VideoMediator;
-	import com.newco.grand.core.mobile.view.StageView;
-	import com.newco.grand.core.mobile.view.TaskbarView;
-	import com.newco.grand.core.mobile.view.VideoView;
 	
 	import org.assetloader.AssetLoader;
 	import org.assetloader.base.Param;
@@ -185,7 +180,7 @@ package com.newco.grand.baccarat.configs
 			injector.map(ChatConfigService).asSingleton();
 			injector.map(SeatService).asSingleton();
 			injector.map(TableConfigService).asSingleton();
-			
+			injector.map(StatsSummaryService).asSingleton();
 		}
 		public function mapMediators():void{
 			
@@ -216,6 +211,7 @@ package com.newco.grand.baccarat.configs
 			commandMap.mapSignal(signalBus.signal(LoginEvent.LOGIN), LoginCommand);
 			commandMap.mapSignal(signalBus.signal(StartupDataEvent.SEAT), SeatCommand);
 			commandMap.mapSignal(signalBus.signal(StartupDataEvent.LOAD), StartupDataCommand);
+			commandMap.mapSignal(signalBus.signal(StatisticsEvent.SUMMARYLOAD), StatsSummaryCommand);
 			commandMap.mapSignal(signalBus.signal(LanguageAndStylesEvent.LOAD), LanguageAndStylesCommand, true);
 			commandMap.mapSignal(signalBus.signal(LanguageAndStylesEvent.LANGUAGE_LOAD), LanguageCommand);
 			commandMap.mapSignal(signalBus.signal(BalanceEvent.LOAD), BalanceCommand);

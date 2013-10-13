@@ -1,10 +1,13 @@
 package com.newco.grand.baccarat.classic.view.mediators
 {
+	import com.newco.grand.baccarat.classic.controller.signals.StatisticsEvent;
 	import com.newco.grand.baccarat.classic.view.interfaces.IStatisticsView;
 	import com.newco.grand.core.common.controller.signals.BaseSignal;
 	import com.newco.grand.core.common.controller.signals.LanguageAndStylesEvent;
 	import com.newco.grand.core.common.controller.signals.ModelReadyEvent;
 	import com.newco.grand.core.common.model.SignalBus;
+	
+	import flash.events.MouseEvent;
 	
 	import robotlegs.bender.bundles.mvcs.Mediator;
 	
@@ -20,10 +23,18 @@ package com.newco.grand.baccarat.classic.view.mediators
 		}
 		override public function initialize():void {
 			signalBus.add(ModelReadyEvent.READY, setupModel);
-	
+			signalBus.add(StatisticsEvent.SUMMARYLOADED, loadstatsSum);
+			view.showHideSignal.add(doShowHide);
+		}
+		private function doShowHide(extended:Boolean):void{
+			signalBus.dispatch(StatisticsEvent.SHOWHIDE,{extended:extended});
 		}
 		private function updateLanguage(signal:BaseSignal):void{
 			view.updateLanguage();
+		}
+		private function loadstatsSum(signal:BaseSignal):void {
+			var xml:XML=signal.params.xml;
+			view.load(xml);
 		}
 		private function setupModel(signal:BaseSignal):void {
 			signalBus.add(LanguageAndStylesEvent.LANGUAGE_LOADED, updateLanguage);

@@ -13,8 +13,8 @@ package com.newco.grand.baccarat.classic.view
 		{
 			super();
 			showFullSize=true;
-			_display.bg.visible=false;
-			_display.frame.visible=false;
+
+			
 		}
 		
 		override public function align():void{
@@ -23,6 +23,20 @@ package com.newco.grand.baccarat.classic.view
 			setSize(1184, 666);
 			//setSize(1186, 667);
 			//setSize(1280, 720);
+			
+			_display.bg.visible=false;
+			_display.frame.visible=false;
+			_display.VideoRefreshBtn.x=995;
+			_display.VideoRefreshBtn.y=622;
+			
+			_display.VideoFullscreenBtn.visible=false;
+			
+			_display.xmodeBtn.x=955;
+			_display.xmodeBtn.y=622;
+			
+			_display.stopStreamBtn.x=915;
+			_display.stopStreamBtn.y=622;
+			
 		}
 		
 		override public function resizeVideo(event:MouseEvent=null):void {

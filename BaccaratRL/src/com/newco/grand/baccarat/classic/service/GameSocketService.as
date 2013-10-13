@@ -185,6 +185,7 @@ package com.newco.grand.baccarat.classic.service {
 			signalBus.dispatch(PlayersEvent.LOAD);
 			signalBus.dispatch(WinnersEvent.LOAD);
 			signalBus.dispatch(StatisticsEvent.LOAD);
+			signalBus.dispatch(StatisticsEvent.SUMMARYLOAD);
 			signalBus.dispatch(BetEvent.TOTAL_BET);
 		}
 	}

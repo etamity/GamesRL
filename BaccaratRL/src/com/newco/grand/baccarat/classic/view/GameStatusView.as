@@ -9,7 +9,7 @@ package com.newco.grand.baccarat.classic.view
 			super();
 		}
 		override public function align():void {
-			x = 840;
+			x = 822;
 		}
 	}
 }

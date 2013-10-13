@@ -1,7 +1,6 @@
 package com.newco.grand.baccarat.classic.view.mediators
 {
 	import com.newco.grand.baccarat.classic.controller.signals.BaccaratEvent;
-	import com.newco.grand.baccarat.classic.controller.signals.StatisticsEvent;
 	import com.newco.grand.baccarat.classic.service.AnimationService;
 	import com.newco.grand.baccarat.classic.view.interfaces.IScoreCardView;
 	import com.newco.grand.core.common.controller.signals.BaseSignal;
@@ -9,10 +8,6 @@ package com.newco.grand.baccarat.classic.view.mediators
 	import com.newco.grand.core.common.controller.signals.ModelReadyEvent;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.SignalBus;
-	
-	import flash.events.MouseEvent;
-	
-	import caurina.transitions.Tweener;
 	
 	import robotlegs.bender.bundles.mvcs.Mediator;
 	import robotlegs.bender.extensions.contextView.ContextView;
@@ -53,7 +48,7 @@ package com.newco.grand.baccarat.classic.view.mediators
 
 		private function setupModel(signal:BaseSignal):void {
 			signalBus.add(LanguageAndStylesEvent.LANGUAGE_LOADED, updateLanguage);
-			view.initView(377, 187, true, false, flashvars.table_id);
+			view.initView(373, 180, true, false, flashvars.table_id);
 			view.init();
 			
 		}

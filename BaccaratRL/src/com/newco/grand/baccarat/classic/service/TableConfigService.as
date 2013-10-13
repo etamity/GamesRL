@@ -214,7 +214,7 @@ package com.newco.grand.baccarat.classic.service
 			signalBus.dispatch(VideoEvent.CONNECT);
 			signalBus.dispatch(StateTableConfigEvent.LOADED);
 			signalBus.dispatch(PlayersEvent.LOAD);
-			signalBus.dispatch(WinnersEvent.LOAD);
+			//signalBus.dispatch(WinnersEvent.LOAD);
 		}
 		
 		private function showError(signal:ErrorSignal):void {

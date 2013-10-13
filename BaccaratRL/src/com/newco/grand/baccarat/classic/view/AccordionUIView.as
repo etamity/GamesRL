@@ -11,9 +11,9 @@ package com.newco.grand.baccarat.classic.view
 		}
 		
 		override public function updateLanguage():void{
-			_display.buttons[0].label= LanguageModel.PLAYERS;
-			_display.buttons[1].label= LanguageModel.WINNERLIST;
-			_display.buttons[2].label= LanguageModel.TOURNAMENT;
+			//_display.buttons[0].label= LanguageModel.PLAYERS;
+			_display.buttons[0].label= LanguageModel.WINNERLIST;
+			_display.buttons[1].label= LanguageModel.TOURNAMENT;
 		}
 		
 		override public function align():void{

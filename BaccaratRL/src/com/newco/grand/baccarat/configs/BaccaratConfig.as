@@ -2,9 +2,12 @@ package com.newco.grand.baccarat.configs
 {
 	import com.newco.grand.baccarat.classic.controller.commands.SetupViewCommand;
 	import com.newco.grand.baccarat.classic.controller.commands.StateTableConfigCommand;
+	import com.newco.grand.baccarat.classic.controller.commands.StatsSummaryCommand;
+	import com.newco.grand.baccarat.classic.controller.signals.StatisticsEvent;
 	import com.newco.grand.baccarat.classic.model.GameDataModel;
 	import com.newco.grand.baccarat.classic.service.AnimationService;
 	import com.newco.grand.baccarat.classic.service.GameSocketService;
+	import com.newco.grand.baccarat.classic.service.StatsSummaryService;
 	import com.newco.grand.baccarat.classic.service.TableConfigService;
 	import com.newco.grand.baccarat.classic.view.AnimationPanelView;
 	import com.newco.grand.baccarat.classic.view.TournamentView;
@@ -99,7 +102,7 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.view.mediators.StageMediator;
 	import com.newco.grand.core.common.view.mediators.TaskbarMediator;
 	import com.newco.grand.core.common.view.mediators.VideoMediator;
-	import com.newco.grand.core.common.view.mediators.WinnersMediator;
+	import com.newco.grand.core.common.view.mediators.WinnersViewMediator;
 	import com.newco.grand.core.common.view.uicomps.PlayersUIView;
 	import com.newco.grand.core.common.view.uicomps.WinnersUIView;
 	
@@ -224,6 +227,7 @@ package com.newco.grand.baccarat.configs
 			injector.map(TableConfigService).asSingleton();
 			injector.map(HelpSWFService).asSingleton();
 			injector.map(HistorySWFService).asSingleton();
+			injector.map(StatsSummaryService).asSingleton();
 		}
 
 		public function mapMediators():void
@@ -243,8 +247,8 @@ package com.newco.grand.baccarat.configs
 			mediatorMap.map(IScoreCardView).toMediator(ScoreCardMediator);
 			mediatorMap.map(MessageBoxView).toMediator(MessageBoxMediator);
 			mediatorMap.map(IBetspotsPanelView).toMediator(BetspotsPanelMediator);
-			mediatorMap.map(PlayersUIView).toMediator(PlayersMediator);
-			mediatorMap.map(WinnersUIView).toMediator(WinnersMediator);
+			//mediatorMap.map(PlayersUIView).toMediator(PlayersMediator);
+			mediatorMap.map(WinnersUIView).toMediator(WinnersViewMediator);
 			mediatorMap.map(IErrorMessageView).toMediator(ErrorMessageMediator);
 			mediatorMap.map(TournamentView).toMediator(TournamentMediator);
 			mediatorMap.map(IStatisticsView).toMediator(StatisticsMediator);
@@ -262,7 +266,7 @@ package com.newco.grand.baccarat.configs
 			commandMap.mapSignal(signalBus.signal(StartupDataEvent.LOAD), StartupDataCommand);
 			commandMap.mapSignal(signalBus.signal(LanguageAndStylesEvent.LOAD), LanguageAndStylesCommand, true);
 			commandMap.mapSignal(signalBus.signal(LanguageAndStylesEvent.LANGUAGE_LOAD), LanguageCommand);
-	
+			commandMap.mapSignal(signalBus.signal(StatisticsEvent.SUMMARYLOAD), StatsSummaryCommand);
 			commandMap.mapSignal(signalBus.signal(BalanceEvent.LOAD), BalanceCommand);
 			commandMap.mapSignal(signalBus.signal(StateTableConfigEvent.LOAD), StateTableConfigCommand);
 			commandMap.mapSignal(signalBus.signal(ChatEvent.LOAD_CONFIG), ChatConfigCommand);
