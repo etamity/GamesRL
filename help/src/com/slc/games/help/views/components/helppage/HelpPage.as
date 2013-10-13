@@ -1,17 +1,16 @@
 package com.slc.games.help.views.components.helppage {
 
 	import com.slc.ui.views.components.BaseComponentView;
-
-	import fl.controls.TextArea;
+	
 	import flash.display.Sprite;
 
 	public class HelpPage extends BaseComponentView {
 
-		protected var _textArea:TextArea;
+		protected var _textArea:Object;
 
 		public function HelpPage(target:Sprite) {
 			super(target);
-			_textArea = _target.getChildByName("textArea") as TextArea;
+			_textArea = _target.getChildByName("textArea");
 		}
 
 		public function set htmlText(v:String):void {

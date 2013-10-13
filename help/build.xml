@@ -1,74 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project name="help"
-	default="build">
+<project name="Help" default="build" basedir=".">
+	
+	<!-- build.local.properties and sdk.local.proprties are optional files that
+		can be used to override the default properties. -->
 
-	<property file="../libs/common.build.properties"/>
-	<property name="OUTPUT_DIR"
-		value="../release/player/games/help"/>
-	<property name="SRC_DIR"
-		value="src"/>
-	<property name="ASSETS_DIR"
-		value="assets"/>
-	<property name="CORE_SWC"
-		value="../core/bin/core.swc"/>
-	<property name="COMMON_LIBS"
-		value="../libs"/>
+	<property name="RootDir" value="../" />
+	<property name="main.path" value="${basedir}/main" />
+	
+	<property file="${RootDir}/build/sdk.local.properties"/>
+	<property file="sdk.properties"/>
+	<property file="${RootDir}/build/build.local.properties"/>
+	<property file="build.properties"/>
+	
+	  <taskdef resource="flexUnitTasks.tasks" classpath="${libs.path}/flexUnitTasks-4.1.0-8.jar"/>
+	
+	<fail unless="ios.provision.baccarat.path"/>
+	<fail unless="ios.certificate.path"/>
+	<fail unless="ios.certificate.password"/>
+	
+	<fail unless="android.certificate.path"/>
+	<fail unless="android.certificate.password"/>
 
-	<taskdef name="mxmlc"
-		classname="flex.ant.MxmlcTask"
-		classpath="${FLEX_HOME}/ant/lib/flexTasks.jar"/>
+	<target name="build" depends="build-swf,copy"/>
 
-	<target name="build">
-		<echo message="building help..."/>
-		<antcall target="compile"/>
+	<target name="prepare">
+		<delete dir="${output.path}"/>
 	</target>
 
-	<target name="clean">
-		<delete includeemptydirs="true">
-			<fileset dir="${OUTPUT_DIR}"
-				includes="**/Help.swf"/>
-		</delete>
+	<target name="build-swf">
+		<echo message="Building swf ${ant.project.name}.swf"/>
+		<exec executable="${mxmlc}" dir="${basedir}" failonerror="true">
+			<arg line="--target-player=${player.version}"/>
+			<arg line="--debug=${mode.debug}"/>
+			<arg line="--optimize=true"/>
+			<arg line="--swf-version=${swf.version}"/>
+			<arg line="--source-path+='${src.path}'"/>
+			<arg line="--library-path+='${assets.path}'"/>
+			<arg line="--library-path+='${libs.path}'"/>
+			<arg line="${src.path}/${ant.project.name}.as"/>
+			<arg line="--output ${bin.path}/${ant.project.name}.swf"/>
+		</exec>
+	</target>
+	<target name="build-air-swf">
+		<echo message="Building air ${ant.project.name}.swf"/>
+		<exec executable="${mxmlc}" dir="${basedir}" failonerror="true">
+			<arg line="+configname=air"/>
+			<arg line="--debug=${mode.debug}"/>
+			<arg line="--mobile=true"/>
+			<arg line="--optimize=true"/>
+			<arg line="--omit-trace-statements=true"/>
+			<arg line="--target-player=${player.version}"/>
+			<arg line="--swf-version=${swf.version}"/>
+			<arg line="--compress=false"/>
+			<arg line="--source-path+='${src.path}'"/>
+			<arg line="--source-path+='${assets.path}'"/>
+			<arg line="--library-path+='${core.bin}'"/>
+			<arg line="--library-path+='${assets.path}'"/>
+			<arg line="--library-path+='${libs.path}'"/>
+			<arg line="${src.path}/${ant.project.name}.as"/>
+			<arg line="--output ${bin.path}/${ant.project.name}.swf"/>
+
+
+		</exec>
 	</target>
 
-	<target name="compile">
-		<mxmlc file="${SRC_DIR}/com/slc/games/help/Help.as"
-			output="${OUTPUT_DIR}/Help.swf"
-			locale="${LOCALE}"
-			static-rsls="false"
-			static-link-runtime-shared-libraries="true">
-			<default-size 
-				width="550" height="360"/>
-			<default-frame-rate>30</default-frame-rate>
-			<default-background-color>0x000000</default-background-color>
-			<load-config filename="${FLEX_HOME}/frameworks/flex-config.xml"/>
-			<source-path path-element="${SRC_DIR}"/>
-			<library-path file="${FLEX_HOME}/frameworks/libs/textLayout.swc"
-				append="true"/>
-			<library-path file="${FLEX_HOME}/frameworks/libs/osmf.swc"
-				append="true"/>
-			<library-path file="${FLEX_HOME}/frameworks/libs/flash-integration.swc"
-				append="true"/>
-			<library-path file="${FLEX_HOME}/frameworks/libs/flex.swc"
-				append="true"/>
-			<library-path file="${FLEX_HOME}/frameworks/libs/utilities.swc"
-				append="true"/>
-			<external-library-path file="${FLEX_HOME}/frameworks/libs/player/11.1/playerglobal.swc"
-				append="true"/>
-			<library-path file="${FLEX_HOME}/frameworks/libs/flash-integration.swc"
-				append="true"/>
-			<library-path file="${FLEX_HOME}/frameworks/libs/flex.swc"
-				append="true"/>
-			<library-path file="${FLEX_HOME}/frameworks/libs/utilities.swc"
-				append="true"/>
-			<library-path file="${CORE_SWC}"
-				append="true"/>
-			<library-path file="${ASSETS_DIR}/Help.swc"
-				append="true"/>
-			<library-path dir="${COMMON_LIBS}"
-				includes="*.swc"
-				append="true"/>
-		</mxmlc>
-
+	<!-- Run Unit Tests -->
+	  <target name="test" depends="build-swf">
+	    <echo>[test] Running Unit Tests</echo>
+	<!-- Compile TestRunner.mxml as a SWF -->
+	    <java jar="${flexsdk.root}/lib/mxmlc.jar" dir="${flexframework.root}" fork="true" failonerror="true">
+	      <arg value="${test.src.path}/${ant.project.name}Test.mxml"/>
+	      <arg value="-source-path=${src.path}"/>
+		  <arg value="-source-path+=${assets.path}"/>
+		  <arg value="-library-path+=${assets.path}"/>
+		  <arg line="--library-path+='${core.bin}'"/>
+	<!-- Flash those sweet legs. Blink and you'll miss 'em. -->
+	      <arg value="-output=${bin.path}/TestRunner.swf"/>
+	      <arg value="-default-size=200,200"/>
+	      <arg value="-default-background-color=0x000000"/>
+	<!-- Include classes from SWCs in this folder, but only the ones we use. -->
+	      <arg value="-library-path+=${libs.path}"/>
+	<!-- So true. -->
+	      <arg value="-incremental=true"/>
+	      <arg value="-verbose-stacktraces=true"/>
+	      <arg value="-headless-server=false"/>
+	      <arg value="-debug=true"/>
+	    </java>
+	<!-- Execute TestRunner.swf as FlexUnit tests and publish reports -->
+	    <mkdir dir="${report.path}"/>
+	    <flexunit swf="${bin.path}/TestRunner.swf" toDir="${report.path}" haltonfailure="true" verbose="true" localTrusted="true"/>
+	<!-- Generate readable JUnit-style reports -->
+	    <junitreport todir="${report.path}">
+	      <fileset dir="${report.path}">
+	        <include name="TEST-*.xml"/>
+	      </fileset>
+	      <report format="frames" todir="${report.path}/html"/>
+	    </junitreport>
+	    <echo>[test] Finished running Unit Tests</echo>
+	  </target>
+	<target name="copy">
+		<copy todir="${release.path}">
+		    <fileset dir="${bin.path}" excludes="**/*.fla,**/Thumbs.db"/>
+		</copy>
 	</target>
-
+	
 </project>

@@ -1,7 +1,8 @@
-package com.slc.games.help {
+package  {
 
 	import com.slc.events.ViewEvent;
 	import com.slc.events.XMLLoaderEvent;
+	import com.slc.games.help.IHelp;
 	import com.slc.games.help.controller.HelpController;
 	import com.slc.games.help.controller.IHelpController;
 	import com.slc.games.help.model.HelpModel;
@@ -9,9 +10,10 @@ package com.slc.games.help {
 	import com.slc.utilities.Debug;
 	import com.slc.utilities.GlobalConfig;
 	import com.slc.utilities.XMLLoader;
-
+	
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
+	import flash.events.Event;
 	import flash.net.LocalConnection;
 
 	[SWF(width = "550", height = "360", frameRate = "24", backgroundColor = "#000000")]
@@ -28,9 +30,21 @@ package com.slc.games.help {
 			_model = new HelpModel();
 			_xmlLoader = new XMLLoader();
 			_helpURLS = "/player/games/help/helpurls_" + GlobalConfig.LANGUAGE + ".xml";
-			init();
+			//init();
+			
+			this.addEventListener(Event.ADDED_TO_STAGE,onAddtoStage);
 		}
 
+		private function onAddtoStage(evt:Event):void{
+			if (stage.loaderInfo.parameters.lang!=null)
+			{
+				var lang:String=stage.loaderInfo.parameters.lang;
+				var server:String=stage.loaderInfo.parameters.server;
+				_helpURLS = server+"player/games/help/helpurls_" + lang + ".xml";
+				init();
+				trace(lang,server);
+			}
+		}
 		protected function onCloseClick(e:ViewEvent):void {
 			visible = false;
 		}
