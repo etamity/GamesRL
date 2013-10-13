@@ -98,12 +98,10 @@ package com.newco.grand.baccarat.configs
 	import com.newco.grand.core.common.view.mediators.GameStatusMediator;
 	import com.newco.grand.core.common.view.mediators.LoginMediator;
 	import com.newco.grand.core.common.view.mediators.MessageBoxMediator;
-	import com.newco.grand.core.common.view.mediators.PlayersMediator;
 	import com.newco.grand.core.common.view.mediators.StageMediator;
 	import com.newco.grand.core.common.view.mediators.TaskbarMediator;
 	import com.newco.grand.core.common.view.mediators.VideoMediator;
 	import com.newco.grand.core.common.view.mediators.WinnersViewMediator;
-	import com.newco.grand.core.common.view.uicomps.PlayersUIView;
 	import com.newco.grand.core.common.view.uicomps.WinnersUIView;
 	
 	import org.assetloader.AssetLoader;

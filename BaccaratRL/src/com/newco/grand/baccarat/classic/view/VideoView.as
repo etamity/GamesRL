@@ -26,16 +26,16 @@ package com.newco.grand.baccarat.classic.view
 			
 			_display.bg.visible=false;
 			_display.frame.visible=false;
-			_display.VideoRefreshBtn.x=995;
-			_display.VideoRefreshBtn.y=622;
+			_display.VideoRefreshBtn.x=992;
+			_display.VideoRefreshBtn.y=627;
 			
 			_display.VideoFullscreenBtn.visible=false;
 			
-			_display.xmodeBtn.x=955;
-			_display.xmodeBtn.y=622;
+			_display.xmodeBtn.x=952;
+			_display.xmodeBtn.y=627;
 			
-			_display.stopStreamBtn.x=915;
-			_display.stopStreamBtn.y=622;
+			_display.stopStreamBtn.x=912;
+			_display.stopStreamBtn.y=627;
 			
 		}
 		
