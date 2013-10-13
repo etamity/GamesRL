@@ -1,15 +1,18 @@
-package com.slc.games.history {
+package  {
 
 	import com.slc.events.ViewEvent;
 	import com.slc.events.XMLLoaderEvent;
+	import com.slc.games.history.IHistory;
 	import com.slc.games.history.controller.HistoryController;
 	import com.slc.games.history.controller.IHistoryController;
 	import com.slc.games.history.model.HistoryModel;
 	import com.slc.games.history.views.HistoryView;
-	import com.slc.utilities.*;
-
+	import com.slc.utilities.Debug;
+	import com.slc.utilities.XMLLoader;
+	
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
+	import flash.events.Event;
 	import flash.net.LocalConnection;
 
 	/**
@@ -34,11 +37,16 @@ package com.slc.games.history {
 			_xmlLoader = new XMLLoader();
 			_historyURLS = "/player/audit/getHistoryUrls.jsp";
 			addChild(new preloader());
-			if (lc.domain == "localhost") {
-				init("dnmnj6u0t2tfk44c");
+			this.addEventListener(Event.ADDED_TO_STAGE,onAddtoStage);
+		}
+		private function onAddtoStage(evt:Event):void{
+			if (stage.loaderInfo.parameters.server!=null)
+			{
+				var server:String=stage.loaderInfo.parameters.server;
+				_historyURLS = server+"/player/audit/getHistoryUrls.jsp";
+				//init();
 			}
 		}
-
 		protected function onCloseClick(e:ViewEvent):void {
 			visible = false;
 		}
