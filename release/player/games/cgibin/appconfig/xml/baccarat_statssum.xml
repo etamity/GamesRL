@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+<Banker>0</Banker>
+<Player>0</Player>
+<Tie>0</Tie>
+<Banker_Pair>0</Banker_Pair>
+<Player_Pair>0</Player_Pair>
+<Natural>0</Natural>
+<Game_Number>0</Game_Number>
+</response>

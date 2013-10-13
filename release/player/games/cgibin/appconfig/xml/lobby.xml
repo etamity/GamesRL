@@ -37,20 +37,20 @@
 			
 		</blackjack>
 		<baccarat>
-			<table id="6m8kzvqqbyu6ss9b" vt_id="" name="Baccarat VIP" dealer="Jekaterina" dealerid="110" min="10.0" max="200.0" priority="1" table_type="" game_type=""/>
-			<vtable id="6m8kzvqqbyu6ss9b" vt_id="NA" name="Baccarat VIP" dealer="Jekaterina" dealerid="110" min="10.0" max="200.0" priority="1" table_type="" game_type=""/>
+			<table id="6m8kzvqqbyu6ss9b" vt_id="" name="Baccarat VIP" dealer="stevejobs" dealerid="110" min="10.0" max="200.0" priority="1" table_type="" game_type=""/>
+			<vtable id="6m8kzvqqbyu6ss9b" vt_id="NA" name="Baccarat VIP" dealer="stevejobs" dealerid="110" min="10.0" max="200.0" priority="1" table_type="" game_type=""/>
 			
 			
-			<table id="crej46fqnnnlgl4w" vt_id="" name="Baccarat A" dealer="Adi" dealerid="adi" min="1.0" max="2500.0" priority="1" table_type="" game_type=""/>
-			<vtable id="crej46fqnnnlgl4w" vt_id="NA" name="Baccarat A" dealer="Adi" dealerid="adi" min="1.0" max="2500.0" priority="1" table_type="" game_type=""/>
+			<table id="crej46fqnnnlgl4w" vt_id="" name="Baccarat A" dealer="billgates" dealerid="adi" min="1.0" max="2500.0" priority="1" table_type="" game_type=""/>
+			<vtable id="crej46fqnnnlgl4w" vt_id="NA" name="Baccarat A" dealer="billgates" dealerid="adi" min="1.0" max="2500.0" priority="1" table_type="" game_type=""/>
 			
 			
 			<vtable id="ikzwgcwlysgqepar" vt_id="0jrr3a8yudczeuv3" name="Baccarat" dealer="nodealer" dealerid="nodealer" min="25.0" max="1000.0" priority="0" table_type="" game_type=""/>
 			
 			<vtable id="ikzwgcwlysgqepar" vt_id="entptan7qdx8hcpa" name="Baccarat" dealer="nodealer" dealerid="nodealer" min="5.0" max="500.0" priority="0" table_type="" game_type=""/>
 			
-			<table id="ikzwgcwlysgqepar" vt_id="" name="Baccarat" dealer="nodealer" dealerid="nodealer" min="5.0" max="100.0" priority="0" table_type="" game_type=""/>
-			<vtable id="ikzwgcwlysgqepar" vt_id="NA" name="Baccarat" dealer="nodealer" dealerid="nodealer" min="5.0" max="100.0" priority="0" table_type="" game_type=""/>
+			<table id="ikzwgcwlysgqepar" vt_id="" name="Baccarat" dealer="darwyn" dealerid="nodealer" min="5.0" max="100.0" priority="0" table_type="" game_type=""/>
+			<vtable id="ikzwgcwlysgqepar" vt_id="NA" name="Baccarat" dealer="darwyn" dealerid="nodealer" min="5.0" max="100.0" priority="0" table_type="" game_type=""/>
 			
 			
 			<vtable id="ikzwgcwlysgqepar" vt_id="tbfxz2rx0oi36a2d" name="Baccarat" dealer="nodealer" dealerid="nodealer" min="1.0" max="100.0" priority="0" table_type="" game_type=""/>

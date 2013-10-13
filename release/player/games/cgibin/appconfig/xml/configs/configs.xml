@@ -3,7 +3,7 @@
 	<casino 
 	game="roulette" 
 	gametype="tv_roulette" 
-	table_id="hiey8yx1hkkgqawl"
+	table_id="48z5pjps3ntvqc1b"
 	streamUrl="" 
 
 	videoplayer="video"
@@ -12,8 +12,8 @@
 	userid="9ieozu30vtcwuri4" 
 	room="game-o3d9tx3u8kd0yawc-i6t6y1jcdxih0wex" 
 	lang="en" 
-	server="http://spielbank.extremelivegaming.com"
-	socketServer="spielbank.extremelivegaming.com"
+	server="http://live.extremelivegaming.com/"
+	socketServer="live.extremelivegaming.com"
 	debugIP="192.168.1.41"
 	urls="cgibin/appconfig/xml/configs/urls.xml"
 	>
@@ -22,16 +22,16 @@
 	<casino 
 	game="baccarat" 
 	gametype="classic" 
-	table_id="ikzwgcwlysgqepar" 
+	table_id="crej46fqnnnlgl4w" 
 	streamUrl=""   
-	videoplayer="video"
+	videoplayer="stagevideo"
 	client="slc" vt_id=""
 	userid="9ieozu30vtcwuri4" 
 	room="game-7nyiaws9tgqrzaz3-rvu4z17kx9010qv2" 
 	lang="en" 
-	server="http://spielbank.extremelivegaming.com"
-	socketServer="spielbank.extremelivegaming.com"
-	debugIP="192.168.1.41"
+	server="http://live.extremelivegaming.com/"
+	socketServer="live.extremelivegaming.com"
+	debugIP="192.168.1.33"
 	urls="cgibin/appconfig/xml/configs/urls.xml"
 
 	></casino>
@@ -48,10 +48,10 @@
 	userid="" 
 	room="game-o3d9tx3u8kd0yawc-i6t6y1jcdxih0wex" 
 	lang="cn" 
-	server="http://spielbank.extremelivegaming.com"
-	socketServer="spielbank.extremelivegaming.com"
+	server="http://live.extremelivegaming.com/"
+	socketServer="live.extremelivegaming.com"
 	debugIP="192.168.1.41"
-	urls="cgibin/appconfig/xml/configs/localhost.xml"
+	urls="cgibin/appconfig/xml/configs/urls.xml"
 	></casino>
 
 

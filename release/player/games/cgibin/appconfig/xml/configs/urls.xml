@@ -3,43 +3,51 @@
 	<common>
 	    <server><![CDATA[]]></server>
 		<authentication><![CDATA[https://livecasino.smartliveaffiliates.com/cgibin/SmartAuthentication]]></authentication>
-		<login><![CDATA[/cgibin/cpasiaAuthentication.jsp]]></login>
-		<balance><![CDATA[/cgibin/balance.jsp]]></balance>
-		<language><![CDATA[/cgibin/appconfig/xml/langs/]]></language>
-		<langICON><![CDATA[/cgibin/appconfig/xml/langs/png/]]></langICON>
+		<login><![CDATA[cgibin/cpasiaAuthentication.jsp]]></login>
+		<balance><![CDATA[cgibin/balance.jsp]]></balance>
+		<language><![CDATA[cgibin/appconfig/xml/langs/]]></language>
+		<langICON><![CDATA[cgibin/appconfig/xml/langs/png/]]></langICON>
 		
-		<style><![CDATA[/cgibin/appconfig/xml/styles/]]></style>
-		<players><![CDATA[/cgibin/common/participants.jsp]]></players>
-		<settings><![CDATA[/cgibin/appconfig/xml/settings.xml]]></settings>
-		<chatConfig><![CDATA[/cgibin/chat/config.jsp]]></chatConfig>
-		<help><![CDATA[/player/games/help/HelpRL.swf]]></help>
-		<historySWF><![CDATA[/player/games/history/HistoryRL.swf]]></historySWF>
-		<lobby><![CDATA[/player/lobbyXML.jsp]]></lobby>
-		<freeplay><![CDATA[/cgibin/mobile_launcher.jsp]]></freeplay>
-		<tableConfig><![CDATA[/cgibin/tableconfig.jsp]]></tableConfig>
-		<seat><![CDATA[/cgibin/sitdown.jsp]]></seat>
-		<accountHistory><![CDATA[/player/audit/historyXML2.jsp]]></accountHistory>
-		<activityHistory><![CDATA[/player/audit/historyXML.jsp]]></activityHistory>
-		<skin><![CDATA[/cgibin/appconfig/skins/skin.swf]]></skin>
-		<tournament><![CDATA[/cgibin/appconfig/xml/tournament.xml]]></tournament>
-		<opengame><![CDATA[/player/chat_board.jsp]]></opengame>
+		<style><![CDATA[cgibin/appconfig/xml/styles/]]></style>
+		<players><![CDATA[cgibin/common/participants.jsp]]></players>
+		<settings><![CDATA[cgibin/appconfig/xml/settings.xml]]></settings>
+		<chatConfig><![CDATA[cgibin/chat/config.jsp]]></chatConfig>
+		<help><![CDATA[player/games/help/Help.swf]]></help>
+		<historySWF><![CDATA[player/games/history/History.swf]]></historySWF>
+		<lobby><![CDATA[player/lobbyXML.jsp]]></lobby>
+		<freeplay><![CDATA[cgibin/mobile_launcher.jsp]]></freeplay>
+		<tableConfig><![CDATA[cgibin/tableconfig.jsp]]></tableConfig>
+		<seat><![CDATA[cgibin/sitdown.jsp]]></seat>
+		<accountHistory><![CDATA[player/audit/historyXML2.jsp]]></accountHistory>
+		<activityHistory><![CDATA[player/audit/historyXML.jsp]]></activityHistory>
+		<skin><![CDATA[cgibin/appconfig/skins/skin.swf]]></skin>
+		<tournament><![CDATA[cgibin/appconfig/xml/tournament.xml]]></tournament>
+		<opengame><![CDATA[player/chat_board.jsp]]></opengame>
 	</common>
 
 	<roulette>
-		<results><![CDATA[/cgibin/roulette/history.jsp]]></results>
-		<statistics><![CDATA[/cgibin/roulette/stats.jsp]]></statistics>
-		<winners><![CDATA[/cgibin/appconfig/xml/winnerlist.xml]]></winners>
-		<sendBets><![CDATA[/cgibin/roulette/placebets.jsp]]></sendBets>
-		<state><![CDATA[/cgibin/roulette/state.jsp]]></state>
+		<results><![CDATA[cgibin/roulette/history.jsp]]></results>
+		<statistics><![CDATA[cgibin/roulette/stats.jsp]]></statistics>
+		<winners><![CDATA[cgibin/appconfig/xml/winnerlist.xml]]></winners>
+		<sendBets><![CDATA[cgibin/roulette/placebets.jsp]]></sendBets>
+		<state><![CDATA[cgibin/roulette/state.jsp]]></state>
 	</roulette>
 	<baccarat>
-		<sendBets><![CDATA[/cgibin/baccarat/placebets.jsp]]></sendBets>
-		<state><![CDATA[/cgibin/baccarat/state.jsp]]></state>
-		<tableGraphic><![CDATA[/player/games/assets/baccarat/tablegraphics/]]></tableGraphic>
-		<audio><![CDATA[/player/games/assets/roulette/audio/]]></audio>
-		<statistics><![CDATA[/cgibin/baccarat/gameHistory.jsp]]></statistics>
-		<winners><![CDATA[/cgibin/appconfig/xml/winnerlist.xml]]></winners>
+		<sendBets><![CDATA[cgibin/baccarat/placebets.jsp]]></sendBets>
+		<state><![CDATA[cgibin/baccarat/state.jsp]]></state>
+		<tableGraphic><![CDATA[player/games/assets/baccarat/tablegraphics/]]></tableGraphic>
+		<audio><![CDATA[player/games/assets/roulette/audio/]]></audio>
+		<statistics><![CDATA[cgibin/baccarat/gameHistory.jsp]]></statistics>
+		<statssummary><![CDATA[cgibin/appconfig/xml/baccarat_statssum.xml]]></statssummary>
+		<winners><![CDATA[cgibin/common/getRecentPlayers.jsp]]></winners>
 	</baccarat>
+	
+	
+	<lobby>
+		<avatars><![CDATA[cgibin/appconfig/assets/lobby/avatars/]]></avatars>
+		<background client="xlc"><![CDATA[cgibin/appconfig/assets/lobby/backgrounds/cpasian.swf]]></background>
+		<background client="xlc_mobile"><![CDATA[cgibin/appconfig/assets/lobby/backgrounds/cpasian_mobile.swf]]></background>
+	</lobby>
 	
 	<languages>
 		<lang code="en" icon="gb" name="English"/>
