@@ -118,6 +118,7 @@ package com.newco.grand.core.common.view.mediators {
 			debug(flashVars.videoplayer,"stagevideo=",stagevideo);
 			if (flashVars.videoplayer==Constants.STAGEVIDEO_TYPE.toLowerCase() || stagevideo==true){
 			view.toggleStageVideo(true);
+			signalBus.dispatch(UIEvent.STAGE_GRAPHIC,{visible:false});
 			}
 			else if (flashVars.videoplayer==Constants.VIDEO_TYPE.toLowerCase() || flashVars.videoplayer=="")
 			view.toggleStageVideo(false);

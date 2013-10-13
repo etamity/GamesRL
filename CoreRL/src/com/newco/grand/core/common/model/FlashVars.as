@@ -19,7 +19,7 @@ package com.newco.grand.core.common.model {
 		public var vt_id:String 		= "";
 		public var user_id:String 		= "";
 		public var room:String 			= "game-o3d9tx3u8kd0yawc-i6t6y1jcdxih0wex";
-		public var client:String		= "slc";		
+		public var client:String		= "xlc";		
 		public var lang:String 			= "en";
 		
 		public var site:String			= "";
@@ -62,8 +62,9 @@ package com.newco.grand.core.common.model {
 		public function FlashVars(contextView:ContextView) {
 			root=contextView.view;
 			contextView.view.addEventListener(Event.ADDED_TO_STAGE,onAddToStage);
-			parse(root.stage.loaderInfo.parameters);
-			game_url = root.stage.loaderInfo.url;
+			parse(root.loaderInfo.parameters);
+			parameters=root.loaderInfo.parameters;
+			game_url = root.loaderInfo.url;
 			if(FlashVars.PLATFORM==""){
 				if (localhost==true)
 				FlashVars.PLATFORM=FlashVars.DESKTOP_PLATFORM;
@@ -73,8 +74,8 @@ package com.newco.grand.core.common.model {
 			debug("PLATFORM:",FlashVars.PLATFORM);
 		}
 		private function onAddToStage(evt:Event):void{
-			params=root.stage.loaderInfo.parameters;
-			game_url = root.stage.loaderInfo.url;
+			params=root.loaderInfo.parameters;
+			game_url = root.loaderInfo.url;
 		}
 		public function set params(param:Object):void{
 			parse(param);
@@ -101,6 +102,7 @@ package com.newco.grand.core.common.model {
 			var obj:Object=new Object();
 			var value:String;
 			for each(var node:XML in xml.attributes()) {
+				if (obj[node.localName()]=="" || obj[node.localName()]==null)
 				obj[node.localName()]=String(node);
 			}	
 			parse(obj);
@@ -109,7 +111,7 @@ package com.newco.grand.core.common.model {
 		
 		protected function parse(params:Object):void {
 			if (params.debugIP!=null && params.debugIP!="")
-			MonsterDebugger.initialize(root.stage,params.debugIP);
+			MonsterDebugger.initialize(root,params.debugIP);
 				
 			var types : Array = new Array("array", "boolean", "int", "number", "string", "xml");
 			for(var key:String in params) {

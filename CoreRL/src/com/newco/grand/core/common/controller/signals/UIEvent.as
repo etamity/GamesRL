@@ -18,6 +18,7 @@ package com.newco.grand.core.common.controller.signals
 		public static const VIDEO_XMODE:String    = "UIEvent.VIDEO_XMODE";
 		
 		public static const BACKGROUND_GRAPHIC:String    = "UIEvent.BACKGROUND_GRAPHIC";
+		public static const STAGE_GRAPHIC:String    = "UIEvent.STAGE_GRAPHIC";
 		public static const MAKEBETS:String 			= "UIEvent.MAKEBETS";
 	}
 }

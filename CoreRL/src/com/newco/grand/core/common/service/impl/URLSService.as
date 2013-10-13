@@ -76,7 +76,7 @@ package com.newco.grand.core.common.service.impl
 				urlsModel.statistics=xml.baccarat.statistics;
 				urlsModel.skin=(xml.baccarat.skin!=undefined)?xml.baccarat.skin:xml.common.skin;
 			}
-			
+			else
 			if (StringUtils.trim(FlashVars.GAMECLIENT.toLowerCase())==StringUtils.trim(Constants.ROULETTE.toLowerCase()))
 			{
 				urlsModel.sendBets =xml.roulette.sendBets;

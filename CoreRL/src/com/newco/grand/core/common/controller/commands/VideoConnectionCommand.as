@@ -1,6 +1,7 @@
 package com.newco.grand.core.common.controller.commands {
 	
 	import com.newco.grand.core.common.controller.signals.BaseSignal;
+	import com.newco.grand.core.common.controller.signals.UIEvent;
 	import com.newco.grand.core.common.controller.signals.VideoEvent;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.IGameData;
@@ -26,6 +27,8 @@ package com.newco.grand.core.common.controller.commands {
 				case VideoEvent.CONNECT: 
 				
 					videoModel.init();
+	
+					
 					break;
 				
 				case VideoEvent.PLAY:

@@ -98,7 +98,7 @@ package com.newco.grand.core.common.service.impl
 			if (xml.hasOwnProperty("user_id")) {
 				//player.session    = xml.session;
 				flashvars.user_id = xml.user_id;
-				
+				debug(flashvars.user_id);
 				signalBus.dispatch(LoginEvent.LOGIN_SUCCESS);
 				signalBus.dispatch(StartupDataEvent.SEAT);
 				signalBus.dispatch(StartupDataEvent.LOAD);
@@ -111,6 +111,7 @@ package com.newco.grand.core.common.service.impl
 		
 		private function showError(signal:ErrorSignal):void {
 			debug("error", signal);
+			signalBus.dispatch(LoginEvent.LOGIN_FAILURE);
 			signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:signal.message});
 		}
 		

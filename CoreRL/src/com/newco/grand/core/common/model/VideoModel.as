@@ -1,6 +1,5 @@
 package com.newco.grand.core.common.model {
 	
-	import com.newco.grand.core.common.controller.signals.MessageEvent;
 	import com.newco.grand.core.common.controller.signals.UIEvent;
 	import com.newco.grand.core.common.controller.signals.VideoEvent;
 	import com.newco.grand.core.utils.GameUtils;
@@ -137,7 +136,7 @@ package com.newco.grand.core.common.model {
 			debug("application: "+_application);
 			debug("rtmp://" + _server + "/" + _application);
 			debug("httpStream: "+game.httpStream);
-		
+			signalBus.dispatch(UIEvent.STAGE_GRAPHIC,{visible:true});
 			if (game.httpStream!="" && FlashVars.PLATFORM==FlashVars.AIR_PLATFORM)
 			{
 				_streamName=game.httpStream;
@@ -192,7 +191,7 @@ package com.newco.grand.core.common.model {
 			_connection.close();
 			_stream.close();
 			createConnection();
-			_videoForceStop=true;
+		
 		}
 		
 		public function changeStream():void{
@@ -200,6 +199,7 @@ package com.newco.grand.core.common.model {
 			_streamName=game.xmodeStream;
 			game.xmodeStream=_tempStreamName;
 			refreshStream();
+			signalBus.dispatch(VideoEvent.SWITCHSTREAM,{streamName:_streamName});
 		}
 		
 		public function stopStream():void{
@@ -207,7 +207,7 @@ package com.newco.grand.core.common.model {
 			_stream.close();
 			_connection.close();
 			debugTimer.stop();
-
+			_videoForceStop=true;
 		}
 		
 		private function netStatusHandler(event:NetStatusEvent):void {

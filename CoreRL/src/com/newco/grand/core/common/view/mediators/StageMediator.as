@@ -6,21 +6,23 @@ package com.newco.grand.core.common.view.mediators {
 	import com.newco.grand.core.common.controller.signals.ModelReadyEvent;
 	import com.newco.grand.core.common.controller.signals.StateTableConfigEvent;
 	import com.newco.grand.core.common.controller.signals.TaskbarActionEvent;
+	import com.newco.grand.core.common.controller.signals.UIEvent;
+	import com.newco.grand.core.common.controller.signals.VideoEvent;
+	import com.newco.grand.core.common.model.Constants;
+	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.IGameData;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.model.SignalConstants;
 	import com.newco.grand.core.common.view.interfaces.IStageView;
 	import com.newco.grand.core.utils.GameUtils;
-	import com.newco.grand.core.common.model.FlashVars;
+	
 	import flash.display.StageDisplayState;
 	import flash.events.Event;
 	import flash.media.SoundMixer;
 	import flash.media.SoundTransform;
-	import com.newco.grand.core.common.controller.signals.VideoEvent;
-	import com.newco.grand.core.common.controller.signals.UIEvent;
+	
 	import robotlegs.bender.bundles.mvcs.Mediator;
 	import robotlegs.bender.extensions.contextView.ContextView;
-	import com.newco.grand.core.common.model.Constants;
 	public class StageMediator extends Mediator{
 		
 		[Inject]
@@ -45,7 +47,6 @@ package com.newco.grand.core.common.view.mediators {
 			signalBus.add(LoginEvent.INITIALIZE,hidePreloader);
 			signalBus.add(LoginEvent.LOGIN,showPreloader);
 			signalBus.add(StateTableConfigEvent.LOADED,hidePreloader);
-
 			signalBus.add(TaskbarActionEvent.FULLSCREEN_CLICKED,toggleFullScreen);
 			signalBus.add(TaskbarActionEvent.SOUND_CLICKED,toggleSound);
 			signalBus.add(TaskbarActionEvent.HELP_CLICKED,toggleHelp);
@@ -53,13 +54,11 @@ package com.newco.grand.core.common.view.mediators {
 			//signalBus.add(UIEvent.VIDEO_STOP, showGraphics);
 			//if (FlashVars.PLATFORM==FlashVars.DESKTOP_PLATFORM || FlashVars.PLATFORM==FlashVars.WEB_PLATFORM)
 			//if (flashVars.videoplayer==Constants.STAGEVIDEO_TYPE)
-			signalBus.add(VideoEvent.CONNECT, hideGraphics);
+			signalBus.add(UIEvent.STAGE_GRAPHIC, showHideGraphics);
 		}
-		private function showGraphics(signal:BaseSignal):void {
-			view.view.visible=true;
-		}
-		private function hideGraphics(signal:BaseSignal):void {
-			view.view.visible=false;
+		private function showHideGraphics(signal:BaseSignal):void {
+			var show:Boolean=signal.params.visible;
+			view.view.visible=show;
 		}
 		private function updateLanguage(signal:BaseSignal):void{
 			view.updateLanguage();

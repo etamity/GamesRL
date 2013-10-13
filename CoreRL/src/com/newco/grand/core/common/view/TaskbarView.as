@@ -3,6 +3,7 @@ package com.newco.grand.core.common.view {
 	import com.newco.grand.core.common.controller.signals.BetEvent;
 	import com.newco.grand.core.common.controller.signals.TaskbarActionEvent;
 	import com.newco.grand.core.common.controller.signals.TooltipEvent;
+	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.LanguageModel;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.view.interfaces.ITaskbarView;
@@ -184,6 +185,7 @@ package com.newco.grand.core.common.view {
 			addChild(languagePanel);
 			languagePanel.x=_display.language.x -languagePanel.width/2;
 			languagePanel.y= _display.language.y -languagePanel.height; 
+
 			languagePanel.visible=false;
 			languagePanel.onChange.add(function (btn:SMButton):void{
 				_signalBus.dispatch(TaskbarActionEvent.LOAD_LANGUAGE ,{eventType:TaskbarActionEvent.LOAD_LANGUAGE,lang:btn.params.lang});	

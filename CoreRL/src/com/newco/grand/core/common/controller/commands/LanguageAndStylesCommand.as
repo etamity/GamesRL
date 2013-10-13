@@ -7,6 +7,7 @@ package com.newco.grand.core.common.controller.commands
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.service.impl.LanguageService;
 	import com.newco.grand.core.common.service.impl.StyleService;
+	import com.newco.grand.core.utils.GameUtils;
 	
 	import robotlegs.bender.bundles.mvcs.Command;
 	
@@ -28,8 +29,10 @@ package com.newco.grand.core.common.controller.commands
 			langService.load();
 			styleService.load(function ():void{
 				signalBus.dispatch(LanguageAndStylesEvent.LOADED);
-				if (flashVars.user_id!="")
+				debug("flashVars.user_id",flashVars.user_id);
+				if (flashVars.user_id!="" || FlashVars.PLATFORM==FlashVars.WEB_PLATFORM)
 				{
+
 					signalBus.dispatch(LoginEvent.LOGIN_SUCCESS);
 					signalBus.dispatch(StartupDataEvent.SEAT);
 					signalBus.dispatch(StartupDataEvent.LOAD);
@@ -44,6 +47,8 @@ package com.newco.grand.core.common.controller.commands
 			
 		
 		}
-		
+		private function debug(...args):void {
+			GameUtils.log(this, args);
+		}
 	}
 }

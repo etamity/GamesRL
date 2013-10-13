@@ -1,5 +1,6 @@
 package com.newco.grand.core.common.view.uicomps
 {
+	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.LanguageModel;
 	import com.newco.grand.core.common.view.SMButton;
 	
@@ -36,8 +37,14 @@ package com.newco.grand.core.common.view.uicomps
 					visible=false;
 					onChange.dispatch(btn);
 				});
-				langBtn.skin.x= 5;
-				langBtn.skin.y=25+ i* 22;
+
+					langBtn.skin.x= 5;
+					langBtn.skin.y=25+ i* 22;
+					if (FlashVars.PLATFORM==FlashVars.AIR_PLATFORM)
+					{
+						langBtn.skin.x= 100;
+						langBtn.skin.y=85+ i* 22;
+					}
 				addChild(langBtn.skin);
 				var loader:Loader = new Loader();
 				loader.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR, onError); 

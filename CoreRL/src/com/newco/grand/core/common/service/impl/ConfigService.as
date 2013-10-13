@@ -57,7 +57,7 @@ package com.newco.grand.core.common.service.impl
 			debug("flashvars.streamUrl:",flashVars.streamUrl);
 			debug("flashvars.localhost:  " + flashVars.localhost);
 			debug("flashvars.game_url:  " + flashVars.game_url);
-			
+			debug("FlashVars.GAMECLIENT",FlashVars.GAMECLIENT);
 			
 			if (_onComplete!=null)
 				_onComplete();
@@ -66,7 +66,7 @@ package com.newco.grand.core.common.service.impl
 		public function load(onComplete:Function=null):void{
 			debug("loading Config  " + urls.flashVarsConfig);
 			_onComplete=onComplete;
-			signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:urls.flashVarsConfig+"::"+flashVars.game_url});
+			//signalBus.dispatch(MessageEvent.SHOWERROR,{target:this,error:urls.flashVarsConfig+"::"+flashVars.game_url});
 			service.loadURL(urls.flashVarsConfig,setConfig,showError);
 		}
 		private function showError(signal:ErrorSignal):void {

@@ -7,6 +7,7 @@ package com.newco.grand.core.utils {
 	import flash.display.GradientType;
 	import flash.display.MovieClip;
 	import flash.display.Shape;
+	import flash.display.Sprite;
 	import flash.filters.ColorMatrixFilter;
 	import flash.geom.Matrix;
 	
@@ -62,7 +63,16 @@ package com.newco.grand.core.utils {
 					break;
 			}
 		}
-		
+		public static function generateMask(target:DisplayObjectContainer, id:String, w:int=1186, h:int=667, x:int=0, y:int=0):void {
+			var rectMask:Shape = new Shape();
+			rectMask.name = "mask" + id;
+			rectMask.graphics.beginFill(0xFF0000, 1);
+			rectMask.graphics.drawRect(0, 0, w, h);
+			rectMask.graphics.endFill();
+			
+			target.addChild(rectMask);
+			target.mask=rectMask;
+		}
 		public static function getChipColor(val:Number):Number {
 			var color:Number = 0;
 			if (val >= 0 && val < 0.9) {

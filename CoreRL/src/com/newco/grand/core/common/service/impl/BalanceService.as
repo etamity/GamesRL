@@ -2,6 +2,7 @@ package com.newco.grand.core.common.service.impl
 {
 	import com.newco.grand.core.common.controller.signals.BalanceEvent;
 	import com.newco.grand.core.common.controller.signals.MessageEvent;
+	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.Player;
 	import com.newco.grand.core.common.model.SignalBus;
 	import com.newco.grand.core.common.model.URLSModel;
@@ -21,7 +22,8 @@ package com.newco.grand.core.common.service.impl
 		
 		[Inject]
 		public var player:Player;
-		
+		[Inject]
+		public var flashvars:FlashVars;
 		[Inject]
 		public var signalBus:SignalBus;
 		public function BalanceService()
@@ -48,6 +50,7 @@ package com.newco.grand.core.common.service.impl
 		private function setBalance(signal:LoaderSignal, xml:XML):void {
 			debug(xml);
 			player.id = xml.userid;
+			flashvars.user_id=player.id;
 			player.balance = Number(xml.balance);
 			player.bonus = Number(xml.bonus_balance);
 			player.currencyCode = xml.currency_code;

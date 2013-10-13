@@ -185,15 +185,21 @@ package com.newco.grand.core.common.view.mediators
 			//trace("Loading: "+percentLoaded+"%");
 		}   
 		private function launchLobby(signal:BaseSignal):void {
-
+ 
+			var lobbyUrl:String=urls.lobbySWF;
+			if (FlashVars.PLATFORM==FlashVars.AIR_PLATFORM)
+				lobbyUrl="LobbyMobile.swf";
 			if (lobbyMC.numChildren<=0) {
-				var request:URLRequest = new URLRequest(urls.lobbySWF+"?gametype=sublobby");
+				var request:URLRequest = new URLRequest(lobbyUrl+"?gametype=sublobby&user_id="+flashVars.user_id);
 				loader.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, loadProgress);
 				loader.contentLoaderInfo.addEventListener(Event.COMPLETE, function (evt:Event):void{
 					lobbyMC.removeChild(preloader);
 					var closeBtn:SMButton=new SMButton(new CloseButtonAsset());
 					closeBtn.skin.x=1150;
 					closeBtn.skin.y=5;
+					if (FlashVars.PLATFORM==FlashVars.AIR_PLATFORM)
+						closeBtn.skin.x=600;
+					
 					lobbyMC.addChild(closeBtn.skin);
 					closeBtn.skin.addEventListener(MouseEvent.CLICK,function (evt:MouseEvent):void{
 						lobbyMC.visible=false;
@@ -205,6 +211,7 @@ package com.newco.grand.core.common.view.mediators
 				preloader =new MainPreloaderAsset();
 				preloader.x=(contextView.view.stage.stageWidth-preloader.width) /2;
 				preloader.y=(contextView.view.stage.stageHeight-preloader.height) /2;
+				preloader.stop();
 				lobbyMC.addChild(preloader);
 
 			} else
