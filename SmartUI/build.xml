@@ -10,13 +10,7 @@
 	<property file="${basedir}/sdk.properties"/>
 	<property file="${RootDir}/build/build.local.properties"/>
 	<property file="${basedir}/build.properties"/>
-	
-	<fail unless="ios.provision.path"/>
-	<fail unless="ios.certificate.path"/>
-	<fail unless="ios.certificate.password"/>
-	
-	<fail unless="android.certificate.path"/>
-	<fail unless="android.certificate.password"/>
+
 
 	<target name="build" depends="build-swc,copy"/>
 

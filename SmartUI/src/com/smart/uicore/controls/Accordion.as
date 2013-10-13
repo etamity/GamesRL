@@ -37,7 +37,7 @@ package com.smart.uicore.controls
 		protected var btns:Array;
 		protected var _contents:Array;
 		protected var nowIndex:uint;
-		private var _txtFormat:TextFormat = new TextFormat("Arial", 12, 0X00CC00, true);
+		private var _txtFormat:TextFormat = new TextFormat("Arial", 12, 0XFFFFFF, true);
 		
 		public function Accordion()
 		{
@@ -51,6 +51,7 @@ package com.smart.uicore.controls
 			styleSet["borderAlpha"] = 0.5;
 			styleSet["backgroundColor"] = "#FDFDFD";
 			styleSet["backgroundAlpha"] = 1.0;
+			_txtFormat.align="center";
 			setSize(_compoWidth, _compoHeight);
 		}
 		
@@ -90,14 +91,13 @@ package com.smart.uicore.controls
 			btns.push(btn);
 			_contents.push(content);
 			btn.setSize(_compoWidth,defaultButtonHeight);
-			btn.setStyle(ButtonStyle.TEXT_COLOR,"#00CC00");
-			btn.setStyle(ButtonStyle.TEXT_OVER_COLOR,"#00CC00");
-			btn.setStyle(ButtonStyle.TEXT_DOWN_COLOR,"#00CC00");
+			btn.setStyle(ButtonStyle.TEXT_COLOR,"#FFFFFF");
+			btn.setStyle(ButtonStyle.TEXT_OVER_COLOR,"#FFFFFF");
+			btn.setStyle(ButtonStyle.TEXT_DOWN_COLOR,"#FFFFFF");
 			btn.setTextFormat(_txtFormat);
 			btn.addEventListener(MouseEvent.CLICK,switchClick);
 			this.addChild(btn);
 			this.addChild(content);
-			if(content.parent != null) content.parent.removeChild(content);
 			switchTo(0);
 		}
 		
@@ -127,10 +127,11 @@ package com.smart.uicore.controls
 			}
 			for(i=0;i<_contents.length;i++){
 				dis = _contents[i] as DisplayObject;
-				if(dis.parent == this) this.removeChild(dis);
+				if(dis.parent == this) dis.visible=false;
 			}
 			dis = _contents[index] as DisplayObject;
-			this.addChild(dis);
+			//this.addChild(dis);
+			dis.visible=true;
 			dis.x = 1;
 			dis.y = (index+1)*(defaultButtonHeight+defaultGapHeight);
 			dis.scrollRect = new Rectangle(0,0,_compoWidth-2,_compoHeight-btns.length*(defaultButtonHeight+defaultGapHeight));

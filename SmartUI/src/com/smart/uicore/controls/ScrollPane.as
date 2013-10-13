@@ -48,7 +48,7 @@ package com.smart.uicore.controls
 			styleSet["borderColor"] = ColorConversion.transUintToWeb(SkinThemeColor.border);
 			styleSet["borderAlpha"] = 0.5;
 			styleSet["backgroundColor"] = "#FDFDFD";
-			styleSet["backgroundAlpha"] = 1.0;
+			styleSet["backgroundAlpha"] = 0.0;
 			styleSet["textPadding"] = 5;
 			styleSet["iconPadding"] = 5;
 			_ldr = new Loader();
