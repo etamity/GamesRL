@@ -2,7 +2,6 @@ package com.newco.grand.lobby.classic.controller.commands
 {
 	import com.newco.grand.core.common.controller.signals.LanguageAndStylesEvent;
 	import com.newco.grand.core.common.model.SignalBus;
-	import com.newco.grand.lobby.classic.controller.signals.LobbyEvents;
 	
 	import robotlegs.bender.bundles.mvcs.Command;
 	
@@ -16,7 +15,6 @@ package com.newco.grand.lobby.classic.controller.commands
 		}
 		override public function execute():void {	
 			signalBus.dispatch(LanguageAndStylesEvent.LOAD);
-			signalBus.dispatch(LobbyEvents.AVATARS_LOAD);
 		}
 	}
 }

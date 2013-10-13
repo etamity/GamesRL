@@ -57,7 +57,7 @@ package com.newco.grand.lobby.classic.view
 			helpBtn.skin.addEventListener(MouseEvent.CLICK,doOpenHelp);
 			backBtn.skin.addEventListener(MouseEvent.CLICK,doBackEvent);
 			
-
+			visible=false;
 		}
 		public function doCloseEvent(evt:MouseEvent):void{
 			backBtn.visible=false;

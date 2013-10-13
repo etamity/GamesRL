@@ -8,6 +8,7 @@ package com.newco.grand.lobby.configs
 	import com.newco.grand.core.common.controller.signals.BalanceEvent;
 	import com.newco.grand.core.common.controller.signals.LanguageAndStylesEvent;
 	import com.newco.grand.core.common.controller.signals.LoginEvent;
+	import com.newco.grand.core.common.controller.signals.StartupDataEvent;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.IGameData;
 	import com.newco.grand.core.common.model.Player;
@@ -19,13 +20,17 @@ package com.newco.grand.lobby.configs
 	import com.newco.grand.core.common.service.impl.HelpSWFService;
 	import com.newco.grand.core.common.service.impl.HistorySWFService;
 	import com.newco.grand.core.common.service.impl.LanguageService;
+	import com.newco.grand.core.common.service.impl.LoginService;
 	import com.newco.grand.core.common.service.impl.StyleService;
 	import com.newco.grand.core.common.service.impl.URLSService;
 	import com.newco.grand.core.common.service.impl.XMLService;
 	import com.newco.grand.core.common.view.LoginView;
+	import com.newco.grand.core.common.view.interfaces.ILoginView;
+	import com.newco.grand.core.common.view.mediators.LoginMediator;
 	import com.newco.grand.lobby.classic.controller.commands.AvatarsDataCommand;
 	import com.newco.grand.lobby.classic.controller.commands.LobbyDataCommand;
 	import com.newco.grand.lobby.classic.controller.commands.StartupCompleteCommand;
+	import com.newco.grand.lobby.classic.controller.commands.StartupDataCommand;
 	import com.newco.grand.lobby.classic.controller.signals.LobbyEvents;
 	import com.newco.grand.lobby.classic.model.LobbyModel;
 	import com.newco.grand.lobby.classic.view.BackgroundView;
@@ -109,17 +114,20 @@ package com.newco.grand.lobby.configs
 			injector.map(HistorySWFService).asSingleton();
 			injector.map(LanguageService).asSingleton();
 			injector.map(StyleService).asSingleton();
+			injector.map(LoginService).asSingleton();
 		}
 		public function mapMediators():void
 		{
 			mediatorMap.map(BackgroundView).toMediator(BackgroundViewMediator);
 			mediatorMap.map(LobbyView).toMediator(LobbyViewMediator);
 			mediatorMap.map(GameMenuView).toMediator(GameMenuViewMediator);
+			mediatorMap.map(ILoginView).toMediator(LoginMediator);
 		}
 		public function mapCommands():void
 		{
 			commandMap.mapSignal(signalBus.signal(SignalConstants.STARTUP), StartupCommand, true);
 			commandMap.mapSignal(signalBus.signal(SignalConstants.STARTUP_COMPLETE), StartupCompleteCommand, true);
+			commandMap.mapSignal(signalBus.signal(StartupDataEvent.LOAD), StartupDataCommand, true);
 			commandMap.mapSignal(signalBus.signal(LobbyEvents.LOBBYDATA_LOAD), LobbyDataCommand, true);
 			commandMap.mapSignal(signalBus.signal(LobbyEvents.AVATARS_LOAD), AvatarsDataCommand, true);
 			commandMap.mapSignal(signalBus.signal(BalanceEvent.LOAD), BalanceCommand);
@@ -132,9 +140,12 @@ package com.newco.grand.lobby.configs
 		public function init():void
 		{
 			mediatorMap.mediate(contextView.view);
+			
+			//contextView.view.addChild(new Mobile_BackgroundAsset());
 			contextView.view.addChild(new BackgroundView());
-			contextView.view.addChild(new LoginView());
+		
 			contextView.view.addChild(new LobbyView());
+			contextView.view.addChild(new LoginView());
 			contextView.view.addChild(new GameMenuView());
 			signalBus.dispatch(SignalConstants.STARTUP);
 		}

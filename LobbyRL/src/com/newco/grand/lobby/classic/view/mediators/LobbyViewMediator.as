@@ -65,7 +65,7 @@ package com.newco.grand.lobby.classic.view.mediators
 
 		private function setupModel(signal:BaseSignal):void{
 			player.currencyCode="£";
-		
+			view.visible=true;
 		}
 
 	}

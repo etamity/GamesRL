@@ -9,7 +9,7 @@ package com.newco.grand.lobby.mobile.view
 	
 	import org.osflash.signals.Signal;
 	
-	public class LobbyView extends Sprite
+	public class LobbyView extends LobbyAsset
 	{
 		
 		public var baccaratTables:MovieClip=new MovieClip();

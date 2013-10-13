@@ -22,6 +22,7 @@ package com.newco.grand.lobby.mobile.view
 			rouletteBtn=new SMButton(roulette);
 			blackjackBtn=new SMButton(blackjack);
 			blackjackBtn.enabled=false;
+			rouletteBtn.enabled=false;
 			baccarat.addEventListener(MouseEvent.CLICK,selectGame);
 			roulette.addEventListener(MouseEvent.CLICK,selectGame);
 			blackjack.addEventListener(MouseEvent.CLICK,selectGame);

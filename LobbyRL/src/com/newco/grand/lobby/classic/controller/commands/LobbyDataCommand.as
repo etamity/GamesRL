@@ -3,6 +3,9 @@ package com.newco.grand.lobby.classic.controller.commands
 	import com.newco.grand.core.common.controller.commands.BaseCommand;
 	import com.newco.grand.core.common.controller.signals.BalanceEvent;
 	import com.newco.grand.core.common.controller.signals.MessageEvent;
+	import com.newco.grand.core.common.controller.signals.ModelReadyEvent;
+	import com.newco.grand.core.common.controller.signals.StateTableConfigEvent;
+	import com.newco.grand.core.common.controller.signals.UIEvent;
 	import com.newco.grand.core.common.model.FlashVars;
 	import com.newco.grand.core.common.model.Player;
 	import com.newco.grand.core.common.model.SignalBus;
@@ -45,8 +48,10 @@ package com.newco.grand.lobby.classic.controller.commands
 		private function setConfig(signal:LoaderSignal, xml:XML):void {
 			debug(xml);
 			lobbyModel.data=xml;
-			flashVars.user_id=xml.userid;
+			//flashVars.user_id=xml.userid;
 			signalBus.dispatch(LobbyEvents.LOBBYDATA_LOADED);
+			signalBus.dispatch(StateTableConfigEvent.LOADED);
+			signalBus.dispatch(UIEvent.STAGE_GRAPHIC,{visible:false});
 		}
 		private function showError(signal:ErrorSignal):void {
 			debug("error " + signal.message);

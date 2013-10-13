@@ -10,7 +10,6 @@ package com.newco.grand.lobby.mobile.view.mediators
 	import com.newco.grand.lobby.mobile.view.LobbyView;
 	
 	import flash.display.Loader;
-	import flash.events.MouseEvent;
 	import flash.net.URLRequest;
 	
 	import robotlegs.bender.bundles.mvcs.Mediator;
@@ -30,14 +29,18 @@ package com.newco.grand.lobby.mobile.view.mediators
 		
 		[Inject]
 		public var contextView:ContextView;
+		public var loader:Loader=new Loader();
 		public function LobbyViewMediator()
 		{
 			super();
+	
+
 		}
 		
 		override public function initialize():void{
 			signalBus.add(LobbyEvents.SHOW_TABLE,showTables);
 			view.opengameSginal.add(openGame);
+	
 		}
 		
 		private function showTables(signal:BaseSignal):void{
@@ -50,16 +53,24 @@ package com.newco.grand.lobby.mobile.view.mediators
 
 			var gameSWF:String;
 			if (table.game ==Constants.BACCARAT.toLowerCase())
+			{
 				gameSWF="BaccaratMobile.swf";
+				//FlashVars.GAMECLIENT = Constants.BACCARAT.toLowerCase();
+			}
 			if (table.game ==Constants.ROULETTE.toLowerCase())
+			{
 				gameSWF="RouletteMobile.swf";	
-			var url:String=gameSWF+"?game="+table.game+"&table_id="+table.tableid+"&gameType="+table.gameType+"&lang="+flashvars.lang+"&client="+flashvars.client;
+				//FlashVars.GAMECLIENT = Constants.ROULETTE.toLowerCase();
+			
+			}
+			//flashvars.game=table.game;
+			var url:String=gameSWF+"?game="+table.game+"&user_id="+flashvars.user_id+"&table_id="+table.tableid+"&gameType="+table.gameType+"&lang="+flashvars.lang+"&client="+flashvars.client;
 			trace("url:",url);
 			var urlRequest:URLRequest = new URLRequest(url);
 			contextView.view.removeChildren();
-			var loader:Loader=new Loader();
-			loader.load(urlRequest);
 			contextView.view.addChild(loader);
+			loader.load(urlRequest);
+
 		}
 	}
 }

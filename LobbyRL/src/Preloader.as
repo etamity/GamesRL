@@ -31,7 +31,7 @@ package
 			//gameSWF= gameSWF+ loaderInfo.parameters.gameFile;
 			
 			Security.allowDomain("*");
-		
+			preloader.stop();
 			addEventListener(Event.ADDED_TO_STAGE,onAddtoStage);
 
 		}
@@ -75,7 +75,7 @@ package
 			loader.contentLoaderInfo.addEventListener(Event.COMPLETE, loadComplete);   
 			preloader.x=(stage.stageWidth -preloader.width) / 2;
 			preloader.y=(stage.stageHeight -preloader.height) / 2;
-			preloader.stop();
+	
 
 			loader.load(request);
 			

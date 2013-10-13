@@ -32,7 +32,8 @@ package com.newco.grand.lobby.classic.view.mediators
 		}
 		
 		private function doLoadBackground(signal:BaseSignal):void{
-			view.loadBackground(urlsModel.lobbyBG);
+			if (flashvars.gametype!="sublobby")
+				view.loadBackground(urlsModel.lobbyBG);
 		}
 	}
 }
