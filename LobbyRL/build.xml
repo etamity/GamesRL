@@ -12,14 +12,7 @@
 	<property file="${RootDir}/build/build.local.properties"/>
 	<property file="build.properties"/>
 	
-	  <taskdef resource="flexUnitTasks.tasks" classpath="${libs.path}/flexUnitTasks-4.1.0-8.jar"/>
-	
-	<fail unless="ios.provision.path"/>
-	<fail unless="ios.certificate.path"/>
-	<fail unless="ios.certificate.password"/>
-	
-	<fail unless="android.certificate.path"/>
-	<fail unless="android.certificate.password"/>
+	 <taskdef resource="flexUnitTasks.tasks" classpath="${libs.path}/flexUnitTasks-4.1.0-8.jar"/>
 
 	<target name="build" depends="build-swf,copy"/>
 
