@@ -1,7 +1,6 @@
 package com.newco.grand.roulette.mobile.controller.commands
 {
 	import com.newco.grand.core.common.controller.commands.BaseCommand;
-	import com.newco.grand.core.common.view.interfaces.IErrorMessageView;
 	import com.newco.grand.core.common.view.interfaces.IGameStatusView;
 	import com.newco.grand.core.common.view.interfaces.ITaskbarView;
 	import com.newco.grand.core.utils.GameUtils;
