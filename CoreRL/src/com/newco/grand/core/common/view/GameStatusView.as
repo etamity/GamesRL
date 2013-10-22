@@ -17,8 +17,11 @@ package com.newco.grand.core.common.view {
 		public function GameStatusView() {
 			super();
 			setLightSOff();
+			if (_display.closeBtn!=null){
+				
 			closeBtn= new SMButton(_display.closeBtn);
 			closeBtn.skin.addEventListener(MouseEvent.CLICK,doCloseEvent);
+			}
 		}
 		private function doCloseEvent(evt:MouseEvent):void{
 			extended=!extended;

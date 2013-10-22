@@ -53,14 +53,24 @@ package com.newco.grand.core.common.view {
 			
 			_display.VideoFullscreenBtn.buttonMode = true;
 			_display.VideoRefreshBtn.buttonMode=true;
-			_display.xmodeBtn.buttonMode=true;
-			_display.stopStreamBtn.buttonMode=true;
+	
+	
 			_display.videoButton.addEventListener(MouseEvent.CLICK, showFullscreen);
 			_display.VideoFullscreenBtn.addEventListener(MouseEvent.CLICK, showFullscreen);
 			_display.VideoRefreshBtn.addEventListener(MouseEvent.CLICK, refreshVideo);
-			_display.xmodeBtn.addEventListener(MouseEvent.CLICK, xmodeVideo);
-			_display.stopStreamBtn.addEventListener(MouseEvent.CLICK, stopVideo);
 			
+			
+			if (_display.stopStreamBtn!=null)
+			{
+			_display.stopStreamBtn.buttonMode=true;
+			_display.stopStreamBtn.addEventListener(MouseEvent.CLICK, stopVideo);
+			}
+			
+			if (_display.xmodeBtn!=null)
+			{
+			_display.xmodeBtn.addEventListener(MouseEvent.CLICK, xmodeVideo);
+			_display.xmodeBtn.buttonMode=true;
+			}
 			//_display.video.addEventListener(VideoEvent.RENDER_STATE, onRenderEvent);
 		}
 		private function onRenderEvent(evt:VideoEvent):void{

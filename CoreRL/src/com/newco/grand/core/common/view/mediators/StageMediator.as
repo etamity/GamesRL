@@ -89,7 +89,8 @@ package com.newco.grand.core.common.view.mediators {
 		
 		private function toggleFullScreen(signal:BaseSignal):void {
 			if (contextView.view.stage.displayState == StageDisplayState.NORMAL) {
-				contextView.view.stage.displayState = StageDisplayState.FULL_SCREEN;
+				//contextView.view.stage.displayState = StageDisplayState.FULL_SCREEN;
+				contextView.view.stage.displayState = StageDisplayState.FULL_SCREEN_INTERACTIVE;
 				game.fullscreen = true;
 			}
 			else {

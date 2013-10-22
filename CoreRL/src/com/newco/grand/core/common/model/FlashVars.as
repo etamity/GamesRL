@@ -3,6 +3,7 @@ package com.newco.grand.core.common.model {
 	import com.newco.grand.core.utils.GameUtils;
 	
 	import flash.display.DisplayObjectContainer;
+	import flash.display.StageDisplayState;
 	import flash.events.Event;
 	
 	import robotlegs.bender.extensions.contextView.ContextView;
@@ -31,9 +32,8 @@ package com.newco.grand.core.common.model {
 		
 		public var videoplayer:String  ="";
 		public var streamUrl:String  ="";
-		public var urls:String  =server+"cgibin/appconfig/xml/configs/urls.xml";
 		public var parameters:Object;
-		
+		private var _urls:String = "cgibin/appconfig/xml/configs/urls.xml";
 		public static var SKIN_ENABLE:Boolean=false;
 		public static var DEBUG_MODE:Boolean=true;
 		
@@ -42,6 +42,8 @@ package com.newco.grand.core.common.model {
 		public static const WEB_PLATFORM:String="WEB";
 		public static const DESKTOP_PLATFORM:String="DESKTOP";
 		public static const TESTING_PLATFORM:String="TESTING";
+		
+		
 		public static var PLATFORM:String="";
 		public static var GAMECLIENT:String="baccarat";
 		
@@ -72,6 +74,13 @@ package com.newco.grand.core.common.model {
 				FlashVars.PLATFORM = FlashVars.WEB_PLATFORM;
 			}
 			debug("PLATFORM:",FlashVars.PLATFORM);
+		}
+		
+		public function get urls():String{
+			return server+_urls;
+		}
+		public function set urls(val:String):void{
+			_urls=val;
 		}
 		private function onAddToStage(evt:Event):void{
 			params=root.loaderInfo.parameters;
