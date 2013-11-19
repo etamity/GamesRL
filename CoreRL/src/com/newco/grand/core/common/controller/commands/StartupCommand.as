@@ -37,7 +37,10 @@ package com.newco.grand.core.common.controller.commands {
 					GameUtils.generateMask(contextView.view,"StageMask");
 					break;
 				case FlashVars.AIR_PLATFORM:
+					if (FlashVars.GAMECLIENT==Constants.BACCARAT)
 					GameUtils.generateMask(contextView.view,"StageMask",640,960);
+					if (FlashVars.GAMECLIENT==Constants.ROULETTE)
+					GameUtils.generateMask(contextView.view,"StageMask",960,640);
 					break;	
 			}
 
